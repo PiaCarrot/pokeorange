@@ -2090,7 +2090,6 @@ Unknown_4985a: ; unreferenced
 	db $a8, $00, $b5, $b0, $de, $e8, $fc, $1c
 	db $ba, $66, $f7, $0e, $ba, $5e, $43, $bd
 
-INCLUDE "event/celebi.asm"
 INCLUDE "engine/main_menu.asm"
 INCLUDE "misc/mobile_menu.asm"
 INCLUDE "engine/search.asm"

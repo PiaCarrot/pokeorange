@@ -847,7 +847,6 @@ DoAnimFrame: ; 8d24b
 	ret
 
 .thirtyone ; 8d6be (23:56be)
-	callba UpdateCelebiPosition
 	ret
 
 .AnonymousJumptable: ; 8d6c5 (23:56c5)

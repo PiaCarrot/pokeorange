@@ -158,8 +158,6 @@ SpecialsPointers:: ; c029
 	add_special Function17f53d
 	add_special AskMobileOrCable
 	add_special Function102142
-	add_special Special_CelebiShrineEvent
-	add_special CheckCaughtCelebi
 	add_special SpecialPokeSeer
 	add_special SpecialBuenasPassword
 	add_special SpecialBuenaPrize
