@@ -1,0 +1,11 @@
+# No monkey business with line endings
+* -text
+
+# hexdump binary files
+*.png  binary diff=hex
+*.lz   binary diff=hex
+*.2bpp binary diff=hex
+*.1bpp binary diff=hex
+*.bin  binary diff=hex
+*.blk  binary diff=hex
+

@@ -1,0 +1,311 @@
+const_value set 2
+	const ROUTE_56_FISHER_ISAO
+	const ROUTE_56_RUNNER_KAITO
+	const ROUTE_56_SWIMMERF_SAKAKO
+	const ROUTE_56_SWIMMERM_NAOYA
+	const ROUTE_56_TRACEY
+	const ROUTE_56_ITEMBALL1
+	const ROUTE_56_ITEMBALL2
+	
+Route56West_MapScriptHeader::
+
+.Triggers:
+	db 2
+
+	; triggers
+	maptrigger .Trigger0
+	maptrigger .Trigger1
+	
+.Callbacks:
+	db 0
+	
+.Trigger0:
+	end
+
+.Trigger1:
+	end
+
+.Scripts:
+
+Route56Sign:
+	jumptext Route56SignText
+	
+Route56SignText:
+	text "ROUTE 56"
+	line "EAST to KINNOW"
+	cont "ISLAND."
+	done
+
+TrainerFisherIsao:
+	trainer EVENT_BEAT_FISHER_ISAO, FISHER, 5, FisherIsaoSeenText, FisherIsaoBeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext FisherIsaoAfterText
+	waitbutton
+	closetext
+	end
+	
+FisherIsaoSeenText:
+	text "Heh. You'd be"
+	line "amazed if you"
+	cont "could fish with a"
+	cont "GOOD ROD."
+	done
+
+FisherIsaoBeatenText:
+	text "I've been hooked!"
+	done
+
+FisherIsaoAfterText:
+	text "I heard you can"
+	line "get a GOOD ROD"
+	cont "from MORO ISLAND."
+	done
+
+TrainerAthleteKaito:
+	trainer EVENT_BEAT_ATHLETE_KAITO, BURGLAR, 2, AthleteKaitoSeenText, AthleteKaitoBeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext AthleteKaitoAfterText
+	waitbutton
+	closetext
+	end
+	
+AthleteKaitoSeenText:
+	text "My #MON are"
+	line "all about speed!"
+	done
+	
+AthleteKaitoBeatenText:
+	text "That was fast!"
+	done
+	
+AthleteKaitoAfterText:
+	text "That was over in a"
+	line "flash!"
+	done
+
+TrainerSwimmerSakako:
+	trainer EVENT_BEAT_SWIMMERF_SAKAKO, SWIMMERF, 6, SwimmerSakakoSeenText, SwimmerSakakoBeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext SwimmerSakakoAfterText
+	waitbutton
+	closetext
+	end
+
+SwimmerSakakoSeenText:
+	text "Kyaa! Get away!"
+	done
+	
+SwimmerSakakoBeatenText:
+	text "I thought you"
+	line "were a SHARPEDO!"
+	done
+	
+SwimmerSakakoAfterText:
+	text "Some #MON are"
+	line "very dangerous."
+	
+	para "You can get hurt"
+	line "if you aren't"
+	cont "careful!"
+	done
+
+TrainerSwimmerNaoya:
+	trainer EVENT_BEAT_SWIMMERM_NAOYA, SWIMMERM, 7, SwimmerNaoyaSeenText, SwimmerNaoyaBeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext SwimmerNaoyaAfterText
+	waitbutton
+	closetext
+	end
+	
+SwimmerNaoyaSeenText:
+	text "I just used a"
+	line "STONE to evolve my"
+	cont "SHELLDER!"
+	done
+	
+SwimmerNaoyaBeatenText:
+	text "SCIZORs don't fear"
+	line "the REAPER…"
+	done
+	
+SwimmerNaoyaAfterText:
+	text "By the way, my"
+	line "favorite band is"
+	cont "the BLUE CLOYSTER"
+	cont "CULT."
+	done
+	
+TraceyHaxScript:
+	jumptextfaceplayer YouBrokeItText
+
+TraceyScript1:
+	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	showemote EMOTE_SHOCK, ROUTE_56_TRACEY, 15
+	opentext
+	writetext TraceyYoText	
+	waitbutton
+	spriteface PLAYER, RIGHT
+	applymovement ROUTE_56_TRACEY, MovementYo1
+	writetext TraceyLetsBattleText
+	waitbutton
+	closetext
+	winlosstext TraceyRoute56WinLoss, 0
+	loadtrainer MYSTICALMAN, 2
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	opentext
+	writetext TraceyLeavingNowText
+	waitbutton
+	closetext
+	applymovement ROUTE_56_TRACEY, Tracey56_Movement
+	disappear ROUTE_56_TRACEY
+;	special Special_FadeInQuickly
+	clearevent EVENT_TRACEY_LEAVING_ROUTE_56
+	pause 20
+	special Special_FadeOutMusic
+	playmapmusic
+	pause 10
+	setevent EVENT_TRACEY_ROUTE_56_DONE
+	domaptrigger ROUTE_56_WEST, $1
+	end
+
+TraceyScript2:
+	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	showemote EMOTE_SHOCK, ROUTE_56_TRACEY, 15
+	opentext
+	writetext TraceyYoText	
+	waitbutton
+	spriteface PLAYER, RIGHT
+	applymovement ROUTE_56_TRACEY, MovementYo2
+	writetext TraceyLetsBattleText
+	waitbutton
+	closetext
+	winlosstext TraceyRoute56WinLoss, 0
+	loadtrainer MYSTICALMAN, 2
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	opentext
+	writetext TraceyLeavingNowText
+	waitbutton
+	closetext
+	applymovement ROUTE_56_TRACEY, Tracey56_Movement
+	disappear ROUTE_56_TRACEY
+;	special Special_FadeInQuickly
+	clearevent EVENT_TRACEY_LEAVING_ROUTE_56
+	pause 20
+	special Special_FadeOutMusic
+	playmapmusic
+	pause 10
+	setevent EVENT_TRACEY_ROUTE_56_DONE
+	domaptrigger ROUTE_56_WEST, $1
+	end
+
+YouBrokeItText:
+	text "The event didn't"
+	line "work. It broke."
+	done
+
+TraceyYoText:
+	text "<PLAY_G>!"
+	done
+	
+TraceyLetsBattleText:
+	text "Long time no see!"
+	
+	para "You look like you"
+	line "got much stronger!"
+	
+	para "I've observed many"
+	line "different #MON."
+	
+	para "Let's see who got"
+	line "the strongest!"
+	done
+	
+TraceyRoute56WinLoss:
+	text "You're so strong,"
+	line "<PLAY_G>!"
+	done
+
+TraceyLeavingNowText:
+	text "I really need to"
+	line "focus on training"
+	cont "if I ever want to"
+	cont "be PROF.OAK's"
+	cont "assistant!"
+	
+	para "Oh, yeah."
+	
+	para "<PLAY_G>, if you"
+	line "go to KINNOW ISLA-"
+	cont "ND, make sure you"
+	cont "visit the SKATE"
+	cont "SHOP!"
+	
+	para "Seeya around!"
+	done
+	
+MovementYo1:
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step_end
+
+MovementYo2:
+	step LEFT
+	step LEFT
+	step LEFT
+	step_end
+
+Tracey56_Movement:
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step_end
+
+Route56HpUp:
+	itemball HP_UP
+
+Route56UltraBall:
+	itemball ULTRA_BALL
+
+Route56West_MapEventHeader:: db 0, 0
+
+.Warps: db 1
+	warp_def 7, 35, 1, ROUTE_56_POKE_CENTER
+
+.CoordEvents: db 2
+	xy_trigger 0, 20, 50, 0, TraceyScript1, 0, 0
+	xy_trigger 0, 20, 51, 0, TraceyScript2, 0, 0
+
+.BGEvents: db 1
+	signpost 9, 37, SIGNPOST_READ, Route56Sign
+
+.ObjectEvents: db 7
+	person_event SPRITE_FISHER, 22, 19, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerFisherIsao, -1
+	person_event SPRITE_COOLTRAINER_M, 23, 14, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerAthleteKaito, -1
+	person_event SPRITE_SWIMMER_GIRL, 20, 33, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerSakako, -1
+	person_event SPRITE_SWIMMER_GUY, 9, 16, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerNaoya, -1
+	person_event SPRITE_SILVER, 20, 55, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TraceyHaxScript, EVENT_TRACEY_ROUTE_56_DONE
+	person_event SPRITE_POKE_BALL, 9, 51, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56HpUp, EVENT_ROUTE_56_HP_UP
+	person_event SPRITE_POKE_BALL, 27, 52, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56UltraBall, EVENT_ROUTE_56_ULTRA_BALL
+
