@@ -39,7 +39,6 @@ SunburstSouthHouse_BlockData:
 	INCBIN "maps/House1.blk"
 
 Route34IlexForestGate_BlockData:
-Route40BattleTowerGate_BlockData::
 	INCBIN "maps/NorthSouthGate.blk"
 
 Route21_BlockData:

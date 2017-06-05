@@ -16,18 +16,6 @@ SunburstPokeCenter_BlockData:
 Route56PokeCenter_BlockData:
 	INCBIN "maps/PokeCenter1F.blk"
 
-BetaCinnabarIslandPokemonLabHallway_BlockData:
-	INCBIN "maps/BetaCinnabarIslandPokemonLabHallway.blk"
-
-BetaCinnabarIslandPokemonLabRoom1_BlockData:
-	INCBIN "maps/BetaCinnabarIslandPokemonLabRoom1.blk"
-
-BetaCinnabarIslandPokemonLabRoom2_BlockData:
-	INCBIN "maps/BetaCinnabarIslandPokemonLabRoom2.blk"
-
-BetaCinnabarIslandPokemonLabRoom3_BlockData:
-	INCBIN "maps/BetaCinnabarIslandPokemonLabRoom3.blk"
-
 Colosseum_BlockData:
 	INCBIN "maps/Colosseum.blk"
 

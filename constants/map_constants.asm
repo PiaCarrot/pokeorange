@@ -99,15 +99,6 @@ MAP_NONE EQU 0
 
 	newgroup ; 11
 
-	mapgroup BATTLE_TOWER_1F, 5, 8
-	mapgroup BATTLE_TOWER_BATTLE_ROOM, 4, 4
-	mapgroup BATTLE_TOWER_ELEVATOR, 2, 2
-	mapgroup BATTLE_TOWER_HALLWAY, 2, 11
-	mapgroup ROUTE_40_BATTLE_TOWER_GATE, 4, 5
-	mapgroup BATTLE_TOWER_OUTSIDE, 14, 10
-
-	newgroup ; 12
-
 	mapgroup ROUTE_29, 11, 20
 	mapgroup NEW_BARK_TOWN, 12, 14
 	mapgroup ELMS_LAB, 6, 5
@@ -116,7 +107,7 @@ MAP_NONE EQU 0
 	mapgroup KRISS_NEIGHBORS_HOUSE, 4, 4
 	mapgroup ELMS_HOUSE, 4, 4
 
-	newgroup ; 13
+	newgroup ; 12
 
 	mapgroup ROUTE_30, 27, 10
 	mapgroup ROUTE_31, 15, 20

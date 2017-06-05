@@ -2514,11 +2514,6 @@ wRoute32RuinsOfAlphGateTrigger::             ds 1 ; d98c
 wRoute35NationalParkGateTrigger::            ds 1 ; d98d
 wRoute36NationalParkGateTrigger::            ds 1 ; d98f
 wGoldenrodPokecenter1FTrigger::              ds 1 ; d993
-wBattleTower1FTrigger::                      ds 1 ; d99e
-wBattleTowerBattleRoomTrigger::              ds 1 ; d99f
-wBattleTowerElevatorTrigger::                ds 1 ; d9a0
-wBattleTowerHallwayTrigger::                 ds 1 ; d9a1
-wBattleTowerOutsideTrigger::                 ds 1 ; d9a2
 wMobileTradeRoomMobileTrigger::              ds 1 ; d9bf
 wMobileBattleRoomTrigger::                   ds 1 ; d9c0
 wVermilionPortTrigger::						 ds 1
@@ -2526,7 +2521,7 @@ wOlivinePortTrigger::						 ds 1
 wMandarinUndergroundTrigger::			     ds 1
 wRoute56WestTrigger::						 ds 1
 
-	ds 49
+	ds 54
 
 
 ;SECTION "Events", WRAMX, BANK [1]

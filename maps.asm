@@ -114,13 +114,6 @@ SECTION "Map Scripts 11", ROMX, BANK[MAP_SCRIPTS_11]
 
 SECTION "Map Scripts 12", ROMX, BANK[MAP_SCRIPTS_12]
 
-INCLUDE "maps/BattleTower1F.asm"
-INCLUDE "maps/BattleTowerBattleRoom.asm"
-INCLUDE "maps/BattleTowerElevator.asm"
-INCLUDE "maps/BattleTowerHallway.asm"
-INCLUDE "maps/Route40BattleTowerGate.asm"
-INCLUDE "maps/BattleTowerOutside.asm"
-
 
 SECTION "Map Scripts 13", ROMX, BANK[MAP_SCRIPTS_13]
 
