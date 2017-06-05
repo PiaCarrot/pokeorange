@@ -484,7 +484,6 @@ Function1183cb: ; 1183cb
 	ld a, $f
 	ld [rIE], a
 	ld a, $1
-	ld [hMobileReceive], a
 	ld [hMobile], a
 	ei
 	callba MobileFunc_106462
@@ -514,7 +513,6 @@ Function118440: ; 118440
 Function118452: ; 118452
 	di
 	xor a
-	ld [hMobileReceive], a
 	ld [hMobile], a
 	ld [hVBlank], a
 	call NormalSpeed

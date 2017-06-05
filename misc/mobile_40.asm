@@ -87,7 +87,6 @@ EnableMobile: ; 100082
 	ld [hMapAnims], a
 	ld [hLCDCPointer], a
 	ld a, $01
-	ld [hMobileReceive], a
 	ld [hMobile], a
 	ei
 
@@ -97,7 +96,6 @@ EnableMobile: ; 100082
 DisableMobile: ; 1000a4
 	di
 	xor a
-	ld [hMobileReceive], a
 	ld [hMobile], a
 	xor a
 	ld [hVBlank], a
@@ -171,7 +169,6 @@ Function1000fa: ; 1000fa
 	and $13
 	ld [rIE], a
 	xor a
-	ld [hMobileReceive], a
 	ld [hMobile], a
 	ei
 
