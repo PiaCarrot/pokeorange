@@ -336,10 +336,6 @@ OWFlash: ; c8ac
 	ld de, ENGINE_ZEPHYRBADGE
 	callba CheckBadge
 	jr c, .nozephyrbadge
-	push hl
-	callba SpecialAerodactylChamber
-	pop hl
-	jr c, .useflash
 	ld a, [wTimeOfDayPalset]
 	cp %11111111 ; 3, 3, 3, 3
 	jr nz, .notadarkcave
@@ -865,7 +861,6 @@ dig_incave
 	ret
 
 .escaperope
-	callba SpecialKabutoChamber
 	ld hl, .UsedEscapeRopeScript
 	call QueueScript
 	ld a, $81

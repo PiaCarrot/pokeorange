@@ -62,7 +62,6 @@ SpecialsPointers:: ; c029
 	add_special Special_TownMapItem
 	add_special Special_UnownPrinter
 	add_special MapRadio
-	add_special Special_UnownPuzzle
 	add_special Special_SlotMachine
 	add_special Special_CardFlip
 	add_special Special_DummyNonfunctionalGameCornerGame
@@ -155,16 +154,13 @@ SpecialsPointers:: ; c029
 	add_special Function101225
 	add_special Function101231
 	add_special Special_MoveTutor
-	add_special SpecialOmanyteChamber
 	add_special Function11c1ab
 	add_special BattleTowerAction
-	add_special Special_DisplayUnownWords
 	add_special Special_Menu_ChallengeExplanationCancel
 	add_special Function17d2b6
 	add_special Function17d2ce
 	add_special Function17f53d
 	add_special AskMobileOrCable
-	add_special SpecialHoOhChamber
 	add_special Function102142
 	add_special Special_CelebiShrineEvent
 	add_special CheckCaughtCelebi
@@ -386,15 +382,6 @@ MapRadio: ; c355
 	callba PlayRadio
 	ret
 ; c360
-
-Special_UnownPuzzle: ; c360
-	call FadeToMenu
-	callba UnownPuzzle
-	ld a, [wSolvedUnownPuzzle]
-	ld [ScriptVar], a
-	call ExitAllMenus
-	ret
-; c373
 
 Special_SlotMachine: ; c373
 	call Special_CheckCoins

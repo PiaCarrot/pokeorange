@@ -1761,7 +1761,6 @@ wPlayerAction::
 ; 0 - use move
 ; 1 - use item
 ; 2 - switch
-wSolvedUnownPuzzle::
 	ds 1 ; d0ec
 
 VramState:: ; d0ed
