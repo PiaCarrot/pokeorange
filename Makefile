@@ -2,7 +2,7 @@ PYTHON := python
 MD5 := md5sum -c --quiet
 
 .SUFFIXES:
-.PHONY: all clean orange
+.PHONY: all clean orange bankfree
 .SECONDEXPANSION:
 .PRECIOUS: %.2bpp %.1bpp
 
@@ -26,10 +26,11 @@ text/common_text.o \
 gfx/pics.o
 
 
-roms := pokeorange.gbc
+roms := pokeorange.gbc pokeorange-0xff.gbc
 
 all: orange
 orange: pokeorange.gbc
+bankfree: pokeorange-0xff.gbc
 
 clean:
 	rm -f $(roms) $(orange_obj) $(roms:.gbc=.map) $(roms:.gbc=.sym)
@@ -44,8 +45,12 @@ compare: pokeorange.gbc
 	rgbasm -o $@ $<
 
 pokeorange.gbc: $(orange_obj)
-	rgblink -n pokeorange.sym -m pokeorange.map -o $@ $^
+	rgblink -n pokeorange.sym -m pokeorange.map -p 0 -o $@ $^
 	rgbfix -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -n 1 -p 0 -r 3 -t PKMNORANGE $@
+
+pokeorange-0xff.gbc: $(orange_obj)
+	rgblink -n pokeorange.sym -m pokeorange.map -p 0xff -o $@ $^
+	rgbfix -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -n 1 -p 0xff -r 3 -t PKMNORANGE $@
 
 %.png: ;
 %.2bpp: %.png ; $(gfx) 2bpp $<
