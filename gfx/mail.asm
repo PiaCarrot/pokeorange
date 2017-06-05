@@ -52,17 +52,7 @@ ReadAnyMail: ; b9237
 	ld a, [hJoyPressed]
 	and A_BUTTON | B_BUTTON | START
 	jr z, .loop
-	and START
-	jr nz, .pressed_start
 	ret
-
-.pressed_start
-	ld a, [wJumptableIndex]
-	push af
-	callab PrintMail ; printer
-	pop af
-	ld [wJumptableIndex], a
-	jr .loop
 ; b92b8
 
 .LoadGFX: ; b92b8

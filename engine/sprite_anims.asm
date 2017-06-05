@@ -405,14 +405,11 @@ DoAnimFrame: ; 8d24b
 	ret
 
 .thirteen ; 8d46e (23:546e)
-	callab ret_e00ed
+.fourteen ; 8d47c (23:547c)
 	ret
 
 .fifteen ; 8d475 (23:5475)
 	callab AnimatePokegearModeIndicatorArrow
-	ret
-
-.fourteen ; 8d47c (23:547c)
 	ret
 
 .sixteen ; 8d483 (23:5483)

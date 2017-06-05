@@ -617,7 +617,6 @@ INCLUDE "engine/money.asm"
 INCLUDE "items/marts.asm"
 INCLUDE "event/mom.asm"
 INCLUDE "event/daycare.asm"
-INCLUDE "event/photo.asm"
 INCLUDE "engine/breeding/egg.asm"
 
 SECTION "Tileset Data 1", ROMX, BANK[TILESETS_1]
@@ -4689,11 +4688,7 @@ INCLUDE "engine/variables.asm"
 BattleText::
 INCLUDE "text/battle.asm"
 
-INCLUDE "engine/debug.asm"
-
 SECTION "bank21", ROMX, BANK[$21]
-
-INCLUDE "engine/printer.asm"
 
 INCLUDE "battle/anim_gfx.asm"
 
@@ -5331,126 +5326,6 @@ INCLUDE "tilesets/data_6.asm"
 
 SECTION "bank38", ROMX, BANK[$38]
 
-RotateUnownFrontpic: ; e0000
-; something to do with Unown printer
-	push de
-	xor a
-	call GetSRAMBank
-	ld hl, sScratch
-	ld bc, 0
-.loop
-	push bc
-	push hl
-	push bc
-	ld de, wd002
-	call .Copy
-	call .Rotate
-	ld hl, UnownPrinter_OverworldMapRectangle
-	pop bc
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld e, a
-	ld d, [hl]
-	ld hl, wd012
-	call .Copy
-	pop hl
-	ld bc, $10
-	add hl, bc
-	pop bc
-	inc c
-	ld a, c
-	cp 7 * 7
-	jr c, .loop
-
-	ld hl, OverworldMap
-	ld de, sScratch
-	ld bc, 7 * 7 tiles
-	call CopyBytes
-	pop hl
-	ld de, sScratch
-	ld c, 7 * 7
-	ld a, [hROMBank]
-	ld b, a
-	call Get2bpp
-	call CloseSRAM
-	ret
-
-.Copy: ; e004e
-	ld c, $10
-.loop_copy
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loop_copy
-	ret
-
-.Rotate: ; e0057
-	ld hl, wd012
-	ld e, %10000000
-	ld d, 8
-.loop_decompress
-	push hl
-	ld hl, wd002
-	call .CountSetBit
-	pop hl
-	ld a, b
-	ld [hli], a
-	push hl
-	ld hl, wd003
-	call .CountSetBit
-	pop hl
-	ld a, b
-	ld [hli], a
-	srl e
-	dec d
-	jr nz, .loop_decompress
-	ret
-
-.CountSetBit: ; e0078
-	ld b, 0
-	ld c, 8
-.loop_count
-	ld a, [hli]
-	and e
-	jr z, .clear
-	scf
-	jr .apply
-
-.clear
-	and a
-
-.apply
-	rr b
-	inc hl
-	dec c
-	jr nz, .loop_count
-	ret
-
-overworldmaprect: MACRO
-y = 0
-rept \1
-x = \1 * (\2 +- 1) + y
-rept \2
-	dw OverworldMap tile x
-x = x +- \2
-endr
-y = y + 1
-endr
-endm
-
-UnownPrinter_OverworldMapRectangle: ; e008b
-	overworldmaprect 7, 7
-
-Unknown_e00ed:
-; Graphics for an unused Game Corner
-; game were meant to be here.
-
-ret_e00ed: ; e00ed (38:40ed)
-; How many coins?
-	ret
-
 INCLUDE "engine/card_flip.asm"
 INCLUDE "engine/billspc.asm"
 
@@ -5506,7 +5381,7 @@ SECTION "Intro Logo", ROMX, BANK[$42]
 IntroLogoGFX: ; 109407
 INCBIN "gfx/intro/logo.2bpp.lz"
 
-INCLUDE "misc/unused_title.asm"
+SECTION "bank43", ROMX, BANK[$43]
 
 INCLUDE "engine/title.asm"
 
@@ -5582,14 +5457,6 @@ SECTION "bank77", ROMX, BANK[$77]
 
 UnownFont: ; 1dc000
 INCBIN "gfx/misc/unown_font.2bpp"
-
-INCLUDE "misc/printer_77.asm"
-
-MobileHPIcon: ; 1dc591
-INCBIN "gfx/mobile/hp.1bpp"
-
-MobileLvIcon: ; 1dc599
-INCBIN "gfx/mobile/lv.1bpp"
 
 SECTION "Tileset Data 7", ROMX, BANK[TILESETS_7]
 

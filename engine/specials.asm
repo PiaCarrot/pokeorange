@@ -60,7 +60,6 @@ SpecialsPointers:: ; c029
 	add_special Special_SetDayOfWeek
 	add_special Special_TownMap
 	add_special Special_TownMapItem
-	add_special Special_UnownPrinter
 	add_special MapRadio
 	add_special Special_SlotMachine
 	add_special Special_CardFlip
@@ -123,11 +122,9 @@ SpecialsPointers:: ; c029
 	add_special ProfOaksPCBoot
 	add_special SpecialGameboyCheck
 	add_special SpecialTrainerHouse
-	add_special PhotoStudio
 	add_special InitRoamMons
 	add_special Special_FadeOutMusic
 	add_special Diploma
-	add_special PrintDiploma
 
 	; Crystal
 	add_special Function11ac3e
@@ -295,13 +292,6 @@ Special_TownMapItem:
 	call Call_ExitMenu
 	callba Pack
 	ret
-	
-Special_UnownPrinter: ; c2cd
-	call FadeToMenu
-	callba UnownPrinter
-	call ExitAllMenus
-	ret
-; c2da
 
 Special_DisplayLinkRecord: ; c2da
 	call FadeToMenu
@@ -618,13 +608,6 @@ Diploma: ; c49f
 	call ExitAllMenus
 	ret
 ; c4ac
-
-PrintDiploma: ; c4ac
-	call FadeToMenu
-	callba _PrintDiploma
-	call ExitAllMenus
-	ret
-; c4b9
 
 SpecialTrainerHouse: ; 0xc4b9
 	ld a, BANK(sMysteryGiftTrainerHouseFlag)
