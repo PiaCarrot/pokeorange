@@ -42,7 +42,7 @@ compare: pokeorange.gbc
 
 %.o: dep = $(shell $(includes) $(@D)/$*.asm)
 %.o: %.asm $$(dep)
-	rgbasm -D CRYSTAL11 -o $@ $<
+	rgbasm -o $@ $<
 
 pokeorange.gbc: $(orange_obj)
 	rgblink -n pokeorange.sym -m pokeorange.map -o $@ $^

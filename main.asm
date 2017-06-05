@@ -6095,11 +6095,7 @@ SECTION "bank7F", ROMX, BANK[$7F]
 
 SECTION "stadium2", ROMX[$8000-$220], BANK[$7F]
 
-IF DEF(CRYSTAL11)
 INCBIN "misc/stadium2_2.bin"
-ELSE
-INCBIN "misc/stadium2_1.bin"
-ENDC
 
 SECTION "Sprite3", ROMX
 

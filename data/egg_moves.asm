@@ -19,9 +19,6 @@ BulbasaurEggMoves:
 	db LIGHT_SCREEN
 	db SKULL_BASH
 	db SAFEGUARD
-if !_CRYSTAL
-	db CHARM
-endc
 	db RAZOR_WIND
 	db PETAL_DANCE
 	db $ff
@@ -48,9 +45,6 @@ PidgeyEggMoves:
 	db PURSUIT
 	db FAINT_ATTACK
 	db FORESIGHT
-if !_CRYSTAL
-	db STEEL_WING
-endc
 	db $ff
 
 RattataEggMoves:
@@ -75,9 +69,7 @@ EkansEggMoves:
 	db SLAM
 	db SPITE
 	db BEAT_UP
-if _CRYSTAL
 	db CRUNCH
-endc
 	db $ff
 
 SandshrewEggMoves:
@@ -85,9 +77,7 @@ SandshrewEggMoves:
 	db SAFEGUARD
 	db COUNTER
 	db RAPID_SPIN
-if _CRYSTAL
 	db METAL_CLAW
-endc
 	db $ff
 
 NidoranFEggMoves:
@@ -131,9 +121,6 @@ OddishEggMoves:
 	db RAZOR_LEAF
 	db FLAIL
 	db SYNTHESIS
-if !_CRYSTAL
-	db CHARM
-endc
 	db $ff
 
 ParasEggMoves:
@@ -142,9 +129,6 @@ ParasEggMoves:
 	db COUNTER
 	db PSYBEAM
 	db FLAIL
-if !_CRYSTAL
-	db SWEET_SCENT
-endc
 	db LIGHT_SCREEN
 	db PURSUIT
 	db $ff
@@ -178,9 +162,7 @@ PsyduckEggMoves:
 	db LIGHT_SCREEN
 	db FUTURE_SIGHT
 	db PSYCHIC_M
-if _CRYSTAL
 	db CROSS_CHOP
-endc
 	db $ff
 
 MankeyEggMoves:
@@ -259,9 +241,6 @@ SlowpokeEggMoves:
 	db $ff
 
 FarfetchDEggMoves:
-if !_CRYSTAL
-	db STEEL_WING
-endc
 	db FORESIGHT
 	db MIRROR_MOVE
 	db GUST
@@ -339,9 +318,7 @@ CuboneEggMoves:
 	db SCREECH
 	db SKULL_BASH
 	db PERISH_SONG
-if _CRYSTAL
 	db SWORDS_DANCE
-endc
 	db $ff
 
 LickitungEggMoves:
@@ -405,14 +382,6 @@ GoldeenEggMoves:
 	db HYDRO_PUMP
 	db $ff
 
-if !_CRYSTAL
-StaryuEggMoves:
-	db AURORA_BEAM
-	db BARRIER
-	db SUPERSONIC
-	db $ff
-endc
-
 MrMimeEggMoves:
 	db FUTURE_SIGHT
 	db HYPNOSIS
@@ -463,16 +432,10 @@ AerodactylEggMoves:
 	db WHIRLWIND
 	db PURSUIT
 	db FORESIGHT
-if !_CRYSTAL
-	db STEEL_WING
-endc
 	db $ff
 
 SnorlaxEggMoves:
 	db LICK
-if !_CRYSTAL
-	db CHARM
-endc
 	db $ff
 
 DratiniEggMoves:
@@ -497,9 +460,7 @@ CyndaquilEggMoves:
 	db REVERSAL
 	db THRASH
 	db FORESIGHT
-if _CRYSTAL
 	db SUBMISSION
-endc
 	db $ff
 
 TotodileEggMoves:
@@ -525,9 +486,7 @@ HoothootEggMoves:
 	db FAINT_ATTACK
 	db WING_ATTACK
 	db WHIRLWIND
-if _CRYSTAL
 	db SKY_ATTACK
-endc
 	db $ff
 
 LedybaEggMoves:
@@ -652,9 +611,7 @@ MurkrowEggMoves:
 	db QUICK_ATTACK
 	db MIRROR_MOVE
 	db WING_ATTACK
-if _CRYSTAL
 	db SKY_ATTACK
-endc
 	db $ff
 
 MisdreavusEggMoves:
@@ -734,9 +691,7 @@ TeddiursaEggMoves:
 	db SEISMIC_TOSS
 	db FOCUS_ENERGY
 	db COUNTER
-if _CRYSTAL
 	db METAL_CLAW
-endc
 	db $ff
 
 SlugmaEggMoves:
@@ -786,9 +741,7 @@ SkarmoryEggMoves:
 	db DRILL_PECK
 	db PURSUIT
 	db WHIRLWIND
-if _CRYSTAL
 	db SKY_ATTACK
-endc
 	db $ff
 
 HoundourEggMoves:
@@ -805,9 +758,7 @@ PhanpyEggMoves:
 	db FOCUS_ENERGY
 	db BODY_SLAM
 	db ANCIENTPOWER
-if _CRYSTAL
 	db WATER_GUN
-endc
 	db $ff
 
 StantlerEggMoves:
@@ -826,9 +777,6 @@ TyrogueEggMoves:
 	db $ff
 
 SmoochumEggMoves:
-if !_CRYSTAL
-	db LOVELY_KISS
-endc
 	db MEDITATE
 	db $ff
 
@@ -837,9 +785,7 @@ ElekidEggMoves:
 	db BARRIER
 	db ROLLING_KICK
 	db MEDITATE
-if _CRYSTAL
 	db CROSS_CHOP
-endc
 	db $ff
 
 MagbyEggMoves:
@@ -847,9 +793,7 @@ MagbyEggMoves:
 	db MEGA_PUNCH
 	db BARRIER
 	db SCREECH
-if _CRYSTAL
 	db CROSS_CHOP
-endc
 	db $ff
 
 MiltankEggMoves:
