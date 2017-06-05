@@ -13,7 +13,6 @@ includes  := $(PYTHON) scan_includes.py
 orange_obj := \
 wram.o \
 main.o \
-lib/mobile/main.o \
 home.o \
 audio.o \
 maps.o \

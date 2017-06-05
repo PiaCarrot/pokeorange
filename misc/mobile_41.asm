@@ -959,7 +959,6 @@ Function106442: ; 106442
 	call Function3e32
 	xor a
 	ld [hMobile], a
-	ld [hMobileReceive], a
 	ld a, [wMobileCommsJumptableIndex]
 	inc a
 	ld [wMobileCommsJumptableIndex], a
