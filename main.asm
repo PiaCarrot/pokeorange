@@ -1856,7 +1856,7 @@ DisplayDexEntry: ; 4424d
 	jr z, .skip_height
 	push hl
 	push de
-	ld hl, [sp+$0]
+	ld hl, sp+$0
 	ld d, h
 	ld e, l
 	hlcoord 12, 7
@@ -1880,7 +1880,7 @@ DisplayDexEntry: ; 4424d
 	or d
 	jr z, .skip_weight
 	push de
-	ld hl, [sp+$0]
+	ld hl, sp+$0
 	ld d, h
 	ld e, l
 	hlcoord 11, 9
@@ -3218,7 +3218,7 @@ CatchTutorial:: ; 4e554
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp [hl]
+	jp hl
 
 .dw ; 4e564 (13:6564)
 	dw .DudeTutorial
@@ -5607,7 +5607,7 @@ Function1dd6a9: ; 1dd6a9
 	ld c, a
 	push bc
 	push de
-	ld hl, [sp+$2]
+	ld hl, sp+$2
 	ld d, h
 	ld e, l
 	pop hl
@@ -5633,7 +5633,7 @@ PrintHoursMins ; 1dd6bb (77:56bb)
 	ld b, a
 ; Crazy stuff happening with the stack
 	push bc
-	ld hl, [sp+$1]
+	ld hl, sp+$1
 	push de
 	push hl
 	pop de
@@ -5645,7 +5645,7 @@ PrintHoursMins ; 1dd6bb (77:56bb)
 	inc hl
 	ld d, h
 	ld e, l
-	ld hl, [sp+$0]
+	ld hl, sp+$0
 	push de
 	push hl
 	pop de
@@ -6095,11 +6095,7 @@ SECTION "bank7F", ROMX, BANK[$7F]
 
 SECTION "stadium2", ROMX[$8000-$220], BANK[$7F]
 
-IF DEF(CRYSTAL11)
 INCBIN "misc/stadium2_2.bin"
-ELSE
-INCBIN "misc/stadium2_1.bin"
-ENDC
 
 SECTION "Sprite3", ROMX
 

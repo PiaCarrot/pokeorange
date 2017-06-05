@@ -373,7 +373,7 @@ Function171a36: ; 171a36 (5c:5a36)
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp [hl]
+	jp hl
 
 Jumptable_171a45: ; 171a45 (5c:5a45)
 	dw Function171a95
@@ -933,11 +933,7 @@ GFX_172f1f:
 INCBIN "gfx/unknown/172f1f.2bpp"
 
 Tilemap_1733af:
-IF DEF(CRYSTAL11)
-INCBIN "gfx/unknown/1733af_corrupt.tilemap"
-ELSE
 INCBIN "gfx/unknown/1733af.tilemap"
-ENDC
 
 Attrmap_173517:
 INCBIN "gfx/unknown/173517.attrmap"
