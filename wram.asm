@@ -826,28 +826,6 @@ wDiscardPileEnd::
 wCardFlipEnd::
 	ds wCardFlip - @
 
-; Dummy Game
-; c6d0
-wDummyGame::
-wDummyGameCards:: ds 9 * 5
-wDummyGameCardsEnd::
-wDummyGameLastCardPicked:: ds 1 ; c6fd
-wDummyGameCard1:: ds 1 ; c6fe
-wDummyGameCard2:: ds 1 ; c6ff
-wDummyGameCard1Location:: ds 1 ; c700
-wDummyGameCard2Location:: ds 1 ; c701
-wDummyGameNumberTriesRemaining:: ds 1 ; c702
-wDummyGameLastMatches:: ds 5 ; c703
-wDummyGameCounter:: ds 1 ; c708
-wDummyGameNumCardsMatched:: ds 1 ; c709
-wDummyGameEnd::
-	ds wDummyGame - @
-; Unown Puzzle
-wUnownPuzzle::
-wPuzzlePieces::
-	ds 6 * 6
-wUnownPuzzleEnd::
-
 	ds wc6d0 - @
 
 wPokedexDataStart::

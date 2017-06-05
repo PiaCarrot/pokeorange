@@ -5452,7 +5452,6 @@ ret_e00ed: ; e00ed (38:40ed)
 	ret
 
 INCLUDE "engine/card_flip.asm"
-INCLUDE "engine/dummy_game.asm"
 INCLUDE "engine/billspc.asm"
 
 SECTION "bank39", ROMX, BANK[$39]

@@ -64,7 +64,6 @@ SpecialsPointers:: ; c029
 	add_special MapRadio
 	add_special Special_SlotMachine
 	add_special Special_CardFlip
-	add_special Special_DummyNonfunctionalGameCornerGame
 	add_special Special_ClearBGPalettesBufferScreen
 	add_special FadeOutPalettes
 	add_special Special_BattleTowerFade
@@ -400,15 +399,6 @@ Special_CardFlip: ; c380
 	call Special_StartGameCornerGame
 	ret
 ; c38d
-
-Special_DummyNonfunctionalGameCornerGame: ; c38d
-	call Special_CheckCoins
-	ret c
-	ld a, BANK(_DummyGame)
-	ld hl, _DummyGame
-	call Special_StartGameCornerGame
-	ret
-; c39a
 
 Special_StartGameCornerGame: ; c39a
 	call FarQueueScript
