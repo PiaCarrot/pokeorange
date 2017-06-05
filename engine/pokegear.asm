@@ -1310,22 +1310,6 @@ PokegearPhoneContactSubmenu: ; 91342 (24:5342)
 
 ; 9146e
 
-; XXX
-	ld a, [hHours]
-	cp 12
-	jr c, .am
-	sub 12
-	ld [wd265], a
-	scf
-	ret
-
-.am
-	ld [wd265], a
-	and a
-	ret
-
-; 91480
-
 Pokegear_SwitchPage: ; 91480 (24:5480)
 	ld de, SFX_READ_TEXT_2
 	call PlaySFX
@@ -1499,16 +1483,6 @@ UpdateRadioStation: ; 9166f (24:566f)
 	ret
 
 ; 916a1 (24:56a1)
-
-; XXX
-	ld [wPokegearRadioChannelBank], a
-	ld a, [hli]
-	ld [wPokegearRadioChannelAddr], a
-	ld a, [hli]
-	ld [wPokegearRadioChannelAddr + 1], a
-	ret
-
-; 916ad
 
 RadioChannels:
 ; frequencies and the shows that play on them.
@@ -2946,86 +2920,6 @@ PokedexNestIconGFX: ; 922d1
 INCBIN "gfx/pokegear/dexmap_nest_icon.2bpp"
 FlyMapLabelBorderGFX: ; 922e1
 INCBIN "gfx/pokegear/flymap_label_border.2bpp"
-
-; XXX
-	xor a
-	ld [wd002], a
-	call ClearBGPalettes
-	call ClearTileMap
-	call ClearSprites
-	ld hl, hInMenu
-	ld a, [hl]
-	push af
-	ld [hl], $1
-	xor a
-	ld [hBGMapMode], a
-	callba ClearSpriteAnims
-	call LoadTownMapGFX
-	ld de, FlyMapLabelBorderGFX
-	ld hl, VTiles2 tile $30
-	lb bc, BANK(FlyMapLabelBorderGFX), 6
-	call Request1bpp
-	call FillKantoMap
-	call TownMapBubble
-	call TownMapPals
-	hlbgcoord 0, 0, VBGMap1
-	call TownMapBGUpdate
-	call FillJohtoMap
-	call TownMapBubble
-	call TownMapPals
-	hlbgcoord 0, 0
-	call TownMapBGUpdate
-	call TownMapMon
-	ld a, c
-	ld [wd003], a
-	ld a, b
-	ld [wd004], a
-	ld b, SCGB_POKEGEAR_PALS
-	call GetSGBLayout
-	call SetPalettes
-.loop
-	call JoyTextDelay
-	ld hl, hJoyPressed
-	ld a, [hl]
-	and B_BUTTON
-	jr nz, .pressedB
-	ld a, [hl]
-	and A_BUTTON
-	jr nz, .pressedA
-	call .HandleDPad
-	call GetMapCursorCoordinates
-	callba PlaySpriteAnimations
-	call DelayFrame
-	jr .loop
-
-.pressedB
-	ld a, -1
-	jr .finished_a_b
-
-.pressedA
-	ld a, [wd002]
-	ld l, a
-	ld h, 0
-	add hl, hl
-	ld de, Flypoints + 1
-	add hl, de
-	ld a, [hl]
-.finished_a_b
-	ld [wd002], a
-	pop af
-	ld [hInMenu], a
-	call ClearBGPalettes
-	ld a, $90
-	ld [hWY], a
-	xor a
-	ld [hBGMapAddress], a
-	ld a, VBGMap0 / $100
-	ld [hBGMapAddress + 1], a
-	ld a, [wd002]
-	ld e, a
-	ret
-
-; 923b8
 
 .HandleDPad: ; 923b8
 	ld hl, hJoyLast

@@ -225,21 +225,6 @@ CheckUnusedTwoDayTimer: ; 1150c
 	ret
 ; 1151c
 
-; XXX
-	ld hl, DailyFlags
-	set 2, [hl]
-	ret
-; 11522
-
-; XXX
-	and a
-	ld hl, DailyFlags
-	bit 2, [hl]
-	ret nz
-	scf
-	ret
-; 1152b
-
 RestartLuckyNumberCountdown: ; 1152b
 	call .GetDaysUntilNextFriday
 	ld hl, wLuckyNumberDayBuffer
@@ -252,12 +237,10 @@ RestartLuckyNumberCountdown: ; 1152b
 	ld a, FRIDAY
 	sub c
 	jr z, .friday_saturday
-	jr nc, .earlier ; should've done "ret nc"
+	ret nc
 
 .friday_saturday
 	add 7
-
-.earlier
 	ret
 ; 11542
 

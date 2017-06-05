@@ -33,17 +33,6 @@ Function11c075: ; 11c075
 	ret
 ; 11c082
 
-Function11c082: ; 11c082
-; XXX
-	push de
-	ld a, c
-	call Function11c254
-	pop de
-	ld bc, wcd36
-	call PrintEZChatBattleMessage
-	ret
-; 11c08f
-
 Function11c08f: ; 11c08f
 	ld l, e
 	ld h, d

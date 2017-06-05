@@ -387,19 +387,3 @@ LinkDataReceived:: ; 908
 	ld [rSC], a
 	ret
 ; 919
-
-Function919:: ; 919
-; XXX
-	ld a, [wLinkMode]
-	and a
-	ret nz
-	ld a, $2
-	ld [rSB], a
-	xor a
-	ld [hSerialReceive], a
-	ld a, $0
-	ld [rSC], a
-	ld a, $80
-	ld [rSC], a
-	ret
-; 92e

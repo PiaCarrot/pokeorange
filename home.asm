@@ -543,11 +543,6 @@ LoadEDTile:: ; 323d
 	jr .LoadEDTile
 ; 323f
 
-; XXX
-	callba HDMATransferAttrMapAndTileMapToWRAMBank3
-	ret
-; 3246
-
 .LoadEDTile: ; 3246
 	ld a, [hBGMapMode]
 	push af
@@ -1683,17 +1678,6 @@ Print8BitNumRightAlign:: ; 3842
 	jp PrintNum
 ; 384d
 
-Function384d:: ; 384d
-; XXX
-; GetNthMove
-	ld hl, wListMoves_MoveIndicesBuffer
-	ld c, a
-	ld b, 0
-	add hl, bc
-	ld a, [hl]
-	ret
-; 3856
-
 GetBaseData:: ; 3856
 	push bc
 	push de
@@ -1876,27 +1860,6 @@ GetPartyLocation:: ; 3927
 	ld bc, PARTYMON_STRUCT_LENGTH
 	jp AddNTimes
 ; 392d
-
-Function392d:: ; 392d
-; XXX
-; GetDexNumber
-; Probably used in gen 1 to convert index number to dex number
-; Not required in gen 2 because index number == dex number
-	push hl
-	ld a, b
-	dec a
-	ld b, 0
-	add hl, bc
-	ld hl, BaseData + 0
-	ld bc, BaseData1 - BaseData0
-	call AddNTimes
-	ld a, BANK(BaseData)
-	call GetFarHalfword
-	ld b, l
-	ld c, h
-	pop hl
-	ret
-; 3945
 
 INCLUDE "home/battle.asm"
 

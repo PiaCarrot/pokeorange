@@ -570,8 +570,6 @@ ApplyPokerusTick: ; 13988
 
 INCLUDE "event/bug_contest_2.asm"
 
-INCLUDE "unknown/013a47.asm"
-
 GetSquareRoot: ; 13b87
 ; Return the square root of de in b.
 
@@ -3680,99 +3678,6 @@ GetPkmnSpecies: ; 508d5
 
 INCLUDE "text/types.asm"
 
-Function50a28: ; 50a28
-; XXX
-	ld hl, .Strings
-	ld a, [TrainerClass]
-	dec a
-	ld c, a
-	ld b, 0
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ld de, StringBuffer1
-.copy
-	ld a, [hli]
-	ld [de], a
-	inc de
-	cp "@"
-	jr nz, .copy
-	ret
-
-.Strings: ; 50a42
-; Untranslated trainer class names from Red.
-	dw .Youngster
-	dw .BugCatcher
-	dw .Lass
-	dw OTClassName
-	dw .JrTrainerM
-	dw .JrTrainerF
-	dw .Pokemaniac
-	dw .SuperNerd
-	dw OTClassName
-	dw OTClassName
-	dw .Burglar
-	dw .Engineer
-	dw .Jack
-	dw OTClassName
-	dw .Swimmer
-	dw OTClassName
-	dw OTClassName
-	dw .Beauty
-	dw OTClassName
-	dw .Rocker
-	dw .Juggler
-	dw OTClassName
-	dw OTClassName
-	dw .Blackbelt
-	dw OTClassName
-	dw .ProfOak
-	dw .Chief
-	dw .Scientist
-	dw OTClassName
-	dw .Rocket
-	dw .CooltrainerM
-	dw .CooltrainerF
-	dw OTClassName
-	dw OTClassName
-	dw OTClassName
-	dw OTClassName
-	dw OTClassName
-	dw OTClassName
-	dw OTClassName
-	dw OTClassName
-	dw OTClassName
-	dw OTClassName
-	dw OTClassName
-	dw OTClassName
-	dw OTClassName
-	dw OTClassName
-	dw OTClassName
-
-.Youngster:    db "たんパン@"
-.BugCatcher:   db "むしとり@"
-.Lass:         db "ミニスカ@"
-.JrTrainerM:   db "ボーイ@"
-.JrTrainerF:   db "ガール@"
-.Pokemaniac:   db "マニア@"
-.SuperNerd:    db "りかけい@"
-.Burglar:      db "どろぼう@"
-.Engineer:     db "ォヤジ@"
-.Jack:         db "ジャック@"
-.Swimmer:      db "かいパン@"
-.Beauty:       db "おねえさん@"
-.Rocker:       db "グループ@"
-.Juggler:      db "ジャグラー@"
-.Blackbelt:    db "からて@"
-.ProfOak:      db "ォーキド@"
-.Chief:        db "チーフ@"
-.Scientist:    db "けんきゅういん@"
-.Rocket:       db "だんいん@"
-.CooltrainerM: db "エりート♂@"
-.CooltrainerF: db "エりート♀@"
-
 DrawPlayerHP: ; 50b0a
 	ld a, $1
 	jr DrawHP
@@ -4097,18 +4002,6 @@ ListMovePP: ; 50c50
 	add hl, de
 	dec c
 	jr nz, .load_loop
-	ret
-
-Function50cd0: ; 50cd0
-; XXX
-.loop
-	ld [hl], $32
-	inc hl
-	ld [hl], $3e
-	dec hl
-	add hl, de
-	dec c
-	jr nz, .loop
 	ret
 
 Predef22: ; unreferenced predef
@@ -4697,19 +4590,6 @@ SECTION "bank22", ROMX, BANK[$22]
 
 INCLUDE "event/kurt.asm"
 
-Function88248: ; 88248
-; XXX
-	ld c, CAL
-	ld a, [PlayerGender]
-	bit 0, a
-	jr z, .okay
-	ld c, KAREN
-
-.okay
-	ld a, c
-	ld [TrainerClass], a
-	ret
-
 MovePlayerPicRight: ; 88258
 	hlcoord 6, 4
 	ld de, 1
@@ -4978,15 +4858,6 @@ Predef36:
 
 INCLUDE "engine/timeofdaypals.asm"
 INCLUDE "engine/battle_start.asm"
-
-Function8c7c9:
-; XXX
-	ld a, $1
-	ld [hBGMapMode], a
-	call WaitBGMap
-	xor a
-	ld [hBGMapMode], a
-	ret
 
 INCLUDE "event/field_moves.asm"
 INCLUDE "event/magnet_train.asm"
@@ -5463,22 +5334,6 @@ INCLUDE "tilesets/data_7.asm"
 
 SECTION "bank77_2", ROMX, BANK[$77]
 
-Function1dd6a9: ; 1dd6a9
-; XXX
-	ld a, b
-	ld b, c
-	ld c, a
-	push bc
-	push de
-	ld hl, sp+$2
-	ld d, h
-	ld e, l
-	pop hl
-	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
-	pop bc
-	ret
-
 PrintHoursMins ; 1dd6bb (77:56bb)
 ; Hours in b, minutes in c
 	ld a, b
@@ -5905,49 +5760,6 @@ SECTION "bank7C", ROMX, BANK[$7C]
 INCLUDE "data/battle_tower_2.asm"
 
 SECTION "bank7D", ROMX, BANK[$7D]
-
-	db $cc, $6b, $1e ; XXX
-
-Function1f4003: ; 1f4003
-; XXX
-	ld a, $6
-	call GetSRAMBank
-	ld hl, .unknown_data
-	ld de, $a000
-	ld bc, $1000
-	call CopyBytes
-	call CloseSRAM
-	ret
-
-.unknown_data
-INCBIN "unknown/1f4018.bin"
-
-Function1f4dbe: ; 1f4dbe
-; XXX
-	ld a, $6
-	call GetSRAMBank
-	ld hl, .unknown_data
-	ld de, $a000
-	ld bc, $1000
-	call CopyBytes
-	call CloseSRAM
-	ret
-
-.unknown_data
-INCBIN "unknown/1f4dd3.bin"
-
-Function1f5d9f: ; 1f5d9f
-	ld a, $6
-	call GetSRAMBank
-	ld hl, .unknown_data
-	ld de, $a000
-	ld bc, $1000
-	call CopyBytes
-	call CloseSRAM
-	ret
-
-.unknown_data
-INCBIN "unknown/1f5db4.bin"
 
 SECTION "bank7E", ROMX, BANK[$7E]
 
