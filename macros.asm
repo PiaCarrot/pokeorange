@@ -286,7 +286,7 @@ jumptable: MACRO
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp [hl]
+	jp hl
 endm
 
 maskbits: macro
