@@ -6388,24 +6388,8 @@ LoadEnemyMon: ; 3e8eb
 	dec a
 	jr nz, .Happiness
 
-; Species-specfic:
-
-; Unown
-	ld a, [TempEnemyMonSpecies]
-	cp a, SPINDA
-	jr nz, .Magikarp
-
-; Get letter based on DVs
-	ld hl, EnemyMonDVs
-	predef GetUnownLetter
-; Can't use any letters that haven't been unlocked
-; If combined with forced shiny battletype, causes an infinite loop
-	call CheckUnownLetter
-	jr c, .GenerateDVs ; try again
-
-.Magikarp:
+; Magikarp length
 ; Skimming this part recommended
-
 	ld a, [TempEnemyMonSpecies]
 	cp a, MAGIKARP
 	jr nz, .Happiness
@@ -6724,74 +6708,6 @@ CheckSleepingTreeMon: ; 3eb38
 	db HERACROSS
 	db -1 ; end
 ; 3eb75
-
-CheckUnownLetter: ; 3eb75
-; Return carry if the Unown letter hasn't been unlocked yet
-
-	ld a, [UnlockedUnowns]
-	ld c, a
-	ld de, 0
-
-.loop
-
-; Don't check this set unless it's been unlocked
-	srl c
-	jr nc, .next
-
-; Is our letter in the set?
-	ld hl, .LetterSets
-	add hl, de
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-
-	push de
-	ld a, [UnownLetter]
-	ld de, 1
-	push bc
-	call IsInArray
-	pop bc
-	pop de
-
-	jr c, .match
-
-.next
-; Make sure we haven't gone past the end of the table
-	inc e
-	inc e
-	ld a, e
-	cp a, .Set1 - .LetterSets
-	jr c, .loop
-
-; Hasn't been unlocked, or the letter is invalid
-	scf
-	ret
-
-.match
-; Valid letter
-	and a
-	ret
-
-.LetterSets:
-	dw .Set1
-	dw .Set2
-	dw .Set3
-	dw .Set4
-
-.Set1:
-	;  A   B   C   D   E   F   G   H   I   J   K
-	db 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, $ff
-.Set2:
-	;  L   M   N   O   P   Q   R
-	db 12, 13, 14, 15, 16, 17, 18, $ff
-.Set3:
-	;  S   T   U   V   W
-	db 19, 20, 21, 22, 23, $ff
-.Set4:
-	;  X   Y   Z
-	db 24, 25, 26, $ff
-
-; 3ebc7
 
 SwapBattlerLevels: ; 3ebc7
 ; unreferenced

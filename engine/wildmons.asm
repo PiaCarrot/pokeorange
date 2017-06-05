@@ -330,18 +330,7 @@ ChooseWildEncounter: ; 2a14f
 	ld b, [hl]
 	; ld a, b
 	call ValidateTempWildMonSpecies
-	jr c, .nowildbattle
-
-	ld a, b ; This is in the wrong place.
-	cp SPINDA
-	jr nz, .done
-
-	ld a, [UnlockedUnowns]
-	and a
-	jr z, .nowildbattle
-
-.done
-	jr .loadwildmon
+	jr nc, .loadwildmon
 
 .nowildbattle
 	ld a, 1

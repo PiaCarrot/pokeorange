@@ -208,13 +208,6 @@ ElmDirectionsScript:
 	waitbutton
 	closetext
 	setevent EVENT_GOT_A_POKEMON_FROM_ELM
-	setflag ENGINE_UNLOCKED_UNOWNS_1
-	setflag ENGINE_UNLOCKED_UNOWNS_2
-	setflag ENGINE_UNLOCKED_UNOWNS_3
-	setflag ENGINE_UNLOCKED_UNOWNS_4
-	setflag ENGINE_UNLOCKED_UNOWNS_5
-	setflag ENGINE_UNLOCKED_UNOWNS_6
-	setflag ENGINE_UNLOCKED_UNOWNS_7
 	dotrigger $5
 	domaptrigger NEW_BARK_TOWN, $1
 	end

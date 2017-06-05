@@ -2426,7 +2426,7 @@ CurTimeOfDay:: ; d848
 wSecretID:: ds 2
 StatusFlags:: ; d84c
 	; 0 - pokedex
-	; 1 - unown dex
+	; 1 - 
 	; 2 -
 	; 3 - pokerus
 	; 4 - rocket signal
@@ -2783,7 +2783,7 @@ EndPokedexSeen::
 
 UnownDex:: ; ded9
 	ds 26
-UnlockedUnowns:: ; def3
+
 	ds 1
 
 wFirstUnownSeen:: ds 1
