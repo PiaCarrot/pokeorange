@@ -33,9 +33,6 @@ VermilionPortPassage_BlockData:
 HallOfFame_BlockData:
 	INCBIN "maps/HallOfFame.blk"
 
-GoldenrodPokeComCenter2FMobile_BlockData:
-	INCBIN "maps/GoldenrodPokeComCenter2FMobile.blk"
-
 MobileTradeRoomMobile_BlockData:
 	INCBIN "maps/MobileTradeRoomMobile.blk"
 

@@ -39,7 +39,6 @@ MAP_NONE EQU 0
 	newgroup ; 3
 
 	mapgroup CINNABAR_POKECENTER_1F, 4, 5
-	mapgroup CINNABAR_POKECENTER_2F_BETA, 4, 8
 
 	newgroup ; 4
 

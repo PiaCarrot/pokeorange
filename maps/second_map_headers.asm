@@ -63,7 +63,6 @@
 	map_header_2 IcePathB2FBlackthornSide, ICE_PATH_B2F_BLACKTHORN_SIDE, $19, 0
 	map_header_2 IcePathB3F, ICE_PATH_B3F, $19, 0
 	map_header_2 CinnabarPokeCenter1F, CINNABAR_POKECENTER_1F, $0, 0
-	map_header_2 CinnabarPokeCenter2FBeta, CINNABAR_POKECENTER_2F_BETA, $0, 0
 	map_header_2 VioletMart, VIOLET_MART, $0, 0
 	map_header_2 VioletGym, VIOLET_GYM, 0, 0
 	map_header_2 VioletNicknameSpeechHouse, VIOLET_NICKNAME_SPEECH_HOUSE, $0, 0

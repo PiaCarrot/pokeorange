@@ -51,7 +51,6 @@ INCLUDE "maps/NationalParkBugContest.asm"
 SECTION "Map Scripts 4", ROMX, BANK[MAP_SCRIPTS_4]
 
 INCLUDE "maps/GoldenrodPokeCenter1F.asm"
-INCLUDE "maps/GoldenrodPokeComCenter2FMobile.asm"
 INCLUDE "maps/Route34IlexForestGate.asm"
 INCLUDE "maps/DayCare.asm"
 
@@ -187,7 +186,6 @@ SECTION "Map Scripts 23", ROMX, BANK[MAP_SCRIPTS_23]
 INCLUDE "maps/NewBarkTown.asm"
 INCLUDE "maps/VioletCity.asm"
 INCLUDE "maps/CinnabarPokeCenter1F.asm"
-INCLUDE "maps/CinnabarPokeCenter2FBeta.asm"
 
 
 SECTION "Map Scripts 24", ROMX, BANK[MAP_SCRIPTS_24]
