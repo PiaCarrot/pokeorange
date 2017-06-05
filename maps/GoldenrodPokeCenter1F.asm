@@ -151,17 +151,6 @@ MovementData_0x6106c:
 	step DOWN
 	step_end
 
-; unused
-UnknownText_0x61072:
-	text "Hello! Welcome to"
-	line "#COM CENTER"
-	cont "TRADE CORNER."
-
-	para "You can trade"
-	line "#MON with other"
-	cont "people far away."
-	done
-
 UnknownText_0x610ce:
 	text "To make a trade,"
 	line "we must hold your"

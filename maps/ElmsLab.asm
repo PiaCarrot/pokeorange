@@ -393,10 +393,6 @@ ElmsLabTrashcan:
 ElmsLabPC:
 	jumptext ElmsLabPCText
 
-ElmsLabTrashcan2:
-; unused
-	jumpstd trashcan
-
 ElmsLabBookshelf:
 	jumpstd difficultbookshelf
 

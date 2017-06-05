@@ -80,20 +80,6 @@ CharityWinLoss:
 	text "Good battle!"
 	done
 
-ElmsHouseLabFoodText:
-; unused
-	text "There's some food"
-	line "here. It must be"
-	cont "for the LAB."
-	done
-
-ElmsHousePokemonFoodText:
-; unused
-	text "There's some food"
-	line "here. This must be"
-	cont "for #MON."
-	done
-
 ElmsHousePCText:
 	text "#MON. Where do"
 	line "they come from? "

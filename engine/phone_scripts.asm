@@ -1,7 +1,3 @@
-UnusedPhoneScript: ; 0xbcea5
-	farwritetext UnusedPhoneText
-	end
-
 ; Mom
 
 MomPhoneScript: ; 0xbceaa

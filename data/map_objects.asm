@@ -41,4 +41,5 @@ endm
 	sprite_movement_data SPRITEMOVEFN_BOULDERDUST,           DOWN,   PERSON_ACTION_0E,       $8e,    $01,    %0000 ; 22
 	sprite_movement_data SPRITEMOVEFN_GRASS,                 DOWN,   PERSON_ACTION_0F,       $8e,    $02,    %0000 ; 23
 	sprite_movement_data SPRITEMOVEFN_RANDOM_WALK_XY,        DOWN,   PERSON_ACTION_STAND,    $00,    $00,    %0010 ; 24
-	sprite_movement_data SPRITEMOVEFN_00,                    DOWN,   PERSON_ACTION_STAND,    $00,    $00,    %0000 ; 25
+	sprite_movement_data SPRITEMOVEFN_RANDOM_WALK_Y,         DOWN,   PERSON_ACTION_STAND,    $00,    $00,    %0010 ; 25
+	sprite_movement_data SPRITEMOVEFN_RANDOM_WALK_X,         DOWN,   PERSON_ACTION_STAND,    $00,    $00,    %0010 ; 26

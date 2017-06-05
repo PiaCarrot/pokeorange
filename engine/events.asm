@@ -150,12 +150,6 @@ EnterMap: ; 9673e
 	ret
 ; 9676d
 
-UnusedWait30Frames: ; 9676d
-	ld c, 30
-	call DelayFrames
-	ret
-; 96773
-
 HandleMap: ; 96773
 	call ResetOverworldDelay
 	call HandleMapTimeAndJoypad
@@ -517,12 +511,6 @@ CheckTimeEvents: ; 9693a
 	scf
 	ret
 ; 96970
-
-.unused ; 96970
-	ld a, 8
-	scf
-	ret
-; 96974
 
 OWPlayerInput: ; 96974
 

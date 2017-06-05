@@ -8033,12 +8033,6 @@ TextJump_GoodComeBack: ; 3f352
 	db "@"
 ; 3f357
 
-UnusedFunction_TextJump_ComeBack: ; 3f357
-; this function doesn't seem to be used
-	ld hl, TextJump_ComeBack
-	ret
-; 3f35b
-
 TextJump_ComeBack: ; 3f35b
 	text_jump Text_ComeBack
 	db "@"

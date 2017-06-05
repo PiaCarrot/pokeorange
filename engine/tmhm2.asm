@@ -154,17 +154,11 @@ TeachTMHM: ; 2c867
 	ld c, HAPPINESS_LEARNMOVE
 	callab ChangeHappiness
 	call ConsumeTM
-	jr .learned_move
+	scf
+	ret
 
 .nope
 	and a
-	ret
-
-.unused
-	ld a, 2
-	ld [wItemEffectSucceeded], a
-.learned_move
-	scf
 	ret
 ; 2c8bf (b:48bf)
 

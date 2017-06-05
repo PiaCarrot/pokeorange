@@ -770,14 +770,14 @@ phone: MACRO
 	dba \7 ; script 2
 ENDM
 
-	phone TRAINER_NONE, PHONE_00,              N_A,                       0, UnusedPhoneScript,   0, UnusedPhoneScript
-	phone TRAINER_NONE, PHONECONTACT_MOM,      KRISS_HOUSE_1F,            7, MomPhoneScript,      0, UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0, NULL,   0, NULL
+	phone TRAINER_NONE, PHONECONTACT_MOM,      KRISS_HOUSE_1F,            7, MomPhoneScript,      0, NULL
 	phone TRAINER_NONE, PHONECONTACT_BILL,     N_A,                       7, BillPhoneScript1,    0, BillPhoneScript2
 	phone TRAINER_NONE, PHONECONTACT_ELM,      ELMS_LAB,                  7, ElmPhoneScript1,     0, ElmPhoneScript2
-	phone TRAINER_NONE, PHONE_00,              N_A,                       0, UnusedPhoneScript,   0, UnusedPhoneScript
-	phone TRAINER_NONE, PHONE_00,              N_A,                       0, UnusedPhoneScript,   0, UnusedPhoneScript
-	phone TRAINER_NONE, PHONE_00,              N_A,                       0, UnusedPhoneScript,   0, UnusedPhoneScript
-	phone TRAINER_NONE, PHONE_00,              N_A,                       0, UnusedPhoneScript,   0, UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0, NULL,   0, NULL
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0, NULL,   0, NULL
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0, NULL,   0, NULL
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0, NULL,   0, NULL
 ; 90627
 
 SpecialPhoneCallList: ; 90627

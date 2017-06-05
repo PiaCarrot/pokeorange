@@ -143,37 +143,6 @@ BillsPC_DepositMenu: ; e4fe (3:64fe)
 	and a
 	ret
 
-Functione512: ; unused
-	ld a, [PartyCount]
-	and a
-	jr z, .no_pkmn
-	cp 2
-	jr c, .only_one_pkmn
-	and a
-	ret
-
-.no_pkmn
-	ld hl, .Text_NoPKMN
-	call MenuTextBoxBackup
-	scf
-	ret
-
-.only_one_pkmn
-	ld hl, .Text_ItsYourLastPKMN
-	call MenuTextBoxBackup
-	scf
-	ret
-
-.Text_NoPKMN: ; 0xe52e
-	; You don't have a single #MON!
-	text_jump UnknownText_0x1c1062
-	db "@"
-
-.Text_ItsYourLastPKMN: ; 0xe533
-	; You can't deposit your last #MON!
-	text_jump UnknownText_0x1c1080
-	db "@"
-
 CheckCurPartyMonFainted: ; e538
 	ld hl, PartyMon1HP
 	ld de, PARTYMON_STRUCT_LENGTH
@@ -211,24 +180,6 @@ BillsPC_WithdrawMenu: ; e559 (3:6559)
 	call CloseWindow
 	and a
 	ret
-
-Functione56d: ; unused
-	ld a, [PartyCount]
-	cp PARTY_LENGTH
-	jr nc, .asm_e576
-	and a
-	ret
-
-.asm_e576
-	ld hl, UnknownText_0xe57e
-	call MenuTextBoxBackup
-	scf
-	ret
-
-UnknownText_0xe57e: ; 0xe57e
-	; You can't take any more #MON.
-	text_jump UnknownText_0x1c10a2
-	db "@"
 
 BillsPC_ChangeBoxMenu: ; e583 (3:6583)
 	callba _ChangeBox

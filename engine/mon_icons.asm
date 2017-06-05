@@ -44,14 +44,6 @@ LoadMenuMonIcon: ; 8e83f
 	dw Trade_LoadMonIconGFX ; trade
 	dw Mobile_InitAnimatedMonIcon ; mobile
 	dw Mobile_InitPartyMenuBGPal71 ; mobile
-	dw .GetPartyMenuMonIcon ; unused
-
-
-.GetPartyMenuMonIcon: ; 8e862 (23:6862)
-	call InitPartyMenuIcon
-	call .GetPartyMonItemGFX
-	call SetPartyMonIconAnimSpeed
-	ret
 
 .GetPartyMonItemGFX: ; 8e86c (23:686c)
 	push bc

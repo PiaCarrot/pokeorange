@@ -50,17 +50,9 @@ TownMapGFX: ; f8ba0
 INCBIN "gfx/misc/town_map.2bpp.lz"
 ; f8ea4
 
-GFX_f8ea4: ; unused kanji
-INCBIN "gfx/unknown/0f8ea4.2bpp"
-; f8f24
-
 OverworldPhoneIconGFX: ; f8f24
 INCBIN "gfx/mobile/overworld_phone_icon.2bpp"
 ; f8f34
-
-GFX_f8f34: ; unused bold letters + unown chars
-INCBIN "gfx/unknown/0f8f34.w64.1bpp"
-; f9204
 
 TextBoxSpaceGFX: ; f9204
 INCBIN "gfx/frames/space.2bpp"

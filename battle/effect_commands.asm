@@ -7412,6 +7412,7 @@ BattleCommand_Charge: ; 36b4d
 
 
 BattleCommand3c: ; 36c2c
+BattleCommand5d: ; 37791
 ; unused
 	ret
 
@@ -8761,13 +8762,6 @@ INCLUDE "battle/effects/perish_song.asm"
 INCLUDE "battle/effects/sandstorm.asm"
 
 INCLUDE "battle/effects/rollout.asm"
-
-
-BattleCommand5d: ; 37791
-; unused
-	ret
-
-; 37792
 
 
 BattleCommand_FuryCutter: ; 37792

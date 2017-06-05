@@ -708,7 +708,6 @@ NamingScreen_AnimateCursor: ; 11a3b (4:5a3b)
 	ret
 
 NamingScreen_TryAddCharacter: ; 11b14 (4:5b14)
-	ld a, [wNamingScreenLastCharacter] ; lost
 MailComposition_TryAddCharacter: ; 11b17 (4:5b17)
 	ld a, [wNamingScreenMaxNameLength]
 	ld c, a

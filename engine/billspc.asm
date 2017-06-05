@@ -371,11 +371,6 @@ _WithdrawPKMN: ; e2583 (38:6583)
 	ld [wJumptableIndex], a
 	ret ; e264a (38:664a)
 
-.unused
-	ld hl, wJumptableIndex
-	dec [hl]
-	ret
-
 .b_button
 	ld a, $4
 	ld [wJumptableIndex], a
@@ -631,11 +626,6 @@ _MovePKMNWithoutMail: ; e2759
 	jr z, .b_button
 	ld a, $2
 	ld [wJumptableIndex], a
-	ret
-
-.unused
-	ld hl, wJumptableIndex
-	dec [hl]
 	ret
 
 .b_button
@@ -1591,23 +1581,6 @@ endr
 	dsprite 4, 7, 19, 0, $07, $00
 	db -1
 ; e2ed5
-
-BillsPC_UnusedFillBox: ; e2ed5
-.row
-	push bc
-	push hl
-.col
-	ld [hli], a
-	dec c
-	jr nz, .col
-	pop hl
-	ld bc, SCREEN_WIDTH
-	add hl, bc
-	pop bc
-	dec b
-	jr nz, .row
-	ret
-; e2ee5
 
 BillsPC_CheckSpaceInDestination: ; e2ee5
 ; If moving within a box, no need to be here.

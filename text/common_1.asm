@@ -174,7 +174,7 @@ UnknownText_0x1bc308::
 	done
 
 UnknownText_0x1bc31b::
-	text "Ok!@@"
+	text "Okay!@@"
 	done
 
 UnknownText_0x1bc323::

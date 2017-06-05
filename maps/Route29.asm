@@ -88,15 +88,6 @@ Route29FisherText:
 	cont "by VILEPLUME."
 	done
 
-; possibly unused
-Text_WaitingForDay:
-	text "I'm waiting for"
-	line "#MON that"
-
-	para "appear only in the"
-	line "daytime."
-	done
-
 Text_WaitingForNight:
 	text "I'm waiting for"
 	line "#MON that"
