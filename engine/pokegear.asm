@@ -2579,15 +2579,8 @@ _Area: ; 91d11
 	ld bc, SCREEN_WIDTH
 	ld a, " "
 	call ByteFill
-	hlcoord 0, 1
-	ld a, $6
-	ld [hli], a
-	ld bc, SCREEN_WIDTH - 2
-	ld a, $7
-	call ByteFill
-	ld [hl], $17
 	call GetPokemonName
-	hlcoord 2, 0
+	hlcoord 1, 0
 	call PlaceString
 	ld h, b
 	ld l, c

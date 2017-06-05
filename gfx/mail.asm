@@ -50,7 +50,7 @@ ReadAnyMail: ; b9237
 .loop
 	call GetJoypad
 	ld a, [hJoyPressed]
-	and A_BUTTON | B_BUTTON | START
+	and A_BUTTON | B_BUTTON
 	jr z, .loop
 	ret
 ; b92b8

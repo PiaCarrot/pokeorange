@@ -2321,6 +2321,12 @@ Pokedex_BlackOutBG: ; 41401 (10:5401)
 	call ByteFill
 	pop af
 	ld [rSVBK], a
+	ld a, $ff
+	call DmgToCgbBGPals
+	ld a, $ff
+	call DmgToCgbObjPal0
+	call DelayFrame
+	ret
 
 Pokedex_GetSGBLayout: ; 41423
 	ld b, a
