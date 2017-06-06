@@ -51,7 +51,6 @@ SpecialsPointers:: ; c029
 	add_special Special_DayCareLady
 	add_special Special_DayCareManOutside
 	add_special MoveDeletion
-	add_special Special_BankOfMom
 	add_special Special_MagnetTrain
 	add_special SpecialNameRival
 	add_special Special_SetDayOfWeek
@@ -106,9 +105,6 @@ SpecialsPointers:: ; c029
 	add_special Special_DisplayLinkRecord
 	add_special GetFirstPokemonHappiness
 	add_special CheckFirstMonIsEgg
-	add_special RandomPhoneRareWildMon
-	add_special RandomPhoneWildMon
-	add_special RandomPhoneMon
 	add_special MapCallbackSprites_LoadUsedSpritesGFX
 	add_special PlaySlowCry
 	add_special SpecialSnorlaxAwake

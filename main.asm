@@ -166,10 +166,6 @@ INCLUDE "engine/npc_movement.asm"
 INCLUDE "event/happiness_egg.asm"
 INCLUDE "event/special.asm"
 
-Predef1: ; 747a
-; not used
-	ret
-
 SECTION "bank2", ROMX, BANK[$2]
 
 INCLUDE "engine/player_object.asm"
@@ -537,7 +533,6 @@ INCLUDE "engine/pokecenter_pc.asm"
 INCLUDE "engine/mart.asm"
 INCLUDE "engine/money.asm"
 INCLUDE "items/marts.asm"
-INCLUDE "event/mom.asm"
 INCLUDE "event/daycare.asm"
 INCLUDE "engine/breeding/egg.asm"
 
@@ -3641,34 +3636,6 @@ ListMovePP: ; 50c50
 	jr nz, .load_loop
 	ret
 
-Predef22: ; unreferenced predef
-	push hl
-	push hl
-	ld hl, PartyMonNicknames
-	ld a, [CurPartyMon]
-	call GetNick
-	pop hl
-	call PlaceString
-	call CopyPkmnToTempMon
-	pop hl
-	ld a, [CurPartySpecies]
-	cp EGG
-	jr z, .egg
-	push hl
-	ld bc, -12
-	add hl, bc
-	ld b, $0
-	call DrawEnemyHP
-	pop hl
-	ld bc, 5
-	add hl, bc
-	push de
-	call PrintLevel
-	pop de
-
-.egg
-	ret
-
 PlaceStatusString: ; 50d0a
 	push de
 	inc de
@@ -4202,10 +4169,6 @@ UnknownEggPic:: ; 53d9c
 ; Another egg pic. This is shifted up a few pixels.
 INCBIN "gfx/misc/unknown_egg.5x5.2bpp.lz"
 
-SECTION "bank19", ROMX, BANK[$19]
-
-INCLUDE "text/phone/extra.asm"
-
 SECTION "bank20", ROMX, BANK[$20]
 
 INCLUDE "engine/player_movement.asm"
@@ -4483,10 +4446,6 @@ INCLUDE "event/dratini.asm"
 
 SECTION "bank23", ROMX, BANK[$23]
 
-Predef35: ; 8c000
-Predef36:
-	ret
-
 INCLUDE "engine/timeofdaypals.asm"
 INCLUDE "engine/battle_start.asm"
 
@@ -4503,7 +4462,6 @@ INCLUDE "engine/mon_icons.asm"
 
 SECTION "bank24", ROMX, BANK[$24]
 
-INCLUDE "engine/phone.asm"
 INCLUDE "engine/timeset.asm"
 INCLUDE "engine/pokegear.asm"
 
@@ -4512,28 +4470,15 @@ INCLUDE "engine/slot_machine.asm"
 
 SECTION "Phone Engine", ROMX, BANK[$28]
 
-INCLUDE "engine/more_phone_scripts.asm"
-INCLUDE "engine/buena_phone_scripts.asm"
-
-SECTION "Phone Text", ROMX, BANK[$29]
-
-INCLUDE "text/phone/anthony_overworld.asm"
-INCLUDE "text/phone/todd_overworld.asm"
-INCLUDE "text/phone/gina_overworld.asm"
-INCLUDE "text/phone/irwin_overworld.asm"
-INCLUDE "text/phone/arnie_overworld.asm"
-INCLUDE "text/phone/alan_overworld.asm"
-INCLUDE "text/phone/dana_overworld.asm"
-INCLUDE "text/phone/chad_overworld.asm"
-INCLUDE "text/phone/derek_overworld.asm"
-INCLUDE "text/phone/tully_overworld.asm"
-INCLUDE "text/phone/brent_overworld.asm"
-INCLUDE "text/phone/tiffany_overworld.asm"
-INCLUDE "text/phone/vance_overworld.asm"
-INCLUDE "text/phone/wilton_overworld.asm"
-INCLUDE "text/phone/kenji_overworld.asm"
-INCLUDE "text/phone/parry_overworld.asm"
-INCLUDE "text/phone/erin_overworld.asm"
+Script_AlertToFullBox::
+	refreshscreen $0
+	playsound SFX_CALL
+	waitsfx
+	opentext
+	farwritetext FullBoxText
+	waitbutton
+	closetext
+	end
 
 SECTION "Tileset Data 5", ROMX, BANK[TILESETS_5]
 
@@ -4550,8 +4495,6 @@ INCLUDE "gfx/mail.asm"
 SECTION "bank2F", ROMX, BANK[$2F]
 
 INCLUDE "engine/std_scripts.asm"
-
-INCLUDE "engine/phone_scripts.asm"
 
 TalkToTrainerScript:: ; 0xbe66a
 	faceplayer
@@ -4761,11 +4704,6 @@ DisplayAlreadyCaughtText: ; cc0c7
 	text_jump UnknownText_0x1c10dd
 	db "@"
 
-Predef2F:
-Predef38:
-Predef39: ; cc0d5
-	ret
-
 INCLUDE "battle/anim_commands.asm"
 
 INCLUDE "battle/anim_objects.asm"
@@ -4859,8 +4797,6 @@ INCLUDE "tilesets/animations.asm"
 
 INCLUDE "engine/npctrade.asm"
 
-INCLUDE "event/mom_phone.asm"
-
 SECTION "bank40", ROMX, BANK[$40]
 
 _LinkBattleSendReceiveAction: ; 100a09
@@ -4952,10 +4888,6 @@ SECTION "bank5B", ROMX, BANK[$5B]
 
 INCLUDE "engine/link_trade.asm"
 
-SECTION "bank5D", ROMX, BANK[$5D]
-
-INCLUDE "text/phone/extra3.asm"
-
 SECTION "bank5E", ROMX, BANK[$5E]
 
 _UpdateBattleHUDs:
@@ -4971,24 +4903,6 @@ _UpdateBattleHUDs:
 SECTION "Common Text 1", ROMX, BANK[$6C]
 
 INCLUDE "text/stdtext.asm"
-INCLUDE "text/phone/jack_overworld.asm"
-INCLUDE "text/phone/beverly_overworld.asm"
-INCLUDE "text/phone/huey_overworld.asm"
-INCLUDE "text/phone/gaven_overworld.asm"
-INCLUDE "text/phone/beth_overworld.asm"
-INCLUDE "text/phone/jose_overworld.asm"
-INCLUDE "text/phone/reena_overworld.asm"
-INCLUDE "text/phone/joey_overworld.asm"
-INCLUDE "text/phone/wade_overworld.asm"
-INCLUDE "text/phone/ralph_overworld.asm"
-INCLUDE "text/phone/liz_overworld.asm"
-
-SECTION "bank6D", ROMX, BANK[$6D]
-
-INCLUDE "text/phone/mom.asm"
-INCLUDE "text/phone/bill.asm"
-INCLUDE "text/phone/elm.asm"
-INCLUDE "text/phone/trainers1.asm"
 
 SECTION "bank72", ROMX, BANK[$72]
 

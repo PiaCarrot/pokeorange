@@ -94,7 +94,7 @@ CyndaquilPokeBallScript:
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear IVYSLAB_POKE_BALL1
-	setevent EVENT_GOT_CYNDAQUIL_FROM_IVY
+	setevent EVENT_GOT_CHARMANDER_FROM_IVY
 	writetext ChoseStarterText
 	buttonsound
 	waitsfx
@@ -124,7 +124,7 @@ TotodilePokeBallScript:
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear IVYSLAB_POKE_BALL2
-	setevent EVENT_GOT_TOTODILE_FROM_IVY
+	setevent EVENT_GOT_SQUIRTLE_FROM_IVY
 	writetext ChoseStarterText
 	buttonsound
 	waitsfx
@@ -152,7 +152,7 @@ ChikoritaPokeBallScript:
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear IVYSLAB_POKE_BALL3
-	setevent EVENT_GOT_CHIKORITA_FROM_IVY
+	setevent EVENT_GOT_BULBASAUR_FROM_IVY
 	writetext ChoseStarterText
 	buttonsound
 	waitsfx

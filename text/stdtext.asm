@@ -373,16 +373,13 @@ HappinessText1:
 	line "nice, it'll pout."
 	done
 
-RegisteredNumber1Text:
-	text "<PLAYER> registered"
-	line "@"
-	text_from_ram StringBuffer3
-	text "'s number."
-	done
+FullBoxText:
+	text "The PC STORAGE"
+	line "BOX is full!"
 
-RegisteredNumber2Text:
-	text "<PLAYER> registered"
-	line "@"
-	text_from_ram StringBuffer3
-	text "'s number."
+	para "You'll have to"
+	line "switch BOXES if"
+
+	para "you want to catch"
+	line "more #MON."
 	done

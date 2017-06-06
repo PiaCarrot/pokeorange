@@ -18,7 +18,6 @@ SaveMenu: ; 14a1a
 
 .refused
 	call ExitMenu
-	call ret_d90
 	farcall SaveMenu_LoadEDTile
 	scf
 	ret
@@ -213,9 +212,6 @@ SaveTheGame_yesorno: ; 14baf
 	ld a, [wMenuCursorY]
 	dec a
 	call CloseWindow
-	push af
-	call ret_d90
-	pop af
 	and a
 	ret
 ; 14bcb

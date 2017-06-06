@@ -32,7 +32,7 @@ FalknerScript_0x683c2:
 	checkcode VAR_BADGES
 	scall MikanGymTriggerRockets
 .FightDone:
-	checkevent EVENT_GOT_TM31_MUD_SLAP
+	checkevent EVENT_GOT_TM32_BUBBLEBEAM
 	iftrue .SpeechAfterTM
 	setevent EVENT_BEAT_BIRD_KEEPER_ROD
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
@@ -40,8 +40,8 @@ FalknerScript_0x683c2:
 	domaptrigger MIKAN_ISLAND_ROUTE_53_GATE, $1
 	buttonsound
 	verbosegiveitem TM_BUBBLEBEAM
-	iffalse .NoRoomForMudSlap
-	setevent EVENT_GOT_TM31_MUD_SLAP
+	iffalse .NoRoomForBubblebeam
+	setevent EVENT_GOT_TM32_BUBBLEBEAM
 	writetext UnknownText_0x68648
 	waitbutton
 	closetext
@@ -50,7 +50,7 @@ FalknerScript_0x683c2:
 .SpeechAfterTM:
 	writetext UnknownText_0x68735
 	waitbutton
-.NoRoomForMudSlap:
+.NoRoomForBubblebeam:
 	closetext
 	end
 

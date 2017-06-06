@@ -263,24 +263,6 @@ checkcoins: macro
 	dw \1 ; coins
 	endm
 
-	enum addcellnum_command
-addcellnum: macro
-	db addcellnum_command
-	db \1 ; person
-	endm
-
-	enum delcellnum_command
-delcellnum: macro
-	db delcellnum_command
-	db \1 ; person
-	endm
-
-	enum checkcellnum_command
-checkcellnum: macro
-	db checkcellnum_command
-	db \1 ; person
-	endm
-
 	enum checktime_command
 checktime: macro
 	db checktime_command
@@ -925,23 +907,6 @@ trade: macro
 	db \1 ; trade_id
 	endm
 
-	enum askforphonenumber_command
-askforphonenumber: macro
-	db askforphonenumber_command
-	db \1 ; number
-	endm
-
-	enum phonecall_command
-phonecall: macro
-	db phonecall_command
-	dw \1 ; caller_name
-	endm
-
-	enum hangup_command
-hangup: macro
-	db hangup_command
-	endm
-
 	enum describedecoration_command
 describedecoration: macro
 	db describedecoration_command
@@ -952,17 +917,6 @@ describedecoration: macro
 fruittree: macro
 	db fruittree_command
 	db \1 ; tree_id
-	endm
-
-	enum specialphonecall_command
-specialphonecall: macro
-	db specialphonecall_command
-	dw \1 ; call_id
-	endm
-
-	enum checkphonecall_command
-checkphonecall: macro
-	db checkphonecall_command
 	endm
 
 	enum verbosegiveitem_command

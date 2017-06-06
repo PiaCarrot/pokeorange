@@ -406,12 +406,10 @@ DoAnimFrame: ; 8d24b
 
 .thirteen ; 8d46e (23:546e)
 .fourteen ; 8d47c (23:547c)
+.fifteen ; 8d475 (23:5475)
 .twentyseven ; 8d630 (23:5630)
 .twentyeight ; 8d637 (23:5637)
-	ret
-
-.fifteen ; 8d475 (23:5475)
-	farcall AnimatePokegearModeIndicatorArrow
+.RadioTuningKnob: ; 8d578 (23:5578)
 	ret
 
 .sixteen ; 8d483 (23:5483)
@@ -602,10 +600,6 @@ DoAnimFrame: ; 8d24b
 
 .finish_EggShell
 	call DeinitializeSprite
-	ret
-
-.RadioTuningKnob: ; 8d578 (23:5578)
-	farcall AnimateTuningKnob
 	ret
 
 .twentyone ; 8d57f (23:557f)

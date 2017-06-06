@@ -1113,9 +1113,6 @@ PokeAnim_GetSpeciesOrUnown: ; d065c
 	ret
 ; d0669
 
-Predef48: ; d0669 Predef 48
-	ld a, $1
-	ld [wBoxAlignment], a
 HOF_AnimateFrontpic: ; d066e Predef 49
 	call AnimateMon_CheckIfPokemon
 	jr c, .fail
