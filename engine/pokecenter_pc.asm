@@ -241,7 +241,7 @@ KrissPCMenuData: ; 0x15736
 .KrissPCMenuData2:
 	db %10100000 ; bit7
 	db 0 ; # items?
-	dw .KrissPCMenuList1
+	dw .KrissPCMenuList
 	dw PlaceNthMenuStrings
 	dw .KrissPCMenuPointers
 
@@ -250,43 +250,27 @@ KrissPCMenuData: ; 0x15736
 	dw KrisDepositItemMenu,  .DepositItem
 	dw KrisTossItemMenu,     .TossItem
 	dw KrisMailBoxMenu,      .MailBox
-	dw KrisDecorationMenu,   .Decoration
-	dw KrisLogOffMenu,       .LogOff
 	dw KrisLogOffMenu,       .TurnOff
 
 .WithdrawItem: db "WITHDRAW ITEM@"
 .DepositItem:  db "DEPOSIT ITEM@"
 .TossItem:     db "TOSS ITEM@"
 .MailBox:      db "MAIL BOX@"
-.Decoration:   db "DECORATION@"
 .TurnOff:      db "TURN OFF@"
-.LogOff:       db "LOG OFF@"
 
 WITHDRAW_ITEM EQU 0
 DEPOSIT_ITEM  EQU 1
 TOSS_ITEM     EQU 2
 MAIL_BOX      EQU 3
-DECORATION    EQU 4
-TURN_OFF      EQU 5
-LOG_OFF       EQU 6
+TURN_OFF      EQU 4
 
-.KrissPCMenuList1:
+.KrissPCMenuList:
 	db 5
 	db WITHDRAW_ITEM
 	db DEPOSIT_ITEM
 	db TOSS_ITEM
 	db MAIL_BOX
 	db TURN_OFF
-	db -1
-
-.KrissPCMenuList2:
-	db 6
-	db WITHDRAW_ITEM
-	db DEPOSIT_ITEM
-	db TOSS_ITEM
-	db MAIL_BOX
-	db DECORATION
-	db LOG_OFF
 	db -1
 
 PC_DisplayTextWaitMenu: ; 157bb
@@ -397,15 +381,6 @@ KrisTossItemMenu: ; 0x1585f
 	xor a
 	ret
 ; 0x1587d
-
-KrisDecorationMenu: ; 0x1587d
-	farcall _KrisDecorationMenu
-	ld a, c
-	and a
-	ret z
-	scf
-	ret
-; 0x15888
 
 KrisLogOffMenu: ; 0x15888
 	xor a

@@ -893,7 +893,6 @@ INCLUDE "battle/menu.asm"
 INCLUDE "engine/buy_sell_toss.asm"
 INCLUDE "engine/trainer_card.asm"
 INCLUDE "engine/prof_oaks_pc.asm"
-INCLUDE "engine/decorations.asm"
 
 PadCoords_de: ; 27092
 	ld a, d

@@ -907,12 +907,6 @@ trade: macro
 	db \1 ; trade_id
 	endm
 
-	enum describedecoration_command
-describedecoration: macro
-	db describedecoration_command
-	db \1 ; byte
-	endm
-
 	enum fruittree_command
 fruittree: macro
 	db fruittree_command

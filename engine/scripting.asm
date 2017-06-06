@@ -215,7 +215,6 @@ ScriptCommandTable: ; 96cb1
 	dw Script_pokemart
 	dw Script_elevator
 	dw Script_trade
-	dw Script_describedecoration
 	dw Script_fruittree
 	dw Script_verbosegiveitem
 	dw Script_verbosegiveitem2
@@ -733,19 +732,6 @@ Script_trade: ; 97099
 	farcall NPCTrade
 	ret
 ; 970a4
-
-Script_describedecoration: ; 970df
-; script command 0x9a
-; parameters:
-;     byte (SingleByteParam)
-
-	call GetScriptByte
-	ld b, a
-	farcall DescribeDecoration
-	ld h, d
-	ld l, e
-	jp ScriptJump
-; 970ee
 
 Script_fruittree: ; 970ee
 ; script command 0x9b

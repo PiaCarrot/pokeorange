@@ -27,16 +27,6 @@ _NothingHereText::
 	line "here…"
 	done
 
-UnknownText_0x1bc06b::
-	text "Which APRICORN"
-	line "should I use?"
-	done
-
-UnknownText_0x1bc089::
-	text "How many should I"
-	line "make?"
-	done
-
 UnknownText_0x1bc0a2::
 	text_from_ram StringBuffer1
 	text ""
@@ -109,49 +99,6 @@ MakePinkText::
 	line "turned pink!"
 	done
 
-UnknownText_0x1bc187::
-	text "Please enter any"
-	line "four-digit number."
-	done
-
-UnknownText_0x1bc1ac::
-	text "Enter the same"
-	line "number to confirm."
-	done
-
-UnknownText_0x1bc1cf::
-	text "That's not the"
-	line "same number."
-	done
-
-UnknownText_0x1bc1eb::
-	text "Your PASSCODE has"
-	line "been set."
-	para "Enter this number"
-	line "next time to open"
-	cont "the CARD FOLDER."
-	para ""
-	done
-
-UnknownText_0x1bc23e::
-	text "0000 is invalid!"
-	para ""
-	done
-
-UnknownText_0x1bc251::
-	text "Enter the CARD"
-	next "FOLDER PASSCODE."
-	done
-
-UnknownText_0x1bc272::
-	text "Incorrect"
-	line "PASSCODE!"
-	para ""
-	done
-
-UnknownText_0x1bc288::
-	text "CARD FOLDER open.@@"
-
 UnknownText_0x1bc29c::
 	text "I am setting the"
 	line "time."
@@ -166,6 +113,7 @@ UnknownText_0x1bc2fd::
 	done
 
 UnknownText_0x1bc305::
+UnknownText_0x1bc323::
 	text "?"
 	done
 
@@ -177,18 +125,8 @@ UnknownText_0x1bc31b::
 	text "Okay!@@"
 	done
 
-UnknownText_0x1bc323::
-	text "?"
-	done
-
 UnknownText_0x1bc326::
-	text "."
-	done
-
 UnknownText_0x1bc336::
-	text "."
-	done
-
 UnknownText_0x1bc34f::
 	text "."
 	done
@@ -199,71 +137,6 @@ UnknownText_0x1bc369::
 
 UnknownText_0x1bc37a::
 	text ", is it?"
-	done
-
-UnknownText_0x1bc384::
-	text "There is nothing"
-	line "connected."
-	done
-
-UnknownText_0x1bc3a1::
-	text "Check cell phone"
-	line "adapter."
-	done
-
-UnknownText_0x1bc3bc::
-	text "Check CDMA"
-	line "adapter."
-	done
-
-UnknownText_0x1bc3d1::
-	text "Check DOCOMO PHS"
-	line "adapter."
-	done
-
-UnknownText_0x1bc3ec::
-	text "Check DDI PHS"
-	line "adapter."
-	done
-
-UnknownText_0x1bc404::
-	text "Check unlimited"
-	line "battle mobile"
-	cont "adapter."
-	done
-
-UnknownText_0x1bc42c::
-	text "The password is:"
-	line ""
-	done
-
-UnknownText_0x1bc43f::
-	text "Is this OK?"
-	done
-
-UnknownText_0x1bc44c::
-	text "Enter the"
-	line "ID no."
-	done
-
-UnknownText_0x1bc45e::
-	text "Enter the"
-	line "amount."
-	done
-
-UnknownText_0x1bc471::
-	text "There's nothing to"
-	line "choose."
-	prompt
-
-UnknownText_0x1bc48c::
-	text "Which side do you"
-	line "want to put it on?"
-	done
-
-UnknownText_0x1bc4b2::
-	text "Which side do you"
-	line "want to put away?"
 	done
 
 UnknownText_0x1bc4d7::

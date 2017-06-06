@@ -2773,6 +2773,8 @@ Squirtbottle: ; f73e
 
 CardKey: ; f745
 BasementKey: ; f74c
+NormalBox: ; f763
+GorgeousBox: ; f767
 	ret
 ; f74c
 
@@ -2786,28 +2788,6 @@ SacredAsh: ; f753
 	ret
 ; f763
 
-
-NormalBox: ; f763
-	ld c, DECOFLAG_SILVER_TROPHY_DOLL
-	jr OpenBox
-; f767
-
-GorgeousBox: ; f767
-	ld c, DECOFLAG_GOLD_TROPHY_DOLL
-OpenBox: ; f769
-	farcall SetSpecificDecorationFlag
-
-	ld hl, .text
-	call PrintText
-
-	jp UseDisposableItem
-; f778
-
-.text ; 0xf778
-	; There was a trophy inside!
-	text_jump UnknownText_0x1c5d03
-	db "@"
-; 0xf77d
 
 PinkanBerry:
 

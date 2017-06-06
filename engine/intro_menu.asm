@@ -194,8 +194,6 @@ ENDC
 
 	call InitializeNPCNames
 
-	farcall InitDecorations
-
 	farcall DeletePartyMonMail
 
 	call ResetGameTime

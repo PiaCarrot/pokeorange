@@ -82,15 +82,10 @@ SpecialsPointers:: ; c029
 	add_special Special_FindAtLeastThatHappy
 	add_special Special_FindThatSpecies
 	add_special Special_FindThatSpeciesYourTrainerID
-	add_special Special_CheckUnusedTwoDayTimer ; unreferenced
 	add_special Special_DayCareMon1
 	add_special Special_DayCareMon2
 	add_special Special_SelectRandomBugContestContestants
 	add_special Special_ActivateFishingSwarm
-	add_special ToggleMaptileDecorations
-	add_special ToggleDecorationsVisibility
-	add_special SpecialGiveShuckle
-	add_special SpecialReturnShuckle
 	add_special Special_BillsGrandfather
 	add_special SpecialCheckPokerus
 	add_special Special_DisplayCoinCaseBalance
@@ -356,13 +351,6 @@ ScriptReturnCarry: ; c3e2
 	ld [ScriptVar], a
 	ret
 ; c3ef
-
-Special_CheckUnusedTwoDayTimer: ; c3ef
-	farcall CheckUnusedTwoDayTimer
-	ld a, [wUnusedTwoDayTimer]
-	ld [ScriptVar], a
-	ret
-; c3fc
 
 Special_ActivateFishingSwarm: ; c3fc
 	ld a, [ScriptVar]
