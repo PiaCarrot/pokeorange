@@ -46,11 +46,6 @@ UnknownText_0x1c06ed::
 	line "ESCAPE ROPE."
 	done
 
-UnknownText_0x1c0705::
-	text "Can't use that"
-	line "here."
-	done
-
 UnknownText_0x1c071a::
 	text "Return to the last"
 	line "#MON CENTER."
@@ -62,11 +57,6 @@ UnknownText_0x1c073b::
 
 	para ""
 	done
-
-UnknownText_0x1c0751::
-	text "A #MON is using"
-	line "STRENGTH already."
-	prompt
 
 UnknownText_0x1c0774::
 	text_from_ram StringBuffer2
@@ -410,11 +400,7 @@ UnknownText_0x1c0d6c::
 _ActorNameText::
 	text "<USER>@@"
 
-_UsedMove1Text::
-	text ""
-	line "used @@"
-
-_UsedMove2Text::
+_UsedMoveText::
 	text ""
 	line "used @@"
 
@@ -427,21 +413,9 @@ _MoveNameText::
 	db "@@"
 
 _EndUsedMove1Text::
-	text "!"
-	done
-
 _EndUsedMove2Text::
-	text "!"
-	done
-
 _EndUsedMove3Text::
-	text "!"
-	done
-
 _EndUsedMove4Text::
-	text "!"
-	done
-
 _EndUsedMove5Text::
 	text "!"
 	done
@@ -551,27 +525,6 @@ MailMovedFromBoxText::
 	text "The MAIL was moved"
 	line "from the MAILBOX."
 	prompt
-
-UnknownText_0x1c0fb3::
-	text "Yes"
-	prompt
-
-UnknownText_0x1c0fb8::
-	text "No"
-	prompt
-
-UnknownText_0x1c0fbc::
-	deciram wcf64, 1, 3
-	text " @"
-	text_from_ram StringBuffer1
-	text ""
-	line "Animation type @"
-	text_from_ram StringBuffer2
-	db "@@"
-
-UnknownText_0x1c0fdd::
-	text "#MON number?"
-	done
 
 Text_WasSentToBillsPC::
 	text_from_ram StringBuffer1
@@ -997,31 +950,6 @@ _OakRating19::
 _OakPCText4::
 	text "The link to PROF."
 	line "OAK's PC closed."
-	done
-
-UnknownText_0x1c19cd::
-	text "Triple-theme"
-	line "trainer ranking!"
-	para "The SAVE file you"
-	line "just sent might"
-	cont "make the rankings!"
-	para ""
-	done
-
-UnknownText_0x1c1a22::
-	text "There is no"
-	line "ranking data."
-	para "Link to obtain"
-	line "ranking data."
-	para ""
-	done
-
-UnknownText_0x1c1a5b::
-	text " , yeah!"
-	done
-
-UnknownText_0x1c1a65::
-	text "Darn…"
 	done
 
 UnknownText_0x1c1a6c::

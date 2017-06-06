@@ -31,7 +31,6 @@ PredefPointers:: ; 856b
 ; address, bank
 
 	add_predef LearnMove ; $0
-	add_predef Predef1
 	add_predef HealParty
 	add_predef FlagPredef
 	add_predef ComputeHPBarPixels
@@ -64,7 +63,6 @@ PredefPointers:: ; 856b
 	add_predef CopyPkmnToTempMon
 	add_predef ListMoves ; $20
 	add_predef PlaceNonFaintStatus
-	add_predef Predef22
 	add_predef ListMovePP
 	add_predef GetGender
 	add_predef StatsScreenInit
@@ -77,18 +75,12 @@ PredefPointers:: ; 856b
 	add_predef PrintMonTypes
 	add_predef GetUnownLetter
 	add_predef LoadPoisonBGPals
-	add_predef Predef2F
 	add_predef InitSGBBorder ; $30
 	add_predef Predef_LoadSGBLayout
 	add_predef _Area
 	add_predef CheckContestMon
 	add_predef Predef_StartBattle
-	add_predef Predef35
-	add_predef Predef36
 	add_predef PlayBattleAnim
-	add_predef Predef38 ; $38
-	add_predef Predef39
-	add_predef Predef3A
 	add_predef PartyMonItemName
 	add_predef GetFrontpic
 	add_predef GetBackpic
@@ -102,7 +94,5 @@ PredefPointers:: ; 856b
 	add_predef PlaceStatusString
 	add_predef LoadMonAnimation
 	add_predef AnimateFrontpic
-	add_predef Predef48 ; $48
 	add_predef HOF_AnimateFrontpic
-	dbw $ff, InexplicablyEmptyFunction ; ???
 ; 864c

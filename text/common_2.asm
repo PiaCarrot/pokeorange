@@ -177,32 +177,13 @@ UnknownText_0x1c03c2::
 	text "."
 	prompt
 
-UnknownText_0x1c0436::
-	text "The link has been"
-	line "cancelled."
-	prompt
-
-UnknownText_0x1c0454::
-	text "Communication"
-	line "error."
-	prompt
-
-UnknownText_0x1c0573::
-	text "The link has been"
-	line "cancelled."
-	prompt
-
-UnknownText_0x1c0591::
-	text "Communication"
-	line "error."
-	prompt
-
 _BadgeRequiredText::
 	text "Sorry! A new BADGE"
 	line "is required."
 	prompt
 
 UnknownText_0x1c05c8::
+UnknownText_0x1c0705::
 	text "Can't use that"
 	line "here."
 	prompt

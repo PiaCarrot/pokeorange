@@ -2299,7 +2299,7 @@ SetLRTracks: ; e8b1b
 	ld e, a
 	ld d, 0
 	; get this channel's lr tracks
-	call GetLRTracks
+	ld hl, LRTracks
 	add hl, de ; de = channel 0-3
 	ld a, [hl]
 	; load lr tracks into Tracks
@@ -2620,7 +2620,7 @@ PlayStereoSFX:: ; e8ca6
 	and 3 ; ch1-4
 	ld e, a
 	ld d, 0
-	call GetLRTracks
+	ld hl, LRTracks
 	add hl, de
 	ld a, [hl]
 	ld hl, wStereoPanningMask
@@ -3107,34 +3107,12 @@ Kick2: ; e8fbb
 	endchannel
 ; e8fc2
 
-GetLRTracks: ; e8fc2
-; gets the default sound l/r channels
-; stores mono/stereo table in hl
-	ld a, [Options]
-	bit 5, a ; stereo
-	; made redundant, could have had a purpose in gold
-	jr nz, .stereo
-	ld hl, MonoTracks
-	ret
-
-.stereo
-	ld hl, StereoTracks
-	ret
-
-; e8fd1
-
-MonoTracks: ; e8fd1
+LRTracks: ; e8fd1
 ; bit corresponds to track #
 ; hi: left channel
 ; lo: right channel
 	db $11, $22, $44, $88
 ; e8fd5
-
-StereoTracks: ; e8fd5
-; made redundant
-; seems to be modified on a per-song basis
-	db $11, $22, $44, $88
-; e8fd9
 
 ChannelPointers: ; e8fd9
 ; music channels

@@ -360,8 +360,6 @@ CheckTileEvent: ; 96874
 
 	call RandomEncounter
 	ret c
-	jr .ok ; pointless
-
 .ok
 	xor a
 	ret
@@ -493,7 +491,6 @@ CheckTimeEvents: ; 9693a
 .do_daily
 	farcall CheckDailyResetTimer
 	farcall CheckPokerusTick
-	farcall CheckPhoneCall
 	ret c
 
 .nothing
@@ -581,12 +578,11 @@ TryObjectEvent: ; 969b5
 	ld a, [hl]
 	and %00001111
 
-; Bug: If IsInArray returns nc, data at bc will be executed as code.
 	push bc
 	ld de, 3
 	ld hl, .pointers
 	call IsInArray
-	jr nc, .nope_bugged
+	jr nc, .nope
 	pop bc
 
 	inc hl
@@ -595,8 +591,8 @@ TryObjectEvent: ; 969b5
 	ld l, a
 	jp hl
 
-.nope_bugged
-	; pop bc
+.nope
+	pop bc
 	xor a
 	ret
 
@@ -646,24 +642,12 @@ TryObjectEvent: ; 969b5
 ; 96a30
 
 .three ; 96a30
-	xor a
-	ret
-; 96a32
-
 .four ; 96a32
-	xor a
-	ret
-; 96a34
-
 .five ; 96a34
-	xor a
-	ret
-; 96a36
-
 .six ; 96a36
 	xor a
 	ret
-; 96a38
+; 96a32
 
 TryReadSign: ; 96a38
 	call CheckFacingSign
@@ -914,10 +898,6 @@ CountStep: ; 96b79
 	and a
 	jr nz, .done
 
-	; If there is a special phone call, don't count the step.
-	farcall CheckSpecialPhoneCall
-	jr c, .doscript
-
 	; If Repel wore off, don't count the step.
 	call DoRepelStep
 	jr c, .doscript
@@ -974,12 +954,6 @@ CountStep: ; 96b79
 	scf
 	ret
 ; 96bd3
-
-.unreferenced ; 96bd3
-	ld a, 7
-	scf
-	ret
-; 96bd7
 
 DoRepelStep: ; 96bd7
 	ld a, [wRepelEffect]
@@ -1040,10 +1014,6 @@ PlayerEventScriptPointers: ; 96c0c
 Invalid_0x96c2d: ; 96c2d
 	end
 ; 96c2e
-
-; unreferenced
-	end
-; 96c2f
 
 HatchEggScript: ; 96c2f
 	callasm OverworldHatchEgg

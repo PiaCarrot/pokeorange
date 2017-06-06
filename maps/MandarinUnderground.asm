@@ -11,10 +11,10 @@ MandarinUnderground_MapScriptHeader::
 	; triggers
 	maptrigger .Trigger0
 	maptrigger .Trigger1
-	
+
 .MapCallbacks:
 	db 0
-	
+
 .Trigger0:
 	end
 
@@ -92,7 +92,7 @@ ExplodingTrap9:
 	reloadmapafterbattle
 	setevent EVENT_EXPLODING_TRAP_9
 	end
-	
+
 VoltorbExplodingTrap:
 	special FadeOutPalettes
 	cry GRIMER
@@ -128,7 +128,7 @@ NoExplodingTrap:
 
 MandarinUndergroundOfficerScript:
 	jumptextfaceplayer MandarinUndergroundOfficerText
-	
+
 MandarinUndergroundButchScript:
 	faceplayer
 	opentext
@@ -148,7 +148,7 @@ MandarinUndergroundButchScript:
 	special Special_FadeInQuickly
 	setevent EVENT_BEAT_ROCKET_EXECUTIVEM_1
 	end
-	
+
 MandarinUndergroundCassidyScript:
 	faceplayer
 	opentext
@@ -168,10 +168,10 @@ MandarinUndergroundCassidyScript:
 	special Special_FadeInQuickly
 	setevent EVENT_TEAM_ROCKET_1
 	end
-	
+
 MandarinUndergroundTM:
 	itemball TM_FRUSTRATION
-	
+
 MandarinUndergroundPC:
 	jumptext MandarinUndergroundPCText
 
@@ -185,38 +185,38 @@ MandarinUndergroundOfficerText:
 	line "characters all the"
 	cont "way over to this"
 	cont "warehouse."
-	
+
 	para "However, my GROWL-"
 	line "ITHE was no match"
 	cont "for them."
-	
+
 	para "Without a doubt,"
 	line "TEAM ROCKET is"
 	cont "back in action."
-	
+
 	para "I'll leave soon"
 	line "to get help!"
 	done
-	
+
 MandarinButchText:
 	text "Well, well."
-	
+
 	para "I found a twerp."
 	line "Sorry kid, but"
 	cont "I'm gonna have to"
 	cont "get rid of you."
-	
+
 	para "Can't have the new"
 	line "and improved TEAM"
 	cont "ROCKET meddled by"
 	cont "another kid!"
 	done
-	
+
 ButchWinLoss:
 	text "No way! Not again!"
 	line "But we're strong!"
 	done
-	
+
 MandarinButchWonText:
 	text "Abort mission!"
 	line "I say that, but"
@@ -227,46 +227,46 @@ MandarinButchWonText:
 MandarinCassidyText:
 	text "Who are you?"
 	line "<.....><.....>"
-	
+
 	para "Wait, where is"
 	line "BUTCH?"
-	
+
 	para "I bet you're the"
 	line "one behind this!"
-	
+
 	para "How dare you ruin"
 	line "NEO ROCKET's new"
 	cont "secret hideout!"
 	cont "Prepare yourself!"
 	done
-	
+
 CassidyWinLoss:
 	text "No way! What is"
 	line "wrong with kids"
 	cont "these days!"
 	done
-	
+
 MandarinCassidyWonText:
 	text "You may have won"
 	line "for now, kid."
-	
+
 	para "But, TEAM ROCKET"
 	line "is back, and you"
 	cont "haven't seen the"
 	cont "last of us!"
 	done
-	
+
 MandarinUndergroundPCText:
 	text "Jessie and James"
-	
+
 	para "We have set up"
 	line "operations on a"
 	cont "quiet island."
-	
+
 	para "We expect to"
 	line "round up all the"
 	cont "#MON here soon."
-	
+
 	para "Butch and Cassidy"
 	done
 
@@ -274,15 +274,15 @@ MandarinUndergroundStatueText:
 	text "A commemorative"
 	line "statue of TEAM"
 	cont "ROCKET's revival."
-	
+
 	para "Oh no!"
 	done
-	
+
 MandarinUnderground_MapEventHeader:: db 0, 0
 
 .Warps: db 4
-	warp_def 6, 2, 5, MANDARINNORTH
-	warp_def 6, 3, 5, MANDARINNORTH
+	warp_def 6, 2, 5, MANDARIN_NORTH
+	warp_def 6, 3, 5, MANDARIN_NORTH
 	warp_def 2, 3, 4, MANDARIN_UNDERGROUND
 	warp_def 2, 15, 3, MANDARIN_UNDERGROUND
 

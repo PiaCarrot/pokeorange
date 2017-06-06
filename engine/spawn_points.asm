@@ -7,17 +7,15 @@ spawn: MACRO
 	db \2, \3
 ENDM
 
-	spawn KRISS_HOUSE_2F,              3,  3
-
-	spawn NEW_BARK_TOWN,              13,  6
-	spawn CHERRYGROVE_CITY,           19,  10
-	spawn VIOLET_CITY,                11, 30
-	spawn ROUTE_32,                   13, 78
-	spawn MANDARINNORTH,			   7, 16
-	spawn SUNBURST_ISLAND,			  27, 28
-	spawn ROUTE_56_WEST,			  35, 8
-	spawn N_A,                        -1, -1
-
+	spawn KRISS_HOUSE_2F,  3,  3
+	spawn VALENCIA_ISLAND, 13,  6
+	spawn TANGELO_ISLAND,  19,  10
+	spawn MIKAN_ISLAND,    11, 30
+	spawn ROUTE_52,        13, 78
+	spawn MANDARIN_NORTH,  7, 16
+	spawn SUNBURST_ISLAND, 27, 28
+	spawn ROUTE_56_WEST,   35, 8
+	spawn N_A,             -1, -1
 
 
 LoadSpawnPoint: ; 1531f

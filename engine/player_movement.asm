@@ -399,12 +399,9 @@ DoPlayerMovement:: ; 80000
 
 .CheckWarp: ; 80226
 
-; Bug: Since no case is made for STANDING here, it will check
-; [.edgewarps + $ff]. This resolves to $3e at $8035a.
-; This causes wd041 to be nonzero when standing on tile $3e,
-; making bumps silent.
-
 	ld a, [WalkingDirection]
+	cp STANDING
+	jr z, .not_warp
 	ld e, a
 	ld d, 0
 	ld hl, .EdgeWarps
@@ -642,7 +639,6 @@ DoPlayerMovement:: ; 80000
 	add e
 	ld e, a
 ; Find an object struct with coordinates equal to d,e
-	ld bc, ObjectStructs ; redundant
 	farcall IsNPCAtCoord
 	jr nc, .is_npc
 	call .CheckStrengthBoulder

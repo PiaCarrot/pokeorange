@@ -10,10 +10,6 @@ _MainMenu: ; 5ae8
 	jp StartTitleScreen
 ; 5b04
 
-; unreferenced
-	ret
-; 5b05
-
 PrintDayOfWeek: ; 5b05
 	push de
 	ld hl, .Days
@@ -198,8 +194,6 @@ ENDC
 
 	call InitializeNPCNames
 
-	farcall InitDecorations
-
 	farcall DeletePartyMonMail
 
 	call ResetGameTime
@@ -371,7 +365,7 @@ Continue: ; 5d65
 	ret
 
 .SpawnAfterE4:
-	ld a, SPAWN_NEW_BARK
+	ld a, SPAWN_VALENCIA
 	ld [DefaultSpawnpoint], a
 	call PostCreditsSpawn
 	jp FinishContinueFunction
@@ -771,16 +765,6 @@ NamePlayer: ; 0x6074
 	db "ORANGE@@@@@"
 ; 60e9
 
-Function60e9: ; Unreferenced
-	call LoadMenuDataHeader
-	call VerticalMenu
-	ld a, [wMenuCursorY]
-	dec a
-	call CopyNameFromMenu
-	call CloseWindow
-	ret
-; 60fa
-
 StorePlayerName: ; 60fa
 	ld a, "@"
 	ld bc, NAME_LENGTH
@@ -957,9 +941,6 @@ Intro_PlacePlayerSprite: ; 61cd
 
 CrystalIntroSequence: ; 620b
 	farcall Copyright_GFPresents
-	jr c, StartTitleScreen
-	farcall CrystalIntro
-
 StartTitleScreen: ; 6219
 	ld a, [rSVBK]
 	push af
@@ -1038,18 +1019,6 @@ RunTitleScreen: ; 627b
 	ret
 ; 6292
 
-Function6292: ; 6292 ; unreferenced
-	ld a, [hVBlankCounter]
-	and $7
-	ret nz
-	ld hl, LYOverrides + $5f
-	ld a, [hl]
-	dec a
-	ld bc, 2 * SCREEN_WIDTH
-	call ByteFill
-	ret
-; 62a3
-
 TitleScreenScene: ; 62a3
 	ld e, a
 	ld d, 0
@@ -1068,13 +1037,6 @@ TitleScreenScene: ; 62a3
 	dw TitleScreenMain
 	dw TitleScreenEnd
 ; 62b7
-
-.NextScene: ; Unreferenced
-	ld hl, wJumptableIndex
-	inc [hl]
-	ret
-; 62bc
-
 
 TitleScreenEntrance: ; 62bc
 
@@ -1105,8 +1067,6 @@ TitleScreenEntrance: ; 62bc
 	inc hl
 	dec b
 	jr nz, .loop
-
-	farcall AnimateTitleCrystal
 	ret
 
 .done
@@ -1157,42 +1117,19 @@ TitleScreenMain: ; 6304
 	dec hl
 	ld [hl], e
 
-; Save data can be deleted by pressing Up + B + Select.
 	call GetJoypad
 	ld hl, hJoyDown
+
+; Save data can be deleted by pressing Up + B + Select.
 	ld a, [hl]
 	and D_UP + B_BUTTON + SELECT
 	cp  D_UP + B_BUTTON + SELECT
 	jr z, .delete_save_data
 
-; To bring up the clock reset dialog:
-
-; Hold Down + B + Select to initiate the sequence.
-	ld a, [hClockResetTrigger]
-	cp $34
-	jr z, .check_clock_reset
-
+; The clock can be reset by pressing Down + B + Select.
 	ld a, [hl]
 	and D_DOWN + B_BUTTON + SELECT
 	cp  D_DOWN + B_BUTTON + SELECT
-	jr nz, .check_start
-
-	ld a, $34
-	ld [hClockResetTrigger], a
-	jr .check_start
-
-; Keep Select pressed, and hold Left + Up.
-; Then let go of Select.
-.check_clock_reset
-	bit SELECT_F, [hl]
-	jr nz, .check_start
-
-	xor a
-	ld [hClockResetTrigger], a
-
-	ld a, [hl]
-	and D_LEFT + D_UP
-	cp  D_LEFT + D_UP
 	jr z, .clock_reset
 
 ; Press Start or A to start the game.
@@ -1272,49 +1209,6 @@ ResetClock: ; 6392
 	farcall _ResetClock
 	jp Init
 ; 639b
-
-Function639b: ; unreferenced
-	; If bit 0 or 1 of [wcf65] is set, we don't need to be here.
-	ld a, [wcf65]
-	and $3
-	ret nz
-	ld bc, SpriteAnim10
-	ld hl, SPRITEANIMSTRUCT_FRAME
-	add hl, bc ; over-the-top compicated way to load wc3ae into hl
-	ld l, [hl]
-	ld h, 0
-	add hl, hl
-	add hl, hl
-	ld de, Data63ca
-	add hl, de
-	; If bit 2 of [wcf65] is set, get the second dw; else, get the first dw
-	ld a, [wcf65]
-	and %00000100
-	srl a
-	srl a
-	ld e, a
-	ld d, 0
-	add hl, de
-	add hl, de
-	ld a, [hli]
-	and a
-	ret z
-	ld e, a
-	ld d, [hl]
-	ld a, SPRITE_ANIM_INDEX_01
-	call _InitSpriteAnimStruct
-	ret
-; 63ca
-
-Data63ca: ; 63ca
-; frame 0 y, x; frame 1 y, x
-	db 11 * 8 + 4, 10 * 8,  0 * 8,      0 * 8
-	db 11 * 8 + 4, 13 * 8, 11 * 8 + 4, 11 * 8
-	db 11 * 8 + 4, 13 * 8, 11 * 8 + 4, 15 * 8
-	db 11 * 8 + 4, 17 * 8, 11 * 8 + 4, 15 * 8
-	db  0 * 8,      0 * 8, 11 * 8 + 4, 15 * 8
-	db  0 * 8,      0 * 8, 11 * 8 + 4, 11 * 8
-; 63e2
 
 Copyright: ; 63e2
 	call ClearTileMap

@@ -3,8 +3,6 @@ const_value set 2
 	const ICEPATHB2FMAHOGANYSIDE_BOULDER2
 	const ICEPATHB2FMAHOGANYSIDE_BOULDER3
 	const ICEPATHB2FMAHOGANYSIDE_BOULDER4
-	const ICEPATHB2FMAHOGANYSIDE_POKE_BALL1
-	const ICEPATHB2FMAHOGANYSIDE_POKE_BALL2
 
 IcePathB2FMahoganySide_MapScriptHeader:
 .MapTriggers:
@@ -15,16 +13,6 @@ IcePathB2FMahoganySide_MapScriptHeader:
 
 BoulderScript_0x7e5a3:
 	jumptext UnknownText_0x7e5ad
-
-IcePathB2FMahoganySideFullHeal:
-	itemball FULL_HEAL
-
-IcePathB2FMahoganySideMaxPotion:
-	itemball MAX_POTION
-
-IcePathB2FMahoganySideHiddenCarbos:
-	dwb EVENT_ICE_PATH_B2F_MAHOGANY_SIDE_HIDDEN_CARBOS, CARBOS
-
 
 UnknownText_0x7e5ad:
 	text "It's immovably"
@@ -48,14 +36,11 @@ IcePathB2FMahoganySide_MapEventHeader:
 	db 0
 
 .Signposts:
-	db 1
-	signpost 17, 0, SIGNPOST_ITEM, IcePathB2FMahoganySideHiddenCarbos
+	db 0
 
 .PersonEvents:
-	db 6
+	db 4
 	person_event SPRITE_BOULDER, 3, 11, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, BoulderScript_0x7e5a3, EVENT_BOULDER_IN_ICE_PATH_1A
 	person_event SPRITE_BOULDER, 7, 4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, BoulderScript_0x7e5a3, EVENT_BOULDER_IN_ICE_PATH_2A
 	person_event SPRITE_BOULDER, 12, 3, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, BoulderScript_0x7e5a3, EVENT_BOULDER_IN_ICE_PATH_3A
 	person_event SPRITE_BOULDER, 13, 12, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, BoulderScript_0x7e5a3, EVENT_BOULDER_IN_ICE_PATH_4A
-	person_event SPRITE_POKE_BALL, 9, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, IcePathB2FMahoganySideFullHeal, EVENT_ICE_PATH_B2F_MAHOGANY_SIDE_FULL_HEAL
-	person_event SPRITE_POKE_BALL, 2, 0, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, IcePathB2FMahoganySideMaxPotion, EVENT_ICE_PATH_B2F_MAHOGANY_SIDE_MAX_POTION

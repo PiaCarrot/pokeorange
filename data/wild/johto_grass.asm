@@ -27,7 +27,7 @@
 	db 12, VENONAT
 	db 12, VENONAT
 
-	map ILEX_FOREST
+	map TANGELO_JUNGLE
 	db 5 percent, 5 percent, 5 percent ; encounter rates: morn/day/nite
 	; morn
 	db 8, CATERPIE
@@ -54,7 +54,7 @@
 	db 8, PIKACHU
 	db 10, BEEDRILL
 
-	map ROUTE_29
+	map ROUTE_49
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 6, PARAS
@@ -81,7 +81,7 @@
 	db 7, ODDISH
 	db 7, POLIWAG
 
-	map ROUTE_30
+	map ROUTE_50
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 7, GEODUDE
@@ -108,7 +108,7 @@
 	db 7, VULPIX
 	db 8, VULPIX
 
-	map ROUTE_31
+	map ROUTE_51
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 8, HOPPIP
@@ -135,7 +135,7 @@
 	db 8, GEODUDE
 	db 7, STARYU
 
-	map ROUTE_32
+	map ROUTE_52
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 9, KRABBY
@@ -162,7 +162,7 @@
 	db 10, ODDISH
 	db 9, TANGELA
 
-	map ROUTE_33
+	map ROUTE_53
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 10, SPINDA

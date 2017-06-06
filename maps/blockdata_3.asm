@@ -1,15 +1,8 @@
-IlexForest_BlockData:
-	INCBIN "maps/IlexForest.blk"
+DayCare_BlockData:
+	INCBIN "maps/DayCare.blk"
 
-GoldenrodGameCorner_BlockData:
-	INCBIN "maps/GoldenrodGameCorner.blk"
-
-ValenciaPort_BlockData:
-TangeloPort_BlockData:
-	INCBIN "maps/ValenciaPort.blk"
-
-KrissHouse2F_BlockData:
-	INCBIN "maps/KrissHouse2F.blk"
+HallOfFame_BlockData:
+	INCBIN "maps/HallOfFame.blk"
 
 RedsHouse1F_BlockData:
 	INCBIN "maps/RedsHouse1F.blk"
@@ -20,27 +13,36 @@ RedsHouse2F_BlockData:
 OaksLab_BlockData:
 	INCBIN "maps/OaksLab.blk"
 
-DayCare_BlockData:
-	INCBIN "maps/DayCare.blk"
+CinnabarIsland_BlockData:
+	INCBIN "maps/CinnabarIsland.blk"
 
 SeafoamGym_BlockData:
 	INCBIN "maps/SeafoamGym.blk"
 
-OlivinePortPassage_BlockData:
-VermilionPortPassage_BlockData:
-	INCBIN "maps/PortPassage.blk"
+NationalPark_BlockData:
+NationalParkBugContest_BlockData:
+	INCBIN "maps/NationalPark.blk"
 
-HallOfFame_BlockData:
-	INCBIN "maps/HallOfFame.blk"
+WarehouseEntrance_BlockData:
+	INCBIN "maps/WarehouseEntrance.blk"
 
-CherrygroveCity_BlockData:
-	INCBIN "maps/CherrygroveCity.blk"
-	
-CinnabarIsland_BlockData:
-	INCBIN "maps/CinnabarIsland.blk"
-	
-Route55_BlockData: 
-	INCBIN "maps/Route55.blk"
-	
-PinkanIsland_BlockData: 
-	INCBIN "maps/PinkanIsland.blk"
+UndergroundPathSwitchRoomEntrances_BlockData:
+	INCBIN "maps/UndergroundPathSwitchRoomEntrances.blk"
+
+GoldenrodGameCorner_BlockData:
+	INCBIN "maps/GoldenrodGameCorner.blk"
+
+IcePath1F_BlockData:
+	INCBIN "maps/IcePath1F.blk"
+
+IcePathB1F_BlockData:
+	INCBIN "maps/IcePathB1F.blk"
+
+IcePathB2FMahoganySide_BlockData:
+	INCBIN "maps/IcePathB2FMahoganySide.blk"
+
+IcePathB2FBlackthornSide_BlockData:
+	INCBIN "maps/IcePathB2FBlackthornSide.blk"
+
+IcePathB3F_BlockData:
+	INCBIN "maps/IcePathB3F.blk"

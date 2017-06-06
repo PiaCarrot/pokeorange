@@ -11,7 +11,7 @@ MandarinNorthMart_MapScriptHeader:
 
 MandarinNorthClerkScript:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_AZALEA
+	pokemart MARTTYPE_STANDARD, MART_MANDARIN_NORTH
 	closetext
 	end
 
@@ -31,8 +31,8 @@ MandarinNorthGrannyText:
 MandarinNorthMart_MapEventHeader:: db 0, 0
 
 .Warps: db 2
-	warp_def 7, 2, 6, MANDARINNORTH
-	warp_def 7, 3, 6, MANDARINNORTH
+	warp_def 7, 2, 6, MANDARIN_NORTH
+	warp_def 7, 3, 6, MANDARIN_NORTH
 
 .CoordEvents: db 0
 

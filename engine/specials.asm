@@ -51,7 +51,6 @@ SpecialsPointers:: ; c029
 	add_special Special_DayCareLady
 	add_special Special_DayCareManOutside
 	add_special MoveDeletion
-	add_special Special_BankOfMom
 	add_special Special_MagnetTrain
 	add_special SpecialNameRival
 	add_special Special_SetDayOfWeek
@@ -83,15 +82,10 @@ SpecialsPointers:: ; c029
 	add_special Special_FindAtLeastThatHappy
 	add_special Special_FindThatSpecies
 	add_special Special_FindThatSpeciesYourTrainerID
-	add_special Special_CheckUnusedTwoDayTimer ; unreferenced
 	add_special Special_DayCareMon1
 	add_special Special_DayCareMon2
 	add_special Special_SelectRandomBugContestContestants
 	add_special Special_ActivateFishingSwarm
-	add_special ToggleMaptileDecorations
-	add_special ToggleDecorationsVisibility
-	add_special SpecialGiveShuckle
-	add_special SpecialReturnShuckle
 	add_special Special_BillsGrandfather
 	add_special SpecialCheckPokerus
 	add_special Special_DisplayCoinCaseBalance
@@ -101,14 +95,10 @@ SpecialsPointers:: ; c029
 	add_special Special_CheckLuckyNumberShowFlag
 	add_special Special_ResetLuckyNumberShowFlag
 	add_special Special_PrintTodaysLuckyNumber
-	add_special Special_SelectApricornForKurt
 	add_special SpecialNameRater
 	add_special Special_DisplayLinkRecord
 	add_special GetFirstPokemonHappiness
 	add_special CheckFirstMonIsEgg
-	add_special RandomPhoneRareWildMon
-	add_special RandomPhoneWildMon
-	add_special RandomPhoneMon
 	add_special MapCallbackSprites_LoadUsedSpritesGFX
 	add_special PlaySlowCry
 	add_special SpecialSnorlaxAwake
@@ -126,11 +116,7 @@ SpecialsPointers:: ; c029
 	add_special Reset
 	add_special Special_MoveTutor
 	add_special SpecialPokeSeer
-	add_special SpecialBuenasPassword
-	add_special SpecialBuenaPrize
-	add_special SpecialDratini
 	add_special Special_SampleKenjiBreakCountdown
-	add_special SpecialBeastsCheck
 	add_special SpecialMonCheck
 	add_special Special_SetPlayerPalette
 	add_special RefreshSprites
@@ -365,13 +351,6 @@ ScriptReturnCarry: ; c3e2
 	ld [ScriptVar], a
 	ret
 ; c3ef
-
-Special_CheckUnusedTwoDayTimer: ; c3ef
-	farcall CheckUnusedTwoDayTimer
-	ld a, [wUnusedTwoDayTimer]
-	ld [ScriptVar], a
-	ret
-; c3fc
 
 Special_ActivateFishingSwarm: ; c3fc
 	ld a, [ScriptVar]

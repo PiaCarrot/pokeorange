@@ -369,6 +369,3 @@ GameFreakLogoPalettes: ; e47ac
 GameFreakLogo: ; e47cc
 INCBIN "gfx/splash/logo.1bpp"
 ; e48ac
-
-CrystalIntro: ; e48ac
-	ret

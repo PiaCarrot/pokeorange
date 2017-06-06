@@ -84,12 +84,6 @@ ScrollingMenuJoyAction: ; 24609
 	jr .loop
 ; 24640
 
-.unreferenced ; unreferenced
-	ld a, -1
-	and a
-	ret
-; 24644
-
 .a_button ; 24644
 	call PlaceHollowCursor
 	ld a, [wMenuCursorY]
@@ -523,9 +517,6 @@ ScrollingMenu_GetListItemCoordAndFunctionArgs: ; 248d5
 	ld a, [wMenuData2_ScrollingMenuSpacing]
 	cp 1
 	jr z, .got_spacing
-	cp 2
-	jr z, .pointless_jump
-.pointless_jump
 	add hl, de
 .got_spacing
 	add hl, de

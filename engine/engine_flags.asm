@@ -161,10 +161,10 @@ ENDM
 	engine_flag VisitedSpawns + 1, 4 ; cinnabar
 	engine_flag VisitedSpawns + 1, 5 ; indigo plateau
 	engine_flag VisitedSpawns + 1, 6 ; new bark
-	engine_flag VisitedSpawns + 1, 7 ; cherrygrove
-	engine_flag VisitedSpawns + 2, 0 ; violet
+	engine_flag VisitedSpawns + 1, 7 ; tangelo
+	engine_flag VisitedSpawns + 2, 0 ; mikan
 	                                 ; union cave
-	engine_flag VisitedSpawns + 2, 2 ; azalea
+	engine_flag VisitedSpawns + 2, 2 ; mandarin north
 	engine_flag VisitedSpawns + 2, 3 ; cianwood
 	engine_flag VisitedSpawns + 2, 4 ; goldenrod
 	engine_flag VisitedSpawns + 2, 5 ; olivine

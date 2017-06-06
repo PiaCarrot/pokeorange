@@ -535,36 +535,6 @@ TossMenu: ; 10364
 	ret
 ; 1039d
 
-ResetPocketCursorPositions: ; 1039d
-; unreferenced
-	ld a, [wCurrPocket]
-	and a
-	jr z, .items
-	dec a
-	jr z, .balls
-	dec a
-	jr z, .key
-	ret
-
-.balls
-	xor a
-	ld [wBallsPocketCursor], a
-	ld [wBallsPocketScrollPosition], a
-	ret
-
-.items
-	xor a
-	ld [wItemsPocketCursor], a
-	ld [wItemsPocketScrollPosition], a
-	ret
-
-.key
-	xor a
-	ld [wKeyItemsPocketCursor], a
-	ld [wKeyItemsPocketScrollPosition], a
-	ret
-; 103c2
-
 RegisterItem: ; 103c2
 	farcall CheckSelectableItem
 	ld a, [wItemAttributeParamBuffer]
@@ -1392,15 +1362,6 @@ Pack_GetItemName: ; 10a1d
 	call CopyName1
 	ret
 ; 10a2a
-
-Pack_ClearTilemap: ; 10a2a
-; unreferenced
-	hlcoord 0, 0
-	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	ld a, " "
-	call ByteFill
-	ret
-; 10a36
 
 ClearPocketList: ; 10a36 (4:4a36)
 	hlcoord 5, 2

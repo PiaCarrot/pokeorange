@@ -5,29 +5,11 @@ KrissHouse1F_MapScriptHeader:
 .MapTriggers:
 	db 0
 
-	; triggers
-
 .MapCallbacks:
 	db 0
 
-;UnknownScript_0x7a4f6:
-;	stringtotext GearName, $1
-;	scall UnknownScript_0x7a57e
-;	setflag ENGINE_POKEGEAR
-;	setflag ENGINE_PHONE_CARD
-;	addcellnum PHONE_MOM
-;	special Special_SetDayOfWeek
-	
 MotherScript:
-	faceplayer
-	opentext
-	writetext MotherText
-	waitbutton
-	closetext
-	end
-
-GearName:
-	db "#GEAR@"
+	jumptextfaceplayer MotherText
 
 TVScript:
 	jumptext TVText
@@ -50,17 +32,17 @@ MotherText:
 	para "You know, I used"
 	line "to be a TRAINER,"
 	cont "a long time ago."
-	
+
 	para "If you ever get"
 	line "strong, I will"
 	cont "gladly battle you."
 	done
-	
+
 StoveText:
 	text "An adept"
 	line "arrangement of"
 	cont "MOTHER..."
-	
+
 	para "VOLCANO BAKEMEAT!"
 	done
 
@@ -89,11 +71,13 @@ TVText:
 	line "rolling too!"
 	done
 
-KrissHouse1F_MapEventHeader:: db 0, 0
+KrissHouse1F_MapEventHeader::
+	; filler
+	db 0, 0
 
 .Warps: db 3
-	warp_def 7, 6, 2, NEW_BARK_TOWN
-	warp_def 7, 7, 2, NEW_BARK_TOWN
+	warp_def 7, 6, 2, VALENCIA_ISLAND
+	warp_def 7, 7, 2, VALENCIA_ISLAND
 	warp_def 0, 9, 1, KRISS_HOUSE_2F
 
 .CoordEvents: db 0
@@ -106,4 +90,3 @@ KrissHouse1F_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 1
 	person_event SPRITE_MOM, 3, 7, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MotherScript, -1
-

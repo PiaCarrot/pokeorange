@@ -1,6 +1,6 @@
 const_value set 2
-	const ValenciaPort_SAILOR1
-	const ValenciaPort_FISHING_GURU1
+	const VALENCIAPORT_SAILOR
+	const VALENCIAPORT_FISHING_GURU
 
 ValenciaPort_MapScriptHeader:
 .MapTriggers:
@@ -22,16 +22,16 @@ SailorScript:
 	writetext SailorAhoyText
 	waitbutton
 	closetext
-	spriteface ValenciaPort_SAILOR1, UP
+	spriteface VALENCIAPORT_SAILOR, UP
 	pause 10
 	playsound SFX_EXIT_BUILDING
-	disappear ValenciaPort_SAILOR1
+	disappear VALENCIAPORT_SAILOR
 	waitsfx
 	applymovement PLAYER, MovementData_0x74a30
 	playsound SFX_EXIT_BUILDING
 	special FadeOutPalettes
 	waitsfx
-	appear ValenciaPort_SAILOR1
+	appear VALENCIAPORT_SAILOR
 	warp TANGELO_PORT, 9, 15
 	end
 	
@@ -41,7 +41,7 @@ FishingGuruScript_0x74a01:
 	writetext UnknownText_0x74bf4
 	waitbutton
 	closetext
-	spriteface ValenciaPort_FISHING_GURU1, LEFT
+	spriteface VALENCIAPORT_FISHING_GURU, LEFT
 	end
 
 ValenciaPortHiddenProtein:
@@ -83,8 +83,8 @@ UnknownText_0x74bf4:
 ValenciaPort_MapEventHeader:: db 0, 0
 
 .Warps: db 2
-	warp_def 27, 8, 1, ROUTE_29
-	warp_def 27, 9, 1, ROUTE_29
+	warp_def 27, 8, 1, ROUTE_49
+	warp_def 27, 9, 1, ROUTE_49
 
 .CoordEvents: db 0
 
@@ -94,4 +94,3 @@ ValenciaPort_MapEventHeader:: db 0, 0
 .ObjectEvents: db 2
 	person_event SPRITE_SAILOR, 14, 9, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SailorScript, -1
 	person_event SPRITE_FISHING_GURU, 16, 12, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, FishingGuruScript_0x74a01, -1
-
