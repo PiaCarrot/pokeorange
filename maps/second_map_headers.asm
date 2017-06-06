@@ -46,11 +46,11 @@
 	connection east, ROUTE_56_EAST, Route56East, 0, 0, 17, ROUTE_56_WEST
 	
 	map_header_2 Route56East, ROUTE_56_EAST, 53, WEST | NORTH
-	connection north, KINNOW_ISLAND, KinnowIsland, 25, 0, 10, ROUTE_56_EAST
+	connection north, KINNOW_ISLAND, KinnowIsland, 25, 0, 12, ROUTE_56_EAST
 	connection west, ROUTE_56_WEST, Route56West, 0, 0, 17, ROUTE_56_EAST
 	
 	map_header_2 KinnowIsland, KINNOW_ISLAND, 53, SOUTH
-	connection south, ROUTE_56_EAST, Route56East, 0, 25, 10, KINNOW_ISLAND
+	connection south, ROUTE_56_EAST, Route56East, 0, 25, 12, KINNOW_ISLAND
 
 	map_header_2 NationalPark, NATIONAL_PARK, $0, 0
 	map_header_2 NationalParkBugContest, NATIONAL_PARK_BUG_CONTEST, $0, 0
