@@ -2443,16 +2443,6 @@ PokeFlute: ; f50c
 ; f58f
 
 
-BlueCard: ; f58f
-	ld hl, .bluecardtext
-	jp MenuTextBoxWaitButton
-
-.bluecardtext
-	text_jump UnknownText_0x1c5c5e
-	db "@"
-; f59a
-
-
 CoinCase: ; f59a
 	ld hl, .coincasetext
 	jp MenuTextBoxWaitButton
@@ -2775,6 +2765,7 @@ CardKey: ; f745
 BasementKey: ; f74c
 NormalBox: ; f763
 GorgeousBox: ; f767
+BlueCard: ; f58f
 	ret
 ; f74c
 

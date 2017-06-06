@@ -27,201 +27,17 @@ UnknownText_0x1c50bb::
 	text "Darn!"
 	done
 
-_MobileStadiumEntryText::
-	text "Data for use in"
-	line "the MOBILE STADIUM"
-
-	para "of the N64 #MON"
-	line "STADIUM 2 can be"
-	cont "read here."
-
-	para "Read the data?"
-	done
-
-_MobileStadiumSuccessText::
-	text "Data transfer is"
-	line "complete."
-	para "We hope you enjoy"
-	line "MOBILE STADIUM"
-	para "battles in the N64"
-	line "#MON STADIUM 2."
-	para ""
-	done
-
 UnknownText_0x1c5182::
 	text "Clock time unknown"
 	done
 
-UnknownText_0x1c5196::
-	text "Delete the saved"
-	line "LOG-IN PASSWORD?"
-	done
-
-UnknownText_0x1c51b9::
-	text "Deleted the LOG-IN"
-	line "PASSWORD."
-	done
-
-UnknownText_0x1c51d7::
-	text "Pick three #MON"
-	line "for battle."
-	prompt
-
-UnknownText_0x1c51f4::
-	text_from_ram wMobileParticipant1Nickname
-	text ","
-	line "@"
-	text_from_ram wMobileParticipant2Nickname
-	text " and"
-	cont "@"
-	text_from_ram wMobileParticipant3Nickname
-	text "."
-
-	para "Use these three?"
-	done
-
-UnknownText_0x1c521c::
-	text "Only three #MON"
-	line "may enter."
-	prompt
-
-UnknownText_0x1c5238::
-	text "The CARD FOLDER"
-	line "stores your and"
-	para "your friends'"
-	line "CARDS."
-	para "A CARD contains"
-	line "information like"
-	para "the person's name,"
-	line "phone number and"
-	cont "profile."
-	para ""
-	done
-
-UnknownText_0x1c52bc::
-	text "This is your CARD."
-	para "Once you've"
-	line "entered your phone"
-	para "number, you can"
-	line "trade CARDS with"
-	cont "your friends."
-	para ""
-	done
-
-UnknownText_0x1c531e::
-	text "If you have your"
-	line "friend's CARD, you"
-	para "can use it to make"
-	line "a call from a"
-	para "mobile phone on"
-	line "the 2nd floor of a"
-	cont "#MON CENTER."
-	para ""
-	done
-
-UnknownText_0x1c5394::
-	text "To safely store"
-	line "your collection of"
-	para "CARDS, you must"
-	line "set a PASSCODE for"
-	cont "your CARD FOLDER."
-	para ""
-	done
-
-UnknownText_0x1c53ee::
-	text "If the CARD FOLDER"
-	line "is deleted, all"
-
-	para "its CARDS and the"
-	line "PASSCODE will also"
-	cont "be deleted."
-
-	para "Beware--a deleted"
-	line "CARD FOLDER can't"
-	cont "be restored."
-
-	para "Want to delete"
-	line "your CARD FOLDER?"
-	done
-
-UnknownText_0x1c5494::
-	text "Are you sure you"
-	line "want to delete it?"
-	done
-
-UnknownText_0x1c54b9::
-	text "The CARD FOLDER"
-	line "has been deleted."
-	para ""
-	done
-
-UnknownText_0x1c54dd::
-	text "There is an older"
-	line "CARD FOLDER from a"
-	cont "previous journey."
-
-	para "Do you want to"
-	line "open it?"
-	done
-
-UnknownText_0x1c552d::
-	text "Delete the old"
-	line "CARD FOLDER?"
-	done
-
-UnknownText_0x1c554a::
-	text "Finish registering"
-	line "CARDS?"
-	done
-
-UnknownText_0x1c5565::
-	text "Huh? Sorry, wrong"
-	line "number!"
-	done
-
-UnknownText_0x1c5580::
-	text "Click!"
-	done
-
-UnknownText_0x1c5588::
-	text "<......>"
-	done
-
-UnknownText_0x1c558b::
-	text "That number is out"
-	line "of the area."
-	done
-
-UnknownText_0x1c55ac::
-	text "Just go talk to"
-	line "that person!"
-	done
-
-UnknownText_0x1c55ca::
-	text "Thank you!"
-	done
-
-UnknownText_0x1c55d6::
-	text "  :"
-	done
-
 UnknownText_0x1c55db::
-	text "Password OK."
-	line "Select CONTINUE &"
-	cont "reset settings."
-	prompt
-
-UnknownText_0x1c560b::
-	text "Wrong password!"
+	text "Select CONTINUE &"
+	line "reset settings."
 	prompt
 
 UnknownText_0x1c561c::
 	text "Reset the clock?"
-	done
-
-UnknownText_0x1c562e::
-	text "Please enter the"
-	line "password."
 	done
 
 UnknownText_0x1c564a::
@@ -564,13 +380,6 @@ UnknownText_0x1c5c44::
 	text_waitbutton
 	db "@@"
 
-UnknownText_0x1c5c5e::
-	text "You now have"
-	line "@"
-	deciram wBlueCardBalance, 1, 2
-	text " points."
-	done
-
 UnknownText_0x1c5c7b::
 	text "Coins:"
 	line "@"
@@ -601,17 +410,6 @@ Text_PPsIncreased::
 
 UnknownText_0x1c5cf1::
 	text "PP was restored."
-	prompt
-
-UnknownText_0x1c5d03::
-	text "There was a trophy"
-	line "inside!@"
-	sound_dex_fanfare_50_79
-	text ""
-	para "@"
-	text_from_ram PlayerName
-	text " sent the"
-	line "trophy home."
 	prompt
 
 UnknownText_0x1c5d3e::
@@ -752,42 +550,3 @@ UnknownText_0x1c5ff1::
 	text ","
 	line "is that OK?"
 	done
-
-UnknownText_0x1c6000::
-	text "Do you want to"
-	line "switch to Daylight"
-	cont "Saving Time?"
-	done
-
-UnknownText_0x1c6030::
-	text "I set the clock"
-	line "forward by one"
-	cont "hour."
-	prompt
-
-UnknownText_0x1c6056::
-	text "Is Daylight Saving"
-	line "Time over?"
-	done
-
-UnknownText_0x1c6075::
-	text "I put the clock"
-	line "back one hour."
-	prompt
-
-UnknownText_0x1c6095::
-	text "Do you want to"
-	line "adjust your clock"
-
-	para "for Daylight"
-	line "Saving Time?"
-	done
-
-UnknownText_0x1c60d1::
-	text "I lost the in-"
-	line "struction booklet"
-	cont "for the #GEAR."
-
-	para "Come back again in"
-	line "a while."
-	prompt
