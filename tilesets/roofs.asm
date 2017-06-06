@@ -29,9 +29,8 @@ MapGroupRoofs: ; 1c021i
 	db  2 ; group 8
 	db  2 ; group 9
 	db  1 ; group 10
-	db  1 ; group 11
+	db  0 ; group 11
 	db  0 ; group 12
-	db  0 ; group 13
 ; 1c03c
 
 Roofs: ; 1c03c

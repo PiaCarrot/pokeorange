@@ -387,11 +387,6 @@ PrintNum:: ; 3198
 	ret
 ; 31a4
 
-MobilePrintNum:: ; 31a4
-	homecall _MobilePrintNum
-	ret
-; 31b0
-
 FarPrintText:: ; 31b0
 	ld [hBuffer], a
 	ld a, [hROMBank]
@@ -542,11 +537,6 @@ CGBOnly_LoadEDTile:: ; 3238
 LoadEDTile:: ; 323d
 	jr .LoadEDTile
 ; 323f
-
-; XXX
-	callba HDMATransferAttrMapAndTileMapToWRAMBank3
-	ret
-; 3246
 
 .LoadEDTile: ; 3246
 	ld a, [hBGMapMode]
@@ -971,7 +961,7 @@ GetTMHMName:: ; 3487
 	push de
 	ld a, [wd265]
 	ld c, a
-	callab GetTMHMNumber
+	farcall GetTMHMNumber
 	pop de
 
 ; HM numbers start from 51, not 1
@@ -1162,7 +1152,7 @@ HandleStoneQueue:: ; 3567
 	call .IsObjectInStoneTable
 	jr nc, .nope
 	call CallMapScript
-	callba EnableScriptMode
+	farcall EnableScriptMode
 	scf
 	ret
 
@@ -1683,17 +1673,6 @@ Print8BitNumRightAlign:: ; 3842
 	jp PrintNum
 ; 384d
 
-Function384d:: ; 384d
-; XXX
-; GetNthMove
-	ld hl, wListMoves_MoveIndicesBuffer
-	ld c, a
-	ld b, 0
-	add hl, bc
-	ld a, [hl]
-	ret
-; 3856
-
 GetBaseData:: ; 3856
 	push bc
 	push de
@@ -1768,8 +1747,6 @@ GetNick:: ; 38a2
 	ld bc, PKMN_NAME_LENGTH
 	call CopyBytes
 	pop de
-
-	callab CheckNickErrors
 
 	pop bc
 	pop hl
@@ -1877,27 +1854,6 @@ GetPartyLocation:: ; 3927
 	jp AddNTimes
 ; 392d
 
-Function392d:: ; 392d
-; XXX
-; GetDexNumber
-; Probably used in gen 1 to convert index number to dex number
-; Not required in gen 2 because index number == dex number
-	push hl
-	ld a, b
-	dec a
-	ld b, 0
-	add hl, bc
-	ld hl, BaseData + 0
-	ld bc, BaseData1 - BaseData0
-	call AddNTimes
-	ld a, BANK(BaseData)
-	call GetFarHalfword
-	ld b, l
-	ld c, h
-	pop hl
-	ret
-; 3945
-
 INCLUDE "home/battle.asm"
 
 PushLYOverrides:: ; 3b0c
@@ -1958,4 +1914,3 @@ ReinitSpriteAnimFrame:: ; 3b3c
 ; 3b4e
 
 INCLUDE "home/audio.asm"
-INCLUDE "home/mobile.asm"

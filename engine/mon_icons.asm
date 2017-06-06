@@ -42,16 +42,6 @@ LoadMenuMonIcon: ; 8e83f
 	dw NamingScreen_InitAnimatedMonIcon ; naming screen
 	dw MoveList_InitAnimatedMonIcon ; moves (?)
 	dw Trade_LoadMonIconGFX ; trade
-	dw Mobile_InitAnimatedMonIcon ; mobile
-	dw Mobile_InitPartyMenuBGPal71 ; mobile
-	dw .GetPartyMenuMonIcon ; unused
-
-
-.GetPartyMenuMonIcon: ; 8e862 (23:6862)
-	call InitPartyMenuIcon
-	call .GetPartyMonItemGFX
-	call SetPartyMonIconAnimSpeed
-	ret
 
 .GetPartyMonItemGFX: ; 8e86c (23:686c)
 	push bc
@@ -66,7 +56,7 @@ LoadMenuMonIcon: ; 8e83f
 	push hl
 	push bc
 	ld d, a
-	callab ItemIsMail
+	farcall ItemIsMail
 	pop bc
 	pop hl
 	jr c, .not_mail
@@ -82,43 +72,6 @@ LoadMenuMonIcon: ; 8e83f
 	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
 	ld [hl], a
-	ret
-
-Mobile_InitAnimatedMonIcon: ; 8e898 (23:6898)
-	call PartyMenu_InitAnimatedMonIcon
-	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
-	add hl, bc
-	ld a, SPRITE_ANIM_SEQ_NULL
-	ld [hl], a
-	ld hl, SPRITEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, 9 * 8
-	ld [hl], a
-	ld hl, SPRITEANIMSTRUCT_YCOORD
-	add hl, bc
-	ld a, 9 * 8
-	ld [hl], a
-	ret
-
-Mobile_InitPartyMenuBGPal71: ; 8e8b1 (23:68b1)
-	call InitPartyMenuIcon
-	call SetPartyMonIconAnimSpeed
-	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
-	add hl, bc
-	ld a, SPRITE_ANIM_SEQ_NULL
-	ld [hl], a
-	ld hl, SPRITEANIMSTRUCT_XCOORD
-	add hl, bc
-	ld a, 3 * 8
-	ld [hl], a
-	ld hl, SPRITEANIMSTRUCT_YCOORD
-	add hl, bc
-	ld a, 12 * 8
-	ld [hl], a
-	ld a, c
-	ld [wc608], a
-	ld a, b
-	ld [wc608 + 1], a
 	ret
 
 PartyMenu_InitAnimatedMonIcon: ; 8e8d5 (23:68d5)
@@ -140,7 +93,7 @@ PartyMenu_InitAnimatedMonIcon: ; 8e8d5 (23:68d5)
 	push hl
 	push bc
 	ld d, a
-	callab ItemIsMail
+	farcall ItemIsMail
 	pop bc
 	pop hl
 	jr c, .mail
@@ -204,7 +157,7 @@ SetPartyMonIconAnimSpeed: ; 8e936 (23:6936)
 	ret
 
 .getspeed ; 8e94c (23:694c)
-	callba PlacePartymonHPBar
+	farcall PlacePartymonHPBar
 	call GetHPPal
 	ld e, d
 	ld d, 0
@@ -299,7 +252,7 @@ GetIconGFX: ; 8e9de
 	add hl, de
 	ld de, HeldItemIcons
 	lb bc, BANK(HeldItemIcons), 2
-	call GetGFXUnlessMobile
+	call Request2bpp
 	ld a, [wCurIconTile]
 	add 10
 	ld [wCurIconTile], a
@@ -348,18 +301,11 @@ endr
 	pop hl
 
 	lb bc, BANK(Icons), 8
-	call GetGFXUnlessMobile
+	call Request2bpp
 
 	pop hl
 	ret
 ; 8ea3f
-
-GetGFXUnlessMobile: ; 8ea3f
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	jp nz, Request2bpp
-	jp Get2bpp_2
-; 8ea4a
 
 FreezeMonIcons: ; 8ea4a
 	ld hl, wSpriteAnimationStructs

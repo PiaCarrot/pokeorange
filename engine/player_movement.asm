@@ -316,10 +316,6 @@ DoPlayerMovement:: ; 80000
 	scf
 	ret
 
-; unused?
-	xor a
-	ret
-
 .bump
 	xor a
 	ret
@@ -647,7 +643,7 @@ DoPlayerMovement:: ; 80000
 	ld e, a
 ; Find an object struct with coordinates equal to d,e
 	ld bc, ObjectStructs ; redundant
-	callba IsNPCAtCoord
+	farcall IsNPCAtCoord
 	jr nc, .is_npc
 	call .CheckStrengthBoulder
 	jr c, .no_bump

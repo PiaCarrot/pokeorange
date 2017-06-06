@@ -1,22 +1,6 @@
+StatsScreenInit:
 BattleStatsScreenInit: ; 4dc7b (13:5c7b)
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	jr nz, StatsScreenInit
-
-	ld a, [wBattleMode] ; wd22d (aliases: EnemyMonEnd)
-	and a
-	jr z, StatsScreenInit
-	jr _MobileStatsScreenInit
-
-StatsScreenInit: ; 4dc8a
 	ld hl, StatsScreenMain
-	jr StatsScreenInit_gotaddress
-
-_MobileStatsScreenInit: ; 4dc8f
-	ld hl, StatsScreenMobile
-	jr StatsScreenInit_gotaddress
-
-StatsScreenInit_gotaddress: ; 4dc94
 	ld a, [hMapAnims]
 	push af
 	xor a
@@ -33,7 +17,7 @@ StatsScreenInit_gotaddress: ; 4dc94
 	call ClearBGPalettes
 	call ClearTileMap
 	call UpdateSprites
-	callba StatsScreen_LoadFont
+	farcall StatsScreen_LoadFont
 	pop hl
 	call _hl_
 	call ClearBGPalettes
@@ -73,32 +57,6 @@ StatsScreenMain: ; 0x4dcd2
 	ret
 ; 0x4dcf7
 
-StatsScreenMobile: ; 4dcf7
-	xor a
-	ld [wJumptableIndex], a
-	; stupid interns
-	ld [wcf64], a
-	ld a, [wcf64]
-	and $fc
-	or $1
-	ld [wcf64], a
-.loop
-	callba Mobile_SetOverworldDelay
-	ld a, [wJumptableIndex]
-	and $7f
-	ld hl, StatsScreenPointerTable
-	rst JumpTable
-	call StatsScreen_WaitAnim
-	callba MobileComms_CheckInactivityTimer
-	jr c, .exit
-	ld a, [wJumptableIndex]
-	bit 7, a
-	jr z, .loop
-
-.exit
-	ret
-; 4dd2a
-
 StatsScreenPointerTable: ; 4dd2a
 	dw MonStatsInit       ; regular pokémon
 	dw EggStatsInit       ; egg
@@ -121,14 +79,14 @@ StatsScreen_WaitAnim: ; 4dd3a (13:5d3a)
 	ret
 
 .try_anim
-	callba SetUpPokeAnim
+	farcall SetUpPokeAnim
 	jr nc, .finish
 	ld hl, wcf64
 	res 6, [hl]
 .finish
 	ld hl, wcf64
 	res 5, [hl]
-	callba HDMATransferTileMapToWRAMBank3
+	farcall HDMATransferTileMapToWRAMBank3
 	ret
 
 StatsScreen_SetJumptableIndex: ; 4dd62 (13:5d62)
@@ -148,7 +106,7 @@ MonStatsInit: ; 4dd72 (13:5d72)
 	res 6, [hl]
 	call ClearBGPalettes
 	call ClearTileMap
-	callba HDMATransferTileMapToWRAMBank3
+	farcall HDMATransferTileMapToWRAMBank3
 	call StatsScreen_CopyToTempMon
 	ld a, [CurPartySpecies]
 	cp EGG
@@ -234,14 +192,14 @@ StatsScreen_CopyToTempMon: ; 4ddf2 (13:5df2)
 	jr .done
 
 .breedmon
-	callba CopyPkmnToTempMon
+	farcall CopyPkmnToTempMon
 	ld a, [CurPartySpecies]
 	cp EGG
 	jr z, .done
 	ld a, [MonType]
 	cp BOXMON
 	jr c, .done
-	callba CalcTempmonStats
+	farcall CalcTempmonStats
 .done
 	and a
 	ret
@@ -254,7 +212,7 @@ StatsScreen_GetJoypad: ; 4de2c (13:5e2c)
 	push hl
 	push de
 	push bc
-	callba StatsScreenDPad
+	farcall StatsScreenDPad
 	pop bc
 	pop de
 	pop hl
@@ -419,7 +377,7 @@ StatsScreen_InitUpperHalf: ; 4deea (13:5eea)
 	ld a, [hli]
 	ld d, a
 	ld e, [hl]
-	callba ComputeHPBarPixels
+	farcall ComputeHPBarPixels
 	ld hl, wcda1
 	call SetHPPal
 	ld b, SCGB_STATS_SCREEN_HP_PALS
@@ -429,7 +387,7 @@ StatsScreen_InitUpperHalf: ; 4deea (13:5eea)
 
 .PlaceGenderChar: ; 4df66 (13:5f66)
 	push hl
-	callba GetGender
+	farcall GetGender
 	pop hl
 	ret c
 	ld a, "♂"
@@ -480,7 +438,7 @@ StatsScreen_PlacePageSwitchArrows: ; 4df9b (13:5f9b)
 
 StatsScreen_PlaceShinyIcon: ; 4dfa6 (13:5fa6)
 	ld bc, TempMonDVs
-	callba CheckShininess
+	farcall CheckShininess
 	ret nc
 	hlcoord 19, 0
 	ld [hl], "<SHINY>"
@@ -519,7 +477,7 @@ StatsScreen_LoadGFX: ; 4dfb6 (13:5fb6)
 	ld a, [wcf64]
 	and $3
 	ld c, a
-	callba LoadStatsScreenPals
+	farcall LoadStatsScreenPals
 	call DelayFrame
 	ld hl, wcf64
 	set 5, [hl]
@@ -639,7 +597,7 @@ StatsScreen_LoadGFX: ; 4dfb6 (13:5fb6)
 	jr z, .AlreadyAtMaxLevel
 	inc a
 	ld d, a
-	callba CalcExpAtLevel
+	farcall CalcExpAtLevel
 	ld hl, TempMonExp + 2
 	ld hl, TempMonExp + 2
 	ld a, [hQuotient + 2]
@@ -719,7 +677,7 @@ StatsScreen_LoadGFX: ; 4dfb6 (13:5fb6)
 	and a
 	ret z
 	ld b, a
-	callba TimeCapsule_ReplaceTeruSama
+	farcall TimeCapsule_ReplaceTeruSama
 	ld a, b
 	ld [wd265], a
 	call GetItemName
@@ -768,7 +726,6 @@ StatsScreen_LoadGFX: ; 4dfb6 (13:5fb6)
 	ld hl, .OTNamePointers
 	call GetNicknamePointer
 	call CopyNickname
-	callba CheckNickErrors
 	hlcoord 2, 13
 	call PlaceString
 	ld a, [TempMonCaughtGender]
@@ -1013,7 +970,7 @@ EggStatsScreen: ; 4e33a
 	call DelayFrame
 	hlcoord 0, 0
 	call PrepMonFrontpic
-	callba HDMATransferTileMapToWRAMBank3
+	farcall HDMATransferTileMapToWRAMBank3
 	call StatsScreen_AnimateEgg
 
 	ld a, [TempMonHappiness]

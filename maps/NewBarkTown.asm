@@ -194,14 +194,14 @@ Movement_SilverReturnsToTheShadows_NBT:
 	step_end
 
 Text_GearIsImpressive:
-	text "<PLAY_G>!"
+	text "<PLAYER>!"
 
 	para "PROF. IVY is"
 	line "waiting for you!"
 	done
 
 Text_WaitPlayer:
-	text "Yo, <PLAY_G>!"
+	text "Yo, <PLAYER>!"
 	done
 
 Text_WhatDoYouThinkYoureDoing:
@@ -228,7 +228,7 @@ Text_YourMonIsAdorable:
 	done
 
 Text_TellMomIfLeaving:
-	text "Hi, <PLAY_G>!"
+	text "Hi, <PLAYER>!"
 	line "Leaving again?"
 
 	para "You should tell"

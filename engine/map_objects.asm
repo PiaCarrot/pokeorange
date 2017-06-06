@@ -1556,7 +1556,6 @@ StepType05: ; 4e0c
 	ld [hl], a
 	call IncrementObjectStructField28
 StepType04: ; 4e21
-	call MobileFn_4fb2
 	ld hl, OBJECT_DIRECTION_WALKING
 	add hl, bc
 	ld [hl], STANDING
@@ -1564,7 +1563,6 @@ StepType04: ; 4e21
 ; 4e2b
 
 NPCStep: ; 4e2b
-	call MobileFn_4fb2
 	call AddStepVector
 	ld hl, OBJECT_STEP_DURATION
 	add hl, bc
@@ -1684,7 +1682,7 @@ StepType0f: ; 4ecd
 	add hl, bc
 	ld a, [hl]
 	ld b, a
-	callba CopyDECoordsToMapObject
+	farcall CopyDECoordsToMapObject
 	pop bc
 	ld hl, OBJECT_FLAGS2
 	add hl, bc
@@ -1827,27 +1825,6 @@ SkyfallTop: ; 4f83
 	ret
 ; 4fb2
 
-MobileFn_4fb2: mobile
-	ld hl, OBJECT_29
-	add hl, bc
-	inc [hl]
-	ld a, [hl]
-	srl a
-	srl a
-	and %00000111
-	ld l, a
-	ld h, 0
-	ld de, .y
-	add hl, de
-	ld a, [hl]
-	ld hl, OBJECT_SPRITE_Y_OFFSET
-	add hl, bc
-	ld [hl], a
-	ret
-
-.y ; 4fcd
-	db 0, -1, -2, -3, -4, -3, -2, -1
-; 4fd5
 UpdateJumpPosition: ; 4fd5
 	call GetStepVector
 	ld a, h
@@ -2162,7 +2139,7 @@ InitTempObject: ; 55ac
 	ret nc
 	ld d, h
 	ld e, l
-	callba CopyTempObjectToObjectStruct
+	farcall CopyTempObjectToObjectStruct
 	ret
 ; 55b9
 
@@ -2291,7 +2268,7 @@ Function565c: ; 565c
 	call Function56a3
 	jr c, SetFacing_Standing
 	call Function5688
-	callba Function4440
+	farcall Function4440
 	xor a
 	ret
 ; 5673
@@ -2299,7 +2276,7 @@ Function565c: ; 565c
 Function5673: ; 5673
 	call Function56a3
 	jr c, SetFacing_Standing
-	callba Function4440 ; no need to farcall
+	farcall Function4440 ; no need to farcall
 	xor a
 	ret
 ; 5680
@@ -2325,7 +2302,7 @@ Function5688: ; 5688
 	ld hl, OBJECT_NEXT_TILE
 	add hl, bc
 	ld [hl], a
-	callba UpdateTallGrassFlags ; no need to farcall
+	farcall UpdateTallGrassFlags ; no need to farcall
 	ret
 ; 56a3
 
@@ -2512,7 +2489,7 @@ RefreshPlayerSprite: ; 579d
 	ld [wPlayerTurningDirection], a
 	ld [PlayerObjectStepFrame], a
 	call .TryResetPlayerAction
-	callba CheckWarpFacingDown
+	farcall CheckWarpFacingDown
 	call c, SpawnInFacingDown
 	call .SpawnInCustomFacing
 	ret
@@ -2581,7 +2558,7 @@ StartFollow:: ; 5803
 	ret c
 	ld a, c
 	call SetFollowerIfVisible
-	callba QueueFollowerFirstStep
+	farcall QueueFollowerFirstStep
 	ret
 ; 5815
 
@@ -2627,7 +2604,7 @@ ResetFollower: ; 5847
 	cp -1
 	ret z
 	call GetObjectStruct
-	callba Function58e3 ; no need to bankswitch
+	farcall Function58e3 ; no need to bankswitch
 	ld a, -1
 	ld [wObjectFollow_Follower], a
 	ret

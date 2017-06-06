@@ -51,7 +51,6 @@ INCLUDE "maps/NationalParkBugContest.asm"
 SECTION "Map Scripts 4", ROMX, BANK[MAP_SCRIPTS_4]
 
 INCLUDE "maps/GoldenrodPokeCenter1F.asm"
-INCLUDE "maps/GoldenrodPokeComCenter2FMobile.asm"
 INCLUDE "maps/Route34IlexForestGate.asm"
 INCLUDE "maps/DayCare.asm"
 
@@ -114,13 +113,6 @@ SECTION "Map Scripts 11", ROMX, BANK[MAP_SCRIPTS_11]
 
 SECTION "Map Scripts 12", ROMX, BANK[MAP_SCRIPTS_12]
 
-INCLUDE "maps/BattleTower1F.asm"
-INCLUDE "maps/BattleTowerBattleRoom.asm"
-INCLUDE "maps/BattleTowerElevator.asm"
-INCLUDE "maps/BattleTowerHallway.asm"
-INCLUDE "maps/Route40BattleTowerGate.asm"
-INCLUDE "maps/BattleTowerOutside.asm"
-
 
 SECTION "Map Scripts 13", ROMX, BANK[MAP_SCRIPTS_13]
 
@@ -143,8 +135,6 @@ INCLUDE "maps/PokeCenter2F.asm"
 INCLUDE "maps/TradeCenter.asm"
 INCLUDE "maps/Colosseum.asm"
 INCLUDE "maps/TimeCapsule.asm"
-INCLUDE "maps/MobileTradeRoomMobile.asm"
-INCLUDE "maps/MobileBattleRoom.asm"
 
 
 SECTION "Map Scripts 18", ROMX, BANK[MAP_SCRIPTS_18]
@@ -194,7 +184,6 @@ SECTION "Map Scripts 23", ROMX, BANK[MAP_SCRIPTS_23]
 INCLUDE "maps/NewBarkTown.asm"
 INCLUDE "maps/VioletCity.asm"
 INCLUDE "maps/CinnabarPokeCenter1F.asm"
-INCLUDE "maps/CinnabarPokeCenter2FBeta.asm"
 
 
 SECTION "Map Scripts 24", ROMX, BANK[MAP_SCRIPTS_24]

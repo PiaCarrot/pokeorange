@@ -84,7 +84,7 @@ CrystalCaveB2BrockText:
 	para "<.....><.....>"
 	
 	para "So your name is"
-	line "<PLAY_G>."
+	line "<PLAYER>."
 	
 	para "Well then, as"
 	line "promised, let's"
@@ -95,12 +95,12 @@ CrystalCaveB2BrockText:
 	
 BrockWinLoss:
 	text "Well done,"
-	line "<PLAY_G>."
+	line "<PLAYER>."
 	done
 	
 BrockWonText:
 	text "That was hard-"
-	line "fought, <PLAY_G>."
+	line "fought, <PLAYER>."
 	
 	para "You've earned the"
 	line "right to challenge"
@@ -117,7 +117,7 @@ BrockDefeatedText:
 	done
 	
 BrockStayingText:
-	text "<PLAY_G>, that"
+	text "<PLAYER>, that"
 	line "was amazing!"
 	
 	para "You displayed"

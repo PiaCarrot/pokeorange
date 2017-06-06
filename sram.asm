@@ -95,7 +95,6 @@ sBackupGameDataEnd::
 
 sBackupChecksum:: ds 2
 s0_bf0f:: ds 1 ; loaded with 0x7f, used to check save corruption
-sStackTop:: ds 2
 
 
 SECTION "Save", SRAM, BANK [1]
@@ -199,32 +198,6 @@ sMobileEventIndex:: ds 1 ; be3c
 sCrystalData::
 	ds wCrystalDataEnd - wCrystalData
 sMobileEventIndexBackup:: ds 1
-
-SECTION "SRAM Battle Tower", SRAM, BANK [1]
-; data of the BattleTower must be in SRAM because you can save and leave between battles
-sBattleTowerChallengeState:: ds 1
-; 0: normal
-; 2: battle tower
-
-sBattleTower:: ; be46
-sNrOfBeatenBattleTowerTrainers:: ds 1
-sBTChoiceOfLevelGroup:: ds 1
-; The 7 trainers of the BattleTower are saved here, so nobody appears more than once
-sBTTrainers:: ; sbe48
-	ds 7
-s1_be4f:: ds 1
-sBattleTowerReward:: ds 1
-; Pkmn of previous trainer
-sBTPkmnOfTrainers:: ; 0xbe51
-sBTPkmnPrevTrainer1::
-	ds 1
-sBTPkmnPrevTrainer2:: ds 1
-sBTPkmnPrevTrainer3:: ds 1
-; Pkmn of preprevious trainer
-sBTPkmnPrevPrevTrainer1:: ds 1
-sBTPkmnPrevPrevTrainer2:: ds 1
-sBTPkmnPrevPrevTrainer3:: ds 1
-
 
 SECTION "Boxes 1-7",  SRAM, BANK [2]
 	box sBox1

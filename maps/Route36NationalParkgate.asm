@@ -802,20 +802,6 @@ UnknownText_0x6b7af:
 	line "win."
 	done
 
-; This text is unused and unreferenced in the final game.
-; The tree Pokémon is Sudowoodo.
-; The Silph Scope 2 was later reworked into the Squirtbottle.
-
-UnusedSudowoodoText:
-	text "I hear there's a"
-	line "#MON that looks"
-	cont "just like a tree."
-
-	para "You can reveal its"
-	line "identity using a"
-	cont "SILPHSCOPE 2."
-	done
-
 UnknownText_0x6b84c:
 	text "The Bug-Catching"
 	line "Contest is held on"

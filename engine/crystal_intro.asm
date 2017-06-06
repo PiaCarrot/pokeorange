@@ -18,12 +18,12 @@ Copyright_GFPresents: ; e4579
 	call SetPalettes
 	ld c, 10
 	call DelayFrames
-	callab Copyright
+	farcall Copyright
 	call WaitBGMap
 	ld c, 100
 	call DelayFrames
 	call ClearTileMap
-	callba GBCOnlyScreen
+	farcall GBCOnlyScreen
 	call .GetGFLogoGFX
 .joy_loop
 	call JoyTextDelay
@@ -34,7 +34,7 @@ Copyright_GFPresents: ; e4579
 	bit 7, a
 	jr nz, .finish
 	call PlaceGameFreakPresents
-	callba PlaySpriteAnimations
+	farcall PlaySpriteAnimations
 	call DelayFrame
 	jr .joy_loop
 
@@ -78,7 +78,7 @@ Copyright_GFPresents: ; e4579
 	pop af
 	ld [rSVBK], a
 
-	callba ClearSpriteAnims
+	farcall ClearSpriteAnims
 	depixel 10, 11, 4, 0
 	ld a, SPRITE_ANIM_INDEX_GAMEFREAK_LOGO
 	call _InitSpriteAnimStruct
@@ -107,7 +107,7 @@ Copyright_GFPresents: ; e4579
 ; e465e
 
 .StopGamefreakAnim: ; e465e
-	callba ClearSpriteAnims
+	farcall ClearSpriteAnims
 	call ClearTileMap
 	call ClearSprites
 	ld c, 16
@@ -253,7 +253,7 @@ GameFreakLogoScene2: ; e470d (39:470d)
 	add $20
 .asm_e4723
 	ld e, a
-	callba BattleAnim_Sine_e
+	farcall BattleAnim_Sine_e
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], e

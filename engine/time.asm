@@ -200,7 +200,7 @@ CheckPokerusTick:: ; 114e7
 	and a
 	jr z, .done ; not even a day has passed since game start
 	ld b, a
-	callba ApplyPokerusTick
+	farcall ApplyPokerusTick
 .done
 	xor a
 	ret
@@ -225,21 +225,6 @@ CheckUnusedTwoDayTimer: ; 1150c
 	ret
 ; 1151c
 
-; XXX
-	ld hl, DailyFlags
-	set 2, [hl]
-	ret
-; 11522
-
-; XXX
-	and a
-	ld hl, DailyFlags
-	bit 2, [hl]
-	ret nz
-	scf
-	ret
-; 1152b
-
 RestartLuckyNumberCountdown: ; 1152b
 	call .GetDaysUntilNextFriday
 	ld hl, wLuckyNumberDayBuffer
@@ -252,12 +237,10 @@ RestartLuckyNumberCountdown: ; 1152b
 	ld a, FRIDAY
 	sub c
 	jr z, .friday_saturday
-	jr nc, .earlier ; should've done "ret nc"
+	ret nc
 
 .friday_saturday
 	add 7
-
-.earlier
 	ret
 ; 11542
 
@@ -265,36 +248,6 @@ CheckLuckyNumberShowFlag: ; 11542
 	ld hl, wLuckyNumberDayBuffer
 	jp CheckDayDependentEventHL
 ; 11548
-
-DoMysteryGiftIfDayHasPassed: ; 11548
-	ld a, BANK(sMysteryGiftTimer)
-	call GetSRAMBank
-	ld hl, sMysteryGiftTimer
-	ld a, [hli]
-	ld [Buffer1], a
-	ld a, [hl]
-	ld [Buffer2], a
-	call CloseSRAM
-
-	ld hl, Buffer1
-	call CheckDayDependentEventHL
-	jr nc, .not_timed_out
-	ld hl, Buffer1
-	call InitOneDayCountdown
-	call CloseSRAM
-	callba Function1050c8
-
-.not_timed_out
-	ld a, BANK(sMysteryGiftTimer)
-	call GetSRAMBank
-	ld hl, Buffer1
-	ld a, [hli]
-	ld [sMysteryGiftTimer], a
-	ld a, [hl]
-	ld [sMysteryGiftTimer + 1], a
-	call CloseSRAM
-	ret
-; 11586
 
 UpdateTimeRemaining: ; 11586
 ; If the amount of time elapsed exceeds the capacity of its

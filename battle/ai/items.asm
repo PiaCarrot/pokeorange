@@ -9,7 +9,7 @@ AI_SwitchOrTryItem: ; 38000
 	and a
 	ret nz
 
-	callba CheckEnemyLockedIn
+	farcall CheckEnemyLockedIn
 	ret nz
 
 	ld a, [PlayerSubStatus5]
@@ -44,7 +44,7 @@ DontSwitch: ; 38041
 ; 38045
 
 SwitchOften: ; 38045
-	callab CheckAbleToSwitch
+	farcall CheckAbleToSwitch
 	ld a, [wEnemySwitchMonParam]
 	and $f0
 	jp z, DontSwitch
@@ -80,7 +80,7 @@ SwitchOften: ; 38045
 ; 38083
 
 SwitchRarely: ; 38083
-	callab CheckAbleToSwitch
+	farcall CheckAbleToSwitch
 	ld a, [wEnemySwitchMonParam]
 	and $f0
 	jp z, DontSwitch
@@ -115,7 +115,7 @@ SwitchRarely: ; 38083
 ; 380c1
 
 SwitchSometimes: ; 380c1
-	callab CheckAbleToSwitch
+	farcall CheckAbleToSwitch
 	ld a, [wEnemySwitchMonParam]
 	and $f0
 	jp z, DontSwitch
@@ -358,12 +358,12 @@ AI_Items: ; 39196
 	ld a, [bc]
 	bit CONTEXT_USE_F, a
 	jr nz, .CheckHalfOrQuarterHP
-	callab AICheckEnemyHalfHP
+	farcall AICheckEnemyHalfHP
 	jp c, .DontUse
 	ld a, [bc]
 	bit UNKNOWN_USE_F, a
 	jp nz, .CheckQuarterHP
-	callab AICheckEnemyQuarterHP
+	farcall AICheckEnemyQuarterHP
 	jp nc, .UseHealItem
 	call Random
 	cp 1 + 50 percent
@@ -371,7 +371,7 @@ AI_Items: ; 39196
 	jp .DontUse
 
 .CheckQuarterHP: ; 38254 (e:4254)
-	callab AICheckEnemyQuarterHP
+	farcall AICheckEnemyQuarterHP
 	jp c, .DontUse
 	call Random
 	cp -1 + 20 percent
@@ -379,9 +379,9 @@ AI_Items: ; 39196
 	jr .UseHealItem
 
 .CheckHalfOrQuarterHP: ; 38267 (e:4267)
-	callab AICheckEnemyHalfHP
+	farcall AICheckEnemyHalfHP
 	jp c, .DontUse
-	callab AICheckEnemyQuarterHP
+	farcall AICheckEnemyQuarterHP
 	jp nc, .UseHealItem
 	call Random
 	cp -1 + 20 percent
@@ -414,50 +414,6 @@ AI_Items: ; 39196
 	call EnemyUsedPotion
 	jp .Use
 ; 382ae
-
-.asm_382ae ; This appears to be unused
-	callab AICheckEnemyMaxHP
-	jr c, .dont_use
-	push bc
-	ld de, EnemyMonMaxHP + 1
-	ld hl, EnemyMonHP + 1
-	ld a, [de]
-	sub [hl]
-	jr z, .check_40_percent
-	dec hl
-	dec de
-	ld c, a
-	sbc [hl]
-	and a
-	jr nz, .check_40_percent
-	ld a, c
-	cp b
-	jp c, .check_50_percent
-	callab AICheckEnemyQuarterHP
-	jr c, .check_40_percent
-
-.check_50_percent
-	pop bc
-	ld a, [bc]
-	bit UNKNOWN_USE_F, a
-	jp z, .Use
-	call Random
-	cp 1 + 50 percent
-	jp c, .Use
-
-.dont_use
-	jp .DontUse
-
-.check_40_percent
-	pop bc
-	ld a, [bc]
-	bit UNKNOWN_USE_F, a
-	jp z, .DontUse
-	call Random
-	cp 1 + 39 percent
-	jp c, .Use
-	jp .DontUse
-; 382f9
 
 .XAccuracy: ; 382f9
 	call .XItem
@@ -545,7 +501,7 @@ AI_Items: ; 39196
 
 AIUpdateHUD: ; 38387
 	call UpdateEnemyMonInParty
-	callba UpdateEnemyHUD
+	farcall UpdateEnemyHUD
 	ld a, $1
 	ld [hBGMapMode], a
 	ld hl, wEnemyItemState
@@ -705,7 +661,7 @@ AI_Switch: ; 3846c
 	res SUBSTATUS_RAGE, [hl]
 	xor a
 	ld [hBattleTurn], a
-	callab PursuitSwitch
+	farcall PursuitSwitch
 
 	push af
 	ld a, [CurOTMon]
@@ -726,12 +682,12 @@ AI_Switch: ; 3846c
 .skiptext
 	ld a, 1
 	ld [wBattleHasJustStarted], a
-	callab NewEnemyMonStatus
-	callab ResetEnemyStatLevels
+	farcall NewEnemyMonStatus
+	farcall ResetEnemyStatLevels
 	ld hl, PlayerSubStatus1
 	res SUBSTATUS_IN_LOVE, [hl]
-	callba EnemySwitch
-	callba ResetBattleParticipants
+	farcall EnemySwitch
+	farcall ResetBattleParticipants
 	xor a
 	ld [wBattleHasJustStarted], a
 	ld a, [wLinkMode]
@@ -745,13 +701,6 @@ TextJump_EnemyWithdrew: ; 384d0
 	text_jump Text_EnemyWithdrew
 	db "@"
 ; 384d5
-
-Function384d5: ; This appears to be unused
-	call AIUsedItemSound
-	call AI_HealStatus
-	ld a, X_SPEED
-	jp PrintText_UsedItemOn_AND_AIUpdateHUD
-; 384e0
 
 AI_HealStatus: ; 384e0
 	ld a, [CurOTMon]
@@ -790,32 +739,6 @@ EnemyUsedDireHit: ; 38511
 	jp PrintText_UsedItemOn_AND_AIUpdateHUD
 ; 3851e
 
-Function3851e: ; This appears to be unused
-	ld [hDivisor], a
-	ld hl, EnemyMonMaxHP
-	ld a, [hli]
-	ld [hDividend], a
-	ld a, [hl]
-	ld [hDividend + 1], a
-	ld b, 2
-	call Divide
-	ld a, [hQuotient + 2]
-	ld c, a
-	ld a, [hQuotient + 1]
-	ld b, a
-	ld hl, EnemyMonHP + 1
-	ld a, [hld]
-	ld e, a
-	ld a, [hl]
-	ld d, a
-	ld a, d
-	sub b
-	ret nz
-	ld a, e
-	sub c
-	ret
-; 38541
-
 EnemyUsedXAttack: ; 38541
 	ld b, ATTACK
 	ld a, X_ATTACK
@@ -847,7 +770,7 @@ EnemyUsedXItem:
 	push bc
 	call PrintText_UsedItemOn
 	pop bc
-	callba CheckIfStatCanBeRaised
+	farcall CheckIfStatCanBeRaised
 	jp AIUpdateHUD
 ; 38568
 

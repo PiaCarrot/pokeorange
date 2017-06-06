@@ -53,8 +53,6 @@ Predef_LoadSGBLayout: ; 864c
 	dw .SGB_PlayerOrMonFrontpicPals
 	dw .SGB_TradeTube
 	dw .SGB_TrainerOrMonFrontpicPals
-	dw .SGB_MysteryGift
-	dw .SGB1e
 ; 86ad
 
 .SGB_BattleGrayscale: ; 86ad
@@ -304,8 +302,7 @@ Predef_LoadSGBLayout: ; 864c
 	ret
 ; 8860
 
-.SGB_Diploma:
-.SGB_MysteryGift: ; 8860
+.SGB_Diploma: ; 8860
 	ld hl, PalPacket_9cb6
 	ld de, BlkPacket_9a86
 	ret
@@ -466,39 +463,6 @@ endr
 	ld de, wSGBPals + $10
 	ret
 ; 8969
-
-.SGB1e: ; 8969
-	ld hl, PalPacket_9ce6
-	ld de, wSGBPals
-	ld bc, $10
-	call CopyBytes
-	ld a, [CurPartySpecies]
-	ld l, a
-	ld h, 0
-	add hl, hl
-	add hl, hl
-	add hl, hl
-	ld de, PokemonPalettes
-	add hl, de
-	ld a, [wcf65]
-	and 3
-	sla a
-	sla a
-	ld c, a
-	ld b, 0
-	add hl, bc
-	ld a, [hli]
-	ld [wSGBPals + 3], a
-	ld a, [hli]
-	ld [wSGBPals + 4], a
-	ld a, [hli]
-	ld [wSGBPals + 5], a
-	ld a, [hl]
-	ld [wSGBPals + 6], a
-	ld hl, wSGBPals
-	ld de, BlkPacket_9a86
-	ret
-; 89a6
 
 .SGB19: ; 89a6
 	ld hl, PalPacket_9cd6

@@ -174,7 +174,7 @@ UnknownText_0x1bc308::
 	done
 
 UnknownText_0x1bc31b::
-	text "Ok!@@"
+	text "Okay!@@"
 	done
 
 UnknownText_0x1bc323::
@@ -1822,20 +1822,4 @@ UnknownText_0x1bdff2::
 	text "You have no room"
 	line "in your party."
 	cont "Come back later."
-	done
-
-UnknownText_0x1be024::
-	text "Which #MON"
-	line "should I photo-"
-	cont "graph?"
-	prompt
-
-UnknownText_0x1be047::
-	text "All righty. Hold"
-	line "still for a bit."
-	prompt
-
-UnknownText_0x1be06a::
-	text "Presto! All done."
-	line "Come again, OK?"
 	done

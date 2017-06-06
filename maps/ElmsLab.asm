@@ -208,13 +208,6 @@ ElmDirectionsScript:
 	waitbutton
 	closetext
 	setevent EVENT_GOT_A_POKEMON_FROM_ELM
-	setflag ENGINE_UNLOCKED_UNOWNS_1
-	setflag ENGINE_UNLOCKED_UNOWNS_2
-	setflag ENGINE_UNLOCKED_UNOWNS_3
-	setflag ENGINE_UNLOCKED_UNOWNS_4
-	setflag ENGINE_UNLOCKED_UNOWNS_5
-	setflag ENGINE_UNLOCKED_UNOWNS_6
-	setflag ENGINE_UNLOCKED_UNOWNS_7
 	dotrigger $5
 	domaptrigger NEW_BARK_TOWN, $1
 	end
@@ -268,7 +261,6 @@ ElmsLabHealingMachine:
 	end
 
 ElmsLabHealingMachine_HealParty:
-	special Mobile_HealParty
 	special HealParty
 	playmusic MUSIC_NONE
 	writebyte 1 ; Machine is in Elm's Lab
@@ -400,10 +392,6 @@ ElmsLabTrashcan:
 ElmsLabPC:
 	jumptext ElmsLabPCText
 
-ElmsLabTrashcan2:
-; unused
-	jumpstd trashcan
-
 ElmsLabBookshelf:
 	jumpstd difficultbookshelf
 
@@ -516,7 +504,7 @@ IvyAdventureText:
 	
 	para "IVY: This is..."
 	
-	para "<PLAY_G>, this"
+	para "<PLAYER>, this"
 	line "is an important"
 	cont "item."
 	
@@ -559,7 +547,7 @@ FinalIvyText:
 	done
 	
 ElmText_Intro:
-	text "IVY: <PLAY_G>!"
+	text "IVY: <PLAYER>!"
 	line "There you are!"
 
 	para "Today is the day"
@@ -612,7 +600,7 @@ ElmText_ChooseAPokemon:
 
 	para "You'll be that"
 	line "#MON's first"
-	cont "partner, <PLAY_G>!"
+	cont "partner, <PLAYER>!"
 
 	para "Go on. Pick one!"
 	done
@@ -689,7 +677,7 @@ ElmDirectionsText2:
 	done
 
 ElmDirectionsText3:
-	text "<PLAY_G>, here"
+	text "<PLAYER>, here"
 	line "is your #DEX!"
 	done
 
@@ -700,7 +688,7 @@ GotElmsNumberText:
 
 ElmDescribesMrPokemonText:
 	text "Best of luck,"
-	line "<PLAY_G>!"
+	line "<PLAYER>!"
 	done
 
 ElmPokeBallText:
@@ -726,7 +714,7 @@ ElmsLabSignpostText_Egg:
 	done
 
 AideText_GiveYouPotions:
-	text "HOPE: <PLAY_G>!"
+	text "HOPE: <PLAYER>!"
 
 	para "Use these on your"
 	line "#DEX quest!"

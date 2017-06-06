@@ -35,9 +35,6 @@ SpecialsPointers:: ; c029
 	add_special Special_Colosseum
 	add_special Special_TimeCapsule
 	add_special Special_CableClubCheckWhichChris
-	add_special Special_CheckMysteryGift
-	add_special Special_GetMysteryGiftItem
-	add_special Special_UnlockMysteryGift
 
 ; Map Events
 	add_special BugContestJudging
@@ -60,12 +57,9 @@ SpecialsPointers:: ; c029
 	add_special Special_SetDayOfWeek
 	add_special Special_TownMap
 	add_special Special_TownMapItem
-	add_special Special_UnownPrinter
 	add_special MapRadio
-	add_special Special_UnownPuzzle
 	add_special Special_SlotMachine
 	add_special Special_CardFlip
-	add_special Special_DummyNonfunctionalGameCornerGame
 	add_special Special_ClearBGPalettesBufferScreen
 	add_special FadeOutPalettes
 	add_special Special_BattleTowerFade
@@ -124,50 +118,13 @@ SpecialsPointers:: ; c029
 	add_special PlayCurMonCry
 	add_special ProfOaksPCBoot
 	add_special SpecialGameboyCheck
-	add_special SpecialTrainerHouse
-	add_special PhotoStudio
 	add_special InitRoamMons
 	add_special Special_FadeOutMusic
 	add_special Diploma
-	add_special PrintDiploma
 
 	; Crystal
-	add_special Function11ac3e
-	add_special Function11b444
-	add_special Function11b5e8
-	add_special Function11b7e5
-	add_special Function11b879
-	add_special Function11b920
-	add_special Function11b93b
-	add_special Function1700b0
-	add_special Function1700ba
-	add_special Function170114
-	add_special BattleTowerBattle
-	add_special Function1704e1
-	add_special EmptySpecial_17021d
-	add_special Function_LoadOpponentTrainerAndPokemonsWithOTSprite
-	add_special Function11ba38
-	add_special SpecialCheckForBattleTowerRules
-	add_special Special_GiveOddEgg
 	add_special Reset
-	add_special Function1011f1
-	add_special Function101220
-	add_special Function101225
-	add_special Function101231
 	add_special Special_MoveTutor
-	add_special SpecialOmanyteChamber
-	add_special Function11c1ab
-	add_special BattleTowerAction
-	add_special Special_DisplayUnownWords
-	add_special Special_Menu_ChallengeExplanationCancel
-	add_special Function17d2b6
-	add_special Function17d2ce
-	add_special Function17f53d
-	add_special AskMobileOrCable
-	add_special SpecialHoOhChamber
-	add_special Function102142
-	add_special Special_CelebiShrineEvent
-	add_special CheckCaughtCelebi
 	add_special SpecialPokeSeer
 	add_special SpecialBuenasPassword
 	add_special SpecialBuenaPrize
@@ -176,19 +133,9 @@ SpecialsPointers:: ; c029
 	add_special SpecialBeastsCheck
 	add_special SpecialMonCheck
 	add_special Special_SetPlayerPalette
-	add_special ret_170bd2
-	add_special Mobile_SelectThreeMons
-	add_special Function1037eb
-	add_special Function10383c
-	add_special Mobile_HealParty
 	add_special RefreshSprites
-	add_special Function1037c2
-	add_special Mobile_DummyReturnFalse
-	add_special Function103780
-	add_special Function10387b
 	add_special AskRememberPassword
 	add_special LoadMapPalettes
-	add_special FindItemInPCOrBag
 	add_special Special_InitialSetDSTFlag
 	add_special Special_InitialClearDSTFlag
 	add_special SpecialNone
@@ -202,7 +149,7 @@ SpecialNone: ; c224
 Special_SetPlayerPalette: ; c225
 	ld a, [ScriptVar]
 	ld d, a
-	callba SetPlayerPalette
+	farcall SetPlayerPalette
 	ret
 ; c230
 
@@ -217,7 +164,7 @@ Special_GameCornerPrizeMonCheckDex: ; c230
 	call FadeToMenu
 	ld a, [ScriptVar]
 	ld [wd265], a
-	callba NewPokedexEntry
+	farcall NewPokedexEntry
 	call ExitAllMenus
 	ret
 ; c252
@@ -232,28 +179,28 @@ SpecialSeenMon: ; c252
 Special_FindGreaterThanThatLevel: ; c25a
 	ld a, [ScriptVar]
 	ld b, a
-	callba _FindGreaterThanThatLevel
+	farcall _FindGreaterThanThatLevel
 	jr z, FoundNone
 	jr FoundOne
 
 Special_FindAtLeastThatHappy: ; c268
 	ld a, [ScriptVar]
 	ld b, a
-	callba _FindAtLeastThatHappy
+	farcall _FindAtLeastThatHappy
 	jr z, FoundNone
 	jr FoundOne
 
 Special_FindThatSpecies: ; c276
 	ld a, [ScriptVar]
 	ld b, a
-	callba _FindThatSpecies
+	farcall _FindThatSpecies
 	jr z, FoundNone
 	jr FoundOne
 
 Special_FindThatSpeciesYourTrainerID: ; c284
 	ld a, [ScriptVar]
 	ld b, a
-	callba _FindThatSpeciesYourTrainerID
+	farcall _FindThatSpeciesYourTrainerID
 	jr z, FoundNone
 	jr FoundOne
 
@@ -271,7 +218,7 @@ FoundNone: ; c298
 SpecialNameRival: ; 0xc29d
 	ld b, $2 ; rival
 	ld de, RivalName
-	callba _NamingScreen
+	farcall _NamingScreen
 	; default to "SILVER"
 	ld hl, RivalName
 	ld de, DefaultRivalName
@@ -283,34 +230,27 @@ DefaultRivalName: ; 0xc2b2
 	db "SILVER@"
 
 SpecialNameRater: ; c2b9
-	callba NameRater
+	farcall NameRater
 	ret
 ; c2c0
 
 Special_TownMap: ; c2c0
 	call FadeToMenu
-	callba _TownMap
+	farcall _TownMap
 	call ExitAllMenus
 	ret
 ; c2cd
 
 Special_TownMapItem:
 	call FadeToMenu
-	callba _TownMap
+	farcall _TownMap
 	call Call_ExitMenu
-	callba Pack
+	farcall Pack
 	ret
-	
-Special_UnownPrinter: ; c2cd
-	call FadeToMenu
-	callba UnownPrinter
-	call ExitAllMenus
-	ret
-; c2da
 
 Special_DisplayLinkRecord: ; c2da
 	call FadeToMenu
-	callba DisplayLinkRecord
+	farcall DisplayLinkRecord
 	call ExitAllMenus
 	ret
 ; c2e7
@@ -318,63 +258,14 @@ Special_DisplayLinkRecord: ; c2da
 Special_KrissHousePC: ; c2e7
 	xor a
 	ld [ScriptVar], a
-	callba _KrissHousePC
+	farcall _KrissHousePC
 	ld a, c
 	ld [ScriptVar], a
 	ret
 ; c2f6
 
-Special_CheckMysteryGift: ; c2f6
-	ld a, BANK(sMysteryGiftItem)
-	call GetSRAMBank
-	ld a, [sMysteryGiftItem]
-	and a
-	jr z, .no
-	inc a
-
-.no
-	ld [ScriptVar], a
-	call CloseSRAM
-	ret
-; c309
-
-Special_GetMysteryGiftItem: ; c309
-	ld a, BANK(sMysteryGiftItem)
-	call GetSRAMBank
-	ld a, [sMysteryGiftItem]
-	ld [CurItem], a
-	ld a, 1
-	ld [wItemQuantityChangeBuffer], a
-	ld hl, NumItems
-	call ReceiveItem
-	jr nc, .no_room
-	xor a
-	ld [sMysteryGiftItem], a
-	call CloseSRAM
-	ld a, [CurItem]
-	ld [wd265], a
-	call GetItemName
-	ld hl, .ReceiveItemText
-	call PrintText
-	ld a, TRUE
-	ld [ScriptVar], a
-	ret
-
-.no_room
-	call CloseSRAM
-	xor a
-	ld [ScriptVar], a
-	ret
-; c345
-
-.ReceiveItemText: ; 0xc345
-	; received item
-	text_jump UnknownText_0x1bd3be
-	db "@"
-; 0xc34a
-
 BugContestJudging: ; c34a
-	callba _BugContestJudging
+	farcall _BugContestJudging
 	ld a, b
 	ld [ScriptVar], a
 	ret
@@ -383,18 +274,9 @@ BugContestJudging: ; c34a
 MapRadio: ; c355
 	ld a, [ScriptVar]
 	ld e, a
-	callba PlayRadio
+	farcall PlayRadio
 	ret
 ; c360
-
-Special_UnownPuzzle: ; c360
-	call FadeToMenu
-	callba UnownPuzzle
-	ld a, [wSolvedUnownPuzzle]
-	ld [ScriptVar], a
-	call ExitAllMenus
-	ret
-; c373
 
 Special_SlotMachine: ; c373
 	call Special_CheckCoins
@@ -413,15 +295,6 @@ Special_CardFlip: ; c380
 	call Special_StartGameCornerGame
 	ret
 ; c38d
-
-Special_DummyNonfunctionalGameCornerGame: ; c38d
-	call Special_CheckCoins
-	ret c
-	ld a, BANK(_DummyGame)
-	ld hl, _DummyGame
-	call Special_StartGameCornerGame
-	ret
-; c39a
 
 Special_StartGameCornerGame: ; c39a
 	call FarQueueScript
@@ -494,7 +367,7 @@ ScriptReturnCarry: ; c3e2
 ; c3ef
 
 Special_CheckUnusedTwoDayTimer: ; c3ef
-	callba CheckUnusedTwoDayTimer
+	farcall CheckUnusedTwoDayTimer
 	ld a, [wUnusedTwoDayTimer]
 	ld [ScriptVar], a
 	ret
@@ -529,20 +402,20 @@ StoreSwarmMapIndices:: ; c403
 
 SpecialCheckPokerus: ; c419
 ; Check if a monster in your party has Pokerus
-	callba CheckPokerus
+	farcall CheckPokerus
 	jp ScriptReturnCarry
 ; c422
 
 Special_ResetLuckyNumberShowFlag: ; c422
-	callba RestartLuckyNumberCountdown
+	farcall RestartLuckyNumberCountdown
 	ld hl, wLuckyNumberShowFlag
 	res 0, [hl]
-	callba LoadOrRegenerateLuckyIDNumber
+	farcall LoadOrRegenerateLuckyIDNumber
 	ret
 ; c434
 
 Special_CheckLuckyNumberShowFlag: ; c434
-	callba CheckLuckyNumberShowFlag
+	farcall CheckLuckyNumberShowFlag
 	jp ScriptReturnCarry
 ; c43d
 
@@ -637,25 +510,11 @@ Special_FadeOutMusic: ; c48f
 
 Diploma: ; c49f
 	call FadeToMenu
-	callba _Diploma
+	farcall _Diploma
 	call ExitAllMenus
 	ret
 ; c4ac
 
-PrintDiploma: ; c4ac
-	call FadeToMenu
-	callba _PrintDiploma
-	call ExitAllMenus
-	ret
-; c4b9
-
-SpecialTrainerHouse: ; 0xc4b9
-	ld a, BANK(sMysteryGiftTrainerHouseFlag)
-	call GetSRAMBank
-	ld a, [sMysteryGiftTrainerHouseFlag]
-	ld [ScriptVar], a
-	jp CloseSRAM
-
 ClockResetter:
-	callba RestartClock
+	farcall RestartClock
 	ret

@@ -62,8 +62,6 @@ Predef_LoadSGBLayoutCGB: ; 8d59
 	dw _CGB_PlayerOrMonFrontpicPals
 	dw _CGB_TradeTube
 	dw _CGB_TrainerOrMonFrontpicPals
-	dw _CGB_MysteryGift
-	dw _CGB1e
 ; 8db8
 
 _CGB_BattleGrayscale: ; 8db8
@@ -156,12 +154,7 @@ _CGB_FinishBattleScreenLayout: ; 8e23
 
 
 InitPartyMenuBGPal7: ; 8e85
-	callba Function100dc0
-Mobile_InitPartyMenuBGPal7: ; 8e8b
 	ld hl, Palette_b311
-	jr nc, .not_mobile
-	ld hl, Palette_b309
-.not_mobile
 	ld de, UnknBGPals + 8 * 7
 	ld bc, 1 palettes
 	ld a, $5
@@ -170,11 +163,7 @@ Mobile_InitPartyMenuBGPal7: ; 8e8b
 ; 8e9f
 
 InitPartyMenuBGPal0: ; 8e9f
-	callba Function100dc0
 	ld hl, Palette_b311
-	jr nc, .not_mobile
-	ld hl, Palette_b309
-.not_mobile
 	ld de, UnknBGPals
 	ld bc, 1 palettes
 	ld a, $5
@@ -362,13 +351,6 @@ _CGB_BillsPC: ; 8fca
 Function9009: ; 9009
 	ld hl, Palette9036
 	call LoadHLPaletteIntoDE
-	jr .asm_901a
-
-.unused
-	ld bc, TempMonDVs
-	call GetPlayerOrMonPalettePointer
-	call LoadPalette_White_Col1_Col2_Black
-.asm_901a
 	call WipeAttrMap
 	hlcoord 1, 1, AttrMap
 	lb bc, 7, 7
@@ -837,20 +819,13 @@ _CGB_PokedexSearchOption: ; 93ba
 
 _CGB_PackPals: ; 93d3
 ; pack pals
-	ld a, [BattleType]
-	cp BATTLETYPE_TUTORIAL
-	jr z, .tutorial_male
-
 	ld a, [PlayerGender]
 	bit 0, a
-	jr z, .tutorial_male
-
+	jr z, .male
 	ld hl, .KrisPackPals
 	jr .got_gender
-
-.tutorial_male
+.male
 	ld hl, .ChrisPackPals
-
 .got_gender
 	ld de, UnknBGPals
 	ld bc, 8 palettes ; 6 palettes?
@@ -1038,16 +1013,6 @@ _CGB_PlayerOrMonFrontpicPals: ; 9529
 	ret
 ; 9542
 
-_CGB1e: ; 9542
-	ld de, UnknBGPals
-	ld a, [CurPartySpecies]
-	call GetMonPalettePointer_
-	call LoadPalette_White_Col1_Col2_Black
-	call WipeAttrMap
-	call ApplyAttrMap
-	ret
-; 9555
-
 _CGB_TradeTube: ; 9555
 	ld hl, PalPacket_9cc6 + 1
 	call CopyFourPalettes
@@ -1075,47 +1040,3 @@ _CGB_TrainerOrMonFrontpicPals: ; 9578
 	call ApplyPals
 	ret
 ; 9591
-
-_CGB_MysteryGift: ; 9591
-	ld hl, .Palettes
-	ld de, UnknBGPals
-	ld bc, 2 palettes
-	ld a, $5
-	call FarCopyWRAM
-	call ApplyPals
-	call WipeAttrMap
-	hlcoord 3, 7, AttrMap
-	lb bc, 8, 14
-	ld a, $1
-	call FillBoxCGB
-	hlcoord 1, 5, AttrMap
-	lb bc, 1, 18
-	ld a, $1
-	call FillBoxCGB
-	hlcoord 1, 16, AttrMap
-	lb bc, 1, 18
-	ld a, $1
-	call FillBoxCGB
-	hlcoord 0, 0, AttrMap
-	lb bc, 17, 2
-	ld a, $1
-	call FillBoxCGB
-	hlcoord 18, 5, AttrMap
-	lb bc, 12, 1
-	ld a, $1
-	call FillBoxCGB
-	call ApplyAttrMap
-	ret
-; 95e0
-
-.Palettes: ; 95e0
-	RGB 31, 31, 31
-	RGB 16, 31, 14
-	RGB 05, 14, 21
-	RGB 05, 13, 10
-
-	RGB 31, 31, 31
-	RGB 11, 21, 25
-	RGB 05, 14, 21
-	RGB 00, 03, 19
-; 95f0

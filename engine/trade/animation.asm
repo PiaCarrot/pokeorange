@@ -143,7 +143,7 @@ RunTradeAnimScript: ; 28fa1
 	call ClearTileMap
 	call DisableLCD
 	call LoadFontsBattleExtra
-	callab ClearSpriteAnims
+	farcall ClearSpriteAnims
 	ld a, [hCGB]
 	and a
 	jr z, .NotCGB
@@ -181,7 +181,7 @@ RunTradeAnimScript: ; 28fa1
 	ld [hWX], a
 	ld a, $90
 	ld [hWY], a
-	callba GetTrademonFrontpic
+	farcall GetTrademonFrontpic
 	call EnableLCD
 	call LoadTradeBallAndCableGFX
 	ld a, [wPlayerTrademonSpecies]
@@ -208,7 +208,7 @@ DoTradeAnimation: ; 29082
 	bit 7, a
 	jr nz, .finished
 	call .DoTradeAnimCommand
-	callab PlaySpriteAnimations
+	farcall PlaySpriteAnimations
 	ld hl, wcf65
 	inc [hl]
 	call DelayFrame
@@ -341,7 +341,7 @@ TradeAnim_InitTubeAnim: ; 2914e
 
 	push af
 	call DisableLCD
-	callab ClearSpriteAnims
+	farcall ClearSpriteAnims
 	hlbgcoord 20, 3
 	ld bc, 12
 	ld a, $60
@@ -487,7 +487,7 @@ TradeAnim_TubeToPlayer8: ; 29229
 	call ClearTileMap
 	call ClearSprites
 	call DisableLCD
-	callab ClearSpriteAnims
+	farcall ClearSpriteAnims
 	hlbgcoord 0, 0
 	ld bc, sScratch - VBGMap0
 	ld a, " "
@@ -861,7 +861,7 @@ TradeAnim_ShowGetmonData: ; 29461
 ; 29487
 
 TradeAnim_AnimateFrontpic: ; 29487
-	callba AnimateTrademonFrontpic
+	farcall AnimateTrademonFrontpic
 	call TradeAnim_AdvanceScriptPointer
 	ret
 
@@ -1520,7 +1520,7 @@ LoadTradeBallAndCableGFX: ; 2982b
 LoadTradeBubbleGFX: ; 2985a
 	call DelayFrame
 	ld e, $3
-	callab LoadMenuMonIcon
+	farcall LoadMenuMonIcon
 	ld de, TradeBubbleGFX
 	ld hl, VTiles0 tile $72
 	lb bc, BANK(TradeBubbleGFX), $4
@@ -1560,45 +1560,6 @@ TradeAnim_WaitAnim2: ; 29886
 	ret
 
 ; 29893
-
-
-DebugTrade: ; 29893
-; This function is unreferenced.
-; It was meant for use in Japanese versions, so the
-; constant used for copy length was changed by accident.
-
-	ld hl, .DebugTradeData
-
-	ld a, [hli]
-	ld [wPlayerTrademonSpecies], a
-	ld de, wPlayerTrademonSenderName
-	ld c, 11 + 2 ; jp: 6 + 2
-.loop1
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loop1
-
-	ld a, [hli]
-	ld [wOTTrademonSpecies], a
-	ld de, wOTTrademonSenderName
-	ld c, 11 + 2 ; jp: 6 + 2
-.loop2
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec c
-	jr nz, .loop2
-	ret
-
-; 298b5
-
-.DebugTradeData: ; 298b5
-	db VENUSAUR, "ゲーフり@@", $23, $01 ; GAME FREAK
-	db CHARIZARD, "クりーチャ@", $56, $04 ; Creatures Inc.
-; 298c7
-
 
 TradeGameBoyTilemap: ; 298c7
 ; 6x8

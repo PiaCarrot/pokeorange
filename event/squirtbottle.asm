@@ -26,7 +26,7 @@ _Squirtbottle: ; 50730
 	ld a, [MapNumber]
 	jr nz, .nope
 
-	callba GetFacingObject
+	farcall GetFacingObject
 	jr c, .nope
 
 	ld a, d

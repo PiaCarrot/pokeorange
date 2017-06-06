@@ -13,7 +13,7 @@ MomTriesToBuySomething:: ; fcfec
 	ret nc
 	ld b, BANK(.Script)
 	ld de, .Script
-	callba LoadScriptBDE
+	farcall LoadScriptBDE
 	scf
 	ret
 ; fd00f
@@ -64,7 +64,7 @@ CheckBalance_MomItem2: ; fd044
 	ld [hMoneyTemp + 2], a
 	ld de, wMomsMoney
 	ld bc, hMoneyTemp
-	callba CompareMoney
+	farcall CompareMoney
 	jr nc, .have_enough_money
 
 .nope
@@ -84,7 +84,7 @@ CheckBalance_MomItem2: ; fd044
 .loop
 	ld de, MomItemTriggerBalance
 	ld bc, wMomsMoney
-	callba CompareMoney
+	farcall CompareMoney
 	jr z, .exact
 	jr nc, .less_than
 	call .AddMoney
@@ -106,7 +106,7 @@ CheckBalance_MomItem2: ; fd044
 .AddMoney:
 	ld de, MomItemTriggerBalance
 	ld bc, hMoneyTemp
-	callba AddMoney
+	farcall AddMoney
 	ret
 ; fd0a6
 
@@ -123,7 +123,7 @@ MomBuysItem_DeductFunds: ; fd0a6 (3f:50a6)
 	ld [hMoneyTemp + 2], a
 	ld de, wMomsMoney
 	ld bc, hMoneyTemp
-	callba TakeMoney
+	farcall TakeMoney
 	ret
 
 
@@ -137,7 +137,7 @@ Mom_GiveItemOrDoll: ; fd0c3
 	ld a, [hl]
 	ld c, a
 	ld b, 1
-	callba DecorationFlagAction_c
+	farcall DecorationFlagAction_c
 	scf
 	ret
 
@@ -235,8 +235,6 @@ MomItems_2: ; fd15e
 	momitem 100000, 22800, MOM_DOLL, DECO_BIG_SNORLAX_DOLL
 ; fd1ae
 
-	db 0, 0, 0 ; XXX
-
 _MomText_HiHowAreYou: ; 0xfd1b1
 	; Hi,  ! How are you?
 	text_jump UnknownText_0x1bc615
@@ -273,10 +271,6 @@ _MomText_ItsInRoom: ; 0xfd1ca
 	db "@"
 ; 0xfd1cf
 
-	db 0 ; XXX
-
 Predef3A: ; fd1d0
 	ret
 ; fd1d1
-
-	ret ; XXX

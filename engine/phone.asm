@@ -154,7 +154,7 @@ CheckPhoneCall:: ; 90074 (24:4074)
 	ret
 
 .timecheck ; 900a6 (24:40a6)
-	callba CheckReceiveCallTimer
+	farcall CheckReceiveCallTimer
 	ret
 
 CheckPhoneContactTimeOfDay: ; 900ad (24:40ad)
@@ -163,7 +163,7 @@ CheckPhoneContactTimeOfDay: ; 900ad (24:40ad)
 	push de
 	push af
 
-	callba CheckTime
+	farcall CheckTime
 	pop af
 	and (1 << MORN) + (1 << DAY) + (1 << NITE)
 	and c
@@ -201,7 +201,7 @@ ChooseRandomCaller: ; 900bf (24:40bf)
 	ret
 
 GetAvailableCallers: ; 900de (24:40de)
-	callba CheckTime
+	farcall CheckTime
 	ld a, c
 	ld [EngineBuffer1], a ; wd03e (aliases: MenuItemsList, CurFruitTree, CurInput)
 	ld hl, EngineBuffer3
@@ -471,7 +471,6 @@ UnknownScript_0x90261: ; 0x90261
 RingTwice_StartCall: ; 9026f
 	call .Ring
 	call .Ring
-	callba MobileFn_1060d3
 	ret
 ; 9027c
 
@@ -500,7 +499,6 @@ PhoneCall:: ; 9029a
 	ld [PhoneCallerHi], a
 	call Phone_FirstOfTwoRings
 	call Phone_FirstOfTwoRings
-	callba MobileFn_1060d3
 	ret
 ; 902b3
 
@@ -599,7 +597,7 @@ Phone_StartRinging: ; 9033f
 	call PlaySFX
 	call Phone_CallerTextbox
 	call UpdateSprites
-	callba PhoneRing_LoadEDTile
+	farcall PhoneRing_LoadEDTile
 	ret
 ; 90355
 
@@ -609,7 +607,7 @@ HangUp_Wait20Frames: ; 90355
 Phone_Wait20Frames
 	ld c, 20
 	call DelayFrames
-	callba PhoneRing_LoadEDTile
+	farcall PhoneRing_LoadEDTile
 	ret
 ; 90363
 
@@ -725,7 +723,7 @@ NonTrainerCallerNames: ; 903d6
 Phone_GetTrainerName: ; 90423 (24:4423)
 	push hl
 	push bc
-	callba GetTrainerName
+	farcall GetTrainerName
 	pop bc
 	pop hl
 	ret
@@ -733,7 +731,7 @@ Phone_GetTrainerName: ; 90423 (24:4423)
 Phone_GetTrainerClassName: ; 9042e (24:442e)
 	push hl
 	push bc
-	callba GetTrainerClassName
+	farcall GetTrainerClassName
 	pop bc
 	pop hl
 	ret
@@ -754,7 +752,7 @@ GetCallerLocation: ; 90439
 	push bc
 	call GetWorldMapLocation
 	ld e, a
-	callba GetLandmarkName
+	farcall GetLandmarkName
 	pop bc
 	pop de
 	ret
@@ -770,14 +768,14 @@ phone: MACRO
 	dba \7 ; script 2
 ENDM
 
-	phone TRAINER_NONE, PHONE_00,              N_A,                       0, UnusedPhoneScript,   0, UnusedPhoneScript
-	phone TRAINER_NONE, PHONECONTACT_MOM,      KRISS_HOUSE_1F,            7, MomPhoneScript,      0, UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0, NULL,   0, NULL
+	phone TRAINER_NONE, PHONECONTACT_MOM,      KRISS_HOUSE_1F,            7, MomPhoneScript,      0, NULL
 	phone TRAINER_NONE, PHONECONTACT_BILL,     N_A,                       7, BillPhoneScript1,    0, BillPhoneScript2
 	phone TRAINER_NONE, PHONECONTACT_ELM,      ELMS_LAB,                  7, ElmPhoneScript1,     0, ElmPhoneScript2
-	phone TRAINER_NONE, PHONE_00,              N_A,                       0, UnusedPhoneScript,   0, UnusedPhoneScript
-	phone TRAINER_NONE, PHONE_00,              N_A,                       0, UnusedPhoneScript,   0, UnusedPhoneScript
-	phone TRAINER_NONE, PHONE_00,              N_A,                       0, UnusedPhoneScript,   0, UnusedPhoneScript
-	phone TRAINER_NONE, PHONE_00,              N_A,                       0, UnusedPhoneScript,   0, UnusedPhoneScript
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0, NULL,   0, NULL
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0, NULL,   0, NULL
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0, NULL,   0, NULL
+	phone TRAINER_NONE, PHONE_00,              N_A,                       0, NULL,   0, NULL
 ; 90627
 
 SpecialPhoneCallList: ; 90627

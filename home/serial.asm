@@ -6,10 +6,6 @@ Serial:: ; 6ef
 	push de
 	push hl
 
-	ld a, [wPrinterConnectionOpen]
-	bit 0, a
-	jr nz, .printer
-
 	ld a, [hLinkPlayerNumber]
 	inc a ; is it equal to -1?
 	jr z, .init_player_number
@@ -29,10 +25,6 @@ Serial:: ; 6ef
 	ld a, 1 << rSC_ON
 	ld [rSC], a
 	jr .player2
-
-.printer
-	call PrinterReceive
-	jr .end
 
 .init_player_number
 	ld a, [rSB]
@@ -275,7 +267,7 @@ Function83b:: ; 83b
 
 Function862:: ; 862
 	call LoadTileMapToTempTileMap
-	callab PlaceWaitingText
+	farcall PlaceWaitingText
 	call WaitLinkTransfer
 	jp Call_LoadTempTileMapToTileMap
 ; 871
@@ -283,7 +275,7 @@ Function862:: ; 862
 
 Function871:: ; 871
 	call LoadTileMapToTempTileMap
-	callab PlaceWaitingText
+	farcall PlaceWaitingText
 	jp WaitLinkTransfer
 ; 87d
 
@@ -395,19 +387,3 @@ LinkDataReceived:: ; 908
 	ld [rSC], a
 	ret
 ; 919
-
-Function919:: ; 919
-; XXX
-	ld a, [wLinkMode]
-	and a
-	ret nz
-	ld a, $2
-	ld [rSB], a
-	xor a
-	ld [hSerialReceive], a
-	ld a, $0
-	ld [rSC], a
-	ld a, $80
-	ld [rSC], a
-	ret
-; 92e

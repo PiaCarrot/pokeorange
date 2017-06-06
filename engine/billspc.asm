@@ -208,7 +208,7 @@ BillsPCDepositFuncRelease: ; e24e0 (38:64e0)
 	ld [CurPartyMon], a
 	xor a
 	ld [wPokemonWithdrawDepositParameter], a
-	callba RemoveMonFromPartyOrBox
+	farcall RemoveMonFromPartyOrBox
 	call ReleasePKMN_ByePKMN
 	ld a, $0
 	ld [wJumptableIndex], a
@@ -371,11 +371,6 @@ _WithdrawPKMN: ; e2583 (38:6583)
 	ld [wJumptableIndex], a
 	ret ; e264a (38:664a)
 
-.unused
-	ld hl, wJumptableIndex
-	dec [hl]
-	ret
-
 .b_button
 	ld a, $4
 	ld [wJumptableIndex], a
@@ -472,7 +467,7 @@ BillsPC_Withdraw: ; e2675 (38:6675)
 	ld [CurPartyMon], a
 	ld a, PC_DEPOSIT
 	ld [wPokemonWithdrawDepositParameter], a
-	callba RemoveMonFromPartyOrBox
+	farcall RemoveMonFromPartyOrBox
 	call ReleasePKMN_ByePKMN
 	ld a, $0
 	ld [wJumptableIndex], a
@@ -631,11 +626,6 @@ _MovePKMNWithoutMail: ; e2759
 	jr z, .b_button
 	ld a, $2
 	ld [wJumptableIndex], a
-	ret
-
-.unused
-	ld hl, wJumptableIndex
-	dec [hl]
 	ret
 
 .b_button
@@ -1125,7 +1115,7 @@ PCMonInfo: ; e2ac6 (38:6ac6)
 
 	ld a, $3
 	ld [MonType], a
-	callba GetGender
+	farcall GetGender
 	jr c, .skip_gender
 	ld a, "♂"
 	jr nz, .printgender
@@ -1140,7 +1130,7 @@ PCMonInfo: ; e2ac6 (38:6ac6)
 	ret z
 
 	ld d, a
-	callab ItemIsMail
+	farcall ItemIsMail
 	jr c, .mail
 	ld a, $5d ; item icon
 	jr .printitem
@@ -1592,23 +1582,6 @@ endr
 	db -1
 ; e2ed5
 
-BillsPC_UnusedFillBox: ; e2ed5
-.row
-	push bc
-	push hl
-.col
-	ld [hli], a
-	dec c
-	jr nz, .col
-	pop hl
-	ld bc, SCREEN_WIDTH
-	add hl, bc
-	pop bc
-	dec b
-	jr nz, .row
-	ret
-; e2ee5
-
 BillsPC_CheckSpaceInDestination: ; e2ee5
 ; If moving within a box, no need to be here.
 	ld hl, wBillsPC_LoadedBox
@@ -1656,7 +1629,7 @@ BillsPC_CheckMail_PreventBlackout: ; e2f18 (38:6f18)
 	ld hl, wBillsPC_ScrollPosition
 	add [hl]
 	ld [CurPartyMon], a
-	callba CheckCurPartyMonFainted
+	farcall CheckCurPartyMonFainted
 	jr c, .AllOthersFainted
 	ld a, [wBillsPC_MonHasMail]
 	and a
@@ -1773,7 +1746,7 @@ BillsPC_CopyMon: ; e2fd6 (38:6fd6)
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call CopyBytes
 	call CloseSRAM
-	callba CalcwBufferMonStats
+	farcall CalcwBufferMonStats
 	ret
 
 .party
@@ -1816,7 +1789,7 @@ BillsPC_CopyMon: ; e2fd6 (38:6fd6)
 	ld bc, BOXMON_STRUCT_LENGTH
 	call CopyMonToTemp
 	call CloseSRAM
-	callba CalcwBufferMonStats
+	farcall CalcwBufferMonStats
 	ret
 
 DepositPokemon: ; e307c (38:707c)
@@ -1833,7 +1806,7 @@ DepositPokemon: ; e307c (38:707c)
 	jr c, .asm_boxisfull
 	xor a
 	ld [wPokemonWithdrawDepositParameter], a
-	callba RemoveMonFromPartyOrBox
+	farcall RemoveMonFromPartyOrBox
 	ld a, [CurPartySpecies]
 	call PlayCry
 	hlcoord 0, 0
@@ -1888,7 +1861,7 @@ TryWithdrawPokemon: ; e30fa (38:70fa)
 	jr c, .PartyFull
 	ld a, PC_DEPOSIT
 	ld [wPokemonWithdrawDepositParameter], a
-	callba RemoveMonFromPartyOrBox
+	farcall RemoveMonFromPartyOrBox
 	ld a, [CurPartySpecies]
 	call PlayCry
 	hlcoord 0, 0
@@ -2020,7 +1993,7 @@ MovePKMNWitoutMail_InsertMon: ; e31e7
 .dw_return ; e322a
 	pop af
 	ld e, a
-	callba MovePkmnWOMail_InsertMon_SaveGame
+	farcall MovePkmnWOMail_InsertMon_SaveGame
 	ret
 ; e3233
 
@@ -2056,7 +2029,7 @@ MovePKMNWitoutMail_InsertMon: ; e31e7
 	call .CopyFromParty
 	ld a, $1
 	ld [wGameLogicPaused], a
-	callba SaveGameData
+	farcall SaveGameData
 	xor a
 	ld [wGameLogicPaused], a
 	call .CopyToBox
@@ -2106,7 +2079,7 @@ MovePKMNWitoutMail_InsertMon: ; e31e7
 	ld a, [wBillsPC_BackupLoadedBox]
 	dec a
 	ld e, a
-	callba MovePkmnWOMail_SaveGame
+	farcall MovePkmnWOMail_SaveGame
 	ld a, [wBillsPC_BackupCursorPosition]
 	ld hl, wBillsPC_BackupScrollPosition
 	add [hl]
@@ -2123,10 +2096,10 @@ MovePKMNWitoutMail_InsertMon: ; e31e7
 	ld bc, BOXMON_STRUCT_LENGTH
 	call CopyMonToTemp
 	call CloseSRAM
-	callba CalcwBufferMonStats
+	farcall CalcwBufferMonStats
 	ld a, PC_DEPOSIT
 	ld [wPokemonWithdrawDepositParameter], a
-	callba RemoveMonFromPartyOrBox
+	farcall RemoveMonFromPartyOrBox
 	ret
 ; e32fa
 
@@ -2134,12 +2107,12 @@ MovePKMNWitoutMail_InsertMon: ; e31e7
 	ld a, [wBillsPC_LoadedBox]
 	dec a
 	ld e, a
-	callba MovePkmnWOMail_SaveGame
+	farcall MovePkmnWOMail_SaveGame
 	ld a, [wBillsPC_CursorPosition]
 	ld hl, wBillsPC_ScrollPosition
 	add [hl]
 	ld [CurPartyMon], a
-	callba InsertPokemonIntoBox
+	farcall InsertPokemonIntoBox
 	ret
 ; e3316
 
@@ -2159,7 +2132,7 @@ MovePKMNWitoutMail_InsertMon: ; e31e7
 	call CopyMonToTemp
 	xor a
 	ld [wPokemonWithdrawDepositParameter], a
-	callba RemoveMonFromPartyOrBox
+	farcall RemoveMonFromPartyOrBox
 	ret
 ; e3346
 
@@ -2168,7 +2141,7 @@ MovePKMNWitoutMail_InsertMon: ; e31e7
 	ld hl, wBillsPC_ScrollPosition
 	add [hl]
 	ld [CurPartyMon], a
-	callba InsertPokemonIntoParty
+	farcall InsertPokemonIntoParty
 	ret
 ; e3357
 
@@ -2509,22 +2482,6 @@ BillsPC_ChangeBoxSubmenu: ; e36f9 (38:76f9)
 	jr z, .Switch
 	cp $2
 	jr z, .Name
-	cp $3
-	jr z, .Print
-	and a
-	ret
-
-.Print:
-	call GetBoxCount
-	and a
-	jr z, .EmptyBox
-	ld e, l
-	ld d, h
-	ld a, [MenuSelection]
-	dec a
-	ld c, a
-	callba PrintPCBox
-	call BillsPC_ClearTilemap
 	and a
 	ret
 
@@ -2540,13 +2497,13 @@ BillsPC_ChangeBoxSubmenu: ; e36f9 (38:76f9)
 	ld a, [wCurBox]
 	cp e
 	ret z
-	callba ChangeBoxSaveGame
+	farcall ChangeBoxSaveGame
 	ret
 
 .Name:
-	ld b, $4 ; box
+	ld b, $3 ; box
 	ld de, wd002
-	callba NamingScreen
+	farcall NamingScreen
 	call ClearTileMap
 	call LoadStandardFont
 	call LoadFontsBattleExtra
@@ -2566,22 +2523,19 @@ BillsPC_ChangeBoxSubmenu: ; e36f9 (38:76f9)
 	ret
 ; e3778 (38:7778)
 
-	hlcoord 11, 7 ; XXX
-
 .MenuDataHeader: ; 0xe377b
 	db $40 ; flags
 	db 04, 11 ; start coords
-	db 13, 19 ; end coords
+	db 11, 19 ; end coords
 	dw .MenuData2
 	db 1 ; default option
 ; 0xe3783
 
 .MenuData2: ; 0xe3783
 	db $80 ; flags
-	db 4 ; items
+	db 3 ; items
 	db "SWITCH@"
 	db "NAME@"
-	db "PRINT@"
 	db "QUIT@"
 ; 0xe379c
 

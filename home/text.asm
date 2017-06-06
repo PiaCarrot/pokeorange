@@ -159,11 +159,6 @@ SpeechTextBox:: ; 103e
 	jp TextBox
 ; 1048
 
-TestText:: ; 1048
-	text "ゲームフりーク!"
-	done
-; 1052
-
 RadioTerminator:: ; 1052
 	ld hl, .stop
 	ret
@@ -234,16 +229,13 @@ endm
 	dict "<LINE>", LineChar
 	dict "<NEXT>", NextLineChar
 	dict TX_FAR, TextFar
-	dict $00, NullChar
+	dict "<START>", NullChar
 	dict $4c, Char4C
 	dict $4b, Char4B
 	dict "<PARA>", Paragraph
 	dict "<MOM>", PrintMomsName
 	dict "<PLAYER>", PrintPlayerName
 	dict "<RIVAL>", PrintRivalName
-	dict $35, Char35
-	dict $36, Char36
-	dict $37, Char37
 	dict "<RED>", PrintRedsName
 	dict "<GREEN>", PrintGreensName
 	dict "#", PlacePOKe
@@ -251,7 +243,6 @@ endm
 	dict "<ROCKET>", RocketChar
 	dict "<TM>", TMChar
 	dict "<TRNER>", TrainerChar
-	dict $23, PlaceKougeki
 	dict "<LNBRK>", Char22
 	dict "<CONT>", ContText
 	dict "<......>", SixDotsChar
@@ -259,56 +250,13 @@ endm
 	dict "<PROMPT>", PromptText
 	dict "<PKMN>", PlacePKMN
 	dict "<POKE>", PlacePOKE
-	dict $25, NextChar
-	dict2 $1f, " "
+	dict "%", NextChar
+	dict2 "¯", " "
 	dict "<DEXEND>", PlaceDexEnd
 	dict "<TARGET>", PlaceMoveTargetsName
 	dict "<USER>", PlaceMoveUsersName
 	dict "<ENEMY>", PlaceEnemysName
-	dict "<PLAY_G>", PlaceGenderedPlayerName
 
-	cp "ﾟ"
-	jr z, .place ; should be .diacritic
-	cp "ﾞ"
-	jr z, .place ; should be .diacritic
-	jr .not_diacritic
-
-.diacritic
-	ld b, a
-	call Diacritic
-	jp NextChar
-
-.not_diacritic
-	cp $60 ; Regular characters
-	jr nc, .place
-
-	cp "パ"
-	jr nc, .handakuten
-
-.dakuten
-	cp $20
-	jr nc, .daku1
-	add "カ" - "ガ"
-	jr .daku2
-.daku1
-	add "か" - "が"
-.daku2
-	ld b, "ﾞ" ; dakuten
-	call Diacritic
-	jr .place
-
-.handakuten
-	cp "ぱ"
-	jr nc, .han1
-	add "ハ" - "パ"
-	jr .han2
-.han1
-	add "は" - "ぱ"
-.han2
-	ld b, "ﾟ" ; handakuten
-	call Diacritic
-
-.place
 	ld [hli], a
 	call PrintLetterDelay
 	jp NextChar
@@ -318,7 +266,6 @@ endm
 Char15:: ; 117b
 	ld c, l
 	ld b, h
-	callba Function17f036
 	jp PlaceNextChar
 ; 1186
 
@@ -340,13 +287,9 @@ TMChar:       print_name TMCharText      ; 11b0
 PCChar:       print_name PCCharText      ; 11b7
 RocketChar:   print_name RocketCharText  ; 11be
 PlacePOKe:    print_name PlacePOKeText   ; 11c5
-PlaceKougeki: print_name KougekiText     ; 11cc
 SixDotsChar:  print_name SixDotsCharText ; 11d3
 PlacePKMN:    print_name PlacePKMNText   ; 11da
 PlacePOKE:    print_name PlacePOKEText   ; 11e1
-Char35:       print_name Char35Text      ; 11e8
-Char36:       print_name Char36Text      ; 11ef
-Char37:       print_name Char37Text      ; 11f6
 
 
 PlaceMoveTargetsName:: ; 11fd
@@ -394,7 +337,7 @@ PlaceEnemysName:: ; 121b
 	ld de, String12a2
 	call PlaceString
 	push bc
-	callab Battle_GetTrainerName
+	farcall Battle_GetTrainerName
 	pop hl
 	ld de, StringBuffer1
 	jr PlaceCommandCharacter
@@ -405,23 +348,6 @@ PlaceEnemysName:: ; 121b
 
 .linkbattle
 	ld de, OTClassName
-	jr PlaceCommandCharacter
-
-
-PlaceGenderedPlayerName:: ; 1252
-	push de
-	ld de, PlayerName
-	call PlaceString
-	ld h, b
-	ld l, c
-	ld a, [PlayerGender]
-	bit 0, a
-	ld de, String_kun
-	jr z, PlaceCommandCharacter
-	ld de, String_chan
-	jr PlaceCommandCharacter
-
-
 PlaceCommandCharacter:: ; 126a
 	call PlaceString
 	ld h, b
@@ -435,17 +361,11 @@ TrainerCharText:: db "TRAINER@" ; 1276
 PCCharText:: db "PC@" ; 127e
 RocketCharText:: db "ROCKET@" ; 1281
 PlacePOKeText:: db "POKé@" ; 1288
-KougekiText:: db "こうげき@" ; 128d
 SixDotsCharText:: db "……@" ; 1292
 EnemyText:: db "Enemy @" ; 1295
 PlacePKMNText:: db "<PK><MN>@" ; PK MN ; 129c
 PlacePOKEText:: db "<PO><KE>@" ; PO KE ; 129f
 String12a2:: db " @" ; 12a2
-Char35Text::
-Char36Text::
-Char37Text:: db "@" ; 12a4
-String_kun:: db "@" ; 12a5
-String_chan:: db "@" ; 12a6
 ; 12a7
 
 NextLineChar:: ; 12a7
@@ -520,8 +440,6 @@ Paragraph:: ; 12f2
 	ld a, [wLinkMode]
 	cp LINK_COLOSSEUM
 	jr z, .linkbattle
-	cp LINK_MOBILE
-	jr z, .linkbattle
 	call LoadBlinkingCursor
 
 .linkbattle
@@ -593,8 +511,6 @@ PromptText:: ; 135a
 	ld a, [wLinkMode]
 	cp LINK_COLOSSEUM
 	jr z, .ok
-	cp LINK_MOBILE
-	jr z, .ok
 	call LoadBlinkingCursor
 
 .ok
@@ -602,8 +518,6 @@ PromptText:: ; 135a
 	call ButtonSound
 	ld a, [wLinkMode]
 	cp LINK_COLOSSEUM
-	jr z, DoneText
-	cp LINK_MOBILE
 	jr z, DoneText
 	call UnloadBlinkingCursor
 
@@ -670,9 +584,6 @@ Text_WaitBGMap:: ; 13b6
 	ret
 ; 13c6
 
-Diacritic:: ; 13c6
-	ret
-; 13c7
 
 LoadBlinkingCursor:: ; 13c7
 	ld a, "▼"
@@ -912,8 +823,6 @@ Text_WAIT_BUTTON:: ; 149f
 
 	ld a, [wLinkMode]
 	cp LINK_COLOSSEUM
-	jp z, Text_0D
-	cp LINK_MOBILE
 	jp z, Text_0D
 
 	push hl

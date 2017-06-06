@@ -56,7 +56,7 @@ ElmsHouseBookshelf:
 FaithText:
 	text "FAITH: Best of"
 	line "luck on your adv-"
-	cont "enture, <PLAY_G>!"
+	cont "enture, <PLAYER>!"
 	
 	para "If you'd like, I"
 	line "can change the"
@@ -66,32 +66,18 @@ FaithText:
 	
 CharityHiText:
 	text "CHARITY: Hi,"
-	line "<PLAY_G>!"
+	line "<PLAYER>!"
 	done
 	
 CharityText:
 	text "CHARITY: Hey,"
-	line "<PLAY_G>! Want"
+	line "<PLAYER>! Want"
 	cont "to have a battle?"
 	cont "For practice!"
 	done
 	
 CharityWinLoss:
 	text "Good battle!"
-	done
-
-ElmsHouseLabFoodText:
-; unused
-	text "There's some food"
-	line "here. It must be"
-	cont "for the LAB."
-	done
-
-ElmsHousePokemonFoodText:
-; unused
-	text "There's some food"
-	line "here. This must be"
-	cont "for #MON."
 	done
 
 ElmsHousePCText:

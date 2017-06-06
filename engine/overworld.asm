@@ -17,30 +17,6 @@ _ReplaceKrisSprite:: ; 14135
 	ret
 ; 14146
 
-Function14146: ; mobile
-	ld hl, wSpriteFlags
-	ld a, [hl]
-	push af
-	res 7, [hl]
-	set 6, [hl]
-	call MapCallbackSprites_LoadUsedSpritesGFX
-	pop af
-	ld [wSpriteFlags], a
-	ret
-; 14157
-
-Function14157: ; mobile
-	ld hl, wSpriteFlags
-	ld a, [hl]
-	push af
-	set 7, [hl]
-	res 6, [hl]
-	call MapCallbackSprites_LoadUsedSpritesGFX
-	pop af
-	ld [wSpriteFlags], a
-	ret
-; 14168
-
 RefreshSprites:: ; 14168
 	call .Refresh
 	call MapCallbackSprites_LoadUsedSpritesGFX
@@ -178,14 +154,14 @@ MapCallbackSprites_LoadUsedSpritesGFX: ; 14209
 	ret nz
 
 	ld c, EMOTE_SHADOW
-	callba LoadEmote
+	farcall LoadEmote
 	call GetMapPermission
 	call CheckOutdoorMap
 	ld c, EMOTE_0B
 	jr z, .outdoor
 	ld c, EMOTE_BOULDER_DUST
 .outdoor
-	callba LoadEmote
+	farcall LoadEmote
 	ret
 ; 14236
 
@@ -265,7 +241,7 @@ GetMonSprite: ; 14259
 	and a
 	jr z, .NoBreedmon
 
-	callba LoadOverworldMonIcon
+	farcall LoadOverworldMonIcon
 
 	ld l, 1
 	ld h, 0
@@ -796,7 +772,6 @@ OutdoorSprites: ; 144b8
 	dw Group10Sprites
 	dw Group11Sprites
 	dw Group12Sprites
-	dw Group13Sprites
 ; 144ec
 
 Group1Sprites: ; 146a1
@@ -927,7 +902,7 @@ Group5Sprites: ; 1462e
 	db SPRITE_WEIRD_TREE
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
-	
+
 Group6Sprites: ; 146e6
 	db SPRITE_TANGROWTH
 	db SPRITE_SILVER_TROPHY
@@ -1002,7 +977,7 @@ Group8Sprites: ; 14714
 	db SPRITE_FAIRY
 	db SPRITE_POKE_BALL
 	db SPRITE_ROCK
-	
+
 Group9Sprites: ; 144ec
 	db SPRITE_TANGROWTH
 	db SPRITE_SILVER_TROPHY
@@ -1027,7 +1002,7 @@ Group9Sprites: ; 144ec
 	db SPRITE_BIKER
 	db SPRITE_POKE_BALL
 	db SPRITE_BOULDER
-	
+
 Group10Sprites: ; 1472b
 	db SPRITE_OAK
 	db SPRITE_FISHER
@@ -1040,33 +1015,8 @@ Group10Sprites: ; 1472b
 	db SPRITE_FISHING_GURU
 	db SPRITE_POKE_BALL
 	db SPRITE_POKEDEX
-	
-Group11Sprites: ; 1472b
-	db SPRITE_TANGROWTH
-	db SPRITE_SILVER_TROPHY
-	db SPRITE_FAMICOM
-	db SPRITE_POKEDEX
-	db SPRITE_WILL
-	db SPRITE_KAREN
-	db SPRITE_NURSE
-	db SPRITE_OLD_LINK_RECEPTIONIST
-	db SPRITE_STANDING_YOUNGSTER
-	db SPRITE_BIG_ONIX
-	db SPRITE_MIME__JR
-	db SPRITE_BIG_SNORLAX
-	db SPRITE_OLIVINE_RIVAL
-	db SPRITE_POKEFAN_M
-	db SPRITE_LASS
-	db SPRITE_BUENA
-	db SPRITE_SWIMMER_GIRL
-	db SPRITE_SAILOR
-	db SPRITE_POKEFAN_F
-	db SPRITE_SUPER_NERD
-	db SPRITE_TAUROS
-	db SPRITE_FRUIT_TREE
-	db SPRITE_ROCK
 
-Group12Sprites: ; 145e9
+Group11Sprites: ; 145e9
 	db SPRITE_TANGROWTH
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM
@@ -1090,8 +1040,8 @@ Group12Sprites: ; 145e9
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
-	
-Group13Sprites: ; 14600
+
+Group12Sprites: ; 14600
 	db SPRITE_TANGROWTH
 	db SPRITE_SILVER_TROPHY
 	db SPRITE_FAMICOM

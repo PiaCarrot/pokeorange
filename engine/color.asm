@@ -77,7 +77,7 @@ CheckContestMon:
 .Bad:
 	and a
 	ret
-	
+
 CheckPink:
 ; given bc = MonDVs from a party_struct or battle_struct
 ; return c(arry) if mon is pink due to PNK status or native to PINKAN_ISLAND
@@ -149,7 +149,7 @@ GetBattlemonBackpicPalettePointer:
 
 .not_pink:
 	push de
-	callba GetPartyMonDVs
+	farcall GetPartyMonDVs
 	ld c, l
 	ld b, h
 	ld a, [TempBattleMonSpecies]
@@ -178,7 +178,7 @@ GetEnemyFrontpicPalettePointer:
 
 .not_pink:
 	push de
-	callba GetEnemyMonDVs
+	farcall GetEnemyMonDVs
 	ld c, l
 	ld b, h
 	ld a, [TempEnemyMonSpecies]
@@ -218,30 +218,6 @@ endr
 .pink:
 	pop af
 	ld hl, PinkanPalette
-	ret
-	
-Function8aa4:
-; XXX
-	push de
-	push bc
-	ld hl, PalPacket_9ce6
-	ld de, wSGBPals
-	ld bc, PALPACKET_LENGTH
-	call CopyBytes
-	pop bc
-	pop de
-	ld a, c
-	ld [wSGBPals + 3], a
-	ld a, b
-	ld [wSGBPals + 4], a
-	ld a, e
-	ld [wSGBPals + 5], a
-	ld a, d
-	ld [wSGBPals + 6], a
-	ld hl, wSGBPals
-	call PushSGBPals_
-	ld hl, BlkPacket_9a86
-	call PushSGBPals_
 	ret
 
 InitPartyMenuPalettes:
@@ -311,81 +287,6 @@ Function8b07:
 	RGB 08, 16, 28
 	RGB 00, 00, 00
 
-Function8b3f:
-; Unreferenced
-	call CheckCGB
-	ret nz
-	ld a, [hSGB]
-	and a
-	ret z
-	ld hl, BlkPacket_9a86
-	jp PushSGBPals_
-
-Function8b4d:
-; XXX
-	call CheckCGB
-	jr nz, .cgb
-	ld a, [hSGB]
-	and a
-	ret z
-	ld hl, PalPacket_9c26
-	jp PushSGBPals_
-
-.cgb
-	ld de, UnknOBPals
-	ld a, $3b
-	call GetPredefPal
-	jp LoadHLPaletteIntoDE
-
-Function8b67:
-; XXX
-	call CheckCGB
-	jr nz, .cgb
-	ld a, [hSGB]
-	and a
-	ret z
-	ld hl, PalPacket_9c36
-	jp PushSGBPals_
-
-.cgb
-	ld de, UnknOBPals
-	ld a, $3c
-	call GetPredefPal
-	jp LoadHLPaletteIntoDE
-
-Function8b81:
-; XXX
-	call CheckCGB
-	jr nz, .cgb
-	ld a, [hSGB]
-	and a
-	ret z
-	ld a, c
-	push af
-	ld hl, PalPacket_9ce6
-	ld de, wSGBPals
-	ld bc, PALPACKET_LENGTH
-	call CopyBytes
-	pop af
-	call GetMonPalettePointer_
-	ld a, [hli]
-	ld [wSGBPals + 3], a
-	ld a, [hli]
-	ld [wSGBPals + 4], a
-	ld a, [hli]
-	ld [wSGBPals + 5], a
-	ld a, [hl]
-	ld [wSGBPals + 6], a
-	ld hl, wSGBPals
-	jp PushSGBPals_
-
-.cgb
-	ld de, UnknOBPals
-	ld a, c
-	call GetMonPalettePointer_
-	call LoadPalette_White_Col1_Col2_Black
-	ret
-
 LoadTrainerClassPaletteAsNthBGPal:
 	ld a, [TrainerClass]
 	call GetTrainerPalettePointer
@@ -420,37 +321,6 @@ got_palette_pointer_8bd7
 	ld d, h
 	pop hl
 	call LoadPalette_White_Col1_Col2_Black
-	ret
-
-Function8bec:
-; XXX
-	ld a, [hCGB]
-	and a
-	jr nz, .cgb
-	ld hl, PlayerLightScreenCount
-	jp PushSGBPals_
-
-.cgb
-	ld a, [EnemyLightScreenCount] ; col
-	ld c, a
-	ld a, [EnemyReflectCount] ; row
-	hlcoord 0, 0, AttrMap
-	ld de, SCREEN_WIDTH
-.loop
-	and a
-	jr z, .done
-	add hl, de
-	dec a
-	jr .loop
-
-.done
-	ld b, $0
-	add hl, bc
-	lb bc, 6, 4
-	ld a, [EnemySafeguardCount] ; value
-	and $3
-	call FillBoxCGB
-	call LoadEDTile
 	ret
 
 ApplyMonOrTrainerPals:
@@ -643,24 +513,6 @@ LoadMailPalettes:
 	RGB 00, 00, 00
 
 INCLUDE "predef/cgb.asm"
-
-Function95f0:
-; XXX
-	ld hl, .Palette
-	ld de, UnknBGPals
-	ld bc, 8
-	ld a, $5
-	call FarCopyWRAM
-	call ApplyPals
-	call WipeAttrMap
-	call ApplyAttrMap
-	ret
-
-.Palette:
-	RGB 31, 31, 31
-	RGB 09, 31, 31
-	RGB 10, 12, 31
-	RGB 00, 03, 19
 
 CopyFourPalettes:
 	ld de, UnknBGPals
@@ -914,25 +766,6 @@ GetMonPalettePointer_:
 	call GetMonPalettePointer
 	ret
 
-Function9779: mobile
-	call CheckCGB
-	ret z
-	ld hl, Palettes_979c
-	ld a, $90
-	ld [rOBPI], a
-	ld c, 6 palettes
-.loop
-	ld a, [hli]
-	ld [rOBPD], a
-	dec c
-	jr nz, .loop
-	ld hl, Palettes_979c
-	ld de, UnknOBPals + 8 * 2
-	ld bc, 2 palettes
-	ld a, $5
-	call FarCopyWRAM
-	ret
-
 Palettes_979c:
 	RGB 31, 31, 31
 	RGB 25, 25, 25
@@ -963,29 +796,6 @@ Palettes_979c:
 	RGB 24, 18, 07
 	RGB 20, 15, 03
 	RGB 00, 00, 00
-
-Function97cc:
-; XXX
-	call CheckCGB
-	ret z
-	ld a, $90
-	ld [rOBPI], a
-	ld a, $1c
-	call GetPredefPal
-	call .PushPalette
-	ld a, $21
-	call GetPredefPal
-	call .PushPalette
-	ret
-
-.PushPalette:
-	ld c, 1 palettes
-.loop
-	ld a, [hli]
-	ld [rOBPD], a
-	dec c
-	jr nz, .loop
-	ret
 
 PushSGBPals_:
 	ld a, [wcfbe]
@@ -1151,21 +961,6 @@ _InitSGBBorderPals:
 	dw PalPacket_9dc6
 	dw PalPacket_9dd6
 	dw PalPacket_9de6
-
-Function9911:
-; XXX
-	di
-	xor a
-	ld [rJOYP], a
-	ld hl, PalPacket_9d56
-	call PushSGBPals
-	call PushSGBBorder
-	call SGBDelayCycles
-	call SGB_ClearVRAM
-	ld hl, PalPacket_9d66
-	call PushSGBPals
-	ei
-	ret
 
 PushSGBBorder:
 	call .LoadSGBBorderPointers
@@ -1979,7 +1774,7 @@ INCLUDE "gfx/pics/palette_pointers.asm"
 INCLUDE "gfx/trainers/palette_pointers.asm"
 
 LoadMapPals:
-	callba LoadSpecialMapPalette
+	farcall LoadSpecialMapPalette
 	jr c, .got_pals
 
 	; Which palette group is based on whether we're outside or inside
@@ -2113,13 +1908,7 @@ endr
 	db $10, $11, $12, $13, $14, $15, $16, $17 ; nite
 	db $18, $19, $1a, $1b, $1c, $1d, $1e, $1f ; dark
 
-Palette_b309: ; b309 mobile
-	RGB 31, 31, 31
-	RGB 31, 19, 24
-	RGB 30, 10, 06
-	RGB 00, 00, 00
-
-Palette_b311: ; b311 not mobile
+Palette_b311:
 	RGB 31, 31, 31
 	RGB 17, 19, 31
 	RGB 14, 16, 31

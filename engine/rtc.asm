@@ -143,9 +143,7 @@ Function140ae: ; 140ae
 	jr c, .dont_update
 
 .time_overflow
-	callba ClearDailyTimers
-	callba Function170923
-; mobile
+	farcall ClearDailyTimers
 	ld a, $5
 	call GetSRAMBank
 	ld a, [$aa8c]

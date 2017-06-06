@@ -23,7 +23,7 @@ TMHMPocket: ; 2c76f (b:476f)
 .ConvertItemToTMHMNumber: ; 2c798 (b:4798)
 	ld a, [CurItem]
 	ld c, a
-	callab GetNumberedTMHM
+	farcall GetNumberedTMHM
 	ld a, c
 	ld [CurItem], a
 	ret
@@ -31,7 +31,7 @@ TMHMPocket: ; 2c76f (b:476f)
 ConvertCurItemIntoCurTMHM: ; 2c7a7 (b:47a7)
 	ld a, [CurItem]
 	ld c, a
-	callab GetTMHMNumber
+	farcall GetTMHMNumber
 	ld a, c
 	ld [wCurTMHM], a
 	ret
@@ -77,18 +77,18 @@ ChooseMonToLearnTMHM: ; 2c7fb
 	call CopyBytes
 	call ClearBGPalettes
 ChooseMonToLearnTMHM_NoRefresh: ; 2c80a
-	callba LoadPartyMenuGFX
-	callba InitPartyMenuWithCancel
-	callba InitPartyMenuGFX
+	farcall LoadPartyMenuGFX
+	farcall InitPartyMenuWithCancel
+	farcall InitPartyMenuGFX
 	ld a, $3 ; TeachWhichPKMNString
 	ld [PartyMenuActionText], a
 .loopback
-	callba WritePartyMenuTilemap
-	callba PrintPartyMenuText
+	farcall WritePartyMenuTilemap
+	farcall PrintPartyMenuText
 	call WaitBGMap
 	call SetPalettes
 	call DelayFrame
-	callba PartyMenuSelect
+	farcall PartyMenuSelect
 	push af
 	ld a, [CurPartySpecies]
 	cp EGG
@@ -138,7 +138,7 @@ TeachTMHM: ; 2c867
 	jr .nope
 
 .compatible
-	callab KnowsMove
+	farcall KnowsMove
 	jr c, .nope
 
 	predef LearnMove
@@ -146,25 +146,18 @@ TeachTMHM: ; 2c867
 	and a
 	jr z, .nope
 
-	callba MobileFn_106049
 	ld a, [CurItem]
 	call IsHM
 	ret c
 
 	ld c, HAPPINESS_LEARNMOVE
-	callab ChangeHappiness
+	farcall ChangeHappiness
 	call ConsumeTM
-	jr .learned_move
+	scf
+	ret
 
 .nope
 	and a
-	ret
-
-.unused
-	ld a, 2
-	ld [wItemEffectSucceeded], a
-.learned_move
-	scf
 	ret
 ; 2c8bf (b:48bf)
 
@@ -340,10 +333,6 @@ TMHM_ScrollPocket: ; 2c9b1 (b:49b1)
 	jp TMHM_ShowTMMoveDescription
 
 TMHM_DisplayPocketItems: ; 2c9e2 (b:49e2)
-	ld a, [BattleType]
-	cp BATTLETYPE_TUTORIAL
-	jp z, Tutorial_TMHMPocket
-
 	hlcoord 5, 2
 	lb bc, 10, 15
 	ld a, " "
@@ -447,21 +436,6 @@ TMHMPocket_GetCurrentLineCoord: ; 2ca86 (b:4a86)
 	ret
 ; 2ca95 (b:4a95)
 
-Function2ca95: ; 2ca95
-; unreferenced
-	pop hl
-	ld bc, 3
-	add hl, bc
-	predef GetTMHMMove
-	ld a, [wd265]
-	ld [wPutativeTMHMMove], a
-	call GetMoveName
-	push hl
-	call PlaceString
-	pop hl
-	ret
-; 2caae
-
 TMHM_String_Cancel: ; 2caae
 	db "CANCEL@"
 ; 2cab5
@@ -483,14 +457,6 @@ TMHM_GetCurrentPocketPosition: ; 2cab5 (b:4ab5)
 	dec c
 	ret
 
-Tutorial_TMHMPocket: ; 2caca (b:4aca)
-	hlcoord 9, 3
-	push de
-	ld de, TMHM_String_Cancel
-	call PlaceString
-	pop de
-	ret
-
 TMHM_PlaySFX_ReadText2: ; 2cad6 (b:4ad6)
 	push de
 	ld de, SFX_READ_TEXT_2
@@ -498,44 +464,6 @@ TMHM_PlaySFX_ReadText2: ; 2cad6 (b:4ad6)
 	pop de
 	ret
 ; 2cadf (b:4adf)
-
-Function2cadf: ; 2cadf
-; unreferenced
-	call ConvertCurItemIntoCurTMHM
-	call .CheckHaveRoomForTMHM
-	ld hl, .NoRoomText
-	jr nc, .print
-	ld hl, .ReceivedText
-.print
-	jp PrintText
-; 2caf0
-
-.NoRoomText: ; 0x2caf0
-	; You have no room for any more @ S.
-	text_jump UnknownText_0x1c03fa
-	db "@"
-; 0x2caf5
-
-.ReceivedText: ; 0x2caf5
-	; You received @ !
-	text_jump UnknownText_0x1c0421
-	db "@"
-; 0x2cafa
-
-.CheckHaveRoomForTMHM: ; 2cafa
-	ld a, [wd265]
-	dec a
-	ld hl, TMsHMs
-	ld b, 0
-	ld c, a
-	add hl, bc
-	ld a, [hl]
-	inc a
-	cp NUM_TMS * 2
-	ret nc
-	ld [hl], a
-	ret
-; 2cb0c
 
 ConsumeTM: ; 2cb0c (b:4b0c)
 	call ConvertCurItemIntoCurTMHM

@@ -98,21 +98,12 @@ InitPokedex: ; 40063
 	call Pokedex_OrderMonsByMode
 	call Pokedex_InitCursorPosition
 	call Pokedex_GetLandmark
-	callba DrawDexEntryScreenRightEdge
+	farcall DrawDexEntryScreenRightEdge
 	call Pokedex_ResetBGMapMode
 	ret
 
 Pokedex_CheckUnlockedUnownMode: ; 400a2
-	ld a, [StatusFlags]
-	bit 1, a
-	jr nz, .unlocked
-
 	xor a
-	ld [wUnlockedUnownMode], a
-	ret
-
-.unlocked
-	ld a, TRUE
 	ld [wUnlockedUnownMode], a
 	ret
 
@@ -220,7 +211,7 @@ Pokedex_InitMainScreen: ; 4013c (10:413c)
 	hlcoord 0, 0, AttrMap
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	call ByteFill
-	callba DrawPokedexListWindow
+	farcall DrawPokedexListWindow
 	hlcoord 0, 17
 	ld de, String_START_SEARCH
 	call Pokedex_PlaceString
@@ -250,7 +241,7 @@ Pokedex_InitMainScreen: ; 4013c (10:413c)
 	ld a, SCGB_POKEDEX
 	call Pokedex_GetSGBLayout
 	call Pokedex_UpdateCursorOAM
-	callba DrawPokedexListWindow
+	farcall DrawPokedexListWindow
 	hlcoord 0, 17
 	ld de, String_START_SEARCH
 	call Pokedex_PlaceString
@@ -333,7 +324,7 @@ Pokedex_InitDexEntryScreen: ; 40217 (10:4217)
 	call Pokedex_InitArrowCursor
 	call Pokedex_GetSelectedMon
 	ld [wLastDexEntry], a
-	callba DisplayDexEntry
+	farcall DisplayDexEntry
 	call Pokedex_DrawFootprint
 	call WaitBGMap
 	ld a, $a7
@@ -387,7 +378,7 @@ Pokedex_Page: ; 40292
 	ld [wPokedexStatus], a
 	call Pokedex_GetSelectedMon
 	ld [wLastDexEntry], a
-	callba DisplayDexEntry
+	farcall DisplayDexEntry
 	call WaitBGMap
 	ret
 
@@ -403,7 +394,7 @@ Pokedex_ReinitDexEntryScreen: ; 402aa (10:42aa)
 	call Pokedex_LoadCurrentFootprint
 	call Pokedex_GetSelectedMon
 	ld [wLastDexEntry], a
-	callba DisplayDexEntry
+	farcall DisplayDexEntry
 	call Pokedex_DrawFootprint
 	call Pokedex_LoadSelectedMonTiles
 	call WaitBGMap
@@ -418,18 +409,16 @@ Pokedex_ReinitDexEntryScreen: ; 402aa (10:42aa)
 	ret
 
 DexEntryScreen_ArrowCursorData: ; 402e8
-	db D_RIGHT | D_LEFT, 4
+	db D_RIGHT | D_LEFT, 3
 	dwcoord 1, 17
 	dwcoord 6, 17
 	dwcoord 11, 17
-	dwcoord 15, 17
 
 
 DexEntryScreen_MenuActionJumptable: ; 402f2
 	dw Pokedex_Page
 	dw .Area
 	dw .Cry
-	dw .Print
 
 .Area: ; 402fa
 	call Pokedex_BlackOutBG
@@ -471,38 +460,10 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 	call PlayCryHeader
 	ret
 
-.Print: ; 4034f
-	call Pokedex_ApplyPrintPals
-	xor a
-	ld [hSCX], a
-	ld a, [wcf65]
-	push af
-	ld a, [wDexEntryPrevJumptableIndex]
-	push af
-	ld a, [wJumptableIndex]
-	push af
-	callba PrintDexEntry
-	pop af
-	ld [wJumptableIndex], a
-	pop af
-	ld [wDexEntryPrevJumptableIndex], a
-	pop af
-	ld [wcf65], a
-	call ClearBGPalettes
-	call DisableLCD
-	call Pokedex_LoadInvertedFont
-	call Pokedex_RedisplayDexEntry
-	call EnableLCD
-	call WaitBGMap
-	ld a, $5
-	ld [hSCX], a
-	call Pokedex_ApplyUsualPals
-	ret
-
 Pokedex_RedisplayDexEntry: ; 4038d
 	call Pokedex_DrawDexEntryScreenBG
 	call Pokedex_GetSelectedMon
-	callba DisplayDexEntry
+	farcall DisplayDexEntry
 	call Pokedex_DrawFootprint
 	ret
 
@@ -622,7 +583,7 @@ Pokedex_InitSearchScreen: ; 40443 (10:4443)
 	call Pokedex_PlaceSearchScreenTypeStrings
 	xor a
 	ld [wDexSearchSlowpokeFrame], a
-	callba DoDexSearchSlowpokeFrame
+	farcall DoDexSearchSlowpokeFrame
 	call WaitBGMap
 	ld a, SCGB_POKEDEX_SEARCH_OPTION
 	call Pokedex_GetSGBLayout
@@ -675,7 +636,7 @@ Pokedex_UpdateSearchScreen: ; 40471 (10:4471)
 
 .MenuAction_BeginSearch: ; 404b7
 	call Pokedex_SearchForMons
-	callba AnimateDexSearchSlowpoke
+	farcall AnimateDexSearchSlowpoke
 	ld a, [wDexSearchResultCount]
 	and a
 	jr nz, .show_search_results
@@ -722,7 +683,7 @@ Pokedex_InitSearchResultsScreen: ; 4050a (10:450a)
 	call ByteFill
 	call Pokedex_SetBGMapMode4
 	call Pokedex_ResetBGMapMode
-	callba DrawPokedexSearchResultsWindow
+	farcall DrawPokedexSearchResultsWindow
 	call Pokedex_PlaceSearchResultsTypeStrings
 	ld a, 4
 	ld [wDexListingHeight], a
@@ -738,7 +699,7 @@ Pokedex_InitSearchResultsScreen: ; 4050a (10:450a)
 	ld [hWY], a
 	call WaitBGMap
 	call Pokedex_ResetBGMapMode
-	callba DrawPokedexSearchResultsWindow
+	farcall DrawPokedexSearchResultsWindow
 	call Pokedex_PlaceSearchResultsTypeStrings
 	call Pokedex_UpdateSearchResultsCursorOAM
 	ld a, $ff
@@ -801,7 +762,7 @@ Pokedex_InitUnownMode: ; 405bd (10:45bd)
 	ld [wDexCurrentUnownIndex], a
 	call Pokedex_LoadUnownFrontpicTiles
 	call Pokedex_UnownModePlaceCursor
-	callba PrintUnownWord
+	farcall PrintUnownWord
 	call WaitBGMap
 	ld a, SCGB_POKEDEX_UNOWN_MODE
 	call Pokedex_GetSGBLayout
@@ -823,7 +784,7 @@ Pokedex_UpdateUnownMode: ; 405df (10:45df)
 	call DelayFrame
 	call Pokedex_CheckSGB
 	jr nz, .decompress
-	callba LoadSGBPokedexGFX2
+	farcall LoadSGBPokedexGFX2
 	jr .done
 
 .decompress
@@ -873,7 +834,7 @@ Pokedex_UnownModeHandleDPadInput: ; 40610 (10:4610)
 	call Pokedex_UnownModeEraseCursor
 	call Pokedex_LoadUnownFrontpicTiles
 	call Pokedex_UnownModePlaceCursor
-	callba PrintUnownWord
+	farcall PrintUnownWord
 	ld a, $1
 	ld [hBGMapMode], a
 	call DelayFrame
@@ -1172,7 +1133,7 @@ Pokedex_DrawDexEntryScreenBG: ; 407fd
 .Weight: ; 4085c
 	db "WT   ???lb", $ff ; WT   ???lb
 .MenuItems: ; 40867
-	db $3b, " PAGE AREA CRY PRNT", $ff
+	db $3b, " PAGE AREA CRY      ", $ff
 
 Pokedex_DrawOptionScreenBG: ; 4087c (10:487c)
 	call Pokedex_FillBackgroundColor2
@@ -2360,8 +2321,6 @@ Pokedex_BlackOutBG: ; 41401 (10:5401)
 	call ByteFill
 	pop af
 	ld [rSVBK], a
-
-Pokedex_ApplyPrintPals: ; 41415
 	ld a, $ff
 	call DmgToCgbBGPals
 	ld a, $ff
@@ -2409,7 +2368,7 @@ Pokedex_LoadSelectedMonTiles: ; 4143b
 .QuestionMark:
 	ld a, BANK(sScratch)
 	call GetSRAMBank
-	callba LoadQuestionMarkPic
+	farcall LoadQuestionMarkPic
 	ld hl, VTiles2
 	ld de, sScratch
 	ld c, 7 * 7
@@ -2477,7 +2436,7 @@ Pokedex_LoadGFX: ; 414b7
 	call Pokedex_InvertTiles
 	call Pokedex_CheckSGB
 	jr nz, .LoadPokedexLZ
-	callba LoadSGBPokedexGFX
+	farcall LoadSGBPokedexGFX
 	jr .LoadPokedexSlowpokeLZ
 
 .LoadPokedexLZ:
@@ -2564,7 +2523,7 @@ Pokedex_LoadUnownFrontpicTiles: ; 41a58 (10:5a58)
 _NewPokedexEntry: ; 41a7f
 	xor a
 	ld [hBGMapMode], a
-	callba DrawDexEntryScreenRightEdge
+	farcall DrawDexEntryScreenRightEdge
 	call Pokedex_ResetBGMapMode
 	call DisableLCD
 	call LoadStandardFont
@@ -2581,7 +2540,7 @@ _NewPokedexEntry: ; 41a7f
 	ld bc, 19
 	ld a, " "
 	call ByteFill
-	callba DisplayDexEntry
+	farcall DisplayDexEntry
 	call EnableLCD
 	call WaitBGMap
 	call GetBaseData

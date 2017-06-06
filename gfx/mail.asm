@@ -16,7 +16,7 @@ ReadAnyMail: ; b9237
 	push de
 	ld a, BANK(sPartyMail)
 	call GetSRAMBank
-	callba IsMailEuropean
+	farcall IsMailEuropean
 	call CloseSRAM
 	ld a, c
 	ld de, StandardEnglishFont
@@ -37,7 +37,7 @@ ReadAnyMail: ; b9237
 	call WaitBGMap
 	ld a, [Buffer3]
 	ld e, a
-	callba LoadMailPalettes
+	farcall LoadMailPalettes
 	call SetPalettes
 	xor a
 	ld [hJoyPressed], a
@@ -50,19 +50,9 @@ ReadAnyMail: ; b9237
 .loop
 	call GetJoypad
 	ld a, [hJoyPressed]
-	and A_BUTTON | B_BUTTON | START
+	and A_BUTTON | B_BUTTON
 	jr z, .loop
-	and START
-	jr nz, .pressed_start
 	ret
-
-.pressed_start
-	ld a, [wJumptableIndex]
-	push af
-	callab PrintMail ; printer
-	pop af
-	ld [wJumptableIndex], a
-	jr .loop
 ; b92b8
 
 .LoadGFX: ; b92b8
@@ -724,19 +714,6 @@ MailGFX_PlaceMessage: ; b9803
 .place_author
 	jp PlaceString
 ; b984e
-
-Functionb984e: ; b984e
-; XXX
-.loop
-	ld a, [hl]
-	xor $ff
-	ld [hli], a
-	dec bc
-	ld a, b
-	or c
-	jr nz, .loop
-	ret
-; b9858
 
 DrawMailBorder: ; b9858
 	hlcoord 0, 0

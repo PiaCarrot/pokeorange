@@ -62,27 +62,12 @@ HandlePlayerStep: ; d4e5 (3:54e5)
 
 	dw GetMovementPermissions
 	dw BufferScreen
-	dw .mobile
-	dw .fail2
-; The rest are never used.  Ever.
-	dw .fail1
-	dw .fail1
-	dw .fail1
-	dw .fail1
-	dw .fail1
-	dw .fail1
-	dw .fail1
+	dw .fail
+	dw .fail
 
-.fail1 ; d508 (3:5508)
+.fail ; d508 (3:5508)
 	ret
-
-.mobile ; d509 (3:5509)
-	callba MobileFn_10602e
-	ret
-
-.fail2 ; d510 (3:5510)
-	ret
-
+ 
 UpdatePlayerCoords: ; d511 (3:5511)
 	ld a, [wPlayerStepDirection]
 	and a

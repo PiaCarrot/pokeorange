@@ -20,7 +20,7 @@ PokeGear: ; 90b8d (24:4b8d)
 	bit 7, a
 	jr nz, .done
 	call PokegearJumptable
-	callba PlaySpriteAnimations
+	farcall PlaySpriteAnimations
 	call DelayFrame
 	jr .loop
 
@@ -55,7 +55,7 @@ PokeGear: ; 90b8d (24:4b8d)
 	ld a, $7
 	ld [hWX], a
 	call Pokegear_LoadGFX
-	callba ClearSpriteAnims
+	farcall ClearSpriteAnims
 	call InitPokegearModeIndicatorArrow
 	ld a, 8
 	call SkipMusic
@@ -106,7 +106,7 @@ Pokegear_LoadGFX: ; 90c4e
 	call GetWorldMapLocation
 	cp FAST_SHIP
 	jr z, .ssaqua
-	callba GetPlayerIcon
+	farcall GetPlayerIcon
 	push de
 	ld h, d
 	ld l, e
@@ -239,7 +239,7 @@ InitPokegearTilemap: ; 90da8 (24:4da8)
 
 .return_from_jumptable
 	call Pokegear_FinishTilemap
-	callba TownMapPals
+	farcall TownMapPals
 	ld a, [wcf65]
 	and a
 	jr nz, .kanto_0
@@ -319,7 +319,7 @@ InitPokegearTilemap: ; 90da8 (24:4da8)
 .kanto
 	ld e, 1
 .ok
-	callba PokegearMap
+	farcall PokegearMap
 	ld a, $7
 	ld bc, $12
 	hlcoord 1, 2
@@ -513,15 +513,11 @@ Pokegear_UpdateClock: ; 90f86 (24:4f86)
 	ld a, [hMinutes]
 	ld c, a
 	decoord 6, 8
-	callba PrintHoursMins
+	farcall PrintHoursMins
 	ld hl, .DayText
 	bccoord 6, 6
 	call PlaceHLTextAtBC
 	ret
-
-; 90fa8 (24:4fa8)
-	db "ごぜん@"
-	db "ごご@"
 
 .DayText: ; 0x90faf
 	text_jump UnknownText_0x1c5821
@@ -670,7 +666,7 @@ PokegearMap_InitPlayerIcon: ; 9106a
 	pop af
 	ld e, a
 	push bc
-	callba GetLandmarkCoords
+	farcall GetLandmarkCoords
 	pop bc
 	ld hl, SPRITEANIMSTRUCT_XCOORD
 	add hl, bc
@@ -709,9 +705,9 @@ PokegearMap_UpdateLandmarkName: ; 910b4
 	pop af
 	ld e, a
 	push de
-	callba GetLandmarkName
+	farcall GetLandmarkName
 	pop de
-	callba TownMap_ConvertLineBreakCharacters
+	farcall TownMap_ConvertLineBreakCharacters
 	hlcoord 0, 0
 	ld [hl], $34
 	ret
@@ -721,7 +717,7 @@ PokegearMap_UpdateLandmarkName: ; 910b4
 PokegearMap_UpdateCursorPosition: ; 910d4
 	push bc
 	ld e, a
-	callba GetLandmarkCoords
+	farcall GetLandmarkCoords
 	pop bc
 	ld hl, SPRITEANIMSTRUCT_XCOORD
 	add hl, bc
@@ -929,7 +925,7 @@ PokegearPhone_MakePhoneCall: ; 911eb (24:51eb)
 	ret
 
 .no_service
-	callba Phone_NoSignal
+	farcall Phone_NoSignal
 	ld hl, .OutOfServiceArea
 	call PrintText
 	ld a, $8
@@ -958,7 +954,7 @@ PokegearPhone_FinishPhoneCall: ; 91256 (24:5256)
 	ld a, [hJoyPressed]
 	and A_BUTTON | B_BUTTON
 	ret z
-	callba HangUp
+	farcall HangUp
 	ld a, $8
 	ld [wJumptableIndex], a
 	ld hl, PokegearText_WhomToCall
@@ -1121,7 +1117,7 @@ PokegearPhoneContactSubmenu: ; 91342 (24:5342)
 	ld d, 0
 	add hl, de
 	ld c, [hl]
-	callba CheckCanDeletePhoneNumber
+	farcall CheckCanDeletePhoneNumber
 	ld a, c
 	and a
 	jr z, .cant_delete
@@ -1310,22 +1306,6 @@ PokegearPhoneContactSubmenu: ; 91342 (24:5342)
 
 ; 9146e
 
-; XXX
-	ld a, [hHours]
-	cp 12
-	jr c, .am
-	sub 12
-	ld [wd265], a
-	scf
-	ret
-
-.am
-	ld [wd265], a
-	and a
-	ret
-
-; 91480
-
 Pokegear_SwitchPage: ; 91480 (24:5480)
 	ld de, SFX_READ_TEXT_2
 	call PlaySFX
@@ -1499,16 +1479,6 @@ UpdateRadioStation: ; 9166f (24:566f)
 	ret
 
 ; 916a1 (24:56a1)
-
-; XXX
-	ld [wPokegearRadioChannelBank], a
-	ld a, [hli]
-	ld [wPokegearRadioChannelAddr], a
-	ld a, [hli]
-	ld [wPokegearRadioChannelAddr + 1], a
-	ret
-
-; 916ad
 
 RadioChannels:
 ; frequencies and the shows that play on them.
@@ -1842,7 +1812,7 @@ _TownMap: ; 9191c
 	call ClearSprites
 	call DisableLCD
 	call Pokegear_LoadGFX
-	callba ClearSpriteAnims
+	farcall ClearSpriteAnims
 	ld a, 8
 	call SkipMusic
 	ld a, $e3
@@ -1912,7 +1882,7 @@ _TownMap: ; 9191c
 	jr nz, .pressed_down
 .loop2
 	push de
-	callba PlaySpriteAnimations
+	farcall PlaySpriteAnimations
 	pop de
 	call DelayFrame
 	jr .loop
@@ -1966,7 +1936,7 @@ _TownMap: ; 9191c
 .kanto2
 	ld e, $1
 .okay_tilemap
-	callba PokegearMap
+	farcall PokegearMap
 	ld a, $7
 	ld bc, 6
 	hlcoord 1, 0
@@ -1979,7 +1949,7 @@ _TownMap: ; 9191c
 	ld bc, NAME_LENGTH
 	ld a, [wd003]
 	call PokegearMap_UpdateLandmarkName
-	callba TownMapPals
+	farcall TownMapPals
 	ret
 ; 91a53
 
@@ -2101,7 +2071,7 @@ _FlyMap: ; 91af3
 	ld [hl], $1
 	xor a
 	ld [hBGMapMode], a
-	callba ClearSpriteAnims
+	farcall ClearSpriteAnims
 	call LoadTownMapGFX
 	ld de, FlyMapLabelBorderGFX
 	ld hl, VTiles2 tile $30
@@ -2123,7 +2093,7 @@ _FlyMap: ; 91af3
 	jr nz, .pressedA
 	call FlyMapScroll
 	call GetMapCursorCoordinates
-	callba PlaySpriteAnimations
+	farcall PlaySpriteAnimations
 	call DelayFrame
 	jr .loop
 
@@ -2261,7 +2231,7 @@ TownMapBubble: ; 91bb5
 	ld de, Flypoints
 	add hl, de
 	ld e, [hl]
-	callba GetLandmarkName
+	farcall GetLandmarkName
 	hlcoord 0, 0
 	ld de, StringBuffer1
 	call PlaceString
@@ -2277,7 +2247,7 @@ GetMapCursorCoordinates: ; 91c17
 	ld de, Flypoints
 	add hl, de
 	ld e, [hl]
-	callba GetLandmarkCoords
+	farcall GetLandmarkCoords
 	ld a, [wd003]
 	ld c, a
 	ld a, [wd004]
@@ -2579,15 +2549,8 @@ _Area: ; 91d11
 	ld bc, SCREEN_WIDTH
 	ld a, " "
 	call ByteFill
-	hlcoord 0, 1
-	ld a, $6
-	ld [hli], a
-	ld bc, SCREEN_WIDTH - 2
-	ld a, $7
-	call ByteFill
-	ld [hl], $17
 	call GetPokemonName
-	hlcoord 2, 0
+	hlcoord 1, 0
 	call PlaceString
 	ld h, b
 	ld l, c
@@ -2604,7 +2567,7 @@ _Area: ; 91d11
 .GetAndPlaceNest: ; 91e1e
 	ld [wd003], a
 	ld e, a
-	callba FindNest ; load nest landmarks into TileMap[0,0]
+	farcall FindNest ; load nest landmarks into TileMap[0,0]
 	decoord 0, 0
 	ld hl, Sprites
 .nestloop
@@ -2614,7 +2577,7 @@ _Area: ; 91d11
 	push de
 	ld e, a
 	push hl
-	callba GetLandmarkCoords
+	farcall GetLandmarkCoords
 	pop hl
 	; load into OAM
 	ld a, d
@@ -2646,7 +2609,7 @@ _Area: ; 91d11
 	ret c
 	ld a, [wd002]
 	ld e, a
-	callba GetLandmarkCoords
+	farcall GetLandmarkCoords
 	ld c, e
 	ld b, d
 	ld de, .PlayerOAM
@@ -2733,7 +2696,7 @@ _Area: ; 91d11
 	ld a, [wd002]
 	cp FAST_SHIP
 	jr z, .FastShip
-	callba GetPlayerIcon
+	farcall GetPlayerIcon
 	ret
 
 .FastShip:
@@ -2872,7 +2835,7 @@ TownMapMon: ; 91f7b
 	ld [wd265], a
 ; Get FlyMon icon
 	ld e, 8 ; starting tile in VRAM
-	callba GetSpeciesIcon
+	farcall GetSpeciesIcon
 ; Animation/palette
 	depixel 0, 0
 	ld a, SPRITE_ANIM_INDEX_00
@@ -2890,7 +2853,7 @@ TownMapMon: ; 91f7b
 TownMapPlayerIcon: ; 91fa6
 ; Draw the player icon at town map location in a
 	push af
-	callba GetPlayerIcon
+	farcall GetPlayerIcon
 ; Standing icon
 	ld hl, VTiles0 tile $10
 	ld c, 4 ; # tiles
@@ -2920,7 +2883,7 @@ TownMapPlayerIcon: ; 91fa6
 	pop af
 	ld e, a
 	push bc
-	callba GetLandmarkCoords
+	farcall GetLandmarkCoords
 	pop bc
 	ld hl, SPRITEANIMSTRUCT_XCOORD
 	add hl, bc
@@ -2953,86 +2916,6 @@ PokedexNestIconGFX: ; 922d1
 INCBIN "gfx/pokegear/dexmap_nest_icon.2bpp"
 FlyMapLabelBorderGFX: ; 922e1
 INCBIN "gfx/pokegear/flymap_label_border.2bpp"
-
-; XXX
-	xor a
-	ld [wd002], a
-	call ClearBGPalettes
-	call ClearTileMap
-	call ClearSprites
-	ld hl, hInMenu
-	ld a, [hl]
-	push af
-	ld [hl], $1
-	xor a
-	ld [hBGMapMode], a
-	callba ClearSpriteAnims
-	call LoadTownMapGFX
-	ld de, FlyMapLabelBorderGFX
-	ld hl, VTiles2 tile $30
-	lb bc, BANK(FlyMapLabelBorderGFX), 6
-	call Request1bpp
-	call FillKantoMap
-	call TownMapBubble
-	call TownMapPals
-	hlbgcoord 0, 0, VBGMap1
-	call TownMapBGUpdate
-	call FillJohtoMap
-	call TownMapBubble
-	call TownMapPals
-	hlbgcoord 0, 0
-	call TownMapBGUpdate
-	call TownMapMon
-	ld a, c
-	ld [wd003], a
-	ld a, b
-	ld [wd004], a
-	ld b, SCGB_POKEGEAR_PALS
-	call GetSGBLayout
-	call SetPalettes
-.loop
-	call JoyTextDelay
-	ld hl, hJoyPressed
-	ld a, [hl]
-	and B_BUTTON
-	jr nz, .pressedB
-	ld a, [hl]
-	and A_BUTTON
-	jr nz, .pressedA
-	call .HandleDPad
-	call GetMapCursorCoordinates
-	callba PlaySpriteAnimations
-	call DelayFrame
-	jr .loop
-
-.pressedB
-	ld a, -1
-	jr .finished_a_b
-
-.pressedA
-	ld a, [wd002]
-	ld l, a
-	ld h, 0
-	add hl, hl
-	ld de, Flypoints + 1
-	add hl, de
-	ld a, [hl]
-.finished_a_b
-	ld [wd002], a
-	pop af
-	ld [hInMenu], a
-	call ClearBGPalettes
-	ld a, $90
-	ld [hWY], a
-	xor a
-	ld [hBGMapAddress], a
-	ld a, VBGMap0 / $100
-	ld [hBGMapAddress + 1], a
-	ld a, [wd002]
-	ld e, a
-	ret
-
-; 923b8
 
 .HandleDPad: ; 923b8
 	ld hl, hJoyLast

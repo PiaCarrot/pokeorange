@@ -218,15 +218,15 @@ DoAnimFrame: ; 8d24b
 	ret
 
 .namingscreencursor ; 8d36c (23:536c)
-	callab NamingScreen_AnimateCursor
+	farcall NamingScreen_AnimateCursor
 	ret
 
 .mailcompositioncursor ; 8d373 (23:5373)
-	callab ComposeMail_AnimateCursor
+	farcall ComposeMail_AnimateCursor
 	ret
 
 .GameFreakLogo: ; 8d37a (23:537a)
-	callab GameFreakLogoJumper
+	farcall GameFreakLogoJumper
 	ret
 
 .seven ; 8d381 (23:5381)
@@ -357,11 +357,11 @@ DoAnimFrame: ; 8d24b
 	ret
 
 .SlotsGolem: ; 8d422 (23:5422)
-	callab SlotMachine_AnimateGolem
+	farcall SlotMachine_AnimateGolem
 	ret
 
 .SlotsChansey: ; 8d429 (23:5429)
-	callab Slots_AnimateChansey
+	farcall Slots_AnimateChansey
 	ld hl, wcf64
 	ld a, [hl]
 	cp $2
@@ -405,15 +405,13 @@ DoAnimFrame: ; 8d24b
 	ret
 
 .thirteen ; 8d46e (23:546e)
-	callab ret_e00ed
+.fourteen ; 8d47c (23:547c)
+.twentyseven ; 8d630 (23:5630)
+.twentyeight ; 8d637 (23:5637)
 	ret
 
 .fifteen ; 8d475 (23:5475)
-	callab AnimatePokegearModeIndicatorArrow
-	ret
-
-.fourteen ; 8d47c (23:547c)
-	callab DummyGame_InterpretJoypad_AnimateCursor
+	farcall AnimatePokegearModeIndicatorArrow
 	ret
 
 .sixteen ; 8d483 (23:5483)
@@ -566,7 +564,7 @@ DoAnimFrame: ; 8d24b
 	ret
 
 .eighteen ; 8d543 (23:5543)
-	callab TradeAnim_AnimateTrademonInTube
+	farcall TradeAnim_AnimateTrademonInTube
 	ret
 
 .EggShell: ; 8d54a (23:554a)
@@ -607,7 +605,7 @@ DoAnimFrame: ; 8d24b
 	ret
 
 .RadioTuningKnob: ; 8d578 (23:5578)
-	callab AnimateTuningKnob
+	farcall AnimateTuningKnob
 	ret
 
 .twentyone ; 8d57f (23:557f)
@@ -749,14 +747,6 @@ DoAnimFrame: ; 8d24b
 	ld [hl], a
 	ret
 
-.twentyseven ; 8d630 (23:5630)
-	callba Function108bc7
-	ret
-
-.twentyeight ; 8d637 (23:5637)
-	callba Function108be0
-	ret
-
 .twentynine ; 8d63e (23:563e)
 	ld a, [wcf65]
 	and a
@@ -847,11 +837,9 @@ DoAnimFrame: ; 8d24b
 	ret
 
 .twentysix ; 8d6b7 (23:56b7)
-	callba AnimateEZChatCursor
 	ret
 
 .thirtyone ; 8d6be (23:56be)
-	callba UpdateCelebiPosition
 	ret
 
 .AnonymousJumptable: ; 8d6c5 (23:56c5)

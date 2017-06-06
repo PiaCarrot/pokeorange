@@ -225,7 +225,7 @@ EvolveAfterBattle_MasterLoop
 	ld [hBGMapMode], a
 	call ClearSprites
 
-	callba EvolutionAnimation
+	farcall EvolutionAnimation
 
 	push af
 	call ClearSprites
@@ -247,7 +247,6 @@ EvolveAfterBattle_MasterLoop
 	push hl
 	ld hl, Text_EvolvedIntoPKMN
 	call PrintTextBoxText
-	callba MobileFn_106094
 
 	ld de, MUSIC_NONE
 	call PlayMusic
@@ -312,7 +311,7 @@ EvolveAfterBattle_MasterLoop
 
 	ld hl, TempMonDVs
 	predef GetUnownLetter
-	callab UpdateUnownDex
+	farcall UpdateUnownDex
 
 .skip_unown
 	pop de
@@ -333,8 +332,6 @@ EvolveAfterBattle_MasterLoop
 	inc hl
 	jp .loop
 
-; XXX
-	pop hl
 .ReturnToMap:
 	pop de
 	pop bc

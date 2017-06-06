@@ -130,8 +130,8 @@ RefreshBattleHuds:: ; 39c9
 ; 39d4
 
 UpdateBattleHuds:: ; 39d4
-	callba UpdatePlayerHUD
-	callba UpdateEnemyHUD
+	farcall UpdatePlayerHUD
+	farcall UpdateEnemyHUD
 	ret
 ; 39e1
 
@@ -257,31 +257,10 @@ FarCopyRadioText:: ; 3a90
 ; 3ab2
 
 
-MobileTextBorder:: ; 3ab2
-
-CELL_PHONE_TOP    EQU $5e
-CELL_PHONE_BOTTOM EQU $5f
-
-	; For mobile link battles only.
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	ret c
-
-	; Draw a cell phone icon at the
-	; top right corner of the border.
-	hlcoord 19, 12
-	ld [hl], CELL_PHONE_TOP
-	hlcoord 19, 13
-	ld [hl], CELL_PHONE_BOTTOM
-	ret
-; 3ac3
-
-
 BattleTextBox:: ; 3ac3
 ; Open a textbox and print text at hl.
 	push hl
 	call SpeechTextBox
-	call MobileTextBorder
 	call UpdateSprites
 	call ApplyTilemap
 	pop hl

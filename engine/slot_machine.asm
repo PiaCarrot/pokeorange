@@ -20,7 +20,6 @@ _SlotMachine:
 	call PlaySFX
 	call WaitSFX
 	call ClearBGPalettes
-	callba MobileFn_105fd0
 	ld hl, Options
 	res NO_TEXT_SCROLL, [hl]
 	ld hl, rLCDC ; $ff40
@@ -41,7 +40,7 @@ _SlotMachine:
 	call ByteFill
 	ld b, SCGB_SLOT_MACHINE
 	call GetSGBLayout
-	callab ClearSpriteAnims
+	farcall ClearSpriteAnims
 	ld hl, wSlots
 	ld bc, wSlotsDataEnd - wSlots
 	xor a
@@ -116,7 +115,7 @@ SlotsLoop: ; 927af (24:67af)
 	call Slots_SpinReels
 	xor a
 	ld [wCurrSpriteOAMAddr], a
-	callab DoNextFrameForFirst16Sprites
+	farcall DoNextFrameForFirst16Sprites
 	call .PrintCoinsAndPayout
 	call .DummyFunc
 	call DelayFrame
@@ -1812,7 +1811,6 @@ SlotGetPayout: ; 93124 (24:7124)
 	ld a, [hl]
 	ld [wPayout], a
 	ld d, a
-	callba MobileFn_105fe3
 	ret
 
 .PayoutTable:
@@ -1836,7 +1834,6 @@ SlotPayoutText: ; 93158 (24:7158)
 	jr nz, .MatchedSomething
 	ld hl, .Text_Darn
 	call PrintText
-	callba MobileFn_105fd0
 	ret
 
 .MatchedSomething:
@@ -1860,7 +1857,6 @@ SlotPayoutText: ; 93158 (24:7158)
 .return
 	ld hl, .Text_PrintPayout
 	call PrintText
-	callba MobileFn_105f9f
 	ret
 
 ; 93195 (24:7195)
@@ -2001,7 +1997,7 @@ SlotMachine_AnimateGolem: ; 9321d (24:721d)
 	dec [hl]
 	ld e, a
 	ld d, 14 * 8
-	callba BattleAnim_Sine_e
+	farcall BattleAnim_Sine_e
 	ld a, e
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc

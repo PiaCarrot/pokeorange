@@ -694,13 +694,6 @@ GetDecoName: ; 26c72
 	ld a, e
 	jr .getpokename
 
-.unused ; 26cb8
-	push de
-	call .getdeconame
-	pop de
-	ld a, e
-	jr .getdeconame
-
 .getpokename ; 26cc0
 	push bc
 	ld [wd265], a
@@ -1430,7 +1423,7 @@ _GetDecorationSprite: ; 27085
 	ld c, a
 	push de
 	push hl
-	callba GetDecorationSprite
+	farcall GetDecorationSprite
 	pop hl
 	pop de
 	ld a, c

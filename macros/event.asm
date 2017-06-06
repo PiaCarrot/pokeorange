@@ -490,12 +490,6 @@ closetext: macro
 	db closetext_command
 	endm
 
-	enum loadbytec2cf_command
-loadbytec2cf: macro
-	db loadbytec2cf_command
-	db \1 ; byte
-	endm
-
 	enum farwritetext_command
 farwritetext: macro
 	db farwritetext_command
@@ -580,11 +574,6 @@ verticalmenu: macro
 	db verticalmenu_command
 	endm
 
-	enum loadpikachudata_command
-loadpikachudata: macro
-	db loadpikachudata_command
-	endm
-
 	enum randomwildmon_command
 randomwildmon: macro
 	db randomwildmon_command
@@ -617,12 +606,6 @@ startbattle: macro
 	enum reloadmapafterbattle_command
 reloadmapafterbattle: macro
 	db reloadmapafterbattle_command
-	endm
-
-	enum catchtutorial_command
-catchtutorial: macro
-	db catchtutorial_command
-	db \1 ; byte
 	endm
 
 	enum trainertext_command
@@ -1024,12 +1007,6 @@ warpfacing: macro
 	map \2 ; map
 	db \3 ; x
 	db \4 ; y
-	endm
-
-	enum battletowertext_command
-battletowertext: macro
-	db battletowertext_command
-	db \1 ; memory
 	endm
 
 	enum landmarktotext_command

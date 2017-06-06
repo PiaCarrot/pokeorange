@@ -111,16 +111,16 @@ BillsPC_SeeYa: ; e4cb
 
 BillsPC_MovePKMNMenu: ; e4cd
 	call LoadStandardMenuDataHeader
-	callba IsAnyMonHoldingMail
+	farcall IsAnyMonHoldingMail
 	jr nc, .no_mail
 	ld hl, .Text_MonHoldingMail
 	call PrintText
 	jr .quit
 
 .no_mail
-	callba StartMovePkmnWOMail_SaveGame
+	farcall StartMovePkmnWOMail_SaveGame
 	jr c, .quit
-	callba _MovePKMNWithoutMail
+	farcall _MovePKMNWithoutMail
 	call ReturnToMapFromSubmenu
 	call ClearPCItemScreen
 
@@ -136,43 +136,12 @@ BillsPC_MovePKMNMenu: ; e4cd
 
 BillsPC_DepositMenu: ; e4fe (3:64fe)
 	call LoadStandardMenuDataHeader
-	callba _DepositPKMN
+	farcall _DepositPKMN
 	call ReturnToMapFromSubmenu
 	call ClearPCItemScreen
 	call CloseWindow
 	and a
 	ret
-
-Functione512: ; unused
-	ld a, [PartyCount]
-	and a
-	jr z, .no_pkmn
-	cp 2
-	jr c, .only_one_pkmn
-	and a
-	ret
-
-.no_pkmn
-	ld hl, .Text_NoPKMN
-	call MenuTextBoxBackup
-	scf
-	ret
-
-.only_one_pkmn
-	ld hl, .Text_ItsYourLastPKMN
-	call MenuTextBoxBackup
-	scf
-	ret
-
-.Text_NoPKMN: ; 0xe52e
-	; You don't have a single #MON!
-	text_jump UnknownText_0x1c1062
-	db "@"
-
-.Text_ItsYourLastPKMN: ; 0xe533
-	; You can't deposit your last #MON!
-	text_jump UnknownText_0x1c1080
-	db "@"
 
 CheckCurPartyMonFainted: ; e538
 	ld hl, PartyMon1HP
@@ -205,33 +174,15 @@ CheckCurPartyMonFainted: ; e538
 
 BillsPC_WithdrawMenu: ; e559 (3:6559)
 	call LoadStandardMenuDataHeader
-	callba _WithdrawPKMN
+	farcall _WithdrawPKMN
 	call ReturnToMapFromSubmenu
 	call ClearPCItemScreen
 	call CloseWindow
 	and a
 	ret
 
-Functione56d: ; unused
-	ld a, [PartyCount]
-	cp PARTY_LENGTH
-	jr nc, .asm_e576
-	and a
-	ret
-
-.asm_e576
-	ld hl, UnknownText_0xe57e
-	call MenuTextBoxBackup
-	scf
-	ret
-
-UnknownText_0xe57e: ; 0xe57e
-	; You can't take any more #MON.
-	text_jump UnknownText_0x1c10a2
-	db "@"
-
 BillsPC_ChangeBoxMenu: ; e583 (3:6583)
-	callba _ChangeBox
+	farcall _ChangeBox
 	and a
 	ret
 

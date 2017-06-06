@@ -222,7 +222,7 @@ YouBrokeItText:
 	done
 
 TraceyYoText:
-	text "<PLAY_G>!"
+	text "<PLAYER>!"
 	done
 	
 TraceyLetsBattleText:
@@ -240,7 +240,7 @@ TraceyLetsBattleText:
 	
 TraceyRoute56WinLoss:
 	text "You're so strong,"
-	line "<PLAY_G>!"
+	line "<PLAYER>!"
 	done
 
 TraceyLeavingNowText:
@@ -252,7 +252,7 @@ TraceyLeavingNowText:
 	
 	para "Oh, yeah."
 	
-	para "<PLAY_G>, if you"
+	para "<PLAYER>, if you"
 	line "go to KINNOW ISLA-"
 	cont "ND, make sure you"
 	cont "visit the SKATE"

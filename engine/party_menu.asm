@@ -40,8 +40,8 @@ InitPartyMenuLayout: ; 5003f
 
 LoadPartyMenuGFX: ; 5004f
 	call LoadFontsBattleExtra
-	callab InitPartyMenuPalettes ; engine/color.asm
-	callab ClearSpriteAnims2
+	farcall InitPartyMenuPalettes ; engine/color.asm
+	farcall ClearSpriteAnims2
 	ret
 ; 5005f
 
@@ -82,7 +82,6 @@ WritePartyMenuTilemap: ; 0x5005f
 	dw PlacePartyMonTMHMCompatibility
 	dw PlacePartyMonEvoStoneCompatibility
 	dw PlacePartyMonGender
-	dw PlacePartyMonMobileBattleSelection
 ; 5009b
 
 PlacePartyNicknames: ; 5009b
@@ -503,89 +502,6 @@ PlacePartyMonGender: ; 502b1
 ; 50307
 
 
-PlacePartyMonMobileBattleSelection: ; 50307
-	ld a, [PartyCount]
-	and a
-	ret z
-	ld c, a
-	ld b, 0
-	hlcoord 12, 1
-.loop
-	push bc
-	push hl
-	ld de, .String_Sanka_Shinai
-	call PlaceString
-	pop hl
-	ld de, 2 * SCREEN_WIDTH
-	add hl, de
-	pop bc
-	inc b
-	dec c
-	jr nz, .loop
-	ld a, l
-	ld e, PKMN_NAME_LENGTH
-	sub e
-	ld l, a
-	ld a, h
-	sbc $0
-	ld h, a
-	ld de, .String_Kettei_Yameru
-	call PlaceString
-	ld b, $3
-	ld c, $0
-	ld hl, wd002
-	ld a, [hl]
-.loop2
-	push hl
-	push bc
-	hlcoord 12, 1
-.loop3
-	and a
-	jr z, .done
-	ld de, 2 * SCREEN_WIDTH
-	add hl, de
-	dec a
-	jr .loop3
-
-.done
-	ld de, .String_Banme
-	push hl
-	call PlaceString
-	pop hl
-	pop bc
-	push bc
-	push hl
-	ld a, c
-	ld hl, .Strings_1_2_3
-	call GetNthString
-	ld d, h
-	ld e, l
-	pop hl
-	call PlaceString
-	pop bc
-	pop hl
-	inc hl
-	ld a, [hl]
-	inc c
-	dec b
-	ret z
-	jr .loop2
-; 5036b
-
-.String_Banme: ; 5036b
-	db " ばんめ  @" ; Place
-; 50372
-.String_Sanka_Shinai: ; 50372
-	db "さんかしない@" ; Cancel
-; 50379
-.String_Kettei_Yameru: ; 50379
-	db "けってい  やめる@" ; Quit
-; 50383
-.Strings_1_2_3: ; 50383
-	db "1@", "2@", "3@" ; 1st, 2nd, 3rd
-; 50389
-
-
 PartyMenuCheckEgg: ; 50389
 	ld a, PartySpecies % $100
 	add b
@@ -629,14 +545,12 @@ GetPartyMenuTilemapPointers: ; 50396
 	dw .Gender
 	dw .Gender
 	dw .Default
-	dw .Mobile
 ; 503c6
 
 .Default: db 0, 1, 2, 3, 4, $ff
 .TMHM: db 0, 5, 3, 4, $ff
 .EvoStone: db 0, 6, 3, 4, $ff
 .Gender: db 0, 7, 3, 4, $ff
-.Mobile: db 0, 8, 3, 4, $ff
 ; 503e0
 
 
@@ -662,7 +576,7 @@ InitPartyMenuGFX: ; 503e0
 	pop bc
 	dec c
 	jr nz, .loop
-	callab PlaySpriteAnimations
+	farcall PlaySpriteAnimations
 	ret
 ; 50405
 
@@ -811,9 +725,8 @@ PartyMenuStrings: ; 0x504d2
 	dw TeachWhichPKMNString
 	dw MoveToWhereString
 	dw UseOnWhichPKMNString
-	dw ChooseAMonString ; Probably used to be ChooseAFemalePKMNString
-	dw ChooseAMonString ; Probably used to be ChooseAMalePKMNString
-	dw ToWhichPKMNString
+	dw ChooseAMonString
+	dw ChooseAMonString
 
 ChooseAMonString: ; 0x504e4
 	db "Choose a #MON.@"
@@ -825,12 +738,6 @@ TeachWhichPKMNString: ; 0x5050e
 	db "Teach which <PK><MN>?@"
 MoveToWhereString: ; 0x5051e
 	db "Move to where?@"
-ChooseAFemalePKMNString: ; 0x5052d  ; UNUSED
-	db "Choose a ♀<PK><MN>.@"
-ChooseAMalePKMNString: ; 0x5053b    ; UNUSED
-	db "Choose a ♂<PK><MN>.@"
-ToWhichPKMNString: ; 0x50549
-	db "To which <PK><MN>?@"
 
 YouHaveNoPKMNString: ; 0x50556
 	db "You have no <PK><MN>!@"

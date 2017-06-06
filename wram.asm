@@ -7,7 +7,6 @@ wc000::
 StackBottom::
 	ds $100 - 1
 Stack::
-StackTop::
 	ds 1
 
 
@@ -826,28 +825,6 @@ wDiscardPileEnd::
 wCardFlipEnd::
 	ds wCardFlip - @
 
-; Dummy Game
-; c6d0
-wDummyGame::
-wDummyGameCards:: ds 9 * 5
-wDummyGameCardsEnd::
-wDummyGameLastCardPicked:: ds 1 ; c6fd
-wDummyGameCard1:: ds 1 ; c6fe
-wDummyGameCard2:: ds 1 ; c6ff
-wDummyGameCard1Location:: ds 1 ; c700
-wDummyGameCard2Location:: ds 1 ; c701
-wDummyGameNumberTriesRemaining:: ds 1 ; c702
-wDummyGameLastMatches:: ds 5 ; c703
-wDummyGameCounter:: ds 1 ; c708
-wDummyGameNumCardsMatched:: ds 1 ; c709
-wDummyGameEnd::
-	ds wDummyGame - @
-; Unown Puzzle
-wUnownPuzzle::
-wPuzzlePieces::
-	ds 6 * 6
-wUnownPuzzleEnd::
-
 	ds wc6d0 - @
 
 wPokedexDataStart::
@@ -898,46 +875,6 @@ OverworldMap:: ; c800
 	ds 1300
 OverworldMapEnd::
 	ds OverworldMap - @
-
-wGameboyPrinterRAM::
-wGameboyPrinterScreen:: ds SCREEN_HEIGHT * SCREEN_WIDTH ; c800
-wGameboyPrinterScreenEnd:: ; c968
-	ds wGameboyPrinterScreen - @
-wGameboyPrinter2bppSource::
-	ds 40 tiles
-wGameboyPrinter2bppSourceEnd::
-wca80:: ds 1
-wPrinterRowIndex:: ds 1
-
-; Printer data header
-wca82:: ds 1
-wca83:: ds 1
-wca84:: ds 1
-wca85:: ds 1
-wPrinterChecksum:: dw ; ca86
-wPrinterHandshake:: ds 1
-wPrinterStatusFlags::
-; bit 7: set if error 1 (battery low)
-; bit 6: set if error 4 (too hot or cold)
-; bit 5: set if error 3 (paper jammed or empty)
-; if this and the previous byte are both $ff: error 2 (connection error)
-	ds 1
-
-wHandshakeFrameDelay:: ds 1
-wPrinterSerialFrameDelay:: ds 1
-wPrinterSendByteOffset:: dw
-wPrinterSendByteCounter:: dw
-
-; tilemap backup?
-wPrinterTileMapBuffer:: ds SCREEN_HEIGHT * SCREEN_WIDTH ; ca90
-wPrinterTileMapBufferEnd::
-wPrinterStatus:: ds 1 ; cbf8
-	ds 1
-wcbfa:: ds 1
-wGBPrinterSettings:: ds 1
-	ds 16
-wGameboyPrinterRAMEnd::
-	ds wGameboyPrinterRAM - @
 
 wBillsPCPokemonList:: ; c800
 ; Pokemon, box number, list index
@@ -1061,7 +998,11 @@ wca50:: ds 16
 wca60:: ds 16
 wca70:: ds 16
 
-	ds 35
+	ds 26
+
+wHandshakeFrameDelay:: ds 1
+
+	ds 8
 
 wcaa3:: ds 2 ; caa3
 wcaa5:: ds 16
@@ -1761,7 +1702,6 @@ wPlayerAction::
 ; 0 - use move
 ; 1 - use item
 ; 2 - switch
-wSolvedUnownPuzzle::
 	ds 1 ; d0ec
 
 VramState:: ; d0ed
@@ -2426,7 +2366,7 @@ CurTimeOfDay:: ; d848
 wSecretID:: ds 2
 StatusFlags:: ; d84c
 	; 0 - pokedex
-	; 1 - unown dex
+	; 1 - 
 	; 2 -
 	; 3 - pokerus
 	; 4 - rocket signal
@@ -2537,19 +2477,12 @@ wRoute32RuinsOfAlphGateTrigger::             ds 1 ; d98c
 wRoute35NationalParkGateTrigger::            ds 1 ; d98d
 wRoute36NationalParkGateTrigger::            ds 1 ; d98f
 wGoldenrodPokecenter1FTrigger::              ds 1 ; d993
-wBattleTower1FTrigger::                      ds 1 ; d99e
-wBattleTowerBattleRoomTrigger::              ds 1 ; d99f
-wBattleTowerElevatorTrigger::                ds 1 ; d9a0
-wBattleTowerHallwayTrigger::                 ds 1 ; d9a1
-wBattleTowerOutsideTrigger::                 ds 1 ; d9a2
-wMobileTradeRoomMobileTrigger::              ds 1 ; d9bf
-wMobileBattleRoomTrigger::                   ds 1 ; d9c0
 wVermilionPortTrigger::						 ds 1
 wOlivinePortTrigger::						 ds 1
 wMandarinUndergroundTrigger::			     ds 1
 wRoute56WestTrigger::						 ds 1
 
-	ds 49
+	ds 56
 
 
 ;SECTION "Events", WRAMX, BANK [1]
@@ -2783,7 +2716,7 @@ EndPokedexSeen::
 
 UnownDex:: ; ded9
 	ds 26
-UnlockedUnowns:: ; def3
+
 	ds 1
 
 wFirstUnownSeen:: ds 1

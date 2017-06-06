@@ -1,9 +1,9 @@
 SaveMenu: ; 14a1a
 	call LoadStandardMenuDataHeader
-	callba DisplaySaveInfoOnSave
+	farcall DisplaySaveInfoOnSave
 	call SpeechTextBox
 	call UpdateSprites
-	callba SaveMenu_LoadEDTile
+	farcall SaveMenu_LoadEDTile
 	ld hl, Text_WouldYouLikeToSaveTheGame
 	call SaveTheGame_yesorno
 	jr nz, .refused
@@ -19,20 +19,19 @@ SaveMenu: ; 14a1a
 .refused
 	call ExitMenu
 	call ret_d90
-	callba SaveMenu_LoadEDTile
+	farcall SaveMenu_LoadEDTile
 	scf
 	ret
 
 SaveAfterLinkTrade: ; 14a58
 	call PauseGameLogic
-	callba StageRTCTimeForSave
-	callba BackupMysteryGift
+	farcall StageRTCTimeForSave
 	call SavePokemonData
 	call SaveChecksum
 	call SaveBackupPokemonData
 	call SaveBackupChecksum
-	callba BackupPartyMonMail
-	callba SaveRTC
+	farcall BackupPartyMonMail
+	farcall SaveRTC
 	call ResumeGameLogic
 	ret
 ; 14a83
@@ -95,8 +94,7 @@ MovePkmnWOMail_InsertMon_SaveGame: ; 14ad5
 	ld [wCurBox], a
 	ld a, $1
 	ld [wSaveFileExists], a
-	callba StageRTCTimeForSave
-	callba BackupMysteryGift
+	farcall StageRTCTimeForSave
 	call ValidateSave
 	call SaveOptions
 	call SavePlayerData
@@ -107,9 +105,8 @@ MovePkmnWOMail_InsertMon_SaveGame: ; 14ad5
 	call SaveBackupPlayerData
 	call SaveBackupPokemonData
 	call SaveBackupChecksum
-	callba BackupPartyMonMail
-	callba BackupMobileEventIndex
-	callba SaveRTC
+	farcall BackupPartyMonMail
+	farcall SaveRTC
 	call LoadBox
 	call ResumeGameLogic
 	ld de, SFX_SAVE
@@ -271,8 +268,7 @@ SavedTheGame: ; 14be6
 SaveGameData_: ; 14c10
 	ld a, 1
 	ld [wSaveFileExists], a
-	callba StageRTCTimeForSave
-	callba BackupMysteryGift
+	farcall StageRTCTimeForSave
 	call ValidateSave
 	call SaveOptions
 	call SavePlayerData
@@ -284,62 +280,10 @@ SaveGameData_: ; 14c10
 	call SaveBackupPlayerData
 	call SaveBackupPokemonData
 	call SaveBackupChecksum
-	call UpdateStackTop
-	callba BackupPartyMonMail
-	callba BackupMobileEventIndex
-	callba SaveRTC
-	ld a, BANK(sBattleTowerChallengeState)
-	call GetSRAMBank
-	ld a, [sBattleTowerChallengeState]
-	cp BATTLETOWER_RECEIVED_REWARD
-	jr nz, .ok
-	xor a
-	ld [sBattleTowerChallengeState], a
-.ok
-	call CloseSRAM
+	farcall BackupPartyMonMail
+	farcall SaveRTC
 	ret
 ; 14c6b
-
-UpdateStackTop: ; 14c6b
-; sStackTop appears to be unused.
-; It could have been used to debug stack overflow during saving.
-	call FindStackTop
-	ld a, BANK(sStackTop)
-	call GetSRAMBank
-	ld a, [sStackTop + 0]
-	ld e, a
-	ld a, [sStackTop + 1]
-	ld d, a
-	or e
-	jr z, .update
-	ld a, e
-	sub l
-	ld a, d
-	sbc h
-	jr c, .done
-
-.update
-	ld a, l
-	ld [sStackTop + 0], a
-	ld a, h
-	ld [sStackTop + 1], a
-
-.done
-	call CloseSRAM
-	ret
-; 14c90
-
-FindStackTop: ; 14c90
-; Find the furthest point that sp has traversed to.
-; This is distinct from the current value of sp.
-	ld hl, Stack - $ff
-.loop
-	ld a, [hl]
-	or a
-	ret nz
-	inc hl
-	jr .loop
-; 14c99
 
 SavingDontTurnOffThePower: ; 14c99
 	; Prevent joypad interrupts
@@ -371,15 +315,7 @@ ErasePreviousSave: ; 14cbb
 	call EraseBoxes
 	call EraseHallOfFame
 	call EraseLinkBattleStats
-	call EraseMysteryGift
 	call SaveData
-	call EraseBattleTowerStatus
-	ld a, BANK(sStackTop)
-	call GetSRAMBank
-	xor a
-	ld [sStackTop + 0], a
-	ld [sStackTop + 1], a
-	call CloseSRAM
 	ld a, $1
 	ld [wSavedAtLeastOnce], a
 	ret
@@ -395,16 +331,6 @@ EraseLinkBattleStats: ; 14ce2
 	jp CloseSRAM
 ; 14cf4
 
-EraseMysteryGift: ; 14cf4
-	ld a, BANK(sBackupMysteryGiftItem)
-	call GetSRAMBank
-	ld hl, sBackupMysteryGiftItem
-	ld bc, sBackupMysteryGiftItemEnd - sBackupMysteryGiftItem
-	xor a
-	call ByteFill
-	jp CloseSRAM
-; 14d06
-
 EraseHallOfFame: ; 14d06
 	ld a, BANK(sHallOfFame)
 	call GetSRAMBank
@@ -415,81 +341,10 @@ EraseHallOfFame: ; 14d06
 	jp CloseSRAM
 ; 14d18
 
-Function14d18: ; 14d18
-; XXX
-; copy .Data to SRA4:a007
-	ld a, $4
-	call GetSRAMBank
-	ld hl, .Data
-	ld de, $a007
-	ld bc, .DataEnd - .Data
-	call CopyBytes
-	jp CloseSRAM
-; 14d2c
-
-.Data: ; 14d2c
-	db $0d, $02, $00, $05, $00, $00
-	db $22, $02, $01, $05, $00, $00
-	db $03, $04, $05, $08, $03, $05
-	db $0e, $06, $03, $02, $00, $00
-	db $39, $07, $07, $04, $00, $05
-	db $04, $07, $01, $05, $00, $00
-	db $0f, $05, $14, $07, $05, $05
-	db $11, $0c, $0c, $06, $06, $04
-; 14d5c
-.DataEnd
-
-EraseBattleTowerStatus: ; 14d5c
-	ld a, BANK(sBattleTowerChallengeState)
-	call GetSRAMBank
-	xor a
-	ld [sBattleTowerChallengeState], a
-	jp CloseSRAM
-; 14d68
-
 SaveData: ; 14d68
 	call _SaveData
 	ret
 ; 14d6c
-
-Function14d6c: ; 14d6c
-; XXX
-	ld a, $4
-	call GetSRAMBank
-	ld a, [$a60b]
-	ld b, $0
-	and a
-	jr z, .ok
-	ld b, $2
-
-.ok
-	ld a, b
-	ld [$a60b], a
-	call CloseSRAM
-	ret
-; 14d83
-
-Function14d83: ; 14d83
-; XXX
-	ld a, $4
-	call GetSRAMBank
-	xor a
-	ld [$a60c], a
-	ld [$a60d], a
-	call CloseSRAM
-	ret
-; 14d93
-
-Function14d93: ; 14d93
-; XXX
-	ld a, $7
-	call GetSRAMBank
-	xor a
-	ld [$a000], a
-	call CloseSRAM
-	ret
-; 14da0
-
 
 HallOfFame_InitSaveIfNeeded: ; 14da0
 	ld a, [wSavedAtLeastOnce]
@@ -636,9 +491,7 @@ TryLoadSaveFile: ; 14ea5 (5:4ea5)
 	call LoadPlayerData
 	call LoadPokemonData
 	call LoadBox
-	callba RestorePartyMonMail
-	callba RestoreMobileEventIndex
-	callba RestoreMysteryGift
+	farcall RestorePartyMonMail
 	call ValidateBackupSave
 	call SaveBackupOptions
 	call SaveBackupPlayerData
@@ -653,9 +506,7 @@ TryLoadSaveFile: ; 14ea5 (5:4ea5)
 	call LoadBackupPlayerData
 	call LoadBackupPokemonData
 	call LoadBox
-	callba RestorePartyMonMail
-	callba RestoreMobileEventIndex
-	callba RestoreMysteryGift
+	farcall RestorePartyMonMail
 	call ValidateSave
 	call SaveOptions
 	call SavePlayerData
@@ -792,15 +643,6 @@ LoadPlayerData: ; 14fd7 (5:4fd7)
 	ld de, wMapData
 	ld bc, wMapDataEnd - wMapData
 	call CopyBytes
-	call CloseSRAM
-	ld a, BANK(sBattleTowerChallengeState)
-	call GetSRAMBank
-	ld a, [sBattleTowerChallengeState]
-	cp BATTLETOWER_RECEIVED_REWARD
-	jr nz, .not_4
-	ld a, BATTLETOWER_WON_CHALLENGE
-	ld [sBattleTowerChallengeState], a
-.not_4
 	call CloseSRAM
 	ret
 

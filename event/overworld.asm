@@ -37,7 +37,7 @@ CheckEngineFlag: ; c721
 ; Check engine flag de
 ; Return carry if flag is not set
 	ld b, CHECK_FLAG
-	callba EngineFlagAction
+	farcall EngineFlagAction
 	ld a, c
 	and a
 	jr nz, .isset
@@ -177,7 +177,7 @@ CheckMapForSomethingToCut: ; c7ce
 	call GetFacingTileCoord
 	ld c, a
 	push de
-	callba CheckCutCollision
+	farcall CheckCutCollision
 	pop de
 	jr nc, .fail
 	; Get the location of the current block in OverworldMap.
@@ -233,7 +233,7 @@ CutDownTreeOrGrass: ; c810
 	call DelayFrame
 	ld a, [Buffer6] ; Animation type
 	ld e, a
-	callba OWCutAnimation
+	farcall OWCutAnimation
 	call BufferScreen
 	call GetMovementPermissions
 	call UpdateSprites
@@ -334,12 +334,8 @@ OWFlash: ; c8ac
 .CheckUseFlash: ; c8b5
 ; Flash
 	ld de, ENGINE_ZEPHYRBADGE
-	callba CheckBadge
+	farcall CheckBadge
 	jr c, .nozephyrbadge
-	push hl
-	callba SpecialAerodactylChamber
-	pop hl
-	jr c, .useflash
 	ld a, [wTimeOfDayPalset]
 	cp %11111111 ; 3, 3, 3, 3
 	jr nz, .notadarkcave
@@ -416,7 +412,7 @@ SurfFunction: ; c909
 	jr nz, .cannotsurf
 	call CheckDirection
 	jr c, .cannotsurf
-	callba CheckFacingObject
+	farcall CheckFacingObject
 	jr c, .cannotsurf
 	ld a, $1
 	ret
@@ -459,8 +455,6 @@ UsedSurfScript: ; c986
 	waitbutton
 	closetext
 
-	callasm .empty_fn ; empty function
-
 	copybytetovar Buffer2
 	writevarcode VAR_MOVEMENT
 
@@ -470,10 +464,6 @@ UsedSurfScript: ; c986
 	special Special_SurfStartStep ; (slow_step_x, step_end)
 	applymovement PLAYER, MovementBuffer ; PLAYER, MovementBuffer
 	end
-
-.empty_fn ; c9a2
-	callba MobileFn_1060bb ; empty
-	ret
 
 UsedSurfText: ; c9a9
 	text_jump _UsedSurfText
@@ -625,7 +615,7 @@ FlyFunction: ; ca3b
 	ld [hMapAnims], a
 	call LoadStandardMenuDataHeader
 	call ClearSprites
-	callba _FlyMap
+	farcall _FlyMap
 	ld a, e
 	cp -1
 	jr z, .illegal
@@ -678,10 +668,10 @@ FlyFunction: ; ca3b
 	end
 
 .ReturnFromFly: ; cacb
-	callba Function561d
+	farcall Function561d
 	call DelayFrame
 	call ReplaceKrisSprite
-	callba LoadOverworldFont
+	farcall LoadOverworldFont
 	ret
 
 WaterfallFunction: ; cade
@@ -693,7 +683,7 @@ WaterfallFunction: ; cade
 .TryWaterfall: ; cae7
 ; Waterfall
 	ld de, ENGINE_RISINGBADGE
-	callba CheckBadge
+	farcall CheckBadge
 	ld a, $80
 	ret c
 	call CheckMapCanWaterfall
@@ -745,7 +735,6 @@ Script_UsedWaterfall: ; 0xcb20
 	ld a, [PlayerStandingTile]
 	call CheckWaterfallTile
 	ret z
-	callba MobileFn_1060c1
 	ld a, $1
 	ld [ScriptVar], a
 	ret
@@ -865,7 +854,6 @@ dig_incave
 	ret
 
 .escaperope
-	callba SpecialKabutoChamber
 	ld hl, .UsedEscapeRopeScript
 	call QueueScript
 	ld a, $81
@@ -959,7 +947,7 @@ TeleportFunction: ; cc61
 	ld d, a
 	ld a, [wLastSpawnMapNumber]
 	ld e, a
-	callba IsSpawnPoint
+	farcall IsSpawnPoint
 	jr nc, .nope
 	ld a, c
 	ld [wd001], a
@@ -1250,7 +1238,7 @@ DisappearWhirlpool: ; ce1d
 	call OverworldTextModeSwitch
 	ld a, [Buffer6]
 	ld e, a
-	callba PlayWhirlpoolSound
+	farcall PlayWhirlpoolSound
 	call BufferScreen
 	call GetMovementPermissions
 	ret
@@ -1404,7 +1392,7 @@ TryRockSmashFromMenu: ; cef4
 	ret
 
 GetFacingObject: ; cf0d
-	callba CheckFacingObject
+	farcall CheckFacingObject
 	jr nc, .fail
 
 	ld a, [hObjectStructIndexBuffer]
@@ -1539,7 +1527,7 @@ FishFunction: ; cf8e
 	ld d, a
 	ld a, [Buffer2]
 	ld e, a
-	callba Fish
+	farcall Fish
 	ld a, d
 	and a
 	jr z, .nonibble
@@ -1687,11 +1675,6 @@ UnknownText_0xd0a9: ; 0xd0a9
 	text_jump UnknownText_0x1c0965
 	db "@"
 
-UnknownText_0xd0ae: ; unused
-	; Looks like there's nothing here.
-	text_jump UnknownText_0x1c0979
-	db "@"
-
 BikeFunction: ; d0b3
 	call .TryBike
 	and $7f
@@ -1793,10 +1776,6 @@ Script_GetOnBike_Register: ; 0xd14e
 	closetext
 	special ReplaceKrisSprite
 	end
-
-; XXX
-	nop
-	ret
 
 Script_GetOffBike: ; 0xd158
 	reloadmappart

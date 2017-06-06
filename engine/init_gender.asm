@@ -20,8 +20,6 @@ InitCrystalData: ; 48000
 	ret
 ; 4802f
 
-INCLUDE "misc/mobile_12.asm"
-
 InitGender: ; 48dcb (12:4dcb)
 	call InitGenderScreen
 	call LoadGenderScreenPal
@@ -92,7 +90,7 @@ LoadGenderScreenPal: ; 48e47 (12:4e47)
 	ld bc, 1 palettes
 	ld a, $5
 	call FarCopyWRAM
-	callba ApplyPals
+	farcall ApplyPals
 	ret
 ; 48e5c (12:4e5c)
 

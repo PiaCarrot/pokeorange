@@ -123,7 +123,6 @@ GLOBAL PicPointers, UnownPicPointers
 	call AddNTimes
 	ld a, d
 	call GetFarByte
-	call FixPicBank
 	push af
 	inc hl
 	ld a, d
@@ -228,7 +227,6 @@ GetBackpic: ; 5116c
 	add hl, bc
 	ld a, d
 	call GetFarByte
-	call FixPicBank
 	push af
 	inc hl
 	ld a, d
@@ -248,46 +246,6 @@ GetBackpic: ; 5116c
 	ld [rSVBK], a
 	ret
 
-FixPicBank: ; 511c5
-; This is a thing for some reason.
-	push hl
-	push bc
-	sub PICS_1 - PICS_FIX
-	ld c, a
-	ld b, 0
-	ld hl, .PicsBanks
-	add hl, bc
-	ld a, [hl]
-	pop bc
-	pop hl
-	ret
-
-.PicsBanks: ; 511d4
-	db PICS_1
-	db PICS_2
-	db PICS_3
-	db PICS_4
-	db PICS_5
-	db PICS_6
-	db PICS_7
-	db PICS_8
-	db PICS_9
-	db PICS_10
-	db PICS_11
-	db PICS_12
-	db PICS_13
-	db PICS_14
-	db PICS_15
-	db PICS_16
-	db PICS_17
-	db PICS_18
-	db PICS_19
-	db PICS_19 + 1
-	db PICS_19 + 2
-	db PICS_19 + 3
-	db PICS_19 + 4
-	db PICS_19 + 5
-
 Function511ec: ; 511ec
 	ld a, c
 	push de
@@ -297,7 +255,6 @@ Function511ec: ; 511ec
 	call AddNTimes
 	ld a, BANK(PicPointers)
 	call GetFarByte
-	call FixPicBank
 	push af
 	inc hl
 	ld a, BANK(PicPointers)
@@ -328,7 +285,6 @@ GetTrainerPic: ; 5120d
 	push de
 	ld a, BANK(TrainerPicPointers)
 	call GetFarByte
-	call FixPicBank
 	push af
 	inc hl
 	ld a, BANK(TrainerPicPointers)

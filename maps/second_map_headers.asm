@@ -63,7 +63,6 @@
 	map_header_2 IcePathB2FBlackthornSide, ICE_PATH_B2F_BLACKTHORN_SIDE, $19, 0
 	map_header_2 IcePathB3F, ICE_PATH_B3F, $19, 0
 	map_header_2 CinnabarPokeCenter1F, CINNABAR_POKECENTER_1F, $0, 0
-	map_header_2 CinnabarPokeCenter2FBeta, CINNABAR_POKECENTER_2F_BETA, $0, 0
 	map_header_2 VioletMart, VIOLET_MART, $0, 0
 	map_header_2 VioletGym, VIOLET_GYM, 0, 0
 	map_header_2 VioletNicknameSpeechHouse, VIOLET_NICKNAME_SPEECH_HOUSE, $0, 0
@@ -86,14 +85,6 @@
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
 	map_header_2 Colosseum, COLOSSEUM, $0, 0
 	map_header_2 TimeCapsule, TIME_CAPSULE, $0, 0
-	map_header_2 MobileTradeRoomMobile, MOBILE_TRADE_ROOM_MOBILE, $0, 0
-	map_header_2 MobileBattleRoom, MOBILE_BATTLE_ROOM, $0, 0
-	map_header_2 BattleTower1F, BATTLE_TOWER_1F, $0, 0
-	map_header_2 BattleTowerBattleRoom, BATTLE_TOWER_BATTLE_ROOM, $0, 0
-	map_header_2 BattleTowerElevator, BATTLE_TOWER_ELEVATOR, $0, 0
-	map_header_2 BattleTowerHallway, BATTLE_TOWER_HALLWAY, $0, 0
-	map_header_2 Route40BattleTowerGate, ROUTE_40_BATTLE_TOWER_GATE, $0, 0
-	map_header_2 BattleTowerOutside, BATTLE_TOWER_OUTSIDE, $5, 0
 	map_header_2 ElmsLab, ELMS_LAB, 0, 0
 	map_header_2 KrissHouse1F, KRISS_HOUSE_1F, 0, 0
 	map_header_2 KrissHouse2F, KRISS_HOUSE_2F, $0, 0

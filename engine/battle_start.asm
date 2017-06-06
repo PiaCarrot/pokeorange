@@ -53,20 +53,13 @@ Predef_StartBattle: ; 8c20f
 ; 8c26d
 
 .InitGFX: ; 8c26d
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	jr z, .mobile
-	callba ReanchorBGMap_NoOAMUpdate
+	farcall ReanchorBGMap_NoOAMUpdate
 	call UpdateSprites
 	call DelayFrame
-	call .NonMobile_LoadPokeballTiles
-	call BattleStart_LoadEDTile
-	jr .resume
-
-.mobile
 	call LoadTrainerBattlePokeballTiles
-
-.resume
+	hlbgcoord 0, 0
+	call ConvertTrainerBattlePokeballTilesTo2bpp
+	call BattleStart_LoadEDTile
 	ld a, SCREEN_HEIGHT_PX
 	ld [hWY], a
 	call DelayFrame
@@ -80,13 +73,6 @@ Predef_StartBattle: ; 8c20f
 	call WipeLYOverrides
 	ret
 ; 8c2a0
-
-.NonMobile_LoadPokeballTiles: ; 8c2a0
-	call LoadTrainerBattlePokeballTiles
-	hlbgcoord 0, 0
-	call ConvertTrainerBattlePokeballTilesTo2bpp
-	ret
-; 8c2aa
 
 LoadTrainerBattlePokeballTiles:
 ; Load the tiles used in the Pokeball Graphic that fills the screen
@@ -296,7 +282,7 @@ StartTrainerBattle_Flash: ; 8c3ab (23:43ab)
 ; 8c3e8
 
 StartTrainerBattle_SetUpForWavyOutro: ; 8c3e8 (23:43e8)
-	callba Function5602
+	farcall Function5602
 	ld a, $5 ; BANK(LYOverrides)
 	ld [rSVBK], a
 
@@ -354,7 +340,7 @@ StartTrainerBattle_SineWave: ; 8c408 (23:4408)
 	ret
 
 StartTrainerBattle_SetUpForSpinOutro: ; 8c43d (23:443d)
-	callba Function5602
+	farcall Function5602
 	ld a, $5 ; BANK(LYOverrides)
 	ld [rSVBK], a
 	call StartTrainerBattle_NextScene
@@ -497,7 +483,7 @@ endr
 ; 8c578
 
 StartTrainerBattle_SetUpForRandomScatterOutro: ; 8c578 (23:4578)
-	callba Function5602
+	farcall Function5602
 	ld a, $5 ; BANK(LYOverrides)
 	ld [rSVBK], a
 	call StartTrainerBattle_NextScene
@@ -803,7 +789,7 @@ zoombox: macro
 endm
 
 StartTrainerBattle_ZoomToBlack: ; 8c768 (23:4768)
-	callba Function5602
+	farcall Function5602
 	ld de, .boxes
 
 .loop

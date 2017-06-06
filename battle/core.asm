@@ -52,11 +52,6 @@ DoBattle: ; 3c000
 	and a
 	jp z, LostBattle
 	call Call_LoadTempTileMapToTileMap
-	ld a, [BattleType]
-	cp BATTLETYPE_DEBUG
-	jp z, .tutorial_debug
-	cp BATTLETYPE_TUTORIAL
-	jp z, .tutorial_debug
 	xor a
 	ld [CurPartyMon], a
 .loop2
@@ -131,27 +126,15 @@ WildFled_EnemyFled_LinkBattleCanceled: ; 3c0e5
 	and $c0
 	ld [wBattleResult], a
 	ld hl, BattleText_EnemyFled
-	call CheckMobileBattleError
-	jr nc, .print_text
-
-	ld hl, wcd2a
-	bit 4, [hl]
-	jr nz, .skip_text
-
-	ld hl, BattleText_LinkErrorBattleCanceled
-
 .print_text
 	call StdBattleTextBox
 
 .skip_text
 	call StopDangerSound
-	call CheckMobileBattleError
-	jr c, .skip_sfx
 
 	ld de, SFX_RUN
 	call PlaySFX
 
-.skip_sfx
 	call SetPlayerTurn
 	ld a, 1
 	ld [BattleEnded], a
@@ -160,7 +143,6 @@ WildFled_EnemyFled_LinkBattleCanceled: ; 3c0e5
 
 BattleTurn: ; 3c12f
 .loop
-	call MobileFn_3c1bf
 	call CheckContestBattleOver
 	jp c, .quit
 
@@ -175,15 +157,7 @@ BattleTurn: ; 3c12f
 
 	call HandleBerserkGene
 	call UpdateBattleMonInParty
-	callba AIChooseMove
-
-	call IsMobileBattle
-	jr nz, .not_disconnected
-	callba Function100da5
-	callba StartMobileInactivityTimer
-	callba Function100dd8
-	jp c, .quit
-.not_disconnected
+	farcall AIChooseMove
 
 	call CheckPlayerLockedIn
 	jr c, .skip_iteration
@@ -210,9 +184,6 @@ BattleTurn: ; 3c12f
 .false
 	call Battle_PlayerFirst
 .proceed
-	call CheckMobileBattleError
-	jr c, .quit
-
 	ld a, [wForcedSwitch]
 	and a
 	jr nz, .quit
@@ -230,24 +201,6 @@ BattleTurn: ; 3c12f
 .quit
 	ret
 ; 3c1bf
-
-MobileFn_3c1bf: mobile
-	ld a, $5
-	call GetSRAMBank
-	ld hl, $a89b ; s5_a89b
-	inc [hl]
-	jr nz, .finish
-	dec hl
-	inc [hl]
-	jr nz, .finish
-	dec [hl]
-	inc hl
-	dec [hl]
-
-.finish
-	call CloseSRAM
-	ret
-; 3c1d6
 
 HandleBetweenTurnEffects: ; 3c1d6
 	ld a, [hLinkPlayerNumber]
@@ -377,7 +330,7 @@ HandleBerserkGene: ; 3c27c
 .go
 	push de
 	push bc
-	callab GetUserItem
+	farcall GetUserItem
 	ld a, [hl]
 	ld [wd265], a
 	sub BERSERK_GENE
@@ -405,14 +358,14 @@ HandleBerserkGene: ; 3c27c
 	ld [hl], a
 	ld [AttackMissed], a
 	ld [EffectFailed], a
-	callba BattleCommand_AttackUp2
+	farcall BattleCommand_AttackUp2
 	pop af
 	pop hl
 	ld [hl], a
 	call GetItemName
 	ld hl, BattleText_UsersStringBuffer1Activated
 	call StdBattleTextBox
-	callab BattleCommand_StatUpMessage
+	farcall BattleCommand_StatUpMessage
 	pop af
 	bit SUBSTATUS_CONFUSED, a
 	ret nz
@@ -473,7 +426,7 @@ DetermineMoveOrder: ; 3c314
 	jp .player_first
 
 .switch
-	callab AI_Switch
+	farcall AI_Switch
 	call SetEnemyTurn
 	call SpikesDamage
 	jp .enemy_first
@@ -489,9 +442,9 @@ DetermineMoveOrder: ; 3c314
 
 .equal_priority
 	call SetPlayerTurn
-	callab GetUserItem
+	farcall GetUserItem
 	push bc
-	callab GetOpponentItem
+	farcall GetOpponentItem
 	pop de
 	ld a, d
 	cp HELD_QUICK_CLAW
@@ -651,7 +604,7 @@ ParsePlayerAction: ; 3c434
 
 .encored
 	call SetPlayerTurn
-	callab UpdateMoveData
+	farcall UpdateMoveData
 	xor a
 	ld [wPlayerCharging], a
 	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
@@ -928,11 +881,9 @@ Battle_EnemyFirst: ; 3c5fe
 	call SetEnemyTurn
 	ld a, $1
 	ld [wEnemyGoesFirst], a
-	callab AI_SwitchOrTryItem
+	farcall AI_SwitchOrTryItem
 	jr c, .switch_item
 	call EnemyTurn_EndOpponentProtectEndureDestinyBond
-	call CheckMobileBattleError
-	ret c
 	ld a, [wForcedSwitch]
 	and a
 	ret nz
@@ -947,8 +898,6 @@ Battle_EnemyFirst: ; 3c5fe
 	jp z, HandleEnemyMonFaint
 	call RefreshBattleHuds
 	call PlayerTurn_EndOpponentProtectEndureDestinyBond
-	call CheckMobileBattleError
-	ret c
 	ld a, [wForcedSwitch]
 	and a
 	ret nz
@@ -969,15 +918,13 @@ Battle_PlayerFirst: ; 3c664
 	xor a
 	ld [wEnemyGoesFirst], a
 	call SetEnemyTurn
-	callab AI_SwitchOrTryItem
+	farcall AI_SwitchOrTryItem
 	push af
 	call PlayerTurn_EndOpponentProtectEndureDestinyBond
 	pop bc
 	ld a, [wForcedSwitch]
 	and a
 	ret nz
-	call CheckMobileBattleError
-	ret c
 	call HasEnemyFainted
 	jp z, HandleEnemyMonFaint
 	call HasPlayerFainted
@@ -995,8 +942,6 @@ Battle_PlayerFirst: ; 3c664
 	call TryEnemyFlee
 	jp c, WildFled_EnemyFled_LinkBattleCanceled
 	call EnemyTurn_EndOpponentProtectEndureDestinyBond
-	call CheckMobileBattleError
-	ret c
 	ld a, [wForcedSwitch]
 	and a
 	ret nz
@@ -1018,14 +963,14 @@ Battle_PlayerFirst: ; 3c664
 PlayerTurn_EndOpponentProtectEndureDestinyBond: ; 3c6cf
 	call SetPlayerTurn
 	call EndUserDestinyBond
-	callab DoPlayerTurn
+	farcall DoPlayerTurn
 	jp EndOpponentProtectEndureDestinyBond
 ; 3c6de
 
 EnemyTurn_EndOpponentProtectEndureDestinyBond: ; 3c6de
 	call SetEnemyTurn
 	call EndUserDestinyBond
-	callab DoEnemyTurn
+	farcall DoEnemyTurn
 	jp EndOpponentProtectEndureDestinyBond
 ; 3c6ed
 
@@ -1357,7 +1302,7 @@ HandleLeftovers: ; 3c8eb
 	call SetPlayerTurn
 .do_it
 
-	callab GetUserItem
+	farcall GetUserItem
 	ld a, [hl]
 	ld [wd265], a
 	call GetItemName
@@ -1407,7 +1352,7 @@ HandleMysteryberry: ; 3c93c
 	call SetPlayerTurn
 
 .do_it
-	callab GetUserItem
+	farcall GetUserItem
 	ld a, b
 	cp HELD_RESTORE_PP
 	jr nz, .quit
@@ -1504,7 +1449,7 @@ HandleMysteryberry: ; 3c93c
 	add b
 	ld [de], a
 .skip_checks
-	callab GetUserItem
+	farcall GetUserItem
 	ld a, [hl]
 	ld [wd265], a
 	xor a
@@ -1570,13 +1515,13 @@ HandleFutureSight: ; 3ca26
 	ld a, FUTURE_SIGHT
 	ld [hl], a
 
-	callab UpdateMoveData
+	farcall UpdateMoveData
 	xor a
 	ld [AttackMissed], a
 	ld [AlreadyDisobeyed], a
 	ld a, 10
 	ld [TypeModifier], a
-	callab DoMove
+	farcall DoMove
 	xor a
 	ld [CurDamage], a
 	ld [CurDamage + 1], a
@@ -2137,9 +2082,6 @@ HandleEnemyMonFaint: ; 3cd55
 
 .dont_flee
 	call ForcePlayerMonChoice
-	call CheckMobileBattleError
-	jp c, WildFled_EnemyFled_LinkBattleCanceled
-
 	ld a, $1
 	ld [wPlayerAction], a
 	call HandleEnemySwitch
@@ -2393,7 +2335,7 @@ HandleEnemySwitch: ; 3cf4a
 	ld e, HP_BAR_LENGTH_PX
 	call UpdateHPPal
 	call WaitBGMap
-	callba EnemySwitch_TrainerHud
+	farcall EnemySwitch_TrainerHud
 	ld a, [wLinkMode]
 	and a
 	jr z, .not_linked
@@ -2451,19 +2393,13 @@ WinTrainerBattle: ; 3cfa4
 	and a
 	ld a, b
 	call z, PlayVictoryMusic
-	callab Battle_GetTrainerName
+	farcall Battle_GetTrainerName
 	ld hl, BattleText_EnemyWasDefeated
 	call StdBattleTextBox
 
-	call IsMobileBattle
-	jr z, .mobile
 	ld a, [wLinkMode]
 	and a
 	ret nz
-
-	ld a, [InBattleTowerBattle]
-	bit 0, a
-	jr nz, .battle_tower
 
 	call BattleWinSlideInEnemyTrainerFrontpic
 	ld c, 40
@@ -2479,35 +2415,6 @@ WinTrainerBattle: ; 3cfa4
 	call PrintWinLossText
 
 .skip_win_loss_text
-	jp .GiveMoney
-
-.mobile
-	call BattleWinSlideInEnemyTrainerFrontpic
-	ld c, 40
-	call DelayFrames
-	ld c, $4 ; win
-	callba Mobile_PrintOpponentBattleMessage
-	ret
-
-.battle_tower
-	call BattleWinSlideInEnemyTrainerFrontpic
-	ld c, 40
-	call DelayFrames
-	call EmptyBattleTextBox
-	ld c, $3
-	callba BattleTowerText
-	call WaitPressAorB_BlinkCursor
-	ld hl, wPayDayMoney
-	ld a, [hli]
-	or [hl]
-	inc hl
-	or [hl]
-	ret nz
-	call ClearTileMap
-	call ClearBGPalettes
-	ret
-
-.GiveMoney:
 	ld a, [wAmuletCoin]
 	and a
 	call nz, .DoubleReward
@@ -2619,13 +2526,6 @@ AddBattleMoneyToAccount: ; 3d0be
 	ld c, $3
 	and a
 	push de
-	push hl
-	push bc
-	ld b, h
-	ld c, l
-	callba MobileFn_106008
-	pop bc
-	pop hl
 .loop
 	ld a, [de]
 	adc [hl]
@@ -2777,8 +2677,6 @@ HandlePlayerMonFaint: ; 3d14e
 
 .switch
 	call ForcePlayerMonChoice
-	call CheckMobileBattleError
-	jp c, WildFled_EnemyFled_LinkBattleCanceled
 	ld a, c
 	and a
 	ret nz
@@ -2817,7 +2715,7 @@ PlayerMonFaintHappinessMod: ; 3d1aa
 .got_param
 	ld a, [CurBattleMon]
 	ld [CurPartyMon], a
-	callab ChangeHappiness
+	farcall ChangeHappiness
 	ld a, [wBattleResult]
 	and %11000000
 	add $1
@@ -2872,14 +2770,11 @@ ForcePlayerMonChoice: ; 3d227
 .skip_link
 	xor a
 	ld [wPlayerAction], a
-	call CheckMobileBattleError
-	jr c, .enemy_fainted_mobile_error
 	ld hl, EnemyMonHP
 	ld a, [hli]
 	or [hl]
 	jr nz, .send_out_pokemon
 
-.enemy_fainted_mobile_error
 	call ClearSprites
 	call ClearBGPalettes
 	call _LoadHPBar
@@ -2939,43 +2834,19 @@ PlayerPartyMonEntrance: ; 3d2b3
 	jp SpikesDamage
 ; 3d2e0
 
-CheckMobileBattleError: ; 3d2e0
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	jr nz, .not_mobile ; It's not a mobile battle
-
-	ld a, [wcd2b]
-	and a
-	jr z, .not_mobile
-
-; We have a mobile battle and something else happened
-	scf
-	ret
-
-.not_mobile
-	xor a
-	ret
-; 3d2f1
-
-IsMobileBattle: ; 3d2f1
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	ret
-; 3d2f7
-
 SetUpBattlePartyMenu_NoLoop: ; 3d2f7
 	call ClearBGPalettes
 SetUpBattlePartyMenu: ; switch to fullscreen menu?
-	callba LoadPartyMenuGFX
-	callba InitPartyMenuWithCancel
-	callba InitPartyMenuBGPal7
-	callba InitPartyMenuGFX
+	farcall LoadPartyMenuGFX
+	farcall InitPartyMenuWithCancel
+	farcall InitPartyMenuBGPal7
+	farcall InitPartyMenuGFX
 	ret
 ; 3d313
 
 JumpToPartyMenuAndPrintText: ; 3d313
-	callba WritePartyMenuTilemap
-	callba PrintPartyMenuText
+	farcall WritePartyMenuTilemap
+	farcall PrintPartyMenuText
 	call WaitBGMap
 	call SetPalettes
 	call DelayFrame
@@ -2983,15 +2854,8 @@ JumpToPartyMenuAndPrintText: ; 3d313
 ; 3d329
 
 SelectBattleMon: ; 3d329
-	call IsMobileBattle
-	jr z, .mobile
-	callba PartyMenuSelect
+	farcall PartyMenuSelect
 	ret
-
-.mobile
-	callba Mobile_PartyMenuSelect
-	ret
-; 3d33c
 
 PickPartyMonInBattle: ; 3d33c
 .loop
@@ -3028,8 +2892,6 @@ ForcePickPartyMonInBattle: ; 3d362
 .pick
 	call PickPartyMonInBattle
 	ret nc
-	call CheckMobileBattleError
-	ret c
 
 	ld de, SFX_WRONG
 	call PlaySFX
@@ -3052,8 +2914,6 @@ ForcePickSwitchMonInBattle: ; 3d380
 
 .pick
 	call ForcePickPartyMonInBattle
-	call CheckMobileBattleError
-	ret c
 	call SwitchMonAlreadyOut
 	jr c, .pick
 
@@ -3064,10 +2924,6 @@ ForcePickSwitchMonInBattle: ; 3d380
 LostBattle: ; 3d38e
 	ld a, 1
 	ld [BattleEnded], a
-
-	ld a, [InBattleTowerBattle]
-	bit 0, a
-	jr nz, .battle_tower
 
 	ld a, [BattleType]
 	cp BATTLETYPE_CANLOSE
@@ -3087,24 +2943,6 @@ LostBattle: ; 3d38e
 	jr nz, .skip_win_loss_text
 	call PrintWinLossText
 .skip_win_loss_text
-	ret
-
-.battle_tower
-; Remove the enemy from the screen.
-	hlcoord 0, 0
-	lb bc, 8, 21
-	call ClearBox
-	call BattleWinSlideInEnemyTrainerFrontpic
-
-	ld c, 40
-	call DelayFrames
-
-	call EmptyBattleTextBox
-	ld c, 2
-	callba BattleTowerText
-	call WaitPressAorB_BlinkCursor
-	call ClearTileMap
-	call ClearBGPalettes
 	ret
 
 .not_canlose
@@ -3131,31 +2969,12 @@ LostBattle: ; 3d38e
 
 .not_tied
 	ld hl, LostAgainstText
-	call IsMobileBattle
-	jr z, .mobile
-
 .text
 	call StdBattleTextBox
 
 .end
 	scf
 	ret
-
-.mobile
-; Remove the enemy from the screen.
-	hlcoord 0, 0
-	lb bc, 8, 21
-	call ClearBox
-	call BattleWinSlideInEnemyTrainerFrontpic
-
-	ld c, 40
-	call DelayFrames
-
-	ld c, $3 ; lost
-	callba Mobile_PrintOpponentBattleMessage
-	scf
-	ret
-; 3d432
 
 EnemyMonFaintedAnimation: ; 3d432
 	hlcoord 12, 5
@@ -3458,7 +3277,7 @@ LookUpTheEffectivenessOfEveryMove: ; 3d5d7
 	ld a, BANK(Moves)
 	call FarCopyBytes
 	call SetEnemyTurn
-	callab BattleCheckTypeMatchup
+	farcall BattleCheckTypeMatchup
 	pop bc
 	pop de
 	pop hl
@@ -3494,13 +3313,13 @@ IsThePlayerPkmnTypesEffectiveAgainstOTPkmn: ; 3d618
 	ld a, [BattleMonType1]
 	ld [wPlayerMoveStruct + MOVE_TYPE], a
 	call SetPlayerTurn
-	callab BattleCheckTypeMatchup
+	farcall BattleCheckTypeMatchup
 	ld a, [wd265]
 	cp 10 + 1 ; 1.0 + 0.1
 	jr nc, .super_effective
 	ld a, [BattleMonType2]
 	ld [wPlayerMoveStruct + MOVE_TYPE], a
-	callab BattleCheckTypeMatchup
+	farcall BattleCheckTypeMatchup
 	ld a, [wd265]
 	cp 10 + 1 ; 1.0 + 0.1
 	jr nc, .super_effective
@@ -3642,7 +3461,7 @@ CheckWhetherToAskSwitch: ; 3d714
 	push af
 	ld a, [CurBattleMon]
 	ld [CurPartyMon], a
-	callba CheckCurPartyMonFainted
+	farcall CheckCurPartyMonFainted
 	pop bc
 	ld a, b
 	ld [CurPartyMon], a
@@ -3658,7 +3477,7 @@ CheckWhetherToAskSwitch: ; 3d714
 OfferSwitch: ; 3d74b
 	ld a, [CurPartyMon]
 	push af
-	callab Battle_GetTrainerName
+	farcall Battle_GetTrainerName
 	ld hl, BattleText_EnemyIsAboutToUseWillPlayerChangePkmn
 	call StdBattleTextBox
 	lb bc, 1, 7
@@ -3709,7 +3528,7 @@ ClearEnemyMonBox: ; 3d7a0
 ; 3d7b8
 
 Function_BattleTextEnemySentOut: ; 3d7b8
-	callab Battle_GetTrainerName
+	farcall Battle_GetTrainerName
 	ld hl, BattleText_EnemySentOut
 	call StdBattleTextBox
 	jp WaitBGMap
@@ -3741,9 +3560,9 @@ Function_SetEnemyPkmnAndSendOutAnimation: ; 3d7c7
 .not_shiny
 
 	ld bc, TempMonSpecies
-	callba CheckFaintedFrzSlp
+	farcall CheckFaintedFrzSlp
 	jr c, .skip_cry
-	callba CheckBattleScene
+	farcall CheckBattleScene
 	jr c, .cry_no_anim
 	hlcoord 12, 0
 	ld d, $0
@@ -3851,8 +3670,6 @@ CheckIfCurPartyMonIsFitToFight: ; 3d887
 TryToRunAwayFromBattle: ; 3d8b3
 ; Run away from battle, with or without item
 	ld a, [BattleType]
-	cp BATTLETYPE_DEBUG
-	jp z, .can_escape
 	cp BATTLETYPE_CONTEST
 	jp z, .can_escape
 	cp BATTLETYPE_TRAP
@@ -3885,7 +3702,7 @@ TryToRunAwayFromBattle: ; 3d8b3
 	ld a, [BattleMonItem]
 	ld [wd265], a
 	ld b, a
-	callab GetItemHeldEffect
+	farcall GetItemHeldEffect
 	ld a, b
 	cp HELD_ESCAPE
 	pop de
@@ -3994,8 +3811,6 @@ TryToRunAwayFromBattle: ; 3d8b3
 	ld [CurPlayerMove], a
 	call LinkBattleSendReceiveAction
 	call Call_LoadTempTileMapToTileMap
-	call CheckMobileBattleError
-	jr c, .mobile
 
 	; Got away safely
 	ld a, [wBattleAction]
@@ -4021,21 +3836,6 @@ TryToRunAwayFromBattle: ; 3d8b3
 	call LoadTileMapToTempTileMap
 	scf
 	ret
-
-.mobile
-	call StopDangerSound
-	ld hl, wcd2a
-	bit 4, [hl]
-	jr nz, .skip_link_error
-	ld hl, BattleText_LinkErrorBattleCanceled
-	call StdBattleTextBox
-
-.skip_link_error
-	call WaitSFX
-	call LoadTileMapToTempTileMap
-	scf
-	ret
-; 3da0d
 
 InitBattleMon: ; 3da0d
 	ld a, MON_SPECIES
@@ -4088,7 +3888,7 @@ BattleCheckEnemyShininess: ; 3da79
 BattleCheckShininess: ; 3da7c
 	ld b, h
 	ld c, l
-	callab CheckShininess
+	farcall CheckShininess
 	ret
 ; 3da85
 
@@ -4242,7 +4042,7 @@ SendOutPlayerMon: ; 3db5f
 	call GetPartyParamLocation
 	ld b, h
 	ld c, l
-	callba CheckFaintedFrzSlp
+	farcall CheckFaintedFrzSlp
 	jr c, .statused
 	ld a, $f0
 	ld [CryTracks], a
@@ -4452,7 +4252,7 @@ HandleHealingItems: ; 3dcf9
 ; 3dd2f
 
 HandleHPHealingItem: ; 3dd2f
-	callab GetOpponentItem
+	farcall GetOpponentItem
 	ld a, b
 	cp $1
 	ret nz
@@ -4536,11 +4336,11 @@ HandleHPHealingItem: ; 3dd2f
 	predef AnimateHPBar
 UseOpponentItem:
 	call RefreshBattleHuds
-	callab GetOpponentItem
+	farcall GetOpponentItem
 	ld a, [hl]
 	ld [wNamedObjectIndexBuffer], a
 	call GetItemName
-	callab ConsumeHeldItem
+	farcall ConsumeHeldItem
 	ld hl, RecoveredUsingText
 	jp StdBattleTextBox
 ; 3ddc8
@@ -4565,7 +4365,7 @@ ItemRecoveryAnim: ; 3ddc8
 ; 3dde9
 
 UseHeldStatusHealingItem: ; 3dde9
-	callab GetOpponentItem
+	farcall GetOpponentItem
 	ld hl, .Statuses
 .loop
 	ld a, [hli]
@@ -4635,7 +4435,7 @@ UseConfusionHealingItem: ; 3de51
 	call GetBattleVar
 	bit SUBSTATUS_CONFUSED, a
 	ret z
-	callab GetOpponentItem
+	farcall GetOpponentItem
 	ld a, b
 	cp HELD_HEAL_CONFUSION
 	jr z, .heal_status
@@ -4702,7 +4502,7 @@ HandleStatBoostingHeldItems: ; 3de97
 	push bc
 	ld a, [bc]
 	ld b, a
-	callab GetItemHeldEffect
+	farcall GetItemHeldEffect
 	ld hl, .StatUpItems
 .loop
 	ld a, [hli]
@@ -4734,7 +4534,7 @@ HandleStatBoostingHeldItems: ; 3de97
 	call GetItemName
 	ld hl, BattleText_UsersStringBuffer1Activated
 	call StdBattleTextBox
-	callab BattleCommand_StatUpMessage
+	farcall BattleCommand_StatUpMessage
 	ret
 
 .finish
@@ -4809,7 +4609,7 @@ DrawPlayerHUD: ; 3df58
 	lb bc, 5, 11
 	call ClearBox
 
-	callba DrawPlayerHUDBorder
+	farcall DrawPlayerHUDBorder
 
 	hlcoord 18, 9
 	ld [hl], $73 ; vertical bar
@@ -4902,7 +4702,7 @@ PrintPlayerHUD: ; 3dfbf
 
 	ld a, TEMPMON
 	ld [MonType], a
-	callab GetGender
+	farcall GetGender
 	ld a, " "
 	jr c, .got_gender_char
 	ld a, "♂"
@@ -4951,7 +4751,7 @@ DrawEnemyHUD: ; 3e043
 	lb bc, 4, 11
 	call ClearBox
 
-	callba DrawEnemyHUDBorder
+	farcall DrawEnemyHUDBorder
 
 	ld a, [TempEnemyMonSpecies]
 	ld [CurSpecies], a
@@ -4980,7 +4780,7 @@ DrawEnemyHUD: ; 3e043
 
 	ld a, TEMPMON
 	ld [MonType], a
-	callab GetGender
+	farcall GetGender
 	ld a, " "
 	jr c, .got_gender
 	ld a, "♂"
@@ -5100,34 +4900,20 @@ BattleMenu: ; 3e139
 	ld [hBGMapMode], a
 	call LoadTempTileMapToTileMap
 
-	ld a, [BattleType]
-	cp BATTLETYPE_DEBUG
-	jr z, .ok
-	cp BATTLETYPE_TUTORIAL
-	jr z, .ok
 	call EmptyBattleTextBox
 	call UpdateBattleHuds
 	call EmptyBattleTextBox
 	call LoadTileMapToTempTileMap
-.ok
 
 .loop
 	ld a, [BattleType]
 	cp BATTLETYPE_CONTEST
 	jr nz, .not_contest
-	callba ContestBattleMenu
+	farcall ContestBattleMenu
 	jr .next
 .not_contest
-
-	; Auto input: choose "ITEM"
-	ld a, [InputType]
-	or a
-	jr z, .skip_dude_pack_select
-	callba _DudeAutoInput_DownA
-.skip_dude_pack_select
 	call LoadBattleMenu2
 	ret c
-
 .next
 	ld a, $1
 	ld [hBGMapMode], a
@@ -5152,59 +4938,25 @@ BattleMenu_Fight: ; 3e192
 ; 3e19b
 
 LoadBattleMenu2: ; 3e19b
-	call IsMobileBattle
-	jr z, .mobile
-
-	callba LoadBattleMenu
+	farcall LoadBattleMenu
 	and a
 	ret
-
-.mobile
-	callba Function100b12
-	ld a, [wcd2b]
-	and a
-	ret z
-
-	ld hl, wcd2a
-	bit 4, [hl]
-	jr nz, .error
-	ld hl, BattleText_LinkErrorBattleCanceled
-	call StdBattleTextBox
-	ld c, 60
-	call DelayFrames
-.error
-	scf
-	ret
-; 3e1c7
 
 BattleMenu_Pack: ; 3e1c7
 	ld a, [wLinkMode]
 	and a
 	jp nz, .ItemsCantBeUsed
 
-	ld a, [InBattleTowerBattle]
-	and a
-	jp nz, .ItemsCantBeUsed
-
 	call LoadStandardMenuDataHeader
 
 	ld a, [BattleType]
-	cp BATTLETYPE_TUTORIAL
-	jr z, .tutorial
 	cp BATTLETYPE_CONTEST
 	jr z, .contest
 
-	callba BattlePack
+	farcall BattlePack
 	ld a, [wPlayerAction]
 	and a
 	jr z, .didnt_use_item
-	jr .got_item
-
-.tutorial
-	callba TutorialPack
-	ld a, POKE_BALL
-	ld [CurItem], a
-	call DoItemEffect
 	jr .got_item
 
 .contest
@@ -5239,7 +4991,7 @@ BattleMenu_Pack: ; 3e1c7
 	ld a, [wWildMon]
 	and a
 	jr nz, .run
-	callab CheckItemPocket
+	farcall CheckItemPocket
 	ld a, [wItemAttributeParamBuffer]
 	cp BALL
 	jr z, .ball
@@ -5250,12 +5002,7 @@ BattleMenu_Pack: ; 3e1c7
 	ld [hBGMapMode], a
 	call _LoadBattleFontsHPBar
 	call ClearSprites
-	ld a, [BattleType]
-	cp BATTLETYPE_TUTORIAL
-	jr z, .tutorial2
 	call GetMonBackpic
-
-.tutorial2
 	call GetMonFrontpic
 	ld a, $1
 	ld [wMenuCursorY], a
@@ -5294,7 +5041,7 @@ BattleMenuPKMN_Loop:
 	call SelectBattleMon
 	jr c, .Cancel
 .loop
-	callba FreezeMonIcons
+	farcall FreezeMonIcons
 	call .GetMenu
 	jr c, .PressedB
 	call PlaceHollowCursor
@@ -5308,14 +5055,10 @@ BattleMenuPKMN_Loop:
 	jr .loop
 
 .PressedB:
-	call CheckMobileBattleError
-	jr c, .Cancel
 	jr BattleMenuPKMN_Loop
 
 .Stats:
 	call Battle_StatsScreen
-	call CheckMobileBattleError
-	jr c, .Cancel
 	jp BattleMenuPKMN_ReturnFromStats
 
 .Cancel:
@@ -5331,15 +5074,8 @@ BattleMenuPKMN_Loop:
 ; 3e2f5
 
 .GetMenu: ; 3e2f5
-	call IsMobileBattle
-	jr z, .mobile
-	callba BattleMonMenu
+	farcall BattleMonMenu
 	ret
-
-.mobile
-	callba MobileBattleMonMenu
-	ret
-; 3e308
 
 Battle_StatsScreen: ; 3e308
 	call DisableLCD
@@ -5360,7 +5096,7 @@ Battle_StatsScreen: ; 3e308
 	call LowVolume
 	xor a ; PARTYMON
 	ld [MonType], a
-	callba BattleStatsScreenInit
+	farcall BattleStatsScreenInit
 	call MaxVolume
 
 	call DisableLCD
@@ -5469,7 +5205,7 @@ PlayerSwitch: ; 3e3ad
 ; 3e3ff
 
 EnemyMonEntrance: ; 3e3ff
-	callab AI_Switch
+	farcall AI_Switch
 	call SetEnemyTurn
 	jp SpikesDamage
 ; 3e40b
@@ -5552,7 +5288,7 @@ BattleMenu_Run: ; 3e489
 CheckAmuletCoin: ; 3e4a8
 	ld a, [BattleMonItem]
 	ld b, a
-	callab GetItemHeldEffect
+	farcall GetItemHeldEffect
 	ld a, b
 	cp HELD_AMULET_COIN
 	ret nz
@@ -5562,12 +5298,6 @@ CheckAmuletCoin: ; 3e4a8
 ; 3e4bc
 
 MoveSelectionScreen: ; 3e4bc
-	call IsMobileBattle
-	jr nz, .not_mobile
-	callba MobileMoveSelectionScreen
-	ret
-
-.not_mobile
 	ld hl, EnemyMonMoves
 	ld a, [wMoveSelectionMenuType]
 	dec a
@@ -5885,7 +5615,6 @@ MoveInfoBox: ; 3e6c8
 	ld b, 3
 	ld c, 9
 	call TextBox
-	call MobileTextBorder
 
 	ld a, [PlayerDisableCount]
 	and a
@@ -5919,7 +5648,7 @@ MoveInfoBox: ; 3e6c8
 	ld [CurPartyMon], a
 	ld a, WILDMON
 	ld [MonType], a
-	callab GetMaxPPOfMove
+	farcall GetMaxPPOfMove
 
 	ld hl, wMenuCursorY
 	ld c, [hl]
@@ -5939,7 +5668,7 @@ MoveInfoBox: ; 3e6c8
 	hlcoord 7, 11
 	ld [hl], "/"
 
-	callab UpdateMoveData
+	farcall UpdateMoveData
 	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	ld b, a
 	hlcoord 2, 10
@@ -5957,11 +5686,6 @@ MoveInfoBox: ; 3e6c8
 
 .PrintPP: ; 3e75f
 	hlcoord 5, 11
-	ld a, [wLinkMode] ; What's the point of this check?
-	cp LINK_MOBILE
-	jr c, .ok
-	hlcoord 5, 11
-.ok
 	push hl
 	ld de, StringBuffer1
 	lb bc, 1, 2
@@ -6137,7 +5861,7 @@ ParseEnemyAction: ; 3e7c1
 
 .skip_load
 	call SetEnemyTurn
-	callab UpdateMoveData
+	farcall UpdateMoveData
 	call CheckEnemyLockedIn
 	jr nz, .raging
 	xor a
@@ -6200,7 +5924,7 @@ CheckEnemyLockedIn: ; 3e8d1
 ; 3e8e4
 
 LinkBattleSendReceiveAction: ; 3e8e4
-	callba _LinkBattleSendReceiveAction
+	farcall _LinkBattleSendReceiveAction
 	ret
 ; 3e8eb
 
@@ -6220,11 +5944,6 @@ LoadEnemyMon: ; 3e8eb
 ; We don't need to be here if we're in a link battle
 	ld a, [wLinkMode]
 	and a
-	jp nz, InitEnemyMon
-
-; and also not in a BattleTower-Battle
-	ld a, [InBattleTowerBattle] ; ????
-	bit 0, a
 	jp nz, InitEnemyMon
 
 ; Make sure everything knows what species we're working with
@@ -6309,7 +6028,7 @@ LoadEnemyMon: ; 3e8eb
 
 ; All trainers have preset DVs, determined by class
 ; See GetTrainerDVs for more on that
-	callba GetTrainerDVs
+	farcall GetTrainerDVs
 ; These are the DVs we'll use if we're actually in a trainer battle
 	ld a, [wBattleMode]
 	dec a
@@ -6388,24 +6107,8 @@ LoadEnemyMon: ; 3e8eb
 	dec a
 	jr nz, .Happiness
 
-; Species-specfic:
-
-; Unown
-	ld a, [TempEnemyMonSpecies]
-	cp a, SPINDA
-	jr nz, .Magikarp
-
-; Get letter based on DVs
-	ld hl, EnemyMonDVs
-	predef GetUnownLetter
-; Can't use any letters that haven't been unlocked
-; If combined with forced shiny battletype, causes an infinite loop
-	call CheckUnownLetter
-	jr c, .GenerateDVs ; try again
-
-.Magikarp:
+; Magikarp length
 ; Skimming this part recommended
-
 	ld a, [TempEnemyMonSpecies]
 	cp a, MAGIKARP
 	jr nz, .Happiness
@@ -6413,7 +6116,7 @@ LoadEnemyMon: ; 3e8eb
 ; Get Magikarp's length
 	ld de, EnemyMonDVs
 	ld bc, PlayerID
-	callab CalcMagikarpLength
+	farcall CalcMagikarpLength
 
 ; We're clear if the length is < 1536
 	ld a, [MagikarpLength]
@@ -6725,74 +6428,6 @@ CheckSleepingTreeMon: ; 3eb38
 	db -1 ; end
 ; 3eb75
 
-CheckUnownLetter: ; 3eb75
-; Return carry if the Unown letter hasn't been unlocked yet
-
-	ld a, [UnlockedUnowns]
-	ld c, a
-	ld de, 0
-
-.loop
-
-; Don't check this set unless it's been unlocked
-	srl c
-	jr nc, .next
-
-; Is our letter in the set?
-	ld hl, .LetterSets
-	add hl, de
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-
-	push de
-	ld a, [UnownLetter]
-	ld de, 1
-	push bc
-	call IsInArray
-	pop bc
-	pop de
-
-	jr c, .match
-
-.next
-; Make sure we haven't gone past the end of the table
-	inc e
-	inc e
-	ld a, e
-	cp a, .Set1 - .LetterSets
-	jr c, .loop
-
-; Hasn't been unlocked, or the letter is invalid
-	scf
-	ret
-
-.match
-; Valid letter
-	and a
-	ret
-
-.LetterSets:
-	dw .Set1
-	dw .Set2
-	dw .Set3
-	dw .Set4
-
-.Set1:
-	;  A   B   C   D   E   F   G   H   I   J   K
-	db 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, $ff
-.Set2:
-	;  L   M   N   O   P   Q   R
-	db 12, 13, 14, 15, 16, 17, 18, $ff
-.Set3:
-	;  S   T   U   V   W
-	db 19, 20, 21, 22, 23, $ff
-.Set4:
-	;  X   Y   Z
-	db 24, 25, 26, $ff
-
-; 3ebc7
-
 SwapBattlerLevels: ; 3ebc7
 ; unreferenced
 	push bc
@@ -6813,7 +6448,7 @@ BattleWinSlideInEnemyTrainerFrontpic: ; 3ebd8
 	ld a, [OtherTrainerClass]
 	ld [TrainerClass], a
 	ld de, VTiles2
-	callab GetTrainerPic
+	farcall GetTrainerPic
 	hlcoord 19, 0
 	ld c, 0
 
@@ -7103,10 +6738,6 @@ BadgeStatBoosts: ; 3ed45
 	and a
 	ret nz
 
-	ld a, [InBattleTowerBattle]
-	and a
-	ret nz
-
 	ld a, [JohtoBadges]
 
 ; Swap badges 3 (PlainBadge) and 5 (MineralBadge).
@@ -7177,12 +6808,12 @@ BoostStat: ; 3ed7c
 ; 3ed9f
 
 _LoadBattleFontsHPBar: ; 3ed9f
-	callab LoadBattleFontsHPBar
+	farcall LoadBattleFontsHPBar
 	ret
 ; 3eda6
 
 _LoadHPBar: ; 3eda6
-	callab LoadHPBar
+	farcall LoadHPBar
 	ret
 ; 3edad
 
@@ -7311,13 +6942,9 @@ FinishBattleAnim: ; 3ee27
 
 GiveExperiencePoints: ; 3ee3b
 ; Give experience.
-; Don't give experience if linked or in the Battle Tower.
+; Don't give experience if linked.
 	ld a, [wLinkMode]
 	and a
-	ret nz
-
-	ld a, [InBattleTowerBattle]
-	bit 0, a
 	ret nz
 
 	call .EvenlyDivideExpAmongParticipants
@@ -7488,7 +7115,7 @@ GiveExperiencePoints: ; 3ee3b
 	call GetBaseData
 	push bc
 	ld d, MAX_LEVEL
-	callab CalcExpAtLevel
+	farcall CalcExpAtLevel
 	pop bc
 	ld hl, MON_STAT_EXP - 1
 	add hl, bc
@@ -7517,7 +7144,7 @@ GiveExperiencePoints: ; 3ee3b
 	xor a ; PARTYMON
 	ld [MonType], a
 	predef CopyPkmnToTempMon
-	callab CalcLevel
+	farcall CalcLevel
 	pop bc
 	ld hl, MON_LEVEL
 	add hl, bc
@@ -7604,16 +7231,16 @@ GiveExperiencePoints: ; 3ee3b
 	xor a
 	ld [wd265], a
 	call ApplyStatLevelMultiplierOnAllStats
-	callab ApplyStatusEffectOnPlayerStats
-	callab BadgeStatBoosts
-	callab UpdatePlayerHUD
+	farcall ApplyStatusEffectOnPlayerStats
+	farcall BadgeStatBoosts
+	farcall UpdatePlayerHUD
 	call EmptyBattleTextBox
 	call LoadTileMapToTempTileMap
 	ld a, $1
 	ld [hBGMapMode], a
 
 .skip_animation
-	callba LevelUpHappinessMod
+	farcall LevelUpHappinessMod
 	ld a, [CurBattleMon]
 	ld b, a
 	ld a, [CurPartyMon]
@@ -7814,7 +7441,7 @@ AnimateExpBar: ; 3f136
 
 .NoOverflow:
 	ld d, MAX_LEVEL
-	callab CalcExpAtLevel
+	farcall CalcExpAtLevel
 	ld a, [hProduct + 1]
 	ld b, a
 	ld a, [hProduct + 2]
@@ -7837,7 +7464,7 @@ AnimateExpBar: ; 3f136
 	ld [hld], a
 
 .AlreadyAtMaxExp:
-	callab CalcLevel
+	farcall CalcLevel
 	ld a, d
 	pop bc
 	pop de
@@ -7869,7 +7496,7 @@ AnimateExpBar: ; 3f136
 	call TerminateExpBarSound
 	ld de, SFX_HIT_END_OF_EXP_BAR
 	call PlaySFX
-	callba AnimateEndOfExpBar
+	farcall AnimateEndOfExpBar
 	call WaitSFX
 	ld hl, BattleText_StringBuffer1GrewToLevel
 	call StdBattleTextBox
@@ -8117,12 +7744,6 @@ TextJump_GoodComeBack: ; 3f352
 	db "@"
 ; 3f357
 
-UnusedFunction_TextJump_ComeBack: ; 3f357
-; this function doesn't seem to be used
-	ld hl, TextJump_ComeBack
-	ret
-; 3f35b
-
 TextJump_ComeBack: ; 3f35b
 	text_jump Text_ComeBack
 	db "@"
@@ -8175,7 +7796,7 @@ CalcExpBar: ; 3f39c
 	push de
 	ld d, b
 	push de
-	callab CalcExpAtLevel
+	farcall CalcExpAtLevel
 	pop de
 ; exp at current level gets pushed to the stack
 	ld hl, hMultiplicand
@@ -8187,7 +7808,7 @@ CalcExpBar: ; 3f39c
 	push af
 ; next level
 	inc d
-	callab CalcExpAtLevel
+	farcall CalcExpAtLevel
 ; back up the next level exp, and subtract the two levels
 	ld hl, hMultiplicand + 2
 	ld a, [hl]
@@ -8402,18 +8023,17 @@ _DoBattle: ; 3f4d9
 ; 3f4dd
 
 BattleIntro: ; 3f4dd
-	callba MobileFn_106050 ; mobile
 	call LoadTrainerOrWildMonPic
 	xor a
 	ld [TempBattleMonSpecies], a
 	ld [wd0d2], a
 	xor a
 	ld [hMapAnims], a
-	callba PlayBattleMusic
-	callba ShowLinkBattleParticipants
-	callba FindFirstAliveMonAndStartBattle
+	farcall PlayBattleMusic
+	farcall ShowLinkBattleParticipants
+	farcall FindFirstAliveMonAndStartBattle
 	call DisableSpriteUpdates
-	callba ClearBattleRAM
+	farcall ClearBattleRAM
 	call InitEnemy
 	call BackUpVBGMap2
 	ld b, SCGB_BATTLE_GRAYSCALE
@@ -8487,11 +8107,10 @@ BackUpVBGMap2: ; 3f568
 
 InitEnemyTrainer: ; 3f594
 	ld [TrainerClass], a
-	callba MobileFn_10606a
 	xor a
 	ld [TempEnemyMonSpecies], a
-	callab GetTrainerAttributes
-	callab ReadTrainerParty
+	farcall GetTrainerAttributes
+	farcall ReadTrainerParty
 
 	ld a, [TrainerClass]
 	cp RIVAL1
@@ -8501,7 +8120,7 @@ InitEnemyTrainer: ; 3f594
 .ok
 
 	ld de, VTiles2
-	callab GetTrainerPic
+	farcall GetTrainerPic
 	xor a
 	ld [hGraphicStartTile], a
 	dec a
@@ -8528,7 +8147,7 @@ InitEnemyTrainer: ; 3f594
 	or [hl]
 	jr z, .skipfaintedmon
 	ld c, HAPPINESS_GYMBATTLE
-	callab ChangeHappiness
+	farcall ChangeHappiness
 .skipfaintedmon
 	pop bc
 	dec b
@@ -8543,7 +8162,6 @@ InitEnemyTrainer: ; 3f594
 InitEnemyWildmon: ; 3f607
 	ld a, WILD_BATTLE
 	ld [wBattleMode], a
-	callba MobileFn_10605d
 	call LoadEnemyMon
 	ld hl, EnemyMonMoves
 	ld de, wWildMonMoves
@@ -8575,59 +8193,6 @@ InitEnemyWildmon: ; 3f607
 	ret
 ; 3f662
 
-Function3f662: ; 3f662
-; XXX
-	ld hl, EnemyMonMoves
-	ld de, wListMoves_MoveIndicesBuffer
-	ld b, NUM_MOVES
-.loop
-	ld a, [de]
-	inc de
-	ld [hli], a
-	and a
-	jr z, .clearpp
-
-	push bc
-	push hl
-
-	push hl
-	dec a
-	ld hl, Moves + MOVE_PP
-	ld bc, MOVE_LENGTH
-	call AddNTimes
-	ld a, BANK(Moves)
-	call GetFarByte
-	pop hl
-
-	ld bc, EnemyMonPP - (EnemyMonMoves + 1)
-	add hl, bc
-	ld [hl], a
-
-	pop hl
-	pop bc
-
-	dec b
-	jr nz, .loop
-	ret
-
-.clear
-	xor a
-	ld [hli], a
-
-.clearpp
-	push bc
-	push hl
-	ld bc, EnemyMonPP - (EnemyMonMoves + 1)
-	add hl, bc
-	xor a
-	ld [hl], a
-	pop hl
-	pop bc
-	dec b
-	jr nz, .clear
-	ret
-; 3f69e
-
 ExitBattle: ; 3f69e
 	call .HandleEndOfBattle
 	call CleanUpBattleRAM
@@ -8641,7 +8206,6 @@ ExitBattle: ; 3f69e
 	call ShowLinkBattleParticipantsAfterEnd
 	ld c, 150
 	call DelayFrames
-	call DetermineMobileBattleResult
 	ret
 
 .not_linked
@@ -8652,7 +8216,7 @@ ExitBattle: ; 3f69e
 	xor a
 	ld [wForceEvolution], a
 	predef EvolveAfterBattle
-	callba GivePokerusAndConvertBerries
+	farcall GivePokerusAndConvertBerries
 	ret
 ; 3f6d0
 
@@ -8717,114 +8281,19 @@ CheckPayDay: ; 3f71d
 	call AddBattleMoneyToAccount
 	ld hl, BattleText_PlayerPickedUpPayDayMoney
 	call StdBattleTextBox
-	ld a, [InBattleTowerBattle]
-	bit 0, a
-	ret z
-	call ClearTileMap
-	call ClearBGPalettes
 	ret
 ; 3f759
 
 ShowLinkBattleParticipantsAfterEnd: ; 3f759
-	callba MobileFn_1060df
-	callba BackupMobileEventIndex
 	ld a, [CurOTMon]
 	ld hl, OTPartyMon1Status
 	call GetPartyLocation
 	ld a, [EnemyMonStatus]
 	ld [hl], a
 	call ClearTileMap
-	callba _ShowLinkBattleParticipants
+	farcall _ShowLinkBattleParticipants
 	ret
 ; 3f77c
-
-DetermineMobileBattleResult: ; 3f77c
-	callba CheckMobileBattleError
-	jp c, .Mobile_InvalidBattle
-	call IsMobileBattle2
-	jr nz, .proceed
-
-	ld hl, wcd2a
-	bit 4, [hl]
-	jr z, .proceed
-
-	callba DetermineLinkBattleResult
-
-.proceed
-	ld a, [wBattleResult]
-	and $f
-	cp $1
-	jr c, .victory
-	jr z, .loss
-	callba MobileFn_SaveBattleResult_Draw
-	ld de, .Draw
-	jr .store_result
-
-.victory
-	callba MobileFn_SaveBattleResult_Win
-	ld de, .Win
-	jr .store_result
-
-.loss
-	callba MobileFn_SaveBattleResult_Lose
-	ld de, .Lose
-	jr .store_result
-
-.store_result
-	hlcoord 6, 8
-	call PlaceString
-	callba BackupMobileEventIndex
-	ld c, 200
-	call DelayFrames
-
-	ld a, BANK(sLinkBattleStats)
-	call GetSRAMBank
-
-	call AddLastMobileBattleToLinkRecord
-	call ReadAndPrintLinkBattleRecord
-
-	call CloseSRAM
-
-	call IsMobileBattle2
-	jr z, .mobile
-	call WaitPressAorB_BlinkCursor
-	call ClearTileMap
-	ret
-
-.mobile
-	ld c, 200
-	call DelayFrames
-	call ClearTileMap
-	ret
-; 3f7f7
-
-.Win:
-	db "YOU WIN@"
-.Lose:
-	db "YOU LOSE@"
-.Draw:
-	db "  DRAW@"
-; 3f80f
-
-.Mobile_InvalidBattle: ; 3f80f
-	hlcoord 6, 8
-	ld de, .Invalid
-	call PlaceString
-	ld c, 200
-	call DelayFrames
-	call ClearTileMap
-	ret
-; 3f821
-
-.Invalid:
-	db "INVALID BATTLE@"
-; 3f830
-
-IsMobileBattle2: ; 3f830
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	ret
-; 3f836
 
 DisplayLinkRecord: ; 3f836
 	ld a, BANK(sLinkBattleStats)
@@ -9010,7 +8479,7 @@ BattleEnd_HandleRoamMons: ; 3f998
 	ret nz
 
 .update_roam_mons
-	callab UpdateRoamMons
+	farcall UpdateRoamMons
 	ret
 ; 3f9d1
 
@@ -9088,221 +8557,12 @@ GetRoamMonSpecies: ; 3fa31
 	ret
 ; 3fa42
 
-AddLastMobileBattleToLinkRecord: ; 3fa42
-	ld hl, OTPlayerID
-	ld de, StringBuffer1
-	ld bc, 2
-	call CopyBytes
-	ld hl, OTPlayerName
-	ld bc, NAME_LENGTH - 1
-	call CopyBytes
-	ld hl, sLinkBattleResults
-	call .StoreResult
-	ld hl, sLinkBattleRecord
-	ld d, 5
-.loop
-	push hl
-	inc hl
-	inc hl
-	ld a, [hl]
-	dec hl
-	dec hl
-	and a
-	jr z, .copy
-	push de
-	ld bc, 12
-	ld de, StringBuffer1
-	call CompareLong
-	pop de
-	pop hl
-	jr c, .done
-	ld bc, 18
-	add hl, bc
-	dec d
-	jr nz, .loop
-	ld bc, -18
-	add hl, bc
-	push hl
-
-.copy
-	ld d, h
-	ld e, l
-	ld hl, StringBuffer1
-	ld bc, 12
-	call CopyBytes
-	ld b, 6
-	xor a
-.loop2
-	ld [de], a
-	inc de
-	dec b
-	jr nz, .loop2
-	pop hl
-
-.done
-	call .StoreResult
-	call .FindOpponentAndAppendRecord
-	ret
-; 3faa0
-.StoreResult: ; 3faa0
-	ld a, [wBattleResult]
-	and $f
-	cp $1
-	ld bc, sLinkBattleWins + 1 - sLinkBattleResults
-	jr c, .okay
-	ld bc, sLinkBattleLosses + 1 - sLinkBattleResults
-	jr z, .okay
-	ld bc, sLinkBattleDraws + 1 - sLinkBattleResults
-.okay
-	add hl, bc
-	call .CheckOverflow
-	ret nc
-	inc [hl]
-	ret nz
-	dec hl
-	inc [hl]
-	ret
-; 3fabe
-
-.CheckOverflow: ; 3fabe
-	dec hl
-	ld a, [hl]
-	inc hl
-	cp 9999 / $100
-	ret c
-	ld a, [hl]
-	cp 9999 % $100
-	ret
-; 3fac8
-
-.FindOpponentAndAppendRecord: ; 3fac8
-	ld b, 5
-	ld hl, sLinkBattleRecord + 17
-	ld de, wd002
-.loop3
-	push bc
-	push de
-	push hl
-	call .LoadPointer
-	pop hl
-	ld a, e
-	pop de
-	ld [de], a
-	inc de
-	ld a, b
-	ld [de], a
-	inc de
-	ld a, c
-	ld [de], a
-	inc de
-	ld bc, 18
-	add hl, bc
-	pop bc
-	dec b
-	jr nz, .loop3
-	ld b, $0
-	ld c, $1
-.loop4
-	ld a, b
-	add b
-	add b
-	ld e, a
-	ld d, $0
-	ld hl, wd002
-	add hl, de
-	push hl
-	ld a, c
-	add c
-	add c
-	ld e, a
-	ld d, $0
-	ld hl, wd002
-	add hl, de
-	ld d, h
-	ld e, l
-	pop hl
-	push bc
-	ld c, 3
-	call StringCmp
-	pop bc
-	jr z, .equal
-	jr nc, .done2
-
-.equal
-	inc c
-	ld a, c
-	cp $5
-	jr nz, .loop4
-	inc b
-	ld c, b
-	inc c
-	ld a, b
-	cp $4
-	jr nz, .loop4
-	ret
-
-.done2
-	push bc
-	ld a, b
-	ld bc, 18
-	ld hl, sLinkBattleRecord
-	call AddNTimes
-	push hl
-	ld de, wd002
-	ld bc, 18
-	call CopyBytes
-	pop hl
-	pop bc
-	push hl
-	ld a, c
-	ld bc, 18
-	ld hl, sLinkBattleRecord
-	call AddNTimes
-	pop de
-	push hl
-	ld bc, 18
-	call CopyBytes
-	ld hl, wd002
-	ld bc, 18
-	pop de
-	call CopyBytes
-	ret
-; 3fb54
-
-.LoadPointer: ; 3fb54
-	ld e, $0
-	ld a, [hld]
-	ld c, a
-	ld a, [hld]
-	ld b, a
-	ld a, [hld]
-	add c
-	ld c, a
-	ld a, [hld]
-	adc b
-	ld b, a
-	jr nc, .okay2
-	inc e
-
-.okay2
-	ld a, [hld]
-	add c
-	ld c, a
-	ld a, [hl]
-	adc b
-	ld b, a
-	ret nc
-	inc e
-	ret
-; 3fb6c
-
 InitBattleDisplay: ; 3fb6c
 	call .InitBackPic
 	hlcoord 0, 12
 	ld b, 4
 	ld c, 18
 	call TextBox
-	callba MobileTextBorder
 	hlcoord 1, 5
 	lb bc, 3, 7
 	call ClearBox
@@ -9318,7 +8578,7 @@ InitBattleDisplay: ; 3fb6c
 	call WaitBGMap
 	xor a
 	ld [hBGMapMode], a
-	callba BattleIntroSlidingPics
+	farcall BattleIntroSlidingPics
 	ld a, $1
 	ld [hBGMapMode], a
 	ld a, $31
@@ -9371,13 +8631,6 @@ InitBattleDisplay: ; 3fb6c
 GetTrainerBackpic: ; 3fbff
 ; Load the player character's backpic (6x6) into VRAM starting from VTiles2 tile $31.
 
-; Special exception for Dude.
-	ld b, BANK(DudeBackpic)
-	ld hl, DudeBackpic
-	ld a, [BattleType]
-	cp BATTLETYPE_TUTORIAL
-	jr z, .Decompress
-
 ; What gender are we?
 	ld a, [wPlayerSpriteSetupFlags]
 	bit 2, a ; transformed to male
@@ -9387,15 +8640,13 @@ GetTrainerBackpic: ; 3fbff
 	jr z, .Chris
 
 ; It's a girl.
-	callba GetKrisBackpic
+	farcall GetKrisBackpic
 	ret
 
 .Chris:
 ; It's a boy.
 	ld b, BANK(ChrisBackpic)
 	ld hl, ChrisBackpic
-
-.Decompress:
 	ld de, VTiles2 tile $31
 	ld c, $31
 	predef DecompressPredef
@@ -9472,7 +8723,7 @@ BattleStartMessage: ; 3fc8b
 	ld c, 20
 	call DelayFrames
 
-	callba Battle_GetTrainerName
+	farcall Battle_GetTrainerName
 
 	ld hl, WantsToBattleText
 	jr .PlaceBattleStartText
@@ -9491,10 +8742,10 @@ BattleStartMessage: ; 3fc8b
 	call Call_PlayBattleAnim
 
 .not_shiny
-	callba CheckSleepingTreeMon
+	farcall CheckSleepingTreeMon
 	jr c, .skip_cry
 
-	callba CheckBattleScene
+	farcall CheckBattleScene
 	jr c, .cry_no_anim
 
 	hlcoord 12, 0
@@ -9514,8 +8765,6 @@ BattleStartMessage: ; 3fc8b
 	cp BATTLETYPE_FISH
 	jr nz, .NotFishing
 
-	callba MobileFn_106086 ; update fishing records?
-
 	ld hl, HookedPokemonAttackedText
 	jr .PlaceBattleStartText
 
@@ -9530,15 +8779,8 @@ BattleStartMessage: ; 3fc8b
 
 .PlaceBattleStartText:
 	push hl
-	callba BattleStart_TrainerHuds
+	farcall BattleStart_TrainerHuds
 	pop hl
 	call StdBattleTextBox
-
-	call IsMobileBattle2
-	ret nz
-
-	ld c, $2 ; start
-	callba Mobile_PrintOpponentBattleMessage
-
 	ret
 ; 3fd26

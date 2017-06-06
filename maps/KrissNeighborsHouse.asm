@@ -59,7 +59,7 @@ KrissNeighborsHouseRadio:
 	end
 
 KrissNeighborsDaughterText:
-	text "Oh, <PLAY_G>!"
+	text "Oh, <PLAYER>!"
 	line "Nice of you to"
 	cont "drop by!"
 	
@@ -70,7 +70,7 @@ KrissNeighborsDaughterText:
 
 KrissNeighborsDaughterAfterText:
 	text "Have a safe trip,"
-	line "<PLAY_G>!"
+	line "<PLAYER>!"
 	done
 	
 KrisNeighborRadioText1:
