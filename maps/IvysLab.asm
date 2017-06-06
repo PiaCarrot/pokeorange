@@ -36,10 +36,6 @@ IvysLab_AutowalkUpToIvy:
 	spriteface IVYSLAB_IVY, RIGHT
 	opentext
 	writetext IvyText_Intro
-	jump IvysLab_IvyGetsEmail
-
-IvysLab_IvyGetsEmail:
-	buttonsound
 	waitbutton
 	closetext
 	playsound SFX_GLASS_TING
