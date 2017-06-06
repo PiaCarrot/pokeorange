@@ -7,7 +7,6 @@ wc000::
 StackBottom::
 	ds $100 - 1
 Stack::
-StackTop::
 	ds 1
 
 
@@ -2478,14 +2477,12 @@ wRoute32RuinsOfAlphGateTrigger::             ds 1 ; d98c
 wRoute35NationalParkGateTrigger::            ds 1 ; d98d
 wRoute36NationalParkGateTrigger::            ds 1 ; d98f
 wGoldenrodPokecenter1FTrigger::              ds 1 ; d993
-wMobileTradeRoomMobileTrigger::              ds 1 ; d9bf
-wMobileBattleRoomTrigger::                   ds 1 ; d9c0
 wVermilionPortTrigger::						 ds 1
 wOlivinePortTrigger::						 ds 1
 wMandarinUndergroundTrigger::			     ds 1
 wRoute56WestTrigger::						 ds 1
 
-	ds 54
+	ds 56
 
 
 ;SECTION "Events", WRAMX, BANK [1]

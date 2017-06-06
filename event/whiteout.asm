@@ -49,10 +49,6 @@ BattleBGMap: ; 1250a
 ; 12513
 
 HalveMoney: ; 12513
-
-; Empty function...
-	callba MobileFn_1060c7
-
 ; Halve the player's money.
 	ld hl, Money
 	ld a, [hl]

@@ -107,7 +107,6 @@ PokeCenterNurseScript:
 
 	farwritetext NurseTakePokemonText
 	pause 20
-	special Mobile_HealParty
 	spriteface LAST_TALKED, LEFT
 	pause 10
 	special HealParty

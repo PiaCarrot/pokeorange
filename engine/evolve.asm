@@ -247,7 +247,6 @@ EvolveAfterBattle_MasterLoop
 	push hl
 	ld hl, Text_EvolvedIntoPKMN
 	call PrintTextBoxText
-	callba MobileFn_106094
 
 	ld de, MUSIC_NONE
 	call PlayMusic

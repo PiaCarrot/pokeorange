@@ -33,12 +33,6 @@ VermilionPortPassage_BlockData:
 HallOfFame_BlockData:
 	INCBIN "maps/HallOfFame.blk"
 
-MobileTradeRoomMobile_BlockData:
-	INCBIN "maps/MobileTradeRoomMobile.blk"
-
-MobileBattleRoom_BlockData:
-	INCBIN "maps/MobileBattleRoom.blk"
-
 CherrygroveCity_BlockData:
 	INCBIN "maps/CherrygroveCity.blk"
 	

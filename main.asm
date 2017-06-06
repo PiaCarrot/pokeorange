@@ -1047,15 +1047,7 @@ INCLUDE "trainers/dvs.asm"
 _ReturnToBattle_UseBall: ; 2715c
 	call ClearBGPalettes
 	call ClearTileMap
-	ld a, [BattleType]
-	cp BATTLETYPE_TUTORIAL
-	jr z, .gettutorialbackpic
 	callba GetMonBackpic
-	jr .continue
-
-.gettutorialbackpic
-	callba GetTrainerBackpic
-.continue
 	callba GetMonFrontpic
 	callba _LoadBattleFontsHPBar
 	call GetMemSGBLayout
@@ -1190,8 +1182,6 @@ INCLUDE "text/trainer_class_names.asm"
 INCLUDE "battle/ai/redundant.asm"
 
 INCLUDE "event/move_deleter.asm"
-
-INCLUDE "engine/mysterygift2.asm"
 
 INCLUDE "engine/tmhm2.asm"
 
@@ -2089,10 +2079,7 @@ Unknown_4985a: ; unreferenced
 	db $ba, $66, $f7, $0e, $ba, $5e, $43, $bd
 
 INCLUDE "engine/main_menu.asm"
-INCLUDE "misc/mobile_menu.asm"
 INCLUDE "engine/search.asm"
-INCLUDE "misc/mobile_12_2.asm"
-; mobile battle selection
 
 AskRememberPassword: ; 4ae12
 	call .DoMenu
@@ -2830,7 +2817,6 @@ Special_CheckForLuckyNumberWinners: ; 4d87a
 	ld a, [ScriptVar]
 	and a
 	ret z ; found nothing
-	callba MobileFn_1060cd
 	ld a, [wFoundMatchingIDInParty]
 	and a
 	push af
@@ -3202,89 +3188,6 @@ SetEggMonCaughtData: ; 4dbb8 (13:5bb8)
 
 INCLUDE "engine/search2.asm"
 INCLUDE "engine/stats_screen.asm"
-
-CatchTutorial:: ; 4e554
-	ld a, [BattleType]
-	dec a
-	ld c, a
-	ld hl, .dw
-	ld b, 0
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	jp hl
-
-.dw ; 4e564 (13:6564)
-	dw .DudeTutorial
-	dw .DudeTutorial
-	dw .DudeTutorial
-
-.DudeTutorial: ; 4e56a (13:656a)
-; Back up your name to your Mom's name.
-	ld hl, PlayerName
-	ld de, MomsName
-	ld bc, NAME_LENGTH
-	call CopyBytes
-; Copy Dude's name to your name
-	ld hl, .Dude
-	ld de, PlayerName
-	ld bc, NAME_LENGTH
-	call CopyBytes
-
-	call .LoadDudeData
-
-	xor a
-	ld [hJoyDown], a
-	ld [hJoyPressed], a
-	ld a, [Options]
-	push af
-	and $f8
-	add $3
-	ld [Options], a
-	ld hl, .AutoInput
-	ld a, BANK(.AutoInput)
-	call StartAutoInput
-	callab StartBattle
-	call StopAutoInput
-	pop af
-
-	ld [Options], a
-	ld hl, MomsName
-	ld de, PlayerName
-	ld bc, NAME_LENGTH
-	call CopyBytes
-	ret
-
-.LoadDudeData: ; 4e5b7 (13:65b7)
-	ld hl, wDudeNumItems
-	ld [hl], 1
-	inc hl
-	ld [hl], POTION
-	inc hl
-	ld [hl], 1
-	inc hl
-	ld [hl], -1
-	ld hl, wDudeNumKeyItems
-	ld [hl], 0
-	inc hl
-	ld [hl], -1
-	ld hl, wDudeNumBalls
-	ld a, 1
-	ld [hli], a
-	ld a, POKE_BALL ; 5
-	ld [hli], a
-	ld [hli], a
-	ld [hl], -1
-	ret
-
-.Dude: ; 4e5da
-	db "DUDE@"
-
-.AutoInput: ; 4e5df
-	db NO_INPUT, $ff ; end
-
 INCLUDE "engine/evolution_animation.asm"
 
 InitDisplayForHallOfFame: ; 4e881
@@ -3367,166 +3270,13 @@ ResetDisplayBetweenHallOfFameMons: ; 4e906
 	ld [rSVBK], a
 	ret
 
-GetMobileOTTrainerClass: ; mobile function
-	ld h, b
-	ld l, c
-	call .GetMobileOTTrainerClass
-	ld c, a
-	ret
-
-.GetMobileOTTrainerClass: ; 4e930
-	ld a, [hli]
-	xor [hl]
-	ld c, a
-	jr z, .skip_male_trainers
-	srl c
-	srl c
-.male_trainer_loop
-	srl c
-	ld a, c
-	cp MaleTrainersEnd - MaleTrainers - 1
-	jr nc, .male_trainer_loop
-	inc c
-
-.skip_male_trainers
-	ld a, [de]
-	cp $1
-	ld hl, MaleTrainers
-	jr nz, .finished
-
-	ld hl, FemaleTrainers
-	ld a, c
-	and a
-	jr z, .finished
-
-.female_trainer_loop
-	srl c
-	ld a, c
-	cp FemaleTrainersEnd - FemaleTrainers - 1
-	jr nc, .female_trainer_loop
-	inc c
-
-.finished
-	ld b, $0
-	add hl, bc
-	ld a, [hl]
-	ret
-
-MaleTrainers: ; 4e95d
-	db BURGLAR
-	db YOUNGSTER
-	db SCHOOLBOY
-	db BIRD_KEEPER
-	db POKEMANIAC
-	db GENTLEMAN
-	db BUG_CATCHER
-	db FISHER
-	db SWIMMERM
-	db SAILOR
-	db SUPER_NERD
-	db GUITARIST
-	db HIKER
-	db FIREBREATHER
-	db BLACKBELT_T
-	db PSYCHIC_T
-	db CAMPER
-	db COOLTRAINERM
-	db BOARDER
-	db JUGGLER
-	db POKEFANM
-	db OFFICER
-	db SAGE
-	db BIKER
-	db SCIENTIST
-MaleTrainersEnd:
-
-FemaleTrainers: ; 4e976
-	db MEDIUM
-	db LASS
-	db BEAUTY
-	db SKIER
-	db TEACHER
-	db SWIMMERF
-	db PICNICKER
-	db KIMONO_GIRL
-	db POKEFANF
-	db COOLTRAINERF
-FemaleTrainersEnd:
-
 INCLUDE "battle/sliding_intro.asm"
-
-Mobile_PrintOpponentBattleMessage: ; 4ea0a
-	ld a, c
-	push af
-	call SpeechTextBox
-	call MobileTextBorder
-	pop af
-	dec a
-	ld bc, $c
-	ld hl, w5_MobileOpponentBattleMessages
-	call AddNTimes
-	ld de, wMobileOpponentBattleMessage
-	ld bc, $c
-	ld a, $5 ; BANK(w5_MobileOpponentBattleMessages)
-	call FarCopyWRAM
-
-	ld a, [rSVBK]
-	push af
-	ld a, $1
-	ld [rSVBK], a
-
-	ld bc, wMobileOpponentBattleMessage
-	decoord 1, 14
-	callba PrintEZChatBattleMessage
-
-	pop af
-	ld [rSVBK], a
-
-	ld c, 180
-	call DelayFrames
-	ret
 
 CheckBattleScene: ; 4ea44
 ; Return carry if battle scene is turned off.
-
-	ld a, 0
-	ld hl, wLinkMode
-	call GetFarWRAMByte
-	cp LINK_MOBILE
-	jr z, .mobile
-
 	ld a, [Options]
 	bit BATTLE_SCENE, a
 	jr nz, .off
-
-	and a
-	ret
-
-.mobile
-	ld a, [wcd2f]
-	and a
-	jr nz, .from_wram
-
-	ld a, $4
-	call GetSRAMBank
-	ld a, [$a60c]
-	ld c, a
-	call CloseSRAM
-
-	ld a, c
-	bit 0, c
-	jr z, .off
-
-	and a
-	ret
-
-.from_wram
-	ld a, $5
-	ld hl, w5_dc00
-	call GetFarWRAMByte
-	bit 0, a
-	jr z, .off
-
 	and a
 	ret
 
@@ -3534,7 +3284,7 @@ CheckBattleScene: ; 4ea44
 	scf
 	ret
 
-INCLUDE "misc/gbc_only.asm"
+INCLUDE "engine/gbc_only.asm"
 
 INCLUDE "event/poke_seer.asm"
 
@@ -4841,14 +4591,8 @@ GetKrisBackpic: ; 88ec9
 KrisBackpic: ; 88ed6
 INCBIN "gfx/misc/kris_back.6x6.2bpp"
 
-String_89116:
-	db "-----@"
-
-INCLUDE "misc/mobile_22.asm"
 INCLUDE "event/buena.asm"
 INCLUDE "event/dratini.asm"
-INCLUDE "event/battle_tower.asm"
-INCLUDE "misc/mobile_22_2.asm"
 
 SECTION "bank23", ROMX, BANK[$23]
 
@@ -4961,6 +4705,10 @@ INCLUDE "gfx/overworld/sprites_1.asm"
 SECTION "bank31", ROMX, BANK[$31]
 
 INCLUDE "gfx/overworld/sprites_2.asm"
+
+SECTION "Sprite 3", ROMX
+
+INCLUDE "gfx/overworld/sprites_3.asm"
 
 SECTION "bank32", ROMX, BANK[$32]
 
@@ -5228,23 +4976,81 @@ INCLUDE "event/mom_phone.asm"
 
 SECTION "bank40", ROMX, BANK[$40]
 
-INCLUDE "misc/mobile_40.asm"
+_LinkBattleSendReceiveAction: ; 100a09
+; Note that only the lower 4 bits is usable. The higher 4 determines what kind of
+; linking we are performing.
+	call .StageForSend
+	ld [wd431], a
+	farcall PlaceWaitingText
+	call .LinkBattle_SendReceiveAction
+	ret
+; 100a2e
+
+.StageForSend: ; 100a2e
+	ld a, [wPlayerAction]
+	and a
+	jr nz, .switch
+	ld a, [CurPlayerMove]
+	ld b, BATTLEACTION_E
+	cp STRUGGLE
+	jr z, .struggle
+	ld b, BATTLEACTION_D
+	cp $ff
+	jr z, .struggle
+	ld a, [CurMoveNum]
+	jr .use_move
+
+.switch
+	ld a, [CurPartyMon]
+	add BATTLEACTION_SWITCH1
+	jr .use_move
+
+.struggle
+	ld a, b
+
+.use_move
+	and $0f
+	ret
+; 100a53
+
+.LinkBattle_SendReceiveAction: ; 100a53
+	ld a, [wd431]
+	ld [wPlayerLinkAction], a
+	ld a, $ff
+	ld [wOtherPlayerLinkAction], a
+.waiting
+	call LinkTransfer
+	call DelayFrame
+	ld a, [wOtherPlayerLinkAction]
+	inc a
+	jr z, .waiting
+
+	ld b, 10
+.receive
+	call DelayFrame
+	call LinkTransfer
+	dec b
+	jr nz, .receive
+
+	ld b, 10
+.acknowledge
+	call DelayFrame
+	call LinkDataReceived
+	dec b
+	jr nz, .acknowledge
+
+	ld a, [wOtherPlayerLinkAction]
+	ld [wBattleAction], a
+	ret
+; 100a87
 
 SECTION "bank41", ROMX, BANK[$41]
 
-INCLUDE "misc/gfx_41.asm"
+INCLUDE "engine/gfx_41.asm"
 
 INCLUDE "engine/warp_connection.asm"
 
-INCLUDE "engine/mysterygift.asm"
-
 INCLUDE "battle/used_move_text.asm"
-
-INCLUDE "misc/mobile_41.asm"
-
-SECTION "bank42", ROMX, BANK[$42]
-
-INCLUDE "misc/mobile_42.asm"
 
 SECTION "Intro Logo", ROMX, BANK[$42]
 
@@ -5255,21 +5061,9 @@ SECTION "bank43", ROMX, BANK[$43]
 
 INCLUDE "engine/title.asm"
 
-INCLUDE "misc/mobile_45.asm"
-INCLUDE "misc/mobile_46.asm"
-
-SECTION "bank47", ROMX, BANK[$47]
-
-INCLUDE "misc/battle_tower_47.asm"
-
 SECTION "bank5B", ROMX, BANK[$5B]
 
-INCLUDE "misc/mobile_5b.asm"
 INCLUDE "engine/link_trade.asm"
-
-SECTION "bank5C", ROMX, BANK[$5C]
-
-INCLUDE "misc/mobile_5c.asm"
 
 SECTION "bank5D", ROMX, BANK[$5D]
 
@@ -5286,8 +5080,6 @@ _UpdateBattleHUDs:
 	call SetHPPal
 	callba FinishBattleAnim
 	ret
-
-INCLUDE "misc/mobile_5f.asm"
 
 SECTION "Common Text 1", ROMX, BANK[$6C]
 
@@ -5750,28 +5542,3 @@ LeggiPostaInglese:
 SECTION "Tileset Data 8", ROMX, BANK[TILESETS_8]
 
 INCLUDE "tilesets/data_8.asm"
-
-SECTION "bank7B", ROMX, BANK[$7B]
-
-INCLUDE "text/battle_tower.asm"
-
-SECTION "bank7C", ROMX, BANK[$7C]
-
-INCLUDE "data/battle_tower_2.asm"
-
-SECTION "bank7D", ROMX, BANK[$7D]
-
-SECTION "bank7E", ROMX, BANK[$7E]
-
-INCLUDE "data/battle_tower.asm"
-INCLUDE "data/odd_eggs.asm"
-
-SECTION "bank7F", ROMX, BANK[$7F]
-
-SECTION "stadium2", ROMX[$8000-$220], BANK[$7F]
-
-INCBIN "misc/stadium2_2.bin"
-
-SECTION "Sprite3", ROMX
-
-INCLUDE "gfx/overworld/sprites_3.asm"

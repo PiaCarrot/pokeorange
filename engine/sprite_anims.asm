@@ -406,6 +406,8 @@ DoAnimFrame: ; 8d24b
 
 .thirteen ; 8d46e (23:546e)
 .fourteen ; 8d47c (23:547c)
+.twentyseven ; 8d630 (23:5630)
+.twentyeight ; 8d637 (23:5637)
 	ret
 
 .fifteen ; 8d475 (23:5475)
@@ -745,14 +747,6 @@ DoAnimFrame: ; 8d24b
 	ld [hl], a
 	ret
 
-.twentyseven ; 8d630 (23:5630)
-	callba Function108bc7
-	ret
-
-.twentyeight ; 8d637 (23:5637)
-	callba Function108be0
-	ret
-
 .twentynine ; 8d63e (23:563e)
 	ld a, [wcf65]
 	and a
@@ -843,7 +837,6 @@ DoAnimFrame: ; 8d24b
 	ret
 
 .twentysix ; 8d6b7 (23:56b7)
-	callba AnimateEZChatCursor
 	ret
 
 .thirtyone ; 8d6be (23:56be)

@@ -20,8 +20,6 @@ ENDM
 	trigger_def ROUTE_32_RUINS_OF_ALPH_GATE, wRoute32RuinsOfAlphGateTrigger
 	trigger_def VALENCIA_PORT,               wOlivinePortTrigger
 	trigger_def TANGELO_PORT,                wVermilionPortTrigger
-	trigger_def MOBILE_TRADE_ROOM_MOBILE,    wMobileTradeRoomMobileTrigger
-	trigger_def MOBILE_BATTLE_ROOM,          wMobileBattleRoomTrigger
 	trigger_def MANDARIN_UNDERGROUND,        wMandarinUndergroundTrigger
 	trigger_def ROUTE_56_WEST,               wRoute56WestTrigger
 

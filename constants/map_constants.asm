@@ -93,8 +93,6 @@ MAP_NONE EQU 0
 	mapgroup TRADE_CENTER, 4, 5
 	mapgroup COLOSSEUM, 4, 5
 	mapgroup TIME_CAPSULE, 4, 5
-	mapgroup MOBILE_TRADE_ROOM_MOBILE, 4, 5
-	mapgroup MOBILE_BATTLE_ROOM, 4, 5
 
 	newgroup ; 11
 

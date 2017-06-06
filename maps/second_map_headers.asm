@@ -85,8 +85,6 @@
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
 	map_header_2 Colosseum, COLOSSEUM, $0, 0
 	map_header_2 TimeCapsule, TIME_CAPSULE, $0, 0
-	map_header_2 MobileTradeRoomMobile, MOBILE_TRADE_ROOM_MOBILE, $0, 0
-	map_header_2 MobileBattleRoom, MOBILE_BATTLE_ROOM, $0, 0
 	map_header_2 ElmsLab, ELMS_LAB, 0, 0
 	map_header_2 KrissHouse1F, KRISS_HOUSE_1F, 0, 0
 	map_header_2 KrissHouse2F, KRISS_HOUSE_2F, $0, 0

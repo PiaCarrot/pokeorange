@@ -80,38 +80,6 @@ ReloadMapPart:: ; 104061
 
 	ret
 
-Mobile_ReloadMapPart: ; 104099
-	ld hl, ReloadMapPart ; useless
-	ld hl, .Function
-	jp CallInSafeGFXMode
-
-.Function:
-	decoord 0, 0, AttrMap
-	ld hl, wScratchAttrMap
-	call CutAndPasteAttrMap
-	decoord 0, 0
-	ld hl, wScratchTileMap
-	call CutAndPasteTilemap
-	call DelayFrame
-
-	di
-	ld a, [rVBK]
-	push af
-	ld a, $1
-	ld [rVBK], a
-	ld hl, wScratchAttrMap
-	call HDMATransfer_NoDI
-	ld a, $0
-	ld [rVBK], a
-	ld hl, wScratchTileMap
-	call HDMATransfer_NoDI
-	pop af
-	ld [rVBK], a
-	ei
-
-	ret
-; 1040d4
-
 OpenAndCloseMenu_HDMATransferTileMapAndAttrMap:: ; 104110
 ; OpenText
 	ld hl, .Function
@@ -145,33 +113,6 @@ OpenAndCloseMenu_HDMATransferTileMapAndAttrMap:: ; 104110
 	ei
 	ret
 ; 104148
-
-Mobile_OpenAndCloseMenu_HDMATransferTileMapAndAttrMap: ; 104148 (41:4148)
-	ld hl, .Function
-	jp CallInSafeGFXMode
-
-.Function:
-	; Transfer AttrMap and Tilemap to BGMap
-	; Fill vBGAttrs with $00
-	; Fill vBGTiles with $ff
-	decoord 0, 0, AttrMap
-	ld hl, wScratchAttrMap
-	call CutAndPasteAttrMap
-	ld c, $ff
-	decoord 0, 0
-	ld hl, wScratchTileMap
-	call CutAndPasteMap
-
-	ld a, $1
-	ld [rVBK], a
-	ld hl, wScratchAttrMap
-	call HDMATransfer_Wait127Scanlines_toBGMap
-	ld a, $0
-	ld [rVBK], a
-	ld hl, wScratchTileMap
-	call HDMATransfer_Wait127Scanlines_toBGMap
-	ret
-; 104177
 
 CallInSafeGFXMode: ; 104177
 	ld a, [hBGMapMode]
@@ -585,6 +526,21 @@ HDMATransfer_OnlyTopFourRows: ; 104303
 	jr nz, .outer_loop
 	ret
 ; 104350
+
+LoadOverworldFont:: ; 106594
+	ld de, .bgfont
+	ld hl, VTiles1
+	lb bc, BANK(.bgfont), $80
+	call Get2bpp
+	ld de, .bgfont + $80 tiles
+	ld hl, VTiles2 tile $7f
+	lb bc, BANK(.bgfont), 1
+	call Get2bpp
+	ret
+; 1065ad
+
+.bgfont
+INCBIN "gfx/misc/bgfont.2bpp"
 
 ShockEmote:     INCBIN "gfx/emotes/shock.2bpp"
 QuestionEmote:  INCBIN "gfx/emotes/question.2bpp"

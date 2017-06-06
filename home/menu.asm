@@ -581,11 +581,3 @@ InterpretBattleMenu:: ; 2039
 	ld a, [wMenuCursorBuffer]
 	ret
 ; 2048
-
-InterpretMobileMenu:: ; 2048
-	ld a, [hROMBank]
-	ld [wMenuData2_2DMenuItemStringsBank], a
-	callba _InterpretMobileMenu
-	ld a, [wMenuCursorBuffer]
-	ret
-; 2057

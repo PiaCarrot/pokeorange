@@ -350,8 +350,6 @@ CheckForHiddenItems: ; b8172
 
 
 TreeMonEncounter: ; b81ea
-	callba MobileFn_1060ef
-
 	xor a
 	ld [TempWildMonSpecies], a
 	ld [CurPartyLevel], a

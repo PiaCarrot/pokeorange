@@ -988,7 +988,7 @@ DepositSellInitPackBuffers: ; 106a5
 DepositSellPack: ; 106be
 .loop
 	call .RunJumptable
-	call DepositSellTutorial_InterpretJoypad
+	call DepositSell_InterpretJoypad
 	jr c, .loop
 	ret
 ; 106c7
@@ -1071,7 +1071,7 @@ InitPocket: ; 10762 (4:4762)
 	call WaitBGMap_DrawPackGFX
 	ret
 
-DepositSellTutorial_InterpretJoypad: ; 1076f
+DepositSell_InterpretJoypad: ; 1076f
 	ld hl, wMenuJoypad
 	ld a, [hl]
 	and A_BUTTON
@@ -1125,125 +1125,6 @@ DepositSellTutorial_InterpretJoypad: ; 1076f
 	ret
 ; 107bb
 
-TutorialPack: ; 107bb
-	call DepositSellInitPackBuffers
-	ld a, [InputType]
-	or a
-	jr z, .loop
-	callba _DudeAutoInput_RightA
-.loop
-	call .RunJumptable
-	call DepositSellTutorial_InterpretJoypad
-	jr c, .loop
-	xor a
-	ld [wcf66], a
-	ret
-; 107d7
-
-.RunJumptable: ; 107d7
-	ld a, [wJumptableIndex]
-	ld hl, .dw
-	call Pack_GetJumptablePointer
-	jp hl
-
-; 107e1
-
-.dw ; 107e1 (4:47e1)
-
-	dw .Items
-	dw .Balls
-	dw .KeyItems
-	dw .TMHM
-
-.Items: ; 107e9 (4:47e9)
-	xor a
-	ld hl, .ItemsMenuDataHeader
-	jr .DisplayPocket
-
-; 107ef (4:47ef)
-.ItemsMenuDataHeader: ; 0x107ef
-	db $40 ; flags
-	db 01, 07 ; start coords
-	db 11, 19 ; end coords
-	dw .ItemsMenuData2
-	db 1 ; default option
-; 0x107f7
-
-.ItemsMenuData2: ; 0x107f7
-	db $ae ; flags
-	db 5, 8 ; rows, columns
-	db 2 ; horizontal spacing
-	dbw 0, wDudeNumItems
-	dba PlaceMenuItemName
-	dba PlaceMenuItemQuantity
-	dba UpdateItemDescription
-; 10807
-
-.KeyItems: ; 10807 (4:4807)
-	ld a, 2
-	ld hl, .KeyItemsMenuDataHeader
-	jr .DisplayPocket
-
-; 1080e (4:480e)
-.KeyItemsMenuDataHeader: ; 0x1080e
-	db $40 ; flags
-	db 01, 07 ; start coords
-	db 11, 19 ; end coords
-	dw .KeyItemsMenuData2
-	db 1 ; default option
-; 0x10816
-
-.KeyItemsMenuData2: ; 0x10816
-	db $ae ; flags
-	db 5, 8 ; rows, columns
-	db 1 ; horizontal spacing
-	dbw 0, wDudeNumKeyItems
-	dba PlaceMenuItemName
-	dba PlaceMenuItemQuantity
-	dba UpdateItemDescription
-; 10826
-
-.TMHM: ; 10826 (4:4826)
-	ld a, 3
-	call InitPocket
-	call WaitBGMap_DrawPackGFX
-	callba TMHMPocket
-	ld a, [CurItem]
-	ld [CurItem], a
-	ret
-
-.Balls: ; 1083b (4:483b)
-	ld a, 1
-	ld hl, .BallsMenuDataHeader
-	jr .DisplayPocket
-
-; 10842 (4:4842)
-.BallsMenuDataHeader: ; 0x10842
-	db $40 ; flags
-	db 01, 07 ; start coords
-	db 11, 19 ; end coords
-	dw .BallsMenuData2
-	db 1 ; default option
-; 0x1084a
-
-.BallsMenuData2: ; 0x1084a
-	db $ae ; flags
-	db 5, 8 ; rows, columns
-	db 2 ; horizontal spacing
-	dbw 0, wDudeNumBalls
-	dba PlaceMenuItemName
-	dba PlaceMenuItemQuantity
-	dba UpdateItemDescription
-; 1085a
-
-.DisplayPocket: ; 1085a (4:485a)
-	push hl
-	call InitPocket
-	pop hl
-	call CopyMenuDataHeader
-	call ScrollingMenu
-	ret
-
 Pack_JumptableNext: ; 10866 (4:4866)
 	ld hl, wJumptableIndex
 	inc [hl]
@@ -1291,13 +1172,9 @@ DrawPackGFX: ; 1089d
 	and $3
 	ld e, a
 	ld d, $0
-	ld a, [BattleType]
-	cp BATTLETYPE_TUTORIAL
-	jr z, .male_dude
 	ld a, [PlayerGender]
 	bit 0, a
 	jr nz, .female
-.male_dude
 	ld hl, PackGFXPointers
 	add hl, de
 	add hl, de

@@ -54,13 +54,6 @@ NewGame_ClearTileMapEtc: ; 5b44
 	ret
 ; 5b54
 
-MysteryGift: ; 5b54
-	call UpdateTime
-	callba DoMysteryGiftIfDayHasPassed
-	callba DoMysteryGift
-	ret
-; 5b64
-
 OptionsMenu: ; 5b64
 	callba _OptionsMenu
 	ret
@@ -86,16 +79,8 @@ NewGame: ; 5b6b
 ; 5b8f
 
 AreYouABoyOrAreYouAGirl: ; 5b8f
-	callba Mobile_AlwaysReturnNotCarry ; some mobile stuff
-	jr c, .ok
 	callba InitGender
 	ret
-
-.ok
-	ld c, 0
-	callba InitMobileProfile ; mobile
-	ret
-; 5ba7
 
 ResetWRAM: ; 5ba7
 	xor a
@@ -178,15 +163,6 @@ _ResetWRAM: ; 5bae
 	ld [wRoamMon2MapNumber], a
 	ld [wRoamMon3MapNumber], a
 
-	ld a, BANK(sMysteryGiftItem)
-	call GetSRAMBank
-	ld hl, sMysteryGiftItem
-	xor a
-	ld [hli], a
-	dec a
-	ld [hl], a
-	call CloseSRAM
-
 	call LoadOrRegenerateLuckyIDNumber
 	call InitializeMagikarpHouse
 
@@ -225,8 +201,6 @@ ENDC
 	callba InitDecorations
 
 	callba DeletePartyMonMail
-
-	callba DeleteMobileEventIndex
 
 	call ResetGameTime
 	ret
@@ -379,13 +353,12 @@ Continue: ; 5d65
 	ld a, MUSIC_NONE / $100
 	ld [MusicFadeIDHi], a
 	call ClearBGPalettes
-	call Continue_MobileAdapterMenu
+	call ConfirmContinue
 	call CloseWindow
 	call ClearTileMap
 	ld c, 20
 	call DelayFrames
 	callba JumpRoamMons
-	callba MysteryGift_CopyReceivedDecosToPC ; Mystery Gift
 	callba Function140ae ; time-related
 	ld a, [wSpawnAfterChampion]
 	cp SPAWN_LANCE
@@ -416,37 +389,6 @@ PostCreditsSpawn: ; 5de7
 	ld [hMapEntryMethod], a
 	ret
 ; 5df0
-
-Continue_MobileAdapterMenu: ; 5df0
-	callba Mobile_AlwaysReturnNotCarry ; mobile check
-	ret nc
-
-; the rest of this stuff is never reached because
-; the previous function returns with carry not set
-	ld hl, wd479
-	bit 1, [hl]
-	ret nz
-	ld a, 5
-	ld [MusicFade], a
-	ld a, MUSIC_MOBILE_ADAPTER_MENU % $100
-	ld [MusicFadeIDLo], a
-	ld a, MUSIC_MOBILE_ADAPTER_MENU / $100
-	ld [MusicFadeIDHi], a
-	ld c, 20
-	call DelayFrames
-	ld c, $1
-	callba InitMobileProfile ; mobile
-	callba _SaveData
-	ld a, 8
-	ld [MusicFade], a
-	ld a, MUSIC_NONE % $100
-	ld [MusicFadeIDLo], a
-	ld a, MUSIC_NONE / $100
-	ld [MusicFadeIDHi], a
-	ld c, 35
-	call DelayFrames
-	ret
-; 5e34
 
 ConfirmContinue: ; 5e34
 .loop

@@ -318,7 +318,6 @@ endm
 Char15:: ; 117b
 	ld c, l
 	ld b, h
-	callba Function17f036
 	jp PlaceNextChar
 ; 1186
 

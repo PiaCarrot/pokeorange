@@ -119,7 +119,7 @@ _LinkTextbox: ; 16d61d
 InitTradeSpeciesList: ; 16d673
 	call _LoadTradeScreenBorder
 	call Function16d6ae
-	callba InitMG_Mobile_LinkTradePalMap
+	callba InitLinkTradePalMap
 	callba PlaceTradePartnerNamesAndParty
 	hlcoord 10, 17
 	ld de, .CANCEL

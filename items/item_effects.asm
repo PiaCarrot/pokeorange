@@ -237,9 +237,6 @@ ParkBall: ; e8a2
 
 	ld a, [EnemyMonCatchRate]
 	ld b, a
-	ld a, [BattleType]
-	cp BATTLETYPE_TUTORIAL
-	jp z, .catch_without_fail
 	ld a, [CurItem]
 	cp MASTER_BALL
 	jp z, .catch_without_fail
@@ -508,11 +505,6 @@ ParkBall: ; e8a2
 	ld [wWildMon], a
 	ld [CurPartySpecies], a
 	ld [wd265], a
-	ld a, [BattleType]
-	cp BATTLETYPE_TUTORIAL
-	jp z, .FinishTutorial
-
-	callba MobileFn_10607f
 
 	ld hl, Text_GotchaMonWasCaught
 	call PrintText
@@ -694,19 +686,12 @@ ParkBall: ; e8a2
 	callba BugContest_SetCaughtContestMon
 	jr .return_from_capture
 
-.FinishTutorial:
-	ld hl, Text_GotchaMonWasCaught
-
 .shake_and_break_free
 	call PrintText
 	call ClearSprites
 
 .return_from_capture
 	ld a, [BattleType]
-	cp BATTLETYPE_TUTORIAL
-	ret z
-	cp BATTLETYPE_DEBUG
-	ret z
 	cp BATTLETYPE_CONTEST
 	jr z, .used_park_ball
 

@@ -1287,7 +1287,7 @@ LinkTradeOTPartymonMenuLoop: ; 28835
 ; 2888b
 
 LinkTrade_PlayerPartyMenu: ; 2888b
-	callba InitMG_Mobile_LinkTradePalMap
+	callba InitLinkTradePalMap
 	xor a
 	ld [MonType], a
 	ld a, A_BUTTON | D_UP | D_DOWN
@@ -1971,8 +1971,6 @@ LinkTrade: ; 28b87
 
 .save
 	callba SaveAfterLinkTrade
-	callba MobileFn_1060af
-	callba BackupMobileEventIndex
 	ld c, 40
 	call DelayFrames
 	hlcoord 0, 12

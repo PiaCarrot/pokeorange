@@ -2272,50 +2272,16 @@ GetWorldMapLocation:: ; 0x2caf
 ; 0x2cbd
 
 GetMapHeaderMusic:: ; 2cbd
-RADIO_TOWER_MUSIC EQU 7
-
 	push hl
 	push bc
 	ld de, 6 ; music
 	call GetMapHeaderMember
 	ld a, c
-	cp MUSIC_MAHOGANY_MART
-	jr z, .mahoganymart
-	bit RADIO_TOWER_MUSIC, c
-	jr nz, .radiotower
-	callba Function8b342
 	ld e, c
 	ld d, 0
-.done
 	pop bc
 	pop hl
 	ret
-
-.radiotower
-	ld a, [StatusFlags2]
-	bit 0, a
-	jr z, .clearedradiotower
-	ld de, MUSIC_ROCKET_OVERTURE
-	jr .done
-
-.clearedradiotower
-	; the rest of the byte
-	ld a, c
-	and 1 << RADIO_TOWER_MUSIC - 1
-	ld e, a
-	ld d, 0
-	jr .done
-
-.mahoganymart
-	ld a, [StatusFlags2]
-	bit 7, a
-	jr z, .clearedmahogany
-	ld de, MUSIC_ROCKET_HIDEOUT
-	jr .done
-
-.clearedmahogany
-	ld de, MUSIC_CHERRYGROVE_CITY
-	jr .done
 ; 2cff
 
 GetMapHeaderTimeOfDayNybble:: ; 2cff

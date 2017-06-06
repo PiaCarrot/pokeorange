@@ -146,7 +146,6 @@ TeachTMHM: ; 2c867
 	and a
 	jr z, .nope
 
-	callba MobileFn_106049
 	ld a, [CurItem]
 	call IsHM
 	ret c
@@ -334,10 +333,6 @@ TMHM_ScrollPocket: ; 2c9b1 (b:49b1)
 	jp TMHM_ShowTMMoveDescription
 
 TMHM_DisplayPocketItems: ; 2c9e2 (b:49e2)
-	ld a, [BattleType]
-	cp BATTLETYPE_TUTORIAL
-	jp z, Tutorial_TMHMPocket
-
 	hlcoord 5, 2
 	lb bc, 10, 15
 	ld a, " "
@@ -441,21 +436,6 @@ TMHMPocket_GetCurrentLineCoord: ; 2ca86 (b:4a86)
 	ret
 ; 2ca95 (b:4a95)
 
-Function2ca95: ; 2ca95
-; unreferenced
-	pop hl
-	ld bc, 3
-	add hl, bc
-	predef GetTMHMMove
-	ld a, [wd265]
-	ld [wPutativeTMHMMove], a
-	call GetMoveName
-	push hl
-	call PlaceString
-	pop hl
-	ret
-; 2caae
-
 TMHM_String_Cancel: ; 2caae
 	db "CANCEL@"
 ; 2cab5
@@ -477,14 +457,6 @@ TMHM_GetCurrentPocketPosition: ; 2cab5 (b:4ab5)
 	dec c
 	ret
 
-Tutorial_TMHMPocket: ; 2caca (b:4aca)
-	hlcoord 9, 3
-	push de
-	ld de, TMHM_String_Cancel
-	call PlaceString
-	pop de
-	ret
-
 TMHM_PlaySFX_ReadText2: ; 2cad6 (b:4ad6)
 	push de
 	ld de, SFX_READ_TEXT_2
@@ -492,44 +464,6 @@ TMHM_PlaySFX_ReadText2: ; 2cad6 (b:4ad6)
 	pop de
 	ret
 ; 2cadf (b:4adf)
-
-Function2cadf: ; 2cadf
-; unreferenced
-	call ConvertCurItemIntoCurTMHM
-	call .CheckHaveRoomForTMHM
-	ld hl, .NoRoomText
-	jr nc, .print
-	ld hl, .ReceivedText
-.print
-	jp PrintText
-; 2caf0
-
-.NoRoomText: ; 0x2caf0
-	; You have no room for any more @ S.
-	text_jump UnknownText_0x1c03fa
-	db "@"
-; 0x2caf5
-
-.ReceivedText: ; 0x2caf5
-	; You received @ !
-	text_jump UnknownText_0x1c0421
-	db "@"
-; 0x2cafa
-
-.CheckHaveRoomForTMHM: ; 2cafa
-	ld a, [wd265]
-	dec a
-	ld hl, TMsHMs
-	ld b, 0
-	ld c, a
-	add hl, bc
-	ld a, [hl]
-	inc a
-	cp NUM_TMS * 2
-	ret nc
-	ld [hl], a
-	ret
-; 2cb0c
 
 ConsumeTM: ; 2cb0c (b:4b0c)
 	call ConvertCurItemIntoCurTMHM

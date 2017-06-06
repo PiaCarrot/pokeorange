@@ -53,20 +53,13 @@ Predef_StartBattle: ; 8c20f
 ; 8c26d
 
 .InitGFX: ; 8c26d
-	ld a, [wLinkMode]
-	cp LINK_MOBILE
-	jr z, .mobile
 	callba ReanchorBGMap_NoOAMUpdate
 	call UpdateSprites
 	call DelayFrame
-	call .NonMobile_LoadPokeballTiles
-	call BattleStart_LoadEDTile
-	jr .resume
-
-.mobile
 	call LoadTrainerBattlePokeballTiles
-
-.resume
+	hlbgcoord 0, 0
+	call ConvertTrainerBattlePokeballTilesTo2bpp
+	call BattleStart_LoadEDTile
 	ld a, SCREEN_HEIGHT_PX
 	ld [hWY], a
 	call DelayFrame
@@ -80,13 +73,6 @@ Predef_StartBattle: ; 8c20f
 	call WipeLYOverrides
 	ret
 ; 8c2a0
-
-.NonMobile_LoadPokeballTiles: ; 8c2a0
-	call LoadTrainerBattlePokeballTiles
-	hlbgcoord 0, 0
-	call ConvertTrainerBattlePokeballTilesTo2bpp
-	ret
-; 8c2aa
 
 LoadTrainerBattlePokeballTiles:
 ; Load the tiles used in the Pokeball Graphic that fills the screen
