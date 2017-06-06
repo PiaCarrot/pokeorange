@@ -1,17 +1,17 @@
 const_value set 2
-	const VIOLETPOKECENTER1F_NURSE
-	const VIOLETPOKECENTER1F_GAMEBOY_KID
-	const VIOLETPOKECENTER1F_GENTLEMAN
-	const VIOLETPOKECENTER1F_YOUNGSTER
+	const MIKANPOKECENTER1F_NURSE
+	const MIKANPOKECENTER1F_GAMEBOY_KID
+	const MIKANPOKECENTER1F_GENTLEMAN
+	const MIKANPOKECENTER1F_YOUNGSTER
 
-VioletPokeCenter1F_MapScriptHeader:
+MikanPokeCenter1F_MapScriptHeader:
 .MapTriggers:
 	db 0
 
 .MapCallbacks:
 	db 0
 
-VioletPokeCenterNurse:
+MikanPokeCenterNurse:
 	jumpstd pokecenternurse
 
 GameboyKidScript_0x69540:
@@ -29,7 +29,7 @@ UnknownText_0x69809:
 	para "I'm playing #-"
 	line "MON Trading Card"
 	cont "Game 2!"
-	
+
 	para "GAH! Why do I al-"
 	line "get TAILS?!"
 	done
@@ -61,14 +61,14 @@ UnknownText_0x698b8:
 	line "they please."
 	done
 
-VioletPokeCenter1F_MapEventHeader:
+MikanPokeCenter1F_MapEventHeader:
 	; filler
 	db 0, 0
 
 .Warps:
 	db 3
-	warp_def $7, $3, 4, VIOLET_CITY
-	warp_def $7, $4, 4, VIOLET_CITY
+	warp_def $7, $3, 4, MIKAN_ISLAND
+	warp_def $7, $4, 4, MIKAN_ISLAND
 	warp_def $7, $0, 1, POKECENTER_2F
 
 .XYTriggers:
@@ -79,7 +79,7 @@ VioletPokeCenter1F_MapEventHeader:
 
 .PersonEvents:
 	db 4
-	person_event SPRITE_NURSE, 1, 3, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, VioletPokeCenterNurse, -1
+	person_event SPRITE_NURSE, 1, 3, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MikanPokeCenterNurse, -1
 	person_event SPRITE_GAMEBOY_KID, 6, 7, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, GameboyKidScript_0x69540, -1
 	person_event SPRITE_POKEFAN_M, 4, 1, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GentlemanScript_0x69543, -1
 	person_event SPRITE_BUG_BOY, 1, 8, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, YoungsterScript_0x69546, -1

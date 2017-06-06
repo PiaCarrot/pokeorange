@@ -1,8 +1,8 @@
 const_value set 2
-	const CHERRYGROVEGYMSPEECHHOUSE_POKEFAN_M
-	const CHERRYGROVEGYMSPEECHHOUSE_BUG_CATCHER
+	const TANGELOGYMSPEECHHOUSE_POKEFAN_M
+	const TANGELOGYMSPEECHHOUSE_BUG_CATCHER
 
-CherrygroveGymSpeechHouse_MapScriptHeader:
+TangeloGymSpeechHouse_MapScriptHeader:
 .MapTriggers:
 	db 0
 
@@ -15,14 +15,14 @@ PokefanMScript_0x196ae1:
 BugCatcherScript_0x196ae4:
 	jumptextfaceplayer UnknownText_0x196b65
 
-CherrygroveGymSpeechHouseBookshelf:
+TangeloGymSpeechHouseBookshelf:
 	jumpstd picturebookshelf
 
 UnknownText_0x196aea:
 	text "Hm...That's a"
 	line "great #MON"
 	cont "that you have."
-	
+
 	para "Taking on the"
 	line "ORANGE CREW won't"
 	cont "be an easy task,"
@@ -36,22 +36,22 @@ UnknownText_0x196b65:
 	cont "of PUMMELO ISLAND."
 	done
 
-CherrygroveGymSpeechHouse_MapEventHeader:
+TangeloGymSpeechHouse_MapEventHeader:
 	; filler
 	db 0, 0
 
 .Warps:
 	db 2
-	warp_def $7, $2, 3, CHERRYGROVE_CITY
-	warp_def $7, $3, 3, CHERRYGROVE_CITY
+	warp_def $7, $2, 3, TANGELO_ISLAND
+	warp_def $7, $3, 3, TANGELO_ISLAND
 
 .XYTriggers:
 	db 0
 
 .Signposts:
 	db 2
-	signpost 1, 0, SIGNPOST_READ, CherrygroveGymSpeechHouseBookshelf
-	signpost 1, 1, SIGNPOST_READ, CherrygroveGymSpeechHouseBookshelf
+	signpost 1, 0, SIGNPOST_READ, TangeloGymSpeechHouseBookshelf
+	signpost 1, 1, SIGNPOST_READ, TangeloGymSpeechHouseBookshelf
 
 .PersonEvents:
 	db 2

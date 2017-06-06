@@ -1,8 +1,8 @@
 const_value set 2
-	const VIOLETNICKNAMESPEECHHOUSE_TEACHER
-	const VIOLETNICKNAMESPEECHHOUSE_BIRD
+	const MIKANNICKNAMESPEECHHOUSE_TEACHER
+	const MIKANNICKNAMESPEECHHOUSE_BIRD
 
-VioletNicknameSpeechHouse_MapScriptHeader:
+MikanNicknameSpeechHouse_MapScriptHeader:
 .MapTriggers:
 	db 0
 
@@ -19,14 +19,14 @@ TeacherScript_0x693e9:
 	setevent EVENT_GOT_OLD_ROD
 	closetext
 	end
-	
+
 .GotRod:
 	opentext
 	writetext RodText
 	waitbutton
 	closetext
 	end
-	
+
 BirdScript_0x693ef:
 	faceplayer
 	opentext
@@ -40,12 +40,12 @@ UnknownText_0x693fa:
 	text "I can sense you"
 	line "have a knack at"
 	cont "SEAFARING."
-	
+
 	para "Here, take this."
 	line "One of my older"
 	cont "RODs."
 	done
-	
+
 RodText:
 	text "How goes the fish-"
 	line "ing?"
@@ -55,14 +55,14 @@ UnknownText_0x6947c:
 	text "SHELLDER: Krrkrr!"
 	done
 
-VioletNicknameSpeechHouse_MapEventHeader:
+MikanNicknameSpeechHouse_MapEventHeader:
 	; filler
 	db 0, 0
 
 .Warps:
 	db 2
-	warp_def $7, $3, 3, VIOLET_CITY
-	warp_def $7, $4, 3, VIOLET_CITY
+	warp_def $7, $3, 3, MIKAN_ISLAND
+	warp_def $7, $4, 3, MIKAN_ISLAND
 
 .XYTriggers:
 	db 0

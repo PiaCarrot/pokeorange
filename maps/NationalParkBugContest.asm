@@ -9,8 +9,6 @@ const_value set 2
 	const NATIONALPARKBUGCONTEST_YOUNGSTER5
 	const NATIONALPARKBUGCONTEST_YOUNGSTER6
 	const NATIONALPARKBUGCONTEST_YOUNGSTER7
-	const NATIONALPARKBUGCONTEST_POKE_BALL1
-	const NATIONALPARKBUGCONTEST_POKE_BALL2
 
 NationalParkBugContest_MapScriptHeader:
 .MapTriggers:
@@ -98,25 +96,6 @@ YoungsterScript_0x5c934:
 	waitbutton
 	closetext
 	end
-
-MapNationalParkBugContestSignpost0Script:
-	jumptext UnknownText_0x5cba7
-
-MapNationalParkBugContestSignpost1Script:
-	jumptext UnknownText_0x5cbc8
-
-MapNationalParkBugContestSignpost3Script:
-	jumptext UnknownText_0x5cc1d
-
-NationalParkBugContestParlyzHeal:
-	itemball PARLYZ_HEAL
-
-NationalParkBugContestTMDig:
-	itemball TM_DIG
-
-NationalParkBugContestHiddenFullHeal:
-	dwb EVENT_NATIONAL_PARK_HIDDEN_FULL_HEAL, FULL_HEAL
-
 
 UnknownText_0x5c94c:
 	text "DON: I'm going to"
@@ -232,14 +211,10 @@ NationalParkBugContest_MapEventHeader:
 	db 0
 
 .Signposts:
-	db 4
-	signpost 44, 14, SIGNPOST_READ, MapNationalParkBugContestSignpost0Script
-	signpost 31, 27, SIGNPOST_READ, MapNationalParkBugContestSignpost1Script
-	signpost 47, 6, SIGNPOST_ITEM, NationalParkBugContestHiddenFullHeal
-	signpost 4, 12, SIGNPOST_READ, MapNationalParkBugContestSignpost3Script
+	db 0
 
 .PersonEvents:
-	db 12
+	db 10
 	person_event SPRITE_YOUNGSTER, 29, 19, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, YoungsterScript_0x5c8ec, EVENT_BUG_CATCHING_CONTESTANT_1A
 	person_event SPRITE_YOUNGSTER, 22, 28, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, YoungsterScript_0x5c8f4, EVENT_BUG_CATCHING_CONTESTANT_2A
 	person_event SPRITE_ROCKER, 18, 9, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, RockerScript_0x5c8fc, EVENT_BUG_CATCHING_CONTESTANT_3A
@@ -250,5 +225,3 @@ NationalParkBugContest_MapEventHeader:
 	person_event SPRITE_YOUNGSTER, 27, 11, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, YoungsterScript_0x5c924, EVENT_BUG_CATCHING_CONTESTANT_8A
 	person_event SPRITE_YOUNGSTER, 8, 16, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, YoungsterScript_0x5c92c, EVENT_BUG_CATCHING_CONTESTANT_9A
 	person_event SPRITE_YOUNGSTER, 34, 17, SPRITEMOVEDATA_WANDER, 3, 3, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, YoungsterScript_0x5c934, EVENT_BUG_CATCHING_CONTESTANT_10A
-	person_event SPRITE_POKE_BALL, 12, 35, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, NationalParkBugContestParlyzHeal, -1
-	person_event SPRITE_POKE_BALL, 43, 1, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, NationalParkBugContestTMDig, -1

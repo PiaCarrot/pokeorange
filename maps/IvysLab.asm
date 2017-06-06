@@ -1,94 +1,78 @@
 const_value set 2
-	const ELMSLAB_ELM
-	const ELMSLAB_ELMS_AIDE
-	const ELMSLAB_POKE_BALL1
-	const ELMSLAB_POKE_BALL2
-	const ELMSLAB_POKE_BALL3
+	const IVYSLAB_IVY
+	const IVYSLAB_IVYS_AIDE
+	const IVYSLAB_POKE_BALL1
+	const IVYSLAB_POKE_BALL2
+	const IVYSLAB_POKE_BALL3
 
-ElmsLab_MapScriptHeader:
+IvysLab_MapScriptHeader:
 .MapTriggers:
-	db 5
+	db 1
 
 	; triggers
 	maptrigger .Trigger0
-	maptrigger .Trigger1
-	maptrigger .Trigger2
-	maptrigger .Trigger4
-	maptrigger .Trigger5
 
 .MapCallbacks:
 	db 1
 
 	; callbacks
 
-	dbw MAPCALLBACK_OBJECTS, .Callback_MoveElm
+	dbw MAPCALLBACK_OBJECTS, .Callback_MoveIvy
 
 .Trigger0:
-	priorityjump ElmsLab_AutowalkUpToElm
+	priorityjump IvysLab_AutowalkUpToIvy
 	end
 
-.Trigger1:
-	end
-
-.Trigger2:
-	end
-
-.Trigger4:
-	end
-
-.Trigger5:
-	end
-
-.Callback_MoveElm:
+.Callback_MoveIvy:
 	checktriggers
 	iftrue .Skip
-	moveperson ELMSLAB_ELM, $1, $4
+	moveperson IVYSLAB_IVY, $1, $4
 .Skip:
 	return
 
-ElmsLab_AutowalkUpToElm:
-	applymovement PLAYER, ElmsLab_WalkUpToElmMovement
-	showemote EMOTE_SHOCK, ELMSLAB_ELM, 15
-	spriteface ELMSLAB_ELM, RIGHT
+IvysLab_AutowalkUpToIvy:
+	applymovement PLAYER, IvysLab_WalkUpToIvyMovement
+	showemote EMOTE_SHOCK, IVYSLAB_IVY, 15
+	spriteface IVYSLAB_IVY, RIGHT
 	opentext
-	writetext ElmText_Intro
-	jump ElmsLab_ElmGetsEmail
+	writetext IvyText_Intro
+	jump IvysLab_IvyGetsEmail
 
-ElmsLab_ElmGetsEmail:
+IvysLab_IvyGetsEmail:
 	buttonsound
 	waitbutton
 	closetext
 	playsound SFX_GLASS_TING
 	pause 30
-	showemote EMOTE_SHOCK, ELMSLAB_ELM, 10
-	spriteface ELMSLAB_ELM, DOWN
+	showemote EMOTE_SHOCK, IVYSLAB_IVY, 10
+	spriteface IVYSLAB_IVY, DOWN
 	opentext
-	writetext ElmText_GotAnEmail
+	writetext IvyText_GotAnEmail
 	waitbutton
 	closetext
 	opentext
-	spriteface ELMSLAB_ELM, RIGHT
-	writetext ElmText_MissionFromMrPokemon
+	spriteface IVYSLAB_IVY, RIGHT
+	writetext IvyText_MissionFromMrPokemon
 	waitbutton
 	closetext
 	opentext
 	special Special_SetDayOfWeek
 	closetext
-	applymovement ELMSLAB_ELM, ElmsLab_TurnDown
+	applymovement IVYSLAB_IVY, IvysLab_TurnDown
 	pause 40
-	applymovement ELMSLAB_ELM, ElmsLab_ElmToDefaultPositionMovement1
+	applymovement IVYSLAB_IVY, IvysLab_IvyToDefaultPositionMovement1
 	spriteface PLAYER, UP
-	applymovement ELMSLAB_ELM, ElmsLab_ElmToDefaultPositionMovement2
+	applymovement IVYSLAB_IVY, IvysLab_IvyToDefaultPositionMovement2
 	spriteface PLAYER, RIGHT
 	opentext
-	writetext ElmText_ChooseAPokemon
+	writetext IvyText_ChooseAPokemon
 	waitbutton
 	dotrigger $1
 	closetext
 	end
 
 LabTryToLeaveScript:
-	spriteface ELMSLAB_ELM, DOWN
+	spriteface IVYSLAB_IVY, DOWN
 	opentext
 	writetext LabWhereGoingText
 	waitbutton
@@ -97,9 +81,9 @@ LabTryToLeaveScript:
 	end
 
 CyndaquilPokeBallScript:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
-	iftrue LookAtElmPokeBallScript
-	spriteface ELMSLAB_ELM, DOWN
+	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
+	iftrue LookAtIvyPokeBallScript
+	spriteface IVYSLAB_IVY, DOWN
 	refreshscreen $0
 	pokepic CHARMANDER
 	cry CHARMANDER
@@ -109,8 +93,8 @@ CyndaquilPokeBallScript:
 	writetext TakeCyndaquilText
 	yesorno
 	iffalse DidntChooseStarterScript
-	disappear ELMSLAB_POKE_BALL1
-	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	disappear IVYSLAB_POKE_BALL1
+	setevent EVENT_GOT_CYNDAQUIL_FROM_IVY
 	writetext ChoseStarterText
 	buttonsound
 	waitsfx
@@ -122,14 +106,14 @@ CyndaquilPokeBallScript:
 	givepoke CHARMANDER, 10, BERRY
 	closetext
 	checkcode VAR_FACING
-	if_equal RIGHT, ElmDirectionsScript
+	if_equal RIGHT, IvyDirectionsScript
 	applymovement PLAYER, AfterCyndaquilMovement
-	jump ElmDirectionsScript
+	jump IvyDirectionsScript
 
 TotodilePokeBallScript:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
-	iftrue LookAtElmPokeBallScript
-	spriteface ELMSLAB_ELM, DOWN
+	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
+	iftrue LookAtIvyPokeBallScript
+	spriteface IVYSLAB_IVY, DOWN
 	refreshscreen $0
 	pokepic SQUIRTLE
 	cry SQUIRTLE
@@ -139,8 +123,8 @@ TotodilePokeBallScript:
 	writetext TakeTotodileText
 	yesorno
 	iffalse DidntChooseStarterScript
-	disappear ELMSLAB_POKE_BALL2
-	setevent EVENT_GOT_TOTODILE_FROM_ELM
+	disappear IVYSLAB_POKE_BALL2
+	setevent EVENT_GOT_TOTODILE_FROM_IVY
 	writetext ChoseStarterText
 	buttonsound
 	waitsfx
@@ -152,12 +136,12 @@ TotodilePokeBallScript:
 	givepoke SQUIRTLE, 10, BERRY
 	closetext
 	applymovement PLAYER, AfterTotodileMovement
-	jump ElmDirectionsScript
+	jump IvyDirectionsScript
 
 ChikoritaPokeBallScript:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
-	iftrue LookAtElmPokeBallScript
-	spriteface ELMSLAB_ELM, DOWN
+	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
+	iftrue LookAtIvyPokeBallScript
+	spriteface IVYSLAB_IVY, DOWN
 	refreshscreen $0
 	pokepic BULBASAUR
 	cry BULBASAUR
@@ -167,8 +151,8 @@ ChikoritaPokeBallScript:
 	writetext TakeChikoritaText
 	yesorno
 	iffalse DidntChooseStarterScript
-	disappear ELMSLAB_POKE_BALL3
-	setevent EVENT_GOT_CHIKORITA_FROM_ELM
+	disappear IVYSLAB_POKE_BALL3
+	setevent EVENT_GOT_CHIKORITA_FROM_IVY
 	writetext ChoseStarterText
 	buttonsound
 	waitsfx
@@ -180,7 +164,7 @@ ChikoritaPokeBallScript:
 	givepoke BULBASAUR, 10, BERRY
 	closetext
 	applymovement PLAYER, AfterChikoritaMovement
-	jump ElmDirectionsScript
+	jump IvyDirectionsScript
 
 DidntChooseStarterScript:
 	writetext DidntChooseStarterText
@@ -188,40 +172,40 @@ DidntChooseStarterScript:
 	closetext
 	end
 
-ElmDirectionsScript:
+IvyDirectionsScript:
 	spriteface PLAYER, UP
 	opentext
-	writetext ElmDirectionsText1
+	writetext IvyDirectionsText1
 	waitbutton
 	closetext
-	spriteface ELMSLAB_ELM, LEFT
+	spriteface IVYSLAB_IVY, LEFT
 	opentext
-	writetext ElmDirectionsText2
+	writetext IvyDirectionsText2
 	waitbutton
 	closetext
-	spriteface ELMSLAB_ELM, DOWN
+	spriteface IVYSLAB_IVY, DOWN
 	opentext
-	writetext ElmDirectionsText3
+	writetext IvyDirectionsText3
 	playsound SFX_ITEM
 	waitsfx
 	setflag ENGINE_POKEDEX
 	waitbutton
 	closetext
-	setevent EVENT_GOT_A_POKEMON_FROM_ELM
+	setevent EVENT_GOT_A_POKEMON_FROM_IVY
 	dotrigger $5
-	domaptrigger NEW_BARK_TOWN, $1
+	domaptrigger VALENCIA_ISLAND, $1
 	end
 
-ProfElmScript:
+ProfIvyScript:
 	faceplayer
 	opentext
 	checkevent EVENT_GOT_GS_BALL_FROM_TRACEY
 	iftrue .GoOn
-	writetext ElmDescribesMrPokemonText
+	writetext IvyDescribesMrPokemonText
 	waitbutton
 	closetext
 	end
-	
+
 .GoOn:
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iftrue .FinalIvyText
@@ -230,122 +214,99 @@ ProfElmScript:
 	waitbutton
 	closetext
 	end
-	
+
 .FinalIvyText:
 	writetext FinalIvyText
 	waitbutton
 	closetext
 	end
 
-LookAtElmPokeBallScript:
+LookAtIvyPokeBallScript:
 	opentext
-	writetext ElmPokeBallText
+	writetext IvyPokeBallText
 	waitbutton
 	closetext
 	end
 
-ElmsLabHealingMachine:
+IvysLabHealingMachine:
 	opentext
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
 	iftrue .CanHeal
-	writetext ElmsLabHealingMachineText1
+	writetext IvysLabHealingMachineText1
 	waitbutton
 	closetext
 	end
 
 .CanHeal:
-	writetext ElmsLabHealingMachineText2
+	writetext IvysLabHealingMachineText2
 	yesorno
-	iftrue ElmsLabHealingMachine_HealParty
+	iftrue IvysLabHealingMachine_HealParty
 	closetext
 	end
 
-ElmsLabHealingMachine_HealParty:
+IvysLabHealingMachine_HealParty:
 	special HealParty
 	playmusic MUSIC_NONE
-	writebyte 1 ; Machine is in Elm's Lab
+	writebyte 1 ; Machine is in Ivy's Lab
 	special HealMachineAnim
 	pause 30
 	special RestartMapMusic
 	closetext
 	end
 
-;ElmAfterTheftScript:
-;	writetext ElmAfterTheftText1
-;	checkitem GS_BALL
-;	iffalse ElmAfterTheftDoneScript
-;	buttonsound
-;	writetext ElmAfterTheftText2
-;	waitbutton
-;	scall ElmJumpBackScript1
-;	writetext ElmAfterTheftText3
-;	waitbutton
-;	scall ElmJumpBackScript2
-;	writetext ElmAfterTheftText4
-;	buttonsound
-;	writetext ElmAfterTheftText5
-;	buttonsound
-;	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
-;	setflag ENGINE_BUG_CONTEST_ON
-;	domaptrigger ROUTE_29, $1
-;	clearevent EVENT_ROUTE_30_YOUNGSTER_JOEY
-;	setevent EVENT_ROUTE_30_BATTLE
-;	writetext ElmAfterTheftText6
-;	waitbutton
-;	closetext
-;	dotrigger $6
-;	end
+IvysLabWindow:
+	jumptext IvysLabWindowText
 
-ElmJumpBackScript1:
+IvyJumpBackScript1:
 	closetext
 	checkcode VAR_FACING
-	if_equal DOWN, ElmJumpDownScript
-	if_equal UP, ElmJumpUpScript
-	if_equal LEFT, ElmJumpLeftScript
-	if_equal RIGHT, ElmJumpRightScript
+	if_equal DOWN, IvyJumpDownScript
+	if_equal UP, IvyJumpUpScript
+	if_equal LEFT, IvyJumpLeftScript
+	if_equal RIGHT, IvyJumpRightScript
 	end
 
-ElmJumpBackScript2:
+IvyJumpBackScript2:
 	closetext
 	checkcode VAR_FACING
-	if_equal DOWN, ElmJumpUpScript
-	if_equal UP, ElmJumpDownScript
-	if_equal LEFT, ElmJumpRightScript
-	if_equal RIGHT, ElmJumpLeftScript
+	if_equal DOWN, IvyJumpUpScript
+	if_equal UP, IvyJumpDownScript
+	if_equal LEFT, IvyJumpRightScript
+	if_equal RIGHT, IvyJumpLeftScript
 	end
 
-ElmJumpUpScript:
-	applymovement ELMSLAB_ELM, ElmJumpUpMovement
+IvyJumpUpScript:
+	applymovement IVYSLAB_IVY, IvyJumpUpMovement
 	opentext
 	end
 
-ElmJumpDownScript:
-	applymovement ELMSLAB_ELM, ElmJumpDownMovement
+IvyJumpDownScript:
+	applymovement IVYSLAB_IVY, IvyJumpDownMovement
 	opentext
 	end
 
-ElmJumpLeftScript:
-	applymovement ELMSLAB_ELM, ElmJumpLeftMovement
+IvyJumpLeftScript:
+	applymovement IVYSLAB_IVY, IvyJumpLeftMovement
 	opentext
 	end
 
-ElmJumpRightScript:
-	applymovement ELMSLAB_ELM, ElmJumpRightMovement
+IvyJumpRightScript:
+	applymovement IVYSLAB_IVY, IvyJumpRightMovement
 	opentext
 	end
 
 AideScript_WalkPotions1:
-	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight1
+	applymovement IVYSLAB_IVYS_AIDE, AideWalksRight1
 	spriteface PLAYER, DOWN
 	scall AideScript_GivePotions
-	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft1
+	applymovement IVYSLAB_IVYS_AIDE, AideWalksLeft1
 	end
 
 AideScript_WalkPotions2:
-	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight2
+	applymovement IVYSLAB_IVYS_AIDE, AideWalksRight2
 	spriteface PLAYER, DOWN
 	scall AideScript_GivePotions
-	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
+	applymovement IVYSLAB_IVYS_AIDE, AideWalksLeft2
 	end
 
 AideScript_GivePotions:
@@ -366,7 +327,7 @@ AideScript_ReceiveTheBalls:
 	jumpstd receiveitem
 	end
 
-ElmsAideScript:
+IvysAideScript:
 	faceplayer
 	opentext
 	writetext AideText_ExplainBalls
@@ -374,28 +335,28 @@ ElmsAideScript:
 	closetext
 	end
 
-ElmsLabTravelTip1:
-	jumptext ElmsLabTravelTip1Text
+IvysLabTravelTip1:
+	jumptext IvysLabTravelTip1Text
 
-ElmsLabTravelTip2:
-	jumptext ElmsLabTravelTip2Text
+IvysLabTravelTip2:
+	jumptext IvysLabTravelTip2Text
 
-ElmsLabTravelTip3:
-	jumptext ElmsLabTravelTip3Text
+IvysLabTravelTip3:
+	jumptext IvysLabTravelTip3Text
 
-ElmsLabTravelTip4:
-	jumptext ElmsLabTravelTip4Text
+IvysLabTravelTip4:
+	jumptext IvysLabTravelTip4Text
 
-ElmsLabTrashcan:
-	jumptext ElmsLabTrashcanText
+IvysLabTrashcan:
+	jumptext IvysLabTrashcanText
 
-ElmsLabPC:
-	jumptext ElmsLabPCText
+IvysLabPC:
+	jumptext IvysLabPCText
 
-ElmsLabBookshelf:
+IvysLabBookshelf:
 	jumpstd difficultbookshelf
 
-ElmsLab_WalkUpToElmMovement:
+IvysLab_WalkUpToIvyMovement:
 	step UP
 	step UP
 	step UP
@@ -406,8 +367,8 @@ ElmsLab_WalkUpToElmMovement:
 	step LEFT
 	step LEFT
 	step_end
-	
-ElmsLab_TurnDown:
+
+IvysLab_TurnDown:
 	turn_head DOWN
 	step_end
 
@@ -441,35 +402,35 @@ AideWalksLeft2:
 	turn_head DOWN
 	step_end
 
-ElmJumpUpMovement:
+IvyJumpUpMovement:
 	fix_facing
 	big_step UP
 	remove_fixed_facing
 	step_end
 
-ElmJumpDownMovement:
+IvyJumpDownMovement:
 	fix_facing
 	big_step DOWN
 	remove_fixed_facing
 	step_end
 
-ElmJumpLeftMovement:
+IvyJumpLeftMovement:
 	fix_facing
 	big_step LEFT
 	remove_fixed_facing
 	step_end
 
-ElmJumpRightMovement:
+IvyJumpRightMovement:
 	fix_facing
 	big_step RIGHT
 	remove_fixed_facing
 	step_end
 
-ElmsLab_ElmToDefaultPositionMovement1:
+IvysLab_IvyToDefaultPositionMovement1:
 	step UP
 	step_end
 
-ElmsLab_ElmToDefaultPositionMovement2:
+IvysLab_IvyToDefaultPositionMovement2:
 	step RIGHT
 	step RIGHT
 	step RIGHT
@@ -498,55 +459,55 @@ AfterChikoritaMovement:
 	step UP
 	turn_head UP
 	step_end
-	
+
 IvyAdventureText:
 	text "<......>"
-	
+
 	para "IVY: This is..."
-	
+
 	para "<PLAYER>, this"
 	line "is an important"
 	cont "item."
-	
+
 	para "The GS BALL. I"
 	line "don't know what it"
 	cont "does or who even"
-	
+
 	para "made it. I had it"
 	line "sent to PROF. OAK"
 	cont "in PALLET TOWN."
-	
+
 	para "It seems he didn't"
 	line "know either."
-	
+
 	para "There's a man who"
 	line "could possibly un-"
 	cont "cover its secret."
-	
+
 	para "His name's SAMSON."
 	line "He's PROF. OAK's"
 	cont "cousin, who is"
-	
+
 	para "currently visiting"
 	line "on HAMLIN ISLAND."
-	
+
 	para "Since you're taking"
 	line "on the ORANGE CREW"
 	cont "I'd like to ask"
-	
+
 	para "you to deliver it"
 	line "to him."
-	
+
 	para "I can only count"
 	line "on you."
 	done
-	
+
 FinalIvyText:
 	text "IVY: I can only"
 	line "count on you."
 	done
-	
-ElmText_Intro:
+
+IvyText_Intro:
 	text "IVY: <PLAYER>!"
 	line "There you are!"
 
@@ -573,7 +534,7 @@ ElmText_Intro:
 	line "caught."
 	done
 
-ElmText_GotAnEmail:
+IvyText_GotAnEmail:
 	text "Oh, hey! I got an"
 	line "e-mail!"
 
@@ -583,7 +544,7 @@ ElmText_GotAnEmail:
 	para "Okay…"
 	done
 
-ElmText_MissionFromMrPokemon:
+IvyText_MissionFromMrPokemon:
 	text "I'll need to write"
 	line "back..."
 
@@ -591,7 +552,7 @@ ElmText_MissionFromMrPokemon:
 	line "what day it is?"
 	done
 
-ElmText_ChooseAPokemon:
+IvyText_ChooseAPokemon:
 	text "I want you to"
 	line "raise one of the"
 
@@ -605,7 +566,7 @@ ElmText_ChooseAPokemon:
 	para "Go on. Pick one!"
 	done
 
-ElmText_LetYourMonBattleIt:
+IvyText_LetYourMonBattleIt:
 	text "If a wild #MON"
 	line "appears, let your"
 	cont "#MON battle it!"
@@ -655,17 +616,17 @@ ReceivedStarterText:
 	text "!"
 	done
 
-ElmDirectionsText1:
+IvyDirectionsText1:
 	text "Go to the west"
 	line "end of VALENCIA"
 	cont "to find the port."
-	
+
 	para "You can catch a"
 	line "boat there to"
 	cont "TANGELO ISLAND."
 	done
 
-ElmDirectionsText2:
+IvyDirectionsText2:
 	text "If your #MON is"
 	line "hurt, you should"
 
@@ -676,38 +637,38 @@ ElmDirectionsText2:
 	line "it anytime."
 	done
 
-ElmDirectionsText3:
+IvyDirectionsText3:
 	text "<PLAYER>, here"
 	line "is your #DEX!"
 	done
 
-GotElmsNumberText:
+GotIvysNumberText:
 	text "<PLAYER> got IVY's"
 	line "phone number."
 	done
 
-ElmDescribesMrPokemonText:
+IvyDescribesMrPokemonText:
 	text "Best of luck,"
 	line "<PLAYER>!"
 	done
 
-ElmPokeBallText:
+IvyPokeBallText:
 	text "It contains a"
 	line "#MON caught by"
 	cont "PROF.IVY."
 	done
 
-ElmsLabHealingMachineText1:
+IvysLabHealingMachineText1:
 	text "I wonder what this"
 	line "does?"
 	done
 
-ElmsLabHealingMachineText2:
+IvysLabHealingMachineText2:
 	text "Would you like to"
 	line "heal your #MON?"
 	done
 
-ElmsLabSignpostText_Egg:
+IvysLabSignpostText_Egg:
 	text "It's the #MON"
 	line "EGG being studied"
 	cont "by PROF.IVY."
@@ -730,7 +691,7 @@ AideText_AlwaysBusy:
 AideText_ExplainBalls:
 	text "HOPE: To complete"
 	line "the #DEX, you"
-	cont "have to catch" 
+	cont "have to catch"
 	cont "#MON."
 
 	para "Throw # BALLS"
@@ -738,19 +699,14 @@ AideText_ExplainBalls:
 	cont "to get them."
 	done
 
-ElmsLabWindowText1:
+IvysLabWindowText:
 	text "The window's open."
 
-	para "A pleasant breeze"
+	para "An ocean breeze"
 	line "is blowing in."
 	done
 
-ElmsLabWindowText2:
-	text "He broke in"
-	line "through here!"
-	done
-
-ElmsLabTravelTip1Text:
+IvysLabTravelTip1Text:
 	text "<PLAYER> opened a"
 	line "book."
 
@@ -760,7 +716,7 @@ ElmsLabTravelTip1Text:
 	line "open the MENU."
 	done
 
-ElmsLabTravelTip2Text:
+IvysLabTravelTip2Text:
 	text "<PLAYER> opened a"
 	line "book."
 
@@ -770,7 +726,7 @@ ElmsLabTravelTip2Text:
 	line "with SAVE!"
 	done
 
-ElmsLabTravelTip3Text:
+IvysLabTravelTip3Text:
 	text "<PLAYER> opened a"
 	line "book."
 
@@ -781,7 +737,7 @@ ElmsLabTravelTip3Text:
 	cont "move items."
 	done
 
-ElmsLabTravelTip4Text:
+IvysLabTravelTip4Text:
 	text "<PLAYER> opened a"
 	line "book."
 
@@ -794,13 +750,13 @@ ElmsLabTravelTip4Text:
 	line "moves."
 	done
 
-ElmsLabTrashcanText:
+IvysLabTrashcanText:
 	text "The wrapper from"
 	line "the snack PROF.IVY"
 	cont "ate is in there…"
 	done
 
-ElmsLabPCText:
+IvysLabPCText:
 	text "REGIONAL VARIETY"
 	line "OF #MON"
 
@@ -808,11 +764,11 @@ ElmsLabPCText:
 	line "screen…"
 	done
 
-ElmsLab_MapEventHeader:: db 0, 0
+IvysLab_MapEventHeader:: db 0, 0
 
 .Warps: db 2
-	warp_def 11, 4, 1, NEW_BARK_TOWN
-	warp_def 11, 5, 1, NEW_BARK_TOWN
+	warp_def 11, 4, 1, VALENCIA_ISLAND
+	warp_def 11, 5, 1, VALENCIA_ISLAND
 
 .CoordEvents: db 4
 	xy_trigger 1, 6, 4, 0, LabTryToLeaveScript, 0, 0
@@ -820,27 +776,27 @@ ElmsLab_MapEventHeader:: db 0, 0
 	xy_trigger 5, 8, 4, 0, AideScript_WalkPotions1, 0, 0
 	xy_trigger 5, 8, 5, 0, AideScript_WalkPotions2, 0, 0
 
-.BGEvents: db 15
-	signpost 1, 2, SIGNPOST_READ, ElmsLabHealingMachine
-	signpost 1, 6, SIGNPOST_READ, ElmsLabBookshelf
-	signpost 1, 7, SIGNPOST_READ, ElmsLabBookshelf
-	signpost 1, 8, SIGNPOST_READ, ElmsLabBookshelf
-	signpost 1, 9, SIGNPOST_READ, ElmsLabBookshelf
-	signpost 7, 0, SIGNPOST_READ, ElmsLabTravelTip1
-	signpost 7, 1, SIGNPOST_READ, ElmsLabTravelTip2
-	signpost 7, 2, SIGNPOST_READ, ElmsLabTravelTip3
-	signpost 7, 3, SIGNPOST_READ, ElmsLabTravelTip4
-	signpost 7, 6, SIGNPOST_READ, ElmsLabBookshelf
-	signpost 7, 7, SIGNPOST_READ, ElmsLabBookshelf
-	signpost 7, 8, SIGNPOST_READ, ElmsLabBookshelf
-	signpost 7, 9, SIGNPOST_READ, ElmsLabBookshelf
-	signpost 3, 9, SIGNPOST_READ, ElmsLabTrashcan
-	signpost 5, 1, SIGNPOST_DOWN, ElmsLabPC
+.BGEvents: db 16
+	signpost 1, 2, SIGNPOST_READ, IvysLabHealingMachine
+	signpost 0, 5, SIGNPOST_READ, IvysLabWindow
+	signpost 1, 6, SIGNPOST_READ, IvysLabBookshelf
+	signpost 1, 7, SIGNPOST_READ, IvysLabBookshelf
+	signpost 1, 8, SIGNPOST_READ, IvysLabBookshelf
+	signpost 1, 9, SIGNPOST_READ, IvysLabBookshelf
+	signpost 7, 0, SIGNPOST_READ, IvysLabTravelTip1
+	signpost 7, 1, SIGNPOST_READ, IvysLabTravelTip2
+	signpost 7, 2, SIGNPOST_READ, IvysLabTravelTip3
+	signpost 7, 3, SIGNPOST_READ, IvysLabTravelTip4
+	signpost 7, 6, SIGNPOST_READ, IvysLabBookshelf
+	signpost 7, 7, SIGNPOST_READ, IvysLabBookshelf
+	signpost 7, 8, SIGNPOST_READ, IvysLabBookshelf
+	signpost 7, 9, SIGNPOST_READ, IvysLabBookshelf
+	signpost 3, 9, SIGNPOST_READ, IvysLabTrashcan
+	signpost 5, 1, SIGNPOST_DOWN, IvysLabPC
 
 .ObjectEvents: db 5
-	person_event SPRITE_ELM, 2, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, PAL_OW_PINK, ProfElmScript, -1
-	person_event SPRITE_COOLTRAINER_F, 9, 2, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, ElmsAideScript, EVENT_ELMS_AIDE_IN_LAB
-	person_event SPRITE_POKE_BALL, 3, 6, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, CyndaquilPokeBallScript, EVENT_CYNDAQUIL_POKEBALL_IN_ELMS_LAB
-	person_event SPRITE_POKE_BALL, 3, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TotodilePokeBallScript, EVENT_TOTODILE_POKEBALL_IN_ELMS_LAB
-	person_event SPRITE_POKE_BALL, 3, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ChikoritaPokeBallScript, EVENT_CHIKORITA_POKEBALL_IN_ELMS_LAB
-
+	person_event SPRITE_ELM, 2, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, PAL_OW_PINK, ProfIvyScript, -1
+	person_event SPRITE_COOLTRAINER_F, 9, 2, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, IvysAideScript, EVENT_IVYS_AIDE_IN_LAB
+	person_event SPRITE_POKE_BALL, 3, 6, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, CyndaquilPokeBallScript, EVENT_CYNDAQUIL_POKEBALL_IN_IVYS_LAB
+	person_event SPRITE_POKE_BALL, 3, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TotodilePokeBallScript, EVENT_TOTODILE_POKEBALL_IN_IVYS_LAB
+	person_event SPRITE_POKE_BALL, 3, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ChikoritaPokeBallScript, EVENT_CHIKORITA_POKEBALL_IN_IVYS_LAB

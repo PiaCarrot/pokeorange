@@ -22,8 +22,8 @@ MandarinNorthNameRaterBookshelf:
 MandarinNorthNameRater_MapEventHeader:: db 0, 0
 
 .Warps: db 2
-	warp_def 7, 2, 2, MANDARINNORTH
-	warp_def 7, 3, 2, MANDARINNORTH
+	warp_def 7, 2, 2, MANDARIN_NORTH
+	warp_def 7, 3, 2, MANDARIN_NORTH
 
 .CoordEvents: db 0
 

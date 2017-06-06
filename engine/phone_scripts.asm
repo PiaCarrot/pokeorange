@@ -7,7 +7,7 @@ MomPhoneScript: ; 0xbceaa
 	iftrue MomPhoneLectureScript
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iftrue MomPhoneNoGymQuestScript
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
 	iftrue MomPhoneNoPokedexScript
 	jump MomPhoneNoPokemonScript
 
@@ -29,18 +29,18 @@ UnknownScript_0xbcedf: ; 0xbcedf
 
 UnknownScript_0xbcee7: ; 0xbcee7
 	checkcode VAR_MAPGROUP
-	if_equal GROUP_NEW_BARK_TOWN, .newbark
-	if_equal GROUP_CHERRYGROVE_CITY, .cherrygrove
+	if_equal GROUP_VALENCIA_ISLAND, .valencia
+	if_equal GROUP_TANGELO_ISLAND, .tangelo
 	farwritetext MomPhoneGenericAreaText
 	buttonsound
 	jump UnknownScript_0xbcf37
 
-.newbark ; 0xbcf05
+.valencia ; 0xbcf05
 	farwritetext MomPhoneNewBarkText
 	buttonsound
 	jump UnknownScript_0xbcf37
 
-.cherrygrove ; 0xbcf0d
+.tangelo ; 0xbcf0d
 	farwritetext MomPhoneCherrygroveText
 	buttonsound
 	jump UnknownScript_0xbcf37
@@ -188,7 +188,7 @@ ElmPhoneScript1: ; 0xbd00d
 .next
 	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
 	iftrue .eggunhatched
-	checkevent EVENT_ELMS_AIDE_IN_LAB
+	checkevent EVENT_IVYS_AIDE_IN_LAB
 	iftrue .assistant
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iftrue .checkingegg
@@ -259,8 +259,8 @@ ElmPhoneScript2: ; 0xbd081
 .assistant ; 0xbd0aa
 	farwritetext ElmPhoneEggAssistantText
 	specialphonecall SPECIALCALL_NONE
-	clearevent EVENT_ELMS_AIDE_IN_VIOLET_POKEMON_CENTER
-	setevent EVENT_ELMS_AIDE_IN_LAB
+	clearevent EVENT_IVYS_AIDE_IN_VIOLET_POKEMON_CENTER
+	setevent EVENT_IVYS_AIDE_IN_LAB
 	end
 
 .rocket ; 0xbd0b8

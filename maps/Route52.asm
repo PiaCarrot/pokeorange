@@ -1,25 +1,24 @@
 const_value set 2
-	const ROUTE32_FISHER1
-	const ROUTE32_FISHER2
-	const ROUTE32_FISHER3
-	const ROUTE32_YOUNGSTER1
-	const ROUTE32_YOUNGSTER2
-	const ROUTE32_YOUNGSTER3
-	const ROUTE32_LASS1
-	const ROUTE32_YOUNGSTER4
-;	const ROUTE32_FISHER4
-	const ROUTE32_POKE_BALL1
-	const ROUTE32_FISHER5
-	const ROUTE32_POKE_BALL2
+	const ROUTE52_FISHER1
+	const ROUTE52_FISHER2
+	const ROUTE52_FISHER3
+	const ROUTE52_YOUNGSTER1
+	const ROUTE52_YOUNGSTER2
+	const ROUTE52_YOUNGSTER3
+	const ROUTE52_LASS1
+	const ROUTE52_YOUNGSTER4
+	const ROUTE52_POKE_BALL1
+	const ROUTE52_FISHER5
+	const ROUTE52_POKE_BALL2
 
-Route32_MapScriptHeader:
+Route52_MapScriptHeader:
 .MapTriggers:
 	db 0
 
 .MapCallbacks:
 	db 0
 
-Route32RoarTMGuyScript:
+Route52RoarTMGuyScript:
 	faceplayer
 	opentext
 	checkevent EVENT_GOT_TM05_ROAR
@@ -125,22 +124,22 @@ TrainerBird_keeperPeter:
 	closetext
 	end
 
-Route32GreatBall:
+Route52GreatBall:
 	itemball GREAT_BALL
 
-Route32Repel:
+Route52Repel:
 	itemball REPEL
 
-Route32Sign:
-	jumptext Route32SignText
+Route52Sign:
+	jumptext Route52SignText
 
-Route32PokeCenterSign:
+Route52PokeCenterSign:
 	jumpstd pokecentersign
 
-Route32HiddenGreatBall:
+Route52HiddenGreatBall:
 	dwb EVENT_ROUTE_32_HIDDEN_GREAT_BALL, GREAT_BALL
 
-Route32HiddenSuperPotion:
+Route52HiddenSuperPotion:
 	dwb EVENT_ROUTE_32_HIDDEN_SUPER_POTION, SUPER_POTION
 
 FisherJustinSeenText:
@@ -298,27 +297,27 @@ Text_RoarOutro:
 	line "FROM A GOOD ROAR!"
 	done
 
-Route32SignText:
+Route52SignText:
 	text "ROUTE 52"
 
 	para "TANGELO -"
 	line "MIKAN"
 	done
 
-Route32_MapEventHeader:: db 0, 0
+Route52_MapEventHeader:: db 0, 0
 
 .Warps: db 3
-	warp_def 77, 13, 1, ROUTE_32_POKECENTER_1F
-	warp_def 83, 7, 1, ROUTE_34_ILEX_FOREST_GATE
-	warp_def 83, 8, 2, ROUTE_34_ILEX_FOREST_GATE
+	warp_def 77, 13, 1, ROUTE_52_POKECENTER_1F
+	warp_def 83, 7, 1, ROUTE_52_TANGELO_JUNGLE_GATE
+	warp_def 83, 8, 2, ROUTE_52_TANGELO_JUNGLE_GATE
 
 .CoordEvents: db 0
 
 .BGEvents: db 4
-	signpost 80, 8, SIGNPOST_READ, Route32Sign
-	signpost 77, 14, SIGNPOST_READ, Route32PokeCenterSign
-	signpost 81, 4, SIGNPOST_ITEM, Route32HiddenGreatBall
-	signpost 49, 16, SIGNPOST_ITEM, Route32HiddenSuperPotion
+	signpost 80, 8, SIGNPOST_READ, Route52Sign
+	signpost 77, 14, SIGNPOST_READ, Route52PokeCenterSign
+	signpost 81, 4, SIGNPOST_ITEM, Route52HiddenGreatBall
+	signpost 49, 16, SIGNPOST_ITEM, Route52HiddenSuperPotion
 
 .ObjectEvents: db 10
 	person_event SPRITE_FISHER, 41, 7, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerFisherJustin, -1
@@ -329,6 +328,5 @@ Route32_MapEventHeader:: db 0, 0
 	person_event SPRITE_YOUNGSTER, 16, 10, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 4, TrainerCamperRoland, -1
 	person_event SPRITE_SWIMMER_GIRL, 30, 20, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 3, TrainerPicnickerLiz, -1
 	person_event SPRITE_SWIMMER_GUY, 43, 18, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerBird_keeperPeter, -1
-	person_event SPRITE_POKE_BALL, 54, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route32GreatBall, EVENT_ROUTE_32_GREAT_BALL
-	person_event SPRITE_POKE_BALL, 14, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route32Repel, EVENT_ROUTE_32_REPEL
-
+	person_event SPRITE_POKE_BALL, 54, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route52GreatBall, EVENT_ROUTE_32_GREAT_BALL
+	person_event SPRITE_POKE_BALL, 14, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route52Repel, EVENT_ROUTE_32_REPEL

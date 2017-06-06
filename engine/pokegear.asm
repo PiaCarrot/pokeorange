@@ -2078,7 +2078,6 @@ _FlyMap: ; 91af3
 	lb bc, BANK(FlyMapLabelBorderGFX), 6
 	call Request1bpp
 	call FlyMap
-	call ret_91c8f
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
 	call SetPalettes
@@ -2301,22 +2300,17 @@ flypoint: MACRO
 	db \2, SPAWN_\1
 ENDM
 ; Johto
-	flypoint NEW_BARK,    VALENCIA_ISLAND
-	flypoint CHERRYGROVE, TANGELO_ISLAND
-	flypoint VIOLET,      MIKAN_ISLAND
-	flypoint MANDARINNORTH, MANDARIN_NORTH
-	flypoint SUNBURST, SUNBURST_ISLAND
+	flypoint VALENCIA,       VALENCIA_ISLAND
+	flypoint TANGELO,        TANGELO_ISLAND
+	flypoint MIKAN,          MIKAN_ISLAND
+	flypoint MANDARIN_NORTH, MANDARIN_NORTH
+	flypoint SUNBURST,       SUNBURST_ISLAND
 ; Kanto
 
 KANTO_FLYPOINT EQU const_value
 	db -1
 
 ; 91c8f
-
-ret_91c8f: ; 91c8f
-	ret
-
-; 91c90
 
 FlyMap: ; 91c90
 	ld a, [MapGroup]
@@ -2341,13 +2335,13 @@ FlyMap: ; 91c90
 .JohtoFlyMap:
 ; Note that .NoKanto should be modified in tandem with this branch
 	push af
-; Start from New Bark Town
-	ld a, FLY_NEW_BARK
+; Start from Valencia
+	ld a, FLY_VALENCIA
 	ld [wd002], a
-; Flypoints begin at New Bark Town...
+; Flypoints begin at Valencia..
 	ld [StartFlypoint], a
-; ..and end at Silver Cave
-	ld a, FLY_VIOLET
+; ..and end at ...
+	ld a, FLY_MIKAN
 	ld [EndFlypoint], a
 ; Fill out the map
 	call FillJohtoMap
@@ -2370,17 +2364,17 @@ FlyMap: ; 91c90
 
 ; visited and its flypoint enabled
 	push af
-	ld c, SPAWN_NEW_BARK
+	ld c, SPAWN_VALENCIA
 	call HasVisitedSpawn
 	and a
 	jr z, .NoKanto
 ; Kanto's map is only loaded if we've visited Indigo Plateau
 
-; Flypoints begin at NEW_BARK Town...
-	ld a, FLY_NEW_BARK
+; Flypoints begin at Valencia...
+	ld a, FLY_VALENCIA
 	ld [StartFlypoint], a
-; ...and end at Indigo Plateau
-	ld a, FLY_VIOLET
+; ...and end at ...
+	ld a, FLY_MIKAN
 	ld [EndFlypoint], a
 ; Because Indigo Plateau is the first flypoint the player
 
@@ -2396,13 +2390,13 @@ FlyMap: ; 91c90
 .NoKanto:
 ; If Indigo Plateau hasn't been visited, we use Johto's map instead
 
-; Start from New Bark Town
-	ld a, FLY_NEW_BARK
+; Start from Valencia
+	ld a, FLY_VALENCIA
 	ld [wd002], a
-; Flypoints begin at New Bark Town...
+; Flypoints begin at Valencia...
 	ld [StartFlypoint], a
-; ..and end at Silver Cave
-	ld a, FLY_VIOLET
+; ..and end at ...
+	ld a, FLY_MIKAN
 	ld [EndFlypoint], a
 	call FillJohtoMap
 	pop af
@@ -2930,7 +2924,7 @@ INCBIN "gfx/pokegear/flymap_label_border.2bpp"
 .down_right
 	ld hl, wd002
 	ld a, [hl]
-	cp FLY_NEW_BARK
+	cp FLY_VALENCIA
 	jr c, .okay_dr
 	ld [hl], -1
 .okay_dr
@@ -2942,7 +2936,7 @@ INCBIN "gfx/pokegear/flymap_label_border.2bpp"
 	ld a, [hl]
 	and a
 	jr nz, .okay_ul
-	ld [hl], FLY_NEW_BARK + 1
+	ld [hl], FLY_VALENCIA + 1
 .okay_ul
 	dec [hl]
 .continue

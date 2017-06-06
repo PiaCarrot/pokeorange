@@ -9,20 +9,7 @@ Route19FuchsiaGate_MapScriptHeader:
 	db 0
 
 OfficerScript_0x1ab3f6:
-	faceplayer
-	opentext
-	checkevent EVENT_CINNABAR_ROCKS_CLEARED
-	iftrue .RocksCleared
-	writetext UnknownText_0x1ab40a
-	waitbutton
-	closetext
-	end
-
-.RocksCleared:
-	writetext UnknownText_0x1ab48a
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer UnknownText_0x1ab40a
 
 UnknownText_0x1ab40a:
 	text "CINNABAR's volcano"
@@ -37,22 +24,12 @@ UnknownText_0x1ab40a:
 	cont "are safe…"
 	done
 
-UnknownText_0x1ab48a:
-	text "No CINNABAR citi-"
-	line "zens were injured"
-
-	para "by the eruption."
-	line "That's great!"
-	done
-
 Route19FuchsiaGate_MapEventHeader:
 	; filler
 	db 0, 0
 
 .Warps:
-	db 4
-	warp_def $0, $4, 10, FUCHSIA_CITY
-	warp_def $0, $5, 11, FUCHSIA_CITY
+	db 2
 	warp_def $7, $4, 1, ROUTE_19
 	warp_def $7, $5, 1, ROUTE_19
 

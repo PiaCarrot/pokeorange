@@ -1,7 +1,7 @@
 const_value set 2
-	const VIOLETONIXTRADEHOUSE_KYLE
+	const MIKANONIXTRADEHOUSE_KYLE
 
-VioletOnixTradeHouse_MapScriptHeader:
+MikanOnixTradeHouse_MapScriptHeader:
 .MapTriggers:
 	db 0
 
@@ -16,14 +16,14 @@ Kyle:
 	closetext
 	end
 
-VioletOnixTradeHouse_MapEventHeader:
+MikanOnixTradeHouse_MapEventHeader:
 	; filler
 	db 0, 0
 
 .Warps:
 	db 2
-	warp_def $7, $3, 5, VIOLET_CITY
-	warp_def $7, $4, 5, VIOLET_CITY
+	warp_def $7, $3, 5, MIKAN_ISLAND
+	warp_def $7, $4, 5, MIKAN_ISLAND
 
 .XYTriggers:
 	db 0

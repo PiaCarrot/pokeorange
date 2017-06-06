@@ -2,7 +2,7 @@ const_value set 2
 	const MANDARINNORTH_LASS
 	const MANDARINNORTH_GURU
 	const MANDARINNORTH_POKE_BALL1
-	const MANDARIN_VOLTORB
+	const MANDARINNORTH_VOLTORB
 
 MandarinNorth_MapScriptHeader::
 
@@ -14,7 +14,7 @@ MandarinNorth_MapScriptHeader::
 	dbw MAPCALLBACK_NEWMAP, .FlyPoint
 
 .FlyPoint:
-	setflag ENGINE_FLYPOINT_MANDARINNORTH
+	setflag ENGINE_FLYPOINT_MANDARIN_NORTH
 	return
 
 .Scripts:

@@ -448,15 +448,15 @@ treemon_map: macro
 	map \1
 	db  \2 ; treemon set
 endm
-	treemon_map ROUTE_29, 3
-	treemon_map ROUTE_30, 3
-	treemon_map ROUTE_31, 3
-	treemon_map ROUTE_32, 4
-	treemon_map ROUTE_33, 2
-	treemon_map NEW_BARK_TOWN, 0
-	treemon_map CHERRYGROVE_CITY, 0
-	treemon_map VIOLET_CITY, 0
-	treemon_map ILEX_FOREST, 6
+	treemon_map ROUTE_49, 3
+	treemon_map ROUTE_50, 3
+	treemon_map ROUTE_51, 3
+	treemon_map ROUTE_52, 4
+	treemon_map ROUTE_53, 2
+	treemon_map VALENCIA_ISLAND, 0
+	treemon_map TANGELO_ISLAND, 0
+	treemon_map MIKAN_ISLAND, 0
+	treemon_map TANGELO_JUNGLE, 6
 	db -1
 ; b82c5
 

@@ -1,9 +1,9 @@
 const_value set 2
-	const VIOLETMART_CLERK
-	const VIOLETMART_GRANNY
-	const VIOLETMART_COOLTRAINER_M
+	const MIKANMART_CLERK
+	const MIKANMART_GRANNY
+	const MIKANMART_COOLTRAINER_M
 
-VioletMart_MapScriptHeader:
+MikanMart_MapScriptHeader:
 .MapTriggers:
 	db 0
 
@@ -12,7 +12,7 @@ VioletMart_MapScriptHeader:
 
 ClerkScript_0x68295:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_VIOLET
+	pokemart MARTTYPE_STANDARD, MART_MIKAN
 	closetext
 	end
 
@@ -47,14 +47,14 @@ UnknownText_0x68323:
 	cont "on MANDARIN NORTH."
 	done
 
-VioletMart_MapEventHeader:
+MikanMart_MapEventHeader:
 	; filler
 	db 0, 0
 
 .Warps:
 	db 2
-	warp_def $7, $2, 1, VIOLET_CITY
-	warp_def $7, $3, 1, VIOLET_CITY
+	warp_def $7, $2, 1, MIKAN_ISLAND
+	warp_def $7, $3, 1, MIKAN_ISLAND
 
 .XYTriggers:
 	db 0

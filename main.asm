@@ -3183,8 +3183,6 @@ INCLUDE "engine/party_menu.asm"
 INCLUDE "event/poisonstep.asm"
 INCLUDE "event/sweet_scent.asm"
 INCLUDE "event/squirtbottle.asm"
-INCLUDE "event/card_key.asm"
-INCLUDE "event/basement_key.asm"
 INCLUDE "event/sacred_ash.asm"
 
 CopyPkmnToTempMon: ; 5084a

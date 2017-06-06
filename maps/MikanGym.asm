@@ -1,10 +1,10 @@
 const_value set 2
-	const VIOLETGYM_FALKNER
-	const VIOLETGYM_YOUNGSTER1
-	const VIOLETGYM_YOUNGSTER2
-	const VIOLETGYM_GYM_GUY
+	const MIKANGYM_FALKNER
+	const MIKANGYM_YOUNGSTER1
+	const MIKANGYM_YOUNGSTER2
+	const MIKANGYM_GYM_GUY
 
-VioletGym_MapScriptHeader:
+MikanGym_MapScriptHeader:
 .MapTriggers:
 	db 0
 
@@ -30,14 +30,14 @@ FalknerScript_0x683c2:
 	waitsfx
 	setflag ENGINE_ZEPHYRBADGE
 	checkcode VAR_BADGES
-	scall VioletGymTriggerRockets
+	scall MikanGymTriggerRockets
 .FightDone:
 	checkevent EVENT_GOT_TM31_MUD_SLAP
 	iftrue .SpeechAfterTM
 	setevent EVENT_BEAT_BIRD_KEEPER_ROD
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
 	writetext UnknownText_0x685c8
-	domaptrigger ROUTE_32_RUINS_OF_ALPH_GATE, $1
+	domaptrigger MIKAN_ISLAND_ROUTE_53_GATE, $1
 	buttonsound
 	verbosegiveitem TM_BUBBLEBEAM
 	iffalse .NoRoomForMudSlap
@@ -54,7 +54,7 @@ FalknerScript_0x683c2:
 	closetext
 	end
 
-VioletGymTriggerRockets:
+MikanGymTriggerRockets:
 	if_equal 7, .RadioTowerRockets
 	if_equal 6, .GoldenrodRockets
 	end
@@ -87,23 +87,23 @@ Bird_keeperAbeScript:
 	closetext
 	end
 
-VioletGymGuyScript:
+MikanGymGuyScript:
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_FALKNER
-	iftrue .VioletGymGuyWinScript
-	writetext VioletGymGuyText
+	iftrue .MikanGymGuyWinScript
+	writetext MikanGymGuyText
 	waitbutton
 	closetext
 	end
 
-.VioletGymGuyWinScript:
-	writetext VioletGymGuyWinText
+.MikanGymGuyWinScript:
+	writetext MikanGymGuyWinText
 	waitbutton
 	closetext
 	end
 
-VioletGymStatue:
+MikanGymStatue:
 	checkflag ENGINE_ZEPHYRBADGE
 	iftrue .Beaten
 	jumpstd gymstatue1
@@ -223,7 +223,7 @@ UnknownText_0x688c7:
 	cont "beat me!"
 	done
 
-VioletGymGuyText:
+MikanGymGuyText:
 	text "Look, some fresh"
 	line "meat."
 	
@@ -238,7 +238,7 @@ VioletGymGuyText:
 	cont "have a chance."
 	done
 
-VioletGymGuyWinText:
+MikanGymGuyWinText:
 	text "Nice battle! Keep"
 	line "it up, and you'll"
 
@@ -246,21 +246,20 @@ VioletGymGuyWinText:
 	line "time at all!"
 	done
 
-VioletGym_MapEventHeader:: db 0, 0
+MikanGym_MapEventHeader:: db 0, 0
 
 .Warps: db 2
-	warp_def 17, 4, 2, VIOLET_CITY
-	warp_def 17, 5, 2, VIOLET_CITY
+	warp_def 17, 4, 2, MIKAN_ISLAND
+	warp_def 17, 5, 2, MIKAN_ISLAND
 
 .CoordEvents: db 0
 
 .BGEvents: db 2
-	signpost 17, 9, SIGNPOST_READ, VioletGymStatue
-	signpost 7, 6, SIGNPOST_READ, VioletGymStatue
+	signpost 17, 9, SIGNPOST_READ, MikanGymStatue
+	signpost 7, 6, SIGNPOST_READ, MikanGymStatue
 
 .ObjectEvents: db 4
 	person_event SPRITE_FALKNER, 3, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, FalknerScript_0x683c2, -1
 	person_event SPRITE_SWIMMER_GIRL, 11, 9, SPRITEMOVEDATA_STANDING_LEFT, 0, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerBird_keeperRod, -1
 	person_event SPRITE_LASS, 7, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerBird_keeperAbe, -1
-	person_event SPRITE_GYM_GUY, 15, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, VioletGymGuyScript, -1
-
+	person_event SPRITE_GYM_GUY, 15, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, MikanGymGuyScript, -1

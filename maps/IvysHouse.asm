@@ -1,8 +1,8 @@
 const_value set 2
-	const TRIPLET_1
-	const TRIPLET_2
+	const IVYSHOUSE_TRIPLET_1
+	const IVYSHOUSE_TRIPLET_2
 
-ElmsHouse_MapScriptHeader:
+IvysHouse_MapScriptHeader:
 .MapTriggers:
 	db 0
 
@@ -26,98 +26,69 @@ Faith:
 Charity:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
 	iftrue .BattlePrompt
 	writetext CharityHiText
 	waitbutton
 	closetext
 	end
-	
+
 .BattlePrompt:
 	writetext CharityText
 	yesorno
 	iftrue .Battle
 	closetext
 	end
-	
+
 .Battle:
 	winlosstext CharityWinLoss, 0
 	loadtrainer SCIENTIST, 1
 	startbattle
 	reloadmapafterbattle
 	end
-	
-ElmsHousePC:
-	jumptext ElmsHousePCText
 
-ElmsHouseBookshelf:
+IvysHouseBookshelf:
 	jumpstd difficultbookshelf
 
 FaithText:
 	text "FAITH: Best of"
 	line "luck on your adv-"
 	cont "enture, <PLAYER>!"
-	
+
 	para "If you'd like, I"
 	line "can change the"
 	cont "date and time"
 	cont "for you."
 	done
-	
+
 CharityHiText:
 	text "CHARITY: Hi,"
 	line "<PLAYER>!"
 	done
-	
+
 CharityText:
 	text "CHARITY: Hey,"
 	line "<PLAYER>! Want"
 	cont "to have a battle?"
 	cont "For practice!"
 	done
-	
+
 CharityWinLoss:
 	text "Good battle!"
 	done
 
-ElmsHousePCText:
-	text "#MON. Where do"
-	line "they come from? "
-
-	para "Where are they"
-	line "going?"
-
-	para "Why has no one"
-	line "ever witnessed a"
-	cont "#MON's birth?"
-
-	para "I want to know! I"
-	line "will dedicate my"
-
-	para "life to the study"
-	line "of #MON!"
-
-	para "…"
-
-	para "It's a part of"
-	line "PROF.ELM's re-"
-	cont "search papers."
-	done
-
-ElmsHouse_MapEventHeader:: db 0, 0
+IvysHouse_MapEventHeader:: db 0, 0
 
 .Warps: db 2
-	warp_def 7, 2, 4, NEW_BARK_TOWN
-	warp_def 7, 3, 4, NEW_BARK_TOWN
+	warp_def 7, 2, 4, VALENCIA_ISLAND
+	warp_def 7, 3, 4, VALENCIA_ISLAND
 
 .CoordEvents: db 0
 
-.BGEvents: db 3
-	signpost 0, 5, SIGNPOST_READ, ElmsHousePC
-	signpost 1, 2, SIGNPOST_READ, ElmsHouseBookshelf
-	signpost 1, 3, SIGNPOST_READ, ElmsHouseBookshelf
+.BGEvents: db 2
+	signpost 1, 2, SIGNPOST_READ, IvysHouseBookshelf
+	signpost 1, 3, SIGNPOST_READ, IvysHouseBookshelf
 
 .ObjectEvents: db 2
 	person_event SPRITE_COOLTRAINER_F, 3, 4, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, Charity, -1
 	person_event SPRITE_COOLTRAINER_F, 2, 0, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, Faith, -1
-

@@ -529,21 +529,21 @@ InitRoamMons: ; 2a2a0
 ;	ld [wRoamMon3Level], a
 
 ; raikou starting map
-	ld a, GROUP_ROUTE_33
+	ld a, GROUP_ROUTE_49
 	ld [wRoamMon1MapGroup], a
-	ld a, MAP_ROUTE_33
+	ld a, MAP_ROUTE_49
 	ld [wRoamMon1MapNumber], a
 
 ; entei starting map
-	ld a, GROUP_ROUTE_33
+	ld a, GROUP_ROUTE_49
 	ld [wRoamMon2MapGroup], a
-	ld a, MAP_ROUTE_33
+	ld a, MAP_ROUTE_49
 	ld [wRoamMon2MapNumber], a
 
 ; suicune starting map
-;	ld a, GROUP_ROUTE_38
+;	ld a, GROUP_ROUTE_49
 ;	ld [wRoamMon3MapGroup], a
-;	ld a, MAP_ROUTE_38
+;	ld a, MAP_ROUTE_49
 ;	ld [wRoamMon3MapNumber], a
 
 ; hp
@@ -792,11 +792,9 @@ RoamMaps: ; 2a40f
 ; and possible maps they can jump to.
 ; Notably missing are Route 40 and
 ; Route 41, which are water routes.
-	roam_map ROUTE_29, 2, ROUTE_30, ROUTE_31
-	roam_map ROUTE_30, 2, ROUTE_29, ROUTE_31
-	roam_map ROUTE_31, 3, ROUTE_30, ROUTE_32, ROUTE_33
-	roam_map ROUTE_32, 3, ROUTE_32, ROUTE_31, ROUTE_33
-	roam_map ROUTE_33, 2, ROUTE_32, ROUTE_33
+	roam_map ROUTE_49, 2, ROUTE_50, ROUTE_51
+	roam_map ROUTE_50, 2, ROUTE_49, ROUTE_51
+	roam_map ROUTE_51, 2, ROUTE_49, ROUTE_50
 	db -1
 ; 2a4a0
 

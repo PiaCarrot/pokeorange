@@ -2772,15 +2772,9 @@ Squirtbottle: ; f73e
 
 
 CardKey: ; f745
-	farcall _CardKey
+BasementKey: ; f74c
 	ret
 ; f74c
-
-
-BasementKey: ; f74c
-	farcall _BasementKey
-	ret
-; f753
 
 
 SacredAsh: ; f753

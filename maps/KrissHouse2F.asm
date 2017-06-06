@@ -14,11 +14,7 @@ KrissHouse2F_MapScriptHeader:
 	; callbacks
 
 	dbw MAPCALLBACK_NEWMAP, .InitializeRoom
-
 	dbw MAPCALLBACK_TILES, .SetSpawn
-
-.Null:
-	end
 
 .InitializeRoom:
 	special ToggleDecorationsVisibility
@@ -34,10 +30,6 @@ KrissHouse2F_MapScriptHeader:
 .SetSpawn:
 	special ToggleMaptileDecorations
 	return
-
-
-	db 0, 0, 0 ; filler
-
 
 Doll1:
 	describedecoration 1
@@ -57,7 +49,7 @@ KrissHousePoster:
 	describedecoration 0
 
 KrissHouseRadio:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
 	iftrue .NormalRadio
 	checkevent EVENT_LISTENED_TO_INITIAL_RADIO
 	iftrue .AbbreviatedRadio
@@ -69,7 +61,7 @@ KrissHouseRadio:
 	pause 45
 	writetext KrisRadioText3
 	pause 45
-	musicfadeout MUSIC_NEW_BARK_TOWN, 16
+	musicfadeout MUSIC_CINNABAR, 16
 	writetext KrisRadioText4
 	pause 45
 	closetext

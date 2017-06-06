@@ -367,7 +367,7 @@ Continue: ; 5d65
 	ret
 
 .SpawnAfterE4:
-	ld a, SPAWN_NEW_BARK
+	ld a, SPAWN_VALENCIA
 	ld [DefaultSpawnpoint], a
 	call PostCreditsSpawn
 	jp FinishContinueFunction

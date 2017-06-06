@@ -1,8 +1,8 @@
 const_value set 2
-	const ROUTE31VIOLETGATE_OFFICER
-	const ROUTE31VIOLETGATE_COOLTRAINER_F
+	const ROUTE51TANGELOJUNGLEGATE_OFFICER
+	const ROUTE51TANGELOJUNGLEGATE_COOLTRAINER_F
 
-Route31VioletGate_MapScriptHeader:
+Route51TangeloJungleGate_MapScriptHeader:
 .MapTriggers:
 	db 0
 
@@ -30,17 +30,16 @@ UnknownText_0x197661:
 	cont "JUNGLE!"
 	done
 
-
-Route31VioletGate_MapEventHeader:
+Route51TangeloJungleGate_MapEventHeader:
 	; filler
 	db 0, 0
 
 .Warps:
 	db 4
-	warp_def $4, $0, 2, ILEX_FOREST
-	warp_def $5, $0, 3, ILEX_FOREST
-	warp_def $4, $9, 1, ROUTE_31
-	warp_def $5, $9, 2, ROUTE_31
+	warp_def $4, $0, 2, TANGELO_JUNGLE
+	warp_def $5, $0, 3, TANGELO_JUNGLE
+	warp_def $4, $9, 1, ROUTE_51
+	warp_def $5, $9, 2, ROUTE_51
 
 .XYTriggers:
 	db 0

@@ -1,19 +1,19 @@
 const_value set 2
-	const ROUTE33_POKEFAN_M
-	const ROUTE33_LASS
-	const ROUTE33_FRUIT_TREE
+	const ROUTE53_POKEFAN_M
+	const ROUTE53_LASS
+	const ROUTE53_FRUIT_TREE
 	const ROUTE53_SWIMMER1
 	const ROUTE53_SWIMMER2
 
-Route33_MapScriptHeader:
+Route53_MapScriptHeader:
 .MapTriggers:
 	db 0
 
 .MapCallbacks:
 	db 0
 
-Route33LassScript:
-	jumptextfaceplayer Route33LassText
+Route53LassScript:
+	jumptextfaceplayer Route53LassText
 
 TrainerHikerAnthony:
 	trainer EVENT_BEAT_HIKER_ANTHONY, FISHER, 3, HikerAnthony2SeenText, HikerAnthony2BeatenText, 0, .Script
@@ -25,7 +25,7 @@ TrainerHikerAnthony:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmerArturo:
 	trainer EVENT_BEAT_SWIMMERM_ARTURO, SWIMMERM, 1, SwimmerArturoSeenText, SwimmerArturoBeatenText, 0, .Script
 
@@ -36,7 +36,7 @@ TrainerSwimmerArturo:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmerRandy:
 	trainer EVENT_BEAT_SWIMMERM_RANDY, SWIMMERM, 2, SwimmerRandySeenText, SwimmerRandyBeatenText, 0, .Script
 
@@ -48,21 +48,21 @@ TrainerSwimmerRandy:
 	closetext
 	end
 
-Route33Sign:
-	jumptext Route33SignText
-	
-Route33Tips:
-	jumptext Route33TrainerTipsText
-	
-Route33FruitTreeScript:
-	fruittree FRUITTREE_ROUTE_33
+Route53Sign:
+	jumptext Route53SignText
+
+Route53Tips:
+	jumptext Route53TrainerTipsText
+
+Route53FruitTreeScript:
+	fruittree FRUITTREE_ROUTE_53
 
 HikerAnthony2SeenText:
 	text "If you ask me,"
 	line "the best part"
 	cont "about fishing is"
-	cont "its slow pace." 
-	
+	cont "its slow pace."
+
 	para "It gives one time"
 	line "to think, to ref-"
 	cont "lect on past"
@@ -80,7 +80,7 @@ HikerAnthony2AfterText:
 	line "ing you need to"
 	cont "fish for 30 years"
 	cont "or catch every"
-	
+
 	para "fish in the sea"
 	line "to become a mas-"
 	cont "ter fisherman."
@@ -108,11 +108,11 @@ SwimmerArturoAfterText:
 	text "You're hot stuff,"
 	line "kid!"
 	done
-	
+
 SwimmerRandySeenText:
 	text "Some kid riding a"
 	line "MARILL came by!"
-	
+
 	para "He beat me, so I"
 	line "am gonna take out"
 	cont "my anger on you!"
@@ -126,51 +126,50 @@ SwimmerRandyAfterText:
 	text "Two brats in a"
 	line "single day! Yah!"
 	done
-	
-Route33LassText:
+
+Route53LassText:
 	text "Hey."
-	
+
 	para "Once you hit the"
 	line "end of this route,"
 	cont "there are two"
 	cont "paths."
-	
+
 	para "North goes to"
 	line "MANDARIN NORTH,"
 	cont "and south goes to"
 	cont "SUNBURST ISLAND."
 	done
 
-Route33SignText:
+Route53SignText:
 	text "ROUTE 53"
 	done
-	
-Route33TrainerTipsText:
+
+Route53TrainerTipsText:
 	text "TRAINER TIPS"
-	
+
 	para "Be wary of shady"
 	line "thugs! They may"
-	
+
 	para "try to steal your"
 	line "#MON!"
 	done
 
-Route33_MapEventHeader:: db 0, 0
+Route53_MapEventHeader:: db 0, 0
 
 .Warps: db 2
-	warp_def 8, 4, 3, ROUTE_32_RUINS_OF_ALPH_GATE
-	warp_def 9, 4, 4, ROUTE_32_RUINS_OF_ALPH_GATE
+	warp_def 8, 4, 3, MIKAN_ISLAND_ROUTE_53_GATE
+	warp_def 9, 4, 4, MIKAN_ISLAND_ROUTE_53_GATE
 
 .CoordEvents: db 0
 
 .BGEvents: db 2
-	signpost 10, 8, SIGNPOST_READ, Route33Sign
-	signpost 9, 41, SIGNPOST_READ, Route33Tips
+	signpost 10, 8, SIGNPOST_READ, Route53Sign
+	signpost 9, 41, SIGNPOST_READ, Route53Tips
 
 .ObjectEvents: db 5
 	person_event SPRITE_FISHING_GURU, 11, 40, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerHikerAnthony, -1
-	person_event SPRITE_LASS, 6, 10, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, Route33LassScript, -1
-	person_event SPRITE_FRUIT_TREE, 5, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route33FruitTreeScript, -1
+	person_event SPRITE_LASS, 6, 10, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, Route53LassScript, -1
+	person_event SPRITE_FRUIT_TREE, 5, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route53FruitTreeScript, -1
 	person_event SPRITE_SWIMMER_GUY, 10, 20, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmerArturo, -1
 	person_event SPRITE_SWIMMER_GUY, 9, 50, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmerRandy, -1
-

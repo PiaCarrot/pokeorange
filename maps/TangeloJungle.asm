@@ -1,15 +1,15 @@
 const_value set 2
-	const ILEXFOREST_POKE_BALL1
-	const ILEXFOREST_LASS
-	const ILEXFOREST_YOUNGSTER2
-	const ILEXFOREST_POKE_BALL2
-	const ILEXFOREST_POKE_BALL3
-	const ILEXFOREST_POKE_BALL4
+	const TANGELOJUNGLE_POKE_BALL1
+	const TANGELOJUNGLE_LASS
+	const TANGELOJUNGLE_YOUNGSTER2
+	const TANGELOJUNGLE_POKE_BALL2
+	const TANGELOJUNGLE_POKE_BALL3
+	const TANGELOJUNGLE_POKE_BALL4
 	const TANGELO_JUNGLE_BUG_BOY
 	const TANGELO_JUNGLE_BUG_BOY2
 	const TANGELO_JUNGLE_NESS
 
-IlexForest_MapScriptHeader:
+TangeloJungle_MapScriptHeader:
 .MapTriggers:
 	db 0
 
@@ -60,34 +60,34 @@ YoungsterNessScript:
 	closetext
 	end
 
-IlexForestLassScript:
-	jumptextfaceplayer Text_IlexForestLass
+TangeloJungleLassScript:
+	jumptextfaceplayer Text_TangeloJungleLass
 
-IlexForestRevive:
+TangeloJungleRevive:
 	itemball POISON_BARB
 
-IlexForestXAttack:
+TangeloJungleXAttack:
 	itemball SUPER_POTION
 
-IlexForestAntidote:
+TangeloJungleAntidote:
 	itemball ANTIDOTE
 
-IlexForestEther:
+TangeloJungleEther:
 	itemball ETHER
 
-IlexForestHiddenEther:
+TangeloJungleHiddenEther:
 	dwb EVENT_ILEX_FOREST_HIDDEN_ETHER, ETHER
 
-IlexForestHiddenSuperPotion:
+TangeloJungleHiddenSuperPotion:
 	dwb EVENT_ILEX_FOREST_HIDDEN_SUPER_POTION, SUPER_POTION
 
-IlexForestHiddenFullHeal:
+TangeloJungleHiddenFullHeal:
 	dwb EVENT_ILEX_FOREST_HIDDEN_FULL_HEAL, FULL_HEAL
 
-MapIlexForestSignpost4Script:
-	jumptext Text_IlexForestSignpost4
+MapTangeloJungleSignpost4Script:
+	jumptext Text_TangeloJungleSignpost4
 
-Text_IlexForestLass:
+Text_TangeloJungleLass:
 	text "Oh, no! I got"
 	line "lost! It's my"
 	cont "fault, really."
@@ -96,7 +96,7 @@ Text_IlexForestLass:
 	line "catch a PIKACHU!"
 	done
 
-Text_IlexForestSignpost4:
+Text_TangeloJungleSignpost4:
 	text "TANGELO JUNGLE"
 	line "Warning!"
 	
@@ -179,29 +179,28 @@ YoungsterNessAfterText:
 	para "What a loser."
 	done
 	
-IlexForest_MapEventHeader:: db 0, 0
+TangeloJungle_MapEventHeader:: db 0, 0
 
 .Warps: db 3
-	warp_def 5, 25, 3, ROUTE_34_ILEX_FOREST_GATE
-	warp_def 52, 23, 1, ROUTE_31_VIOLET_GATE
-	warp_def 53, 23, 2, ROUTE_31_VIOLET_GATE
+	warp_def 5, 25, 3, ROUTE_52_TANGELO_JUNGLE_GATE
+	warp_def 52, 23, 1, ROUTE_51_TANGELO_JUNGLE_GATE
+	warp_def 53, 23, 2, ROUTE_51_TANGELO_JUNGLE_GATE
 
 .CoordEvents: db 0
 
 .BGEvents: db 4
-	signpost 27, 10, SIGNPOST_ITEM, IlexForestHiddenEther
-	signpost 11, 15, SIGNPOST_ITEM, IlexForestHiddenSuperPotion
-	signpost 40, 6, SIGNPOST_ITEM, IlexForestHiddenFullHeal
-	signpost 39, 21, SIGNPOST_UP, MapIlexForestSignpost4Script
+	signpost 27, 10, SIGNPOST_ITEM, TangeloJungleHiddenEther
+	signpost 11, 15, SIGNPOST_ITEM, TangeloJungleHiddenSuperPotion
+	signpost 40, 6, SIGNPOST_ITEM, TangeloJungleHiddenFullHeal
+	signpost 39, 21, SIGNPOST_UP, MapTangeloJungleSignpost4Script
 
 .ObjectEvents: db 9
-	person_event SPRITE_POKE_BALL, 48, 2, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, IlexForestRevive, EVENT_ILEX_FOREST_REVIVE
-	person_event SPRITE_YOUNGSTER, 38, 9, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, IlexForestLassScript, -1
+	person_event SPRITE_POKE_BALL, 48, 2, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleRevive, EVENT_ILEX_FOREST_REVIVE
+	person_event SPRITE_YOUNGSTER, 38, 9, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TangeloJungleLassScript, -1
 	person_event SPRITE_BUG_BOY, 13, 18, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 0, TrainerBug_catcherWayne, -1
 	person_event SPRITE_BUG_BOY, 19, 26, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerBug_catcherMushi, -1
 	person_event SPRITE_BUG_BOY, 10, 2, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerBug_catcherAlex, -1
-	person_event SPRITE_POKE_BALL, 34, 1, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, IlexForestXAttack, EVENT_ILEX_FOREST_X_ATTACK
-	person_event SPRITE_POKE_BALL, 1, 5, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, IlexForestAntidote, EVENT_ILEX_FOREST_ANTIDOTE
-	person_event SPRITE_POKE_BALL, 6, 11, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, IlexForestEther, EVENT_ILEX_FOREST_ETHER
+	person_event SPRITE_POKE_BALL, 34, 1, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleXAttack, EVENT_ILEX_FOREST_X_ATTACK
+	person_event SPRITE_POKE_BALL, 1, 5, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleAntidote, EVENT_ILEX_FOREST_ANTIDOTE
+	person_event SPRITE_POKE_BALL, 6, 11, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleEther, EVENT_ILEX_FOREST_ETHER
 	person_event SPRITE_YOUNGSTER, 28, 1, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 >> 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerYoungsterNess, -1
-

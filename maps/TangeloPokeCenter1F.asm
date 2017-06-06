@@ -1,9 +1,9 @@
 const_value set 2
-	const CHERRYGROVEPOKECENTER1F_NURSE
-	const CHERRYGROVEPOKECENTER1F_FISHER
-	const CHERRYGROVEPOKECENTER1F_GENTLEMAN
+	const TANGELOPOKECENTER1F_NURSE
+	const TANGELOPOKECENTER1F_FISHER
+	const TANGELOPOKECENTER1F_GENTLEMAN
 
-CherrygrovePokeCenter1F_MapScriptHeader:
+TangeloPokeCenter1F_MapScriptHeader:
 .MapTriggers:
 	db 0
 
@@ -36,14 +36,14 @@ UnknownText_0x1969c8:
 	cont "hometown."
 	done
 
-CherrygrovePokeCenter1F_MapEventHeader:
+TangeloPokeCenter1F_MapEventHeader:
 	; filler
 	db 0, 0
 
 .Warps:
 	db 3
-	warp_def $7, $3, 2, CHERRYGROVE_CITY
-	warp_def $7, $4, 2, CHERRYGROVE_CITY
+	warp_def $7, $3, 2, TANGELO_ISLAND
+	warp_def $7, $4, 2, TANGELO_ISLAND
 	warp_def $7, $0, 1, POKECENTER_2F
 
 .XYTriggers:

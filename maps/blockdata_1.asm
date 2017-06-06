@@ -1,35 +1,32 @@
-Route32_BlockData:
-	INCBIN "maps/Route32.blk"
-
-ElmsHouse_BlockData::
-	INCBIN "maps/ElmsHouse.blk"
-
-Route19_BlockData:
-	INCBIN "maps/Route19.blk"
+TangeloPokeCenter1F_BlockData:
+MikanPokeCenter1F_BlockData:
+MandarinNorthPokeCenter_BlockData:
+SunburstPokeCenter_BlockData:
+CinnabarPokeCenter1F_BlockData:
+Route52PokeCenter1F_BlockData:
+Route56PokeCenter_BlockData:
+	INCBIN "maps/PokeCenter1F.blk"
 
 PokeCenter2F_BlockData:
-CinnabarPokeCenter2FBeta_BlockData:
 	INCBIN "maps/PokeCenter2F.blk"
 
-Route33_BlockData:
-	INCBIN "maps/Route33.blk"
+TangeloMart_BlockData:
+MikanMart_BlockData:
+MandarinNorthMart_BlockData:
+VermilionMart_BlockData:
+	INCBIN "maps/Mart.blk"
 
-Route29_BlockData:
-	INCBIN "maps/Route29.blk"
+Colosseum_BlockData:
+	INCBIN "maps/Colosseum.blk"
 
-PalletTown_BlockData:
-	INCBIN "maps/PalletTown.blk"
-
-Route20_BlockData:
-	INCBIN "maps/Route20.blk"
-
-Route30_BlockData:
-	INCBIN "maps/Route30.blk"
+TradeCenter_BlockData:
+TimeCapsule_BlockData:
+	INCBIN "maps/TradeCenter.blk"
 
 BluesHouse_BlockData:
 KrissNeighborsHouse_BlockData:
-CherrygroveGymSpeechHouse_BlockData:
-CherrygroveEvolutionSpeechHouse_BlockData:
+TangeloGymSpeechHouse_BlockData:
+TangeloEvolutionSpeechHouse_BlockData:
 MandarinNorthNameRater_BlockData:
 MandarinNorthSmallHouse_BlockData:
 MandarinNorthLargeHouse_BlockData:
@@ -38,31 +35,53 @@ SunburstLargeHouse_BlockData:
 SunburstSouthHouse_BlockData:
 	INCBIN "maps/House1.blk"
 
-Route34IlexForestGate_BlockData:
+MikanNicknameSpeechHouse_BlockData:
+MikanOnixTradeHouse_BlockData:
+Route55QuestHouse_BlockData:
+	INCBIN "maps/House2.blk"
+
+MikanIslandRoute53Gate_BlockData:
 	INCBIN "maps/NorthSouthGate.blk"
 
-Route21_BlockData:
-	INCBIN "maps/Route21.blk"
-
-Route31_BlockData:
-	INCBIN "maps/Route31.blk"
+Route51TangeloJungleGate_BlockData:
+Route52TangeloJungleGate_BlockData:
+	INCBIN "maps/EastWestGate.blk"
 
 KrissHouse1F_BlockData:
 	INCBIN "maps/KrissHouse1F.blk"
 
-Route32RuinsofAlphGate_BlockData:
-Route31VioletGate_BlockData:
-	INCBIN "maps/EastWestGate.blk"
+KrissHouse2F_BlockData:
+	INCBIN "maps/KrissHouse2F.blk"
 
-ElmsLab_BlockData:
-	INCBIN "maps/ElmsLab.blk"
+IvysHouse_BlockData::
+	INCBIN "maps/IvysHouse.blk"
 
-Route1_BlockData:
-	INCBIN "maps/Route1.blk"
-	
-CrystalCave1F_BlockData: 
-	INCBIN "maps/CrystalCave1F.blk"
-	
-CrystalCaveB1_BlockData: 
-	INCBIN "maps/CrystalCaveB1.blk"
+IvysLab_BlockData:
+	INCBIN "maps/IvysLab.blk"
 
+Route49_BlockData:
+	INCBIN "maps/Route49.blk"
+
+Route50_BlockData:
+	INCBIN "maps/Route50.blk"
+
+Route51_BlockData:
+	INCBIN "maps/Route51.blk"
+
+Route52_BlockData:
+	INCBIN "maps/Route52.blk"
+
+Route53_BlockData:
+	INCBIN "maps/Route53.blk"
+
+Route54_BlockData:
+	INCBIN "maps/Route54.blk"
+
+Route55_BlockData:
+	INCBIN "maps/Route55.blk"
+
+Route56West_BlockData:
+	INCBIN "maps/Route56West.blk"
+
+Route56East_BlockData:
+	INCBIN "maps/Route56East.blk"

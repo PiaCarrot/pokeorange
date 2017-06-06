@@ -2462,26 +2462,22 @@ FarfetchdPosition:: ; d964
 
 ;SECTION "Map Triggers", WRAMX, BANK [1]
 
-wPokecenter2FTrigger::                       ds 1 ; d972
-wTradeCenterTrigger::                        ds 1 ; d973
-wColosseumTrigger::                          ds 1 ; d974
-wTimeCapsuleTrigger::                        ds 1 ; d975
-wHallOfFameTrigger::                         ds 1 ; d984
-wNewBarkTownTrigger::                        ds 1 ; d986
-wElmsLabTrigger::                            ds 1 ; d987
-wKrissHouse1FTrigger::                       ds 1 ; d988
-wRoute29Trigger::                            ds 1 ; d989
-wCherrygroveCityTrigger::                    ds 1 ; d98a
-wRoute32RuinsOfAlphGateTrigger::             ds 1 ; d98c
-wRoute35NationalParkGateTrigger::            ds 1 ; d98d
-wRoute36NationalParkGateTrigger::            ds 1 ; d98f
-wGoldenrodPokecenter1FTrigger::              ds 1 ; d993
-wVermilionPortTrigger::						 ds 1
-wOlivinePortTrigger::						 ds 1
-wMandarinUndergroundTrigger::			     ds 1
-wRoute56WestTrigger::						 ds 1
+wPokecenter2FTrigger::           ds 1
+wTradeCenterTrigger::            ds 1
+wColosseumTrigger::              ds 1
+wTimeCapsuleTrigger::            ds 1
+wHallOfFameTrigger::             ds 1
+wKrissHouse1FTrigger::           ds 1
+wValenciaIslandTrigger::         ds 1
+wIvysLabTrigger::                ds 1
+wRoute49Trigger::                ds 1
+wMikanIslandRoute53GateTrigger:: ds 1
+wValenciaPortTrigger::           ds 1
+wTangeloPortTrigger::            ds 1
+wMandarinUndergroundTrigger::    ds 1
+wRoute56WestTrigger::            ds 1
 
-	ds 56
+	ds 60
 
 
 ;SECTION "Events", WRAMX, BANK [1]

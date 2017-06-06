@@ -1,13 +1,13 @@
 const_value set 2
-	const ROUTE30_YOUNGSTER1
-	const ROUTE30_YOUNGSTER2
-	const ROUTE30_BUG_CATCHER
-	const ROUTE30_FRUIT_TREE1
-	const ROUTE30_FRUIT_TREE2
-	const ROUTE30_COOLTRAINER_F
-	const ROUTE30_POKE_BALL
+	const ROUTE50_YOUNGSTER1
+	const ROUTE50_YOUNGSTER2
+	const ROUTE50_BUG_CATCHER
+	const ROUTE50_FRUIT_TREE1
+	const ROUTE50_FRUIT_TREE2
+	const ROUTE50_COOLTRAINER_F
+	const ROUTE50_POKE_BALL
 
-Route30_MapScriptHeader:
+Route50_MapScriptHeader:
 .MapTriggers:
 	db 0
 
@@ -47,25 +47,25 @@ TrainerBug_catcherDon:
 	closetext
 	end
 
-Route30CooltrainerFScript:
-	jumptextfaceplayer Route30CooltrainerFText
+Route50CooltrainerFScript:
+	jumptextfaceplayer Route50CooltrainerFText
 
-Route30Sign:
-	jumptext Route30SignText
+Route50Sign:
+	jumptext Route50SignText
 
-Route30TrainerTips:
-	jumptext Route30TrainerTipsText
+Route50TrainerTips:
+	jumptext Route50TrainerTipsText
 
-Route30Antidote:
+Route50Antidote:
 	itemball ANTIDOTE
 
-Route30FruitTree1:
-	fruittree FRUITTREE_ROUTE_30_1
+Route50FruitTree1:
+	fruittree FRUITTREE_ROUTE_50_1
 
-Route30FruitTree2:
-	fruittree FRUITTREE_ROUTE_30_2
+Route50FruitTree2:
+	fruittree FRUITTREE_ROUTE_50_2
 
-Route30HiddenPotion:
+Route50HiddenPotion:
 	dwb EVENT_ROUTE_30_HIDDEN_POTION, POTION
 
 YoungsterJoey1SeenText:
@@ -130,18 +130,18 @@ Bug_catcherDonAfterText:
 	line "some more…"
 	done
 
-Route30CooltrainerFText:
+Route50CooltrainerFText:
 	text "You can cross"
 	line "ROUTE 51 to enter"
 	cont "the TANGELO"
 	cont "JUNGLE."
 	done
 
-Route30SignText:
+Route50SignText:
 	text "ROUTE 50"
 	done
 
-Route30TrainerTipsText:
+Route50TrainerTipsText:
 	text "TRAINER TIPS"
 
 	para "No stealing other"
@@ -152,23 +152,22 @@ Route30TrainerTipsText:
 	cont "wild #MON!"
 	done
 
-Route30_MapEventHeader:: db 0, 0
+Route50_MapEventHeader:: db 0, 0
 
 .Warps: db 0
 
 .CoordEvents: db 0
 
 .BGEvents: db 3
-	signpost 45, 3, SIGNPOST_READ, Route30Sign
-	signpost 30, 10, SIGNPOST_READ, Route30TrainerTips
-	signpost 2, 6, SIGNPOST_ITEM, Route30HiddenPotion
+	signpost 45, 3, SIGNPOST_READ, Route50Sign
+	signpost 30, 10, SIGNPOST_READ, Route50TrainerTips
+	signpost 2, 6, SIGNPOST_ITEM, Route50HiddenPotion
 
 .ObjectEvents: db 7
 	person_event SPRITE_YOUNGSTER, 29, 0, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerYoungsterJoey, -1
 	person_event SPRITE_YOUNGSTER, 14, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerYoungsterMikey, -1
 	person_event SPRITE_BUG_CATCHER, 13, 10, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerBug_catcherDon, -1
-	person_event SPRITE_FRUIT_TREE, 10, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route30FruitTree1, -1
-	person_event SPRITE_FRUIT_TREE, 49, 1, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route30FruitTree2, -1
-	person_event SPRITE_COOLTRAINER_F, 42, 13, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route30CooltrainerFScript, -1
-	person_event SPRITE_POKE_BALL, 19, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route30Antidote, EVENT_ROUTE_30_ANTIDOTE
-
+	person_event SPRITE_FRUIT_TREE, 10, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50FruitTree1, -1
+	person_event SPRITE_FRUIT_TREE, 49, 1, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50FruitTree2, -1
+	person_event SPRITE_COOLTRAINER_F, 42, 13, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50CooltrainerFScript, -1
+	person_event SPRITE_POKE_BALL, 19, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route50Antidote, EVENT_ROUTE_30_ANTIDOTE
