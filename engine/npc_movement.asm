@@ -247,8 +247,7 @@ CheckFacingObject:: ; 6fd9
 	ld e, a
 
 .asm_6ff1
-	ld bc, ObjectStructs ; redundant
-	ld a, 0
+	xor a
 	ld [hMapObjectIndexBuffer], a
 	call IsNPCAtCoord
 	ret nc

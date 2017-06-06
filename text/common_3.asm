@@ -400,11 +400,7 @@ UnknownText_0x1c0d6c::
 _ActorNameText::
 	text "<USER>@@"
 
-_UsedMove1Text::
-	text ""
-	line "used @@"
-
-_UsedMove2Text::
+_UsedMoveText::
 	text ""
 	line "used @@"
 
