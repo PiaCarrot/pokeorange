@@ -1050,12 +1050,6 @@ Function29fe4: ; unreferenced
 INCLUDE "engine/wildmons.asm"
 INCLUDE "battle/link_result.asm"
 
-ChrisBackpic: ; 2ba1a
-INCBIN "gfx/misc/player.6x6.2bpp.lz"
-
-DudeBackpic: ; 2bbaa
-INCBIN "gfx/misc/dude.6x6.2bpp.lz"
-
 SECTION "bankB", ROMX, BANK[$B]
 
 INCLUDE "battle/trainer_huds.asm"
@@ -4346,19 +4340,23 @@ CardGFX: ; 887c5
 INCBIN "gfx/misc/trainer_card.2bpp"
 
 GetPlayerBackpic: ; 88825
+	ld hl, ChrisBackpic
 	ld a, [PlayerGender]
 	bit 0, a
-	jr z, GetChrisBackpic
-	call GetKrisBackpic
-	ret
-
-GetChrisBackpic: ; 88830
-	ld hl, ChrisBackpic
+	jr z, .male
+	ld hl, KrisBackpic
+.male
 	ld b, BANK(ChrisBackpic)
 	ld de, VTiles2 tile $31
 	ld c, 7 * 7
 	predef DecompressPredef
 	ret
+
+ChrisBackpic: ; 2ba1a
+INCBIN "gfx/misc/chris_back.6x6.2bpp.lz"
+
+KrisBackpic: ; 88ed6
+INCBIN "gfx/misc/kris_back.6x6.2bpp.lz"
 
 HOF_LoadTrainerFrontpic: ; 88840
 	call WaitBGMap
@@ -4427,17 +4425,6 @@ INCBIN "gfx/misc/chris.7x7.2bpp"
 
 KrisPic: ; 88bb9
 INCBIN "gfx/misc/kris.7x7.2bpp"
-
-GetKrisBackpic: ; 88ec9
-; Kris's backpic is uncompressed.
-	ld de, KrisBackpic
-	ld hl, VTiles2 tile $31
-	lb bc, BANK(KrisBackpic), 7 * 7 ; dimensions
-	call Get2bpp
-	ret
-
-KrisBackpic: ; 88ed6
-INCBIN "gfx/misc/kris_back.6x6.2bpp"
 
 SECTION "bank23", ROMX, BANK[$23]
 

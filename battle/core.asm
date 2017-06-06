@@ -8630,28 +8630,8 @@ InitBattleDisplay: ; 3fb6c
 
 GetTrainerBackpic: ; 3fbff
 ; Load the player character's backpic (6x6) into VRAM starting from VTiles2 tile $31.
-
-; What gender are we?
-	ld a, [wPlayerSpriteSetupFlags]
-	bit 2, a ; transformed to male
-	jr nz, .Chris
-	ld a, [PlayerGender]
-	bit 0, a
-	jr z, .Chris
-
-; It's a girl.
-	farcall GetKrisBackpic
+	farcall GetPlayerBackpic
 	ret
-
-.Chris:
-; It's a boy.
-	ld b, BANK(ChrisBackpic)
-	ld hl, ChrisBackpic
-	ld de, VTiles2 tile $31
-	ld c, $31
-	predef DecompressPredef
-	ret
-; 3fc30
 
 CopyBackpic: ; 3fc30
 	ld a, [rSVBK]
