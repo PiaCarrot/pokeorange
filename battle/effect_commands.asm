@@ -1016,7 +1016,7 @@ IgnoreSleepOnly: ; 3451f
 
 BattleCommand_UsedMoveText: ; 34541
 ; usedmovetext
-	callba DisplayUsedMoveText
+	farcall DisplayUsedMoveText
 	ret
 
 ; 34548
@@ -1385,14 +1385,14 @@ BattleCommand_Stab: ; 346d2
 	push hl
 	push de
 	push bc
-	callba DoWeatherModifiers
+	farcall DoWeatherModifiers
 	pop bc
 	pop de
 	pop hl
 
 	push de
 	push bc
-	callba DoBadgeTypeBoosts
+	farcall DoBadgeTypeBoosts
 	pop bc
 	pop de
 
@@ -3854,7 +3854,7 @@ BattleCommand_Counter: ; 35813
 	ret z
 
 	ld b, a
-	callab GetMoveEffect
+	farcall GetMoveEffect
 	ld a, b
 	cp EFFECT_COUNTER
 	ret z
@@ -4060,7 +4060,7 @@ BattleCommand_PainSplit: ; 35926
 	call ResetDamage
 	hlcoord 2, 2
 	predef AnimateHPBar
-	callba _UpdateBattleHUDs
+	farcall _UpdateBattleHUDs
 
 	ld hl, SharedPainText
 	jp StdBattleTextBox
@@ -4510,7 +4510,7 @@ BattleCommand_SleepTalk: ; 35b33
 	push bc
 
 	ld b, a
-	callab GetMoveEffect
+	farcall GetMoveEffect
 	ld a, b
 
 	pop bc
@@ -4739,7 +4739,7 @@ PlayFXAnimID: ; 35d08
 	ld c, 3
 	call DelayFrames
 
-	callab PlayBattleAnim
+	farcall PlayBattleAnim
 
 	ret
 
@@ -5009,7 +5009,7 @@ BattleCommand_SleepTarget: ; 35e5c
 	ld hl, FellAsleepText
 	call StdBattleTextBox
 
-	callba UseHeldStatusHealingItem
+	farcall UseHeldStatusHealingItem
 
 	jp z, OpponentCantMove
 	ret
@@ -5086,7 +5086,7 @@ BattleCommand_PoisonTarget: ; 35eee
 	ld hl, WasPoisonedText
 	call StdBattleTextBox
 
-	callba UseHeldStatusHealingItem
+	farcall UseHeldStatusHealingItem
 	ret
 
 ; 35f2c
@@ -5171,7 +5171,7 @@ BattleCommand_Poison: ; 35f2c
 	call StdBattleTextBox
 
 .finished
-	callba UseHeldStatusHealingItem
+	farcall UseHeldStatusHealingItem
 	ret
 
 .failed
@@ -5374,7 +5374,7 @@ BattleCommand_BurnTarget: ; 3608c
 	ld hl, WasBurnedText
 	call StdBattleTextBox
 
-	callba UseHeldStatusHealingItem
+	farcall UseHeldStatusHealingItem
 	ret
 
 ; 360dd
@@ -5447,7 +5447,7 @@ BattleCommand_FreezeTarget: ; 36102
 	ld hl, WasFrozenText
 	call StdBattleTextBox
 
-	callba UseHeldStatusHealingItem
+	farcall UseHeldStatusHealingItem
 	ret nz
 
 	call OpponentCantMove
@@ -6804,7 +6804,7 @@ BattleCommand_ForceSwitch: ; 3680f
 	ld a, d
 	inc a
 	ld [wEnemySwitchMonIndex], a
-	callab ForceEnemySwitch
+	farcall ForceEnemySwitch
 
 	ld hl, DraggedOutText
 	call StdBattleTextBox
@@ -8273,7 +8273,7 @@ BattleCommand_Conversion: ; 3707f
 	inc de
 	ld [de], a
 	ld [wNamedObjectIndexBuffer], a
-	callba GetTypeName
+	farcall GetTypeName
 	call AnimateCurrentMove
 	ld hl, TransformedTypeText
 	jp StdBattleTextBox
@@ -8619,8 +8619,8 @@ BattleCommand_SelfDestruct: ; 37380
 	res SUBSTATUS_DESTINY_BOND, [hl]
 	call _CheckBattleScene
 	ret nc
-	callba DrawPlayerHUD
-	callba DrawEnemyHUD
+	farcall DrawPlayerHUD
+	farcall DrawEnemyHUD
 	call WaitBGMap
 	jp RefreshBattleHuds
 
@@ -9012,13 +9012,13 @@ BattleCommand_BatonPass: ; 379c9
 
 ; Transition into switchmon menu
 	call LoadStandardMenuDataHeader
-	callba SetUpBattlePartyMenu_NoLoop
+	farcall SetUpBattlePartyMenu_NoLoop
 
-	callba ForcePickSwitchMonInBattle
+	farcall ForcePickSwitchMonInBattle
 
 ; Return to battle scene
 	call ClearPalettes
-	callba _LoadBattleFontsHPBar
+	farcall _LoadBattleFontsHPBar
 	call CloseWindow
 	call ClearSprites
 	hlcoord 1, 0
@@ -9375,7 +9375,7 @@ BattleCommand_TimeBasedHealContinue: ; 37b7e
 	call AnimateCurrentMove
 	call BattleCommand_SwitchTurn
 
-	callab RestoreHP
+	farcall RestoreHP
 
 	call BattleCommand_SwitchTurn
 	call UpdateUserInParty
@@ -9405,7 +9405,7 @@ BattleCommand_HiddenPower: ; 37be8
 	ld a, [AttackMissed]
 	and a
 	ret nz
-	callba HiddenPowerDamage
+	farcall HiddenPowerDamage
 	ret
 
 ; 37bf4
@@ -9447,14 +9447,14 @@ BattleCommand_BellyDrum: ; 37c1a
 	and a
 	jr nz, .failed
 
-	callab GetHalfMaxHP
-	callab CheckUserHasEnoughHP
+	farcall GetHalfMaxHP
+	farcall CheckUserHasEnoughHP
 	jr nc, .failed
 
 	push bc
 	call AnimateCurrentMove
 	pop bc
-	callab SubtractHPFromUser
+	farcall SubtractHPFromUser
 	call UpdateUserInParty
 	ld a, 5
 
@@ -9540,7 +9540,7 @@ BattleCommand_MirrorCoat: ; 37c95
 	ret z
 
 	ld b, a
-	callab GetMoveEffect
+	farcall GetMoveEffect
 	ld a, b
 	cp EFFECT_MIRROR_COAT
 	ret z
@@ -9884,7 +9884,7 @@ PlayUserBattleAnim: ; 37e47
 	push hl
 	push de
 	push bc
-	callab PlayBattleAnim
+	farcall PlayBattleAnim
 	pop bc
 	pop de
 	pop hl
@@ -9906,7 +9906,7 @@ PlayOpponentBattleAnim: ; 37e54
 	push bc
 	call BattleCommand_SwitchTurn
 
-	callab PlayBattleAnim
+	farcall PlayBattleAnim
 
 	call BattleCommand_SwitchTurn
 	pop bc
@@ -10005,21 +10005,21 @@ GetMoveByte: ; 37ebb
 
 
 DisappearUser: ; 37ec0
-	callba _DisappearUser
+	farcall _DisappearUser
 	ret
 
 ; 37ec7
 
 
 AppearUserLowerSub: ; 37ec7
-	callba _AppearUserLowerSub
+	farcall _AppearUserLowerSub
 	ret
 
 ; 37ece
 
 
 AppearUserRaiseSub: ; 37ece
-	callba _AppearUserRaiseSub
+	farcall _AppearUserRaiseSub
 	ret
 
 ; 37ed5
@@ -10030,7 +10030,7 @@ _CheckBattleScene: ; 37ed5
 	push hl
 	push de
 	push bc
-	callba CheckBattleScene
+	farcall CheckBattleScene
 	pop bc
 	pop de
 	pop hl

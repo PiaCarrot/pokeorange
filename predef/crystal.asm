@@ -375,7 +375,7 @@ LoadTradeRoomBGPals: ; 49811
 	ld bc, $30
 	ld a, $5
 	call FarCopyWRAM
-	callba ApplyPals
+	farcall ApplyPals
 	ret
 ; 49826
 

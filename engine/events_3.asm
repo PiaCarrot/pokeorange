@@ -1,14 +1,14 @@
 ReturnFromMapSetupScript:: ; b8000
 	xor a
 	ld [hBGMapMode], a
-	; For some reson, GameFreak chose to use a callba here instead of just falling through.
+	; For some reson, GameFreak chose to use a farcall here instead of just falling through.
 	; No other function in the game references the function at 2E:400A, here labeled
 	; ReturnFromMapSetupScript.inefficientcallba.
-	callba .inefficientcallba ; this is a waste of 6 ROM bytes and 6 stack bytes
+	farcall .inefficientfarcall ; this is a waste of 6 ROM bytes and 6 stack bytes
 	ret
 ; b800a
 
-.inefficientcallba ; b800a
+.inefficientfarcall ; b800a
 	ld a, [MapGroup]
 	ld b, a
 	ld a, [MapNumber]
@@ -45,7 +45,7 @@ ReturnFromMapSetupScript:: ; b8000
 	ld [wLandmarkSignTimer], a
 	call LoadMapNameSignGFX
 	call InitMapNameFrame
-	callba HDMATransfer_OnlyTopFourRows
+	farcall HDMATransfer_OnlyTopFourRows
 	ret
 
 .dont_do_map_sign
@@ -103,7 +103,7 @@ PlaceMapNameSign:: ; b8098 (2e:4098)
 	jr nz, .skip2
 	call InitMapNameFrame
 	call PlaceMapNameCenterAlign
-	callba HDMATransfer_OnlyTopFourRows
+	farcall HDMATransfer_OnlyTopFourRows
 .skip2
 	ld a, $80
 	ld a, $70
@@ -141,7 +141,7 @@ InitMapNameFrame: ; b80d3
 PlaceMapNameCenterAlign: ; b80e1 (2e:40e1)
 	ld a, [wCurrentLandmark]
 	ld e, a
-	callba GetLandmarkName
+	farcall GetLandmarkName
 	call .GetNameLength
 	ld a, SCREEN_WIDTH
 	sub c

@@ -225,7 +225,7 @@ EvolveAfterBattle_MasterLoop
 	ld [hBGMapMode], a
 	call ClearSprites
 
-	callba EvolutionAnimation
+	farcall EvolutionAnimation
 
 	push af
 	call ClearSprites
@@ -311,7 +311,7 @@ EvolveAfterBattle_MasterLoop
 
 	ld hl, TempMonDVs
 	predef GetUnownLetter
-	callab UpdateUnownDex
+	farcall UpdateUnownDex
 
 .skip_unown
 	pop de

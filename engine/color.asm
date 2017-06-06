@@ -149,7 +149,7 @@ GetBattlemonBackpicPalettePointer:
 
 .not_pink:
 	push de
-	callba GetPartyMonDVs
+	farcall GetPartyMonDVs
 	ld c, l
 	ld b, h
 	ld a, [TempBattleMonSpecies]
@@ -178,7 +178,7 @@ GetEnemyFrontpicPalettePointer:
 
 .not_pink:
 	push de
-	callba GetEnemyMonDVs
+	farcall GetEnemyMonDVs
 	ld c, l
 	ld b, h
 	ld a, [TempEnemyMonSpecies]
@@ -1774,7 +1774,7 @@ INCLUDE "gfx/pics/palette_pointers.asm"
 INCLUDE "gfx/trainers/palette_pointers.asm"
 
 LoadMapPals:
-	callba LoadSpecialMapPalette
+	farcall LoadSpecialMapPalette
 	jr c, .got_pals
 
 	; Which palette group is based on whether we're outside or inside

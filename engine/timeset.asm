@@ -589,7 +589,7 @@ Special_InitialSetDSTFlag: ; 90a54
 	ld a, [hMinutes]
 	ld c, a
 	decoord 1, 14
-	callba PrintHoursMins
+	farcall PrintHoursMins
 	ld hl, .DSTIsThatOK
 	ret
 ; 90a83 (24:4a83)
@@ -620,7 +620,7 @@ Special_InitialClearDSTFlag: ; 90a88
 	ld a, [hMinutes]
 	ld c, a
 	decoord 1, 14
-	callba PrintHoursMins
+	farcall PrintHoursMins
 	ld hl, .IsThatOK
 	ret
 ; 90ab7

@@ -32,7 +32,7 @@ endr
 
 RestartClock: ; 20021 (8:4021)
 ; If we're here, we had an RTC overflow.
-	callba BlankScreen
+	farcall BlankScreen
 	ld hl, .Text_ClockTimeMayBeWrong
 	call PrintText
 	ld hl, Options
@@ -203,13 +203,13 @@ RestartClock: ; 20021 (8:4021)
 	decoord 1, 8
 	ld a, [Buffer4]
 	ld b, a
-	callba PrintDayOfWeek
+	farcall PrintDayOfWeek
 	ld a, [Buffer5]
 	ld b, a
 	ld a, [Buffer6]
 	ld c, a
 	decoord 11, 8
-	callba PrintHoursMins
+	farcall PrintHoursMins
 	ld a, [Buffer2] ; wd1eb (aliases: MovementType)
 	lb de, " ", " "
 	call .PlaceChars
