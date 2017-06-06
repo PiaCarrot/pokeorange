@@ -4188,8 +4188,6 @@ INCLUDE "event/halloffame.asm"
 
 SECTION "bank22", ROMX, BANK[$22]
 
-INCLUDE "event/kurt.asm"
-
 MovePlayerPicRight: ; 88258
 	hlcoord 6, 4
 	ld de, 1
@@ -4440,9 +4438,6 @@ GetKrisBackpic: ; 88ec9
 
 KrisBackpic: ; 88ed6
 INCBIN "gfx/misc/kris_back.6x6.2bpp"
-
-INCLUDE "event/buena.asm"
-INCLUDE "event/dratini.asm"
 
 SECTION "bank23", ROMX, BANK[$23]
 

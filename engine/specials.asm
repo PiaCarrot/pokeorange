@@ -100,7 +100,6 @@ SpecialsPointers:: ; c029
 	add_special Special_CheckLuckyNumberShowFlag
 	add_special Special_ResetLuckyNumberShowFlag
 	add_special Special_PrintTodaysLuckyNumber
-	add_special Special_SelectApricornForKurt
 	add_special SpecialNameRater
 	add_special Special_DisplayLinkRecord
 	add_special GetFirstPokemonHappiness
@@ -122,11 +121,7 @@ SpecialsPointers:: ; c029
 	add_special Reset
 	add_special Special_MoveTutor
 	add_special SpecialPokeSeer
-	add_special SpecialBuenasPassword
-	add_special SpecialBuenaPrize
-	add_special SpecialDratini
 	add_special Special_SampleKenjiBreakCountdown
-	add_special SpecialBeastsCheck
 	add_special SpecialMonCheck
 	add_special Special_SetPlayerPalette
 	add_special RefreshSprites
