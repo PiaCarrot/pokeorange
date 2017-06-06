@@ -29,8 +29,8 @@ MandarinNorthCooltrainerMText:
 MandarinNorthPokeCenter_MapEventHeader:: db 0, 0
 
 .Warps: db 2
-	warp_def 7, 3, 1, MANDARINNORTH
-	warp_def 7, 4, 1, MANDARINNORTH
+	warp_def 7, 3, 1, MANDARIN_NORTH
+	warp_def 7, 4, 1, MANDARIN_NORTH
 
 .CoordEvents: db 0
 
@@ -39,4 +39,3 @@ MandarinNorthPokeCenter_MapEventHeader:: db 0, 0
 .ObjectEvents: db 2
 	person_event SPRITE_NURSE, 1, 3, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MandarinNoNurseScript, -1
 	person_event SPRITE_COOLTRAINER_M, 5, 1, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, MandarinNorthCooltrainerMScript, -1
-

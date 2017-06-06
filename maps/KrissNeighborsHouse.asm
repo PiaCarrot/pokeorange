@@ -31,7 +31,7 @@ KrissNeighborsHouseBookshelf:
 	jumpstd magazinebookshelf
 
 KrissNeighborsHouseRadio:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
 	iftrue .NormalRadio
 	checkevent EVENT_LISTENED_TO_INITIAL_RADIO
 	iftrue .AbbreviatedRadio
@@ -43,7 +43,7 @@ KrissNeighborsHouseRadio:
 	pause 45
 	writetext KrisNeighborRadioText3
 	pause 45
-	musicfadeout MUSIC_NEW_BARK_TOWN, $10
+	musicfadeout MUSIC_CINNABAR, 16
 	writetext KrisNeighborRadioText4
 	pause 45
 	closetext
@@ -62,7 +62,7 @@ KrissNeighborsDaughterText:
 	text "Oh, <PLAYER>!"
 	line "Nice of you to"
 	cont "drop by!"
-	
+
 	para "I have something"
 	line "for you so you"
 	cont "won't get lost!"
@@ -72,7 +72,7 @@ KrissNeighborsDaughterAfterText:
 	text "Have a safe trip,"
 	line "<PLAYER>!"
 	done
-	
+
 KrisNeighborRadioText1:
 	text "PROF.OAK'S #MON"
 	line "TALK! Please tune"
@@ -99,8 +99,8 @@ KrissNeighborsHouse_MapEventHeader:
 
 .Warps:
 	db 2
-	warp_def $7, $2, 3, NEW_BARK_TOWN
-	warp_def $7, $3, 3, NEW_BARK_TOWN
+	warp_def $7, $2, 3, VALENCIA_ISLAND
+	warp_def $7, $3, 3, VALENCIA_ISLAND
 
 .XYTriggers:
 	db 0

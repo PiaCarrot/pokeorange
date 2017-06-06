@@ -76,8 +76,6 @@ TrainerCard: ; 25105
 	dw TrainerCard_Page1_Joypad
 	dw TrainerCard_Page2_LoadGFX
 	dw TrainerCard_Page2_Joypad
-	dw TrainerCard_Page3_LoadGFX
-	dw TrainerCard_Page3_Joypad
 	dw TrainerCard_Quit
 
 
@@ -118,17 +116,6 @@ TrainerCard_Page1_Joypad: ; 251d7 (9:51d7)
 	ld [wJumptableIndex], a
 	ret
 
-.KantoCheck:
-; unreferenced
-	ld a, [KantoBadges]
-	and a
-	ret z
-	ld a, $4
-	ld [wJumptableIndex], a
-	ret
-
-; 251f4
-
 TrainerCard_Page2_LoadGFX: ; 251f4 (9:51f4)
 	call ClearSprites
 	hlcoord 0, 8
@@ -143,13 +130,13 @@ TrainerCard_Page2_LoadGFX: ; 251f4 (9:51f4)
 	ld hl, VTiles0 tile $00
 	lb bc, BANK(BadgeGFX), $2c
 	call Request2bpp
-	call TrainerCard_Page2_3_InitObjectsAndStrings
+	call TrainerCard_Page2_InitObjectsAndStrings
 	call TrainerCard_IncrementJumptable
 	ret
 
 TrainerCard_Page2_Joypad: ; 25221 (9:5221)
 	ld hl, TrainerCard_JohtoBadgesOAM
-	call TrainerCard_Page2_3_AnimateBadges
+	call TrainerCard_Page2_AnimateBadges
 	ld hl, hJoyLast
 	ld a, [hl]
 	and A_BUTTON
@@ -164,57 +151,8 @@ TrainerCard_Page2_Joypad: ; 25221 (9:5221)
 	ld [wJumptableIndex], a
 	ret
 
-.KantoCheck:
-; unreferenced
-	ld a, [KantoBadges]
-	and a
-	ret z
-	ld a, $4
-	ld [wJumptableIndex], a
-	ret
-
 .Quit:
-	ld a, $6
-	ld [wJumptableIndex], a
-	ret
-
-TrainerCard_Page3_LoadGFX: ; 2524c (9:524c)
-	call ClearSprites
-	hlcoord 0, 8
-	ld d, 6
-	call TrainerCard_InitBorder
-	call WaitBGMap
-	ld de, LeaderGFX2
-	ld hl, VTiles2 tile $29
-	lb bc, BANK(LeaderGFX2), $56
-	call Request2bpp
-	ld de, BadgeGFX2
-	ld hl, VTiles0 tile $00
-	lb bc, BANK(BadgeGFX2), $2c
-	call Request2bpp
-	call TrainerCard_Page2_3_InitObjectsAndStrings
-	call TrainerCard_IncrementJumptable
-	ret
-
-TrainerCard_Page3_Joypad: ; 25279 (9:5279)
-	ld hl, TrainerCard_JohtoBadgesOAM
-	call TrainerCard_Page2_3_AnimateBadges
-	ld hl, hJoyLast
-	ld a, [hl]
-	and D_LEFT
-	jr nz, .left
-	ld a, [hl]
-	and D_RIGHT
-	jr nz, .right
-	ret
-
-.left
-	ld a, $2
-	ld [wJumptableIndex], a
-	ret
-
-.right
-	ld a, $0
+	ld a, $4
 	ld [wJumptableIndex], a
 	ret
 
@@ -300,7 +238,7 @@ TrainerCard_Page1_PrintDexCaught_GameTime: ; 2530a (9:530a)
 	db $29, $2a, $2b, $2c, $2d, $ff
 ; 2536c
 
-TrainerCard_Page2_3_InitObjectsAndStrings: ; 2536c (9:536c)
+TrainerCard_Page2_InitObjectsAndStrings: ; 2536c (9:536c)
 	hlcoord 2, 8
 	ld de, .BadgesTilemap
 	call TrainerCardSetup_PlaceTilemapString
@@ -308,26 +246,16 @@ TrainerCard_Page2_3_InitObjectsAndStrings: ; 2536c (9:536c)
 	ld a, $29
 	ld c, 4
 .loop
-	call TrainerCard_Page2_3_PlaceLeadersFaces
+	call TrainerCard_Page2_PlaceLeadersFaces
 rept 4
 	inc hl
 endr
 	dec c
 	jr nz, .loop
-	hlcoord 2, 13
-	ld a, $51
-	ld c, 4
-.loop2
-	call TrainerCard_Page2_3_PlaceLeadersFaces
-rept 4
-	inc hl
-endr
-	dec c
-	jr nz, .loop2
 	xor a
 	ld [wcf64], a
 	ld hl, TrainerCard_JohtoBadgesOAM
-	call TrainerCard_Page2_3_OAMUpdate
+	call TrainerCard_Page2_OAMUpdate
 	ret
 
 ; 253a2 (9:53a2)
@@ -403,7 +331,7 @@ TrainerCard_InitBorder: ; 253b0 (9:53b0)
 	jr nz, .loop6
 	ret
 
-TrainerCard_Page2_3_PlaceLeadersFaces: ; 253f4 (9:53f4)
+TrainerCard_Page2_PlaceLeadersFaces: ; 253f4 (9:53f4)
 	push de
 	push hl
 	ld [hli], a
@@ -452,7 +380,7 @@ TrainerCard_Page1_PrintGameTime: ; 25415 (9:5415)
 	ld [hl], a
 	ret
 
-TrainerCard_Page2_3_AnimateBadges: ; 25438 (9:5438)
+TrainerCard_Page2_AnimateBadges: ; 25438 (9:5438)
 	ld a, [hVBlankCounter]
 	and $7
 	ret nz
@@ -460,9 +388,9 @@ TrainerCard_Page2_3_AnimateBadges: ; 25438 (9:5438)
 	inc a
 	and $7
 	ld [wcf64], a
-	jr TrainerCard_Page2_3_OAMUpdate
+	jr TrainerCard_Page2_OAMUpdate
 
-TrainerCard_Page2_3_OAMUpdate: ; 25448 (9:5448)
+TrainerCard_Page2_OAMUpdate: ; 25448 (9:5448)
 ; copy flag array pointer
 	ld a, [hli]
 	ld e, a

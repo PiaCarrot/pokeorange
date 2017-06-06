@@ -13,7 +13,7 @@
 	db 40 ; step cycles to hatch
 	db 5 ; unknown
 	dn 6, 6 ; frontpic dimensions
-	db 0, 0, 0, 0 ; padding
+
 	db SLOW ; growth rate
 	dn MONSTER, MONSTER ; egg groups
 

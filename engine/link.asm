@@ -162,10 +162,6 @@ TimeCapsule: ; 2805d
 	ld [de], a
 	ld hl, wTimeCapsulePartyMon1Species
 	call Function2868a
-	ld a, OTPartyMonOT % $100
-	ld [wUnusedD102], a
-	ld a, OTPartyMonOT / $100
-	ld [wUnusedD102 + 1], a
 	ld de, MUSIC_NONE
 	call PlayMusic
 	ld a, [hLinkPlayerNumber]
@@ -403,10 +399,6 @@ Gen2ToGen2LinkComms: ; 28177
 	ld de, OTPartyMons
 	ld bc, OTPartyDataEnd - OTPartyMons
 	call CopyBytes
-	ld a, OTPartyMonOT % $100
-	ld [wUnusedD102], a
-	ld a, OTPartyMonOT / $100
-	ld [wUnusedD102 + 1], a
 	ld de, MUSIC_NONE
 	call PlayMusic
 	ld a, [hLinkPlayerNumber]
@@ -1610,25 +1602,6 @@ Function28b22: ; 28b22
 	ret
 ; 28b42
 
-Function28b42: ; 28b42
-; unreferenced
-	hlcoord 0, 16
-	ld a, "┘"
-	ld bc, 2 * SCREEN_WIDTH
-	call ByteFill
-	hlcoord 1, 16
-	ld a, " "
-	ld bc, SCREEN_WIDTH - 2
-	call ByteFill
-	hlcoord 2, 16
-	ld de, .Cancel
-	jp PlaceString
-; 28b61
-
-.Cancel: ; 28b61
-	db "CANCEL@"
-; 28b68
-
 Function28b68: ; 28b68
 	ld a, [wOtherPlayerLinkMode]
 	hlcoord 6, 9
@@ -2030,20 +2003,6 @@ SetTradeRoomBGPals: ; 28eff
 	call SetPalettes
 	ret
 ; 28f09
-
-Function28f09: ; 28f09
-; unreferenced
-	hlcoord 0, 0
-	ld b, 6
-	ld c, 18
-	call Predef_LinkTextbox
-	hlcoord 0, 8
-	ld b, 6
-	ld c, 18
-	call Predef_LinkTextbox
-	farcall PlaceTradePartnerNamesAndParty
-	ret
-; 28f24
 
 INCLUDE "engine/trade/animation.asm"
 
@@ -2587,8 +2546,3 @@ Special_CableClubCheckWhichChris: ; 29f47
 	ld [ScriptVar], a
 	ret
 ; 29f54
-
-GFX_29f54: ; 29f54
-; unreferenced
-INCBIN "gfx/unknown/029f54.2bpp"
-; 29fe4

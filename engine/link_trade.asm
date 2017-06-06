@@ -23,8 +23,8 @@ Function16d43b: ; 16d43b
 	call ClearBGPalettes
 	call ClearTileMap
 	call ClearSprites
-	farcall __LoadTradeScreenBorder ; useless to farcall
-	farcall Function16d42e ; useless to farcall
+	call __LoadTradeScreenBorder
+	call Function16d42e
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call SetPalettes

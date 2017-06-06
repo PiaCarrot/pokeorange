@@ -312,12 +312,6 @@ VolumeOff:: ; 3ca3
 	ret
 ; 3ca8
 
-Unused_FadeOutMusic:: ; 3ca8
-	ld a, 4
-	ld [MusicFade], a
-	ret
-; 3cae
-
 FadeInMusic:: ; 3cae
 	ld a, 4 | 1 << 7
 	ld [MusicFade], a

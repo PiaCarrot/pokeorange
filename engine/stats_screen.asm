@@ -405,20 +405,6 @@ StatsScreen_InitUpperHalf: ; 4deea (13:5eea)
 	dw wBufferMonNick
 ; 4df7f
 
-Function4df7f: ; 4df7f
-; unreferenced
-	hlcoord 7, 0
-	ld bc, SCREEN_WIDTH
-	ld d, SCREEN_HEIGHT
-.loop
-	ld a, $31
-	ld [hl], a
-	add hl, bc
-	dec d
-	jr nz, .loop
-	ret
-; 4df8f
-
 StatsScreen_PlaceHorizontalDivider: ; 4df8f (13:5f8f)
 	hlcoord 0, 7
 	ld b, SCREEN_WIDTH
@@ -876,8 +862,6 @@ StatsScreen_GetAnimationParam: ; 4e2ad (13:62ad)
 
 .Tempmon: ; 4e2ed (13:62ed)
 	ld bc, TempMonSpecies ; wd10e (aliases: TempMon)
-	jr .CheckEggFaintedFrzSlp ; utterly pointless
-
 .CheckEggFaintedFrzSlp: ; 4e2f2 (13:62f2)
 	ld a, [CurPartySpecies]
 	cp EGG
@@ -1072,8 +1056,6 @@ StatsScreen_LoadPageIndicators: ; 4e4cd (13:64cd)
 CopyNickname: ; 4e505 (13:6505)
 	ld de, StringBuffer1
 	ld bc, PKMN_NAME_LENGTH
-	jr .okay ; uuterly pointless
-.okay
 	ld a, [MonType]
 	cp BOXMON
 	jr nz, .partymon

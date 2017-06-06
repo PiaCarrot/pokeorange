@@ -1017,26 +1017,14 @@ StrengthFunction: ; cce5
 	ld de, ENGINE_PLAINBADGE
 	call CheckBadge
 	jr c, .Failed
-	jr .UseStrength
-
-.AlreadyUsing: ; unreferenced
-	ld hl, .JumpText
-	call MenuTextBoxBackup
-	ld a, $80
-	ret
-
-.JumpText: ; 0xcd01
-	text_jump UnknownText_0x1c0751
-	db "@"
-
-.Failed: ; cd06
-	ld a, $80
-	ret
-
 .UseStrength: ; cd09
 	ld hl, Script_StrengthFromMenu
 	call QueueScript
 	ld a, $81
+	ret
+
+.Failed: ; cd06
+	ld a, $80
 	ret
 
 SetStrengthFlag: ; cd12

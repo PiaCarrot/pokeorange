@@ -1,5 +1,5 @@
 const_value set 2
-	const MANDARINNORTH_OLDMAN
+	const MANDARINNORTHLARGEHOUSE_OLDMAN
 
 MandarinNorthLargeHouse_MapScriptHeader:
 .MapTriggers:
@@ -27,8 +27,8 @@ MandarinNorthOldManText:
 MandarinNorthLargeHouse_MapEventHeader:: db 0, 0
 
 .Warps: db 2
-	warp_def 7, 2, 4, MANDARINNORTH
-	warp_def 7, 3, 4, MANDARINNORTH
+	warp_def 7, 2, 4, MANDARIN_NORTH
+	warp_def 7, 3, 4, MANDARIN_NORTH
 
 .CoordEvents: db 0
 

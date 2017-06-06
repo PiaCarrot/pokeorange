@@ -166,10 +166,6 @@ INCLUDE "engine/npc_movement.asm"
 INCLUDE "event/happiness_egg.asm"
 INCLUDE "event/special.asm"
 
-Predef1: ; 747a
-; not used
-	ret
-
 SECTION "bank2", ROMX, BANK[$2]
 
 INCLUDE "engine/player_object.asm"
@@ -537,7 +533,6 @@ INCLUDE "engine/pokecenter_pc.asm"
 INCLUDE "engine/mart.asm"
 INCLUDE "engine/money.asm"
 INCLUDE "items/marts.asm"
-INCLUDE "event/mom.asm"
 INCLUDE "event/daycare.asm"
 INCLUDE "engine/breeding/egg.asm"
 
@@ -898,7 +893,6 @@ INCLUDE "battle/menu.asm"
 INCLUDE "engine/buy_sell_toss.asm"
 INCLUDE "engine/trainer_card.asm"
 INCLUDE "engine/prof_oaks_pc.asm"
-INCLUDE "engine/decorations.asm"
 
 PadCoords_de: ; 27092
 	ld a, d
@@ -1040,26 +1034,8 @@ Kurt_SelectQuantity_InterpretJoypad: ; 27a28
 SECTION "bankA", ROMX, BANK[$A]
 
 INCLUDE "engine/link.asm"
-
-Function29fe4: ; unreferenced
-	ld a, $0
-	call GetSRAMBank
-	ld d, $0
-	ld b, CHECK_FLAG
-	predef FlagPredef
-	call CloseSRAM
-	ld a, c
-	and a
-	ret
-
 INCLUDE "engine/wildmons.asm"
 INCLUDE "battle/link_result.asm"
-
-ChrisBackpic: ; 2ba1a
-INCBIN "gfx/misc/player.6x6.2bpp.lz"
-
-DudeBackpic: ; 2bbaa
-INCBIN "gfx/misc/dude.6x6.2bpp.lz"
 
 SECTION "bankB", ROMX, BANK[$B]
 
@@ -1956,17 +1932,6 @@ CheckCanLearnMoveTutorMove: ; 492b9
 	db 17, 19 ; end coords
 
 INCLUDE "predef/crystal.asm"
-
-Unknown_4985a: ; unreferenced
-	db $ab, $03, $57, $24, $ac, $0e, $13, $32
-	db $be, $30, $5b, $4c, $47, $60, $ed, $f2
-	db $ab, $03, $55, $26, $aa, $0a, $13, $3a
-	db $be, $28, $33, $24, $6e, $71, $df, $b0
-	db $a8, $00, $e5, $e0, $9a, $fc, $f4, $2c
-	db $fe, $4c, $a3, $5e, $c6, $3a, $ab, $4d
-	db $a8, $00, $b5, $b0, $de, $e8, $fc, $1c
-	db $ba, $66, $f7, $0e, $ba, $5e, $43, $bd
-
 INCLUDE "engine/main_menu.asm"
 INCLUDE "engine/search.asm"
 
@@ -3183,8 +3148,6 @@ INCLUDE "engine/party_menu.asm"
 INCLUDE "event/poisonstep.asm"
 INCLUDE "event/sweet_scent.asm"
 INCLUDE "event/squirtbottle.asm"
-INCLUDE "event/card_key.asm"
-INCLUDE "event/basement_key.asm"
 INCLUDE "event/sacred_ash.asm"
 
 CopyPkmnToTempMon: ; 5084a
@@ -3643,34 +3606,6 @@ ListMovePP: ; 50c50
 	jr nz, .load_loop
 	ret
 
-Predef22: ; unreferenced predef
-	push hl
-	push hl
-	ld hl, PartyMonNicknames
-	ld a, [CurPartyMon]
-	call GetNick
-	pop hl
-	call PlaceString
-	call CopyPkmnToTempMon
-	pop hl
-	ld a, [CurPartySpecies]
-	cp EGG
-	jr z, .egg
-	push hl
-	ld bc, -12
-	add hl, bc
-	ld b, $0
-	call DrawEnemyHP
-	pop hl
-	ld bc, 5
-	add hl, bc
-	push de
-	call PrintLevel
-	pop de
-
-.egg
-	ret
-
 PlaceStatusString: ; 50d0a
 	push de
 	inc de
@@ -3840,10 +3775,6 @@ InitList: ; 50db9
 	ld [wListPointer], a
 	ld a, h
 	ld [wListPointer + 1], a
-	ld a, e
-	ld [wUnusedD102], a
-	ld a, d
-	ld [wUnusedD102 + 1], a
 	ld bc, ItemAttributes ; ParseEnemyAction, HandleMapTimeAndJoypad, Music_LakeOfRage_Ch3, String_11a7c1 $67c1
 	ld a, c
 	ld [wItemAttributesPtr], a
@@ -4186,28 +4117,6 @@ INCLUDE "data/base_stats.asm"
 PokemonNames::
 INCLUDE "data/pokemon_names.asm"
 
-Unknown_53d84: ; unreferenced
-	db $1a, $15
-	db $33, $16
-	db $4b, $17
-	db $62, $18
-	db $79, $19
-	db $90, $1a
-	db $a8, $1b
-	db $c4, $1c
-	db $e0, $1d
-	db $f6, $1e
-	db $ff, $1f
-	db $ff, $20
-
-UnknownEggPic:: ; 53d9c
-; Another egg pic. This is shifted up a few pixels.
-INCBIN "gfx/misc/unknown_egg.5x5.2bpp.lz"
-
-SECTION "bank19", ROMX, BANK[$19]
-
-INCLUDE "text/phone/extra.asm"
-
 SECTION "bank20", ROMX, BANK[$20]
 
 INCLUDE "engine/player_movement.asm"
@@ -4226,8 +4135,6 @@ INCLUDE "battle/anim_gfx.asm"
 INCLUDE "event/halloffame.asm"
 
 SECTION "bank22", ROMX, BANK[$22]
-
-INCLUDE "event/kurt.asm"
 
 MovePlayerPicRight: ; 88258
 	hlcoord 6, 4
@@ -4387,19 +4294,23 @@ CardGFX: ; 887c5
 INCBIN "gfx/misc/trainer_card.2bpp"
 
 GetPlayerBackpic: ; 88825
+	ld hl, ChrisBackpic
 	ld a, [PlayerGender]
 	bit 0, a
-	jr z, GetChrisBackpic
-	call GetKrisBackpic
-	ret
-
-GetChrisBackpic: ; 88830
-	ld hl, ChrisBackpic
+	jr z, .male
+	ld hl, KrisBackpic
+.male
 	ld b, BANK(ChrisBackpic)
 	ld de, VTiles2 tile $31
 	ld c, 7 * 7
 	predef DecompressPredef
 	ret
+
+ChrisBackpic: ; 2ba1a
+INCBIN "gfx/misc/chris_back.6x6.2bpp.lz"
+
+KrisBackpic: ; 88ed6
+INCBIN "gfx/misc/kris_back.6x6.2bpp.lz"
 
 HOF_LoadTrainerFrontpic: ; 88840
 	call WaitBGMap
@@ -4469,25 +4380,7 @@ INCBIN "gfx/misc/chris.7x7.2bpp"
 KrisPic: ; 88bb9
 INCBIN "gfx/misc/kris.7x7.2bpp"
 
-GetKrisBackpic: ; 88ec9
-; Kris's backpic is uncompressed.
-	ld de, KrisBackpic
-	ld hl, VTiles2 tile $31
-	lb bc, BANK(KrisBackpic), 7 * 7 ; dimensions
-	call Get2bpp
-	ret
-
-KrisBackpic: ; 88ed6
-INCBIN "gfx/misc/kris_back.6x6.2bpp"
-
-INCLUDE "event/buena.asm"
-INCLUDE "event/dratini.asm"
-
 SECTION "bank23", ROMX, BANK[$23]
-
-Predef35: ; 8c000
-Predef36:
-	ret
 
 INCLUDE "engine/timeofdaypals.asm"
 INCLUDE "engine/battle_start.asm"
@@ -4505,7 +4398,6 @@ INCLUDE "engine/mon_icons.asm"
 
 SECTION "bank24", ROMX, BANK[$24]
 
-INCLUDE "engine/phone.asm"
 INCLUDE "engine/timeset.asm"
 INCLUDE "engine/pokegear.asm"
 
@@ -4514,28 +4406,15 @@ INCLUDE "engine/slot_machine.asm"
 
 SECTION "Phone Engine", ROMX, BANK[$28]
 
-INCLUDE "engine/more_phone_scripts.asm"
-INCLUDE "engine/buena_phone_scripts.asm"
-
-SECTION "Phone Text", ROMX, BANK[$29]
-
-INCLUDE "text/phone/anthony_overworld.asm"
-INCLUDE "text/phone/todd_overworld.asm"
-INCLUDE "text/phone/gina_overworld.asm"
-INCLUDE "text/phone/irwin_overworld.asm"
-INCLUDE "text/phone/arnie_overworld.asm"
-INCLUDE "text/phone/alan_overworld.asm"
-INCLUDE "text/phone/dana_overworld.asm"
-INCLUDE "text/phone/chad_overworld.asm"
-INCLUDE "text/phone/derek_overworld.asm"
-INCLUDE "text/phone/tully_overworld.asm"
-INCLUDE "text/phone/brent_overworld.asm"
-INCLUDE "text/phone/tiffany_overworld.asm"
-INCLUDE "text/phone/vance_overworld.asm"
-INCLUDE "text/phone/wilton_overworld.asm"
-INCLUDE "text/phone/kenji_overworld.asm"
-INCLUDE "text/phone/parry_overworld.asm"
-INCLUDE "text/phone/erin_overworld.asm"
+Script_AlertToFullBox::
+	refreshscreen $0
+	playsound SFX_CALL
+	waitsfx
+	opentext
+	farwritetext FullBoxText
+	waitbutton
+	closetext
+	end
 
 SECTION "Tileset Data 5", ROMX, BANK[TILESETS_5]
 
@@ -4552,8 +4431,6 @@ INCLUDE "gfx/mail.asm"
 SECTION "bank2F", ROMX, BANK[$2F]
 
 INCLUDE "engine/std_scripts.asm"
-
-INCLUDE "engine/phone_scripts.asm"
 
 TalkToTrainerScript:: ; 0xbe66a
 	faceplayer
@@ -4763,11 +4640,6 @@ DisplayAlreadyCaughtText: ; cc0c7
 	text_jump UnknownText_0x1c10dd
 	db "@"
 
-Predef2F:
-Predef38:
-Predef39: ; cc0d5
-	ret
-
 INCLUDE "battle/anim_commands.asm"
 
 INCLUDE "battle/anim_objects.asm"
@@ -4861,8 +4733,6 @@ INCLUDE "tilesets/animations.asm"
 
 INCLUDE "engine/npctrade.asm"
 
-INCLUDE "event/mom_phone.asm"
-
 SECTION "bank40", ROMX, BANK[$40]
 
 _LinkBattleSendReceiveAction: ; 100a09
@@ -4954,10 +4824,6 @@ SECTION "bank5B", ROMX, BANK[$5B]
 
 INCLUDE "engine/link_trade.asm"
 
-SECTION "bank5D", ROMX, BANK[$5D]
-
-INCLUDE "text/phone/extra3.asm"
-
 SECTION "bank5E", ROMX, BANK[$5E]
 
 _UpdateBattleHUDs:
@@ -4973,24 +4839,6 @@ _UpdateBattleHUDs:
 SECTION "Common Text 1", ROMX, BANK[$6C]
 
 INCLUDE "text/stdtext.asm"
-INCLUDE "text/phone/jack_overworld.asm"
-INCLUDE "text/phone/beverly_overworld.asm"
-INCLUDE "text/phone/huey_overworld.asm"
-INCLUDE "text/phone/gaven_overworld.asm"
-INCLUDE "text/phone/beth_overworld.asm"
-INCLUDE "text/phone/jose_overworld.asm"
-INCLUDE "text/phone/reena_overworld.asm"
-INCLUDE "text/phone/joey_overworld.asm"
-INCLUDE "text/phone/wade_overworld.asm"
-INCLUDE "text/phone/ralph_overworld.asm"
-INCLUDE "text/phone/liz_overworld.asm"
-
-SECTION "bank6D", ROMX, BANK[$6D]
-
-INCLUDE "text/phone/mom.asm"
-INCLUDE "text/phone/bill.asm"
-INCLUDE "text/phone/elm.asm"
-INCLUDE "text/phone/trainers1.asm"
 
 SECTION "bank72", ROMX, BANK[$72]
 

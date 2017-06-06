@@ -314,11 +314,6 @@ ClearVBank1:: ; d79
 ; d90
 
 
-ret_d90:: ; d90
-	ret
-; d91
-
-
 Special_ReloadSpritesNoPalettes:: ; d91
 	ld a, [hCGB]
 	and a

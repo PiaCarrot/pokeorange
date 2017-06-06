@@ -110,9 +110,6 @@ ScriptCommandTable: ; 96cb1
 	dw Script_givecoins
 	dw Script_takecoins
 	dw Script_checkcoins
-	dw Script_addcellnum
-	dw Script_delcellnum
-	dw Script_checkcellnum
 	dw Script_checktime
 	dw Script_checkpoke
 	dw Script_givepoke
@@ -218,13 +215,7 @@ ScriptCommandTable: ; 96cb1
 	dw Script_pokemart
 	dw Script_elevator
 	dw Script_trade
-	dw Script_askforphonenumber
-	dw Script_phonecall
-	dw Script_hangup
-	dw Script_describedecoration
 	dw Script_fruittree
-	dw Script_specialphonecall
-	dw Script_checkphonecall
 	dw Script_verbosegiveitem
 	dw Script_verbosegiveitem2
 	dw Script_swarm
@@ -741,65 +732,6 @@ Script_trade: ; 97099
 	farcall NPCTrade
 	ret
 ; 970a4
-
-Script_phonecall: ; 970a4
-; script command 0x98
-; parameters:
-;     caller_name (RawTextPointerLabelParam)
-
-	call GetScriptByte
-	ld e, a
-	call GetScriptByte
-	ld d, a
-	ld a, [ScriptBank]
-	ld b, a
-	farcall PhoneCall
-	ret
-; 970b7
-
-Script_hangup: ; 970b7
-; script command 0x99
-
-	farcall HangUp
-	ret
-; 970be
-
-Script_askforphonenumber: ; 970be
-; script command 0x97
-; parameters:
-;     number (SingleByteParam)
-
-	call YesNoBox
-	jr c, .refused
-	call GetScriptByte
-	ld c, a
-	farcall AddPhoneNumber
-	jr c, .phonefull
-	xor a
-	jr .done
-.phonefull
-	ld a, 1
-	jr .done
-.refused
-	call GetScriptByte
-	ld a, 2
-.done
-	ld [ScriptVar], a
-	ret
-; 970df
-
-Script_describedecoration: ; 970df
-; script command 0x9a
-; parameters:
-;     byte (SingleByteParam)
-
-	call GetScriptByte
-	ld b, a
-	farcall DescribeDecoration
-	ld h, d
-	ld l, e
-	jp ScriptJump
-; 970ee
 
 Script_fruittree: ; 970ee
 ; script command 0x9b
@@ -1522,16 +1454,12 @@ Script_reloadmapafterbattle: ; 97459
 
 .notblackedout
 	bit 0, d
-	jr z, .was_wild
-	farcall MomTriesToBuySomething
-	jr .done
-
-.was_wild
+	jr nz, .done
 	ld a, [wBattleResult]
 	bit 7, a
 	jr z, .done
-	ld b, BANK(Script_SpecialBillCall)
-	ld de, Script_SpecialBillCall
+	ld b, BANK(Script_AlertToFullBox)
+	ld de, Script_AlertToFullBox
 	farcall LoadScriptBDE
 .done
 	jp Script_reloadmap
@@ -2508,80 +2436,6 @@ Script_checkpoke: ; 978c3
 	ret
 ; 978da
 
-Script_addcellnum: ; 978da
-; script command 0x28
-; parameters:
-;     person (SingleByteParam)
-
-	xor a
-	ld [ScriptVar], a
-	call GetScriptByte
-	ld c, a
-	farcall AddPhoneNumber
-	ret nc
-	ld a, TRUE
-	ld [ScriptVar], a
-	ret
-; 978ef
-
-Script_delcellnum: ; 978ef
-; script command 0x29
-; parameters:
-;     person (SingleByteParam)
-
-	xor a
-	ld [ScriptVar], a
-	call GetScriptByte
-	ld c, a
-	farcall DelCellNum
-	ret nc
-	ld a, TRUE
-	ld [ScriptVar], a
-	ret
-; 97904
-
-Script_checkcellnum: ; 97904
-; script command 0x2a
-; parameters:
-;     person (SingleByteParam)
-; returns false if the cell number is not in your phone
-
-	xor a
-	ld [ScriptVar], a
-	call GetScriptByte
-	ld c, a
-	farcall CheckCellNum
-	ret nc
-	ld a, TRUE
-	ld [ScriptVar], a
-	ret
-; 97919
-
-Script_specialphonecall: ; 97919
-; script command 0x9c
-; parameters:
-;     call_id (MultiByteParam)
-
-	call GetScriptByte
-	ld [wSpecialPhoneCallID], a
-	call GetScriptByte
-	ld [wSpecialPhoneCallID + 1], a
-	ret
-; 97926
-
-Script_checkphonecall: ; 97926
-; script command 0x9d
-; returns false if no special phone call is stored
-
-	ld a, [wSpecialPhoneCallID]
-	and a
-	jr z, .ok
-	ld a, TRUE
-.ok
-	ld [ScriptVar], a
-	ret
-; 97932
-
 Script_givepoke: ; 97932
 ; script command 0x2d
 ; parameters:
@@ -2952,11 +2806,6 @@ Script_warpcheck: ; 97af6
 	ret
 ; 97b01
 
-Script_enableevents: ; unreferenced
-	farcall EnableEvents
-	ret
-; 97b08
-
 Script_newloadmap: ; 97b08
 ; script command 0x8a
 ; parameters:
@@ -3186,13 +3035,3 @@ Script_check_save: ; 97c15
 	ld [ScriptVar], a
 	ret
 ; 97c20
-
-
-; 97c20 unreferenced
-	ld a, [.byte]
-	ld [ScriptVar], a
-	ret
-
-.byte
-	db 0
-; 97c28

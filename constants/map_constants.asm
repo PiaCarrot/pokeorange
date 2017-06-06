@@ -8,9 +8,9 @@ MAP_NONE EQU 0
 	newgroup ; 1
 
 	mapgroup SUNBURST_ISLAND, 24, 20
-	mapgroup ROUTE_33, 9, 31
-	mapgroup ROUTE54, 24, 11
-	mapgroup MANDARINNORTH, 18, 18
+	mapgroup ROUTE_53, 9, 31
+	mapgroup ROUTE_54, 24, 11
+	mapgroup MANDARIN_NORTH, 18, 18
 	mapgroup MANDARIN_NORTH_POKECENTER, 4, 5
 	mapgroup MANDARIN_NORTH_NAME_RATER, 4, 4
 	mapgroup MANDARIN_NORTH_SMALL_HOUSE, 4, 4
@@ -25,16 +25,9 @@ MAP_NONE EQU 0
 
 	newgroup ; 2
 
+	mapgroup TANGELO_JUNGLE, 27, 15
 	mapgroup NATIONAL_PARK, 27, 20
 	mapgroup NATIONAL_PARK_BUG_CONTEST, 27, 20
-	mapgroup ILEX_FOREST, 27, 15
-	mapgroup WAREHOUSE_ENTRANCE, 18, 15
-	mapgroup UNDERGROUND_PATH_SWITCH_ROOM_ENTRANCES, 18, 15
-	mapgroup ICE_PATH_1F, 18, 20
-	mapgroup ICE_PATH_B1F, 18, 10
-	mapgroup ICE_PATH_B2F_MAHOGANY_SIDE, 9, 10
-	mapgroup ICE_PATH_B2F_BLACKTHORN_SIDE, 9, 5
-	mapgroup ICE_PATH_B3F, 9, 10
 
 	newgroup ; 3
 
@@ -54,16 +47,16 @@ MAP_NONE EQU 0
 
 	newgroup ; 5
 
-	mapgroup ROUTE_34_ILEX_FOREST_GATE, 4, 5
-	mapgroup ROUTE_32, 45, 11
-	mapgroup VIOLET_CITY, 18, 17
-	mapgroup VIOLET_MART, 4, 6
-	mapgroup VIOLET_GYM, 9, 5
-	mapgroup VIOLET_NICKNAME_SPEECH_HOUSE, 4, 4
-	mapgroup VIOLET_POKECENTER_1F, 4, 5
-	mapgroup VIOLET_ONIX_TRADE_HOUSE, 4, 4
-	mapgroup ROUTE_32_RUINS_OF_ALPH_GATE, 4, 5
-	mapgroup ROUTE_32_POKECENTER_1F, 4, 5
+	mapgroup ROUTE_52_TANGELO_JUNGLE_GATE, 4, 5
+	mapgroup ROUTE_52, 45, 11
+	mapgroup MIKAN_ISLAND, 18, 17
+	mapgroup MIKAN_MART, 4, 6
+	mapgroup MIKAN_GYM, 9, 5
+	mapgroup MIKAN_NICKNAME_SPEECH_HOUSE, 4, 4
+	mapgroup MIKAN_POKECENTER_1F, 4, 5
+	mapgroup MIKAN_ONIX_TRADE_HOUSE, 4, 4
+	mapgroup MIKAN_ISLAND_ROUTE_53_GATE, 4, 5
+	mapgroup ROUTE_52_POKECENTER_1F, 4, 5
 
 	newgroup ; 6
 
@@ -80,8 +73,6 @@ MAP_NONE EQU 0
 
 	mapgroup VALENCIA_PORT, 16, 10
 	mapgroup TANGELO_PORT, 16, 10
-	mapgroup OLIVINE_PORT_PASSAGE, 9, 11
-	mapgroup VERMILION_PORT_PASSAGE, 9, 10
 
 	newgroup ; 9
 
@@ -96,24 +87,24 @@ MAP_NONE EQU 0
 
 	newgroup ; 11
 
-	mapgroup ROUTE_29, 11, 20
-	mapgroup NEW_BARK_TOWN, 12, 14
-	mapgroup ELMS_LAB, 6, 5
+	mapgroup ROUTE_49, 11, 20
+	mapgroup VALENCIA_ISLAND, 12, 14
+	mapgroup IVYS_LAB, 6, 5
 	mapgroup KRISS_HOUSE_1F, 4, 5
 	mapgroup KRISS_HOUSE_2F, 3, 4
 	mapgroup KRISS_NEIGHBORS_HOUSE, 4, 4
-	mapgroup ELMS_HOUSE, 4, 4
+	mapgroup IVYS_HOUSE, 4, 4
 
 	newgroup ; 12
 
-	mapgroup ROUTE_30, 27, 10
-	mapgroup ROUTE_31, 15, 20
-	mapgroup ROUTE_31_VIOLET_GATE, 4, 5
-	mapgroup CHERRYGROVE_CITY, 15, 20
-	mapgroup CHERRYGROVE_MART, 4, 6
-	mapgroup CHERRYGROVE_POKECENTER_1F, 4, 5
-	mapgroup CHERRYGROVE_GYM_SPEECH_HOUSE, 4, 4
-	mapgroup CHERRYGROVE_EVOLUTION_SPEECH_HOUSE, 4, 4
+	mapgroup ROUTE_50, 27, 10
+	mapgroup ROUTE_51, 15, 20
+	mapgroup ROUTE_51_TANGELO_JUNGLE_GATE, 4, 5
+	mapgroup TANGELO_ISLAND, 15, 20
+	mapgroup TANGELO_MART, 4, 6
+	mapgroup TANGELO_POKECENTER_1F, 4, 5
+	mapgroup TANGELO_GYM_SPEECH_HOUSE, 4, 4
+	mapgroup TANGELO_EVOLUTION_SPEECH_HOUSE, 4, 4
 
 
 ; elevator floors
@@ -259,10 +250,10 @@ const_value = -1
 	const SPAWN_HOME
 	const SPAWN_DEBUG
 
-	const SPAWN_NEW_BARK
-	const SPAWN_CHERRYGROVE
-	const SPAWN_VIOLET
-	const SPAWN_MANDARINNORTH
+	const SPAWN_VALENCIA
+	const SPAWN_TANGELO
+	const SPAWN_MIKAN
+	const SPAWN_MANDARIN_NORTH
 	const SPAWN_SUNBURST
 NUM_SPAWNS EQU const_value
 
@@ -289,12 +280,12 @@ EMOTE_OBJECT EQU 7
 
 ; fruit trees
 const_value SET 1
-	const FRUITTREE_ROUTE_29
-	const FRUITTREE_ROUTE_30_1
-	const FRUITTREE_ROUTE_30_2
-	const FRUITTREE_ROUTE_33
-	const FRUITTREE_ROUTE_31
-	const FRUITTREE_VIOLET_CITY
+	const FRUITTREE_ROUTE_49
+	const FRUITTREE_ROUTE_50_1
+	const FRUITTREE_ROUTE_50_2
+	const FRUITTREE_ROUTE_51
+	const FRUITTREE_ROUTE_53
+	const FRUITTREE_MIKAN_ISLAND
 	const FRUITTREE_PINKAN_ISLAND_1
 	const FRUITTREE_PINKAN_ISLAND_2
 	const FRUITTREE_PINKAN_ISLAND_3

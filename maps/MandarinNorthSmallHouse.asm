@@ -1,4 +1,5 @@
 const_value set 2
+	const MANDARINNORTHSMALLHOUSE_POKE_BALL
 
 MandarinNorthSmallHouse_MapScriptHeader:
 .MapTriggers:
@@ -13,8 +14,8 @@ MandarinNorthCut:
 MandarinNorthSmallHouse_MapEventHeader:: db 0, 0
 
 .Warps: db 2
-	warp_def 7, 2, 3, MANDARINNORTH
-	warp_def 7, 3, 3, MANDARINNORTH
+	warp_def 7, 2, 3, MANDARIN_NORTH
+	warp_def 7, 3, 3, MANDARIN_NORTH
 
 .CoordEvents: db 0
 

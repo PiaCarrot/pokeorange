@@ -3,7 +3,6 @@ const_value set 2
 	const ICEPATHB1F_BOULDER2
 	const ICEPATHB1F_BOULDER3
 	const ICEPATHB1F_BOULDER4
-	const ICEPATHB1F_POKE_BALL
 
 IcePathB1F_MapScriptHeader:
 .MapTriggers:
@@ -65,22 +64,13 @@ IcePathB1F_MapScriptHeader:
 	earthquake 80
 	end
 
-
 IcePathB1FBoulder:
 	jumpstd strengthboulder
-
-IcePathB1FIron:
-	itemball IRON
-
-IcePathB1FHiddenMaxPotion:
-	dwb EVENT_ICE_PATH_B1F_HIDDEN_MAX_POTION, MAX_POTION
-
 
 IcePathBoulderFellThroughText:
 	text "The boulder fell"
 	line "through."
 	done
-
 
 IcePathB1F_MapEventHeader:
 	; filler
@@ -101,13 +91,11 @@ IcePathB1F_MapEventHeader:
 	db 0
 
 .Signposts:
-	db 1
-	signpost 30, 17, SIGNPOST_ITEM, IcePathB1FHiddenMaxPotion
+	db 0
 
 .PersonEvents:
-	db 5
+	db 4
 	person_event SPRITE_BOULDER, 7, 11, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, IcePathB1FBoulder, EVENT_BOULDER_IN_ICE_PATH_1
 	person_event SPRITE_BOULDER, 8, 7, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, IcePathB1FBoulder, EVENT_BOULDER_IN_ICE_PATH_2
 	person_event SPRITE_BOULDER, 9, 8, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, IcePathB1FBoulder, EVENT_BOULDER_IN_ICE_PATH_3
 	person_event SPRITE_BOULDER, 7, 17, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, IcePathB1FBoulder, EVENT_BOULDER_IN_ICE_PATH_4
-	person_event SPRITE_POKE_BALL, 35, 5, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, IcePathB1FIron, EVENT_ICE_PATH_B1F_IRON

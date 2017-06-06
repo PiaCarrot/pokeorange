@@ -1461,7 +1461,7 @@ wSeerNickname:: ds PKMN_NAME_LENGTH
 wSeerCaughtLocation:: ds 17
 wSeerTimeOfDay:: ds NAME_LENGTH
 wSeerOTName:: ds NAME_LENGTH
-wSeerOTNameGrammar:: ds 1
+	ds 1
 wSeerCaughtLevelString:: ds 4
 wSeerCaughtLevel:: ds 1
 wSeerCaughtData:: ds 1
@@ -1727,7 +1727,7 @@ wMailboxEnd:: ds 1 ; d0fe
 	ds 2
 
 wListPointer:: dw ; d100
-wUnusedD102:: dw ; d102
+wd102:: dw ; d102
 wItemAttributesPtr:: dw ; d104
 
 CurItem:: ds 1 ; d106
@@ -2023,17 +2023,15 @@ OtherTrainerClass:: ; d22f
 BattleType:: ; d230
 ; $00 normal
 ; $01 can lose
-; $02 debug
-; $03 dude/tutorial
-; $04 fishing
-; $05 roaming
-; $06 contest
-; $07 shiny
-; $08 headbutt/rock smash
-; $09 trap
-; $0a force Item1
-; $0b celebi
-; $0c suicune
+; $02 fishing
+; $03 roaming
+; $04 contest
+; $05 shiny
+; $06 headbutt/rock smash
+; $07 trap
+; $08 force Item1
+; $09 celebi
+; $0a tangrowth
 	ds 1
 
 OtherTrainerID:: ; d231
@@ -2088,8 +2086,6 @@ BaseUnknown2:: ; d246
 	ds 1
 BasePicSize:: ; d247
 	ds 1
-BasePadding:: ; d248
-	ds 4
 BaseGrowthRate:: ; d24c
 	ds 1
 BaseEggGroups:: ; d24d
@@ -2097,6 +2093,7 @@ BaseEggGroups:: ; d24d
 BaseTMHM:: ; d24e
 	ds 8
 
+	ds 4
 
 CurDamage:: ; d256
 	ds 2
@@ -2463,26 +2460,22 @@ FarfetchdPosition:: ; d964
 
 ;SECTION "Map Triggers", WRAMX, BANK [1]
 
-wPokecenter2FTrigger::                       ds 1 ; d972
-wTradeCenterTrigger::                        ds 1 ; d973
-wColosseumTrigger::                          ds 1 ; d974
-wTimeCapsuleTrigger::                        ds 1 ; d975
-wHallOfFameTrigger::                         ds 1 ; d984
-wNewBarkTownTrigger::                        ds 1 ; d986
-wElmsLabTrigger::                            ds 1 ; d987
-wKrissHouse1FTrigger::                       ds 1 ; d988
-wRoute29Trigger::                            ds 1 ; d989
-wCherrygroveCityTrigger::                    ds 1 ; d98a
-wRoute32RuinsOfAlphGateTrigger::             ds 1 ; d98c
-wRoute35NationalParkGateTrigger::            ds 1 ; d98d
-wRoute36NationalParkGateTrigger::            ds 1 ; d98f
-wGoldenrodPokecenter1FTrigger::              ds 1 ; d993
-wVermilionPortTrigger::						 ds 1
-wOlivinePortTrigger::						 ds 1
-wMandarinUndergroundTrigger::			     ds 1
-wRoute56WestTrigger::						 ds 1
+wPokecenter2FTrigger::           ds 1
+wTradeCenterTrigger::            ds 1
+wColosseumTrigger::              ds 1
+wTimeCapsuleTrigger::            ds 1
+wHallOfFameTrigger::             ds 1
+wKrissHouse1FTrigger::           ds 1
+wValenciaIslandTrigger::         ds 1
+wIvysLabTrigger::                ds 1
+wRoute49Trigger::                ds 1
+wMikanIslandRoute53GateTrigger:: ds 1
+wValenciaPortTrigger::           ds 1
+wTangeloPortTrigger::            ds 1
+wMandarinUndergroundTrigger::    ds 1
+wRoute56WestTrigger::            ds 1
 
-	ds 56
+	ds 60
 
 
 ;SECTION "Events", WRAMX, BANK [1]

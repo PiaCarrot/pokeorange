@@ -484,17 +484,12 @@ BuyMenuLoop: ; 15cef
 	ld a, [wMenuJoypad]
 	cp B_BUTTON
 	jr z, .set_carry
-	cp A_BUTTON
-	jr z, .useless_pointer
-
-.useless_pointer
 	call MartAskPurchaseQuantity
 	jr c, .cancel
 	call MartConfirmPurchase
 	jr c, .cancel
 	ld de, Money
 	ld bc, hMoneyTemp
-	ld a, $3 ; useless load
 	call CompareMoney
 	jr c, .insufficient_funds
 	ld hl, NumItems
@@ -820,20 +815,6 @@ SellMenu: ; 15eb3
 	and a
 	ret
 ; 15ed3
-
-.NothingToSell: ; unreferenced
-	ld hl, .NothingToSellText
-	call MenuTextBoxBackup
-	and a
-	ret
-; 15edb
-
-.NothingToSellText: ; 0x15edb
-	; You don't have anything to sell.
-	text_jump UnknownText_0x1c4f12
-	db "@"
-; 0x15ee0
-
 
 .TryToSellItem: ; 15ee0
 	farcall CheckItemMenu

@@ -36,31 +36,10 @@ INCLUDE "home/menu.asm"
 INCLUDE "home/handshake.asm"
 INCLUDE "home/game_time.asm"
 INCLUDE "home/map.asm"
-
-InexplicablyEmptyFunction:: ; 2d43
-; Inexplicably empty.
-; Seen in PredefPointers.
-	rept 16
-	nop
-	endr
-	ret
-; 2d54
-
 INCLUDE "home/farcall.asm"
 INCLUDE "home/predef.asm"
 INCLUDE "home/window.asm"
 INCLUDE "home/flag.asm"
-
-Function2ebb:: ; 2ebb
-; unreferenced
-	ld a, [wMonStatusFlags]
-	bit 1, a
-	ret z
-
-	ld a, [hJoyDown]
-	bit B_BUTTON_F, a
-	ret
-; 2ec6
 
 xor_a:: ; 2ec6
 	xor a
@@ -72,15 +51,6 @@ xor_a_dec_a:: ; 2ec8
 	dec a
 	ret
 ; 2ecb
-
-Function2ecb:: ; 2ecb
-; unreferenced
-	push hl
-	ld hl, wMonStatusFlags
-	bit 1, [hl]
-	pop hl
-	ret
-; 2ed3
 
 DisableSpriteUpdates:: ; 0x2ed3
 ; disables overworld sprite updating?
@@ -811,11 +781,6 @@ GetName:: ; 33c3
 	call CopyBytes
 
 .done
-	ld a, e
-	ld [wUnusedD102], a
-	ld a, d
-	ld [wUnusedD102 + 1], a
-
 	pop de
 	pop bc
 	pop hl
@@ -1505,15 +1470,6 @@ CheckTrainerFlag:: ; 36f5
 ; 3718
 
 PrintWinLossText:: ; 3718
-	ld a, [BattleType]
-	cp BATTLETYPE_CANLOSE
-	jr .canlose ; ??????????
-
-; unreferenced
-	ld hl, wWinTextPointer
-	jr .ok
-
-.canlose
 	ld a, [wBattleResult]
 	ld hl, wWinTextPointer
 	and $f
@@ -1698,24 +1654,10 @@ GetBaseData:: ; 3856
 	jr .end
 
 .egg
-; ????
-	ld de, UnknownEggPic
-
 ; Sprite dimensions
 	ld b, $55 ; 5x5
 	ld hl, BasePicSize
 	ld [hl], b
-
-; ????
-	ld hl, BasePadding
-	ld [hl], e
-	inc hl
-	ld [hl], d
-	inc hl
-	ld [hl], e
-	inc hl
-	ld [hl], d
-	jr .end
 
 .end
 ; Replace Pokedex # with species

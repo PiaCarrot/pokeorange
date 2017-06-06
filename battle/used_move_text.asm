@@ -34,43 +34,20 @@ UsedMoveText: ; 105db9
 	push hl
 	farcall CheckUserIsCharging
 	pop hl
-	jr nz, .grammar
+	jr nz, .text
 
 	; update last move
 	ld a, [wd265]
 	ld [hl], a
 	ld [de], a
 
-.grammar
-	call GetMoveGrammar
-; wd265 now contains MoveGrammar
-
-
-; everything except 'instead' made redundant in localization
-
-	; check obedience
-	ld a, [AlreadyDisobeyed]
-	and a
-	ld hl, UsedMove2Text
-	ret nz
-
-	; check move grammar
-	ld a, [wd265]
-	cp $3
-	ld hl, UsedMove2Text
-	ret c
-	ld hl, UsedMove1Text
+.text
+	ld hl, UsedMoveInsteadText
 	ret
 ; 105e04
 
-UsedMove1Text: ; 105e04
-	text_jump _UsedMove1Text
-	start_asm
-	jr UsedMoveText_CheckObedience
-; 105e0b
-
-UsedMove2Text: ; 105e0b
-	text_jump _UsedMove2Text
+UsedMoveInsteadText: ; 105e04
+	text_jump _UsedMoveText
 	start_asm
 UsedMoveText_CheckObedience: ; 105e10
 ; check obedience
@@ -144,145 +121,6 @@ EndUsedMove5Text: ; 105e57
 	text_jump _EndUsedMove5Text
 	db "@"
 ; 105e5c
-
-
-GetMoveGrammar: ; 105e5c
-; store move grammar type in wd265
-
-	push bc
-; c = move id
-	ld a, [wd265]
-	ld c, a
-	ld b, $0
-
-; read grammar table
-	ld hl, MoveGrammar
-.loop
-	ld a, [hli]
-; end of table?
-	cp $ff
-	jr z, .end
-; match?
-	cp c
-	jr z, .end
-; advance grammar type at $00
-	and a
-	jr nz, .loop
-; next grammar type
-	inc b
-	jr .loop
-
-.end
-; wd265 now contains move grammar
-	ld a, b
-	ld [wd265], a
-
-; we're done
-	pop bc
-	ret
-; 105e7a
-
-MoveGrammar: ; 105e7a
-; made redundant in localization
-; each move is given an identifier for what usedmovetext to use (0-4):
-
-; 0
-	db SWORDS_DANCE
-	db GROWTH
-	db STRENGTH
-	db HARDEN
-	db MINIMIZE
-	db SMOKESCREEN
-	db WITHDRAW
-	db DEFENSE_CURL
-	db EGG_BOMB
-	db SMOG
-	db BONE_CLUB
-	db FLASH
-	db SPLASH
-	db ACID_ARMOR
-	db BONEMERANG
-	db REST
-	db SHARPEN
-	db SUBSTITUTE
-	db MIND_READER
-	db SNORE
-	db PROTECT
-	db SPIKES
-	db ENDURE
-	db ROLLOUT
-	db SWAGGER
-	db SLEEP_TALK
-	db HIDDEN_POWER
-	db PSYCH_UP
-	db EXTREMESPEED
-	db 0 ; end set
-
-; 1
-	db RECOVER
-	db TELEPORT
-	db BIDE
-	db SELFDESTRUCT
-	db AMNESIA
-	db FLAIL
-	db 0 ; end set
-
-; 2
-	db MEDITATE
-	db AGILITY
-	db MIMIC
-	db DOUBLE_TEAM
-	db BARRAGE
-	db TRANSFORM
-	db STRUGGLE
-	db SCARY_FACE
-	db 0 ; end set
-
-; 3
-	db POUND
-	db SCRATCH
-	db VICEGRIP
-	db WING_ATTACK
-	db FLY
-	db BIND
-	db SLAM
-	db HORN_ATTACK
-	db WRAP
-	db THRASH
-	db TAIL_WHIP
-	db LEER
-	db BITE
-	db GROWL
-	db ROAR
-	db SING
-	db PECK
-	db ABSORB
-	db STRING_SHOT
-	db EARTHQUAKE
-	db FISSURE
-	db DIG
-	db TOXIC
-	db SCREECH
-	db METRONOME
-	db LICK
-	db CLAMP
-	db CONSTRICT
-	db POISON_GAS
-	db BUBBLE
-	db SLASH
-	db SPIDER_WEB
-	db NIGHTMARE
-	db CURSE
-	db FORESIGHT
-	db CHARM
-	db ATTRACT
-	db ROCK_SMASH
-	db 0 ; end set
-
-; all other moves = 4
-	db $ff ; end
-; 105ed0
-
 
 UpdateUsedMoves: ; 105ed0
 ; append move a to PlayerUsedMoves unless it has already been used

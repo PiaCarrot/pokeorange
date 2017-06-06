@@ -328,7 +328,7 @@ ChooseWildEncounter: ; 2a14f
 	ld a, b
 	ld [CurPartyLevel], a
 	ld b, [hl]
-	; ld a, b
+	ld a, b
 	call ValidateTempWildMonSpecies
 	jr nc, .loadwildmon
 
@@ -529,21 +529,21 @@ InitRoamMons: ; 2a2a0
 ;	ld [wRoamMon3Level], a
 
 ; raikou starting map
-	ld a, GROUP_ROUTE_33
+	ld a, GROUP_ROUTE_49
 	ld [wRoamMon1MapGroup], a
-	ld a, MAP_ROUTE_33
+	ld a, MAP_ROUTE_49
 	ld [wRoamMon1MapNumber], a
 
 ; entei starting map
-	ld a, GROUP_ROUTE_33
+	ld a, GROUP_ROUTE_49
 	ld [wRoamMon2MapGroup], a
-	ld a, MAP_ROUTE_33
+	ld a, MAP_ROUTE_49
 	ld [wRoamMon2MapNumber], a
 
 ; suicune starting map
-;	ld a, GROUP_ROUTE_38
+;	ld a, GROUP_ROUTE_49
 ;	ld [wRoamMon3MapGroup], a
-;	ld a, MAP_ROUTE_38
+;	ld a, MAP_ROUTE_49
 ;	ld [wRoamMon3MapNumber], a
 
 ; hp
@@ -792,16 +792,13 @@ RoamMaps: ; 2a40f
 ; and possible maps they can jump to.
 ; Notably missing are Route 40 and
 ; Route 41, which are water routes.
-	roam_map ROUTE_29, 2, ROUTE_30, ROUTE_31
-	roam_map ROUTE_30, 2, ROUTE_29, ROUTE_31
-	roam_map ROUTE_31, 3, ROUTE_30, ROUTE_32, ROUTE_33
-	roam_map ROUTE_32, 3, ROUTE_32, ROUTE_31, ROUTE_33
-	roam_map ROUTE_33, 2, ROUTE_32, ROUTE_33
+	roam_map ROUTE_49, 2, ROUTE_50, ROUTE_51
+	roam_map ROUTE_50, 2, ROUTE_49, ROUTE_51
+	roam_map ROUTE_51, 2, ROUTE_49, ROUTE_50
 	db -1
 ; 2a4a0
 
 ValidateTempWildMonSpecies: ; 2a4a0
-; Due to a development oversight, this function is called with the wild Pokemon's level, not its species, in a.
 	and a
 	jr z, .nowildmon ; = 0
 	cp NUM_POKEMON + 1 ; 252
@@ -813,203 +810,6 @@ ValidateTempWildMonSpecies: ; 2a4a0
 	scf
 	ret
 ; 2a4ab
-
-RandomPhoneRareWildMon: ; 2a4ab
-; Related to the phone?
-	farcall GetCallerLocation
-	ld d, b
-	ld e, c
-	ld hl, JohtoGrassWildMons
-	ld bc, GRASS_WILDDATA_LENGTH
-	call LookUpWildmonsForMapDE
-	jr c, .GetGrassmon
-	ld hl, KantoGrassWildMons
-	call LookUpWildmonsForMapDE
-	jr nc, .done
-
-.GetGrassmon:
-	push hl
-	ld bc, 5 + 4 * 2 ; Location of the level of the 5th wild Pokemon in that map
-	add hl, bc
-	ld a, [TimeOfDay]
-	ld bc, 7 * 2
-	call AddNTimes
-.randloop1
-	call Random
-	and $3
-	jr z, .randloop1
-	dec a
-	ld c, a
-	ld b, $0
-	add hl, bc
-	add hl, bc
-; We now have the pointer to one of the last (rarest) three wild Pokemon found in that area.
-	inc hl
-	ld c, [hl] ; Contains the species index of this rare Pokemon
-	pop hl
-	ld de, 5 + 0 * 2
-	add hl, de
-	inc hl ; Species index of the most common Pokemon on that route
-	ld b, 4
-.loop2
-	ld a, [hli]
-	cp c ; Compare this most common Pokemon with the rare one stored in c.
-	jr z, .done
-	inc hl
-	dec b
-	jr nz, .loop2
-; This Pokemon truly is rare.
-	push bc
-	dec c
-	ld a, c
-	call CheckSeenMon
-	pop bc
-	jr nz, .done
-; Since we haven't seen it, have the caller tell us about it.
-	ld de, StringBuffer1
-	call CopyName1
-	ld a, c
-	ld [wNamedObjectIndexBuffer], a
-	call GetPokemonName
-	ld hl, .SawRareMonText
-	call PrintText
-	xor a
-	ld [ScriptVar], a
-	ret
-
-.done
-	ld a, $1
-	ld [ScriptVar], a
-	ret
-
-.SawRareMonText:
-	; I just saw some rare @  in @ . I'll call you if I see another rare #MON, OK?
-	text_jump UnknownText_0x1bd34b
-	db "@"
-; 0x2a51f
-
-RandomPhoneWildMon: ; 2a51f
-	farcall GetCallerLocation
-	ld d, b
-	ld e, c
-	ld hl, JohtoGrassWildMons
-	ld bc, GRASS_WILDDATA_LENGTH
-	call LookUpWildmonsForMapDE
-	jr c, .ok
-	ld hl, KantoGrassWildMons
-	call LookUpWildmonsForMapDE
-
-.ok
-	ld bc, 5 + 0 * 2
-	add hl, bc
-	ld a, [TimeOfDay]
-	inc a
-	ld bc, 7 * 2
-.loop
-	dec a
-	jr z, .done
-	add hl, bc
-	jr .loop
-
-.done
-	call Random
-	and $3
-	ld c, a
-	ld b, $0
-	add hl, bc
-	add hl, bc
-	inc hl
-	ld a, [hl]
-	ld [wNamedObjectIndexBuffer], a
-	call GetPokemonName
-	ld hl, StringBuffer1
-	ld de, StringBuffer4
-	ld bc, PKMN_NAME_LENGTH
-	jp CopyBytes
-; 2a567
-
-RandomPhoneMon: ; 2a567
-; Get a random monster owned by the trainer who's calling.
-	farcall GetCallerLocation
-	ld hl, TrainerGroups
-	ld a, d
-	dec a
-	ld c, a
-	ld b, 0
-	add hl, bc
-	add hl, bc
-	ld a, BANK(TrainerGroups)
-	call GetFarHalfword
-
-.skip_trainer
-	dec e
-	jr z, .skipped
-.skip
-	ld a, BANK(Trainers)
-	call GetFarByte
-	inc hl
-	cp -1
-	jr nz, .skip
-	jr .skip_trainer
-.skipped
-
-.skip_name
-	ld a, BANK(Trainers)
-	call GetFarByte
-	inc hl
-	cp "@"
-	jr nz, .skip_name
-
-	ld a, BANK(Trainers)
-	call GetFarByte
-	inc hl
-	ld bc, 2
-	cp 0
-	jr z, .got_mon_length
-	ld bc, 2 + NUM_MOVES
-	cp 1
-	jr z, .got_mon_length
-	ld bc, 2 + 1
-	cp 2
-	jr z, .got_mon_length
-	ld bc, 2 + 1 + NUM_MOVES
-.got_mon_length
-
-	ld e, 0
-	push hl
-.count_mon
-	inc e
-	add hl, bc
-	ld a, BANK(Trainers)
-	call GetFarByte
-	cp -1
-	jr nz, .count_mon
-	pop hl
-
-.rand
-	call Random
-	and 7
-	cp e
-	jr nc, .rand
-
-	inc a
-.get_mon
-	dec a
-	jr z, .got_mon
-	add hl, bc
-	jr .get_mon
-.got_mon
-
-	inc hl ; species
-	ld a, BANK(Trainers)
-	call GetFarByte
-	ld [wNamedObjectIndexBuffer], a
-	call GetPokemonName
-	ld hl, StringBuffer1
-	ld de, StringBuffer4
-	ld bc, PKMN_NAME_LENGTH
-	jp CopyBytes
-; 2a5e9
 
 
 JohtoGrassWildMons: ; 0x2a5e9

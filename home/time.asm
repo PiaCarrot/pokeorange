@@ -180,7 +180,6 @@ FixTime:: ; 61d
 SetTimeOfDay:: ; 658
 	xor a
 	ld [StringBuffer2], a
-	ld a, $0 ; useless
 	ld [StringBuffer2 + 3], a
 	jr InitTime
 
@@ -192,8 +191,6 @@ SetDayOfWeek:: ; 663
 	ld [StringBuffer2 + 2], a
 	ld a, [hSeconds]
 	ld [StringBuffer2 + 3], a
-	jr InitTime ; useless
-
 InitTime:: ; 677
 	farcall _InitTime
 	ret
@@ -231,13 +228,6 @@ SetClock:: ; 691
 	call LatchClock
 	ld hl, MBC3SRamBank
 	ld de, MBC3RTC
-
-; seems to be a halt check that got partially commented out
-; this block is totally pointless
-	ld [hl], RTC_DH
-	ld a, [de]
-	bit 6, a ; halt
-	ld [de], a
 
 ; seconds
 	ld [hl], RTC_S

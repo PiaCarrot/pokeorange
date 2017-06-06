@@ -201,12 +201,9 @@ OaksPkmnTalk3:
 
 OaksPkmnTalk4:
 ; Choose a random route, and a random Pokemon from that route.
-.sample
 	call Random
-	and $1f
-	cp $f ; so wasteful
-	jr nc, .sample
-	; We now have a number between 0 and 14.
+	and %11
+	; We now have a number between 0 and 3.
 	ld hl, .routes
 	ld c, a
 	ld b, 0
@@ -290,10 +287,10 @@ endr
 	jp PrintRadioLine
 
 .routes
-	map ROUTE_29
-	map ROUTE_30
-	map ROUTE_32
-	map ROUTE_31
+	map ROUTE_49
+	map ROUTE_50
+	map ROUTE_52
+	map ROUTE_51
 
 OaksPkmnTalk5:
 	ld hl, OPT_OakText2
@@ -1693,7 +1690,7 @@ PasswordTable:
 .Balls:              db BUENA_ITEM,   12, POKE_BALL, GREAT_BALL, ULTRA_BALL
 .Pokemon1:           db BUENA_MON,    10, PIKACHU, RATTATA, GEODUDE
 .Pokemon2:           db BUENA_MON,    10, HOOTHOOT, SPINARAK, DROWZEE
-.JohtoTowns:         db BUENA_STRING, 16, "NEW BARK TOWN@", "CHERRYGROVE CITY@", "AZALEA TOWN@"
+.JohtoTowns:         db BUENA_STRING, 16, "VALENCIA@", "TANGELO@", "MIKAN@"
 .Types:              db BUENA_STRING,  6, "FLYING@", "BUG@", "GRASS@"
 .Moves:              db BUENA_MOVE,   12, TACKLE, GROWL, MUD_SLAP
 .XItems:             db BUENA_ITEM,   12, X_ATTACK, X_DEFEND, X_SPEED

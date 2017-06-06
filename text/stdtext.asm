@@ -76,11 +76,6 @@ NurseGoodbyeText:
 	line "again."
 	done
 
-; not used
-	text "We hope to see you"
-	line "again."
-	done
-
 NursePokerusText:
 	text "Your #MON"
 	line "appear to be"
@@ -180,26 +175,9 @@ HomepageText:
 	line "updated…"
 	done
 
-; not used
-	text "#MON RADIO!"
-
-	para "Call in with your"
-	line "requests now!"
-	done
-
 TrashCanText:
 	text "There's nothing in"
 	line "here…"
-	done
-
-; not used
-	text "A #MON may be"
-	line "able to move this."
-	done
-
-; not used
-	text "Maybe a #MON"
-	line "can break this."
 	done
 
 PokeCenterSignText:
@@ -373,16 +351,13 @@ HappinessText1:
 	line "nice, it'll pout."
 	done
 
-RegisteredNumber1Text:
-	text "<PLAYER> registered"
-	line "@"
-	text_from_ram StringBuffer3
-	text "'s number."
-	done
+FullBoxText:
+	text "The PC STORAGE"
+	line "BOX is full!"
 
-RegisteredNumber2Text:
-	text "<PLAYER> registered"
-	line "@"
-	text_from_ram StringBuffer3
-	text "'s number."
+	para "You'll have to"
+	line "switch BOXES if"
+
+	para "you want to catch"
+	line "more #MON."
 	done

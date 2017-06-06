@@ -1,28 +1,17 @@
 ReturnFromMapSetupScript:: ; b8000
 	xor a
 	ld [hBGMapMode], a
-	; For some reson, GameFreak chose to use a farcall here instead of just falling through.
-	; No other function in the game references the function at 2E:400A, here labeled
-	; ReturnFromMapSetupScript.inefficientcallba.
-	farcall .inefficientfarcall ; this is a waste of 6 ROM bytes and 6 stack bytes
-	ret
-; b800a
-
-.inefficientfarcall ; b800a
 	ld a, [MapGroup]
 	ld b, a
 	ld a, [MapNumber]
 	ld c, a
 	call GetWorldMapLocation
 	ld [wCurrentLandmark], a
-;	call .CheckNationalParkGate
-;	jr z, .nationalparkgate
 
 	call GetMapPermission
 	cp GATE
 	jr nz, .not_gate
 
-.nationalparkgate
 	ld a, -1
 	ld [wCurrentLandmark], a
 
@@ -448,15 +437,15 @@ treemon_map: macro
 	map \1
 	db  \2 ; treemon set
 endm
-	treemon_map ROUTE_29, 3
-	treemon_map ROUTE_30, 3
-	treemon_map ROUTE_31, 3
-	treemon_map ROUTE_32, 4
-	treemon_map ROUTE_33, 2
-	treemon_map NEW_BARK_TOWN, 0
-	treemon_map CHERRYGROVE_CITY, 0
-	treemon_map VIOLET_CITY, 0
-	treemon_map ILEX_FOREST, 6
+	treemon_map ROUTE_49, 3
+	treemon_map ROUTE_50, 3
+	treemon_map ROUTE_51, 3
+	treemon_map ROUTE_52, 4
+	treemon_map ROUTE_53, 2
+	treemon_map VALENCIA_ISLAND, 0
+	treemon_map TANGELO_ISLAND, 0
+	treemon_map MIKAN_ISLAND, 0
+	treemon_map TANGELO_JUNGLE, 6
 	db -1
 ; b82c5
 

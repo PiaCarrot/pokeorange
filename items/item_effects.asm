@@ -329,17 +329,12 @@ ParkBall: ; e8a2
 	jr nz, .statuscheck
 	ld a, 1
 .statuscheck
-; This routine is buggy. It was intended that SLP and FRZ provide a higher
-; catch rate than BRN/PSN/PAR, which in turn provide a higher catch rate than
-; no status effect at all. But instead, it makes BRN/PSN/PAR provide no
-; benefit.
-; Uncomment the line below to fix this.
 	ld b, a
 	ld a, [EnemyMonStatus]
 	and 1 << FRZ | SLP
 	ld c, 10
 	jr nz, .addstatus
-	; ld a, [EnemyMonStatus]
+	ld a, [EnemyMonStatus]
 	and a
 	ld c, 5
 	jr nz, .addstatus
@@ -354,17 +349,8 @@ ParkBall: ; e8a2
 	ld d, a
 	push de
 
-	; BUG: farcall overwrites a,
-	; and GetItemHeldEffect takes b anyway.
-
-	; This is probably the reason
-	; the HELD_CATCH_CHANCE effect
-	; is never used.
-
-	; Uncomment the line below to fix.
-
 	ld a, [BattleMonItem]
-;	ld b, a
+	ld b, a
 	farcall GetItemHeldEffect
 	ld a, b
 	cp HELD_CATCH_CHANCE
@@ -2443,16 +2429,6 @@ PokeFlute: ; f50c
 ; f58f
 
 
-BlueCard: ; f58f
-	ld hl, .bluecardtext
-	jp MenuTextBoxWaitButton
-
-.bluecardtext
-	text_jump UnknownText_0x1c5c5e
-	db "@"
-; f59a
-
-
 CoinCase: ; f59a
 	ld hl, .coincasetext
 	jp MenuTextBoxWaitButton
@@ -2772,15 +2748,12 @@ Squirtbottle: ; f73e
 
 
 CardKey: ; f745
-	farcall _CardKey
+BasementKey: ; f74c
+NormalBox: ; f763
+GorgeousBox: ; f767
+BlueCard: ; f58f
 	ret
 ; f74c
-
-
-BasementKey: ; f74c
-	farcall _BasementKey
-	ret
-; f753
 
 
 SacredAsh: ; f753
@@ -2792,28 +2765,6 @@ SacredAsh: ; f753
 	ret
 ; f763
 
-
-NormalBox: ; f763
-	ld c, DECOFLAG_SILVER_TROPHY_DOLL
-	jr OpenBox
-; f767
-
-GorgeousBox: ; f767
-	ld c, DECOFLAG_GOLD_TROPHY_DOLL
-OpenBox: ; f769
-	farcall SetSpecificDecorationFlag
-
-	ld hl, .text
-	call PrintText
-
-	jp UseDisposableItem
-; f778
-
-.text ; 0xf778
-	; There was a trophy inside!
-	text_jump UnknownText_0x1c5d03
-	db "@"
-; 0xf77d
 
 PinkanBerry:
 

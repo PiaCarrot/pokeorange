@@ -248,23 +248,6 @@ BillsPCDepositMenuDataHeader: ; 0xe253d (38:653d)
 	db "CANCEL@"
 ; 0xe2564 (38:6564)
 
-BillsPC_ClearThreeBoxes: ; e2564
-; unreferenced
-	hlcoord 0, 0
-	ld b,  4
-	ld c,  8
-	call ClearBox
-	hlcoord 0, 4
-	ld b, 10
-	ld c,  9
-	call ClearBox
-	hlcoord 0, 14
-	ld b,  2
-	ld c,  8
-	call ClearBox
-	ret
-; e2583
-
 _WithdrawPKMN: ; e2583 (38:6583)
 	ld hl, Options
 	ld a, [hl]

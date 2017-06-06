@@ -6,43 +6,43 @@
 	db 6, TENTACOOL
 	db 6, TENTACOOL
 
-	map ROUTE_30
+	map ROUTE_50
 	db 2 percent ; encounter rate
 	db 6, TENTACOOL
 	db 6, WINGULL
 	db 6, REMORAID
 
-	map ROUTE_31
+	map ROUTE_51
 	db 2 percent ; encounter rate
 	db 6, TENTACOOL
 	db 6, WINGULL
 	db 6, REMORAID
 
-	map ROUTE_32
+	map ROUTE_52
 	db 6 percent ; encounter rate
 	db 7, TENTACOOL
 	db 7, WINGULL
 	db 7, GOLDEEN
 	
-	map ROUTE_33
+	map ROUTE_53
 	db 3 percent
 	db 10, TENTACOOL
 	db 10, TENTACOOL
 	db 10, TENTACOOL
 
-	map ROUTE54
+	map ROUTE_54
 	db 3 percent
 	db 10, WINGULL
 	db 10, TENTACOOL
 	db 10, REMORAID
 
-	map CHERRYGROVE_CITY
+	map TANGELO_ISLAND
 	db 6 percent ; encounter rate
 	db 6, TENTACOOL
 	db 5, TENTACOOL
 	db 6, WINGULL
 
-	map VIOLET_CITY
+	map MIKAN_ISLAND
 	db 2 percent ; encounter rate
 	db 7, HORSEA
 	db 7, GOLDEEN

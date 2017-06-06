@@ -1,10 +1,26 @@
-PYTHON := python
-MD5 := md5sum -c --quiet
+ROM_NAME = pokeorange
+
+TITLE = PKMNORANGE
+MCODE = PKOR
+ROMVERSION = 0x32
+FILLER = 0x00
+ALTFILLER = 0xff
+
+# RGBDS_DIR = rgbs-0.2.5/
+RGBDS_DIR =
+RGBASM_OPTIONS =
+RGBFIX_OPTIONS = -Cjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -k 01 -l 0x33 -m 0x10 -r 3
+
 
 .SUFFIXES:
-.PHONY: all clean orange bankfree
+.PHONY: all clean orange debug bankfree
 .SECONDEXPANSION:
 .PRECIOUS: %.2bpp %.1bpp
+
+
+PYTHON := python
+MD5 := md5sum -c --quiet
+RM := rm -f
 
 gfx       := $(PYTHON) gfx.py
 includes  := $(PYTHON) scan_includes.py
@@ -25,14 +41,16 @@ text/common_text.o \
 gfx/pics.o
 
 
-roms := pokeorange.gbc pokeorange-0xff.gbc
+roms := pokeorange.gbc pokeorange-$(ALTFILLER).gbc
 
 all: orange
-orange: pokeorange.gbc
-bankfree: pokeorange-0xff.gbc
+orange: $(ROM_NAME).gbc
+debug: RGBASM_OPTIONS += -DDEBUG
+debug: $(ROM_NAME).gbc
+bankfree: $(ROM_NAME)-$(ALTFILLER).gbc
 
 clean:
-	rm -f $(roms) $(orange_obj) $(roms:.gbc=.map) $(roms:.gbc=.sym)
+	$(RM) $(roms) $(orange_obj) $(roms:.gbc=.map) $(roms:.gbc=.sym)
 
 compare: pokeorange.gbc
 	@$(MD5) roms.md5
@@ -41,15 +59,15 @@ compare: pokeorange.gbc
 
 %.o: dep = $(shell $(includes) $(@D)/$*.asm)
 %.o: %.asm $$(dep)
-	rgbasm -o $@ $<
+	$(RGBDS_DIR)rgbasm $(RGBASM_OPTIONS) -o $@ $<
 
-pokeorange.gbc: $(orange_obj)
-	rgblink -n pokeorange.sym -m pokeorange.map -p 0 -o $@ $^
-	rgbfix -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -n 1 -p 0 -r 3 -t PKMNORANGE $@
+$(ROM_NAME).gbc: $(orange_obj)
+	$(RGBDS_DIR)rgblink -n $(ROM_NAME).sym -m $(ROM_NAME).map -p $(FILLER) -o $@ $^
+	$(RGBDS_DIR)rgbfix $(RGBFIX_OPTIONS) -p $(FILLER) $@
 
-pokeorange-0xff.gbc: $(orange_obj)
-	rgblink -n pokeorange.sym -m pokeorange.map -p 0xff -o $@ $^
-	rgbfix -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -n 1 -p 0xff -r 3 -t PKMNORANGE $@
+$(ROM_NAME)-$(ALTFILLER).gbc: $(orange_obj)
+	$(RGBDS_DIR)rgblink -n $(ROM_NAME).sym -m $(ROM_NAME).map -p $(ALTFILLER) -o $@ $^
+	$(RGBDS_DIR)rgbfix $(RGBFIX_OPTIONS) -p $(ALTFILLER) $@
 
 %.png: ;
 %.2bpp: %.png ; $(gfx) 2bpp $<

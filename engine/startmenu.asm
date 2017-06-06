@@ -145,7 +145,6 @@ StartMenu:: ; 125cd
 	call DrawVariableLengthMenuBox
 	call .DrawBugContestStatus
 	call UpdateSprites
-	call ret_d90
 	call FinishExitMenu
 	ret
 ; 126d3
@@ -180,7 +179,6 @@ StartMenu:: ; 125cd
 	dw StartMenu_Save,     .SaveString,     .SaveDesc
 	dw StartMenu_Option,   .OptionString,   .OptionDesc
 	dw StartMenu_Exit,     .ExitString,     .ExitDesc
-	dw StartMenu_Pokegear, .PokegearString, .PokegearDesc
 	dw StartMenu_Quit,     .QuitString,     .QuitDesc
 
 .PokedexString: 	db "#DEX@"
@@ -190,7 +188,6 @@ StartMenu:: ; 125cd
 .SaveString:    	db "SAVE@"
 .OptionString:  	db "OPTION@"
 .ExitString:    	db "EXIT@"
-.PokegearString:	db $24, "GEAR@"
 .QuitString:    	db "QUIT@"
 
 .PokedexDesc:  db   "#MON"
@@ -201,9 +198,6 @@ StartMenu:: ; 125cd
 
 .PackDesc:     db   "Contains"
 	next "items@"
-
-.PokegearDesc: db   "Trainer's"
-	next "key device@"
 
 .StatusDesc:   db   "Your own"
 	next "status@"
@@ -308,13 +302,6 @@ endr
 	call .AppendMenuList
 .no_pack
 
-	ld hl, wPokegearFlags
-	bit 7, [hl]
-	jr z, .no_pokegear
-	ld a, 7 ; pokegear
-	call .AppendMenuList
-.no_pokegear
-
 	ld a, 3 ; status
 	call .AppendMenuList
 
@@ -323,7 +310,7 @@ endr
 	jr nz, .no_save
 	ld hl, StatusFlags2
 	bit 2, [hl] ; bug catching contest
-	ld a, 8 ; quit
+	ld a, 7 ; quit
 	jr nz, .write
 	ld a, 4 ; save
 .write
@@ -487,16 +474,6 @@ StartMenu_Pokedex: ; 12937
 	ld a, 0
 	ret
 ; 1294c
-
-
-StartMenu_Pokegear: ; 1294c
-
-	call FadeToMenu
-	farcall PokeGear
-	call CloseSubmenu
-	ld a, 0
-	ret
-; 1295b
 
 
 StartMenu_Pack: ; 1295b
@@ -1266,11 +1243,6 @@ MonMenu_Fly: ; 12e30
 .Error:
 	ld a, $0
 	ret
-
-.Unused:
-	ld a, $1
-	ret
-; 12e55
 
 MonMenu_Flash: ; 12e55
 	farcall OWFlash

@@ -26,7 +26,6 @@ INCLUDE "maps/blockdata_3.asm"
 
 SECTION "Map Scripts 1", ROMX, BANK[MAP_SCRIPTS_1]
 
-INCLUDE "maps/GoldenrodGameCorner.asm"
 INCLUDE "maps/Route54.asm"
 INCLUDE "maps/MandarinNorth.asm"
 INCLUDE "maps/CrystalCave1F.asm"
@@ -50,62 +49,48 @@ INCLUDE "maps/NationalParkBugContest.asm"
 
 SECTION "Map Scripts 4", ROMX, BANK[MAP_SCRIPTS_4]
 
-INCLUDE "maps/GoldenrodPokeCenter1F.asm"
-INCLUDE "maps/Route34IlexForestGate.asm"
+INCLUDE "maps/Route52TangeloJungleGate.asm"
 INCLUDE "maps/DayCare.asm"
 
 
 SECTION "Map Scripts 5", ROMX, BANK[MAP_SCRIPTS_5]
 
-INCLUDE "maps/Route11.asm"
-INCLUDE "maps/VioletMart.asm"
-INCLUDE "maps/VioletGym.asm"
-INCLUDE "maps/VioletNicknameSpeechHouse.asm"
-INCLUDE "maps/VioletPokeCenter1F.asm"
-INCLUDE "maps/VioletOnixTradeHouse.asm"
-INCLUDE "maps/Route32RuinsofAlphGate.asm"
-INCLUDE "maps/Route32PokeCenter1F.asm"
-INCLUDE "maps/Route35Goldenrodgate.asm"
-INCLUDE "maps/Route35NationalParkgate.asm"
-INCLUDE "maps/Route36RuinsofAlphgate.asm"
-INCLUDE "maps/Route36NationalParkgate.asm"
+INCLUDE "maps/MikanMart.asm"
+INCLUDE "maps/MikanGym.asm"
+INCLUDE "maps/MikanNicknameSpeechHouse.asm"
+INCLUDE "maps/MikanPokeCenter1F.asm"
+INCLUDE "maps/MikanOnixTradeHouse.asm"
+INCLUDE "maps/MikanIslandRoute53Gate.asm"
+INCLUDE "maps/Route52PokeCenter1F.asm"
 
 
 SECTION "Map Scripts 6", ROMX, BANK[MAP_SCRIPTS_6]
 
-INCLUDE "maps/IlexForest.asm"
+INCLUDE "maps/TangeloJungle.asm"
 INCLUDE "maps/Route55.asm"
 INCLUDE "maps/Route55QuestHouse.asm"
 INCLUDE "maps/Route56PokeCenter.asm"
 
+
 SECTION "Map Scripts 7", ROMX, BANK[MAP_SCRIPTS_7]
+
 
 SECTION "Map Scripts 8", ROMX, BANK[MAP_SCRIPTS_8]
 
 INCLUDE "maps/ValenciaPort.asm"
 INCLUDE "maps/TangeloPort.asm"
-INCLUDE "maps/OlivinePortPassage.asm"
-INCLUDE "maps/VermilionPortPassage.asm"
 
 
 SECTION "Map Scripts 9", ROMX, BANK[MAP_SCRIPTS_9]
 
-INCLUDE "maps/ElmsLab.asm"
+INCLUDE "maps/IvysLab.asm"
 INCLUDE "maps/KrissHouse1F.asm"
 INCLUDE "maps/KrissHouse2F.asm"
 INCLUDE "maps/KrissNeighborsHouse.asm"
-INCLUDE "maps/ElmsHouse.asm"
+INCLUDE "maps/IvysHouse.asm"
 
 
 SECTION "Map Scripts 10", ROMX, BANK[MAP_SCRIPTS_10]
-
-INCLUDE "maps/WarehouseEntrance.asm"
-INCLUDE "maps/UndergroundPathSwitchRoomEntrances.asm"
-INCLUDE "maps/IcePath1F.asm"
-INCLUDE "maps/IcePathB1F.asm"
-INCLUDE "maps/IcePathB2FMahoganySide.asm"
-INCLUDE "maps/IcePathB2FBlackthornSide.asm"
-INCLUDE "maps/IcePathB3F.asm"
 
 
 SECTION "Map Scripts 11", ROMX, BANK[MAP_SCRIPTS_11]
@@ -130,7 +115,7 @@ SECTION "Map Scripts 16", ROMX, BANK[MAP_SCRIPTS_16]
 
 SECTION "Map Scripts 17", ROMX, BANK[MAP_SCRIPTS_17]
 
-INCLUDE "maps/Route32.asm"
+INCLUDE "maps/Route52.asm"
 INCLUDE "maps/PokeCenter2F.asm"
 INCLUDE "maps/TradeCenter.asm"
 INCLUDE "maps/Colosseum.asm"
@@ -139,11 +124,11 @@ INCLUDE "maps/TimeCapsule.asm"
 
 SECTION "Map Scripts 18", ROMX, BANK[MAP_SCRIPTS_18]
 
-INCLUDE "maps/CherrygroveMart.asm"
-INCLUDE "maps/CherrygrovePokeCenter1F.asm"
-INCLUDE "maps/CherrygroveGymSpeechHouse.asm"
-INCLUDE "maps/CherrygroveEvolutionSpeechHouse.asm"
-INCLUDE "maps/Route31VioletGate.asm"
+INCLUDE "maps/TangeloMart.asm"
+INCLUDE "maps/TangeloPokeCenter1F.asm"
+INCLUDE "maps/TangeloGymSpeechHouse.asm"
+INCLUDE "maps/TangeloEvolutionSpeechHouse.asm"
+INCLUDE "maps/Route51TangeloJungleGate.asm"
 
 
 SECTION "Map Scripts 19", ROMX, BANK[MAP_SCRIPTS_19]
@@ -156,7 +141,7 @@ INCLUDE "maps/OaksLab.asm"
 
 SECTION "Map Scripts 20", ROMX, BANK[MAP_SCRIPTS_20]
 
-INCLUDE "maps/CherrygroveCity.asm"
+INCLUDE "maps/TangeloIsland.asm"
 INCLUDE "maps/MandarinNorthPokeCenter.asm"
 INCLUDE "maps/MandarinNorthNameRater.asm"
 INCLUDE "maps/MandarinNorthSmallHouse.asm"
@@ -167,13 +152,13 @@ INCLUDE "maps/MandarinNorthMart.asm"
 
 SECTION "Map Scripts 21", ROMX, BANK[MAP_SCRIPTS_21]
 
-INCLUDE "maps/Route29.asm"
-INCLUDE "maps/Route30.asm"
+INCLUDE "maps/Route49.asm"
+INCLUDE "maps/Route50.asm"
 
 
 SECTION "Map Scripts 22", ROMX, BANK[MAP_SCRIPTS_22]
 
-INCLUDE "maps/Route31.asm"
+INCLUDE "maps/Route51.asm"
 INCLUDE "maps/PinkanIsland.asm"
 INCLUDE "maps/Route56West.asm"
 INCLUDE "maps/Route56East.asm"
@@ -181,13 +166,13 @@ INCLUDE "maps/KinnowIsland.asm"
 
 SECTION "Map Scripts 23", ROMX, BANK[MAP_SCRIPTS_23]
 
-INCLUDE "maps/NewBarkTown.asm"
-INCLUDE "maps/VioletCity.asm"
+INCLUDE "maps/ValenciaIsland.asm"
+INCLUDE "maps/MikanIsland.asm"
 INCLUDE "maps/CinnabarPokeCenter1F.asm"
 
 
 SECTION "Map Scripts 24", ROMX, BANK[MAP_SCRIPTS_24]
 
-INCLUDE "maps/Route33.asm"
+INCLUDE "maps/Route53.asm"
 
 SECTION "Map Scripts 25", ROMX, BANK[MAP_SCRIPTS_25]

@@ -663,17 +663,6 @@ ClearObjectStructs:: ; 2471
 	ld bc, OBJECT_STRUCT_LENGTH * (NUM_OBJECT_STRUCTS - 1)
 	xor a
 	call ByteFill
-
-; Just to make sure (this is rather pointless)
-	ld hl, Object1Struct
-	ld de, OBJECT_STRUCT_LENGTH
-	ld c, NUM_OBJECT_STRUCTS - 1
-	xor a
-.loop
-	ld [hl], a
-	add hl, de
-	dec c
-	jr nz, .loop
 	ret
 ; 248a
 
@@ -1371,14 +1360,6 @@ UpdateBGMapColumn:: ; 27f8
 	ret
 ; 2816
 
-; unreferenced
-	ld hl, BGMapBuffer
-	ld bc, BGMapBufferEnd - BGMapBuffer
-	xor a
-	call ByteFill
-	ret
-; 2821
-
 LoadTileset:: ; 2821
 	ld hl, TilesetAddress
 	ld a, [hli]
@@ -1982,7 +1963,6 @@ CloseSubmenu:: ; 2b3c
 	call ReloadTilesetAndPalettes
 	call UpdateSprites
 	call Call_ExitMenu
-	call ret_d90
 	jr FinishExitMenu
 ; 2b4d
 
@@ -1991,7 +1971,6 @@ ExitAllMenus:: ; 2b4d
 	call Call_ExitMenu
 	call ReloadTilesetAndPalettes
 	call UpdateSprites
-	call ret_d90
 FinishExitMenu:: ; 2b5c
 	ld b, SCGB_MAPPALS
 	call GetSGBLayout
