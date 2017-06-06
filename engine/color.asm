@@ -253,40 +253,6 @@ SGB_ApplyPartyMenuHPPals: ; 8ade SGB layout $fc
 	ld [hl], e
 	ret
 
-Function8b07:
-; Unreferenced
-	call CheckCGB
-	ret z
-; CGB only
-	ld hl, .BGPal
-	ld de, UnknBGPals
-	ld bc, 1 palettes
-	ld a, $5
-	call FarCopyWRAM
-
-	ld hl, .OBPal
-	ld de, UnknOBPals
-	ld bc, 1 palettes
-	ld a, $5
-	call FarCopyWRAM
-
-	call ApplyPals
-	ld a, $1
-	ld [hCGBPalUpdate], a
-	ret
-
-.BGPal:
-	RGB 31, 31, 31
-	RGB 18, 23, 31
-	RGB 15, 20, 31
-	RGB 00, 00, 00
-
-.OBPal:
-	RGB 31, 31, 31
-	RGB 31, 31, 12
-	RGB 08, 16, 28
-	RGB 00, 00, 00
-
 LoadTrainerClassPaletteAsNthBGPal:
 	ld a, [TrainerClass]
 	call GetTrainerPalettePointer

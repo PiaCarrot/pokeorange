@@ -1,28 +1,17 @@
 ReturnFromMapSetupScript:: ; b8000
 	xor a
 	ld [hBGMapMode], a
-	; For some reson, GameFreak chose to use a farcall here instead of just falling through.
-	; No other function in the game references the function at 2E:400A, here labeled
-	; ReturnFromMapSetupScript.inefficientcallba.
-	farcall .inefficientfarcall ; this is a waste of 6 ROM bytes and 6 stack bytes
-	ret
-; b800a
-
-.inefficientfarcall ; b800a
 	ld a, [MapGroup]
 	ld b, a
 	ld a, [MapNumber]
 	ld c, a
 	call GetWorldMapLocation
 	ld [wCurrentLandmark], a
-;	call .CheckNationalParkGate
-;	jr z, .nationalparkgate
 
 	call GetMapPermission
 	cp GATE
 	jr nz, .not_gate
 
-.nationalparkgate
 	ld a, -1
 	ld [wCurrentLandmark], a
 

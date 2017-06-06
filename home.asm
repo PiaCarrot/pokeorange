@@ -1470,15 +1470,6 @@ CheckTrainerFlag:: ; 36f5
 ; 3718
 
 PrintWinLossText:: ; 3718
-	ld a, [BattleType]
-	cp BATTLETYPE_CANLOSE
-	jr .canlose ; ??????????
-
-; unreferenced
-	ld hl, wWinTextPointer
-	jr .ok
-
-.canlose
 	ld a, [wBattleResult]
 	ld hl, wWinTextPointer
 	and $f
@@ -1663,9 +1654,6 @@ GetBaseData:: ; 3856
 	jr .end
 
 .egg
-; ????
-	ld de, UnknownEggPic
-
 ; Sprite dimensions
 	ld b, $55 ; 5x5
 	ld hl, BasePicSize

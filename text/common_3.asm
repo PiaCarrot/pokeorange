@@ -58,11 +58,6 @@ UnknownText_0x1c073b::
 	para ""
 	done
 
-UnknownText_0x1c0751::
-	text "A #MON is using"
-	line "STRENGTH already."
-	prompt
-
 UnknownText_0x1c0774::
 	text_from_ram StringBuffer2
 	text " used"

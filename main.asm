@@ -1034,18 +1034,6 @@ Kurt_SelectQuantity_InterpretJoypad: ; 27a28
 SECTION "bankA", ROMX, BANK[$A]
 
 INCLUDE "engine/link.asm"
-
-Function29fe4: ; unreferenced
-	ld a, $0
-	call GetSRAMBank
-	ld d, $0
-	ld b, CHECK_FLAG
-	predef FlagPredef
-	call CloseSRAM
-	ld a, c
-	and a
-	ret
-
 INCLUDE "engine/wildmons.asm"
 INCLUDE "battle/link_result.asm"
 
@@ -1944,17 +1932,6 @@ CheckCanLearnMoveTutorMove: ; 492b9
 	db 17, 19 ; end coords
 
 INCLUDE "predef/crystal.asm"
-
-Unknown_4985a: ; unreferenced
-	db $ab, $03, $57, $24, $ac, $0e, $13, $32
-	db $be, $30, $5b, $4c, $47, $60, $ed, $f2
-	db $ab, $03, $55, $26, $aa, $0a, $13, $3a
-	db $be, $28, $33, $24, $6e, $71, $df, $b0
-	db $a8, $00, $e5, $e0, $9a, $fc, $f4, $2c
-	db $fe, $4c, $a3, $5e, $c6, $3a, $ab, $4d
-	db $a8, $00, $b5, $b0, $de, $e8, $fc, $1c
-	db $ba, $66, $f7, $0e, $ba, $5e, $43, $bd
-
 INCLUDE "engine/main_menu.asm"
 INCLUDE "engine/search.asm"
 
@@ -4139,24 +4116,6 @@ INCLUDE "data/base_stats.asm"
 
 PokemonNames::
 INCLUDE "data/pokemon_names.asm"
-
-Unknown_53d84: ; unreferenced
-	db $1a, $15
-	db $33, $16
-	db $4b, $17
-	db $62, $18
-	db $79, $19
-	db $90, $1a
-	db $a8, $1b
-	db $c4, $1c
-	db $e0, $1d
-	db $f6, $1e
-	db $ff, $1f
-	db $ff, $20
-
-UnknownEggPic:: ; 53d9c
-; Another egg pic. This is shifted up a few pixels.
-INCBIN "gfx/misc/unknown_egg.5x5.2bpp.lz"
 
 SECTION "bank20", ROMX, BANK[$20]
 

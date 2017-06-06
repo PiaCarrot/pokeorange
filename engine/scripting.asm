@@ -2806,11 +2806,6 @@ Script_warpcheck: ; 97af6
 	ret
 ; 97b01
 
-Script_enableevents: ; unreferenced
-	farcall EnableEvents
-	ret
-; 97b08
-
 Script_newloadmap: ; 97b08
 ; script command 0x8a
 ; parameters:
