@@ -1706,17 +1706,6 @@ GetBaseData:: ; 3856
 	ld hl, BasePicSize
 	ld [hl], b
 
-; ????
-	ld hl, BasePadding
-	ld [hl], e
-	inc hl
-	ld [hl], d
-	inc hl
-	ld [hl], e
-	inc hl
-	ld [hl], d
-	jr .end
-
 .end
 ; Replace Pokedex # with species
 	ld a, [CurSpecies]

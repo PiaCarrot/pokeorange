@@ -2088,8 +2088,6 @@ BaseUnknown2:: ; d246
 	ds 1
 BasePicSize:: ; d247
 	ds 1
-BasePadding:: ; d248
-	ds 4
 BaseGrowthRate:: ; d24c
 	ds 1
 BaseEggGroups:: ; d24d
@@ -2097,6 +2095,7 @@ BaseEggGroups:: ; d24d
 BaseTMHM:: ; d24e
 	ds 8
 
+	ds 4
 
 CurDamage:: ; d256
 	ds 2

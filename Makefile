@@ -41,15 +41,15 @@ compare: pokeorange.gbc
 
 %.o: dep = $(shell $(includes) $(@D)/$*.asm)
 %.o: %.asm $$(dep)
-	rgbasm -o $@ $<
+	rgbds-0.2.5/rgbasm -o $@ $<
 
 pokeorange.gbc: $(orange_obj)
-	rgblink -n pokeorange.sym -m pokeorange.map -p 0 -o $@ $^
-	rgbfix -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -n 1 -p 0 -r 3 -t PKMNORANGE $@
+	rgbds-0.2.5/rgblink -n pokeorange.sym -m pokeorange.map -p 0 -o $@ $^
+	rgbds-0.2.5/rgbfix -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -n 1 -p 0 -r 3 -t PKMNORANGE $@
 
 pokeorange-0xff.gbc: $(orange_obj)
-	rgblink -n pokeorange.sym -m pokeorange.map -p 0xff -o $@ $^
-	rgbfix -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -n 1 -p 0xff -r 3 -t PKMNORANGE $@
+	rgbds-0.2.5/rgblink -n pokeorange.sym -m pokeorange.map -p 0xff -o $@ $^
+	rgbds-0.2.5/rgbfix -Cjv -i BYTE -k 01 -l 0x33 -m 0x10 -n 1 -p 0xff -r 3 -t PKMNORANGE $@
 
 %.png: ;
 %.2bpp: %.png ; $(gfx) 2bpp $<
