@@ -6,7 +6,8 @@ ROMVERSION = 0x32
 FILLER = 0x00
 ALTFILLER = 0xff
 
-RGBDS_DIR = rgbds-0.2.5/
+# RGBDS_DIR = rgbs-0.2.5/
+RGBDS_DIR =
 RGBASM_OPTIONS =
 RGBFIX_OPTIONS = -Cjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -k 01 -l 0x33 -m 0x10 -r 3
 
