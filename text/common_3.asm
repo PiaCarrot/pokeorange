@@ -397,29 +397,6 @@ UnknownText_0x1c0d6c::
 	line "dug a hole!"
 	prompt
 
-_ActorNameText::
-	text "<USER>@@"
-
-_UsedMoveText::
-	text ""
-	line "used @@"
-
-_UsedInsteadText::
-	text "instead,"
-	cont "@@"
-
-_MoveNameText::
-	text_from_ram StringBuffer2
-	db "@@"
-
-_EndUsedMove1Text::
-_EndUsedMove2Text::
-_EndUsedMove3Text::
-_EndUsedMove4Text::
-_EndUsedMove5Text::
-	text "!"
-	done
-
 UnknownText_0x1c0db0::
 	text "Huh?"
 	para "@@"
