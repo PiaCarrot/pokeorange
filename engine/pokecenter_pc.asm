@@ -114,7 +114,6 @@ PlayersPC: ; 15679
 	call PC_PlayChoosePCSound
 	ld hl, PokeCenterPCText_AccessedOwnPC
 	call PC_DisplayText
-	ld b, $0
 	call _PlayersPC
 	and a
 	ret
@@ -176,7 +175,6 @@ _KrissHousePC: ; 156d9
 	call PC_PlayBootSound
 	ld hl, UnknownText_0x156ff
 	call PC_DisplayText
-	ld b, $1
 	call _PlayersPC
 	and a
 	jr nz, .asm_156f9
@@ -200,7 +198,7 @@ UnknownText_0x156ff: ; 0x156ff
 ; 0x15704
 
 _PlayersPC: ; 15704
-	ld a, b
+	xor a
 	ld [wWhichIndexSet], a
 	ld hl, UnknownText_0x157cc
 	call PC_DisplayTextWaitMenu
@@ -215,18 +213,16 @@ Function15715: ; 15715
 	ld [wPCItemsScrollPosition], a
 	ld hl, KrissPCMenuData
 	call LoadMenuDataHeader
-.asm_15722
+.loop
 	call UpdateTimePals
 	call DoNthMenu
-	jr c, .asm_15731
+	jr c, .log_off
 	call MenuJumptable
-	jr nc, .asm_15722
-	jr .asm_15732
-
-.asm_15731
+	jr nc, .loop
+	jr .quit
+.log_off
 	xor a
-
-.asm_15732
+.quit
 	call ExitMenu
 	ret
 ; 15736
@@ -250,6 +246,7 @@ KrissPCMenuData: ; 0x15736
 	dw KrisDepositItemMenu,  .DepositItem
 	dw KrisTossItemMenu,     .TossItem
 	dw KrisMailBoxMenu,      .MailBox
+	dw KrisLogOffMenu,       .TurnOff
 	dw KrisLogOffMenu,       .TurnOff
 
 .WithdrawItem: db "WITHDRAW ITEM@"

@@ -1276,16 +1276,17 @@ IgnoredOrders2Text: ; 0x81850
 	prompt
 ; 0x81863
 
-BattleText_LinkErrorBattleCanceled: ; 0x81863
-	text "Link error…"
-
-	para "The battle has"
-	line "been canceled…"
-	prompt
-; 0x8188e
-
-BattleText_0x8188e: ; 0x8188e
-	text "There is no time"
-	line "left today!"
+UsedMoveText:
+	text "<USER>"
+	line "used @"
+	text_from_ram StringBuffer2
+	text "!"
 	done
-; 0x818ac
+
+UsedMoveInsteadText:
+	text "<USER>"
+	line "used @"
+	text_from_ram StringBuffer2
+	text ""
+	cont "instead!"
+	done
