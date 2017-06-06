@@ -1069,8 +1069,6 @@ TitleScreenEntrance: ; 62bc
 	inc hl
 	dec b
 	jr nz, .loop
-
-	farcall AnimateTitleCrystal
 	ret
 
 .done
