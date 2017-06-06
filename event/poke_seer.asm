@@ -273,26 +273,8 @@ GetCaughtOT: ; 4f242
 	ld de, wSeerOTName
 	ld bc, NAME_LENGTH
 	call CopyBytes
-
-; this routine is useless in Western localizations
-	ld hl, .male
-	ld a, [wSeerCaughtGender]
-	bit 7, a
-	jr z, .got_grammar
-	ld hl, .female
-
-.got_grammar
-	ld de, wSeerOTNameGrammar
-	ld a, "@"
-	ld [de], a
 	ret
 ; 4f26b
-
-.male ; 4f26b
-	db "@"
-.female ; 4f26c
-	db "@"
-; 4f26d
 
 PrintSeerText: ; 4f26d
 	ld e, a

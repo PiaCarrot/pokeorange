@@ -196,7 +196,6 @@ CopyNextCoordsTileToStandingCoordsTile: ; 4600
 	ld hl, OBJECT_NEXT_TILE
 	add hl, bc
 	ld a, [hl]
-	call UselessAndA
 	ret
 ; 462a
 
@@ -229,12 +228,9 @@ UpdateTallGrassFlags: ; 463f
 	ld hl, OBJECT_NEXT_TILE
 	add hl, bc
 	ld a, [hl]
-	call UselessAndA
-	ret c ; never happens
 	ld hl, OBJECT_STANDING_TILE
 	add hl, bc
 	ld a, [hl]
-	call UselessAndA
 	ret
 ; 4661
 
@@ -255,11 +251,6 @@ SetTallGrassFlags: ; 4661
 	res 3, [hl]
 	ret
 ; 4679
-
-UselessAndA: ; 4679
-	and a
-	ret
-; 467b
 
 EndSpriteMovement: ; 467b
 	xor a
