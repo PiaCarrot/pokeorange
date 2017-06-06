@@ -58,9 +58,10 @@ Special_SelectRandomBugContestContestants: ; 139a8
 
 Special_CheckBugContestContestantFlag: ; 139ed
 ; Checks the flag of the Bug Catching Contestant whose index is loaded in a.
-
-; Bug: If a >= 10 when this is called, it will read beyond the table.
-
+	cp 10
+	jr c, .ok
+	xor a
+.ok
 	ld hl, BugCatchingContestantEventFlagTable
 	ld e, a
 	ld d, 0

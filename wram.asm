@@ -2023,17 +2023,15 @@ OtherTrainerClass:: ; d22f
 BattleType:: ; d230
 ; $00 normal
 ; $01 can lose
-; $02 debug
-; $03 dude/tutorial
-; $04 fishing
-; $05 roaming
-; $06 contest
-; $07 shiny
-; $08 headbutt/rock smash
-; $09 trap
-; $0a force Item1
-; $0b celebi
-; $0c suicune
+; $02 fishing
+; $03 roaming
+; $04 contest
+; $05 shiny
+; $06 headbutt/rock smash
+; $07 trap
+; $08 force Item1
+; $09 celebi
+; $0a tangrowth
 	ds 1
 
 OtherTrainerID:: ; d231

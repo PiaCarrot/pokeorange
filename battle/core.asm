@@ -107,10 +107,6 @@ DoBattle: ; 3c000
 .not_linked_2
 	jp BattleTurn
 
-.tutorial_debug
-	jp BattleMenu
-; 3c0e5
-
 WildFled_EnemyFled_LinkBattleCanceled: ; 3c0e5
 	call Call_LoadTempTileMapToTileMap
 	ld a, [wBattleResult]
