@@ -360,8 +360,6 @@ CheckTileEvent: ; 96874
 
 	call RandomEncounter
 	ret c
-	jr .ok ; pointless
-
 .ok
 	xor a
 	ret

@@ -472,11 +472,6 @@ CardFlip_DisplayCardFaceUp: ; e03ec
 	jr nz, .row
 	pop hl
 
-	; Pointless CGB check
-	ld a, [hCGB]
-	and a
-	ret z
-
 	; Set the attributes
 	ld de, AttrMap - TileMap
 	add hl, de
