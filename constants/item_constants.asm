@@ -24,7 +24,7 @@
 	const FIRE_STONE   ; $16
 	const THUNDERSTONE ; $17
 	const WATER_STONE  ; $18
-	const PINKAN_BERRY     ; $19
+	const PINKAN_BERRY ; $19
 	const HP_UP        ; $1A
 	const PROTEIN      ; $1B
 	const IRON         ; $1C
@@ -65,7 +65,7 @@
 	const ETHER        ; $3F
 	const MAX_ETHER    ; $40
 	const ELIXER       ; $41
-	const ODD_CRYSTAL    ; $42
+	const ODD_CRYSTAL  ; $42
 	const SECRETPOTION ; $43
 	const S_S_TICKET   ; $44
 	const MYSTERY_EGG  ; $45
@@ -224,7 +224,7 @@
 	add_tm PSYCHIC      ; $DD
 	add_tm SHADOW_BALL  ; $DE
 	add_tm MUD_SLAP     ; $DF
-	add_tm BUBBLEBEAM  ; $E0
+	add_tm BUBBLEBEAM   ; $E0
 	add_tm ICE_PUNCH    ; $E1
 	add_tm SWAGGER      ; $E2
 	add_tm SLEEP_TALK   ; $E3
@@ -261,11 +261,9 @@ NUM_HMS = const_value - HM01
 
 ITEM_FROM_MEM EQU $ff
 
-
 ; leftovers from red
 SAFARI_BALL    EQU  8 ; MOON_STONE
-MOON_STONE_RED EQU 10 ; BURN_HEAL
-FULL_HEAL_RED  EQU 52 ; X_SPEED
+
 MAIL_MAX_LENGTH EQU $20
 
 ; pockets
@@ -426,7 +424,6 @@ ITEMMENU_CLOSE              EQU 6
 	const PARTYMENUACTION_06
 	const PARTYMENUACTION_07
 	const PARTYMENUACTION_08
-	const PARTYMENUACTION_MOBILE
 
 const_value set $f0
 	const PARTYMENUTEXT_HEAL_PSN
