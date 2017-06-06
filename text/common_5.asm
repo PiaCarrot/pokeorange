@@ -27,10 +27,6 @@ UnknownText_0x1c50bb::
 	text "Darn!"
 	done
 
-UnknownText_0x1c5182::
-	text "Clock time unknown"
-	done
-
 UnknownText_0x1c55db::
 	text "Select CONTINUE &"
 	line "reset settings."

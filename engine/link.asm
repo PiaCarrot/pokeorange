@@ -162,10 +162,6 @@ TimeCapsule: ; 2805d
 	ld [de], a
 	ld hl, wTimeCapsulePartyMon1Species
 	call Function2868a
-	ld a, OTPartyMonOT % $100
-	ld [wUnusedD102], a
-	ld a, OTPartyMonOT / $100
-	ld [wUnusedD102 + 1], a
 	ld de, MUSIC_NONE
 	call PlayMusic
 	ld a, [hLinkPlayerNumber]
@@ -403,10 +399,6 @@ Gen2ToGen2LinkComms: ; 28177
 	ld de, OTPartyMons
 	ld bc, OTPartyDataEnd - OTPartyMons
 	call CopyBytes
-	ld a, OTPartyMonOT % $100
-	ld [wUnusedD102], a
-	ld a, OTPartyMonOT / $100
-	ld [wUnusedD102 + 1], a
 	ld de, MUSIC_NONE
 	call PlayMusic
 	ld a, [hLinkPlayerNumber]

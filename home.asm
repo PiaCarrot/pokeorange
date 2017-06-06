@@ -781,11 +781,6 @@ GetName:: ; 33c3
 	call CopyBytes
 
 .done
-	ld a, e
-	ld [wUnusedD102], a
-	ld a, d
-	ld [wUnusedD102 + 1], a
-
 	pop de
 	pop bc
 	pop hl

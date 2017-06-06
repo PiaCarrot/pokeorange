@@ -77,7 +77,7 @@ PokeAnims: ; d0042
 	dw .Trade
 	dw .Evolve
 	dw .Hatch
-	dw .Unused ; same as .Menu
+	dw .Menu
 	dw .Egg1
 	dw .Egg2
 
@@ -87,7 +87,6 @@ PokeAnims: ; d0042
 .Trade:  POKEANIM Extra, Play2, Extra, Play, SetWait, Wait, Cry, Setup, Play
 .Evolve: POKEANIM Extra, Play, SetWait, Wait, CryNoWait, Setup, Play
 .Hatch:  POKEANIM Extra, Play, CryNoWait, Setup, Play, SetWait, Wait, Extra, Play
-.Unused: POKEANIM CryNoWait, Setup, Play, SetWait, Wait, Extra, Play
 .Egg1:   POKEANIM Setup, Play
 .Egg2:   POKEANIM Extra, Play
 

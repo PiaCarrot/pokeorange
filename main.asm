@@ -3798,10 +3798,6 @@ InitList: ; 50db9
 	ld [wListPointer], a
 	ld a, h
 	ld [wListPointer + 1], a
-	ld a, e
-	ld [wUnusedD102], a
-	ld a, d
-	ld [wUnusedD102 + 1], a
 	ld bc, ItemAttributes ; ParseEnemyAction, HandleMapTimeAndJoypad, Music_LakeOfRage_Ch3, String_11a7c1 $67c1
 	ld a, c
 	ld [wItemAttributesPtr], a

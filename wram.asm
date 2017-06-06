@@ -1727,7 +1727,7 @@ wMailboxEnd:: ds 1 ; d0fe
 	ds 2
 
 wListPointer:: dw ; d100
-wUnusedD102:: dw ; d102
+wd102:: dw ; d102
 wItemAttributesPtr:: dw ; d104
 
 CurItem:: ds 1 ; d106
