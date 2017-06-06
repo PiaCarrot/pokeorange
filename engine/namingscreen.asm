@@ -78,11 +78,7 @@ NamingScreen: ; 116c1
 	dw .Pokemon
 	dw .Player
 	dw .Rival
-	dw .Mom
 	dw .Box
-	dw .Tomodachi
-	dw .Pokemon
-	dw .Pokemon
 
 .Pokemon: ; 1173e (4:573e)
 	ld a, [CurPartySpecies]
@@ -156,23 +152,6 @@ NamingScreen: ; 116c1
 
 ; 117d1
 
-.Mom: ; 117d1 (4:57d1)
-	ld de, MomSpriteGFX
-	ld b, BANK(MomSpriteGFX)
-	call .LoadSprite
-	hlcoord 5, 2
-	ld de, .MomNameString
-	call PlaceString
-	call .StoreSpriteIconParams
-	ret
-
-; 117e6 (4:57e6)
-
-.MomNameString: ; 117e6
-	db "MOTHER'S NAME?@"
-
-; 117f5
-
 .Box: ; 117f5 (4:57f5)
 	ld de, PokeBallSpriteGFX
 	ld hl, VTiles0 tile $00
@@ -200,20 +179,6 @@ NamingScreen: ; 116c1
 	db "BOX NAME?@"
 
 ; 1182c
-
-.Tomodachi: ; 1182c (4:582c)
-	hlcoord 3, 2
-	ld de, .oTomodachi_no_namae_sutoringu
-	call PlaceString
-	call .StoreSpriteIconParams
-	ret
-
-; 11839 (4:5839)
-
-.oTomodachi_no_namae_sutoringu ; 11839
-	db "おともだち の なまえは?@"
-
-; 11847
 
 .LoadSprite: ; 11847 (4:5847)
 	push de
@@ -1034,11 +999,6 @@ INCBIN "gfx/icon/mail2.2bpp"
 	ret
 
 ; 11f7a (4:5f7a)
-
-.Dummy: ; dummied out
-	db "メールを かいてね@"
-
-; 11f84
 
 .InitCharset: ; 11f84 (4:5f84)
 	call WaitTop

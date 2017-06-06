@@ -158,82 +158,6 @@ HDMATransfer_FillBGMap0WithTile60: ; 64db
 	ret
 
 INCLUDE "engine/learn.asm"
-
-CheckNickErrors:: ; 669f
-; error-check monster nick before use
-; must be a peace offering to gamesharkers
-
-; input: de = nick location
-
-	push bc
-	push de
-	ld b, PKMN_NAME_LENGTH
-
-.checkchar
-; end of nick?
-	ld a, [de]
-	cp "@" ; terminator
-	jr z, .end
-
-; check if this char is a text command
-	ld hl, .textcommands
-	dec hl
-.loop
-; next entry
-	inc hl
-; reached end of commands table?
-	ld a, [hl]
-	cp a, -1
-	jr z, .done
-
-; is the current char between this value (inclusive)...
-	ld a, [de]
-	cp [hl]
-	inc hl
-	jr c, .loop
-; ...and this one?
-	cp [hl]
-	jr nc, .loop
-
-; replace it with a "?"
-	ld a, "?"
-	ld [de], a
-	jr .loop
-
-.done
-; next char
-	inc de
-; reached end of nick without finding a terminator?
-	dec b
-	jr nz, .checkchar
-
-; change nick to "?@"
-	pop de
-	push de
-	ld a, "?"
-	ld [de], a
-	inc de
-	ld a, "@"
-	ld [de], a
-.end
-; if the nick has any errors at this point it's out of our hands
-	pop de
-	pop bc
-	ret
-
-.textcommands ; 66cf
-; table defining which characters are actually text commands
-; format:
-	;      ≥           <
-	db "<START>",  $04       + 1
-	db "<PLAY_G>", $18       + 1
-	db $1d,        "%"       + 1
-	db $35,        "<GREEN>" + 1
-	db "<ENEMY>",  "<ENEMY>" + 1
-	db $49,        "<TM>"    + 1
-	db "<ROCKET>", "┘"       + 1
-	db -1 ; end
-
 INCLUDE "engine/math.asm"
 
 ItemAttributes: ; 67c1
@@ -854,39 +778,6 @@ CoinString: ; 24b89
 ShowMoney_TerminatorString: ; 24b8e
 	db "@"
 
-Function24b8f: ; 24b8f
-; unreferenced, related to safari?
-	ld hl, Options
-	ld a, [hl]
-	push af
-	set NO_TEXT_SCROLL, [hl]
-	hlcoord 0, 0
-	ld b, 3
-	ld c, 7
-	call TextBox
-	hlcoord 1, 1
-	ld de, wSafariTimeRemaining
-	lb bc, 2, 3
-	call PrintNum
-	hlcoord 4, 1
-	ld de, .slash_500
-	call PlaceString
-	hlcoord 1, 3
-	ld de, .booru_ko
-	call PlaceString
-	hlcoord 5, 3
-	ld de, wSafariBallsRemaining
-	lb bc, 1, 2
-	call PrintNum
-	pop af
-	ld [Options], a
-	ret
-
-.slash_500 ; 24bcf
-	db "/500@"
-.booru_ko ; 24bd4
-	db "ボール   こ@"
-
 StartMenu_DrawBugContestStatusBox: ; 24bdc
 	hlcoord 0, 0
 	ld b, 5
@@ -938,8 +829,6 @@ StartMenu_PrintBugContestStatus: ; 24be7
 	ld [Options], a
 	ret
 
-.Balls_JP: ; 24c43
-	db "ボール   こ@"
 .CAUGHT: ; 24c4b
 	db "CAUGHT@"
 .Balls_EN: ; 24c52

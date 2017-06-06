@@ -504,7 +504,7 @@ IvyAdventureText:
 	
 	para "IVY: This is..."
 	
-	para "<PLAY_G>, this"
+	para "<PLAYER>, this"
 	line "is an important"
 	cont "item."
 	
@@ -547,7 +547,7 @@ FinalIvyText:
 	done
 	
 ElmText_Intro:
-	text "IVY: <PLAY_G>!"
+	text "IVY: <PLAYER>!"
 	line "There you are!"
 
 	para "Today is the day"
@@ -600,7 +600,7 @@ ElmText_ChooseAPokemon:
 
 	para "You'll be that"
 	line "#MON's first"
-	cont "partner, <PLAY_G>!"
+	cont "partner, <PLAYER>!"
 
 	para "Go on. Pick one!"
 	done
@@ -677,7 +677,7 @@ ElmDirectionsText2:
 	done
 
 ElmDirectionsText3:
-	text "<PLAY_G>, here"
+	text "<PLAYER>, here"
 	line "is your #DEX!"
 	done
 
@@ -688,7 +688,7 @@ GotElmsNumberText:
 
 ElmDescribesMrPokemonText:
 	text "Best of luck,"
-	line "<PLAY_G>!"
+	line "<PLAYER>!"
 	done
 
 ElmPokeBallText:
@@ -714,7 +714,7 @@ ElmsLabSignpostText_Egg:
 	done
 
 AideText_GiveYouPotions:
-	text "HOPE: <PLAY_G>!"
+	text "HOPE: <PLAYER>!"
 
 	para "Use these on your"
 	line "#DEX quest!"

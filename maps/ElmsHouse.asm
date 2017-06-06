@@ -56,7 +56,7 @@ ElmsHouseBookshelf:
 FaithText:
 	text "FAITH: Best of"
 	line "luck on your adv-"
-	cont "enture, <PLAY_G>!"
+	cont "enture, <PLAYER>!"
 	
 	para "If you'd like, I"
 	line "can change the"
@@ -66,12 +66,12 @@ FaithText:
 	
 CharityHiText:
 	text "CHARITY: Hi,"
-	line "<PLAY_G>!"
+	line "<PLAYER>!"
 	done
 	
 CharityText:
 	text "CHARITY: Hey,"
-	line "<PLAY_G>! Want"
+	line "<PLAYER>! Want"
 	cont "to have a battle?"
 	cont "For practice!"
 	done
