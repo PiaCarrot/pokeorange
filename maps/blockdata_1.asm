@@ -39,11 +39,11 @@ MikanOnixTradeHouse_BlockData:
 Route55QuestHouse_BlockData:
 	INCBIN "maps/House2.blk"
 
-MikanIslandRoute53Gate_BlockData:
+Route52TangeloJungleGate_BlockData:
 	INCBIN "maps/NorthSouthGate.blk"
 
+MikanIslandRoute53Gate_BlockData:
 Route51TangeloJungleGate_BlockData:
-Route52TangeloJungleGate_BlockData:
 	INCBIN "maps/EastWestGate.blk"
 
 KrissHouse1F_BlockData:
