@@ -1,4 +1,4 @@
-PALPACKET_LENGTH EQU $10
+INCLUDE "predef/cgb.asm"
 
 SHINY_ATK_BIT EQU 5
 SHINY_DEF_VAL EQU 10
@@ -220,46 +220,10 @@ endr
 	ret
 
 InitPartyMenuPalettes:
-	ld hl, PalPacket_9c56 + 1
+	ld hl, PalPacket_PartyMenu
 	call CopyFourPalettes
 	call InitPartyMenuOBPals
 	call WipeAttrMap
-	ret
-
-LoadTrainerClassPaletteAsNthBGPal:
-	ld a, [TrainerClass]
-	call GetTrainerPalettePointer
-	ld a, e
-	jr got_palette_pointer_8bd7
-
-LoadMonPaletteAsNthBGPal:
-	ld a, [CurPartySpecies]
-	call GetMonPalettePointer
-	ld a, e
-	bit 7, a
-	jr z, got_palette_pointer_8bd7
-	and $7f
-	inc hl
-	inc hl
-	inc hl
-	inc hl
-
-got_palette_pointer_8bd7
-	push hl
-	ld hl, UnknBGPals
-	ld de, 1 palettes
-.loop
-	and a
-	jr z, .got_addr
-	add hl, de
-	dec a
-	jr .loop
-
-.got_addr
-	ld e, l
-	ld d, h
-	pop hl
-	call LoadPalette_White_Col1_Col2_Black
 	ret
 
 ApplyMonOrTrainerPals:
@@ -304,7 +268,7 @@ ApplyHPBarPals:
 	ld h, $0
 	add hl, hl
 	add hl, hl
-	ld bc, Palettes_a8be
+	ld bc, HPBarPals
 	add hl, bc
 	ld bc, 4
 	ld a, $5
@@ -422,8 +386,6 @@ LoadMailPalettes:
 	RGB 00, 21, 00
 	RGB 00, 00, 00
 
-INCLUDE "predef/cgb.asm"
-
 CopyFourPalettes:
 	ld de, UnknBGPals
 	ld c, $4
@@ -448,7 +410,7 @@ GetPredefPal:
 	add hl, hl
 	add hl, hl
 	add hl, hl
-	ld bc, Palettes_9df6
+	ld bc, PredefPals
 	add hl, bc
 	ret
 
@@ -635,7 +597,7 @@ CGB_ApplyPartyMenuHPPals: ; 96f3 CGB layout $fc
 	ret
 
 InitPartyMenuOBPals:
-	ld hl, Palettes_b681
+	ld hl, PartyMenuOBPals
 	ld de, UnknOBPals
 	ld bc, 2 palettes
 	ld a, $5
@@ -675,37 +637,6 @@ GetTrainerPalettePointer:
 GetMonPalettePointer_:
 	call GetMonPalettePointer
 	ret
-
-Palettes_979c:
-	RGB 31, 31, 31
-	RGB 25, 25, 25
-	RGB 13, 13, 13
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 31, 31, 07
-	RGB 31, 16, 01
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 31, 19, 24
-	RGB 30, 10, 06
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 12, 25, 01
-	RGB 05, 14, 00
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 08, 12, 31
-	RGB 01, 04, 31
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 24, 18, 07
-	RGB 20, 15, 03
-	RGB 00, 00, 00
 
 InitCGBPals::
 	ld a, $1
@@ -785,107 +716,160 @@ ClearBytes: ; 0x9a5b
 	ret
 ; 0x9a64
 
-DrawDefaultTiles: ; 0x9a64
-; Draw 240 tiles (2/3 of the screen) from tiles in VRAM
-	hlbgcoord 0, 0 ; BG Map 0
-	ld de, BG_MAP_WIDTH - SCREEN_WIDTH
-	ld a, $80 ; starting tile
-	ld c, 12 + 1
-.line
-	ld b, 20
-.tile
-	ld [hli], a
-	inc a
-	dec b
-	jr nz, .tile
-; next line
+INCLUDE "gfx/pics/palette_pointers.asm"
+
+INCLUDE "gfx/trainers/palette_pointers.asm"
+
+LoadMapPals:
+	farcall LoadSpecialMapPalette
+	jr c, .got_pals
+
+	; Which palette group is based on whether we're outside or inside
+	ld a, [wPermission]
+	and 7
+	ld e, a
+	ld d, 0
+	ld hl, .TilesetColorsPointers
 	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	; Futher refine by time of day
+	ld a, [TimeOfDayPal]
+	and 3
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld e, l
+	ld d, h
+	; Switch to palettes WRAM bank
+	ld a, [rSVBK]
+	push af
+	ld a, $5
+	ld [rSVBK], a
+	ld hl, UnknBGPals
+	ld b, 8
+.outer_loop
+	ld a, [de] ; lookup index for TilesetBGPalette
+	push de
+	push hl
+	ld l, a
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	ld de, TilesetBGPalette
+	add hl, de
+	ld e, l
+	ld d, h
+	pop hl
+	ld c, 1 palettes
+.inner_loop
+	ld a, [de]
+	inc de
+	ld [hli], a
 	dec c
-	jr nz, .line
+	jr nz, .inner_loop
+	pop de
+	inc de
+	dec b
+	jr nz, .outer_loop
+	pop af
+	ld [rSVBK], a
+
+.got_pals
+	ld a, [TimeOfDayPal]
+	and 3
+	ld bc, 8 palettes
+	ld hl, MapObjectPals
+	call AddNTimes
+	ld de, UnknOBPals
+	ld bc, 8 palettes
+	ld a, $5 ; BANK(UnknOBPals)
+	call FarCopyWRAM
+
+	ld a, [wPermission]
+	cp TOWN
+	jr z, .outside
+	cp ROUTE
+	ret nz
+.outside
+	ld a, [MapGroup]
+	ld l, a
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	ld de, RoofPals
+	add hl, de
+	ld a, [TimeOfDayPal]
+	and 3
+	cp NITE
+	jr c, .morn_day
+rept 4
+	inc hl
+endr
+.morn_day
+	ld de, UnknBGPals + 6 palettes + 2
+	ld bc, 4
+	ld a, $5
+	call FarCopyWRAM
 	ret
-; 0x9a7a
 
-BlkPacket_9a86:
-	db $21, $01, $03, $00, $00, $00, $13, $11, $00, $00, $00, $00, $00, $00, $00, $00
+.TilesetColorsPointers:
+	dw .OutdoorColors ; unused
+	dw .OutdoorColors ; TOWN
+	dw .OutdoorColors ; ROUTE
+	dw .IndoorColors ; INDOOR
+	dw .DungeonColors ; CAVE
+	dw .Perm5Colors ; PERM_5
+	dw .IndoorColors ; GATE
+	dw .DungeonColors ; DUNGEON
 
-BlkPacket_9a96:
-	db $21, $01, $07, $05, $00, $0a, $13, $0d, $00, $00, $00, $00, $00, $00, $00, $00
+; Valid indices: $00 - $29
+.OutdoorColors:
+	db $00, $01, $02, $28, $04, $05, $06, $07 ; morn
+	db $08, $09, $0a, $28, $0c, $0d, $0e, $0f ; day
+	db $10, $11, $12, $29, $14, $15, $16, $17 ; nite
+	db $18, $19, $1a, $1b, $1c, $1d, $1e, $1f ; dark
 
-BlkPacket_9aa6:
-	db $22, $05, $07, $0a, $00, $0c, $13, $11, $03, $05, $01, $00, $0a, $03, $03, $00
-	db $0a, $08, $13, $0a, $03, $0a, $00, $04, $08, $0b, $03, $0f, $0b, $00, $13, $07
+.IndoorColors:
+	db $20, $21, $22, $23, $24, $25, $26, $07 ; morn
+	db $20, $21, $22, $23, $24, $25, $26, $07 ; day
+	db $10, $11, $12, $13, $14, $15, $16, $07 ; nite
+	db $18, $19, $1a, $1b, $1c, $1d, $1e, $07 ; dark
 
-BlkPacket_9ac6:
-	db $21, $01, $07, $05, $00, $01, $07, $07, $00, $00, $00, $00, $00, $00, $00, $00
+.DungeonColors:
+	db $00, $01, $02, $03, $04, $05, $06, $07 ; morn
+	db $08, $09, $0a, $0b, $0c, $0d, $0e, $0f ; day
+	db $10, $11, $12, $13, $14, $15, $16, $17 ; nite
+	db $18, $19, $1a, $1b, $1c, $1d, $1e, $1f ; dark
 
-BlkPacket_9ad6:
-	db $21, $01, $07, $05, $0b, $01, $13, $02, $00, $00, $00, $00, $00, $00, $00, $00
+.Perm5Colors:
+	db $00, $01, $02, $03, $04, $05, $06, $07 ; morn
+	db $08, $09, $0a, $0b, $0c, $0d, $0e, $0f ; day
+	db $10, $11, $12, $13, $14, $15, $16, $17 ; nite
+	db $18, $19, $1a, $1b, $1c, $1d, $1e, $1f ; dark
 
-BlkPacket_9ae6:
-	db $21, $01, $07, $05, $01, $01, $08, $08, $00, $00, $00, $00, $00, $00, $00, $00
+TilesetBGPalette:
+INCLUDE "tilesets/bg.pal"
 
-BlkPacket_9af6:
-	db $21, $01, $07, $05, $07, $05, $0d, $0b, $00, $00, $00, $00, $00, $00, $00, $00
+MapObjectPals::
+INCLUDE "tilesets/ob.pal"
 
-BlkPacket_9b06:
-	db $22, $05, $03, $05, $00, $00, $13, $0b, $03, $0a, $00, $04, $13, $09, $02, $0f
-	db $00, $06, $13, $07, $03, $00, $04, $04, $0f, $09, $03, $00, $00, $0c, $13, $11
+RoofPals:
+INCLUDE "tilesets/roof.pal"
 
-BlkPacket_9b26:
-	db $23, $07, $07, $10, $00, $00, $02, $0c, $02, $00, $0c, $00, $12, $01, $02, $00
-	db $0c, $02, $12, $03, $02, $00, $0c, $04, $12, $05, $02, $00, $0c, $06, $12, $07
-	db $02, $00, $0c, $08, $12, $09, $02, $00, $0c, $0a, $12, $0b, $00, $00, $00, $00
+PalPacket_PartyMenu: db $2e, $00, $2f, $00, $30, $00, $31, $00, $00, $00, $00, $00, $00, $00, $00
+PalPacket_Grayscale: db $1a, $00, $1a, $00, $1a, $00, $1a, $00, $00, $00, $00, $00, $00, $00, $00
+PalPacket_Diploma:   db $1b, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
+PalPacket_TradeTube: db $1c, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-BlkPacket_9b56:
-	db $22, $03, $07, $20, $00, $00, $13, $04, $03, $0f, $00, $06, $13, $11, $03, $05
-	db $0f, $01, $12, $04, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-
-BlkPacket_9b76:
-	db $21, $01, $07, $10, $00, $00, $13, $05, $00, $00, $00, $00, $00, $00, $00, $00
-
-BlkPacket_9b86:
-	db $21, $02, $07, $0a, $00, $04, $13, $0d, $03, $05, $00, $06, $13, $0b, $00, $00
-
-PalPacket_9b96:	db $51, $48, $00, $49, $00, $4a, $00, $4b, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9ba6:	db $51, $2b, $00, $24, $00, $20, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9bb6:	db $51, $41, $00, $42, $00, $43, $00, $44, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9bc6:	db $51, $4c, $00, $4c, $00, $4c, $00, $4c, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9bd6:	db $51, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9be6:	db $51, $36, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9bf6:	db $51, $37, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c06:	db $51, $38, $00, $39, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c16:	db $51, $3a, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c26:	db $51, $3b, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c36:	db $51, $3c, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c46:	db $51, $39, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c56:	db $51, $2e, $00, $2f, $00, $30, $00, $31, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c66:	db $51, $1a, $00, $1a, $00, $1a, $00, $1a, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c76:	db $51, $32, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c86:	db $51, $3c, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c96:	db $51, $3d, $00, $3e, $00, $3f, $00, $40, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9ca6:	db $51, $33, $00, $34, $00, $1b, $00, $1f, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9cb6:	db $51, $1b, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9cc6:	db $51, $1c, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9cd6:	db $51, $35, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9ce6:	db $01, $ff, $7f, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9cf6:	db $09, $ff, $7f, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d06:	db $59, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d16:	db $89, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d26:	db $89, $01, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d36:	db $99, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d46:	db $a1, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d56:	db $b9, $01, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d66:	db $b9, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d76:	db $79, $5d, $08, $00, $0b, $8c, $d0, $f4, $60, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d86:	db $79, $52, $08, $00, $0b, $a9, $e7, $9f, $01, $c0, $7e, $e8, $e8, $e8, $e8, $e0
-PalPacket_9d96:	db $79, $47, $08, $00, $0b, $c4, $d0, $16, $a5, $cb, $c9, $05, $d0, $10, $a2, $28
-PalPacket_9da6:	db $79, $3c, $08, $00, $0b, $f0, $12, $a5, $c9, $c9, $c8, $d0, $1c, $a5, $ca, $c9
-PalPacket_9db6:	db $79, $31, $08, $00, $0b, $0c, $a5, $ca, $c9, $7e, $d0, $06, $a5, $cb, $c9, $7e
-PalPacket_9dc6:	db $79, $26, $08, $00, $0b, $39, $cd, $48, $0c, $d0, $34, $a5, $c9, $c9, $80, $d0
-PalPacket_9dd6:	db $79, $1b, $08, $00, $0b, $ea, $ea, $ea, $ea, $ea, $a9, $01, $cd, $4f, $0c, $d0
-PalPacket_9de6:	db $79, $10, $08, $00, $0b, $4c, $20, $08, $ea, $ea, $ea, $ea, $ea, $60, $ea, $ea
-
-Palettes_9df6:
+PredefPals:
 	RGB 31, 31, 31
 	RGB 22, 25, 19
 	RGB 16, 21, 30
@@ -1281,7 +1265,7 @@ Palettes_9df6:
 	RGB 21, 21, 21
 	RGB 31, 31, 31
 
-Palettes_a8be:
+HPBarPals:
 	RGB 30, 26, 15
 	RGB 00, 23, 00
 
@@ -1291,163 +1275,46 @@ Palettes_a8be:
 	RGB 30, 26, 15
 	RGB 31, 00, 00
 
-Palettes_a8ca:
+ExpBarPalette:
 	RGB 30, 26, 15
 	RGB 04, 17, 31
 
-INCLUDE "gfx/pics/palette_pointers.asm"
+BattleObjectPals:
+	RGB 31, 31, 31
+	RGB 25, 25, 25
+	RGB 13, 13, 13
+	RGB 00, 00, 00
 
-INCLUDE "gfx/trainers/palette_pointers.asm"
+	RGB 31, 31, 31
+	RGB 31, 31, 07
+	RGB 31, 16, 01
+	RGB 00, 00, 00
 
-LoadMapPals:
-	farcall LoadSpecialMapPalette
-	jr c, .got_pals
+	RGB 31, 31, 31
+	RGB 31, 19, 24
+	RGB 30, 10, 06
+	RGB 00, 00, 00
 
-	; Which palette group is based on whether we're outside or inside
-	ld a, [wPermission]
-	and 7
-	ld e, a
-	ld d, 0
-	ld hl, .TilesetColorsPointers
-	add hl, de
-	add hl, de
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	; Futher refine by time of day
-	ld a, [TimeOfDayPal]
-	and 3
-	add a
-	add a
-	add a
-	ld e, a
-	ld d, 0
-	add hl, de
-	ld e, l
-	ld d, h
-	; Switch to palettes WRAM bank
-	ld a, [rSVBK]
-	push af
-	ld a, $5
-	ld [rSVBK], a
-	ld hl, UnknBGPals
-	ld b, 8
-.outer_loop
-	ld a, [de] ; lookup index for TilesetBGPalette
-	push de
-	push hl
-	ld l, a
-	ld h, 0
-	add hl, hl
-	add hl, hl
-	add hl, hl
-	ld de, TilesetBGPalette
-	add hl, de
-	ld e, l
-	ld d, h
-	pop hl
-	ld c, 1 palettes
-.inner_loop
-	ld a, [de]
-	inc de
-	ld [hli], a
-	dec c
-	jr nz, .inner_loop
-	pop de
-	inc de
-	dec b
-	jr nz, .outer_loop
-	pop af
-	ld [rSVBK], a
+	RGB 31, 31, 31
+	RGB 12, 25, 01
+	RGB 05, 14, 00
+	RGB 00, 00, 00
 
-.got_pals
-	ld a, [TimeOfDayPal]
-	and 3
-	ld bc, 8 palettes
-	ld hl, MapObjectPals
-	call AddNTimes
-	ld de, UnknOBPals
-	ld bc, 8 palettes
-	ld a, $5 ; BANK(UnknOBPals)
-	call FarCopyWRAM
+	RGB 31, 31, 31
+	RGB 08, 12, 31
+	RGB 01, 04, 31
+	RGB 00, 00, 00
 
-	ld a, [wPermission]
-	cp TOWN
-	jr z, .outside
-	cp ROUTE
-	ret nz
-.outside
-	ld a, [MapGroup]
-	ld l, a
-	ld h, 0
-	add hl, hl
-	add hl, hl
-	add hl, hl
-	ld de, RoofPals
-	add hl, de
-	ld a, [TimeOfDayPal]
-	and 3
-	cp NITE
-	jr c, .morn_day
-rept 4
-	inc hl
-endr
-.morn_day
-	ld de, UnknBGPals + 6 palettes + 2
-	ld bc, 4
-	ld a, $5
-	call FarCopyWRAM
-	ret
+	RGB 31, 31, 31
+	RGB 24, 18, 07
+	RGB 20, 15, 03
+	RGB 00, 00, 00
 
-.TilesetColorsPointers:
-	dw .OutdoorColors ; unused
-	dw .OutdoorColors ; TOWN
-	dw .OutdoorColors ; ROUTE
-	dw .IndoorColors ; INDOOR
-	dw .DungeonColors ; CAVE
-	dw .Perm5Colors ; PERM_5
-	dw .IndoorColors ; GATE
-	dw .DungeonColors ; DUNGEON
-
-; Valid indices: $00 - $29
-.OutdoorColors:
-	db $00, $01, $02, $28, $04, $05, $06, $07 ; morn
-	db $08, $09, $0a, $28, $0c, $0d, $0e, $0f ; day
-	db $10, $11, $12, $29, $14, $15, $16, $17 ; nite
-	db $18, $19, $1a, $1b, $1c, $1d, $1e, $1f ; dark
-
-.IndoorColors:
-	db $20, $21, $22, $23, $24, $25, $26, $07 ; morn
-	db $20, $21, $22, $23, $24, $25, $26, $07 ; day
-	db $10, $11, $12, $13, $14, $15, $16, $07 ; nite
-	db $18, $19, $1a, $1b, $1c, $1d, $1e, $07 ; dark
-
-.DungeonColors:
-	db $00, $01, $02, $03, $04, $05, $06, $07 ; morn
-	db $08, $09, $0a, $0b, $0c, $0d, $0e, $0f ; day
-	db $10, $11, $12, $13, $14, $15, $16, $17 ; nite
-	db $18, $19, $1a, $1b, $1c, $1d, $1e, $1f ; dark
-
-.Perm5Colors:
-	db $00, $01, $02, $03, $04, $05, $06, $07 ; morn
-	db $08, $09, $0a, $0b, $0c, $0d, $0e, $0f ; day
-	db $10, $11, $12, $13, $14, $15, $16, $17 ; nite
-	db $18, $19, $1a, $1b, $1c, $1d, $1e, $1f ; dark
-
-Palette_b311:
+PartyMenuBGPalette:
 	RGB 31, 31, 31
 	RGB 17, 19, 31
 	RGB 14, 16, 31
 	RGB 00, 00, 00
-
-TilesetBGPalette:
-INCLUDE "tilesets/bg.pal"
-
-MapObjectPals::
-INCLUDE "tilesets/ob.pal"
-
-RoofPals:
-INCLUDE "tilesets/roof.pal"
 
 DiplomaPalettes:
 	RGB 27, 31, 27
@@ -1490,7 +1357,7 @@ DiplomaPalettes:
 	RGB 07, 07, 12
 	RGB 00, 00, 00
 
-Palettes_b681:
+PartyMenuOBPals:
 	RGB 27, 31, 27
 	RGB 31, 19, 10
 	RGB 31, 07, 04
@@ -1561,43 +1428,6 @@ Palettes_b681:
 	RGB 20, 15, 03
 	RGB 07, 07, 07
 
-Palettes_b6f1:
-	RGB 31, 31, 31
-	RGB 18, 23, 31
-	RGB 15, 20, 31
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 22, 00, 31
-	RGB 15, 20, 31
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 31, 00, 00
-	RGB 15, 20, 31
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 25, 22, 00
-	RGB 15, 20, 31
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 23, 26, 31
-	RGB 18, 23, 31
-	RGB 00, 00, 00
-
-Palettes_b719:
-	RGB 31, 31, 31
-	RGB 07, 06, 03
-	RGB 07, 06, 03
-	RGB 07, 06, 03
-
-	RGB 31, 31, 31
-	RGB 31, 31, 00
-	RGB 26, 22, 00
-	RGB 00, 00, 00
-
 MalePokegearPals:
 	RGB 28, 31, 20
 	RGB 21, 21, 21
@@ -1662,28 +1492,7 @@ FemalePokegearPals:
 	RGB 15, 07, 00
 	RGB 31, 00, 00
 
-Palettes_b789:
-	RGB 31, 31, 31
-	RGB 30, 22, 24
-	RGB 18, 18, 18
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 10, 11, 31
-	RGB 18, 18, 18
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 12, 31, 11
-	RGB 18, 18, 18
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 29, 26, 05
-	RGB 18, 18, 18
-	RGB 00, 00, 00
-
-Palettes_b7a9:
+SlotMachinePals:
 	RGB 31, 31, 31
 	RGB 24, 25, 28
 	RGB 24, 24, 09

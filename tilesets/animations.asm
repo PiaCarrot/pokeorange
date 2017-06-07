@@ -42,7 +42,7 @@ Tileset03Anim: ; 0xfc01b
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
-	dw NULL,  TileAnimationPalette
+	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
 	dw NULL,  WaitTileAnimation
@@ -56,7 +56,7 @@ Tileset25Anim: ; 0xfc047
 	dw NULL,  WaitTileAnimation
 	dw VTiles2 tile $5f, AnimateFountain
 	dw NULL,  WaitTileAnimation
-	dw NULL,  TileAnimationPalette
+	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
 	dw NULL,  WaitTileAnimation
@@ -75,7 +75,7 @@ Tileset31Anim: ; 0xfc073
 	dw NULL,  ForestTreeRightAnimation2
 	dw NULL,  AnimateFlowerTile
 	dw VTiles2 tile $14, AnimateWaterTile
-	dw NULL,  TileAnimationPalette
+	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 ; 0xfc0a3
@@ -84,7 +84,7 @@ Tileset01Anim: ; 0xfc0a3
 	dw RSEWaterFrames1, AnimateRSEWaterTile
     dw RSEWaterFrames2, AnimateRSEWaterTile
 	dw NULL,  WaitTileAnimation
-	dw NULL,  TileAnimationPalette
+	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
 	dw WhirlpoolFrames1, AnimateWhirlpoolTile
@@ -130,7 +130,7 @@ Tileset09Anim: ; 0xfc12f
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
-	dw NULL,  TileAnimationPalette
+	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -190,7 +190,7 @@ Tileset30Anim: ; 0xfc1e7
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw VTiles2 tile $14, WriteTileFromBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
-	dw NULL,  TileAnimationPalette
+	dw NULL,  WaitTileAnimation
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw VTiles2 tile $40, WriteTileToBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
@@ -212,7 +212,7 @@ Tileset29Anim: ; 0xfc233
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw VTiles2 tile $35, WriteTileFromBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
-	dw NULL,  TileAnimationPalette
+	dw NULL,  WaitTileAnimation
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw VTiles2 tile $31, WriteTileToBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
@@ -540,7 +540,7 @@ AnimateRSEWaterTile:
     ld h, d
 
     jp WriteTile
-	
+
 RSEWaterFrames1: dw VTiles2 tile $14, RSEWaterTiles1
 RSEWaterFrames2: dw VTiles2 tile $59, RSEWaterTiles2
 
@@ -695,26 +695,8 @@ ForestTreeRightAnimation2: ; fc51c
 
 GetForestTreeFrame: ; fc54c
 ; Return 0 if a is even, or 2 if odd.
-	and a
-	jr z, .even
-	cp 1
-	jr z, .odd
-	cp 2
-	jr z, .even
-	cp 3
-	jr z, .odd
-	cp 4
-	jr z, .even
-	cp 5
-	jr z, .odd
-	cp 6
-	jr z, .even
-.odd
-	ld a, 2
-	scf
-	ret
-.even
-	xor a
+	and 1
+	sla a
 	ret
 ; fc56d
 
@@ -729,14 +711,8 @@ AnimateFlowerTile: ; fc56d
 
 ; Alternate tile graphic every other frame
 	ld a, [TileAnimationTimer]
-	and 1 << 1
-	ld e, a
-
-; CGB has different color mappings for flowers.
-	ld a, [hCGB]
-	and 1
-
-	add e
+	and %10
+	srl a
 	swap a ; << 4 (16 bytes)
 	ld e, a
 	ld d, 0
@@ -751,8 +727,6 @@ AnimateFlowerTile: ; fc56d
 
 FlowerTileFrames: ; fc58c
 	INCBIN "gfx/tilesets/flower/1.2bpp"
-	INCBIN "gfx/tilesets/flower/1.2bpp"
-	INCBIN "gfx/tilesets/flower/2.2bpp"
 	INCBIN "gfx/tilesets/flower/2.2bpp"
 ; fc5cc
 
@@ -966,69 +940,6 @@ endr
 	ld sp, hl
 	ret
 ; fc6d7
-
-
-TileAnimationPalette: ; fc6d7
-; Transition between color values 0-2 for color 0 in palette 3.
-
-; We don't want to mess with non-standard palettes.
-	ld a, [rBGP] ; BGP
-	cp %11100100
-	ret nz
-
-; Only update on even frames.
-	ld a, [TileAnimationTimer]
-	ld l, a
-	and 1 ; odd
-	ret nz
-
-; Ready for BGPD input...
-	ld a, %10011000 ; auto increment, index $18 (pal 3 color 0)
-	ld [rBGPI], a
-
-	ld a, [rSVBK]
-	push af
-	ld a, 5 ; wra5: gfx
-	ld [rSVBK], a
-
-; Update color 0 in order 0 1 2 1
-
-	ld a, l
-	and %110 ; frames 0 2 4 6
-
-	jr z, .color0
-
-	cp 4
-	jr z, .color2
-
-.color1
-	ld hl, UnknBGPals + $1a ; pal 3 color 1
-	ld a, [hli]
-	ld [rBGPD], a
-	ld a, [hli]
-	ld [rBGPD], a
-	jr .end
-
-.color0
-	ld hl, UnknBGPals + $18 ; pal 3 color 0
-	ld a, [hli]
-	ld [rBGPD], a
-	ld a, [hli]
-	ld [rBGPD], a
-	jr .end
-
-.color2
-	ld hl, UnknBGPals + $1c ; pal 3 color 2
-	ld a, [hli]
-	ld [rBGPD], a
-	ld a, [hli]
-	ld [rBGPD], a
-
-.end
-	pop af
-	ld [rSVBK], a
-	ret
-; fc71e
 
 
 FlickeringCaveEntrancePalette: ; fc71e
