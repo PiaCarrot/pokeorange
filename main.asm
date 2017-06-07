@@ -4565,10 +4565,6 @@ SECTION "Pic Animations 2", ROMX, BANK[$35]
 INCLUDE "gfx/pics/frame_pointers.asm"
 INCLUDE "gfx/pics/kanto_frames.asm"
 
-SECTION "bank36", ROMX, BANK[$36]
-
-FontInversed: INCBIN "gfx/misc/font_inversed.1bpp"
-
 SECTION "Pic Animations 3", ROMX, BANK[$36]
 
 INCLUDE "gfx/pics/johto_frames.asm"

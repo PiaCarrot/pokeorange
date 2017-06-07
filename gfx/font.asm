@@ -1,6 +1,3 @@
-FontExtra:
-INCBIN "gfx/misc/font_extra.2bpp"
-
 Font:
 INCBIN "gfx/misc/font.1bpp"
 
@@ -56,10 +53,6 @@ MapEntryFrameGFX: ; f9344
 INCBIN "gfx/frames/map_entry_sign.2bpp"
 ; f9424
 
-FontsExtra2_UpArrowGFX: ; f9424
-INCBIN "gfx/misc/up_arrow.2bpp"
-; f9434
-
 Footprints: ; f9434
 INCBIN "gfx/misc/footprints.1bpp"
 ; fb434
@@ -74,49 +67,17 @@ _LoadStandardFont:: ; fb449
 
 	ld de, Font
 	ld hl, VTiles1
-	lb bc, BANK(Font), $20
-	call Get1bpp_2
-	ld de, Font + $20 * LEN_1BPP_TILE
-	ld hl, VTiles1 tile $20
-	lb bc, BANK(Font), $20
-	call Get1bpp_2
-	ld de, Font + $40 * LEN_1BPP_TILE
-	ld hl, VTiles1 tile $40
-	lb bc, BANK(Font), $20
-	call Get1bpp_2
-	ld de, Font + $60 * LEN_1BPP_TILE
-	ld hl, VTiles1 tile $60
-	lb bc, BANK(Font), $20
+	lb bc, BANK(Font), $80
 	call Get1bpp_2
 	ret
 ; fb48a
-
-_LoadFontsExtra1:: ; fb48a
-	ld de, FontExtra + 3 * LEN_2BPP_TILE
-	ld hl, VTiles2 tile $63
-	lb bc, BANK(FontExtra), $16
-	call Get2bpp_2
-	jr LoadFrame
-; fb4b0
-
-_LoadFontsExtra2:: ; fb4b0
-	ld de, FontsExtra2_UpArrowGFX
-	ld hl, VTiles2 tile $61
-	ld b, BANK(FontsExtra2_UpArrowGFX)
-	ld c, 1
-	call Get2bpp_2
-	ret
-; fb4be
 
 _LoadFontsBattleExtra:: ; fb4be
 	ld de, FontBattleExtra
 	ld hl, VTiles2 tile $60
 	lb bc, BANK(FontBattleExtra), $19
 	call Get2bpp_2
-	jr LoadFrame
-; fb4cc
-
-LoadFrame: ; fb4cc
+LoadFrame:: ; fb4cc
 	ld a, [TextBoxFrame]
 	ld bc, TILES_PER_FRAME * LEN_1BPP_TILE
 	ld hl, Frames
