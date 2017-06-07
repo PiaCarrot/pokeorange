@@ -145,7 +145,7 @@ MandarinUndergroundButchScript:
 	waitbutton
 	closetext
 	disappear MANDARINUNDERGROUND_ROCKET1
-	disappear MANDARINUNDERGROUND_ROCKET2
+	setevent EVENT_ROCKET_BUTCH_MANDARIN_UNDERGROUND
 	special Special_FadeInQuickly
 	end
 
@@ -164,8 +164,8 @@ MandarinUndergroundCassidyScript:
 	writetext MandarinCassidyWonText
 	waitbutton
 	closetext
-	disappear MANDARINUNDERGROUND_ROCKET1
 	disappear MANDARINUNDERGROUND_ROCKET2
+	setevent EVENT_TEAM_ROCKET_IN_MANDARIN_UNDERGROUND
 	special Special_FadeInQuickly
 	end
 
@@ -302,7 +302,7 @@ MandarinUnderground_MapEventHeader:: db 0, 0
 	signpost 15, 26, SIGNPOST_READ, MandarinUndergroundStatue
 
 .ObjectEvents: db 4
-	person_event SPRITE_ROCKET, 18, 17, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MandarinUndergroundButchScript, EVENT_TEAM_ROCKET_IN_MANDARIN_UNDERGROUND
+	person_event SPRITE_ROCKET, 18, 17, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MandarinUndergroundButchScript, EVENT_ROCKET_BUTCH_MANDARIN_UNDERGROUND
 	person_event SPRITE_ROCKET_GIRL, 6, 25, SPRITEMOVEDATA_STANDING_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, MandarinUndergroundCassidyScript, EVENT_TEAM_ROCKET_IN_MANDARIN_UNDERGROUND
 	person_event SPRITE_OFFICER, 3, 1, SPRITEMOVEDATA_STANDING_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MandarinUndergroundOfficerScript, EVENT_TEAM_ROCKET_IN_MANDARIN_UNDERGROUND
 	person_event SPRITE_POKE_BALL, 6, 26, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MandarinUndergroundTMFrustration, EVENT_MANDARIN_UNDERGROUND_TM_FRUSTRATION
