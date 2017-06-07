@@ -4728,16 +4728,11 @@ INCLUDE "battle/move_names.asm"
 
 INCLUDE "engine/landmarks.asm"
 
-SECTION "bank77", ROMX, BANK[$77]
-
-UnownFont: ; 1dc000
-INCBIN "gfx/misc/unown_font.2bpp"
-
 SECTION "Tileset Data 7", ROMX, BANK[TILESETS_7]
 
 INCLUDE "tilesets/data_7.asm"
 
-SECTION "bank77_2", ROMX, BANK[$77]
+SECTION "bank77", ROMX, BANK[$77]
 
 PrintHoursMins ; 1dd6bb (77:56bb)
 ; Hours in b, minutes in c
