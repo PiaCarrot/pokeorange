@@ -347,7 +347,6 @@ Continue: ; 5d65
 	ld a, MUSIC_NONE / $100
 	ld [MusicFadeIDHi], a
 	call ClearBGPalettes
-	call ConfirmContinue
 	call CloseWindow
 	call ClearTileMap
 	ld c, 20
@@ -600,7 +599,7 @@ Continue_DisplayGameTime: ; 5f84
 	ld de, GameTimeHours
 	lb bc, 2, 3
 	call PrintNum
-	ld [hl], "<COLON>"
+	ld [hl], ":"
 	inc hl
 	ld de, GameTimeMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
@@ -620,7 +619,7 @@ OakSpeech: ; 0x5f99
 	call RotateThreePalettesRight
 	xor a
 	ld [CurPartySpecies], a
-	ld a, POKEMON_PROF
+	ld a, PROF_IVY
 	ld [TrainerClass], a
 	call Intro_PrepTrainerPic
 
@@ -658,7 +657,7 @@ OakSpeech: ; 0x5f99
 
 	xor a
 	ld [CurPartySpecies], a
-	ld a, POKEMON_PROF
+	ld a, PROF_IVY
 	ld [TrainerClass], a
 	call Intro_PrepTrainerPic
 

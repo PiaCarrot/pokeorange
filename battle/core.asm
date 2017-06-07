@@ -2586,32 +2586,31 @@ IsGymLeaderCommon:
 ; 0x3d137
 
 JohtoGymLeaders:
-	db FALKNER
-	db WHITNEY
-	db BUGSY
-	db MORTY
-	db PRYCE
-	db JASMINE
-	db CHUCK
-	db CLAIR
-	db WILL
-	db BRUNO
-	db KAREN
-	db KOGA
+	db CISSY
+	db DANNY
+	db RUDY
+	db LUANA
 ; fallthrough
-; these two entries are unused
-	db CHAMPION
+; these entries are unused
+	db DRAKE
 	db RED
+	db GREEN
+	db BLUE
+	db YELLOW
 ; fallthrough
 KantoGymLeaders:
 	db BROCK
 	db MISTY
 	db LT_SURGE
 	db ERIKA
-	db JANINE
+	db KOGA
 	db SABRINA
 	db BLAINE
-	db BLUE
+	db GIOVANNI
+	db LORELEI
+	db BRUNO
+	db AGATHA
+	db LANCE
 	db -1
 
 HandlePlayerMonFaint: ; 3d14e
@@ -3406,8 +3405,8 @@ LoadEnemyPkmnToSwitchTo: ; 3d6ca
 	and a
 	jr nz, .skip_unown
 	ld hl, EnemyMonDVs
-	predef GetUnownLetter
-	ld a, [UnownLetter]
+	predef GetSpindaPattern
+	ld a, [SpindaPattern]
 	ld [wFirstUnownSeen], a
 .skip_unown
 
@@ -3977,7 +3976,7 @@ SwitchPlayerMon: ; 3db32
 
 SendOutPlayerMon: ; 3db5f
 	ld hl, BattleMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	hlcoord 1, 5
 	ld b, 7
 	ld c, 8
@@ -7854,7 +7853,7 @@ DropPlayerSub: ; 3f447
 	ld a, [BattleMonSpecies]
 	ld [CurPartySpecies], a
 	ld hl, BattleMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	ld de, VTiles2 tile $31
 	predef GetBackpic
 	pop af
@@ -7893,7 +7892,7 @@ DropEnemySub: ; 3f486
 	ld [CurPartySpecies], a
 	call GetBaseData
 	ld hl, EnemyMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	ld de, VTiles2
 	predef FrontpicPredef
 	pop af
@@ -8021,13 +8020,6 @@ InitEnemyTrainer: ; 3f594
 	farcall GetTrainerAttributes
 	farcall ReadTrainerParty
 
-	ld a, [TrainerClass]
-	cp RIVAL1
-	jr nz, .ok
-	xor a
-	ld [OTPartyMon1Item], a
-.ok
-
 	ld de, VTiles2
 	farcall GetTrainerPic
 	xor a
@@ -8081,14 +8073,14 @@ InitEnemyWildmon: ; 3f607
 	ld bc, NUM_MOVES
 	call CopyBytes
 	ld hl, EnemyMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	ld a, [CurPartySpecies]
 	cp SPINDA
 	jr nz, .skip_unown
 	ld a, [wFirstUnownSeen]
 	and a
 	jr nz, .skip_unown
-	ld a, [UnownLetter]
+	ld a, [SpindaPattern]
 	ld [wFirstUnownSeen], a
 .skip_unown
 	ld de, VTiles2

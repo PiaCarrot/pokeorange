@@ -15,7 +15,7 @@ Route50_MapScriptHeader:
 	db 0
 
 TrainerYoungsterJoey:
-	trainer EVENT_BEAT_YOUNGSTER_JOEY, YOUNGSTER, 1, YoungsterJoey1SeenText, YoungsterJoey1BeatenText, 0, .Script
+	trainer EVENT_BEAT_YOUNGSTER_JOEY, YOUNGSTER, TOM, YoungsterJoey1SeenText, YoungsterJoey1BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -26,7 +26,7 @@ TrainerYoungsterJoey:
 	end
 
 TrainerYoungsterMikey:
-	trainer EVENT_BEAT_YOUNGSTER_MIKEY, YOUNGSTER, 2, YoungsterMikeySeenText, YoungsterMikeyBeatenText, 0, .Script
+	trainer EVENT_BEAT_YOUNGSTER_MIKEY, YOUNGSTER, SAWYER, YoungsterMikeySeenText, YoungsterMikeyBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -37,7 +37,7 @@ TrainerYoungsterMikey:
 	end
 
 TrainerBug_catcherDon:
-	trainer EVENT_BEAT_BUG_CATCHER_DON, BUG_CATCHER, 1, Bug_catcherDonSeenText, Bug_catcherDonBeatenText, 0, .Script
+	trainer EVENT_BEAT_BUG_CATCHER_DON, BUG_CATCHER, EUGENE, Bug_catcherDonSeenText, Bug_catcherDonBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled

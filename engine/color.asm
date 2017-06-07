@@ -1,5 +1,4 @@
-PALPACKET_LENGTH EQU $10
-INCLUDE "predef/sgb.asm"
+INCLUDE "predef/cgb.asm"
 
 SHINY_ATK_BIT EQU 5
 SHINY_DEF_VAL EQU 10
@@ -221,77 +220,13 @@ endr
 	ret
 
 InitPartyMenuPalettes:
-	ld hl, PalPacket_9c56 + 1
+	ld hl, PalPacket_PartyMenu
 	call CopyFourPalettes
 	call InitPartyMenuOBPals
 	call WipeAttrMap
 	ret
 
-SGB_ApplyPartyMenuHPPals: ; 8ade SGB layout $fc
-	ld hl, wHPPals
-	ld a, [wSGBPals]
-	ld e, a
-	ld d, $0
-	add hl, de
-	ld e, l
-	ld d, h
-	ld a, [de]
-	and a
-	ld e, $5
-	jr z, .okay
-	dec a
-	ld e, $a
-	jr z, .okay
-	ld e, $f
-.okay
-	push de
-	ld hl, wSGBPals + 10
-	ld bc, $6
-	ld a, [wSGBPals]
-	call AddNTimes
-	pop de
-	ld [hl], e
-	ret
-
-LoadTrainerClassPaletteAsNthBGPal:
-	ld a, [TrainerClass]
-	call GetTrainerPalettePointer
-	ld a, e
-	jr got_palette_pointer_8bd7
-
-LoadMonPaletteAsNthBGPal:
-	ld a, [CurPartySpecies]
-	call GetMonPalettePointer
-	ld a, e
-	bit 7, a
-	jr z, got_palette_pointer_8bd7
-	and $7f
-	inc hl
-	inc hl
-	inc hl
-	inc hl
-
-got_palette_pointer_8bd7
-	push hl
-	ld hl, UnknBGPals
-	ld de, 1 palettes
-.loop
-	and a
-	jr z, .got_addr
-	add hl, de
-	dec a
-	jr .loop
-
-.got_addr
-	ld e, l
-	ld d, h
-	pop hl
-	call LoadPalette_White_Col1_Col2_Black
-	ret
-
 ApplyMonOrTrainerPals:
-	call CheckCGB
-	ret z
 	ld a, e
 	and a
 	jr z, .get_trainer
@@ -333,7 +268,7 @@ ApplyHPBarPals:
 	ld h, $0
 	add hl, hl
 	add hl, hl
-	ld bc, Palettes_a8be
+	ld bc, HPBarPals
 	add hl, bc
 	ld bc, 4
 	ld a, $5
@@ -362,8 +297,6 @@ ApplyHPBarPals:
 	ret
 
 LoadStatsScreenPals:
-	call CheckCGB
-	ret z
 	ld hl, StatsScreenPals
 	ld b, 0
 	dec c
@@ -393,31 +326,6 @@ LoadMailPalettes:
 	add hl, hl
 	ld de, .MailPals
 	add hl, de
-	call CheckCGB
-	jr nz, .cgb
-	push hl
-	ld hl, PalPacket_9ce6
-	ld de, wSGBPals
-	ld bc, PALPACKET_LENGTH
-	call CopyBytes
-	pop hl
-	inc hl
-	inc hl
-	ld a, [hli]
-	ld [wSGBPals + 3], a
-	ld a, [hli]
-	ld [wSGBPals + 4], a
-	ld a, [hli]
-	ld [wSGBPals + 5], a
-	ld a, [hli]
-	ld [wSGBPals + 6], a
-	ld hl, wSGBPals
-	call PushSGBPals_
-	ld hl, BlkPacket_9a86
-	call PushSGBPals_
-	ret
-
-.cgb
 	ld de, UnknBGPals
 	ld bc, 1 palettes
 	ld a, $5
@@ -478,8 +386,6 @@ LoadMailPalettes:
 	RGB 00, 21, 00
 	RGB 00, 00, 00
 
-INCLUDE "predef/cgb.asm"
-
 CopyFourPalettes:
 	ld de, UnknBGPals
 	ld c, $4
@@ -504,7 +410,7 @@ GetPredefPal:
 	add hl, hl
 	add hl, hl
 	add hl, hl
-	ld bc, Palettes_9df6
+	ld bc, PredefPals
 	add hl, bc
 	ret
 
@@ -691,7 +597,7 @@ CGB_ApplyPartyMenuHPPals: ; 96f3 CGB layout $fc
 	ret
 
 InitPartyMenuOBPals:
-	ld hl, Palettes_b681
+	ld hl, PartyMenuOBPals
 	ld de, UnknOBPals
 	ld bc, 2 palettes
 	ld a, $5
@@ -732,123 +638,7 @@ GetMonPalettePointer_:
 	call GetMonPalettePointer
 	ret
 
-Palettes_979c:
-	RGB 31, 31, 31
-	RGB 25, 25, 25
-	RGB 13, 13, 13
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 31, 31, 07
-	RGB 31, 16, 01
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 31, 19, 24
-	RGB 30, 10, 06
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 12, 25, 01
-	RGB 05, 14, 00
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 08, 12, 31
-	RGB 01, 04, 31
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 24, 18, 07
-	RGB 20, 15, 03
-	RGB 00, 00, 00
-
-PushSGBPals_:
-	ld a, [wcfbe]
-	push af
-	set 7, a
-	ld [wcfbe], a
-	call PushSGBPals
-	pop af
-	ld [wcfbe], a
-	ret
-
-PushSGBPals:
-	ld a, [hl]
-	and $7
-	ret z
-	ld b, a
-.loop
-	push bc
-	xor a
-	ld [rJOYP], a
-	ld a, $30
-	ld [rJOYP], a
-	ld b, $10
-.loop2
-	ld e, $8
-	ld a, [hli]
-	ld d, a
-.loop3
-	bit 0, d
-	ld a, $10
-	jr nz, .okay
-	ld a, $20
-.okay
-	ld [rJOYP], a
-	ld a, $30
-	ld [rJOYP], a
-	rr d
-	dec e
-	jr nz, .loop3
-	dec b
-	jr nz, .loop2
-	ld a, $20
-	ld [rJOYP], a
-	ld a, $30
-	ld [rJOYP], a
-	call SGBDelayCycles
-	pop bc
-	dec b
-	jr nz, .loop
-	ret
-
-InitSGBBorder:
-	call CheckCGB
-	ret nz
-; SGB/DMG only
-	di
-	ld a, [wcfbe]
-	push af
-	set 7, a
-	ld [wcfbe], a
-	xor a
-	ld [rJOYP], a
-	ld [hSGB], a
-	call PushSGBBorderPalsAndWait
-	jr nc, .skip
-	ld a, $1
-	ld [hSGB], a
-	call _InitSGBBorderPals
-	call SGBBorder_PushBGPals
-	call SGBDelayCycles
-	call SGB_ClearVRAM
-	call PushSGBBorder
-	call SGBDelayCycles
-	call SGB_ClearVRAM
-	ld hl, PalPacket_9d66
-	call PushSGBPals
-
-.skip
-	pop af
-	ld [wcfbe], a
-	ei
-	ret
-
 InitCGBPals::
-	call CheckCGB
-	ret z
-; CGB only
 	ld a, $1
 	ld [rVBK], a
 	ld hl, VTiles0
@@ -900,179 +690,6 @@ InitCGBPals::
 	jr nz, .loop
 	ret
 
-_InitSGBBorderPals:
-	ld hl, .PalPacketPointerTable
-	ld c, 9
-.loop
-	push bc
-	ld a, [hli]
-	push hl
-	ld h, [hl]
-	ld l, a
-	call PushSGBPals
-	pop hl
-	inc hl
-	pop bc
-	dec c
-	jr nz, .loop
-	ret
-
-.PalPacketPointerTable:
-	dw PalPacket_9d56
-	dw PalPacket_9d76
-	dw PalPacket_9d86
-	dw PalPacket_9d96
-	dw PalPacket_9da6
-	dw PalPacket_9db6
-	dw PalPacket_9dc6
-	dw PalPacket_9dd6
-	dw PalPacket_9de6
-
-PushSGBBorder:
-	call .LoadSGBBorderPointers
-	push de
-	call SGBBorder_YetMorePalPushing
-	pop hl
-	call SGBBorder_MorePalPushing
-	ret
-
-.LoadSGBBorderPointers:
-	ld hl, SGBBorder
-	ld de, SGBBorderMap
-	ret
-
-SGB_ClearVRAM:
-	ld hl, VTiles0
-	ld bc, $2000
-	xor a
-	call ByteFill
-	ret
-
-PushSGBBorderPalsAndWait:
-	ld hl, PalPacket_9d26
-	call PushSGBPals
-	call SGBDelayCycles
-	ld a, [rJOYP]
-	and $3
-	cp $3
-	jr nz, .carry
-	ld a, $20
-	ld [rJOYP], a
-	ld a, [rJOYP]
-	ld a, [rJOYP]
-	call SGBDelayCycles
-	call SGBDelayCycles
-	ld a, $30
-	ld [rJOYP], a
-	call SGBDelayCycles
-	call SGBDelayCycles
-	ld a, $10
-	ld [rJOYP], a
-rept 6
-	ld a, [rJOYP]
-endr
-	call SGBDelayCycles
-	call SGBDelayCycles
-	ld a, $30
-	ld [rJOYP], a
-	ld a, [rJOYP]
-	ld a, [rJOYP]
-	ld a, [rJOYP]
-	call SGBDelayCycles
-	call SGBDelayCycles
-	ld a, [rJOYP]
-	and $3
-	cp $3
-	jr nz, .carry
-	call .FinalPush
-	and a
-	ret
-
-.carry
-	call .FinalPush
-	scf
-	ret
-
-.FinalPush:
-	ld hl, PalPacket_9d16
-	call PushSGBPals
-	jp SGBDelayCycles
-
-SGBBorder_PushBGPals:
-	call DisableLCD
-	ld a, %11100100
-	ld [rBGP], a
-	ld hl, Palettes_9df6
-	ld de, VTiles1
-	ld bc, $1000
-	call CopyData
-	call DrawDefaultTiles
-	ld a, $e3
-	ld [rLCDC], a
-	ld hl, PalPacket_9d06
-	call PushSGBPals
-	xor a
-	ld [rBGP], a
-	ret
-
-SGBBorder_MorePalPushing:
-	call DisableLCD
-	ld a, $e4
-	ld [rBGP], a
-	ld de, VTiles1
-	ld bc, 20 tiles
-	call CopyData
-	ld b, 18
-.loop
-	push bc
-	ld bc, $c
-	call CopyData
-	ld bc, $28
-	call ClearBytes
-	ld bc, $c
-	call CopyData
-	pop bc
-	dec b
-	jr nz, .loop
-	ld bc, $140
-	call CopyData
-	ld bc, Start
-	call ClearBytes
-	ld bc, 16 palettes
-	call CopyData
-	call DrawDefaultTiles
-	ld a, $e3
-	ld [rLCDC], a
-	ld hl, PalPacket_9d46
-	call PushSGBPals
-	xor a
-	ld [rBGP], a
-	ret
-
-SGBBorder_YetMorePalPushing:
-	call DisableLCD
-	ld a, %11100100
-	ld [rBGP], a
-	ld de, VTiles1
-	ld b, $80
-.loop
-	push bc
-	ld bc, 1 tiles
-	call CopyData
-	ld bc, 1 tiles
-	call ClearBytes
-	pop bc
-	dec b
-	jr nz, .loop
-	call DrawDefaultTiles
-	ld a, $e3
-	ld [rLCDC], a
-	ld hl, PalPacket_9d36
-	call PushSGBPals
-	xor a
-	ld [rBGP], a
-	ret
-
 CopyData: ; 0x9a52
 ; copy bc bytes of data from hl to de
 .loop
@@ -1099,119 +716,160 @@ ClearBytes: ; 0x9a5b
 	ret
 ; 0x9a64
 
-DrawDefaultTiles: ; 0x9a64
-; Draw 240 tiles (2/3 of the screen) from tiles in VRAM
-	hlbgcoord 0, 0 ; BG Map 0
-	ld de, BG_MAP_WIDTH - SCREEN_WIDTH
-	ld a, $80 ; starting tile
-	ld c, 12 + 1
-.line
-	ld b, 20
-.tile
-	ld [hli], a
-	inc a
-	dec b
-	jr nz, .tile
-; next line
+INCLUDE "gfx/pics/palette_pointers.asm"
+
+INCLUDE "gfx/trainers/palette_pointers.asm"
+
+LoadMapPals:
+	farcall LoadSpecialMapPalette
+	jr c, .got_pals
+
+	; Which palette group is based on whether we're outside or inside
+	ld a, [wPermission]
+	and 7
+	ld e, a
+	ld d, 0
+	ld hl, .TilesetColorsPointers
 	add hl, de
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	; Futher refine by time of day
+	ld a, [TimeOfDayPal]
+	and 3
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld e, l
+	ld d, h
+	; Switch to palettes WRAM bank
+	ld a, [rSVBK]
+	push af
+	ld a, $5
+	ld [rSVBK], a
+	ld hl, UnknBGPals
+	ld b, 8
+.outer_loop
+	ld a, [de] ; lookup index for TilesetBGPalette
+	push de
+	push hl
+	ld l, a
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	ld de, TilesetBGPalette
+	add hl, de
+	ld e, l
+	ld d, h
+	pop hl
+	ld c, 1 palettes
+.inner_loop
+	ld a, [de]
+	inc de
+	ld [hli], a
 	dec c
-	jr nz, .line
+	jr nz, .inner_loop
+	pop de
+	inc de
+	dec b
+	jr nz, .outer_loop
+	pop af
+	ld [rSVBK], a
+
+.got_pals
+	ld a, [TimeOfDayPal]
+	and 3
+	ld bc, 8 palettes
+	ld hl, MapObjectPals
+	call AddNTimes
+	ld de, UnknOBPals
+	ld bc, 8 palettes
+	ld a, $5 ; BANK(UnknOBPals)
+	call FarCopyWRAM
+
+	ld a, [wPermission]
+	cp TOWN
+	jr z, .outside
+	cp ROUTE
+	ret nz
+.outside
+	ld a, [MapGroup]
+	ld l, a
+	ld h, 0
+	add hl, hl
+	add hl, hl
+	add hl, hl
+	ld de, RoofPals
+	add hl, de
+	ld a, [TimeOfDayPal]
+	and 3
+	cp NITE
+	jr c, .morn_day
+rept 4
+	inc hl
+endr
+.morn_day
+	ld de, UnknBGPals + 6 palettes + 2
+	ld bc, 4
+	ld a, $5
+	call FarCopyWRAM
 	ret
-; 0x9a7a
 
-SGBDelayCycles:
-	ld de, 7000
-.wait
-	nop
-	nop
-	nop
-	dec de
-	ld a, d
-	or e
-	jr nz, .wait
-	ret
+.TilesetColorsPointers:
+	dw .OutdoorColors ; unused
+	dw .OutdoorColors ; TOWN
+	dw .OutdoorColors ; ROUTE
+	dw .IndoorColors ; INDOOR
+	dw .DungeonColors ; CAVE
+	dw .Perm5Colors ; PERM_5
+	dw .IndoorColors ; GATE
+	dw .DungeonColors ; DUNGEON
 
-BlkPacket_9a86:
-	db $21, $01, $03, $00, $00, $00, $13, $11, $00, $00, $00, $00, $00, $00, $00, $00
+; Valid indices: $00 - $29
+.OutdoorColors:
+	db $00, $01, $02, $28, $04, $05, $06, $07 ; morn
+	db $08, $09, $0a, $28, $0c, $0d, $0e, $0f ; day
+	db $10, $11, $12, $29, $14, $15, $16, $17 ; nite
+	db $18, $19, $1a, $1b, $1c, $1d, $1e, $1f ; dark
 
-BlkPacket_9a96:
-	db $21, $01, $07, $05, $00, $0a, $13, $0d, $00, $00, $00, $00, $00, $00, $00, $00
+.IndoorColors:
+	db $20, $21, $22, $23, $24, $25, $26, $07 ; morn
+	db $20, $21, $22, $23, $24, $25, $26, $07 ; day
+	db $10, $11, $12, $13, $14, $15, $16, $07 ; nite
+	db $18, $19, $1a, $1b, $1c, $1d, $1e, $07 ; dark
 
-BlkPacket_9aa6:
-	db $22, $05, $07, $0a, $00, $0c, $13, $11, $03, $05, $01, $00, $0a, $03, $03, $00
-	db $0a, $08, $13, $0a, $03, $0a, $00, $04, $08, $0b, $03, $0f, $0b, $00, $13, $07
+.DungeonColors:
+	db $00, $01, $02, $03, $04, $05, $06, $07 ; morn
+	db $08, $09, $0a, $0b, $0c, $0d, $0e, $0f ; day
+	db $10, $11, $12, $13, $14, $15, $16, $17 ; nite
+	db $18, $19, $1a, $1b, $1c, $1d, $1e, $1f ; dark
 
-BlkPacket_9ac6:
-	db $21, $01, $07, $05, $00, $01, $07, $07, $00, $00, $00, $00, $00, $00, $00, $00
+.Perm5Colors:
+	db $00, $01, $02, $03, $04, $05, $06, $07 ; morn
+	db $08, $09, $0a, $0b, $0c, $0d, $0e, $0f ; day
+	db $10, $11, $12, $13, $14, $15, $16, $17 ; nite
+	db $18, $19, $1a, $1b, $1c, $1d, $1e, $1f ; dark
 
-BlkPacket_9ad6:
-	db $21, $01, $07, $05, $0b, $01, $13, $02, $00, $00, $00, $00, $00, $00, $00, $00
+TilesetBGPalette:
+INCLUDE "tilesets/bg.pal"
 
-BlkPacket_9ae6:
-	db $21, $01, $07, $05, $01, $01, $08, $08, $00, $00, $00, $00, $00, $00, $00, $00
+MapObjectPals::
+INCLUDE "tilesets/ob.pal"
 
-BlkPacket_9af6:
-	db $21, $01, $07, $05, $07, $05, $0d, $0b, $00, $00, $00, $00, $00, $00, $00, $00
+RoofPals:
+INCLUDE "tilesets/roof.pal"
 
-BlkPacket_9b06:
-	db $22, $05, $03, $05, $00, $00, $13, $0b, $03, $0a, $00, $04, $13, $09, $02, $0f
-	db $00, $06, $13, $07, $03, $00, $04, $04, $0f, $09, $03, $00, $00, $0c, $13, $11
+PalPacket_PartyMenu: db $2e, $00, $2f, $00, $30, $00, $31, $00, $00, $00, $00, $00, $00, $00, $00
+PalPacket_Grayscale: db $1a, $00, $1a, $00, $1a, $00, $1a, $00, $00, $00, $00, $00, $00, $00, $00
+PalPacket_Diploma:   db $1b, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
+PalPacket_TradeTube: db $1c, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
 
-BlkPacket_9b26:
-	db $23, $07, $07, $10, $00, $00, $02, $0c, $02, $00, $0c, $00, $12, $01, $02, $00
-	db $0c, $02, $12, $03, $02, $00, $0c, $04, $12, $05, $02, $00, $0c, $06, $12, $07
-	db $02, $00, $0c, $08, $12, $09, $02, $00, $0c, $0a, $12, $0b, $00, $00, $00, $00
-
-BlkPacket_9b56:
-	db $22, $03, $07, $20, $00, $00, $13, $04, $03, $0f, $00, $06, $13, $11, $03, $05
-	db $0f, $01, $12, $04, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-
-BlkPacket_9b76:
-	db $21, $01, $07, $10, $00, $00, $13, $05, $00, $00, $00, $00, $00, $00, $00, $00
-
-BlkPacket_9b86:
-	db $21, $02, $07, $0a, $00, $04, $13, $0d, $03, $05, $00, $06, $13, $0b, $00, $00
-
-PalPacket_9b96:	db $51, $48, $00, $49, $00, $4a, $00, $4b, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9ba6:	db $51, $2b, $00, $24, $00, $20, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9bb6:	db $51, $41, $00, $42, $00, $43, $00, $44, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9bc6:	db $51, $4c, $00, $4c, $00, $4c, $00, $4c, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9bd6:	db $51, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9be6:	db $51, $36, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9bf6:	db $51, $37, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c06:	db $51, $38, $00, $39, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c16:	db $51, $3a, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c26:	db $51, $3b, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c36:	db $51, $3c, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c46:	db $51, $39, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c56:	db $51, $2e, $00, $2f, $00, $30, $00, $31, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c66:	db $51, $1a, $00, $1a, $00, $1a, $00, $1a, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c76:	db $51, $32, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c86:	db $51, $3c, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9c96:	db $51, $3d, $00, $3e, $00, $3f, $00, $40, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9ca6:	db $51, $33, $00, $34, $00, $1b, $00, $1f, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9cb6:	db $51, $1b, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9cc6:	db $51, $1c, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9cd6:	db $51, $35, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9ce6:	db $01, $ff, $7f, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9cf6:	db $09, $ff, $7f, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d06:	db $59, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d16:	db $89, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d26:	db $89, $01, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d36:	db $99, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d46:	db $a1, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d56:	db $b9, $01, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d66:	db $b9, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d76:	db $79, $5d, $08, $00, $0b, $8c, $d0, $f4, $60, $00, $00, $00, $00, $00, $00, $00
-PalPacket_9d86:	db $79, $52, $08, $00, $0b, $a9, $e7, $9f, $01, $c0, $7e, $e8, $e8, $e8, $e8, $e0
-PalPacket_9d96:	db $79, $47, $08, $00, $0b, $c4, $d0, $16, $a5, $cb, $c9, $05, $d0, $10, $a2, $28
-PalPacket_9da6:	db $79, $3c, $08, $00, $0b, $f0, $12, $a5, $c9, $c9, $c8, $d0, $1c, $a5, $ca, $c9
-PalPacket_9db6:	db $79, $31, $08, $00, $0b, $0c, $a5, $ca, $c9, $7e, $d0, $06, $a5, $cb, $c9, $7e
-PalPacket_9dc6:	db $79, $26, $08, $00, $0b, $39, $cd, $48, $0c, $d0, $34, $a5, $c9, $c9, $80, $d0
-PalPacket_9dd6:	db $79, $1b, $08, $00, $0b, $ea, $ea, $ea, $ea, $ea, $a9, $01, $cd, $4f, $0c, $d0
-PalPacket_9de6:	db $79, $10, $08, $00, $0b, $4c, $20, $08, $ea, $ea, $ea, $ea, $ea, $60, $ea, $ea
-
-Palettes_9df6:
+PredefPals:
 	RGB 31, 31, 31
 	RGB 22, 25, 19
 	RGB 16, 21, 30
@@ -1607,121 +1265,7 @@ Palettes_9df6:
 	RGB 21, 21, 21
 	RGB 31, 31, 31
 
-SGBBorderMap:
-	db $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $14, $14, $15, $14, $16, $14, $17, $14, $17, $54, $16, $54, $15, $54, $14, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14
-	db $01, $14, $02, $14, $03, $14, $03, $54, $02, $54, $01, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $24, $14, $25, $14, $26, $14, $07, $14, $07, $54, $26, $54, $25, $54, $24, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $54, $01, $14, $02, $14, $03, $14, $03, $54, $02, $54, $01, $54
-	db $11, $14, $12, $14, $13, $14, $13, $54, $12, $54, $11, $54, $10, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $24, $14, $34, $14, $35, $14, $35, $54, $34, $54, $33, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $10, $14, $11, $14, $12, $14, $13, $14, $13, $54, $12, $54, $11, $54
-	db $21, $14, $22, $14, $23, $14, $23, $54, $22, $54, $21, $54, $20, $54, $07, $14, $08, $14, $09, $14, $0a, $14, $0b, $14, $0c, $14, $0d, $14, $07, $14, $07, $14, $18, $14, $09, $14, $1a, $14, $1b, $14, $0d, $14, $0c, $14, $1c, $14, $29, $14, $07, $14, $20, $14, $21, $14, $22, $14, $23, $14, $23, $54, $22, $54, $21, $54
-	db $31, $14, $32, $14, $07, $14, $07, $14, $32, $54, $36, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $27, $10, $32, $14, $07, $54, $07, $54, $32, $54, $31, $54
-	db $05, $14, $06, $14, $07, $14, $07, $54, $06, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $06, $14, $07, $14, $07, $54, $06, $54, $05, $54
-	db $15, $14, $16, $14, $17, $14, $17, $54, $16, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $16, $14, $17, $14, $17, $54, $16, $54, $15, $54
-	db $25, $14, $26, $14, $07, $14, $07, $54, $26, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $26, $14, $07, $14, $07, $54, $26, $54, $25, $54
-	db $33, $14, $34, $14, $35, $14, $35, $54, $34, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $34, $14, $35, $14, $35, $54, $34, $54, $33, $54
-	db $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14
-	db $02, $54, $01, $54, $07, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $07, $14, $01, $14, $02, $14
-	db $12, $54, $11, $54, $10, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $10, $14, $11, $14, $12, $14
-	db $22, $54, $21, $54, $20, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $20, $14, $21, $14, $22, $14
-	db $32, $54, $31, $54, $30, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $30, $14, $31, $14, $32, $14
-	db $06, $54, $05, $54, $04, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $04, $14, $05, $14, $06, $14
-	db $16, $54, $15, $54, $14, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $14, $14, $15, $14, $16, $14
-	db $26, $54, $25, $54, $24, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $24, $14, $25, $14, $26, $14
-	db $34, $54, $33, $54, $07, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $07, $14, $33, $14, $34, $14
-	db $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14
-	db $01, $14, $02, $14, $03, $14, $03, $54, $02, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $02, $14, $03, $14, $03, $54, $02, $54, $01, $54
-	db $11, $14, $12, $14, $13, $14, $13, $54, $12, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $12, $14, $13, $14, $13, $54, $12, $54, $11, $54
-	db $21, $14, $22, $14, $23, $14, $23, $54, $22, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $22, $14, $23, $14, $23, $54, $22, $54, $21, $54
-	db $31, $14, $32, $14, $07, $14, $07, $14, $32, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $32, $14, $07, $54, $07, $54, $32, $54, $31, $54
-	db $05, $14, $06, $14, $07, $14, $07, $54, $06, $54, $2e, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2d, $10, $06, $14, $07, $14, $07, $54, $06, $54, $05, $54
-	db $15, $14, $16, $14, $17, $14, $17, $54, $16, $54, $15, $54, $14, $54, $07, $14, $07, $14, $39, $14, $0e, $14, $09, $14, $0f, $14, $28, $14, $07, $14, $19, $14, $0c, $14, $1c, $14, $29, $14, $2a, $14, $2b, $14, $2c, $14, $39, $14, $07, $14, $07, $14, $14, $14, $15, $14, $16, $14, $17, $14, $17, $54, $16, $54, $15, $54
-	db $25, $14, $26, $14, $07, $14, $07, $54, $26, $54, $25, $54, $24, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $01, $14, $02, $14, $03, $14, $03, $54, $02, $54, $01, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $24, $14, $25, $14, $26, $14, $07, $14, $07, $54, $26, $54, $25, $54
-	db $33, $14, $34, $14, $35, $14, $35, $54, $34, $54, $24, $54, $07, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $10, $14, $11, $14, $12, $14, $13, $14, $13, $54, $12, $54, $11, $54, $10, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $24, $14, $34, $14, $35, $14, $35, $54, $34, $54, $33, $54
-	db $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $20, $14, $21, $14, $22, $14, $23, $14, $23, $54, $22, $54, $21, $54, $20, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14
-
-SGBBorderPalettes:
-	RGB 24, 06, 06
-	RGB 24, 24, 26
-	RGB 14, 15, 20
-	RGB 04, 07, 10
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 18, 24, 18
-	RGB 31, 26, 15
-	RGB 26, 19, 10
-	RGB 12, 07, 05
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 18, 06, 31
-	RGB 31, 31, 29
-	RGB 31, 12, 00
-	RGB 00, 00, 00
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 12, 31, 06
-	RGB 22, 26, 30
-	RGB 16, 17, 21
-	RGB 00, 03, 00
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-SGBBorder:
-INCBIN "gfx/misc/sgb_border.2bpp"
-
-Palettes_a8be:
+HPBarPals:
 	RGB 30, 26, 15
 	RGB 00, 23, 00
 
@@ -1731,163 +1275,46 @@ Palettes_a8be:
 	RGB 30, 26, 15
 	RGB 31, 00, 00
 
-Palettes_a8ca:
+ExpBarPalette:
 	RGB 30, 26, 15
 	RGB 04, 17, 31
 
-INCLUDE "gfx/pics/palette_pointers.asm"
+BattleObjectPals:
+	RGB 31, 31, 31
+	RGB 25, 25, 25
+	RGB 13, 13, 13
+	RGB 00, 00, 00
 
-INCLUDE "gfx/trainers/palette_pointers.asm"
+	RGB 31, 31, 31
+	RGB 31, 31, 07
+	RGB 31, 16, 01
+	RGB 00, 00, 00
 
-LoadMapPals:
-	farcall LoadSpecialMapPalette
-	jr c, .got_pals
+	RGB 31, 31, 31
+	RGB 31, 19, 24
+	RGB 30, 10, 06
+	RGB 00, 00, 00
 
-	; Which palette group is based on whether we're outside or inside
-	ld a, [wPermission]
-	and 7
-	ld e, a
-	ld d, 0
-	ld hl, .TilesetColorsPointers
-	add hl, de
-	add hl, de
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	; Futher refine by time of day
-	ld a, [TimeOfDayPal]
-	and 3
-	add a
-	add a
-	add a
-	ld e, a
-	ld d, 0
-	add hl, de
-	ld e, l
-	ld d, h
-	; Switch to palettes WRAM bank
-	ld a, [rSVBK]
-	push af
-	ld a, $5
-	ld [rSVBK], a
-	ld hl, UnknBGPals
-	ld b, 8
-.outer_loop
-	ld a, [de] ; lookup index for TilesetBGPalette
-	push de
-	push hl
-	ld l, a
-	ld h, 0
-	add hl, hl
-	add hl, hl
-	add hl, hl
-	ld de, TilesetBGPalette
-	add hl, de
-	ld e, l
-	ld d, h
-	pop hl
-	ld c, 1 palettes
-.inner_loop
-	ld a, [de]
-	inc de
-	ld [hli], a
-	dec c
-	jr nz, .inner_loop
-	pop de
-	inc de
-	dec b
-	jr nz, .outer_loop
-	pop af
-	ld [rSVBK], a
+	RGB 31, 31, 31
+	RGB 12, 25, 01
+	RGB 05, 14, 00
+	RGB 00, 00, 00
 
-.got_pals
-	ld a, [TimeOfDayPal]
-	and 3
-	ld bc, 8 palettes
-	ld hl, MapObjectPals
-	call AddNTimes
-	ld de, UnknOBPals
-	ld bc, 8 palettes
-	ld a, $5 ; BANK(UnknOBPals)
-	call FarCopyWRAM
+	RGB 31, 31, 31
+	RGB 08, 12, 31
+	RGB 01, 04, 31
+	RGB 00, 00, 00
 
-	ld a, [wPermission]
-	cp TOWN
-	jr z, .outside
-	cp ROUTE
-	ret nz
-.outside
-	ld a, [MapGroup]
-	ld l, a
-	ld h, 0
-	add hl, hl
-	add hl, hl
-	add hl, hl
-	ld de, RoofPals
-	add hl, de
-	ld a, [TimeOfDayPal]
-	and 3
-	cp NITE
-	jr c, .morn_day
-rept 4
-	inc hl
-endr
-.morn_day
-	ld de, UnknBGPals + 6 palettes + 2
-	ld bc, 4
-	ld a, $5
-	call FarCopyWRAM
-	ret
+	RGB 31, 31, 31
+	RGB 24, 18, 07
+	RGB 20, 15, 03
+	RGB 00, 00, 00
 
-.TilesetColorsPointers:
-	dw .OutdoorColors ; unused
-	dw .OutdoorColors ; TOWN
-	dw .OutdoorColors ; ROUTE
-	dw .IndoorColors ; INDOOR
-	dw .DungeonColors ; CAVE
-	dw .Perm5Colors ; PERM_5
-	dw .IndoorColors ; GATE
-	dw .DungeonColors ; DUNGEON
-
-; Valid indices: $00 - $29
-.OutdoorColors:
-	db $00, $01, $02, $28, $04, $05, $06, $07 ; morn
-	db $08, $09, $0a, $28, $0c, $0d, $0e, $0f ; day
-	db $10, $11, $12, $29, $14, $15, $16, $17 ; nite
-	db $18, $19, $1a, $1b, $1c, $1d, $1e, $1f ; dark
-
-.IndoorColors:
-	db $20, $21, $22, $23, $24, $25, $26, $07 ; morn
-	db $20, $21, $22, $23, $24, $25, $26, $07 ; day
-	db $10, $11, $12, $13, $14, $15, $16, $07 ; nite
-	db $18, $19, $1a, $1b, $1c, $1d, $1e, $07 ; dark
-
-.DungeonColors:
-	db $00, $01, $02, $03, $04, $05, $06, $07 ; morn
-	db $08, $09, $0a, $0b, $0c, $0d, $0e, $0f ; day
-	db $10, $11, $12, $13, $14, $15, $16, $17 ; nite
-	db $18, $19, $1a, $1b, $1c, $1d, $1e, $1f ; dark
-
-.Perm5Colors:
-	db $00, $01, $02, $03, $04, $05, $06, $07 ; morn
-	db $08, $09, $0a, $0b, $0c, $0d, $0e, $0f ; day
-	db $10, $11, $12, $13, $14, $15, $16, $17 ; nite
-	db $18, $19, $1a, $1b, $1c, $1d, $1e, $1f ; dark
-
-Palette_b311:
+PartyMenuBGPalette:
 	RGB 31, 31, 31
 	RGB 17, 19, 31
 	RGB 14, 16, 31
 	RGB 00, 00, 00
-
-TilesetBGPalette:
-INCLUDE "tilesets/bg.pal"
-
-MapObjectPals::
-INCLUDE "tilesets/ob.pal"
-
-RoofPals:
-INCLUDE "tilesets/roof.pal"
 
 DiplomaPalettes:
 	RGB 27, 31, 27
@@ -1930,7 +1357,7 @@ DiplomaPalettes:
 	RGB 07, 07, 12
 	RGB 00, 00, 00
 
-Palettes_b681:
+PartyMenuOBPals:
 	RGB 27, 31, 27
 	RGB 31, 19, 10
 	RGB 31, 07, 04
@@ -2001,43 +1428,6 @@ Palettes_b681:
 	RGB 20, 15, 03
 	RGB 07, 07, 07
 
-Palettes_b6f1:
-	RGB 31, 31, 31
-	RGB 18, 23, 31
-	RGB 15, 20, 31
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 22, 00, 31
-	RGB 15, 20, 31
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 31, 00, 00
-	RGB 15, 20, 31
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 25, 22, 00
-	RGB 15, 20, 31
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 23, 26, 31
-	RGB 18, 23, 31
-	RGB 00, 00, 00
-
-Palettes_b719:
-	RGB 31, 31, 31
-	RGB 07, 06, 03
-	RGB 07, 06, 03
-	RGB 07, 06, 03
-
-	RGB 31, 31, 31
-	RGB 31, 31, 00
-	RGB 26, 22, 00
-	RGB 00, 00, 00
-
 MalePokegearPals:
 	RGB 28, 31, 20
 	RGB 21, 21, 21
@@ -2102,28 +1492,7 @@ FemalePokegearPals:
 	RGB 15, 07, 00
 	RGB 31, 00, 00
 
-Palettes_b789:
-	RGB 31, 31, 31
-	RGB 30, 22, 24
-	RGB 18, 18, 18
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 10, 11, 31
-	RGB 18, 18, 18
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 12, 31, 11
-	RGB 18, 18, 18
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 29, 26, 05
-	RGB 18, 18, 18
-	RGB 00, 00, 00
-
-Palettes_b7a9:
+SlotMachinePals:
 	RGB 31, 31, 31
 	RGB 24, 25, 28
 	RGB 24, 24, 09

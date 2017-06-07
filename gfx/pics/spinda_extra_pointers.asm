@@ -1,0 +1,27 @@
+SpindaAnimationExtraPointers:
+	dw SpindaAAnimationExtra
+	dw SpindaBAnimationExtra
+	dw SpindaCAnimationExtra
+	dw SpindaDAnimationExtra
+	dw SpindaEAnimationExtra
+	dw SpindaFAnimationExtra
+	dw SpindaGAnimationExtra
+	dw SpindaHAnimationExtra
+	dw SpindaIAnimationExtra
+	dw SpindaJAnimationExtra
+	dw SpindaKAnimationExtra
+	dw SpindaLAnimationExtra
+	dw SpindaMAnimationExtra
+	dw SpindaNAnimationExtra
+	dw SpindaOAnimationExtra
+	dw SpindaPAnimationExtra
+	dw SpindaQAnimationExtra
+	dw SpindaRAnimationExtra
+	dw SpindaSAnimationExtra
+	dw SpindaTAnimationExtra
+	dw SpindaUAnimationExtra
+	dw SpindaVAnimationExtra
+	dw SpindaWAnimationExtra
+	dw SpindaXAnimationExtra
+	dw SpindaYAnimationExtra
+	dw SpindaZAnimationExtra

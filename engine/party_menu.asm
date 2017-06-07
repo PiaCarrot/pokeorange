@@ -727,6 +727,7 @@ PartyMenuStrings: ; 0x504d2
 	dw UseOnWhichPKMNString
 	dw ChooseAMonString
 	dw ChooseAMonString
+	dw ToWhichPKMNString
 
 ChooseAMonString: ; 0x504e4
 	db "Choose a #MON.@"
@@ -738,6 +739,8 @@ TeachWhichPKMNString: ; 0x5050e
 	db "Teach which <PK><MN>?@"
 MoveToWhereString: ; 0x5051e
 	db "Move to where?@"
+ToWhichPKMNString: ; 0x50549
+	db "To which <PK><MN>?@"
 
 YouHaveNoPKMNString: ; 0x50556
 	db "You have no <PK><MN>!@"

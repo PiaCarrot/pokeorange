@@ -16,7 +16,7 @@ Route56East_MapScriptHeader::
 .Scripts:
 
 TrainerSightSeerMichio:
-	trainer EVENT_BEAT_SIGHTSEERM_MICHIO, TWINS, 1, SightSeerMichioSeenText, SightSeerMichioBeatenText, 0, .Script
+	trainer EVENT_BEAT_SIGHTSEERM_MICHIO, SIGHTSEERM, MICHIO, SightSeerMichioSeenText, SightSeerMichioBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -44,7 +44,7 @@ SightSeerMichioAfterText:
 	done
 
 TrainerSwimmerYaeko:
-	trainer EVENT_BEAT_SWIMMERF_YAEKO, SWIMMERF, 5, SwimmerYaekoSeenText, SwimmerYaekoBeatenText, 0, .Script
+	trainer EVENT_BEAT_SWIMMERF_YAEKO, SWIMMERF, YAEKO, SwimmerYaekoSeenText, SwimmerYaekoBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -72,7 +72,7 @@ SwimmerYaekoAfterText:
 	done
 
 TrainerHikerTeppei:
-	trainer EVENT_BEAT_HIKER_TEPPEI, HIKER, 1, HikerTeppeiSeenText, HikerTeppeiBeatenText, 0, .Script
+	trainer EVENT_BEAT_HIKER_TEPPEI, HIKER, TEPPEI, HikerTeppeiSeenText, HikerTeppeiBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled

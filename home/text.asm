@@ -324,12 +324,6 @@ PlaceEnemysName:: ; 121b
 	and a
 	jr nz, .linkbattle
 
-	ld a, [TrainerClass]
-	cp RIVAL1
-	jr z, .rival
-	cp RIVAL2
-	jr z, .rival
-
 	ld de, OTClassName
 	call PlaceString
 	ld h, b
@@ -340,10 +334,6 @@ PlaceEnemysName:: ; 121b
 	farcall Battle_GetTrainerName
 	pop hl
 	ld de, StringBuffer1
-	jr PlaceCommandCharacter
-
-.rival
-	ld de, RivalName
 	jr PlaceCommandCharacter
 
 .linkbattle

@@ -311,7 +311,7 @@ endr
 	dec a
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	farcall UpdateUnownDex
 
 .done
@@ -422,12 +422,12 @@ AddTempmonToParty: ; da96
 	dec a
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	farcall UpdateUnownDex
 	ld a, [wFirstUnownSeen]
 	and a
 	jr nz, .done
-	ld a, [UnownLetter]
+	ld a, [SpindaPattern]
 	ld [wFirstUnownSeen], a
 .done
 
@@ -1010,7 +1010,7 @@ SentPkmnIntoBox: ; de6e
 	cp SPINDA
 	jr nz, .not_unown
 	ld hl, sBoxMon1DVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	farcall UpdateUnownDex
 
 .not_unown

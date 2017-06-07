@@ -256,10 +256,10 @@ _ShowLinkBattleParticipants: ; 2c1b2
 	ld de, OTPlayerName
 	call PlaceString
 	hlcoord 9, 8
-	ld a, $69 ; "V"
+	ld a, "V"
 	ld [hli], a
-	ld [hl], $6a ; "S"
-	farcall LinkBattle_TrainerHuds ; no need to callba
+	ld [hl], "S"
+	call LinkBattle_TrainerHuds
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call SetPalettes

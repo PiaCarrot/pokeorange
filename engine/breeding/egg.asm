@@ -646,7 +646,7 @@ GetEggFrontpic: ; 17224 (5:7224)
 	ld [CurSpecies], a
 	call GetBaseData
 	ld hl, BattleMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	pop de
 	predef_jump GetFrontpic
 
@@ -656,7 +656,7 @@ GetHatchlingFrontpic: ; 1723c (5:723c)
 	ld [CurSpecies], a
 	call GetBaseData
 	ld hl, BattleMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	pop de
 	predef_jump FrontpicPredef
 
@@ -812,7 +812,7 @@ EggHatch_CrackShell: ; 1736d (5:736d)
 ; 17393 (5:7393)
 
 EggHatchGFX: ; 17393
-INCBIN "gfx/unknown/017393.2bpp"
+INCBIN "gfx/misc/egg_hatch.2bpp"
 ; 173b3
 
 Hatch_InitShellFragments: ; 173b3 (5:73b3)

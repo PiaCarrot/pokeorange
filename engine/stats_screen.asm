@@ -747,7 +747,7 @@ OTString: ; 4e222
 
 StatsScreen_PlaceFrontpic: ; 4e226 (13:6226)
 	ld hl, TempMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	call StatsScreen_GetAnimationParam
 	jr c, .egg
 	and a

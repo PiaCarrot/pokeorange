@@ -1,6 +1,5 @@
 const_value set 2
 	const ROUTE35NATIONALPARKGATE_OFFICER1
-	const ROUTE35NATIONALPARKGATE_YOUNGSTER
 	const ROUTE35NATIONALPARKGATE_OFFICER2
 
 Route35NationalParkgate_MapScriptHeader:
@@ -204,9 +203,6 @@ OfficerScript_0x6a2ca:
 	waitbutton
 	closetext
 	end
-
-YoungsterScript_0x6a2d8:
-	jumptextfaceplayer UnknownText_0x6a8d8
 
 MapRoute36NationalParkgateSignpost0Script:
 	jumptext UnknownText_0x6a90e
@@ -417,12 +413,6 @@ UnknownText_0x6a894:
 	line "give it a shot."
 	done
 
-UnknownText_0x6a8d8:
-	text "When is the next"
-	line "Bug-Catching Con-"
-	cont "test going to be?"
-	done
-
 UnknownText_0x6a90e:
 	text "The Bug-Catching"
 	line "Contest is held on"
@@ -460,7 +450,6 @@ Route35NationalParkgate_MapEventHeader:
 	signpost 0, 5, SIGNPOST_READ, MapRoute36NationalParkgateSignpost0Script
 
 .PersonEvents:
-	db 3
+	db 2
 	person_event SPRITE_OFFICER, 1, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, OfficerScript_0x6a204, EVENT_ROUTE_35_NATIONAL_PARK_GATE_OFFICER_CONTEST_DAY
-	person_event SPRITE_YOUNGSTER, 5, 6, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, YoungsterScript_0x6a2d8, EVENT_ROUTE_35_NATIONAL_PARK_GATE_YOUNGSTER
 	person_event SPRITE_OFFICER, 3, 0, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, OfficerScript_0x6a2ca, EVENT_ROUTE_35_NATIONAL_PARK_GATE_OFFICER_NOT_CONTEST_DAY

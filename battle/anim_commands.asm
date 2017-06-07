@@ -184,11 +184,6 @@ BattleAnimRestoreHuds: ; cc1bb
 ; cc1e2
 
 BattleAnimRequestPals: ; cc1e2
-
-	ld a, [hCGB]
-	and a
-	ret z
-
 	ld a, [rBGP]
 	ld b, a
 	ld a, [wBGP]
@@ -642,12 +637,7 @@ BattleAnimCmd_OBP1: ; cc465 (33:4465)
 	ret
 
 BattleAnimCmd_ResetObp0: ; cc46c (33:446c)
-	ld a, [hSGB]
-	and a
 	ld a, $e0
-	jr z, .not_sgb
-	ld a, $f0
-.not_sgb
 	ld [wOBP0], a
 	ret
 
@@ -910,7 +900,7 @@ BattleAnimCmd_Transform: ; cc5dc (33:45dc)
 	ld a, [TempBattleMonSpecies] ; TempBattleMonSpecies
 	ld [CurPartySpecies], a ; CurPartySpecies
 	ld hl, BattleMonDVs ; BattleMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	ld de, VTiles0 tile $00
 	predef GetFrontpic
 	jr .done
@@ -919,7 +909,7 @@ BattleAnimCmd_Transform: ; cc5dc (33:45dc)
 	ld a, [TempEnemyMonSpecies] ; TempEnemyMonSpecies
 	ld [CurPartySpecies], a ; CurPartySpecies
 	ld hl, EnemyMonDVs ; EnemyMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	ld de, VTiles0 tile $00
 	predef GetBackpic
 
@@ -1137,14 +1127,14 @@ BattleAnimCmd_BeatUp: ; cc776 (33:4776)
 	jr z, .player
 
 	ld hl, BattleMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	ld de, VTiles2 tile $00
 	predef GetFrontpic
 	jr .done
 
 .player
 	ld hl, EnemyMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	ld de, VTiles2 tile $31
 	predef GetBackpic
 
@@ -1335,23 +1325,6 @@ PlayHitSound: ; cc881
 ; cc8a4
 
 BattleAnimAssignPals: ; cc8a4
-	ld a, [hCGB]
-	and a
-	jr nz, .cgb
-	ld a, [hSGB]
-	and a
-	ld a, %11100000
-	jr z, .sgb
-	ld a, %11110000
-
-.sgb
-	ld [wOBP0], a
-	ld a, %11100100
-	ld [wBGP], a
-	ld [wOBP1], a
-	ret
-
-.cgb
 	ld a, %11100100
 	ld [wBGP], a
 	ld [wOBP0], a
@@ -1407,9 +1380,6 @@ BattleAnim_RevertPals: ; cc8f6
 
 BattleAnim_SetBGPals: ; cc91a
 	ld [rBGP], a
-	ld a, [hCGB]
-	and a
-	ret z
 	ld a, [rSVBK]
 	push af
 	ld a, $5
@@ -1435,9 +1405,6 @@ BattleAnim_SetBGPals: ; cc91a
 
 BattleAnim_SetOBPals: ; cc94b
 	ld [rOBP0], a
-	ld a, [hCGB]
-	and a
-	ret z
 	ld a, [rSVBK]
 	push af
 	ld a, $5

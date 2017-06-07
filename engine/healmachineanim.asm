@@ -137,7 +137,7 @@ HealMachineAnim: ; 12324
 ; 123fc
 
 .HealMachineGFX: ; 123fc
-INCBIN "gfx/unknown/0123fc.2bpp"
+INCBIN "gfx/misc/heal_machine.2bpp"
 ; 1241c
 
 .HOF_OAM: ; 1241c
@@ -150,13 +150,6 @@ INCBIN "gfx/unknown/0123fc.2bpp"
 ; 12434
 
 .LoadPalettes: ; 12434
-	call IsCGB
-	jr nz, .cgb
-	ld a, %11100000
-	ld [rOBP1], a
-	ret
-
-.cgb
 	ld hl, .palettes
 	ld de, OBPals + 8 * 6
 	ld bc, 8
@@ -188,14 +181,6 @@ INCBIN "gfx/unknown/0123fc.2bpp"
 ; 12469
 
 .FlashPalettes: ; 12469
-	call IsCGB
-	jr nz, .go
-	ld a, [rOBP1]
-	xor %00101000
-	ld [rOBP1], a
-	ret
-
-.go
 	ld a, [rSVBK]
 	push af
 	ld a, $5

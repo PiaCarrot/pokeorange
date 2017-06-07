@@ -120,15 +120,9 @@ LoadFontsBattleExtra:: ; e58
 
 
 LoadFontsExtra:: ; e5f
-	farcall _LoadFontsExtra1
-	farcall _LoadFontsExtra2
+	farcall LoadFrame
 	ret
 ; e6c
-
-LoadFontsExtra2:: ; e6c
-	farcall _LoadFontsExtra2
-	ret
-; e73
 
 DecompressRequest2bpp:: ; e73
 	push de

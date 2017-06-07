@@ -77,20 +77,7 @@ Special_CheckMagikarpLength: ; fbb32
 	db "@"
 ; 0xfbbae
 
-Magikarp_LoadFeetInchesChars: ; fbbae
-	ld hl, VTiles2 tile "′"
-	ld de, .feetinchchars
-	lb bc, BANK(.feetinchchars), 2
-	call Request2bpp
-	ret
-; fbbbb
-
-.feetinchchars ; fbbb
-INCBIN "gfx/unknown/0fbbbb.2bpp"
-; fbbdb
-
 PrintMagikarpLength: ; fbbdb
-	call Magikarp_LoadFeetInchesChars
 	ld hl, StringBuffer1
 	ld de, Buffer1
 	lb bc, PRINTNUM_RIGHTALIGN | 1, 2

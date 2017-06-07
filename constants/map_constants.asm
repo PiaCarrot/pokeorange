@@ -31,8 +31,6 @@ MAP_NONE EQU 0
 
 	newgroup ; 3
 
-	mapgroup CINNABAR_POKECENTER_1F, 4, 5
-
 	newgroup ; 4
 
 	mapgroup CRYSTAL_CAVE_1F, 16, 20

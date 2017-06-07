@@ -1160,18 +1160,7 @@ PeoplePlaces4: ; People
 	inc a
 	cp NUM_TRAINER_CLASSES - 1
 	jr nc, PeoplePlaces4
-	push af
-	ld hl, .E4Names
-	ld a, [StatusFlags]
-	bit 6, a ; ENGINE_CREDITS_SKIP
-	jr z, .ok
-	ld hl, .KantoLeaderNames
-	ld a, [KantoBadges]
-	cp %11111111
-	jr nz, .ok
-	ld hl, .MiscNames
-.ok
-	pop af
+	ld hl, .HiddenNames
 	ld c, a
 	ld de, 1
 	push bc
@@ -1189,10 +1178,12 @@ PeoplePlaces4: ; People
 	ld a, PLACES_AND_PEOPLE_5
 	jp NextRadioLine
 
-.E4Names:          db WILL, BRUNO, KAREN, KOGA, CHAMPION
-.KantoLeaderNames: db BROCK, MISTY, LT_SURGE, ERIKA, JANINE, SABRINA, BLAINE, BLUE
-.MiscNames:        db RIVAL1, POKEMON_PROF, CAL, RIVAL2, RED
-                   db -1
+.HiddenNames:
+	db GIOVANNI
+	db RED, BLUE, GREEN, YELLOW
+	db BUTCH, CASSIDY, CASSIDY_BUTCH
+	db JAMES, JESSIE, JESSIE_JAMES
+	db -1
 
 PnP_Text4:
 	; @  @ @

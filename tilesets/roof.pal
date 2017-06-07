@@ -1,64 +1,77 @@
+; dummy group
 	RGB 24, 14, 31
 	RGB 13, 07, 21
 	RGB 12, 03, 18
 	RGB 09, 03, 15
 
+; group 1 (Sunburst Island, Mandarin North)
 	RGB 00, 20, 10
 	RGB 00, 14, 10
 	RGB 09, 09, 17
 	RGB 05, 07, 13
 
+; group 2
 	RGB 12, 19, 00
 	RGB 06, 10, 00
 	RGB 06, 09, 07
 	RGB 04, 05, 06
 
+; group 3
 	RGB 21, 21, 21
 	RGB 11, 11, 11
 	RGB 21, 21, 21
 	RGB 17, 08, 07
 
+; group 4 (Pinkan Island, Kinnow Island)
 	RGB 31, 19, 00
 	RGB 27, 10, 05
 	RGB 15, 07, 02
 	RGB 11, 04, 02
 
+; group 5 (Mikan Island)
 	RGB 31, 19, 00
 	RGB 27, 10, 05
 	RGB 15, 07, 02
 	RGB 11, 04, 02
 
+; group 6
 	RGB 31, 10, 00
 	RGB 18, 06, 00
 	RGB 18, 05, 09
 	RGB 17, 08, 07
 
+; group 7
 	RGB 17, 27, 31
 	RGB 05, 15, 31
 	RGB 07, 08, 22
 	RGB 07, 07, 16
 
+; group 8
 	RGB 16, 26, 30
 	RGB 04, 19, 24
 	RGB 09, 09, 17
 	RGB 05, 07, 13
 
+; group 9
 	RGB 31, 08, 04
 	RGB 09, 09, 08
 	RGB 18, 05, 09
 	RGB 09, 09, 08
 
+; group 10
 	RGB 24, 14, 31
 	RGB 13, 07, 21
 	RGB 12, 03, 18
 	RGB 09, 03, 15
 
+; group 11 (Valencia Island)
 	RGB 18, 04, 12
 	RGB 12, 00, 09
-	RGB 12, 12, 00
-	RGB 10, 09, 05
+	RGB 09, 02, 09
+	RGB 06, 00, 06
 
+; group 12 (Tangelo Island)
 	RGB 28, 04, 03
 	RGB 22, 00, 00
-	RGB 12, 12, 00
-	RGB 10, 09, 05
+	RGB 14, 02, 02
+	RGB 11, 00, 00

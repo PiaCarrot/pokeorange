@@ -1,11 +1,5 @@
 ; Replaces the functionality of sgb.asm to work with CGB hardware.
 
-CheckCGB: ; 8d55
-	ld a, [hCGB]
-	and a
-	ret
-; 8d59
-
 Predef_LoadSGBLayoutCGB: ; 8d59
 	ld a, b
 	cp SCGB_RAM
@@ -39,25 +33,16 @@ Predef_LoadSGBLayoutCGB: ; 8d59
 	dw _CGB_StatsScreenHPPals
 	dw _CGB_Pokedex
 	dw _CGB_SlotMachine
-	dw _CGB06
-	dw _CGB07
 	dw _CGB_Diploma
 	dw _CGB_MapPals
 	dw _CGB_PartyMenu
 	dw _CGB_Evolution
-	dw _CGB0c
-	dw _CGB0d
 	dw _CGB_MoveList
-	dw _CGB0f
 	dw _CGB_PokedexSearchOption
-	dw _CGB11
 	dw _CGB_Pokepic
-	dw _CGB13
 	dw _CGB_PackPals
 	dw _CGB_TrainerCard
-	dw _CGB_PokedexUnownMode
 	dw _CGB_BillsPC
-	dw _CGB_UnownPuzzle
 	dw _CGB_GamefreakLogo ; called before copyright
 	dw _CGB_PlayerOrMonFrontpicPals
 	dw _CGB_TradeTube
@@ -65,15 +50,15 @@ Predef_LoadSGBLayoutCGB: ; 8d59
 ; 8db8
 
 _CGB_BattleGrayscale: ; 8db8
-	ld hl, PalPacket_9c66 + 1
+	ld hl, PalPacket_Grayscale
 	ld de, UnknBGPals
 	ld c, $4
 	call CopyPalettes
-	ld hl, PalPacket_9c66 + 1
+	ld hl, PalPacket_Grayscale
 	ld de, UnknBGPals + 4 palettes
 	ld c, $4
 	call CopyPalettes
-	ld hl, PalPacket_9c66 + 1
+	ld hl, PalPacket_Grayscale
 	ld de, UnknOBPals
 	ld c, $2
 	call CopyPalettes
@@ -92,7 +77,7 @@ _CGB_BattleColors: ; 8ddb
 	ld h, $0
 	add hl, hl
 	add hl, hl
-	ld bc, Palettes_a8be
+	ld bc, HPBarPals
 	add hl, bc
 	call LoadPalette_White_Col1_Col2_Black
 	ld a, [PlayerHPPal]
@@ -100,10 +85,10 @@ _CGB_BattleColors: ; 8ddb
 	ld h, $0
 	add hl, hl
 	add hl, hl
-	ld bc, Palettes_a8be
+	ld bc, HPBarPals
 	add hl, bc
 	call LoadPalette_White_Col1_Col2_Black
-	ld hl, Palettes_a8ca
+	ld hl, ExpBarPalette
 	call LoadPalette_White_Col1_Col2_Black
 	ld de, UnknOBPals
 	pop hl
@@ -143,7 +128,7 @@ _CGB_FinishBattleScreenLayout: ; 8e23
 	ld bc, 6 * SCREEN_WIDTH
 	ld a, $7
 	call ByteFill
-	ld hl, Palettes_979c
+	ld hl, BattleObjectPals
 	ld de, UnknOBPals + 2 palettes
 	ld bc, 6 palettes
 	ld a, $5
@@ -154,7 +139,7 @@ _CGB_FinishBattleScreenLayout: ; 8e23
 
 
 InitPartyMenuBGPal7: ; 8e85
-	ld hl, Palette_b311
+	ld hl, PartyMenuBGPalette
 	ld de, UnknBGPals + 8 * 7
 	ld bc, 1 palettes
 	ld a, $5
@@ -163,7 +148,7 @@ InitPartyMenuBGPal7: ; 8e85
 ; 8e9f
 
 InitPartyMenuBGPal0: ; 8e9f
-	ld hl, Palette_b311
+	ld hl, PartyMenuBGPalette
 	ld de, UnknBGPals
 	ld bc, 1 palettes
 	ld a, $5
@@ -198,14 +183,14 @@ _CGB_StatsScreenHPPals: ; 8edb
 	ld h, $0
 	add hl, hl
 	add hl, hl
-	ld bc, Palettes_a8be
+	ld bc, HPBarPals
 	add hl, bc
 	call LoadPalette_White_Col1_Col2_Black
 	ld a, [CurPartySpecies]
 	ld bc, TempMonDVs
 	call GetPlayerOrMonPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld hl, Palettes_a8ca
+	ld hl, ExpBarPalette
 	call LoadPalette_White_Col1_Col2_Black
 	ld hl, Palette8f52
 	ld de, UnknBGPals + 8 * 3
@@ -371,29 +356,8 @@ Palette9036: ; 9036
 	RGB 00, 00, 00
 ; 903e
 
-_CGB_PokedexUnownMode: ; 903e
-	ld de, UnknBGPals
-	ld a, $1d
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
-	ld a, [CurPartySpecies]
-	call GetMonPalettePointer_
-	call LoadPalette_White_Col1_Col2_Black
-	call WipeAttrMap
-	hlcoord 7, 5, AttrMap
-	lb bc, 7, 7
-	ld a, $1
-	call FillBoxCGB
-	call InitPartyMenuOBPals
-	call ApplyAttrMap
-	call ApplyPals
-	ld a, $1
-	ld [hCGBPalUpdate], a
-	ret
-; 906e
-
 _CGB_SlotMachine: ; 906e
-	ld hl, Palettes_b7a9
+	ld hl, SlotMachinePals
 	ld de, UnknBGPals
 	ld bc, $80
 	ld a, $5
@@ -446,110 +410,6 @@ _CGB_SlotMachine: ; 906e
 	ret
 ; 90f8
 
-_CGB06: ; 90f8
-	ld hl, PalPacket_9ca6 + 1
-	call CopyFourPalettes
-	call WipeAttrMap
-	ld de, UnknOBPals
-	ld a, $3c
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
-	hlcoord 0, 6, AttrMap
-	lb bc, 12, SCREEN_WIDTH
-	ld a, $1
-	call FillBoxCGB
-	call ApplyAttrMap
-	call ApplyPals
-	ld a, $1
-	ld [hCGBPalUpdate], a
-	ret
-; 9122
-
-_CGB07: ; 9122
-	ld b, 0
-	ld hl, Jumptable_912d
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	jp hl
-; 912d
-
-Jumptable_912d: ; 912d
-	dw Function9133
-	dw Function9166
-	dw Function9180
-; 9133
-
-Function9133: ; 9133
-	ld hl, Palette_914e
-	ld de, UnknBGPals
-	call LoadHLPaletteIntoDE
-	ld hl, Palette_9156
-	ld de, UnknOBPals
-	ld bc, 2 palettes
-	ld a, $5
-	call FarCopyWRAM
-	call WipeAttrMap
-	ret
-; 914e
-
-Palette_914e: ; 914e
-	RGB 19, 31, 19
-	RGB 18, 23, 31
-	RGB 11, 21, 28
-	RGB 04, 16, 24
-
-Palette_9156: ; 9156
-	RGB 29, 29, 29
-	RGB 20, 19, 20
-	RGB 19, 06, 04
-	RGB 03, 04, 06
-
-	RGB 31, 31, 31
-	RGB 31, 31, 31
-	RGB 31, 00, 00
-	RGB 03, 04, 06
-; 9166
-
-Function9166: ; 9166
-	ld de, UnknBGPals
-	ld a, $38
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
-
-	ld de, UnknOBPals
-	ld a, $39
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
-	call WipeAttrMap
-	ret
-; 9180
-
-Function9180: ; 9180
-	ld hl, PalPacket_9c36 + 1
-	call CopyFourPalettes
-	ld de, UnknOBPals
-	ld a, $3a
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
-	call WipeAttrMap
-	ret
-; 9195
-
-_CGB11: ; 9195
-	ld hl, Palettes_b789
-	ld de, UnknBGPals
-	ld bc, 5 palettes
-	ld a, $5
-	call FarCopyWRAM
-	call ApplyPals
-	call WipeAttrMap
-	call ApplyAttrMap
-	ret
-; 91ad
-
 _CGB_Diploma: ; 91ad
 	ld hl, DiplomaPalettes
 	ld de, UnknBGPals
@@ -557,7 +417,7 @@ _CGB_Diploma: ; 91ad
 	ld a, $5
 	call FarCopyWRAM
 
-	ld hl, PalPacket_9cb6 + 1
+	ld hl, PalPacket_Diploma
 	call CopyFourPalettes
 	call WipeAttrMap
 	call ApplyAttrMap
@@ -572,7 +432,7 @@ _CGB_MapPals: ; 91c8
 ; 91d1
 
 _CGB_PartyMenu: ; 91d1
-	ld hl, PalPacket_9c56 + 1
+	ld hl, PalPacket_PartyMenu
 	call CopyFourPalettes
 	call InitPartyMenuBGPal0
 	call InitPartyMenuBGPal7
@@ -601,7 +461,7 @@ _CGB_Evolution: ; 91e4
 	ld a, [PlayerHPPal]
 	call GetPlayerOrMonPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld hl, Palettes_979c
+	ld hl, BattleObjectPals
 	ld de, UnknOBPals + 2 palettes
 	ld bc, 6 palettes
 	ld a, $5
@@ -615,56 +475,6 @@ _CGB_Evolution: ; 91e4
 	ld [hCGBPalUpdate], a
 	ret
 ; 9228
-
-_CGB0c: ; 9228
-	ld hl, Palettes_b6f1
-	ld de, UnknBGPals
-	ld bc, 5 palettes
-	ld a, $5
-	call FarCopyWRAM
-	ld hl, Palettes_b719
-	ld de, UnknOBPals
-	ld bc, 2 palettes
-	ld a, $5
-	call FarCopyWRAM
-	ld a, SCGB_DIPLOMA
-	ld [SGBPredef], a
-	call ApplyPals
-	ld a, $1
-	ld [hCGBPalUpdate], a
-	ret
-; 9251
-
-_CGB0d: ; 9251
-	ld hl, PalPacket_9cb6 + 1
-	call CopyFourPalettes
-	call WipeAttrMap
-	call ApplyAttrMap
-	ret
-; 925e
-
-_CGB_UnownPuzzle: ; 925e
-	ld hl, PalPacket_9bc6 + 1
-	call CopyFourPalettes
-	ld de, UnknOBPals
-	ld a, $4c
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
-	ld a, [rSVBK]
-	push af
-	ld a, $5
-	ld [rSVBK], a
-	ld hl, UnknOBPals
-	ld a, $1f
-	ld [hli], a
-	ld a, $0
-	ld [hl], a
-	pop af
-	ld [rSVBK], a
-	call WipeAttrMap
-	call ApplyAttrMap
-	ret
-; 9289
 
 _CGB_TrainerCard: ; 9289
 	ld de, UnknBGPals
@@ -778,7 +588,7 @@ _CGB_MoveList: ; 9373
 	ld h, 0
 	add hl, hl
 	add hl, hl
-	ld bc, Palettes_a8be
+	ld bc, HPBarPals
 	add hl, bc
 	call LoadPalette_White_Col1_Col2_Black
 	call WipeAttrMap
@@ -792,17 +602,6 @@ _CGB_MoveList: ; 9373
 	ld [hCGBPalUpdate], a
 	ret
 ; 93a6
-
-_CGB0f: ; 93a6
-	ld hl, PalPacket_9c46 + 1
-	call CopyFourPalettes
-	call WipeAttrMap
-	call ApplyAttrMap
-	call ApplyPals
-	ld a, $1
-	ld [hCGBPalUpdate], a
-	ret
-; 93ba
 
 _CGB_PokedexSearchOption: ; 93ba
 	ld de, UnknBGPals
@@ -958,25 +757,6 @@ _CGB_Pokepic: ; 9499
 	ret
 ; 94d0
 
-_CGB13: ; 94d0
-	ld hl, PalPacket_9ba6 + 1
-	call CopyFourPalettes
-	call WipeAttrMap
-	hlcoord 0, 4, AttrMap
-	lb bc, 10, SCREEN_WIDTH
-	ld a, $2
-	call FillBoxCGB
-	hlcoord 0, 6, AttrMap
-	lb bc, 6, SCREEN_WIDTH
-	ld a, $1
-	call FillBoxCGB
-	call ApplyAttrMap
-	call ApplyPals
-	ld a, $1
-	ld [hCGBPalUpdate], a
-	ret
-; 94fa
-
 _CGB_GamefreakLogo: ; 94fa
 	ld de, UnknBGPals
 	ld a, $4e
@@ -1014,9 +794,9 @@ _CGB_PlayerOrMonFrontpicPals: ; 9529
 ; 9542
 
 _CGB_TradeTube: ; 9555
-	ld hl, PalPacket_9cc6 + 1
+	ld hl, PalPacket_TradeTube
 	call CopyFourPalettes
-	ld hl, Palettes_b681
+	ld hl, PartyMenuOBPals
 	ld de, UnknOBPals
 	ld bc, 1 palettes
 	ld a, $5

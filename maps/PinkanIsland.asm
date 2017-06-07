@@ -16,7 +16,7 @@ PinkanIsland_MapScriptHeader::
 .Scripts:
 
 TrainerManiacShawn:
-	trainer EVENT_BEAT_POKEMANIAC_SHAWN, POKEMANIAC, 1, ManiacShawnSeenText, ManiacShawnBeatenText, 0, .Script
+	trainer EVENT_BEAT_POKEMANIAC_SHAWN, POKEMANIAC, SHAWN, ManiacShawnSeenText, ManiacShawnBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled

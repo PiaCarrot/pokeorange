@@ -1305,20 +1305,32 @@ PlayBattleMusic: ; 2ee6c
 
 .trainermusic
 	ld de, MUSIC_CHAMPION_BATTLE
-	cp CHAMPION
+	cp DRAKE
+	jr z, .done
+	cp LANCE
 	jr z, .done
 	cp RED
+	jr z, .done
+	cp BLUE
+	jr z, .done
+	cp GREEN
+	jr z, .done
+	cp YELLOW
 	jr z, .done
 
 	; really, they should have included admins and scientists here too...
 	ld de, MUSIC_ROCKET_BATTLE
-	cp GRUNTM
+	cp BUTCH
 	jr z, .done
-	cp GRUNTF
+	cp CASSIDY
 	jr z, .done
-	cp EXECUTIVEM
+	cp CASSIDY_BUTCH
 	jr z, .done
-	cp EXECUTIVEF
+	cp JAMES
+	jr z, .done
+	cp JESSIE
+	jr z, .done
+	cp JESSIE_JAMES
 	jr z, .done
 
 	ld de, MUSIC_KANTO_GYM_LEADER_BATTLE
@@ -1331,18 +1343,8 @@ PlayBattleMusic: ; 2ee6c
 
 	ld de, MUSIC_RIVAL_BATTLE
 	ld a, [OtherTrainerClass]
-	cp RIVAL1
+	cp TRACEY
 	jr z, .done
-	cp RIVAL2
-	jr nz, .othertrainer
-
-	ld a, [OtherTrainerID]
-	cp 4 ; Rival in Indigo Plateau
-	jr c, .done
-	ld de, MUSIC_CHAMPION_BATTLE
-	jr .done
-
-.othertrainer
 	ld a, [wLinkMode]
 	and a
 	jr nz, .johtotrainer
@@ -1490,24 +1492,12 @@ AIScoring: ; 38591
 INCLUDE "battle/ai/scoring.asm"
 
 GetTrainerClassName: ; 3952d
-	ld hl, RivalName
 	ld a, c
-	cp RIVAL1
-	jr z, .rival
-
 	ld [CurSpecies], a
 	ld a, TRAINER_NAME
 	ld [wNamedObjectTypeBuffer], a
 	call GetName
 	ld de, StringBuffer1
-	ret
-
-.rival
-	ld de, StringBuffer1
-	push de
-	ld bc, NAME_LENGTH
-	call CopyBytes
-	pop de
 	ret
 
 GetOTName: ; 39550
@@ -1516,11 +1506,7 @@ GetOTName: ; 39550
 	and a
 	jr nz, .ok
 
-	ld hl, RivalName
 	ld a, c
-	cp RIVAL1
-	jr z, .ok
-
 	ld [CurSpecies], a
 	ld a, TRAINER_NAME
 	ld [wNamedObjectTypeBuffer], a
@@ -2109,10 +2095,6 @@ EmptyAllSRAMBanks: ; 4cf1f
 	ret
 
 SaveMenu_LoadEDTile: ; 4cf45 (13:4f45)
-	ld a, [hCGB]
-	and a
-	jp z, WaitBGMap
-
 ; The following is a modified version of LoadEDTile.
 	ld a, [hBGMapMode]
 	push af
@@ -2244,87 +2226,6 @@ _LoadMapPart:: ; 4d15b
 .carry
 	dec b
 	jr nz, .loop
-	ret
-
-PhoneRing_LoadEDTile: ; 4d188
-	ld a, [hCGB]
-	and a
-	jp z, WaitBGMap
-	ld a, [wSpriteUpdatesEnabled]
-	cp $0
-	jp z, WaitBGMap
-
-; What follows is a modified version of LoadEDTile.
-	ld a, [hBGMapMode]
-	push af
-	xor a
-	ld [hBGMapMode], a
-	ld a, [hMapAnims]
-	push af
-	xor a
-	ld [hMapAnims], a
-.wait
-	ld a, [rLY]
-	cp $8f
-	jr c, .wait
-
-	di
-	ld a, 1 ; BANK(VBGMap2)
-	ld [rVBK], a
-	hlcoord 0, 0, AttrMap
-	call .LoadEDTile
-	ld a, 0 ; BANK(VBGMap0)
-	ld [rVBK], a
-	hlcoord 0, 0
-	call .LoadEDTile
-.wait2
-	ld a, [rLY]
-	cp $8f
-	jr c, .wait2
-	ei
-
-	pop af
-	ld [hMapAnims], a
-	pop af
-	ld [hBGMapMode], a
-	ret
-
-.LoadEDTile: ; 4d1cb
-	ld [hSPBuffer], sp
-	ld sp, hl
-	ld a, [hBGMapAddress + 1]
-	ld h, a
-	ld l, 0
-	ld a, SCREEN_HEIGHT
-	ld [hTilesPerCycle], a
-	ld b, 1 << 1 ; not in v/hblank
-	ld c, rSTAT % $100
-
-.loop
-rept SCREEN_WIDTH / 2
-	pop de
-.loop\@
-	ld a, [$ff00+c]
-	and b
-	jr nz, .loop\@
-	ld [hl], e
-	inc l
-	ld [hl], d
-	inc l
-endr
-
-	ld de, $20 - SCREEN_WIDTH
-	add hl, de
-	ld a, [hTilesPerCycle]
-	dec a
-	ld [hTilesPerCycle], a
-	jr nz, .loop
-
-	ld a, [hSPBuffer]
-	ld l, a
-	ld a, [hSPBuffer + 1]
-	ld h, a
-	ld sp, hl
 	ret
 
 Shrink1Pic: ; 4d249
@@ -2507,7 +2408,7 @@ GetTrademonFrontpic: ; 4d7fd
 	ld de, VTiles2
 	push de
 	push af
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	pop af
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a
@@ -4483,31 +4384,6 @@ INCLUDE "battle/bg_effects.asm"
 INCLUDE "battle/anims.asm"
 
 LoadPoisonBGPals: ; cbcdd
-	call .LoadPals
-	ld a, [hCGB]
-	and a
-	ret nz
-	ret ; ????
-
-.LoadPals: ; cbce5
-	ld a, [hCGB]
-	and a
-	jr nz, .cgb
-	ld a, [TimeOfDayPal]
-	and $3
-	cp $3
-	ld a, %00000000
-	jr z, .convert_pals
-	ld a, %10101010
-
-.convert_pals
-	call DmgToCgbBGPals
-	ld c, 4
-	call DelayFrames
-	farcall _UpdateTimePals
-	ret
-
-.cgb
 	ld a, [rSVBK]
 	push af
 	ld a, $5
@@ -4672,32 +4548,28 @@ INCLUDE "gfx/pics/anims.asm"
 INCLUDE "gfx/pics/extra_pointers.asm"
 INCLUDE "gfx/pics/extras.asm"
 
-; Unown has its own animation data despite having an entry in the main tables
-INCLUDE "gfx/pics/unown_anim_pointers.asm"
-INCLUDE "gfx/pics/unown_anims.asm"
-INCLUDE "gfx/pics/unown_extra_pointers.asm"
-INCLUDE "gfx/pics/unown_extras.asm"
+; Spinda has its own animation data despite having an entry in the main tables
+INCLUDE "gfx/pics/spinda_anim_pointers.asm"
+INCLUDE "gfx/pics/spinda_anims.asm"
+INCLUDE "gfx/pics/spinda_extra_pointers.asm"
+INCLUDE "gfx/pics/spinda_extras.asm"
 
 ; Bitmasks
 INCLUDE "gfx/pics/bitmask_pointers.asm"
 INCLUDE "gfx/pics/bitmasks.asm"
-INCLUDE "gfx/pics/unown_bitmask_pointers.asm"
-INCLUDE "gfx/pics/unown_bitmasks.asm"
+INCLUDE "gfx/pics/spinda_bitmask_pointers.asm"
+INCLUDE "gfx/pics/spinda_bitmasks.asm"
 
 SECTION "Pic Animations 2", ROMX, BANK[$35]
 
 INCLUDE "gfx/pics/frame_pointers.asm"
 INCLUDE "gfx/pics/kanto_frames.asm"
 
-SECTION "bank36", ROMX, BANK[$36]
-
-FontInversed: INCBIN "gfx/misc/font_inversed.1bpp"
-
 SECTION "Pic Animations 3", ROMX, BANK[$36]
 
 INCLUDE "gfx/pics/johto_frames.asm"
-INCLUDE "gfx/pics/unown_frame_pointers.asm"
-INCLUDE "gfx/pics/unown_frames.asm"
+INCLUDE "gfx/pics/spinda_frame_pointers.asm"
+INCLUDE "gfx/pics/spinda_frames.asm"
 
 SECTION "Tileset Data 6", ROMX, BANK[TILESETS_6]
 
@@ -4852,16 +4724,11 @@ INCLUDE "battle/move_names.asm"
 
 INCLUDE "engine/landmarks.asm"
 
-SECTION "bank77", ROMX, BANK[$77]
-
-UnownFont: ; 1dc000
-INCBIN "gfx/misc/unown_font.2bpp"
-
 SECTION "Tileset Data 7", ROMX, BANK[TILESETS_7]
 
 INCLUDE "tilesets/data_7.asm"
 
-SECTION "bank77_2", ROMX, BANK[$77]
+SECTION "bank77", ROMX, BANK[$77]
 
 PrintHoursMins ; 1dd6bb (77:56bb)
 ; Hours in b, minutes in c
@@ -5145,136 +5012,6 @@ TownMap_ConvertLineBreakCharacters: ; 1de2c5
 
 PokegearGFX: ; 1de2e4
 INCBIN "gfx/misc/pokegear.2bpp.lz"
-
-IsMailEuropean: ; 1de5c8
-; return 1 if French
-; return 2 if German
-; return 3 if Italian
-; return 4 if Spanish
-; return 0 if none of the above
-	ld c, $0
-	ld hl, sPartyMon1MailAuthorNationality - sPartyMon1Mail
-	add hl, de
-	ld a, [hli]
-	cp "E"
-	ret nz
-	ld a, [hli]
-	inc c
-	cp "F"
-	ret z
-	inc c
-	cp "G"
-	ret z
-	inc c
-	cp "I"
-	ret z
-	inc c
-	cp "S"
-	ret z
-	ld c, $0
-	ret
-
-; The regular font.
-StandardEnglishFont: ; 1de5e6
-INCBIN "gfx/font/english.1bpp"
-
-; An extended font.
-FrenchGermanFont: ; 1de9e6
-INCBIN "gfx/font/french_german.1bpp"
-
-; An even more extended font.
-SpanishItalianFont: ; 1dede6
-INCBIN "gfx/font/spanish_italian.1bpp"
-
-HandleFrenchGermanMail: ; 1df1e6
-; called if mail is french or german
-; fix 's 't 'v
-	ld b, sPartyMon1MailAuthor - sPartyMon1Mail
-	ld h, d
-	ld l, e
-.loop
-	ld a, [hl]
-	cp $dc ; 's in french/german font
-	jr nz, .check_intermediate_chars
-	ld a, "'s"
-	jr .replace
-
-.check_intermediate_chars
-	sub "'s"
-	jr c, .dont_replace
-	cp "'v" - "'s" + 1
-	jr nc, .dont_replace
-	add $cd
-
-.replace
-	ld [hl], a
-
-.dont_replace
-	inc hl
-	dec b
-	jr nz, .loop
-	ret
-
-LireLeCourrierAnglais:
-DeutenEnglischenPost: ; 1df203
-; Cette fonction convertit certains des caractères anglais pour
-; leur équivalent dans le jeu de caractères français.
-; Diese Funktion wandelt bestimmte englische Zeichen, um ihre
-; Entsprechung in der Deutschen-Zeichensatz.
-	ld b, sPartyMon1MailAuthor - sPartyMon1Mail
-	ld h, d
-	ld l, e
-.loop
-	ld a, [hl]
-	cp "'s"
-	jr nz, .check_intermediate_chars
-	ld a, $dc
-	jr .replace
-
-.check_intermediate_chars
-	sub $cd
-	jr c, .dont_replace
-	cp "'v" - "'s" + 1
-	jr nc, .dont_replace
-	add "'s"
-
-.replace
-	ld [hl], a
-
-.dont_replace
-	inc hl
-	dec b
-	jr nz, .loop
-	ret
-
-HandleSpanishItalianMail: ; 1df220
-LeerCorreosIngleses:
-LeggiPostaInglese:
-; This function converts certain characters between
-; the English and Spanish/Italian character sets.
-; Esta función convierte ciertos caracteres entre
-; el juego de caracteres Inglés y Español.
-; Questa funzione converte alcuni caratteri tra
-; l'inglese e il set di caratteri italiani.
-	ld b, sPartyMon1MailAuthor - sPartyMon1Mail
-	ld h, d
-	ld l, e
-.loop
-	ld a, [hl]
-	and $f0
-	cp $d0
-	jr nz, .dont_replace
-	ld a, [hl]
-	add $8
-	and $f
-	or $d0
-	ld [hl], a
-
-.dont_replace
-	inc hl
-	dec b
-	jr nz, .loop
-	ret
 
 SECTION "Tileset Data 8", ROMX, BANK[TILESETS_8]
 

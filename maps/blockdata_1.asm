@@ -2,7 +2,6 @@ TangeloPokeCenter1F_BlockData:
 MikanPokeCenter1F_BlockData:
 MandarinNorthPokeCenter_BlockData:
 SunburstPokeCenter_BlockData:
-CinnabarPokeCenter1F_BlockData:
 Route52PokeCenter1F_BlockData:
 Route56PokeCenter_BlockData:
 	INCBIN "maps/PokeCenter1F.blk"

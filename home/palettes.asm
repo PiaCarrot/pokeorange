@@ -5,15 +5,7 @@ UpdatePalsIfCGB:: ; c2f
 ; update bgp data from BGPals
 ; update obp data from OBPals
 ; return carry if successful
-
-; check cgb
-	ld a, [hCGB]
-	and a
-	ret z
-
-
 UpdateCGBPals:: ; c33
-; return carry if successful
 ; any pals to update?
 	ld a, [hCGBPalUpdate]
 	and a
@@ -79,11 +71,6 @@ DmgToCgbBGPals:: ; c9f
 	ld [rBGP], a
 	push af
 
-; Don't need to be here if DMG
-	ld a, [hCGB]
-	and a
-	jr z, .end
-
 	push hl
 	push de
 	push bc
@@ -111,7 +98,6 @@ DmgToCgbBGPals:: ; c9f
 	pop bc
 	pop de
 	pop hl
-.end
 	pop af
 	ret
 ; ccb
@@ -127,10 +113,6 @@ DmgToCgbObjPals:: ; ccb
 	ld [rOBP0], a
 	ld a, d
 	ld [rOBP1], a
-
-	ld a, [hCGB]
-	and a
-	ret z
 
 	push hl
 	push de
@@ -168,10 +150,6 @@ DmgToCgbObjPal0:: ; cf8
 	push af
 
 ; Don't need to be here if not CGB
-	ld a, [hCGB]
-	and a
-	jr z, .dmg
-
 	push hl
 	push de
 	push bc
@@ -197,7 +175,6 @@ DmgToCgbObjPal0:: ; cf8
 	pop de
 	pop hl
 
-.dmg
 	pop af
 	ret
 ; d24
@@ -205,10 +182,6 @@ DmgToCgbObjPal0:: ; cf8
 DmgToCgbObjPal1:: ; d24
 	ld [rOBP1], a
 	push af
-
-	ld a, [hCGB]
-	and a
-	jr z, .dmg
 
 	push hl
 	push de
@@ -235,7 +208,6 @@ DmgToCgbObjPal1:: ; d24
 	pop de
 	pop hl
 
-.dmg
 	pop af
 	ret
 ; d50
@@ -296,10 +268,6 @@ CopyPals:: ; d50
 
 
 ClearVBank1:: ; d79
-	ld a, [hCGB]
-	and a
-	ret z
-
 	ld a, 1
 	ld [rVBK], a
 
@@ -315,9 +283,6 @@ ClearVBank1:: ; d79
 
 
 Special_ReloadSpritesNoPalettes:: ; d91
-	ld a, [hCGB]
-	and a
-	ret z
 	ld a, [rSVBK]
 	push af
 	ld a, 5 ; BANK(BGPals)

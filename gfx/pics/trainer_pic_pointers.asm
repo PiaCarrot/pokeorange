@@ -1,68 +1,73 @@
 
-	dba FalknerPic
-	dba WhitneyPic
-	dba BugsyPic
-	dba MortyPic
-	dba PrycePic
-	dba JasminePic
-	dba ChuckPic
-	dba ClairPic
-	dba Rival1Pic
-	dba PokemonProfPic
-	dba WillPic
-	dba CalPic
-	dba BrunoPic
-	dba KarenPic
-	dba KogaPic
-	dba ChampionPic
+	dba CissyPic
+	dba DannyPic
+	dba RudyPic
+	dba LuanaPic
+	dba DrakePic
+	dba TraceyPic
 	dba BrockPic
 	dba MistyPic
 	dba LtSurgePic
-	dba ScientistPic
 	dba ErikaPic
-	dba YoungsterPic
-	dba SchoolboyPic
-	dba BirdKeeperPic
-	dba LassPic
-	dba JaninePic
-	dba CooltrainermPic
-	dba CooltrainerfPic
-	dba BeautyPic
-	dba PokemaniacPic
-	dba GruntmPic
-	dba GentlemanPic
-	dba SkierPic
-	dba TeacherPic
+	dba KogaPic
 	dba SabrinaPic
+	dba BlainePic
+	dba GiovanniPic
+	dba LoreleiPic
+	dba BrunoPic
+	dba AgathaPic
+	dba LancePic
+	dba RedPic
+	dba BluePic
+	dba GreenPic
+	dba YellowPic
+	dba ChrisPic
+	dba ButchPic
+	dba CassidyPic
+	dba CassidyButchPic
+	dba JamesPic
+	dba JessiePic
+	dba JessieJamesPic
+	dba MomPic
+	dba BillPic
+	dba ImakuniPic
+	dba LawrencePic
+	dba ProfOakPic
+	dba ProfIvyPic
+	dba ProfAidePic
+	dba NursePic
+	dba OfficerPic
+	dba YoungsterPic
+	dba LassPic
+	dba BeautyPic
 	dba BugCatcherPic
-	dba FisherPic
+	dba BugCatcherFPic
 	dba SwimmermPic
 	dba SwimmerfPic
+	dba CamperPic
+	dba PokemaniacPic
+	dba FisherPic
+	dba HikerPic
+	dba AthletePic
+	dba SightseerMPic
+	dba SightseerFPic
+	dba SchoolboyPic
+	dba BirdKeeperPic
+	dba CooltrainerMPic
+	dba CooltrainerFPic
+	dba GentlemanPic
+	dba TeacherPic
 	dba SailorPic
 	dba SuperNerdPic
-	dba Rival2Pic
 	dba GuitaristPic
-	dba HikerPic
 	dba BikerPic
-	dba BlainePic
-	dba BurglarPic
 	dba FirebreatherPic
 	dba JugglerPic
 	dba BlackbeltTPic
-	dba ExecutivemPic
 	dba PsychicTPic
 	dba PicnickerPic
-	dba CamperPic
-	dba ExecutivefPic
 	dba SagePic
 	dba MediumPic
 	dba BoarderPic
-	dba PokefanmPic
-	dba KimonoGirlPic
-	dba TwinsPic
-	dba PokefanfPic
-	dba RedPic
-	dba BluePic
-	dba OfficerPic
-	dba GruntfPic
-	dba MysticalmanPic
+	dba PokefanMPic
+	dba PokefanFPic

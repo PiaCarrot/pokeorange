@@ -440,14 +440,9 @@ _TownMap: ; 9191c
 	ld b, SCGB_POKEGEAR_PALS
 	call GetSGBLayout
 	call SetPalettes
-	ld a, [hCGB]
-	and a
-	jr z, .dmg
 	ld a, %11100100
 	call DmgToCgbObjPal0
 	call DelayFrame
-
-.dmg
 	ld a, [wd002]
 	cp KANTO_LANDMARK
 	jr nc, .kanto
@@ -1312,19 +1307,13 @@ TownMapBGUpdate: ; 91ee4
 	ld [hBGMapAddress], a
 	ld a, h
 	ld [hBGMapAddress + 1], a
-; Only update palettes on CGB
-	ld a, [hCGB]
-	and a
-	jr z, .tiles
 ; BG Map mode 2 (palettes)
 	ld a, 2
 	ld [hBGMapMode], a
 ; The BG Map is updated in thirds, so we wait
-
 ; 3 frames to update the whole screen's palettes.
 	ld c, 3
 	call DelayFrames
-.tiles
 ; Update BG Map tiles
 	call WaitBGMap
 ; Turn off BG Map update

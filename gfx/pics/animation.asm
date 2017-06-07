@@ -346,12 +346,12 @@ PokeAnim_InitPicAttributes: ; d01d6
 	ld [wPokeAnimSpecies], a
 
 	ld a, $1
-	ld hl, UnownLetter
+	ld hl, SpindaPattern
 	call GetFarWRAMByte
-	ld [wPokeAnimUnownLetter], a
+	ld [wPokeAnimSpindaPattern], a
 
-	call PokeAnim_GetSpeciesOrUnown
-	ld [wPokeAnimSpeciesOrUnown], a
+	call PokeAnim_GetSpeciesOrSpindaPattern
+	ld [wPokeAnimSpeciesOrSpindaPattern], a
 
 	call PokeAnim_GetFrontpicDims
 	ld a, c
@@ -494,7 +494,7 @@ PokeAnim_StopWaitAnim: ; d02e4
 	ret
 ; d02ec
 
-PokeAnim_IsUnown: ; d02ec
+PokeAnim_IsSpinda: ; d02ec
 	ld a, [wPokeAnimSpecies]
 	cp SPINDA
 	ret
@@ -949,15 +949,15 @@ GetMonAnimPointer: ; d055c
 	call PokeAnim_IsEgg
 	jr z, .egg
 
-	ld c, BANK(UnownAnimations)
-	ld hl, UnownAnimationPointers
-	ld de, UnownAnimationExtraPointers
-	call PokeAnim_IsUnown
-	jr z, .unown
+	ld c, BANK(SpindaAnimations)
+	ld hl, SpindaAnimationPointers
+	ld de, SpindaAnimationExtraPointers
+	call PokeAnim_IsSpinda
+	jr z, .spinda
 	ld c, BANK(PicAnimations)
 	ld hl, AnimationPointers
 	ld de, AnimationExtraPointers
-.unown
+.spinda
 
 	ld a, [wPokeAnimExtraFlag]
 	and a
@@ -966,7 +966,7 @@ GetMonAnimPointer: ; d055c
 	ld l, e
 .extras
 
-	ld a, [wPokeAnimSpeciesOrUnown]
+	ld a, [wPokeAnimSpeciesOrSpindaPattern]
 	dec a
 	ld e, a
 	ld d, 0
@@ -1020,10 +1020,10 @@ GetMonFramesPointer: ; d05ce
 	call PokeAnim_IsEgg
 	jr z, .egg
 
-	call PokeAnim_IsUnown
-	ld b, BANK(UnownFramesPointers)
-	ld c, BANK(UnownsFrames)
-	ld hl, UnownFramesPointers
+	call PokeAnim_IsSpinda
+	ld b, BANK(SpindaFramesPointers)
+	ld c, BANK(SpindasFrames)
+	ld hl, SpindaFramesPointers
 	jr z, .got_frames
 	ld a, [wPokeAnimSpecies]
 	cp CHIKORITA
@@ -1036,7 +1036,7 @@ GetMonFramesPointer: ; d05ce
 	ld a, c
 	ld [wPokeAnimFramesBank], a
 
-	ld a, [wPokeAnimSpeciesOrUnown]
+	ld a, [wPokeAnimSpeciesOrSpindaPattern]
 	dec a
 	ld e, a
 	ld d, 0
@@ -1066,16 +1066,16 @@ GetMonBitmaskPointer: ; d061b
 	call PokeAnim_IsEgg
 	jr z, .egg
 
-	call PokeAnim_IsUnown
-	ld a, BANK(UnownBitmasksPointers)
-	ld hl, UnownBitmasksPointers
-	jr z, .unown
+	call PokeAnim_IsSpinda
+	ld a, BANK(SpindaBitmasksPointers)
+	ld hl, SpindaBitmasksPointers
+	jr z, .spinda
 	ld a, BANK(BitmasksPointers)
 	ld hl, BitmasksPointers
-.unown
+.spinda
 	ld [wPokeAnimBitmaskBank], a
 
-	ld a, [wPokeAnimSpeciesOrUnown]
+	ld a, [wPokeAnimSpeciesOrSpindaPattern]
 	dec a
 	ld e, a
 	ld d, 0
@@ -1101,14 +1101,14 @@ GetMonBitmaskPointer: ; d061b
 	ret
 ; d065c
 
-PokeAnim_GetSpeciesOrUnown: ; d065c
-	call PokeAnim_IsUnown
-	jr z, .unown
+PokeAnim_GetSpeciesOrSpindaPattern: ; d065c
+	call PokeAnim_IsSpinda
+	jr z, .spinda
 	ld a, [wPokeAnimSpecies]
 	ret
 
-.unown
-	ld a, [wPokeAnimUnownLetter]
+.spinda
+	ld a, [wPokeAnimSpindaPattern]
 	ret
 ; d0669
 

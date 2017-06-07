@@ -12,7 +12,7 @@ Route54_MapScriptHeader::
 .Callbacks: db 0
 
 TrainerSwimmerLucas:
-	trainer EVENT_BEAT_SWIMMERM_LUCAS, SWIMMERM, 3, SwimmerLucasSeenText, SwimmerLucasBeatenText, 0, .Script
+	trainer EVENT_BEAT_SWIMMERM_LUCAS, SWIMMERM, HAIRO, SwimmerLucasSeenText, SwimmerLucasBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -23,7 +23,7 @@ TrainerSwimmerLucas:
 	end
 	
 TrainerSwimmerBrand:
-	trainer EVENT_BEAT_SWIMMERM_BRAND, SWIMMERM, 4, SwimmerBrandSeenText, SwimmerBrandBeatenText, 0, .Script
+	trainer EVENT_BEAT_SWIMMERM_BRAND, SWIMMERM, DAISUKE, SwimmerBrandSeenText, SwimmerBrandBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -34,7 +34,7 @@ TrainerSwimmerBrand:
 	end
 	
 TrainerSwimmerArnold:
-	trainer EVENT_BEAT_SWIMMERM_ARNOLD, SWIMMERM, 5, SwimmerArnoldSeenText, SwimmerArnoldBeatenText, 0, .Script
+	trainer EVENT_BEAT_SWIMMERM_ARNOLD, SWIMMERM, JUNPEI, SwimmerArnoldSeenText, SwimmerArnoldBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -45,7 +45,7 @@ TrainerSwimmerArnold:
 	end
 	
 TrainerSwimmerPaula:
-	trainer EVENT_BEAT_SWIMMERF_PAULA, SWIMMERF, 2, SwimmerPaulaSeenText, SwimmerPaulaBeatenText, 0, .Script
+	trainer EVENT_BEAT_SWIMMERF_PAULA, SWIMMERF, REINA, SwimmerPaulaSeenText, SwimmerPaulaBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -56,7 +56,7 @@ TrainerSwimmerPaula:
 	end
 	
 TrainerSwimmerUmiko:
-	trainer EVENT_BEAT_SWIMMERF_UMIKO, SWIMMERF, 3, SwimmerUmikoSeenText, SwimmerUmikoBeatenText, 0, .Script
+	trainer EVENT_BEAT_SWIMMERF_UMIKO, SWIMMERF, UMIKO, SwimmerUmikoSeenText, SwimmerUmikoBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled

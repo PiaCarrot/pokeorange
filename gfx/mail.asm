@@ -11,26 +11,8 @@ ReadAnyMail: ; b9237
 	call ClearSprites
 	call ClearTileMap
 	call DisableLCD
+	call LoadStandardFont
 	call LoadFontsExtra
-	pop de
-	push de
-	ld a, BANK(sPartyMail)
-	call GetSRAMBank
-	farcall IsMailEuropean
-	call CloseSRAM
-	ld a, c
-	ld de, StandardEnglishFont
-	or a
-	jr z, .got_font
-	ld de, FrenchGermanFont
-	sub $3
-	jr c, .got_font
-	ld de, SpanishItalianFont
-
-.got_font
-	ld hl, VTiles1
-	lb bc, BANK(StandardEnglishFont), $80
-	call Get1bpp
 	pop de
 	call .LoadGFX
 	call EnableLCD
@@ -557,7 +539,7 @@ LoadPortraitMailGFX: ; b96ca
 	call Mail_DrawRowLoop
 	call LovelyEonMail_PlaceIcons
 	ld a, $1
-	ld [UnownLetter], a
+	ld [SpindaPattern], a
 	hlcoord 1, 10
 	call PrepMonFrontpic
 	pop hl

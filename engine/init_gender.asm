@@ -96,8 +96,8 @@ LoadGenderScreenPal: ; 48e47 (12:4e47)
 
 .Palette: ; 48e5c
 	RGB 31, 31, 31
-	RGB 09, 30, 31
-	RGB 01, 11, 31
+	RGB 31, 16, 08
+	RGB 20, 08, 04
 	RGB 00, 00, 00
 ; 48e64
 

@@ -1375,14 +1375,6 @@ ChooseCard_HandleJoypad: ; e089c
 
 CardFlip_UpdateCursorOAM: ; e0960
 	call ClearSprites
-	ld a, [hCGB]
-	and a
-	jr nz, .skip
-	ld a, [hVBlankCounter]
-	and $4
-	ret nz
-
-.skip
 	call CollapseCursorPosition
 	add hl, hl
 	add hl, hl
@@ -1612,10 +1604,6 @@ endm
 ; e0c37
 
 CardFlip_InitAttrPals: ; e0c37 (38:4c37)
-	ld a, [hCGB]
-	and a
-	ret z
-
 	hlcoord 0, 0, AttrMap
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	xor a

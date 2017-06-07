@@ -242,7 +242,7 @@ AnimateHOFMonEntrance: ; 865b5
 	ld a, [hli]
 	ld [TempMonDVs + 1], a
 	ld hl, TempMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
@@ -476,7 +476,7 @@ DisplayHOFMon: ; 86748
 	ld [CurPartySpecies], a
 	ld [wd265], a
 	ld hl, TempMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	xor a
 	ld [wBoxAlignment], a
 	hlcoord 6, 5
@@ -531,10 +531,6 @@ DisplayHOFMon: ; 86748
 
 HOF_AnimatePlayerPic: ; 86810
 	call ClearBGPalettes
-	ld hl, VTiles2 tile $63
-	ld de, FontExtra + 13 tiles
-	lb bc, BANK(FontExtra), 1
-	call Request2bpp
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
@@ -604,7 +600,7 @@ HOF_AnimatePlayerPic: ; 86810
 	ld de, GameTimeHours
 	lb bc, 2, 3
 	call PrintNum
-	ld [hl], 99
+	ld [hl], ":"
 	inc hl
 	ld de, GameTimeMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2

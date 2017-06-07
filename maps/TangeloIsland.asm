@@ -70,7 +70,7 @@ TangeloTraceyScript:
 	waitbutton
 	closetext
 	winlosstext TraceyWinLoss, 0
-	loadtrainer MYSTICALMAN, 1
+	loadtrainer TRACEY, 1
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
