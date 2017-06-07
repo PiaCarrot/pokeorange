@@ -19,10 +19,8 @@ INCBIN "gfx/frames/8.1bpp"
 INCBIN "gfx/frames/9.1bpp"
 ; f89b0
 
-; TODO: Various misc graphics here.
-
 StatsScreenPageTilesGFX: ; f89b0
-INCBIN "gfx/unknown/0f89b0.2bpp"
+INCBIN "gfx/stats/stats.2bpp"
 ; f8a90
 
 ShinyIcon: ; f8a90
@@ -31,7 +29,7 @@ INCBIN "gfx/stats/shiny.2bpp"
 
 StatsScreenPageTilesGFX_Part2: ; f8aa0
 ; not referenced on its own, but part of StatsScreenPageTilesGFX
-INCBIN "gfx/unknown/0f8aa0.2bpp"
+INCBIN "gfx/stats/exp_bar_ends.2bpp"
 ; f8ac0
 
 EnemyHPBarBorderGFX: ; f8ac0
@@ -50,10 +48,6 @@ TownMapGFX: ; f8ba0
 INCBIN "gfx/misc/town_map.2bpp.lz"
 ; f8ea4
 
-OverworldPhoneIconGFX: ; f8f24
-INCBIN "gfx/mobile/overworld_phone_icon.2bpp"
-; f8f34
-
 TextBoxSpaceGFX: ; f9204
 INCBIN "gfx/frames/space.2bpp"
 ; f9214
@@ -63,7 +57,7 @@ INCBIN "gfx/frames/map_entry_sign.2bpp"
 ; f9424
 
 FontsExtra2_UpArrowGFX: ; f9424
-INCBIN "gfx/unknown/0f9424.2bpp"
+INCBIN "gfx/misc/up_arrow.2bpp"
 ; f9434
 
 Footprints: ; f9434
@@ -98,10 +92,6 @@ _LoadStandardFont:: ; fb449
 ; fb48a
 
 _LoadFontsExtra1:: ; fb48a
-	ld de, OverworldPhoneIconGFX
-	ld hl, VTiles2 tile $62
-	lb bc, BANK(OverworldPhoneIconGFX), 1
-	call Get2bpp_2
 	ld de, FontExtra + 3 * LEN_2BPP_TILE
 	ld hl, VTiles2 tile $63
 	lb bc, BANK(FontExtra), $16
