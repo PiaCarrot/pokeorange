@@ -1,27 +1,28 @@
 SpindasFrames:
-SpindaAFrames: INCLUDE "gfx/pics/unown_a/frames.asm"
-SpindaBFrames: INCLUDE "gfx/pics/unown_b/frames.asm"
-SpindaCFrames: INCLUDE "gfx/pics/unown_c/frames.asm"
-SpindaDFrames: INCLUDE "gfx/pics/unown_d/frames.asm"
-SpindaEFrames: INCLUDE "gfx/pics/unown_e/frames.asm"
-SpindaFFrames: INCLUDE "gfx/pics/unown_f/frames.asm"
-SpindaGFrames: INCLUDE "gfx/pics/unown_g/frames.asm"
-SpindaHFrames: INCLUDE "gfx/pics/unown_h/frames.asm"
-SpindaIFrames: INCLUDE "gfx/pics/unown_i/frames.asm"
-SpindaJFrames: INCLUDE "gfx/pics/unown_j/frames.asm"
-SpindaKFrames: INCLUDE "gfx/pics/unown_k/frames.asm"
-SpindaLFrames: INCLUDE "gfx/pics/unown_l/frames.asm"
-SpindaMFrames: INCLUDE "gfx/pics/unown_m/frames.asm"
-SpindaNFrames: INCLUDE "gfx/pics/unown_n/frames.asm"
-SpindaOFrames: INCLUDE "gfx/pics/unown_o/frames.asm"
-SpindaPFrames: INCLUDE "gfx/pics/unown_p/frames.asm"
-SpindaQFrames: INCLUDE "gfx/pics/unown_q/frames.asm"
-SpindaRFrames: INCLUDE "gfx/pics/unown_r/frames.asm"
-SpindaSFrames: INCLUDE "gfx/pics/unown_s/frames.asm"
-SpindaTFrames: INCLUDE "gfx/pics/unown_t/frames.asm"
-SpindaUFrames: INCLUDE "gfx/pics/unown_u/frames.asm"
-SpindaVFrames: INCLUDE "gfx/pics/unown_v/frames.asm"
-SpindaWFrames: INCLUDE "gfx/pics/unown_w/frames.asm"
-SpindaXFrames: INCLUDE "gfx/pics/unown_x/frames.asm"
-SpindaYFrames: INCLUDE "gfx/pics/unown_y/frames.asm"
-SpindaZFrames: INCLUDE "gfx/pics/unown_z/frames.asm"
+SpindaAFrames:
+SpindaBFrames:
+SpindaCFrames:
+SpindaDFrames:
+SpindaEFrames:
+SpindaFFrames:
+SpindaGFrames:
+SpindaHFrames:
+SpindaIFrames:
+SpindaJFrames:
+SpindaKFrames:
+SpindaLFrames:
+SpindaMFrames:
+SpindaNFrames:
+SpindaOFrames:
+SpindaPFrames:
+SpindaQFrames:
+SpindaRFrames:
+SpindaSFrames:
+SpindaTFrames:
+SpindaUFrames:
+SpindaVFrames:
+SpindaWFrames:
+SpindaXFrames:
+SpindaYFrames:
+SpindaZFrames:
+	; nothing

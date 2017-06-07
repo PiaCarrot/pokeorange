@@ -874,7 +874,7 @@ Pokedex_DrawDexEntryScreenBG: ; 407fd
 	ret
 
 .Height: ; 40852
-	db "HT  ?", $5e, "??", $5f, $ff ; HT  ?'??"
+	db "HT  ?′??″", $ff ; HT  ?'??"
 .Weight: ; 4085c
 	db "WT   ???lb", $ff ; WT   ???lb
 .MenuItems: ; 40867

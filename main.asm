@@ -4560,14 +4560,9 @@ INCLUDE "gfx/pics/bitmasks.asm"
 INCLUDE "gfx/pics/spinda_bitmask_pointers.asm"
 INCLUDE "gfx/pics/spinda_bitmasks.asm"
 
-SECTION "Pic Animations 2", ROMX, BANK[$35]
-
+; Frames
 INCLUDE "gfx/pics/frame_pointers.asm"
-INCLUDE "gfx/pics/kanto_frames.asm"
-
-SECTION "Pic Animations 3", ROMX, BANK[$36]
-
-INCLUDE "gfx/pics/johto_frames.asm"
+INCLUDE "gfx/pics/frames.asm"
 INCLUDE "gfx/pics/spinda_frame_pointers.asm"
 INCLUDE "gfx/pics/spinda_frames.asm"
 

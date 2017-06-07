@@ -1,27 +1,28 @@
 SpindaAnimations:
-SpindaAAnimation: INCLUDE "gfx/pics/unown_a/anim0.asm"
-SpindaBAnimation: INCLUDE "gfx/pics/unown_b/anim0.asm"
-SpindaCAnimation: INCLUDE "gfx/pics/unown_c/anim0.asm"
-SpindaDAnimation: INCLUDE "gfx/pics/unown_d/anim0.asm"
-SpindaEAnimation: INCLUDE "gfx/pics/unown_e/anim0.asm"
-SpindaFAnimation: INCLUDE "gfx/pics/unown_f/anim0.asm"
-SpindaGAnimation: INCLUDE "gfx/pics/unown_g/anim0.asm"
-SpindaHAnimation: INCLUDE "gfx/pics/unown_h/anim0.asm"
-SpindaIAnimation: INCLUDE "gfx/pics/unown_i/anim0.asm"
-SpindaJAnimation: INCLUDE "gfx/pics/unown_j/anim0.asm"
-SpindaKAnimation: INCLUDE "gfx/pics/unown_k/anim0.asm"
-SpindaLAnimation: INCLUDE "gfx/pics/unown_l/anim0.asm"
-SpindaMAnimation: INCLUDE "gfx/pics/unown_m/anim0.asm"
-SpindaNAnimation: INCLUDE "gfx/pics/unown_n/anim0.asm"
-SpindaOAnimation: INCLUDE "gfx/pics/unown_o/anim0.asm"
-SpindaPAnimation: INCLUDE "gfx/pics/unown_p/anim0.asm"
-SpindaQAnimation: INCLUDE "gfx/pics/unown_q/anim0.asm"
-SpindaRAnimation: INCLUDE "gfx/pics/unown_r/anim0.asm"
-SpindaSAnimation: INCLUDE "gfx/pics/unown_s/anim0.asm"
-SpindaTAnimation: INCLUDE "gfx/pics/unown_t/anim0.asm"
-SpindaUAnimation: INCLUDE "gfx/pics/unown_u/anim0.asm"
-SpindaVAnimation: INCLUDE "gfx/pics/unown_v/anim0.asm"
-SpindaWAnimation: INCLUDE "gfx/pics/unown_w/anim0.asm"
-SpindaXAnimation: INCLUDE "gfx/pics/unown_x/anim0.asm"
-SpindaYAnimation: INCLUDE "gfx/pics/unown_y/anim0.asm"
-SpindaZAnimation: INCLUDE "gfx/pics/unown_z/anim0.asm"
+SpindaAAnimation:
+SpindaBAnimation:
+SpindaCAnimation:
+SpindaDAnimation:
+SpindaEAnimation:
+SpindaFAnimation:
+SpindaGAnimation:
+SpindaHAnimation:
+SpindaIAnimation:
+SpindaJAnimation:
+SpindaKAnimation:
+SpindaLAnimation:
+SpindaMAnimation:
+SpindaNAnimation:
+SpindaOAnimation:
+SpindaPAnimation:
+SpindaQAnimation:
+SpindaRAnimation:
+SpindaSAnimation:
+SpindaTAnimation:
+SpindaUAnimation:
+SpindaVAnimation:
+SpindaWAnimation:
+SpindaXAnimation:
+SpindaYAnimation:
+SpindaZAnimation:
+	endanim
