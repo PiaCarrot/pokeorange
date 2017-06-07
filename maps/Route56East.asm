@@ -25,7 +25,7 @@ TrainerSightSeerMichio:
 	waitbutton
 	closetext
 	end
-	
+
 SightSeerMichioSeenText:
 	text "I am totally lost!"
 	line "Do you know how to"
@@ -53,7 +53,7 @@ TrainerSwimmerYaeko:
 	waitbutton
 	closetext
 	end
-	
+
 SwimmerYaekoSeenText:
 	text "Are you ready for"
 	line "the shock of your"
@@ -81,10 +81,10 @@ TrainerHikerTeppei:
 	waitbutton
 	closetext
 	end
-	
+
 HikerTeppeiSeenText:
 	text "Hiking at sea?"
-	
+
 	para "No problem! Look"
 	line "what I found ski-"
 	cont "ttering around!"
@@ -99,13 +99,13 @@ HikerTeppeiAfterText:
 	line "else lives in"
 	cont "this cave."
 	done
-	
-Route56TM:
+
+Route56EastTMAttract:
 	itemball TM_ATTRACT
 
 Route56Rock:
 	jumpstd smashrock
-	
+
 Route56East_MapEventHeader:: db 0, 0
 
 .Warps: db 1
@@ -122,5 +122,5 @@ Route56East_MapEventHeader:: db 0, 0
 	person_event SPRITE_COOLTRAINER_M, 10, 44, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 3, TrainerSightSeerMichio, -1
 	person_event SPRITE_SWIMMER_GIRL, 20, 34, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerYaeko, -1
 	person_event SPRITE_POKEFAN_M, 24, 8, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 0, TrainerHikerTeppei, -1
-	person_event SPRITE_POKE_BALL, 13, 44, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56TM, EVENT_ROUTE_56_TM
+	person_event SPRITE_POKE_BALL, 13, 44, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56EastTMAttract, EVENT_ROUTE_56_EAST_TM_ATTRACT
 

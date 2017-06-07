@@ -76,7 +76,7 @@ LabTryToLeaveScript:
 	applymovement PLAYER, MovementData_0x78f70
 	end
 
-CyndaquilPokeBallScript:
+CharmanderPokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
 	iftrue LookAtIvyPokeBallScript
 	spriteface IVYSLAB_IVY, DOWN
@@ -86,7 +86,7 @@ CyndaquilPokeBallScript:
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeCyndaquilText
+	writetext TakeCharmanderText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear IVYSLAB_POKE_BALL1
@@ -103,10 +103,10 @@ CyndaquilPokeBallScript:
 	closetext
 	checkcode VAR_FACING
 	if_equal RIGHT, IvyDirectionsScript
-	applymovement PLAYER, AfterCyndaquilMovement
+	applymovement PLAYER, AfterCharmanderMovement
 	jump IvyDirectionsScript
 
-TotodilePokeBallScript:
+SquirtlePokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
 	iftrue LookAtIvyPokeBallScript
 	spriteface IVYSLAB_IVY, DOWN
@@ -116,7 +116,7 @@ TotodilePokeBallScript:
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeTotodileText
+	writetext TakeSquirtleText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear IVYSLAB_POKE_BALL2
@@ -131,10 +131,10 @@ TotodilePokeBallScript:
 	buttonsound
 	givepoke SQUIRTLE, 10, BERRY
 	closetext
-	applymovement PLAYER, AfterTotodileMovement
+	applymovement PLAYER, AfterSquirtleMovement
 	jump IvyDirectionsScript
 
-ChikoritaPokeBallScript:
+BulbasaurPokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
 	iftrue LookAtIvyPokeBallScript
 	spriteface IVYSLAB_IVY, DOWN
@@ -144,7 +144,7 @@ ChikoritaPokeBallScript:
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeChikoritaText
+	writetext TakeBulbasaurText
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear IVYSLAB_POKE_BALL3
@@ -159,7 +159,7 @@ ChikoritaPokeBallScript:
 	buttonsound
 	givepoke BULBASAUR, 10, BERRY
 	closetext
-	applymovement PLAYER, AfterChikoritaMovement
+	applymovement PLAYER, AfterBulbasaurMovement
 	jump IvyDirectionsScript
 
 DidntChooseStarterScript:
@@ -203,9 +203,9 @@ ProfIvyScript:
 	end
 
 .GoOn:
-	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
+	checkevent EVENT_SHOWED_GS_BALL_TO_IVY
 	iftrue .FinalIvyText
-	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
+	setevent EVENT_SHOWED_GS_BALL_TO_IVY
 	writetext IvyAdventureText
 	waitbutton
 	closetext
@@ -435,20 +435,20 @@ IvysLab_IvyToDefaultPositionMovement2:
 	turn_head DOWN
 	step_end
 
-AfterCyndaquilMovement:
+AfterCharmanderMovement:
 	step LEFT
 	step UP
 	turn_head UP
 	step_end
 
-AfterTotodileMovement:
+AfterSquirtleMovement:
 	step LEFT
 	step LEFT
 	step UP
 	turn_head UP
 	step_end
 
-AfterChikoritaMovement:
+AfterBulbasaurMovement:
 	step LEFT
 	step LEFT
 	step LEFT
@@ -573,19 +573,19 @@ LabWhereGoingText:
 	line "are you going?"
 	done
 
-TakeCyndaquilText:
+TakeCharmanderText:
 	text "IVY: You'll take"
 	line "CHARMANDER, the"
 	cont "fire #MON?"
 	done
 
-TakeTotodileText:
+TakeSquirtleText:
 	text "IVY: Do you want"
 	line "SQUIRTLE, the"
 	cont "water #MON?"
 	done
 
-TakeChikoritaText:
+TakeBulbasaurText:
 	text "IVY: So, you like"
 	line "BULBASAUR, the"
 	cont "grass #MON?"
@@ -793,6 +793,6 @@ IvysLab_MapEventHeader:: db 0, 0
 .ObjectEvents: db 5
 	person_event SPRITE_IVY, 2, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, PAL_OW_PURPLE, ProfIvyScript, -1
 	person_event SPRITE_COOLTRAINER_F, 9, 2, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, IvysAideScript, -1
-	person_event SPRITE_POKE_BALL, 3, 6, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, CyndaquilPokeBallScript, EVENT_CYNDAQUIL_POKEBALL_IN_IVYS_LAB
-	person_event SPRITE_POKE_BALL, 3, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TotodilePokeBallScript, EVENT_TOTODILE_POKEBALL_IN_IVYS_LAB
-	person_event SPRITE_POKE_BALL, 3, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ChikoritaPokeBallScript, EVENT_CHIKORITA_POKEBALL_IN_IVYS_LAB
+	person_event SPRITE_POKE_BALL, 3, 6, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, CharmanderPokeBallScript, EVENT_CHARMANDER_POKEBALL_IN_IVYS_LAB
+	person_event SPRITE_POKE_BALL, 3, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, SquirtlePokeBallScript, EVENT_SQUIRTLE_POKEBALL_IN_IVYS_LAB
+	person_event SPRITE_POKE_BALL, 3, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, BulbasaurPokeBallScript, EVENT_BULBASAUR_POKEBALL_IN_IVYS_LAB

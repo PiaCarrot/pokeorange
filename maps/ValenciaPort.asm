@@ -45,7 +45,7 @@ FishingGuruScript_0x74a01:
 	end
 
 ValenciaPortHiddenProtein:
-	dwb EVENT_OLIVINE_PORT_HIDDEN_PROTEIN, SUPER_POTION
+	dwb EVENT_VALENCIA_PORT_HIDDEN_SUPER_POTION, SUPER_POTION
 
 MovementData_0x74a30:
 	step UP
