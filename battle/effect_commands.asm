@@ -3653,7 +3653,7 @@ BattleCommand_DamageCalc: ; 35612
 
 
 TypeBoostItems: ; 35703
-	db HELD_NORMAL_BOOST,   NORMAL   ; Pink/Polkadot Bow
+	db HELD_NORMAL_BOOST,   NORMAL   ; Pink Bow
 	db HELD_FIGHTING_BOOST, FIGHTING ; Blackbelt
 	db HELD_FLYING_BOOST,   FLYING   ; Sharp Beak
 	db HELD_POISON_BOOST,   POISON   ; Poison Barb
@@ -3670,6 +3670,7 @@ TypeBoostItems: ; 35703
 	db HELD_DRAGON_BOOST,   DRAGON   ; Dragon Scale
 	db HELD_DARK_BOOST,     DARK     ; Blackglasses
 	db HELD_STEEL_BOOST,    STEEL    ; Metal Coat
+	db HELD_FAIRY_BOOST,    FAIRY    ; Polkadot Bow
 	db $ff
 ; 35726
 
@@ -4173,10 +4174,8 @@ BattleCommand_Conversion2: ; 359e6
 .loop
 	call BattleRandom
 	and $1f
-	cp UNUSED_TYPES
-	jr c, .okay
-	cp UNUSED_TYPES_END
-	jr c, .loop
+	cp CURSE_T
+	jr z, .loop
 	cp TYPES_END
 	jr nc, .loop
 .okay
