@@ -136,7 +136,7 @@ MandarinUndergroundButchScript:
 	waitbutton
 	closetext
 	winlosstext ButchWinLoss, 0
-	loadtrainer EXECUTIVEM, 1
+	loadtrainer BUTCH, 1
 	startbattle
 	playmapmusic
 	reloadmapafterbattle
@@ -156,7 +156,7 @@ MandarinUndergroundCassidyScript:
 	waitbutton
 	closetext
 	winlosstext CassidyWinLoss, 0
-	loadtrainer EXECUTIVEF, 1
+	loadtrainer CASSIDY, 1
 	startbattle
 	playmapmusic
 	reloadmapafterbattle

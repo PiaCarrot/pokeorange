@@ -910,7 +910,7 @@ BattleAnimCmd_Transform: ; cc5dc (33:45dc)
 	ld a, [TempBattleMonSpecies] ; TempBattleMonSpecies
 	ld [CurPartySpecies], a ; CurPartySpecies
 	ld hl, BattleMonDVs ; BattleMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	ld de, VTiles0 tile $00
 	predef GetFrontpic
 	jr .done
@@ -919,7 +919,7 @@ BattleAnimCmd_Transform: ; cc5dc (33:45dc)
 	ld a, [TempEnemyMonSpecies] ; TempEnemyMonSpecies
 	ld [CurPartySpecies], a ; CurPartySpecies
 	ld hl, EnemyMonDVs ; EnemyMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	ld de, VTiles0 tile $00
 	predef GetBackpic
 
@@ -1137,14 +1137,14 @@ BattleAnimCmd_BeatUp: ; cc776 (33:4776)
 	jr z, .player
 
 	ld hl, BattleMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	ld de, VTiles2 tile $00
 	predef GetFrontpic
 	jr .done
 
 .player
 	ld hl, EnemyMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	ld de, VTiles2 tile $31
 	predef GetBackpic
 

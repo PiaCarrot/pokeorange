@@ -1,5 +1,5 @@
 UpdateUnownDex: ; fba18
-	ld a, [UnownLetter]
+	ld a, [SpindaPattern]
 	ld c, a
 	ld b, 26
 	ld hl, UnownDex

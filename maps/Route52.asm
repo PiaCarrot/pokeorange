@@ -36,7 +36,7 @@ Route52RoarTMGuyScript:
 	end
 
 TrainerCamperRoland:
-	trainer EVENT_BEAT_CAMPER_ROLAND, CAMPER, 1, CamperRolandSeenText, CamperRolandBeatenText, 0, .Script
+	trainer EVENT_BEAT_CAMPER_ROLAND, CAMPER, SAMM, CamperRolandSeenText, CamperRolandBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -47,7 +47,7 @@ TrainerCamperRoland:
 	end
 
 TrainerFisherJustin:
-	trainer EVENT_BEAT_FISHER_JUSTIN, FISHER, 1, FisherJustinSeenText, FisherJustinBeatenText, 0, .Script
+	trainer EVENT_BEAT_FISHER_JUSTIN, FISHER, SOJIRO, FisherJustinSeenText, FisherJustinBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -58,7 +58,7 @@ TrainerFisherJustin:
 	end
 
 TrainerFisherRalph:
-	trainer EVENT_BEAT_FISHER_RALPH, FISHER, 2, FisherRalph1SeenText, FisherRalph1BeatenText, 0, .Script
+	trainer EVENT_BEAT_FISHER_RALPH, FISHER, FUGU, FisherRalph1SeenText, FisherRalph1BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -70,7 +70,7 @@ TrainerFisherRalph:
 
 
 TrainerFisherHenry:
-	trainer EVENT_BEAT_FISHER_HENRY, FISHER, 4, FisherHenrySeenText, FisherHenryBeatenText, 0, .Script
+	trainer EVENT_BEAT_FISHER_HENRY, FISHER, NOBU, FisherHenrySeenText, FisherHenryBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -81,7 +81,7 @@ TrainerFisherHenry:
 	end
 
 TrainerPicnickerLiz:
-	trainer EVENT_BEAT_PICNICKER_LIZ, SWIMMERF, 20, PicnickerLiz1SeenText, PicnickerLiz1BeatenText, 0, .Script
+	trainer EVENT_BEAT_PICNICKER_LIZ, SWIMMERF, YUKA, PicnickerLiz1SeenText, PicnickerLiz1BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -92,7 +92,7 @@ TrainerPicnickerLiz:
 	end
 
 TrainerYoungsterAlbert:
-	trainer EVENT_BEAT_YOUNGSTER_ALBERT, SWIMMERM, 23, YoungsterAlbertSeenText, YoungsterAlbertBeatenText, 0, .Script
+	trainer EVENT_BEAT_YOUNGSTER_ALBERT, SWIMMERM, THEO, YoungsterAlbertSeenText, YoungsterAlbertBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -103,7 +103,7 @@ TrainerYoungsterAlbert:
 	end
 
 TrainerYoungsterGordon:
-	trainer EVENT_BEAT_YOUNGSTER_GORDON, YOUNGSTER, 4, YoungsterGordonSeenText, YoungsterGordonBeatenText, 0, .Script
+	trainer EVENT_BEAT_YOUNGSTER_GORDON, YOUNGSTER, BOWIE, YoungsterGordonSeenText, YoungsterGordonBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -114,7 +114,7 @@ TrainerYoungsterGordon:
 	end
 
 TrainerBird_keeperPeter:
-	trainer EVENT_BEAT_BIRD_KEEPER_PETER, SWIMMERM, 22, Bird_keeperPeterSeenText, Bird_keeperPeterBeatenText, 0, .Script
+	trainer EVENT_BEAT_BIRD_KEEPER_PETER, SWIMMERM, ATECAIN, Bird_keeperPeterSeenText, Bird_keeperPeterBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled

@@ -13,7 +13,7 @@ Route55_MapScriptHeader::
 .Scripts:
 
 TrainerSwimmerMayumi:
-	trainer EVENT_BEAT_SWIMMERF_MAYUMI, SWIMMERF, 4, SwimmerMayumiSeenText, SwimmerMayumiBeatenText, 0, .Script
+	trainer EVENT_BEAT_SWIMMERF_MAYUMI, SWIMMERF, MAYUMI, SwimmerMayumiSeenText, SwimmerMayumiBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -41,7 +41,7 @@ SwimmerMayumiAfterText:
 	done
 
 TrainerSwimmerKosuke:
-	trainer EVENT_BEAT_SWIMMERM_KOSUKE, SWIMMERM, 6, SwimmerKosukeSeenText, SwimmerKosukeBeatenText, 0, .Script
+	trainer EVENT_BEAT_SWIMMERM_KOSUKE, SWIMMERM, KOSUKE, SwimmerKosukeSeenText, SwimmerKosukeBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -69,7 +69,7 @@ SwimmerKosukeAfterText:
 	done
 
 TrainerAthleteHideki:
-	trainer EVENT_BEAT_ATHLETE_HIDEKI, BURGLAR, 1, AthleteHidekiSeenText, AthleteHidekiBeatenText, 0, .Script
+	trainer EVENT_BEAT_ATHLETE_HIDEKI, ATHLETE, HIDEKI, AthleteHidekiSeenText, AthleteHidekiBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled

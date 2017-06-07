@@ -13,7 +13,7 @@ Route51_MapScriptHeader:
 	db 0
 
 TrainerBug_catcherWade1:
-	trainer EVENT_BEAT_BUG_CATCHER_WADE, BUG_CATCHER, 4, Bug_catcherWade1SeenText, Bug_catcherWade1BeatenText, 2, .Script
+	trainer EVENT_BEAT_BUG_CATCHER_WADE, BUG_CATCHER, SAM, Bug_catcherWade1SeenText, Bug_catcherWade1BeatenText, 2, .Script
 
 .Script:
 	end_if_just_battled

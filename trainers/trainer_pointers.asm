@@ -1,70 +1,70 @@
 ; Each trainer class has its own group. See trainers.asm.
 
 TrainerGroups: ; 0x39999
-	dw FalknerGroup
-	dw WhitneyGroup
-	dw BugsyGroup
-	dw MortyGroup
-	dw PryceGroup
-	dw JasmineGroup
-	dw ChuckGroup
-	dw ClairGroup
-	dw Rival1Group
-	dw PokemonProfGroup
-	dw WillGroup
-	dw PKMNTrainerGroup
-	dw BrunoGroup
-	dw KarenGroup
-	dw KogaGroup
-	dw ChampionGroup
+	dw CissyGroup
+	dw DannyGroup
+	dw RudyGroup
+	dw LuanaGroup
+	dw DrakeGroup
+	dw TraceyGroup
 	dw BrockGroup
 	dw MistyGroup
 	dw LtSurgeGroup
-	dw ScientistGroup
 	dw ErikaGroup
-	dw YoungsterGroup
-	dw SchoolboyGroup
-	dw BirdKeeperGroup
-	dw LassGroup
-	dw JanineGroup
-	dw CooltrainerMGroup
-	dw CooltrainerFGroup
-	dw BeautyGroup
-	dw PokemaniacGroup
-	dw GruntMGroup
-	dw GentlemanGroup
-	dw SkierGroup
-	dw TeacherGroup
+	dw KogaGroup
 	dw SabrinaGroup
+	dw BlaineGroup
+	dw GiovanniGroup
+	dw LoreleiGroup
+	dw BrunoGroup
+	dw AgathaGroup
+	dw LanceGroup
+	dw RedGroup
+	dw BlueGroup
+	dw GreenGroup
+	dw YellowGroup
+	dw CalGroup
+	dw ButchGroup
+	dw CassidyGroup
+	dw CassidyButchGroup
+	dw JamesGroup
+	dw JessieGroup
+	dw JessieJamesGroup
+	dw MomGroup
+	dw ProfIvyGroup
+	dw ProfAideGroup
+	dw NurseGroup
+	dw OfficerGroup
+	dw YoungsterGroup
+	dw LassGroup
+	dw BeautyGroup
 	dw BugCatcherGroup
-	dw FisherGroup
 	dw SwimmerMGroup
 	dw SwimmerFGroup
+	dw CamperGroup
+	dw PokemaniacGroup
+	dw FisherGroup
+	dw HikerGroup
+	dw AthleteGroup
+	dw SightseerMGroup
+	dw SightseerFGroup
+	dw SchoolboyGroup
+	dw BirdKeeperGroup
+	dw CooltrainerMGroup
+	dw CooltrainerFGroup
+	dw GentlemanGroup
+	dw TeacherGroup
 	dw SailorGroup
 	dw SuperNerdGroup
-	dw Rival2Group
 	dw GuitaristGroup
-	dw HikerGroup
 	dw BikerGroup
-	dw BlaineGroup
-	dw BurglarGroup
 	dw FirebreatherGroup
 	dw JugglerGroup
 	dw BlackbeltGroup
-	dw ExecutiveMGroup
 	dw PsychicGroup
 	dw PicnickerGroup
-	dw CamperGroup
-	dw ExecutiveFGroup
 	dw SageGroup
 	dw MediumGroup
 	dw BoarderGroup
 	dw PokefanMGroup
-	dw KimonoGirlGroup
-	dw TwinsGroup
 	dw PokefanFGroup
-	dw RedGroup
-	dw BlueGroup
-	dw OfficerGroup
-	dw GruntFGroup
-	dw MysticalmanGroup

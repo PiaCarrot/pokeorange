@@ -20,7 +20,7 @@ FalknerScript_0x683c2:
 	waitbutton
 	closetext
 	winlosstext UnknownText_0x6854a, 0
-	loadtrainer FALKNER, 1
+	loadtrainer CISSY, 1
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_FALKNER
@@ -66,7 +66,7 @@ MikanGymTriggerRockets:
 	jumpstd radiotowerrockets
 
 TrainerBird_keeperRod:
-	trainer EVENT_BEAT_BIRD_KEEPER_ROD, SWIMMERF, 1, Bird_keeperRodSeenText, Bird_keeperRodBeatenText, 0, Bird_keeperRodScript
+	trainer EVENT_BEAT_BIRD_KEEPER_ROD, SWIMMERF, MARIA, Bird_keeperRodSeenText, Bird_keeperRodBeatenText, 0, Bird_keeperRodScript
 
 Bird_keeperRodScript:
 	end_if_just_battled
@@ -77,7 +77,7 @@ Bird_keeperRodScript:
 	end
 
 TrainerBird_keeperAbe:
-	trainer EVENT_BEAT_BIRD_KEEPER_ABE, LASS, 18, Bird_keeperAbeSeenText, Bird_keeperAbeBeatenText, 0, Bird_keeperAbeScript
+	trainer EVENT_BEAT_BIRD_KEEPER_ABE, LASS, NICOLE, Bird_keeperAbeSeenText, Bird_keeperAbeBeatenText, 0, Bird_keeperAbeScript
 
 Bird_keeperAbeScript:
 	end_if_just_battled
@@ -108,7 +108,7 @@ MikanGymStatue:
 	iftrue .Beaten
 	jumpstd gymstatue1
 .Beaten:
-	trainertotext FALKNER, 1, $1
+	trainertotext CISSY, 1, $1
 	jumpstd gymstatue2
 
 UnknownText_0x68473:

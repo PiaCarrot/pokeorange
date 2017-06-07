@@ -37,7 +37,7 @@ Route56SignText:
 	done
 
 TrainerFisherIsao:
-	trainer EVENT_BEAT_FISHER_ISAO, FISHER, 5, FisherIsaoSeenText, FisherIsaoBeatenText, 0, .Script
+	trainer EVENT_BEAT_FISHER_ISAO, FISHER, ISAO, FisherIsaoSeenText, FisherIsaoBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -65,7 +65,7 @@ FisherIsaoAfterText:
 	done
 
 TrainerAthleteKaito:
-	trainer EVENT_BEAT_ATHLETE_KAITO, BURGLAR, 2, AthleteKaitoSeenText, AthleteKaitoBeatenText, 0, .Script
+	trainer EVENT_BEAT_ATHLETE_KAITO, ATHLETE, KAITO, AthleteKaitoSeenText, AthleteKaitoBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -90,7 +90,7 @@ AthleteKaitoAfterText:
 	done
 
 TrainerSwimmerSakako:
-	trainer EVENT_BEAT_SWIMMERF_SAKAKO, SWIMMERF, 6, SwimmerSakakoSeenText, SwimmerSakakoBeatenText, 0, .Script
+	trainer EVENT_BEAT_SWIMMERF_SAKAKO, SWIMMERF, SAKAKO, SwimmerSakakoSeenText, SwimmerSakakoBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -119,7 +119,7 @@ SwimmerSakakoAfterText:
 	done
 
 TrainerSwimmerNaoya:
-	trainer EVENT_BEAT_SWIMMERM_NAOYA, SWIMMERM, 7, SwimmerNaoyaSeenText, SwimmerNaoyaBeatenText, 0, .Script
+	trainer EVENT_BEAT_SWIMMERM_NAOYA, SWIMMERM, NAOYA, SwimmerNaoyaSeenText, SwimmerNaoyaBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -162,7 +162,7 @@ TraceyScript1:
 	waitbutton
 	closetext
 	winlosstext TraceyRoute56WinLoss, 0
-	loadtrainer MYSTICALMAN, 2
+	loadtrainer TRACEY, 2
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -195,7 +195,7 @@ TraceyScript2:
 	waitbutton
 	closetext
 	winlosstext TraceyRoute56WinLoss, 0
-	loadtrainer MYSTICALMAN, 2
+	loadtrainer TRACEY, 2
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle

@@ -16,7 +16,7 @@ Route53LassScript:
 	jumptextfaceplayer Route53LassText
 
 TrainerHikerAnthony:
-	trainer EVENT_BEAT_HIKER_ANTHONY, FISHER, 3, HikerAnthony2SeenText, HikerAnthony2BeatenText, 0, .Script
+	trainer EVENT_BEAT_HIKER_ANTHONY, FISHER, NAT_PAGLE, HikerAnthony2SeenText, HikerAnthony2BeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -27,7 +27,7 @@ TrainerHikerAnthony:
 	end
 
 TrainerSwimmerArturo:
-	trainer EVENT_BEAT_SWIMMERM_ARTURO, SWIMMERM, 1, SwimmerArturoSeenText, SwimmerArturoBeatenText, 0, .Script
+	trainer EVENT_BEAT_SWIMMERM_ARTURO, SWIMMERM, KOJURO, SwimmerArturoSeenText, SwimmerArturoBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -38,7 +38,7 @@ TrainerSwimmerArturo:
 	end
 
 TrainerSwimmerRandy:
-	trainer EVENT_BEAT_SWIMMERM_RANDY, SWIMMERM, 2, SwimmerRandySeenText, SwimmerRandyBeatenText, 0, .Script
+	trainer EVENT_BEAT_SWIMMERM_RANDY, SWIMMERM, YOUTA, SwimmerRandySeenText, SwimmerRandyBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled

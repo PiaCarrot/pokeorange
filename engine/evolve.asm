@@ -310,7 +310,7 @@ EvolveAfterBattle_MasterLoop
 	jr nz, .skip_unown
 
 	ld hl, TempMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	farcall UpdateUnownDex
 
 .skip_unown

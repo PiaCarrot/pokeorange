@@ -99,7 +99,6 @@
 	map_header_2 RedsHouse2F, REDS_HOUSE_2F, $0, 0
 	map_header_2 BluesHouse, BLUES_HOUSE, $0, 0
 	map_header_2 OaksLab, OAKS_LAB, $0, 0
-	map_header_2 CinnabarPokeCenter1F, CINNABAR_POKECENTER_1F, $0, 0
 
 	map_header_2 NationalPark, NATIONAL_PARK, $0, 0
 	map_header_2 NationalParkBugContest, NATIONAL_PARK_BUG_CONTEST, $0, 0

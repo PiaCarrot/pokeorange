@@ -1305,20 +1305,32 @@ PlayBattleMusic: ; 2ee6c
 
 .trainermusic
 	ld de, MUSIC_CHAMPION_BATTLE
-	cp CHAMPION
+	cp DRAKE
+	jr z, .done
+	cp LANCE
 	jr z, .done
 	cp RED
+	jr z, .done
+	cp BLUE
+	jr z, .done
+	cp GREEN
+	jr z, .done
+	cp YELLOW
 	jr z, .done
 
 	; really, they should have included admins and scientists here too...
 	ld de, MUSIC_ROCKET_BATTLE
-	cp GRUNTM
+	cp BUTCH
 	jr z, .done
-	cp GRUNTF
+	cp CASSIDY
 	jr z, .done
-	cp EXECUTIVEM
+	cp CASSIDY_BUTCH
 	jr z, .done
-	cp EXECUTIVEF
+	cp JAMES
+	jr z, .done
+	cp JESSIE
+	jr z, .done
+	cp JESSIE_JAMES
 	jr z, .done
 
 	ld de, MUSIC_KANTO_GYM_LEADER_BATTLE
@@ -1331,18 +1343,8 @@ PlayBattleMusic: ; 2ee6c
 
 	ld de, MUSIC_RIVAL_BATTLE
 	ld a, [OtherTrainerClass]
-	cp RIVAL1
+	cp TRACEY
 	jr z, .done
-	cp RIVAL2
-	jr nz, .othertrainer
-
-	ld a, [OtherTrainerID]
-	cp 4 ; Rival in Indigo Plateau
-	jr c, .done
-	ld de, MUSIC_CHAMPION_BATTLE
-	jr .done
-
-.othertrainer
 	ld a, [wLinkMode]
 	and a
 	jr nz, .johtotrainer
@@ -1490,24 +1492,12 @@ AIScoring: ; 38591
 INCLUDE "battle/ai/scoring.asm"
 
 GetTrainerClassName: ; 3952d
-	ld hl, RivalName
 	ld a, c
-	cp RIVAL1
-	jr z, .rival
-
 	ld [CurSpecies], a
 	ld a, TRAINER_NAME
 	ld [wNamedObjectTypeBuffer], a
 	call GetName
 	ld de, StringBuffer1
-	ret
-
-.rival
-	ld de, StringBuffer1
-	push de
-	ld bc, NAME_LENGTH
-	call CopyBytes
-	pop de
 	ret
 
 GetOTName: ; 39550
@@ -1516,11 +1506,7 @@ GetOTName: ; 39550
 	and a
 	jr nz, .ok
 
-	ld hl, RivalName
 	ld a, c
-	cp RIVAL1
-	jr z, .ok
-
 	ld [CurSpecies], a
 	ld a, TRAINER_NAME
 	ld [wNamedObjectTypeBuffer], a
@@ -2507,7 +2493,7 @@ GetTrademonFrontpic: ; 4d7fd
 	ld de, VTiles2
 	push de
 	push af
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	pop af
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a
@@ -4672,17 +4658,17 @@ INCLUDE "gfx/pics/anims.asm"
 INCLUDE "gfx/pics/extra_pointers.asm"
 INCLUDE "gfx/pics/extras.asm"
 
-; Unown has its own animation data despite having an entry in the main tables
-INCLUDE "gfx/pics/unown_anim_pointers.asm"
-INCLUDE "gfx/pics/unown_anims.asm"
-INCLUDE "gfx/pics/unown_extra_pointers.asm"
-INCLUDE "gfx/pics/unown_extras.asm"
+; Spinda has its own animation data despite having an entry in the main tables
+INCLUDE "gfx/pics/spinda_anim_pointers.asm"
+INCLUDE "gfx/pics/spinda_anims.asm"
+INCLUDE "gfx/pics/spinda_extra_pointers.asm"
+INCLUDE "gfx/pics/spinda_extras.asm"
 
 ; Bitmasks
 INCLUDE "gfx/pics/bitmask_pointers.asm"
 INCLUDE "gfx/pics/bitmasks.asm"
-INCLUDE "gfx/pics/unown_bitmask_pointers.asm"
-INCLUDE "gfx/pics/unown_bitmasks.asm"
+INCLUDE "gfx/pics/spinda_bitmask_pointers.asm"
+INCLUDE "gfx/pics/spinda_bitmasks.asm"
 
 SECTION "Pic Animations 2", ROMX, BANK[$35]
 
@@ -4696,8 +4682,8 @@ FontInversed: INCBIN "gfx/misc/font_inversed.1bpp"
 SECTION "Pic Animations 3", ROMX, BANK[$36]
 
 INCLUDE "gfx/pics/johto_frames.asm"
-INCLUDE "gfx/pics/unown_frame_pointers.asm"
-INCLUDE "gfx/pics/unown_frames.asm"
+INCLUDE "gfx/pics/spinda_frame_pointers.asm"
+INCLUDE "gfx/pics/spinda_frames.asm"
 
 SECTION "Tileset Data 6", ROMX, BANK[TILESETS_6]
 

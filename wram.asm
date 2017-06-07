@@ -2044,7 +2044,7 @@ wForcedSwitch:: ds 1
 TrainerClass:: ; d233
 	ds 1
 
-UnownLetter:: ; d234
+SpindaPattern:: ; d234
 	ds 1
 
 wMoveSelectionMenuType:: ds 1
@@ -2779,8 +2779,8 @@ TempTileMap::
 wPokeAnimSceneIndex:: ds 1
 wPokeAnimPointer:: ds 2
 wPokeAnimSpecies:: ds 1
-wPokeAnimUnownLetter:: ds 1
-wPokeAnimSpeciesOrUnown:: ds 1
+wPokeAnimSpindaPattern:: ds 1
+wPokeAnimSpeciesOrSpindaPattern:: ds 1
 wPokeAnimGraphicStartTile:: ds 1
 wPokeAnimCoord:: ds 2
 wPokeAnimFrontpicHeight:: ds 1

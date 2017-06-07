@@ -168,7 +168,6 @@ SECTION "Map Scripts 23", ROMX, BANK[MAP_SCRIPTS_23]
 
 INCLUDE "maps/ValenciaIsland.asm"
 INCLUDE "maps/MikanIsland.asm"
-INCLUDE "maps/CinnabarPokeCenter1F.asm"
 
 
 SECTION "Map Scripts 24", ROMX, BANK[MAP_SCRIPTS_24]

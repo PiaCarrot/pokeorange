@@ -45,7 +45,7 @@ CREDITS                   EQU $42
 ; gfx/pics.o
 
 PIC_POINTERS              EQU $48
-UNOWN_PIC_POINTERS        EQU $49
+SPINDA_PIC_POINTERS       EQU $49
 TRAINER_PIC_POINTERS      EQU $4A
 
 PICS_FIX                  EQU $36

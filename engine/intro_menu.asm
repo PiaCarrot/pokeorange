@@ -620,7 +620,7 @@ OakSpeech: ; 0x5f99
 	call RotateThreePalettesRight
 	xor a
 	ld [CurPartySpecies], a
-	ld a, POKEMON_PROF
+	ld a, PROF_IVY
 	ld [TrainerClass], a
 	call Intro_PrepTrainerPic
 
@@ -658,7 +658,7 @@ OakSpeech: ; 0x5f99
 
 	xor a
 	ld [CurPartySpecies], a
-	ld a, POKEMON_PROF
+	ld a, PROF_IVY
 	ld [TrainerClass], a
 	call Intro_PrepTrainerPic
 

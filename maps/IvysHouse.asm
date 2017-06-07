@@ -42,7 +42,7 @@ Charity:
 
 .Battle:
 	winlosstext CharityWinLoss, 0
-	loadtrainer SCIENTIST, 1
+	loadtrainer PROF_AIDE, 1
 	startbattle
 	reloadmapafterbattle
 	end

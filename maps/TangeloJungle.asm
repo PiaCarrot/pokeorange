@@ -17,7 +17,7 @@ TangeloJungle_MapScriptHeader:
 	db 0
 
 TrainerBug_catcherWayne:
-	trainer EVENT_BEAT_BUG_CATCHER_WAYNE, BUG_CATCHER, 15, Bug_catcherWayneSeenText, Bug_catcherWayneBeatenText, 0, Bug_catcherWayneScript
+	trainer EVENT_BEAT_BUG_CATCHER_WAYNE, BUG_CATCHER, MIKE, Bug_catcherWayneSeenText, Bug_catcherWayneBeatenText, 0, Bug_catcherWayneScript
 
 Bug_catcherWayneScript:
 	end_if_just_battled
@@ -28,7 +28,7 @@ Bug_catcherWayneScript:
 	end
 	
 TrainerBug_catcherMushi:
-	trainer EVENT_BEAT_BUG_CATCHER_MUSHI, BUG_CATCHER, 16, Bug_catcherMushiSeenText, Bug_catcherMushiBeatenText, 0, Bug_catcherMushiScript
+	trainer EVENT_BEAT_BUG_CATCHER_MUSHI, BUG_CATCHER, MUSHI, Bug_catcherMushiSeenText, Bug_catcherMushiBeatenText, 0, Bug_catcherMushiScript
 
 Bug_catcherMushiScript:
 	end_if_just_battled
@@ -39,7 +39,7 @@ Bug_catcherMushiScript:
 	end
 	
 TrainerBug_catcherAlex:
-	trainer EVENT_BEAT_BUG_CATCHER_ALEX, BUG_CATCHER, 17, Bug_catcherAlexSeenText, Bug_catcherAlexBeatenText, 0, Bug_catcherAlexScript
+	trainer EVENT_BEAT_BUG_CATCHER_ALEX, BUG_CATCHER, ALEX, Bug_catcherAlexSeenText, Bug_catcherAlexBeatenText, 0, Bug_catcherAlexScript
 
 Bug_catcherAlexScript:
 	end_if_just_battled
@@ -50,7 +50,7 @@ Bug_catcherAlexScript:
 	end
 	
 TrainerYoungsterNess:
-	trainer EVENT_BEAT_YOUNGSTER_NESS, YOUNGSTER, 15, YoungsterNessSeenText, YoungsterNessBeatenText, 0, YoungsterNessScript
+	trainer EVENT_BEAT_YOUNGSTER_NESS, YOUNGSTER, NESS, YoungsterNessSeenText, YoungsterNessBeatenText, 0, YoungsterNessScript
 
 YoungsterNessScript:
 	end_if_just_battled

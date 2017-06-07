@@ -1,5 +1,5 @@
-GetUnownLetter: ; 51040
-; Return Unown letter in UnownLetter based on DVs at hl
+GetSpindaPattern: ; 51040
+; Return Spinda pattern in SpindaPattern based on DVs at hl
 
 ; Take the middle 2 bits of each DV and place them in order:
 ;	atk  def  spd  spc
@@ -45,7 +45,7 @@ GetUnownLetter: ; 51040
 ; Increment to get 1-26
 	ld a, [hQuotient + 2]
 	inc a
-	ld [UnownLetter], a
+	ld [SpindaPattern], a
 	ret
 
 GetFrontpic: ; 51077
@@ -103,21 +103,21 @@ _GetFrontpic: ; 510a5
 	ret
 
 GetFrontpicPointer: ; 510d7
-GLOBAL PicPointers, UnownPicPointers
+GLOBAL PicPointers, SpindaPicPointers
 
 	ld a, [CurPartySpecies]
 	cp SPINDA
-	jr z, .unown
+	jr z, .spinda
 	ld a, [CurPartySpecies]
 	ld d, BANK(PicPointers)
 	jr .ok
 
-.unown
-	ld a, [UnownLetter]
-	ld d, BANK(UnownPicPointers)
+.spinda
+	ld a, [SpindaPattern]
+	ld d, BANK(SpindaPicPointers)
 
 .ok
-	ld hl, PicPointers ; UnownPicPointers
+	ld hl, PicPointers ; SpindaPicPointers
 	dec a
 	ld bc, 6
 	call AddNTimes
@@ -201,7 +201,7 @@ GetBackpic: ; 5116c
 
 	ld a, [CurPartySpecies]
 	ld b, a
-	ld a, [UnownLetter]
+	ld a, [SpindaPattern]
 	ld c, a
 	ld a, [rSVBK]
 	push af
@@ -211,14 +211,14 @@ GetBackpic: ; 5116c
 
 	; These are assumed to be at the same
 	; address in their respective banks.
-	GLOBAL PicPointers,  UnownPicPointers
-	ld hl, PicPointers ; UnownPicPointers
+	GLOBAL PicPointers,  SpindaPicPointers
+	ld hl, PicPointers ; SpindaPicPointers
 	ld a, b
 	ld d, BANK(PicPointers)
 	cp SPINDA
 	jr nz, .ok
 	ld a, c
-	ld d, BANK(UnownPicPointers)
+	ld d, BANK(SpindaPicPointers)
 .ok
 	dec a
 	ld bc, 6

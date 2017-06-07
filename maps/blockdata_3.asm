@@ -13,12 +13,6 @@ RedsHouse2F_BlockData:
 OaksLab_BlockData:
 	INCBIN "maps/OaksLab.blk"
 
-CinnabarIsland_BlockData:
-	INCBIN "maps/CinnabarIsland.blk"
-
-SeafoamGym_BlockData:
-	INCBIN "maps/SeafoamGym.blk"
-
 NationalPark_BlockData:
 NationalParkBugContest_BlockData:
 	INCBIN "maps/NationalPark.blk"

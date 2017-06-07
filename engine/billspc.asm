@@ -1078,7 +1078,7 @@ PCMonInfo: ; e2ac6 (38:6ac6)
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a
 	ld hl, TempMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	call GetBaseData
 	ld de, VTiles2 tile $00
 	predef GetFrontpic
@@ -1692,7 +1692,7 @@ StatsScreenDPad: ; e2f95 (38:6f95)
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a
 	ld hl, TempMonDVs
-	predef GetUnownLetter
+	predef GetSpindaPattern
 	call GetBaseData
 	call BillsPC_CopyMon
 .pressed_a_b_right_left
