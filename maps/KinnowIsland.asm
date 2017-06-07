@@ -8,10 +8,10 @@ KinnowIsland_MapScriptHeader::
 
 KinnowTownSign:
 	jumptext KinnowTownSignText
-	
+
 CafePiaSign:
 	jumptext CafePiaSignText
-	
+
 SkateShopSign:
 	jumptext SkateShopSignText
 
@@ -20,12 +20,12 @@ KinnowTownSignText:
 	line "The SAPPHIRE of"
 	cont "the ORANGE ISLANDS"
 	done
-	
+
 CafePiaSignText:
 	text "PIA CARROT"
 	line "CAFE"
 	done
-	
+
 SkateShopSignText:
 	text "SKATE SHOP"
 	line "Roll around in"
