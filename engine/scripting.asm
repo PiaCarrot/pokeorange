@@ -94,7 +94,6 @@ ScriptCommandTable: ; 96cb1
 	dw Script_writebyte
 	dw Script_addvar
 	dw Script_random
-	dw Script_checkver
 	dw Script_copybytetovar
 	dw Script_copyvartobyte
 	dw Script_loadvar
@@ -1987,18 +1986,6 @@ GetVarAction: ; 9769e
 	farcall _GetVarAction
 	ret
 ; 976a6
-
-Script_checkver: ; 976a6
-; script command 0x18
-
-	ld a, [Version]
-	ld [ScriptVar], a
-	ret
-; 976ad
-
-Version: ; 976ad
-	db VERSION
-; 976ae
 
 Script_pokenamemem: ; 976ae
 ; script command 0x40
