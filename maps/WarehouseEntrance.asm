@@ -99,17 +99,6 @@ WarehouseEntrance_MapScriptHeader:
 	appear WAREHOUSEENTRANCE_GRANNY
 	return
 
-TrainerSupernerdEric:
-	trainer EVENT_BEAT_SUPER_NERD_ERIC, SUPER_NERD, ERIC, SupernerdEricSeenText, SupernerdEricBeatenText, 0, SupernerdEricScript
-
-SupernerdEricScript:
-	end_if_just_battled
-	opentext
-	writetext UnknownText_0x7c36c
-	waitbutton
-	closetext
-	end
-
 GrannyScript_0x7c132:
 	opentext
 	checkcode VAR_WEEKDAY
@@ -332,9 +321,6 @@ WarehouseEntranceScript_ShopClosed:
 	waitbutton
 	closetext
 	end
-
-WarehouseEntranceCoinCase:
-	itemball COIN_CASE
 
 MapWarehouseEntranceSignpost1Script:
 	jumptext UnknownText_0x7c91a
