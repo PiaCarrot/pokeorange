@@ -122,7 +122,7 @@ UnknownText_0x62509:
 	done
 
 UnknownText_0x6252a:
-	text "Oh… Well, another"
+	text "Oh<...> Well, another"
 	line "time, then."
 	done
 

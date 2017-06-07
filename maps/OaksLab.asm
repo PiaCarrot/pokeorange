@@ -53,7 +53,7 @@ OakLabDexCheckText:
 	text "How is your #-"
 	line "DEX coming?"
 
-	para "Let's see…"
+	para "Let's see<...>"
 	done
 
 OakLabGoodbyeText:
@@ -105,14 +105,14 @@ OaksLabPoster2Text:
 
 OaksLabTrashcanText
 	text "There's nothing in"
-	line "here…"
+	line "here<...>"
 	done
 
 OaksLabPCText:
 	text "There's an e-mail"
 	line "message on the PC."
 
-	para "…"
+	para "<...>"
 
 	para "PROF.OAK, how is"
 	line "your research"

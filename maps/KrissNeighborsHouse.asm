@@ -90,7 +90,7 @@ KrisNeighborRadioText3:
 
 KrisNeighborRadioText4:
 	text "#MON!"
-	line "#MON CHANNEL…"
+	line "#MON CHANNEL<...>"
 	done
 
 KrissNeighborsHouse_MapEventHeader:

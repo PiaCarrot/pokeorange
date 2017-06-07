@@ -56,7 +56,7 @@ UnknownText_0x1a10a7:
 	line "the grass. Who"
 
 	para "knows when they'll"
-	line "pop out…"
+	line "pop out<...>"
 	done
 
 Route49YoungsterText:

@@ -146,7 +146,7 @@ Bug_catcherAlexSeenText:
 
 Bug_catcherAlexBeatenText:
 	text "I never said I"
-	line "could battle..."
+	line "could battle<...>"
 	done
 
 Bug_catcherAlexAfterText:

@@ -19,7 +19,7 @@ TangeloGymSpeechHouseBookshelf:
 	jumpstd picturebookshelf
 
 UnknownText_0x196aea:
-	text "Hm...That's a"
+	text "Hm<...> That's a"
 	line "great #MON"
 	cont "that you have."
 

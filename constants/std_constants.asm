@@ -9,7 +9,6 @@
 	enum townmap
 	enum window
 	enum tv
-	enum homepage
 	enum radio1
 	enum radio2
 	enum trashcan

@@ -1981,7 +1981,7 @@ MovePKMNWitoutMail_InsertMon: ; e31e7
 ; e3233
 
 .Saving_LeaveOn:
-	db "Saving… Leave ON!@"
+	db "Saving<...> Leave ON!@"
 ; e3245
 
 .Jumptable: ; e3245
@@ -2484,8 +2484,8 @@ BillsPC_ChangeBoxSubmenu: ; e36f9 (38:76f9)
 	ret
 
 .Name:
-	ld b, $3 ; box
 	ld de, wd002
+	ld b, $2 ; box
 	farcall NamingScreen
 	call ClearTileMap
 	call LoadStandardFont

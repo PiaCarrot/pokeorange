@@ -106,9 +106,6 @@ MapValenciaIslandSignpost1Script:
 MapValenciaIslandSignpost2Script:
 	jumptext IvysLabSignText
 
-MapValenciaIslandSignpost3Script:
-	jumptext IvysHouseSignText
-
 Movement_TeacherRunsToYou1_NBT:
 	step LEFT
 	step LEFT
@@ -215,11 +212,7 @@ PlayersHouseSignText:
 
 IvysLabSignText:
 	text "IVY RESEARCH"
-	line "No.2 BAYVIEW"
-	done
-
-IvysHouseSignText:
-	text "IVY'S HOUSE"
+	line "№.2 BAYVIEW"
 	done
 
 ValenciaIsland_MapEventHeader:: db 0, 0
@@ -234,11 +227,10 @@ ValenciaIsland_MapEventHeader:: db 0, 0
 	xy_trigger 0, 8, 1, 0, ValenciaIsland_TeacherStopsYouTrigger1, 0, 0
 	xy_trigger 0, 9, 1, 0, ValenciaIsland_TeacherStopsYouTrigger2, 0, 0
 
-.BGEvents: db 4
+.BGEvents: db 3
 	signpost 12, 8, SIGNPOST_READ, ValenciaIslandSign
 	signpost 5, 11, SIGNPOST_READ, MapValenciaIslandSignpost1Script
 	signpost 19, 15, SIGNPOST_READ, MapValenciaIslandSignpost2Script
-	signpost 3, 13, SIGNPOST_READ, MapValenciaIslandSignpost3Script
 
 .ObjectEvents: db 2
 	person_event SPRITE_COOLTRAINER_M, 8, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 1, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ValenciaIslandTeacherScript, -1

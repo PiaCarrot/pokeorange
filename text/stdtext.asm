@@ -121,11 +121,11 @@ PictureBookshelfText:
 	done
 
 MagazineBookshelfText:
-	text "#MON magazines…"
+	text "#MON magazines<...>"
 	line "#MON PAL,"
 
 	para "#MON HANDBOOK,"
-	line "#MON GRAPH…"
+	line "#MON GRAPH<...>"
 	done
 
 TeamRocketOathText:
@@ -167,17 +167,9 @@ TVText:
 	text "It's a TV."
 	done
 
-HomepageText:
-	text "#MON JOURNAL"
-	line "HOME PAGE…"
-
-	para "It hasn't been"
-	line "updated…"
-	done
-
 TrashCanText:
 	text "There's nothing in"
-	line "here…"
+	line "here<...>"
 	done
 
 PokeCenterSignText:
@@ -197,8 +189,8 @@ ContestResults_ReadyToJudgeText:
 	line "the #MON you've"
 	cont "caught."
 
-	para $56
-	line $56
+	para "<...>"
+	line "<...>"
 
 	para "We have chosen the"
 	line "winners!"

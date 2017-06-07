@@ -127,7 +127,7 @@ Bug_catcherDonAfterText:
 	cont "catching #MON."
 
 	para "I should've bought"
-	line "some more…"
+	line "some more<...>"
 	done
 
 Route50CooltrainerFText:

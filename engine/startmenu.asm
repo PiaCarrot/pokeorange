@@ -193,7 +193,7 @@ StartMenu:: ; 125cd
 .PokedexDesc:  db   "#MON"
 	next "database@"
 
-.PartyDesc:    db   "Party ", $4a
+.PartyDesc:    db   "Party <PK><MN>"
 	next "status@"
 
 .PackDesc:     db   "Contains"

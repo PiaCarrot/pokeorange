@@ -81,7 +81,7 @@ KrisRadioText3:
 
 KrisRadioText4:
 	text "#MON!"
-	line "#MON CHANNEL…"
+	line "#MON CHANNEL<...>"
 	done
 
 BigDollText:

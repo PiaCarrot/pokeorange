@@ -85,7 +85,7 @@ UnknownText_0x1c454b::
 	done
 
 UnknownText_0x1c456d::
-	text "SAVING… DON'T TURN"
+	text "SAVING<...> DON'T TURN"
 	line "OFF THE POWER."
 	done
 
@@ -160,12 +160,12 @@ UnknownText_0x1c474b::
 	text "The @"
 	text_from_ram StringBuffer3
 	text ""
-	line "is full…"
+	line "is full<...>"
 	prompt
 
 UnknownText_0x1c475f::
 	text "I see all."
-	line "I know all…"
+	line "I know all<...>"
 
 	para "Certainly, I know"
 	line "of your #MON!"
@@ -180,7 +180,7 @@ UnknownText_0x1c4797::
 	done
 
 UnknownText_0x1c47d4::
-	text "Hm… I see you met"
+	text "Hm<...> I see you met"
 	line "@"
 	text_from_ram wSeerNickname
 	text " here:"
@@ -203,7 +203,7 @@ UnknownText_0x1c47fa::
 	prompt
 
 UnknownText_0x1c4837::
-	text "Hm… @"
+	text "Hm<...> @"
 	text_from_ram wSeerNickname
 	text ""
 	line "came from @"
@@ -246,7 +246,7 @@ UnknownText_0x1c491d::
 	para "That's an EGG!"
 
 	para "You can't say that"
-	line "you've met it yet…"
+	line "you've met it yet<...>"
 	done
 
 UnknownText_0x1c4955::
@@ -255,7 +255,7 @@ UnknownText_0x1c4955::
 	done
 
 UnknownText_0x1c497a::
-	text "Incidentally…"
+	text "Incidentally<...>"
 
 	para "It would be wise"
 	line "to raise your"
@@ -265,7 +265,7 @@ UnknownText_0x1c497a::
 	done
 
 UnknownText_0x1c49c6::
-	text "Incidentally…"
+	text "Incidentally<...>"
 
 	para "It seems to have"
 	line "grown a little."
@@ -278,7 +278,7 @@ UnknownText_0x1c49c6::
 	done
 
 UnknownText_0x1c4a21::
-	text "Incidentally…"
+	text "Incidentally<...>"
 
 	para "@"
 	text_from_ram wSeerNickname
@@ -288,7 +288,7 @@ UnknownText_0x1c4a21::
 	done
 
 UnknownText_0x1c4a5b::
-	text "Incidentally…"
+	text "Incidentally<...>"
 
 	para "It certainly has"
 	line "grown mighty!"
@@ -306,7 +306,7 @@ UnknownText_0x1c4a5b::
 	done
 
 UnknownText_0x1c4ae5::
-	text "Incidentally…"
+	text "Incidentally<...>"
 
 	para "I'm impressed by"
 	line "your dedication."
@@ -382,7 +382,7 @@ UnknownText_0x1c4c28::
 	para "Your #MON may"
 	line "not like them."
 
-	para "Hehehehe…"
+	para "Hehehehe<...>"
 	done
 
 UnknownText_0x1c4ca3::
@@ -401,7 +401,7 @@ UnknownText_0x1c4cae::
 
 UnknownText_0x1c4cce::
 	text "Thank you, dear."
-	line "Hehehehe…"
+	line "Hehehehe<...>"
 	done
 
 UnknownText_0x1c4cea::
@@ -410,13 +410,13 @@ UnknownText_0x1c4cea::
 	done
 
 UnknownText_0x1c4d08::
-	text "Hehehe… You don't"
+	text "Hehehe<...> You don't"
 	line "have the money."
 	done
 
 UnknownText_0x1c4d2a::
 	text "Come again, dear."
-	line "Hehehehe…"
+	line "Hehehehe<...>"
 	done
 
 UnknownText_0x1c4d47::

@@ -16,9 +16,9 @@ UnknownText_0x1c00a0::
 	prompt
 
 UnknownText_0x1c00cd::
-	text "Hm… @"
+	text "Hm<...> @"
 	text_from_ram StringBuffer1
-	text "…"
+	text "<...>"
 	line "That's a fairly"
 	cont "decent name."
 
@@ -49,7 +49,7 @@ UnknownText_0x1c019e::
 	done
 
 UnknownText_0x1c01be::
-	text "Hm… @"
+	text "Hm<...> @"
 	text_from_ram StringBuffer1
 	text "?"
 	line "What a great name!"
@@ -62,7 +62,7 @@ UnknownText_0x1c01be::
 	done
 
 UnknownText_0x1c0208::
-	text "Whoa… That's just"
+	text "Whoa<...> That's just"
 	line "an EGG."
 	done
 

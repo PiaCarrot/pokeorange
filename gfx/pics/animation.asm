@@ -1025,13 +1025,9 @@ GetMonFramesPointer: ; d05ce
 	ld c, BANK(SpindasFrames)
 	ld hl, SpindaFramesPointers
 	jr z, .got_frames
-	ld a, [wPokeAnimSpecies]
-	cp CHIKORITA
 	ld b, BANK(FramesPointers)
-	ld c, BANK(KantoFrames)
+	ld c, BANK(AnimationFrames)
 	ld hl, FramesPointers
-	jr c, .got_frames
-	ld c, BANK(JohtoFrames)
 .got_frames
 	ld a, c
 	ld [wPokeAnimFramesBank], a

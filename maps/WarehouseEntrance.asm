@@ -326,7 +326,7 @@ MapWarehouseEntranceSignpost1Script:
 	jumptext UnknownText_0x7c91a
 
 UnknownText_0x7c5b0:
-	text "The door's locked…"
+	text "The door's locked<...>"
 	done
 
 UnknownText_0x7c5f9:

@@ -84,7 +84,7 @@ SunburstTMSwift:
 	itemball TM_SWIFT
 
 SunburstSleepingManText:
-	text "Zzz<......>"
+	text "Zzz<...><...>"
 
 	para "Doesn't seem like"
 	line "he will wake up"
@@ -183,7 +183,7 @@ SunburstIsland_MapEventHeader:: db 0, 0
 	person_event SPRITE_YOUNGSTER, 25, 21, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, SunburstRedSalesmanScript, -1
 	person_event SPRITE_YOUNGSTER, 23, 17, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SunburstGreenSalesmanScript, -1
 	person_event SPRITE_COOLTRAINER_F, 13, 31, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, SunburstCooltrainerFScript, -1
-	person_event SPRITE_FISHER, 36, 20, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SunburstSleepingManScript, EVENT_TEAM_ROCKET_IN_MANDARIN_UNDERGROUND
+	person_event SPRITE_FISHER, 36, 20, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SunburstSleepingManScript, EVENT_MANDARIN_UNDERGROUND_CASSIDY
 	person_event SPRITE_FISHER, 42, 25, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SunburstFatManScript, -1
 	person_event SPRITE_POKE_BALL, 7, 21, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, SunburstTMSwift, EVENT_SUNBURST_TM_SWIFT
 

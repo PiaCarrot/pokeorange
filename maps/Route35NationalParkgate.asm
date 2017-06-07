@@ -284,7 +284,7 @@ UnknownText_0x6a3e2:
 	done
 
 UnknownText_0x6a4c6:
-	text "Uh-oh…"
+	text "Uh-oh<...>"
 
 	para "You have more than"
 	line "one #MON."
@@ -328,7 +328,7 @@ UnknownText_0x6a5dc:
 	done
 
 UnknownText_0x6a608:
-	text "Uh-oh…"
+	text "Uh-oh<...>"
 	line "The first #MON"
 
 	para "in your party"
@@ -342,7 +342,7 @@ UnknownText_0x6a608:
 	done
 
 UnknownText_0x6a67c:
-	text "Uh-oh…"
+	text "Uh-oh<...>"
 	line "Both your party"
 
 	para "and your PC BOX"
@@ -360,7 +360,7 @@ UnknownText_0x6a67c:
 	done
 
 UnknownText_0x6a71f:
-	text "Uh-oh…"
+	text "Uh-oh<...>"
 	line "You have an EGG as"
 
 	para "the first #MON"

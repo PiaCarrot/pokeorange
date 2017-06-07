@@ -78,7 +78,7 @@ CrystalCaveB2BrockText:
 	line "I apologize, what"
 	cont "was your name?"
 
-	para "<.....><.....>"
+	para "<...><...><...><...>"
 
 	para "So your name is"
 	line "<PLAYER>."
