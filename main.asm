@@ -2095,10 +2095,6 @@ EmptyAllSRAMBanks: ; 4cf1f
 	ret
 
 SaveMenu_LoadEDTile: ; 4cf45 (13:4f45)
-	ld a, [hCGB]
-	and a
-	jp z, WaitBGMap
-
 ; The following is a modified version of LoadEDTile.
 	ld a, [hBGMapMode]
 	push af
@@ -2230,87 +2226,6 @@ _LoadMapPart:: ; 4d15b
 .carry
 	dec b
 	jr nz, .loop
-	ret
-
-PhoneRing_LoadEDTile: ; 4d188
-	ld a, [hCGB]
-	and a
-	jp z, WaitBGMap
-	ld a, [wSpriteUpdatesEnabled]
-	cp $0
-	jp z, WaitBGMap
-
-; What follows is a modified version of LoadEDTile.
-	ld a, [hBGMapMode]
-	push af
-	xor a
-	ld [hBGMapMode], a
-	ld a, [hMapAnims]
-	push af
-	xor a
-	ld [hMapAnims], a
-.wait
-	ld a, [rLY]
-	cp $8f
-	jr c, .wait
-
-	di
-	ld a, 1 ; BANK(VBGMap2)
-	ld [rVBK], a
-	hlcoord 0, 0, AttrMap
-	call .LoadEDTile
-	ld a, 0 ; BANK(VBGMap0)
-	ld [rVBK], a
-	hlcoord 0, 0
-	call .LoadEDTile
-.wait2
-	ld a, [rLY]
-	cp $8f
-	jr c, .wait2
-	ei
-
-	pop af
-	ld [hMapAnims], a
-	pop af
-	ld [hBGMapMode], a
-	ret
-
-.LoadEDTile: ; 4d1cb
-	ld [hSPBuffer], sp
-	ld sp, hl
-	ld a, [hBGMapAddress + 1]
-	ld h, a
-	ld l, 0
-	ld a, SCREEN_HEIGHT
-	ld [hTilesPerCycle], a
-	ld b, 1 << 1 ; not in v/hblank
-	ld c, rSTAT % $100
-
-.loop
-rept SCREEN_WIDTH / 2
-	pop de
-.loop\@
-	ld a, [$ff00+c]
-	and b
-	jr nz, .loop\@
-	ld [hl], e
-	inc l
-	ld [hl], d
-	inc l
-endr
-
-	ld de, $20 - SCREEN_WIDTH
-	add hl, de
-	ld a, [hTilesPerCycle]
-	dec a
-	ld [hTilesPerCycle], a
-	jr nz, .loop
-
-	ld a, [hSPBuffer]
-	ld l, a
-	ld a, [hSPBuffer + 1]
-	ld h, a
-	ld sp, hl
 	ret
 
 Shrink1Pic: ; 4d249
@@ -4469,31 +4384,6 @@ INCLUDE "battle/bg_effects.asm"
 INCLUDE "battle/anims.asm"
 
 LoadPoisonBGPals: ; cbcdd
-	call .LoadPals
-	ld a, [hCGB]
-	and a
-	ret nz
-	ret ; ????
-
-.LoadPals: ; cbce5
-	ld a, [hCGB]
-	and a
-	jr nz, .cgb
-	ld a, [TimeOfDayPal]
-	and $3
-	cp $3
-	ld a, %00000000
-	jr z, .convert_pals
-	ld a, %10101010
-
-.convert_pals
-	call DmgToCgbBGPals
-	ld c, 4
-	call DelayFrames
-	farcall _UpdateTimePals
-	ret
-
-.cgb
 	ld a, [rSVBK]
 	push af
 	ld a, $5

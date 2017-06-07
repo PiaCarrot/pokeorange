@@ -750,10 +750,10 @@ AnimateFlowerTile: ; fc56d
 ; fc58c
 
 FlowerTileFrames: ; fc58c
-	INCBIN "gfx/tilesets/flower/dmg_1.2bpp"
-	INCBIN "gfx/tilesets/flower/cgb_1.2bpp"
-	INCBIN "gfx/tilesets/flower/dmg_2.2bpp"
-	INCBIN "gfx/tilesets/flower/cgb_2.2bpp"
+	INCBIN "gfx/tilesets/flower/1.2bpp"
+	INCBIN "gfx/tilesets/flower/1.2bpp"
+	INCBIN "gfx/tilesets/flower/2.2bpp"
+	INCBIN "gfx/tilesets/flower/2.2bpp"
 ; fc5cc
 
 
@@ -971,11 +971,6 @@ endr
 TileAnimationPalette: ; fc6d7
 ; Transition between color values 0-2 for color 0 in palette 3.
 
-; No palette changes on DMG.
-	ld a, [hCGB]
-	and a
-	ret z
-
 ; We don't want to mess with non-standard palettes.
 	ld a, [rBGP] ; BGP
 	cp %11100100
@@ -1037,10 +1032,6 @@ TileAnimationPalette: ; fc6d7
 
 
 FlickeringCaveEntrancePalette: ; fc71e
-; No palette changes on DMG.
-	ld a, [hCGB]
-	and a
-	ret z
 ; We don't want to mess with non-standard palettes.
 	ld a, [rBGP]
 	cp %11100100

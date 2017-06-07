@@ -931,14 +931,11 @@ CountStep: ; 96b79
 	ld hl, PoisonStepCount
 	ld a, [hl]
 	cp 4
-	jr c, .skip_poison
+	jr c, .done
 	ld [hl], 0
 
 	farcall DoPoisonStep
 	jr c, .doscript
-
-.skip_poison
-	farcall DoBikeStep
 
 .done
 	xor a

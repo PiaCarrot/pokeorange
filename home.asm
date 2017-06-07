@@ -454,16 +454,11 @@ WaitBGMap:: ; 31f6
 ; 3200
 
 WaitBGMap2:: ; 0x3200
-	ld a, [hCGB]
-	and a
-	jr z, .bg0
-
 	ld a, 2
 	ld [hBGMapMode], a
 	ld c, 4
 	call DelayFrames
 
-.bg0
 	ld a, 1
 	ld [hBGMapMode], a
 	ld c, 4
@@ -471,26 +466,16 @@ WaitBGMap2:: ; 0x3200
 	ret
 ; 0x3218
 
-IsCGB:: ; 3218
-	ld a, [hCGB]
-	and a
-	ret
-; 321c
-
 ApplyTilemap:: ; 321c
-	ld a, [hCGB]
-	and a
-	jr z, .dmg
-
 	ld a, [wSpriteUpdatesEnabled]
 	cp 0
-	jr z, .dmg
+	jr z, .no
 
 	ld a, 1
 	ld [hBGMapMode], a
 	jr LoadEDTile
 
-.dmg
+.no
 ; WaitBGMap
 	ld a, 1
 	ld [hBGMapMode], a
@@ -500,15 +485,7 @@ ApplyTilemap:: ; 321c
 ; 3238
 
 CGBOnly_LoadEDTile:: ; 3238
-	ld a, [hCGB]
-	and a
-	jr z, WaitBGMap
-
 LoadEDTile:: ; 323d
-	jr .LoadEDTile
-; 323f
-
-.LoadEDTile: ; 3246
 	ld a, [hBGMapMode]
 	push af
 	xor a
@@ -592,17 +569,6 @@ endr
 SetPalettes:: ; 32f9
 ; Inits the Palettes
 ; depending on the system the monochromes palettes or color palettes
-	ld a, [hCGB]
-	and a
-	jr nz, .SetPalettesForGameBoyColor
-	ld a, %11100100
-	ld [rBGP], a
-	ld a, %11010000
-	ld [rOBP0], a
-	ld [rOBP1], a
-	ret
-
-.SetPalettesForGameBoyColor:
 	push de
 	ld a, %11100100
 	call DmgToCgbBGPals
@@ -614,20 +580,6 @@ SetPalettes:: ; 32f9
 
 ClearPalettes:: ; 3317
 ; Make all palettes white
-
-; CGB: make all the palette colors white
-	ld a, [hCGB]
-	and a
-	jr nz, .cgb
-
-; DMG: just change palettes to 0 (white)
-	xor a
-	ld [rBGP], a
-	ld [rOBP0], a
-	ld [rOBP1], a
-	ret
-
-.cgb
 	ld a, [rSVBK]
 	push af
 
@@ -653,17 +605,7 @@ GetMemSGBLayout:: ; 333e
 	ld b, SCGB_RAM
 GetSGBLayout:: ; 3340
 ; load sgb packets unless dmg
-
-	ld a, [hCGB]
-	and a
-	jr nz, .sgb
-
-	ld a, [hSGB]
-	and a
-	ret z
-
-.sgb
-	predef_jump Predef_LoadSGBLayout ; LoadSGBLayout
+	predef_jump Predef_LoadSGBLayoutCGB
 ; 334e
 
 SetHPPal:: ; 334e

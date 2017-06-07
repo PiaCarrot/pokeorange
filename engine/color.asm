@@ -1,5 +1,4 @@
 PALPACKET_LENGTH EQU $10
-INCLUDE "predef/sgb.asm"
 
 SHINY_ATK_BIT EQU 5
 SHINY_DEF_VAL EQU 10
@@ -227,32 +226,6 @@ InitPartyMenuPalettes:
 	call WipeAttrMap
 	ret
 
-SGB_ApplyPartyMenuHPPals: ; 8ade SGB layout $fc
-	ld hl, wHPPals
-	ld a, [wSGBPals]
-	ld e, a
-	ld d, $0
-	add hl, de
-	ld e, l
-	ld d, h
-	ld a, [de]
-	and a
-	ld e, $5
-	jr z, .okay
-	dec a
-	ld e, $a
-	jr z, .okay
-	ld e, $f
-.okay
-	push de
-	ld hl, wSGBPals + 10
-	ld bc, $6
-	ld a, [wSGBPals]
-	call AddNTimes
-	pop de
-	ld [hl], e
-	ret
-
 LoadTrainerClassPaletteAsNthBGPal:
 	ld a, [TrainerClass]
 	call GetTrainerPalettePointer
@@ -290,8 +263,6 @@ got_palette_pointer_8bd7
 	ret
 
 ApplyMonOrTrainerPals:
-	call CheckCGB
-	ret z
 	ld a, e
 	and a
 	jr z, .get_trainer
@@ -362,8 +333,6 @@ ApplyHPBarPals:
 	ret
 
 LoadStatsScreenPals:
-	call CheckCGB
-	ret z
 	ld hl, StatsScreenPals
 	ld b, 0
 	dec c
@@ -393,31 +362,6 @@ LoadMailPalettes:
 	add hl, hl
 	ld de, .MailPals
 	add hl, de
-	call CheckCGB
-	jr nz, .cgb
-	push hl
-	ld hl, PalPacket_9ce6
-	ld de, wSGBPals
-	ld bc, PALPACKET_LENGTH
-	call CopyBytes
-	pop hl
-	inc hl
-	inc hl
-	ld a, [hli]
-	ld [wSGBPals + 3], a
-	ld a, [hli]
-	ld [wSGBPals + 4], a
-	ld a, [hli]
-	ld [wSGBPals + 5], a
-	ld a, [hli]
-	ld [wSGBPals + 6], a
-	ld hl, wSGBPals
-	call PushSGBPals_
-	ld hl, BlkPacket_9a86
-	call PushSGBPals_
-	ret
-
-.cgb
 	ld de, UnknBGPals
 	ld bc, 1 palettes
 	ld a, $5
@@ -763,92 +707,7 @@ Palettes_979c:
 	RGB 20, 15, 03
 	RGB 00, 00, 00
 
-PushSGBPals_:
-	ld a, [wcfbe]
-	push af
-	set 7, a
-	ld [wcfbe], a
-	call PushSGBPals
-	pop af
-	ld [wcfbe], a
-	ret
-
-PushSGBPals:
-	ld a, [hl]
-	and $7
-	ret z
-	ld b, a
-.loop
-	push bc
-	xor a
-	ld [rJOYP], a
-	ld a, $30
-	ld [rJOYP], a
-	ld b, $10
-.loop2
-	ld e, $8
-	ld a, [hli]
-	ld d, a
-.loop3
-	bit 0, d
-	ld a, $10
-	jr nz, .okay
-	ld a, $20
-.okay
-	ld [rJOYP], a
-	ld a, $30
-	ld [rJOYP], a
-	rr d
-	dec e
-	jr nz, .loop3
-	dec b
-	jr nz, .loop2
-	ld a, $20
-	ld [rJOYP], a
-	ld a, $30
-	ld [rJOYP], a
-	call SGBDelayCycles
-	pop bc
-	dec b
-	jr nz, .loop
-	ret
-
-InitSGBBorder:
-	call CheckCGB
-	ret nz
-; SGB/DMG only
-	di
-	ld a, [wcfbe]
-	push af
-	set 7, a
-	ld [wcfbe], a
-	xor a
-	ld [rJOYP], a
-	ld [hSGB], a
-	call PushSGBBorderPalsAndWait
-	jr nc, .skip
-	ld a, $1
-	ld [hSGB], a
-	call _InitSGBBorderPals
-	call SGBBorder_PushBGPals
-	call SGBDelayCycles
-	call SGB_ClearVRAM
-	call PushSGBBorder
-	call SGBDelayCycles
-	call SGB_ClearVRAM
-	ld hl, PalPacket_9d66
-	call PushSGBPals
-
-.skip
-	pop af
-	ld [wcfbe], a
-	ei
-	ret
-
 InitCGBPals::
-	call CheckCGB
-	ret z
-; CGB only
 	ld a, $1
 	ld [rVBK], a
 	ld hl, VTiles0
@@ -900,179 +759,6 @@ InitCGBPals::
 	jr nz, .loop
 	ret
 
-_InitSGBBorderPals:
-	ld hl, .PalPacketPointerTable
-	ld c, 9
-.loop
-	push bc
-	ld a, [hli]
-	push hl
-	ld h, [hl]
-	ld l, a
-	call PushSGBPals
-	pop hl
-	inc hl
-	pop bc
-	dec c
-	jr nz, .loop
-	ret
-
-.PalPacketPointerTable:
-	dw PalPacket_9d56
-	dw PalPacket_9d76
-	dw PalPacket_9d86
-	dw PalPacket_9d96
-	dw PalPacket_9da6
-	dw PalPacket_9db6
-	dw PalPacket_9dc6
-	dw PalPacket_9dd6
-	dw PalPacket_9de6
-
-PushSGBBorder:
-	call .LoadSGBBorderPointers
-	push de
-	call SGBBorder_YetMorePalPushing
-	pop hl
-	call SGBBorder_MorePalPushing
-	ret
-
-.LoadSGBBorderPointers:
-	ld hl, SGBBorder
-	ld de, SGBBorderMap
-	ret
-
-SGB_ClearVRAM:
-	ld hl, VTiles0
-	ld bc, $2000
-	xor a
-	call ByteFill
-	ret
-
-PushSGBBorderPalsAndWait:
-	ld hl, PalPacket_9d26
-	call PushSGBPals
-	call SGBDelayCycles
-	ld a, [rJOYP]
-	and $3
-	cp $3
-	jr nz, .carry
-	ld a, $20
-	ld [rJOYP], a
-	ld a, [rJOYP]
-	ld a, [rJOYP]
-	call SGBDelayCycles
-	call SGBDelayCycles
-	ld a, $30
-	ld [rJOYP], a
-	call SGBDelayCycles
-	call SGBDelayCycles
-	ld a, $10
-	ld [rJOYP], a
-rept 6
-	ld a, [rJOYP]
-endr
-	call SGBDelayCycles
-	call SGBDelayCycles
-	ld a, $30
-	ld [rJOYP], a
-	ld a, [rJOYP]
-	ld a, [rJOYP]
-	ld a, [rJOYP]
-	call SGBDelayCycles
-	call SGBDelayCycles
-	ld a, [rJOYP]
-	and $3
-	cp $3
-	jr nz, .carry
-	call .FinalPush
-	and a
-	ret
-
-.carry
-	call .FinalPush
-	scf
-	ret
-
-.FinalPush:
-	ld hl, PalPacket_9d16
-	call PushSGBPals
-	jp SGBDelayCycles
-
-SGBBorder_PushBGPals:
-	call DisableLCD
-	ld a, %11100100
-	ld [rBGP], a
-	ld hl, Palettes_9df6
-	ld de, VTiles1
-	ld bc, $1000
-	call CopyData
-	call DrawDefaultTiles
-	ld a, $e3
-	ld [rLCDC], a
-	ld hl, PalPacket_9d06
-	call PushSGBPals
-	xor a
-	ld [rBGP], a
-	ret
-
-SGBBorder_MorePalPushing:
-	call DisableLCD
-	ld a, $e4
-	ld [rBGP], a
-	ld de, VTiles1
-	ld bc, 20 tiles
-	call CopyData
-	ld b, 18
-.loop
-	push bc
-	ld bc, $c
-	call CopyData
-	ld bc, $28
-	call ClearBytes
-	ld bc, $c
-	call CopyData
-	pop bc
-	dec b
-	jr nz, .loop
-	ld bc, $140
-	call CopyData
-	ld bc, Start
-	call ClearBytes
-	ld bc, 16 palettes
-	call CopyData
-	call DrawDefaultTiles
-	ld a, $e3
-	ld [rLCDC], a
-	ld hl, PalPacket_9d46
-	call PushSGBPals
-	xor a
-	ld [rBGP], a
-	ret
-
-SGBBorder_YetMorePalPushing:
-	call DisableLCD
-	ld a, %11100100
-	ld [rBGP], a
-	ld de, VTiles1
-	ld b, $80
-.loop
-	push bc
-	ld bc, 1 tiles
-	call CopyData
-	ld bc, 1 tiles
-	call ClearBytes
-	pop bc
-	dec b
-	jr nz, .loop
-	call DrawDefaultTiles
-	ld a, $e3
-	ld [rLCDC], a
-	ld hl, PalPacket_9d36
-	call PushSGBPals
-	xor a
-	ld [rBGP], a
-	ret
-
 CopyData: ; 0x9a52
 ; copy bc bytes of data from hl to de
 .loop
@@ -1118,18 +804,6 @@ DrawDefaultTiles: ; 0x9a64
 	jr nz, .line
 	ret
 ; 0x9a7a
-
-SGBDelayCycles:
-	ld de, 7000
-.wait
-	nop
-	nop
-	nop
-	dec de
-	ld a, d
-	or e
-	jr nz, .wait
-	ret
 
 BlkPacket_9a86:
 	db $21, $01, $03, $00, $00, $00, $13, $11, $00, $00, $00, $00, $00, $00, $00, $00
@@ -1606,120 +1280,6 @@ Palettes_9df6:
 	RGB 08, 11, 11
 	RGB 21, 21, 21
 	RGB 31, 31, 31
-
-SGBBorderMap:
-	db $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $14, $14, $15, $14, $16, $14, $17, $14, $17, $54, $16, $54, $15, $54, $14, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14
-	db $01, $14, $02, $14, $03, $14, $03, $54, $02, $54, $01, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $24, $14, $25, $14, $26, $14, $07, $14, $07, $54, $26, $54, $25, $54, $24, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $54, $01, $14, $02, $14, $03, $14, $03, $54, $02, $54, $01, $54
-	db $11, $14, $12, $14, $13, $14, $13, $54, $12, $54, $11, $54, $10, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $24, $14, $34, $14, $35, $14, $35, $54, $34, $54, $33, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $10, $14, $11, $14, $12, $14, $13, $14, $13, $54, $12, $54, $11, $54
-	db $21, $14, $22, $14, $23, $14, $23, $54, $22, $54, $21, $54, $20, $54, $07, $14, $08, $14, $09, $14, $0a, $14, $0b, $14, $0c, $14, $0d, $14, $07, $14, $07, $14, $18, $14, $09, $14, $1a, $14, $1b, $14, $0d, $14, $0c, $14, $1c, $14, $29, $14, $07, $14, $20, $14, $21, $14, $22, $14, $23, $14, $23, $54, $22, $54, $21, $54
-	db $31, $14, $32, $14, $07, $14, $07, $14, $32, $54, $36, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $38, $10, $27, $10, $32, $14, $07, $54, $07, $54, $32, $54, $31, $54
-	db $05, $14, $06, $14, $07, $14, $07, $54, $06, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $06, $14, $07, $14, $07, $54, $06, $54, $05, $54
-	db $15, $14, $16, $14, $17, $14, $17, $54, $16, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $16, $14, $17, $14, $17, $54, $16, $54, $15, $54
-	db $25, $14, $26, $14, $07, $14, $07, $54, $26, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $26, $14, $07, $14, $07, $54, $26, $54, $25, $54
-	db $33, $14, $34, $14, $35, $14, $35, $54, $34, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $34, $14, $35, $14, $35, $54, $34, $54, $33, $54
-	db $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14
-	db $02, $54, $01, $54, $07, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $07, $14, $01, $14, $02, $14
-	db $12, $54, $11, $54, $10, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $10, $14, $11, $14, $12, $14
-	db $22, $54, $21, $54, $20, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $20, $14, $21, $14, $22, $14
-	db $32, $54, $31, $54, $30, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $30, $14, $31, $14, $32, $14
-	db $06, $54, $05, $54, $04, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $04, $14, $05, $14, $06, $14
-	db $16, $54, $15, $54, $14, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $14, $14, $15, $14, $16, $14
-	db $26, $54, $25, $54, $24, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $24, $14, $25, $14, $26, $14
-	db $34, $54, $33, $54, $07, $54, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $07, $14, $33, $14, $34, $14
-	db $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $1f, $10,                                                                                                                                                                                     $37, $10, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14
-	db $01, $14, $02, $14, $03, $14, $03, $54, $02, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $02, $14, $03, $14, $03, $54, $02, $54, $01, $54
-	db $11, $14, $12, $14, $13, $14, $13, $54, $12, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $12, $14, $13, $14, $13, $54, $12, $54, $11, $54
-	db $21, $14, $22, $14, $23, $14, $23, $54, $22, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $22, $14, $23, $14, $23, $54, $22, $54, $21, $54
-	db $31, $14, $32, $14, $07, $14, $07, $14, $32, $54, $1f, $10,                                                                                                                                                                                     $37, $10, $32, $14, $07, $54, $07, $54, $32, $54, $31, $54
-	db $05, $14, $06, $14, $07, $14, $07, $54, $06, $54, $2e, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2f, $10, $2d, $10, $06, $14, $07, $14, $07, $54, $06, $54, $05, $54
-	db $15, $14, $16, $14, $17, $14, $17, $54, $16, $54, $15, $54, $14, $54, $07, $14, $07, $14, $39, $14, $0e, $14, $09, $14, $0f, $14, $28, $14, $07, $14, $19, $14, $0c, $14, $1c, $14, $29, $14, $2a, $14, $2b, $14, $2c, $14, $39, $14, $07, $14, $07, $14, $14, $14, $15, $14, $16, $14, $17, $14, $17, $54, $16, $54, $15, $54
-	db $25, $14, $26, $14, $07, $14, $07, $54, $26, $54, $25, $54, $24, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $01, $14, $02, $14, $03, $14, $03, $54, $02, $54, $01, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $24, $14, $25, $14, $26, $14, $07, $14, $07, $54, $26, $54, $25, $54
-	db $33, $14, $34, $14, $35, $14, $35, $54, $34, $54, $24, $54, $07, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $10, $14, $11, $14, $12, $14, $13, $14, $13, $54, $12, $54, $11, $54, $10, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $24, $14, $34, $14, $35, $14, $35, $54, $34, $54, $33, $54
-	db $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $20, $14, $21, $14, $22, $14, $23, $14, $23, $54, $22, $54, $21, $54, $20, $54, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14, $07, $14
-
-SGBBorderPalettes:
-	RGB 24, 06, 06
-	RGB 24, 24, 26
-	RGB 14, 15, 20
-	RGB 04, 07, 10
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 18, 24, 18
-	RGB 31, 26, 15
-	RGB 26, 19, 10
-	RGB 12, 07, 05
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 18, 06, 31
-	RGB 31, 31, 29
-	RGB 31, 12, 00
-	RGB 00, 00, 00
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 12, 31, 06
-	RGB 22, 26, 30
-	RGB 16, 17, 21
-	RGB 00, 03, 00
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-	RGB 31, 31, 25
-
-SGBBorder:
-INCBIN "gfx/misc/sgb_border.2bpp"
 
 Palettes_a8be:
 	RGB 30, 26, 15
