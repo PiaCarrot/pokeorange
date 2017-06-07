@@ -1058,13 +1058,13 @@ Pokedex_PlaceBorder: ; 40ad5
 
 Pokedex_PrintListing: ; 40b0f (10:4b0f)
 ; Prints the list of Pokémon on the main Pokédex screen.
-
 ; Clear (2 * [wDexListingHeight] + 1) by 11 box starting at 0,1
 	hlcoord 0, 1
 	ld a, [wDexListingHeight]
 	add a
 	inc a
 	ld b, a
+	ld c, 11
 	ld a, " "
 	call Pokedex_FillBox
 
