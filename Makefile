@@ -4,7 +4,8 @@ MCODE = PKOR
 ROMVERSION = 0x32
 FILLER = 0x00
 
-RGBDS_DIR = rgbds-0.2.5/
+RGBDS_DIR =
+# RGBDS_DIR = rgbds-0.2.5/
 RGBASM_FLAGS =
 RGBLINK_FLAGS = -n $(ROM_NAME).sym -m $(ROM_NAME).map -p $(FILLER)
 RGBFIX_FLAGS = -Cjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -p $(FILLER) -k 01 -l 0x33 -m 0x10 -r 3

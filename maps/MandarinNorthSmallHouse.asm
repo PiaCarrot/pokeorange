@@ -8,7 +8,7 @@ MandarinNorthSmallHouse_MapScriptHeader:
 .MapCallbacks:
 	db 0
 	
-MandarinNorthCut:
+MandarinNorthHMCut:
 	itemball HM_CUT
 
 MandarinNorthSmallHouse_MapEventHeader:: db 0, 0
@@ -22,5 +22,5 @@ MandarinNorthSmallHouse_MapEventHeader:: db 0, 0
 .BGEvents: db 0
 
 .ObjectEvents: db 1
-	person_event SPRITE_POKE_BALL, 3, 3, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MandarinNorthCut, EVENT_MANDARIN_CUT
+	person_event SPRITE_POKE_BALL, 3, 3, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MandarinNorthHMCut, EVENT_MANDARIN_NORTH_HM_CUT
 

@@ -63,10 +63,10 @@ YoungsterNessScript:
 TangeloJungleLassScript:
 	jumptextfaceplayer Text_TangeloJungleLass
 
-TangeloJungleRevive:
+TangeloJunglePoisonBarb:
 	itemball POISON_BARB
 
-TangeloJungleXAttack:
+TangeloJungleSuperPotion:
 	itemball SUPER_POTION
 
 TangeloJungleAntidote:
@@ -76,13 +76,13 @@ TangeloJungleEther:
 	itemball ETHER
 
 TangeloJungleHiddenEther:
-	dwb EVENT_ILEX_FOREST_HIDDEN_ETHER, ETHER
+	dwb EVENT_TANGELO_JUNGLE_HIDDEN_ETHER, ETHER
 
 TangeloJungleHiddenSuperPotion:
-	dwb EVENT_ILEX_FOREST_HIDDEN_SUPER_POTION, SUPER_POTION
+	dwb EVENT_TANGELO_JUNGLE_HIDDEN_SUPER_POTION, SUPER_POTION
 
 TangeloJungleHiddenFullHeal:
-	dwb EVENT_ILEX_FOREST_HIDDEN_FULL_HEAL, FULL_HEAL
+	dwb EVENT_TANGELO_JUNGLE_HIDDEN_FULL_HEAL, FULL_HEAL
 
 MapTangeloJungleSignpost4Script:
 	jumptext Text_TangeloJungleSignpost4
@@ -195,12 +195,12 @@ TangeloJungle_MapEventHeader:: db 0, 0
 	signpost 39, 21, SIGNPOST_UP, MapTangeloJungleSignpost4Script
 
 .ObjectEvents: db 9
-	person_event SPRITE_POKE_BALL, 48, 2, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleRevive, EVENT_ILEX_FOREST_REVIVE
+	person_event SPRITE_POKE_BALL, 48, 2, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJunglePoisonBarb, EVENT_TANGELO_JUNGLE_POISON_BARB
 	person_event SPRITE_YOUNGSTER, 38, 9, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TangeloJungleLassScript, -1
 	person_event SPRITE_BUG_BOY, 13, 18, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 0, TrainerBug_catcherWayne, -1
 	person_event SPRITE_BUG_BOY, 19, 26, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerBug_catcherMushi, -1
 	person_event SPRITE_BUG_BOY, 10, 2, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerBug_catcherAlex, -1
-	person_event SPRITE_POKE_BALL, 34, 1, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleXAttack, EVENT_ILEX_FOREST_X_ATTACK
-	person_event SPRITE_POKE_BALL, 1, 5, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleAntidote, EVENT_ILEX_FOREST_ANTIDOTE
-	person_event SPRITE_POKE_BALL, 6, 11, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleEther, EVENT_ILEX_FOREST_ETHER
+	person_event SPRITE_POKE_BALL, 34, 1, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleSuperPotion, EVENT_TANGELO_JUNGLE_SUPER_POTION
+	person_event SPRITE_POKE_BALL, 1, 5, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleAntidote, EVENT_TANGELO_JUNGLE_ANTIDOTE
+	person_event SPRITE_POKE_BALL, 6, 11, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleEther, EVENT_TANGELO_JUNGLE_ETHER
 	person_event SPRITE_YOUNGSTER, 28, 1, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 >> 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerYoungsterNess, -1

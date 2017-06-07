@@ -56,7 +56,7 @@ TangeloTraceyScript:
 	end
 
 .GotGSBall:
-	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
+	checkevent EVENT_SHOWED_GS_BALL_TO_IVY
 	iftrue .TraceyBattle
 	writetext TraceyRelievedText
 	waitbutton
@@ -81,7 +81,6 @@ TangeloTraceyScript:
 	applymovement PLAYER, PlayerMovement
 	applymovement TANGELOISLAND_TRACEY, Tracey_Movement
 	disappear TANGELOISLAND_TRACEY
-	setevent EVENT_TANGELO_TRACEY_LEAVING
 	pause 20
 	special Special_FadeOutMusic
 	playmapmusic
@@ -120,7 +119,7 @@ TangeloYoungsterScript:
 	closetext
 	end
 
-TangeloSurf:
+TangeloIslandRareCandy:
 	itemball RARE_CANDY
 
 TangeloIslandSign:
@@ -307,8 +306,8 @@ TangeloIsland_MapEventHeader::
 	signpost 9, 20, SIGNPOST_READ, TangeloIslandPokeCenterSign
 
 .ObjectEvents: db 5
-	person_event SPRITE_SURF, 5, 24, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloIslandGuideGent, EVENT_GUIDE_GENT_IN_HIS_HOUSE
-	person_event SPRITE_TRACEY, 7, 24, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TangeloTraceyScript, EVENT_TANGELO_TRACEY_LEAVING
+	person_event SPRITE_SURF, 5, 24, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloIslandGuideGent, EVENT_TANGELO_ISLAND_LAPRAS
+	person_event SPRITE_TRACEY, 7, 24, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TangeloTraceyScript, EVENT_TANGELO_ISLAND_TRACEY
 	person_event SPRITE_TEACHER, 11, 26, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloTeacherScript, -1
 	person_event SPRITE_YOUNGSTER, 22, 21, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TangeloYoungsterScript, -1
-	person_event SPRITE_POKE_BALL, 23, 33, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloSurf, EVENT_TANGELO_SURF
+	person_event SPRITE_POKE_BALL, 23, 33, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloIslandRareCandy, EVENT_TANGELO_ISLAND_RARE_CANDY

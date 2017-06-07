@@ -6,7 +6,7 @@ const_value set 2
 	const ROUTE_56_TRACEY
 	const ROUTE_56_ITEMBALL1
 	const ROUTE_56_ITEMBALL2
-	
+
 Route56West_MapScriptHeader::
 
 .Triggers:
@@ -15,10 +15,10 @@ Route56West_MapScriptHeader::
 	; triggers
 	maptrigger .Trigger0
 	maptrigger .Trigger1
-	
+
 .Callbacks:
 	db 0
-	
+
 .Trigger0:
 	end
 
@@ -29,7 +29,7 @@ Route56West_MapScriptHeader::
 
 Route56Sign:
 	jumptext Route56SignText
-	
+
 Route56SignText:
 	text "ROUTE 56"
 	line "EAST to KINNOW"
@@ -46,7 +46,7 @@ TrainerFisherIsao:
 	waitbutton
 	closetext
 	end
-	
+
 FisherIsaoSeenText:
 	text "Heh. You'd be"
 	line "amazed if you"
@@ -74,16 +74,16 @@ TrainerAthleteKaito:
 	waitbutton
 	closetext
 	end
-	
+
 AthleteKaitoSeenText:
 	text "My #MON are"
 	line "all about speed!"
 	done
-	
+
 AthleteKaitoBeatenText:
 	text "That was fast!"
 	done
-	
+
 AthleteKaitoAfterText:
 	text "That was over in a"
 	line "flash!"
@@ -103,16 +103,16 @@ TrainerSwimmerSakako:
 SwimmerSakakoSeenText:
 	text "Kyaa! Get away!"
 	done
-	
+
 SwimmerSakakoBeatenText:
 	text "I thought you"
 	line "were a SHARPEDO!"
 	done
-	
+
 SwimmerSakakoAfterText:
 	text "Some #MON are"
 	line "very dangerous."
-	
+
 	para "You can get hurt"
 	line "if you aren't"
 	cont "careful!"
@@ -128,25 +128,25 @@ TrainerSwimmerNaoya:
 	waitbutton
 	closetext
 	end
-	
+
 SwimmerNaoyaSeenText:
 	text "I just used a"
 	line "STONE to evolve my"
 	cont "SHELLDER!"
 	done
-	
+
 SwimmerNaoyaBeatenText:
 	text "SCIZORs don't fear"
 	line "the REAPER…"
 	done
-	
+
 SwimmerNaoyaAfterText:
 	text "By the way, my"
 	line "favorite band is"
 	cont "the BLUE CLOYSTER"
 	cont "CULT."
 	done
-	
+
 TraceyHaxScript:
 	jumptextfaceplayer YouBrokeItText
 
@@ -154,7 +154,7 @@ TraceyScript1:
 	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
 	showemote EMOTE_SHOCK, ROUTE_56_TRACEY, 15
 	opentext
-	writetext TraceyYoText	
+	writetext TraceyYoText
 	waitbutton
 	spriteface PLAYER, RIGHT
 	applymovement ROUTE_56_TRACEY, MovementYo1
@@ -178,7 +178,6 @@ TraceyScript1:
 	special Special_FadeOutMusic
 	playmapmusic
 	pause 10
-	setevent EVENT_TRACEY_ROUTE_56_DONE
 	domaptrigger ROUTE_56_WEST, $1
 	end
 
@@ -186,7 +185,7 @@ TraceyScript2:
 	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
 	showemote EMOTE_SHOCK, ROUTE_56_TRACEY, 15
 	opentext
-	writetext TraceyYoText	
+	writetext TraceyYoText
 	waitbutton
 	spriteface PLAYER, RIGHT
 	applymovement ROUTE_56_TRACEY, MovementYo2
@@ -210,7 +209,6 @@ TraceyScript2:
 	special Special_FadeOutMusic
 	playmapmusic
 	pause 10
-	setevent EVENT_TRACEY_ROUTE_56_DONE
 	domaptrigger ROUTE_56_WEST, $1
 	end
 
@@ -222,20 +220,20 @@ YouBrokeItText:
 TraceyYoText:
 	text "<PLAYER>!"
 	done
-	
+
 TraceyLetsBattleText:
 	text "Long time no see!"
-	
+
 	para "You look like you"
 	line "got much stronger!"
-	
+
 	para "I've observed many"
 	line "different #MON."
-	
+
 	para "Let's see who got"
 	line "the strongest!"
 	done
-	
+
 TraceyRoute56WinLoss:
 	text "You're so strong,"
 	line "<PLAYER>!"
@@ -247,18 +245,18 @@ TraceyLeavingNowText:
 	cont "if I ever want to"
 	cont "be PROF.OAK's"
 	cont "assistant!"
-	
+
 	para "Oh, yeah."
-	
+
 	para "<PLAYER>, if you"
 	line "go to KINNOW ISLA-"
 	cont "ND, make sure you"
 	cont "visit the SKATE"
 	cont "SHOP!"
-	
+
 	para "Seeya around!"
 	done
-	
+
 MovementYo1:
 	step LEFT
 	step LEFT
@@ -280,10 +278,10 @@ Tracey56_Movement:
 	step RIGHT
 	step_end
 
-Route56HpUp:
+Route56WestHPUp:
 	itemball HP_UP
 
-Route56UltraBall:
+Route56WestUltraBall:
 	itemball ULTRA_BALL
 
 Route56West_MapEventHeader:: db 0, 0
@@ -303,7 +301,7 @@ Route56West_MapEventHeader:: db 0, 0
 	person_event SPRITE_COOLTRAINER_M, 23, 14, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerAthleteKaito, -1
 	person_event SPRITE_SWIMMER_GIRL, 20, 33, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerSakako, -1
 	person_event SPRITE_SWIMMER_GUY, 9, 16, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerNaoya, -1
-	person_event SPRITE_TRACEY, 20, 55, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TraceyHaxScript, EVENT_TRACEY_ROUTE_56_DONE
-	person_event SPRITE_POKE_BALL, 9, 51, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56HpUp, EVENT_ROUTE_56_HP_UP
-	person_event SPRITE_POKE_BALL, 27, 52, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56UltraBall, EVENT_ROUTE_56_ULTRA_BALL
+	person_event SPRITE_TRACEY, 20, 55, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TraceyHaxScript, EVENT_ROUTE_56_TRACEY
+	person_event SPRITE_POKE_BALL, 9, 51, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56WestHPUp, EVENT_ROUTE_56_WEST_HP_UP
+	person_event SPRITE_POKE_BALL, 27, 52, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56WestUltraBall, EVENT_ROUTE_56_WEST_ULTRA_BALL
 
