@@ -52,6 +52,10 @@ TrainerClassDVs: ; 270d6
 	db $7E, $A8 ; jessie
 	db $7E, $A8 ; jessie&james
 	db $78, $88 ; mom
+	db $98, $88 ; bill
+	db $98, $88 ; imakuni
+	db $98, $88 ; lawrence
+	db $98, $88 ; prof.oak
 	db $78, $88 ; prof.ivy
 	db $78, $88 ; prof.aide
 	db $78, $88 ; nurse
@@ -60,6 +64,7 @@ TrainerClassDVs: ; 270d6
 	db $58, $88 ; lass
 	db $69, $C8 ; beauty
 	db $98, $88 ; bug catcher
+	db $78, $88 ; bug catcher f
 	db $98, $88 ; swimmerm
 	db $78, $88 ; swimmerf
 	db $98, $88 ; camper

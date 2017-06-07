@@ -180,6 +180,30 @@ TrainerClassAttributes: ; 3959c
 	dw AI_BASIC + AI_AGGRESSIVE + AI_STATUS
 	dw CONTEXT_USE + SWITCH_SOMETIMES
 
+; Bill
+	db 0, 0 ; items
+	db 25 ; base reward
+	dw AI_BASIC + AI_AGGRESSIVE + AI_STATUS
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+
+; Imakuni
+	db 0, 0 ; items
+	db 25 ; base reward
+	dw AI_BASIC + AI_AGGRESSIVE + AI_STATUS
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+
+; Lawrence
+	db 0, 0 ; items
+	db 25 ; base reward
+	dw AI_BASIC + AI_AGGRESSIVE + AI_STATUS
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+
+; Prof Oak
+	db 0, 0 ; items
+	db 25 ; base reward
+	dw AI_BASIC + AI_AGGRESSIVE + AI_STATUS
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+
 ; Prof Ivy
 	db 0, 0 ; items
 	db 25 ; base reward
@@ -223,6 +247,12 @@ TrainerClassAttributes: ; 3959c
 	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Bug Catcher
+	db 0, 0 ; items
+	db 4 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_STATUS
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+
+; Bug Catcher F
 	db 0, 0 ; items
 	db 4 ; base reward
 	dw AI_BASIC + AI_SETUP + AI_STATUS

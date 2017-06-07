@@ -69,6 +69,14 @@ KRIS EQU __enum__
 
 	trainerclass MOM
 
+	trainerclass BILL
+
+	trainerclass IMAKUNI
+
+	trainerclass LAWRENCE
+
+	trainerclass PROF_OAK
+
 	trainerclass PROF_IVY
 
 	trainerclass PROF_AIDE
@@ -97,6 +105,8 @@ KRIS EQU __enum__
 	const MIKE
 	const MUSHI
 	const ALEX
+
+	trainerclass BUG_CATCHER_F
 
 	trainerclass SWIMMERM
 	const KOJURO

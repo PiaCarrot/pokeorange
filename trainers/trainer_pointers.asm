@@ -31,6 +31,10 @@ TrainerGroups: ; 0x39999
 	dw JessieGroup
 	dw JessieJamesGroup
 	dw MomGroup
+	dw BillGroup
+	dw ImakuniGroup
+	dw LawrenceGroup
+	dw ProfOakGroup
 	dw ProfIvyGroup
 	dw ProfAideGroup
 	dw NurseGroup
@@ -39,6 +43,7 @@ TrainerGroups: ; 0x39999
 	dw LassGroup
 	dw BeautyGroup
 	dw BugCatcherGroup
+	dw BugCatcherFGroup
 	dw SwimmerMGroup
 	dw SwimmerFGroup
 	dw CamperGroup

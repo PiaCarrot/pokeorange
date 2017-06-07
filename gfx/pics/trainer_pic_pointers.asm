@@ -29,13 +29,19 @@
 	dba JessiePic
 	dba JessieJamesPic
 	dba MomPic
+	dba BillPic
+	dba ImakuniPic
+	dba LawrencePic
+	dba ProfOakPic
 	dba ProfIvyPic
 	dba ProfAidePic
 	dba NursePic
 	dba OfficerPic
 	dba YoungsterPic
 	dba LassPic
+	dba BeautyPic
 	dba BugCatcherPic
+	dba BugCatcherFPic
 	dba SwimmermPic
 	dba SwimmerfPic
 	dba CamperPic

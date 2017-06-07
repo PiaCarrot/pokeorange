@@ -53,6 +53,10 @@ TrainerEncounterMusic: ; e9027
 	db MUSIC_ROCKET_ENCOUNTER		; jessie
 	db MUSIC_ROCKET_ENCOUNTER		; jessie&james
 	db MUSIC_BEAUTY_ENCOUNTER		; mom
+	db MUSIC_HIKER_ENCOUNTER		; bill
+	db MUSIC_HIKER_ENCOUNTER		; imakuni
+	db MUSIC_HIKER_ENCOUNTER		; lawrence
+	db MUSIC_HIKER_ENCOUNTER		; prof_oak
 	db MUSIC_BEAUTY_ENCOUNTER		; prof_ivy
 	db MUSIC_LASS_ENCOUNTER			; prof_aide
 	db MUSIC_OFFICER_ENCOUNTER		; nurse
@@ -61,6 +65,7 @@ TrainerEncounterMusic: ; e9027
 	db MUSIC_LASS_ENCOUNTER			; lass
 	db MUSIC_BEAUTY_ENCOUNTER		; beauty
 	db MUSIC_YOUNGSTER_ENCOUNTER	; bug_catcher
+	db MUSIC_LASS_ENCOUNTER			; bug_catcher_f
 	db MUSIC_HIKER_ENCOUNTER		; swimmerm
 	db MUSIC_BEAUTY_ENCOUNTER		; swimmerf
 	db MUSIC_YOUNGSTER_ENCOUNTER	; camper
