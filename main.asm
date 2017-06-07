@@ -4996,7 +4996,7 @@ TownMap_ConvertLineBreakCharacters: ; 1de2c5
 	jr z, .end
 	cp "%"
 	jr z, .line_break
-	cp "¯"
+	cp "<WBR>"
 	jr z, .line_break
 	inc hl
 	jr .loop

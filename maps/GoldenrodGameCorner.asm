@@ -391,7 +391,7 @@ GoldenrodGameCornerCooltrainerMText:
 	done
 
 GoldenrodGameCornerPokefanFText:
-	text "Card flip…"
+	text "Card flip<...>"
 
 	para "I prefer it over"
 	line "the slots because"
@@ -424,7 +424,7 @@ GoldenrodGameCornerPokefanM2Text:
 	line "the slots, and I"
 
 	para "blew it on card"
-	line "flipping…"
+	line "flipping<...>"
 
 	para "I got so furious,"
 	line "I tossed out my"

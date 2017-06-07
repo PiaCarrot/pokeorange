@@ -154,7 +154,7 @@ FisherJustinBeatenText:
 	done
 
 FisherJustinAfterText:
-	text "Calm, collected…"
+	text "Calm, collected<...>"
 	line "The essence of"
 
 	para "fishing and #-"
@@ -172,7 +172,7 @@ FisherRalph1SeenText:
 
 FisherRalph1BeatenText:
 	text "Darn. I should've"
-	line "used my ace..."
+	line "used my ace<...>"
 	done
 
 FisherRalphAfterText:
@@ -186,7 +186,7 @@ FisherHenrySeenText:
 
 FisherHenryBeatenText:
 	text "Off to the SUSHI"
-	line "stand they go..."
+	line "stand they go<...>"
 	done
 
 FisherHenryAfterText:
@@ -208,7 +208,7 @@ YoungsterAlbertBeatenText:
 	done
 
 YoungsterAlbertAfterText:
-	text "Mmm...DONUTS..."
+	text "Mmm<...> DONUTS<...>"
 	done
 
 YoungsterGordonSeenText:

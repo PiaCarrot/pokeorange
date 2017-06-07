@@ -8,8 +8,8 @@ UnknownText_0x1c5066::
 	prompt
 
 UnknownText_0x1c5079::
-	text "Darn… Ran out of"
-	line "coins…"
+	text "Darn<...> Ran out of"
+	line "coins<...>"
 	done
 
 UnknownText_0x1c5092::
@@ -94,7 +94,7 @@ UnknownText_0x1c56c9::
 	done
 
 UnknownText_0x1c5740::
-	text "1, 2 and…@"
+	text "1, 2 and<...>@"
 	interpret_data
 	db "@@"
 
@@ -109,7 +109,7 @@ UnknownText_0x1c574e::
 	text_from_ram StringBuffer1
 	text "."
 
-	para "And…"
+	para "And<...>"
 	prompt
 
 UnknownText_0x1c5772::
@@ -123,7 +123,7 @@ UnknownText_0x1c5793::
 	done
 
 UnknownText_0x1c57ab::
-	text "Not enough coins…"
+	text "Not enough coins<...>"
 	prompt
 
 UnknownText_0x1c57be::
@@ -149,7 +149,7 @@ UnknownText_0x1c5813::
 	done
 
 UnknownText_0x1c581a::
-	text "Darn…"
+	text "Darn<...>"
 	done
 
 UnknownText_0x1c5821::
@@ -157,7 +157,7 @@ UnknownText_0x1c5821::
 	db "@@"
 
 UnknownText_0x1c5824::
-	text "<......>"
+	text "<...><...>"
 	done
 
 UnknownText_0x1c5827::
@@ -409,7 +409,7 @@ UnknownText_0x1c5cf1::
 	prompt
 
 UnknownText_0x1c5d3e::
-	text "It looks bitter…"
+	text "It looks bitter<...>"
 	prompt
 
 UnknownText_0x1c5d50::
@@ -523,7 +523,7 @@ UnknownText_0x1c5f50::
 	prompt
 
 UnknownText_0x1c5f74::
-	text "Um… Oh, yes, I'm"
+	text "Um<...> Oh, yes, I'm"
 	line "the MOVE DELETER."
 
 	para "I can make #MON"

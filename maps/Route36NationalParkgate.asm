@@ -538,7 +538,7 @@ UnknownText_0x6aecc:
 	done
 
 UnknownText_0x6afb0:
-	text "Uh-oh…"
+	text "Uh-oh<...>"
 
 	para "You have more than"
 	line "one #MON."
@@ -582,7 +582,7 @@ UnknownText_0x6b0c6:
 	done
 
 UnknownText_0x6b0f2:
-	text "Uh-oh…"
+	text "Uh-oh<...>"
 	line "The first #MON"
 
 	para "in your party"
@@ -596,7 +596,7 @@ UnknownText_0x6b0f2:
 	done
 
 UnknownText_0x6b166:
-	text "Uh-oh…"
+	text "Uh-oh<...>"
 	line "Both your party"
 
 	para "and your PC BOX"
@@ -614,7 +614,7 @@ UnknownText_0x6b166:
 	done
 
 UnknownText_0x6b209:
-	text "Uh-oh…"
+	text "Uh-oh<...>"
 	line "You have an EGG as"
 
 	para "the first #MON"
@@ -733,7 +733,7 @@ UnknownText_0x6b57c:
 
 UnknownText_0x6b5b0:
 	text "BARRY: That #-"
-	line "MON you caught…"
+	line "MON you caught<...>"
 	cont "it's awesome!"
 	done
 
@@ -764,9 +764,9 @@ UnknownText_0x6b698:
 	done
 
 UnknownText_0x6b6b8:
-	text "JOSH: I… I can't"
+	text "JOSH: I<...> I can't"
 	line "believe I lost at"
-	cont "bug-catching…"
+	cont "bug-catching<...>"
 	done
 
 UnknownText_0x6b6e9:
@@ -783,7 +783,7 @@ UnknownText_0x6b71b:
 UnknownText_0x6b740:
 	text "SAMUEL: Darn."
 	line "I thought I would"
-	cont "score higher…"
+	cont "score higher<...>"
 	done
 
 UnknownText_0x6b76f:
@@ -823,7 +823,7 @@ UnknownText_0x6b84c:
 	done
 
 UnknownText_0x6b910:
-	text "Uh-oh… Your PACK"
+	text "Uh-oh<...> Your PACK"
 	line "is full."
 
 	para "We'll hold on to"

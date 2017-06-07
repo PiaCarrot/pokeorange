@@ -9,7 +9,6 @@ StdScripts::
 	dba TownMapScript
 	dba WindowScript
 	dba TVScript
-	dba HomepageScript
 	dba Radio1Script
 	dba Radio2Script
 	dba TrashCanScript
@@ -172,9 +171,6 @@ TVScript:
 	waitbutton
 	closetext
 	end
-
-HomepageScript:
-	farjumptext HomepageText
 
 Radio1Script:
 	opentext

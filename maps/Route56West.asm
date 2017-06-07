@@ -137,7 +137,7 @@ SwimmerNaoyaSeenText:
 
 SwimmerNaoyaBeatenText:
 	text "SCIZORs don't fear"
-	line "the REAPER…"
+	line "the REAPER<...>"
 	done
 
 SwimmerNaoyaAfterText:

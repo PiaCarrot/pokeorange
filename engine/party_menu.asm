@@ -490,15 +490,15 @@ PlacePartyMonGender: ; 502b1
 ; 502ee
 
 .male ; 502ee
-	db "♂…MALE@"
+	db "♂<...>MALE@"
 ; 502f5
 
 .female ; 502f5
-	db "♀…FEMALE@"
+	db "♀<...>FEMALE@"
 ; 502fe
 
 .unknown ; 502fe
-	db "…UNKNOWN@"
+	db "<...>UNKNOWN@"
 ; 50307
 
 

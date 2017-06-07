@@ -192,8 +192,6 @@ ENDC
 	inc hl
 	ld [hl], 2300 % $100
 
-	call InitializeNPCNames
-
 	farcall DeletePartyMonMail
 
 	call ResetGameTime
@@ -256,33 +254,6 @@ InitializeMagikarpHouse: ; 5cd3
 .Ralph: ; 5ce3
 	db "RALPH@"
 ; 5ce9
-
-InitializeNPCNames: ; 5ce9
-	ld hl, .Rival
-	ld de, RivalName
-	call .Copy
-
-	ld hl, .Mom
-	ld de, MomsName
-	call .Copy
-
-	ld hl, .Red
-	ld de, RedsName
-	call .Copy
-
-	ld hl, .Green
-	ld de, GreensName
-
-.Copy:
-	ld bc, NAME_LENGTH
-	call CopyBytes
-	ret
-
-.Rival:  db "???@"
-.Red:    db "RED@"
-.Green:  db "GREEN@"
-.Mom:    db "MOM@"
-; 5d23
 
 InitializeWorld: ; 5d23
 	call ShrinkPlayer
@@ -730,7 +701,7 @@ NamePlayer: ; 0x6074
 	ret
 
 .NewName:
-	ld b, 1
+	ld b, $1 ; player
 	ld de, PlayerName
 	farcall NamingScreen
 

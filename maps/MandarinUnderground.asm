@@ -226,7 +226,7 @@ MandarinButchWonText:
 
 MandarinCassidyText:
 	text "Who are you?"
-	line "<.....><.....>"
+	line "<...><...><...><...>"
 
 	para "Wait, where is"
 	line "BUTCH?"

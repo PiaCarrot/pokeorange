@@ -233,26 +233,14 @@ endm
 	dict $4c, Char4C
 	dict $4b, Char4B
 	dict "<PARA>", Paragraph
-	dict "<MOM>", PrintMomsName
 	dict "<PLAYER>", PrintPlayerName
-	dict "<RIVAL>", PrintRivalName
-	dict "<RED>", PrintRedsName
-	dict "<GREEN>", PrintGreensName
 	dict "#", PlacePOKe
-	dict "<PC>", PCChar
-	dict "<ROCKET>", RocketChar
-	dict "<TM>", TMChar
-	dict "<TRNER>", TrainerChar
 	dict "<LNBRK>", Char22
 	dict "<CONT>", ContText
-	dict "<......>", SixDotsChar
 	dict "<DONE>", DoneText
 	dict "<PROMPT>", PromptText
-	dict "<PKMN>", PlacePKMN
-	dict "<POKE>", PlacePOKE
 	dict "%", NextChar
-	dict2 "¯", " "
-	dict "<DEXEND>", PlaceDexEnd
+	dict2 "<WBR>", " "
 	dict "<TARGET>", PlaceMoveTargetsName
 	dict "<USER>", PlaceMoveUsersName
 	dict "<ENEMY>", PlaceEnemysName
@@ -276,21 +264,8 @@ print_name: macro
 	jp PlaceCommandCharacter
 endm
 
-PrintMomsName:   print_name MomsName   ; 1186
 PrintPlayerName: print_name PlayerName ; 118d
-PrintRivalName:  print_name RivalName  ; 1194
-PrintRedsName:   print_name RedsName   ; 119b
-PrintGreensName: print_name GreensName ; 11a2
-
-TrainerChar:  print_name TrainerCharText ; 11a9
-TMChar:       print_name TMCharText      ; 11b0
-PCChar:       print_name PCCharText      ; 11b7
-RocketChar:   print_name RocketCharText  ; 11be
-PlacePOKe:    print_name PlacePOKeText   ; 11c5
-SixDotsChar:  print_name SixDotsCharText ; 11d3
-PlacePKMN:    print_name PlacePKMNText   ; 11da
-PlacePOKE:    print_name PlacePOKEText   ; 11e1
-
+PlacePOKe:       print_name PlacePOKeText ; 11c5
 
 PlaceMoveTargetsName:: ; 11fd
 	ld a, [hBattleTurn]
@@ -328,7 +303,7 @@ PlaceEnemysName:: ; 121b
 	call PlaceString
 	ld h, b
 	ld l, c
-	ld de, String12a2
+	ld de, EnemySpaceText
 	call PlaceString
 	push bc
 	farcall Battle_GetTrainerName
@@ -346,16 +321,9 @@ PlaceCommandCharacter:: ; 126a
 	jp NextChar
 ; 0x1273
 
-TMCharText:: db "TM@" ; 1273
-TrainerCharText:: db "TRAINER@" ; 1276
-PCCharText:: db "PC@" ; 127e
-RocketCharText:: db "ROCKET@" ; 1281
 PlacePOKeText:: db "POKé@" ; 1288
-SixDotsCharText:: db "……@" ; 1292
 EnemyText:: db "Enemy @" ; 1295
-PlacePKMNText:: db "<PK><MN>@" ; PK MN ; 129c
-PlacePOKEText:: db "<PO><KE>@" ; PO KE ; 129f
-String12a2:: db " @" ; 12a2
+EnemySpaceText:: db " @" ; 12a2
 ; 12a7
 
 NextLineChar:: ; 12a7
@@ -488,14 +456,6 @@ ContText:: ; 1345
 .cont	db $4b, "@"
 ; 1356
 
-
-PlaceDexEnd:: ; 1356
-; Legacy: ends a Pokédex entry (Red).
-; Dex entries are now regular strings.
-	ld [hl], "."
-	pop hl
-	ret
-; 135a
 
 PromptText:: ; 135a
 	ld a, [wLinkMode]
@@ -962,7 +922,7 @@ Text_TX_DOTS:: ; 1543
 
 .loop
 	push de
-	ld a, "…"
+	ld a, "<...>"
 	ld [hli], a
 	call GetJoypad
 	ld a, [hJoyDown]

@@ -21,7 +21,7 @@ BaasamaText:
 	
 	para "I wonder what bec-"
 	line "ame of them. It's"
-	cont "been so long…"
+	cont "been so long<...>"
 	
 	para "By now, they would"
 	line "have children of"

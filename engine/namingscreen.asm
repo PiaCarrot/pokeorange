@@ -77,7 +77,6 @@ NamingScreen: ; 116c1
 .Jumptable: ; 1172e (4:572e)
 	dw .Pokemon
 	dw .Player
-	dw .Rival
 	dw .Box
 
 .Pokemon: ; 1173e (4:573e)
@@ -134,23 +133,6 @@ NamingScreen: ; 116c1
 	db "YOUR NAME?@"
 
 ; 117ae
-
-.Rival: ; 117ae (4:57ae)
-	ld de, SilverSpriteGFX
-	ld b, BANK(SilverSpriteGFX)
-	call .LoadSprite
-	hlcoord 5, 2
-	ld de, .RivalNameString
-	call PlaceString
-	call .StoreSpriteIconParams
-	ret
-
-; 117c3 (4:57c3)
-
-.RivalNameString: ; 117c3
-	db "RIVAL'S NAME?@"
-
-; 117d1
 
 .Box: ; 117f5 (4:57f5)
 	ld de, PokeBallSpriteGFX
@@ -1379,7 +1361,7 @@ MailEntry_Uppercase: ; 122dd
 	db "K L M N O P Q R S T"
 	db "U V W X Y Z   , ? !"
 	db "1 2 3 4 5 6 7 8 9 0"
-	db "<PK> <MN> <PO> <KE> é ♂ ♀ ¥ … ×"
+	db "<PK> <MN> <PO> <KE> é ♂ ♀ ¥ <...> ×"
 	db "lower  DEL   END   "
 
 ; 1224f

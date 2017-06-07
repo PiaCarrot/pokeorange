@@ -25,7 +25,7 @@ MandarinNorthGrannyText:
 	cont "trainers."
 	
 	para "Seems it worked!"
-	line "Kekekekeke..."
+	line "Kekekekeke<...>"
 	done
 
 MandarinNorthMart_MapEventHeader:: db 0, 0

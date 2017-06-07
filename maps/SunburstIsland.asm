@@ -84,7 +84,7 @@ SunburstTMSwift:
 	itemball TM_SWIFT
 
 SunburstSleepingManText:
-	text "Zzz<......>"
+	text "Zzz<...><...>"
 
 	para "Doesn't seem like"
 	line "he will wake up"

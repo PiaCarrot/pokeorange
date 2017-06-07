@@ -40,8 +40,8 @@ MotherText:
 
 StoveText:
 	text "An adept"
-	line "arrangement of"
-	cont "MOTHER..."
+	line "arrangement by"
+	cont "MOTHER<...>"
 
 	para "VOLCANO BAKEMEAT!"
 	done
@@ -54,7 +54,7 @@ SinkText:
 
 FridgeText:
 	text "Let's see what's"
-	line "in the fridge…"
+	line "in the fridge<...>"
 
 	para "FRESH WATER and"
 	line "tasty LEMONADE!"
@@ -65,7 +65,7 @@ TVText:
 	line "TV: Stars dot the"
 
 	para "sky as two boys"
-	line "ride on a train…"
+	line "ride on a train<...>"
 
 	para "I'd better get"
 	line "rolling too!"

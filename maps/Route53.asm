@@ -72,7 +72,7 @@ HikerAnthony2SeenText:
 
 HikerAnthony2BeatenText:
 	text "I'm like some kind"
-	line "of fishing god..."
+	line "of fishing god<...>"
 	done
 
 HikerAnthony2AfterText:

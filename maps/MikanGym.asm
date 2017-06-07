@@ -200,7 +200,7 @@ Bird_keeperRodBeatenText:
 	done
 
 UnknownText_0x68837:
-	text "My CORSOLA..."
+	text "My CORSOLA<...>"
 	done
 	
 Bird_keeperAbeSeenText:

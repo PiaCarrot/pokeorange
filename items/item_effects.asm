@@ -580,7 +580,7 @@ ParkBall: ; e8a2
 	push de
 	xor a ; PARTYMON
 	ld [MonType], a
-	ld b, 0
+	ld b, $0 ; mon
 	farcall NamingScreen
 
 	call RotateThreePalettesRight
@@ -633,7 +633,7 @@ ParkBall: ; e8a2
 	ld a, BOXMON
 	ld [MonType], a
 	ld de, wMonOrItemNameBuffer
-	ld b, $0
+	ld b, $0 ; mon
 	farcall NamingScreen
 
 	ld a, BANK(sBoxMonNicknames)

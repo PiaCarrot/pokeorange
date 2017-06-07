@@ -22,7 +22,7 @@ UnknownText_0x19b050:
 UnknownText_0x19b087:
 	text "It looks like it"
 	line "hasn't been used"
-	cont "in a long time…"
+	cont "in a long time<...>"
 	done
 
 RedsHouse2F_MapEventHeader:

@@ -30,7 +30,7 @@ UnknownText_0x19698a:
 	done
 
 UnknownText_0x1969c8:
-	text "Ah...These tiny"
+	text "Ah<...> These tiny"
 	line "towns are nothing"
 	cont "compared to my"
 	cont "hometown."

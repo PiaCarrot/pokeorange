@@ -457,9 +457,9 @@ AfterBulbasaurMovement:
 	step_end
 
 IvyAdventureText:
-	text "<......>"
+	text "<...><...>"
 
-	para "IVY: This is..."
+	para "IVY: This is<...>"
 
 	para "<PLAYER>, this"
 	line "is an important"
@@ -535,16 +535,16 @@ IvyText_GotAnEmail:
 	line "e-mail!"
 
 	para $56, $56, $56
-	line "Hm… Uh-huh…"
+	line "Hm<...> Uh-huh<...>"
 
-	para "Okay…"
+	para "Okay<...>"
 	done
 
 IvyText_MissionFromMrPokemon:
 	text "I'll need to write"
-	line "back..."
+	line "back<...>"
 
-	para "Uh... Do you know"
+	para "Uh<...> Do you know"
 	line "what day it is?"
 	done
 
@@ -749,15 +749,15 @@ IvysLabTravelTip4Text:
 IvysLabTrashcanText:
 	text "The wrapper from"
 	line "the snack PROF.IVY"
-	cont "ate is in there…"
+	cont "ate is in there<...>"
 	done
 
 IvysLabPCText:
 	text "REGIONAL VARIETY"
 	line "OF #MON"
 
-	para "…It says on the"
-	line "screen…"
+	para "<...>It says on the"
+	line "screen<...>"
 	done
 
 IvysLab_MapEventHeader:: db 0, 0

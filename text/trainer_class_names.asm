@@ -3,7 +3,7 @@
 	db "LEADER@" ; RUDY
 	db "LEADER@" ; LUANA
 	db "LEADER@" ; DRAKE
-	db "<PKMN> WATCHER@" ; TRACEY
+	db "<PK><MN> WATCHER@" ; TRACEY
 	db "LEADER@" ; BROCK
 	db "LEADER@" ; MISTY
 	db "LEADER@" ; LT_SURGE
@@ -16,18 +16,18 @@
 	db "ELITE FOUR@" ; BRUNO
 	db "ELITE FOUR@" ; AGATHA
 	db "ELITE FOUR@" ; LANCE
-	db "<PKMN> TRAINER@" ; RED
-	db "<PKMN> TRAINER@" ; BLUE
-	db "<PKMN> TRAINER@" ; GREEN
-	db "<PKMN> TRAINER@" ; YELLOW
-	db "<PKMN> TRAINER@" ; CAL
+	db "<PK><MN> TRAINER@" ; RED
+	db "<PK><MN> TRAINER@" ; BLUE
+	db "<PK><MN> TRAINER@" ; GREEN
+	db "<PK><MN> TRAINER@" ; YELLOW
+	db "<PK><MN> TRAINER@" ; CAL
 	db "ROCKET@" ; BUTCH
 	db "ROCKET@" ; CASSIDY
 	db "CASSIDY@" ; CASSIDY_BUTCH
 	db "ROCKET@" ; JAMES
 	db "ROCKET@" ; JESSIE
 	db "JESSIE@" ; JESSIE_JAMES
-	db "<PKMN> TRAINER@" ; MOM
+	db "<PK><MN> TRAINER@" ; MOM
 	db "#MANIAC@" ; BILL
 	db "STRANGER@" ; IMAKUNI
 	db "COLLECTOR@" ; LAWRENCE

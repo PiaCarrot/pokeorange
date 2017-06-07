@@ -117,7 +117,7 @@ UnknownText_0x1c0897::
 	prompt
 
 UnknownText_0x1c08ac::
-	text "Nope. Nothing…"
+	text "Nope. Nothing<...>"
 	done
 
 UnknownText_0x1c08bc::
@@ -246,7 +246,7 @@ UnknownText_0x1c0b03::
 
 UnknownText_0x1c0b1a::
 	text "Looks like there's"
-	line "nothing here…"
+	line "nothing here<...>"
 	done
 
 UnknownText_0x1c0b3b::
@@ -254,7 +254,7 @@ UnknownText_0x1c0b3b::
 	line "water."
 
 	para "But nothing"
-	line "happened…"
+	line "happened<...>"
 	done
 
 UnknownText_0x1c0b65::
@@ -562,7 +562,7 @@ ContestJudging_FirstPlaceText::
 	text "This Bug-Catching"
 	line "Contest winner is@"
 	interpret_data
-	text "…"
+	text "<...>"
 
 	para "@"
 	text_from_ram wBugContestWinnerName
@@ -621,7 +621,7 @@ UnknownText_0x1c1203::
 	text "Let me measure"
 	line "that MAGIKARP."
 
-	para "…Hm, it measures"
+	para "<...>Hm, it measures"
 	line "@"
 	text_from_ram StringBuffer1
 	text "."
@@ -760,8 +760,8 @@ UnknownText_0x1c14d2::
 	prompt
 
 UnknownText_0x1c1505::
-	text "…"
-	line "Link closed…"
+	text "<...>"
+	line "Link closed<...>"
 	done
 
 _OakPCText1::

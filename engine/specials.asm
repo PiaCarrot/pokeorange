@@ -52,7 +52,6 @@ SpecialsPointers:: ; c029
 	add_special Special_DayCareManOutside
 	add_special MoveDeletion
 	add_special Special_MagnetTrain
-	add_special SpecialNameRival
 	add_special Special_SetDayOfWeek
 	add_special Special_TownMap
 	add_special Special_TownMapItem
@@ -199,20 +198,6 @@ FoundNone: ; c298
 	ld [ScriptVar], a
 	ret
 ; c29d
-
-SpecialNameRival: ; 0xc29d
-	ld b, $2 ; rival
-	ld de, RivalName
-	farcall _NamingScreen
-	; default to "SILVER"
-	ld hl, RivalName
-	ld de, DefaultRivalName
-	call InitName
-	ret
-; 0xc2b2
-
-DefaultRivalName: ; 0xc2b2
-	db "SILVER@"
 
 SpecialNameRater: ; c2b9
 	farcall NameRater

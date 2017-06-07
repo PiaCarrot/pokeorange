@@ -187,7 +187,7 @@ UnknownText_0x19c4e2:
 	line "washed up on ROUTE"
 	cont "50. I saved it."
 
-	para "<......>"
+	para "<...><...>"
 
 	para "What's that? You"
 	line "are from VALENCIA?"

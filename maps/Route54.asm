@@ -155,13 +155,13 @@ SwimmerUmikoSeenText:
 SwimmerUmikoBeatenText:
 	text "Thank goodness, it"
 	line "was just some sea-"
-	cont "weed..."
+	cont "weed<...>"
 	done
 
 SwimmerUmikoAfterText:
 	text "Thank goodness, it"
 	line "was just some sea-"
-	cont "weed..."
+	cont "weed<...>"
 	done
 
 Route54SignText:

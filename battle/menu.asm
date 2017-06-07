@@ -33,7 +33,7 @@ MenuData_0x24f34: ; 0x24f34
 
 Strings24f3d: ; 0x24f3d
 	db "FIGHT@"
-	db "<PKMN>@"
+	db "<PK><MN>@"
 	db "PACK@"
 	db "RUN@"
 ; 24f4e
@@ -56,7 +56,7 @@ MenuData_0x24f91: ; 24f91
 
 Strings24f9a: ; 24f9a
 	db "FIGHT@"
-	db "<PKMN>", "@"
+	db "<PK><MN>", "@"
 	db "PARKBALL×  @"
 	db "RUN@"
 ; 24fb2

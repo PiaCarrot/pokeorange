@@ -324,7 +324,7 @@ HatchEggs: ; 16f70 (5:6f70)
 	xor a
 	ld [MonType], a
 	push de
-	ld b, $0
+	ld b, $0 ; mon
 	farcall NamingScreen
 	pop hl
 	ld de, StringBuffer1

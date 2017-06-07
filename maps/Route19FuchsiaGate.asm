@@ -21,7 +21,7 @@ UnknownText_0x1ab40a:
 
 	para "I wonder if the"
 	line "people of CINNABAR"
-	cont "are safe…"
+	cont "are safe<...>"
 	done
 
 Route19FuchsiaGate_MapEventHeader:
