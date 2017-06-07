@@ -174,7 +174,6 @@ TraceyScript1:
 	applymovement ROUTE_56_TRACEY, Tracey56_Movement
 	disappear ROUTE_56_TRACEY
 ;	special Special_FadeInQuickly
-	clearevent EVENT_TRACEY_LEAVING_ROUTE_56
 	pause 20
 	special Special_FadeOutMusic
 	playmapmusic
@@ -207,7 +206,6 @@ TraceyScript2:
 	applymovement ROUTE_56_TRACEY, Tracey56_Movement
 	disappear ROUTE_56_TRACEY
 ;	special Special_FadeInQuickly
-	clearevent EVENT_TRACEY_LEAVING_ROUTE_56
 	pause 20
 	special Special_FadeOutMusic
 	playmapmusic
@@ -305,7 +303,7 @@ Route56West_MapEventHeader:: db 0, 0
 	person_event SPRITE_COOLTRAINER_M, 23, 14, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerAthleteKaito, -1
 	person_event SPRITE_SWIMMER_GIRL, 20, 33, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerSakako, -1
 	person_event SPRITE_SWIMMER_GUY, 9, 16, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerNaoya, -1
-	person_event SPRITE_SILVER, 20, 55, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TraceyHaxScript, EVENT_TRACEY_ROUTE_56_DONE
+	person_event SPRITE_TRACEY, 20, 55, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TraceyHaxScript, EVENT_TRACEY_ROUTE_56_DONE
 	person_event SPRITE_POKE_BALL, 9, 51, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56HpUp, EVENT_ROUTE_56_HP_UP
 	person_event SPRITE_POKE_BALL, 27, 52, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56UltraBall, EVENT_ROUTE_56_ULTRA_BALL
 

@@ -230,7 +230,6 @@ HatchEggs: ; 16f70 (5:6f70)
 	ld [hl], $78
 
 	push de
-
 	farcall SetEggMonCaughtData
 	ld a, [CurPartyMon]
 	ld hl, PartyMons ; wdcdf (aliases: PartyMon1, PartyMon1Species)
@@ -240,16 +239,6 @@ HatchEggs: ; 16f70 (5:6f70)
 	ld [CurPartySpecies], a
 	dec a
 	call SetSeenAndCaughtMon
-
-	ld a, [CurPartySpecies]
-	cp TOGEPI
-	jr nz, .nottogepi
-	; set the event flag for hatching togepi
-	ld de, EVENT_TOGEPI_HATCHED
-	ld b, SET_FLAG
-	call EventFlagAction
-.nottogepi
-
 	pop de
 
 	ld a, [CurPartySpecies]

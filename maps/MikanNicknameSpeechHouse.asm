@@ -73,4 +73,4 @@ MikanNicknameSpeechHouse_MapEventHeader:
 .PersonEvents:
 	db 2
 	person_event SPRITE_FISHING_GURU, 3, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TeacherScript_0x693e9, -1
-	person_event SPRITE_SHELLDER, 2, 5, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_PINK, 0, 0, BirdScript_0x693ef, -1
+	person_event SPRITE_SHELLDER, 2, 5, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_PURPLE, 0, 0, BirdScript_0x693ef, -1

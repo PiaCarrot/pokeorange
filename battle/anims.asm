@@ -251,9 +251,9 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_RockSmash
 	dw BattleAnim_Whirlpool
 	dw BattleAnim_BeatUp
-	dw BattleAnim_252
-	dw BattleAnim_253
-	dw BattleAnim_254
+	dw BattleAnim_Moonblast
+	dw BattleAnim_FairyWind
+	dw BattleAnim_Dazzlingleam
 	dw BattleAnim_SweetScent2
 ; $100
 	dw BattleAnim_ThrowPokeBall
@@ -281,13 +281,34 @@ BattleAnimations:: ; c906f
 ; c929b
 
 BattleAnim_0: ; c929b
-BattleAnim_252: ; c929b
-BattleAnim_253: ; c929b
-BattleAnim_254: ; c929b
 BattleAnim_MirrorMove: ; c929b
 	anim_ret
 ; c929c
 
+; Moonblast animation by Victoria Lacroix
+; https://github.com/VictoriaLacroix/pokecrystal/commit/f7d84a42fe7d02e9de5d99865ca6177f8bd746d5
+BattleAnim_Moonblast:
+	anim_1gfx ANIM_GFX_SHINE
+	anim_bgp $1b
+	anim_bgeffect ANIM_BG_07, $0, $0, $0
+	anim_obj ANIM_OBJ_9E,   0, 0,   5, 0, $0
+	anim_obj ANIM_OBJ_9E,   2, 0,   7, 0, $0
+	anim_obj ANIM_OBJ_9E,   4, 0,   9, 0, $0
+	anim_obj ANIM_OBJ_9E,   6, 0,  11, 0, $0
+	anim_obj ANIM_OBJ_9E,   8, 0,  13, 0, $0
+	anim_wait 1
+	anim_sound 0, 0, SFX_MOONLIGHT
+	anim_wait 63
+	anim_call BattleAnim_FollowPlayerHead_0
+	anim_bgeffect ANIM_BG_TACKLE, $0, $1, $0
+	anim_sound 0, 0, SFX_TACKLE
+	anim_wait 17
+	anim_call BattleAnim_ShowMon_0
+	anim_wait 12
+	anim_bgp $e4
+	anim_ret
+
+BattleAnim_FairyWind:
 BattleAnim_SweetScent2: ; c929c
 	anim_2gfx ANIM_GFX_FLOWER, ANIM_GFX_MISC
 	anim_obj ANIM_OBJ_FLOWER,   8, 0,  12, 0, $2
@@ -2689,6 +2710,7 @@ BattleAnim_Guillotine: ; ca6cc
 	anim_ret
 ; ca700
 
+BattleAnim_Dazzlingleam:
 BattleAnim_Flash: ; ca700
 	anim_1gfx ANIM_GFX_SPEED
 	anim_sound 0, 1, SFX_FLASH

@@ -39,5 +39,5 @@ Route55QuestHouse_MapEventHeader:: db 0, 0
 .BGEvents: db 0
 
 .ObjectEvents: db 1
-	person_event SPRITE_GRANNY, 3, 2, SPRITEMOVEDATA_STANDING_RIGHT, 2, 0, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, BaasamaScript, -1
+	person_event SPRITE_GRANNY, 3, 2, SPRITEMOVEDATA_STANDING_RIGHT, 2, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, BaasamaScript, -1
 

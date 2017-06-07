@@ -1259,7 +1259,7 @@ Pokedex_PrevSearchMonType: ; 40f65
 	jr .done
 
 .wrap_around
-	ld [hl], $11
+	ld [hl], $12
 
 .done
 	scf
@@ -1272,7 +1272,7 @@ Pokedex_NextSearchMonType: ; 40f84
 
 	ld hl, wDexSearchMonType1
 	ld a, [hl]
-	cp $11
+	cp $12
 	jr nc, .type1_wrap_around
 	inc [hl]
 	jr .done
@@ -1283,7 +1283,7 @@ Pokedex_NextSearchMonType: ; 40f84
 .type2
 	ld hl, wDexSearchMonType2
 	ld a, [hl]
-	cp $11
+	cp $12
 	jr nc, .type2_wrap_around
 	inc [hl]
 	jr .done
@@ -1344,6 +1344,7 @@ endr
 	db " DRAGON @"
 	db "  DARK  @"
 	db " STEEL  @"
+	db " FAIRY  @"
 
 Pokedex_SearchForMons: ; 41086
 	ld a, [wDexSearchMonType2]
@@ -1438,6 +1439,7 @@ Pokedex_SearchForMons: ; 41086
 	db DRAGON
 	db DARK
 	db STEEL
+	db FAIRY
 
 Pokedex_DisplayTypeNotFoundMessage: ; 41107
 	xor a

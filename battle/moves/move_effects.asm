@@ -33,6 +33,8 @@ HiJumpKick:
 QuickAttack:
 MachPunch:
 Extremespeed:
+FairyWind:
+Dazzlingleam:
 NormalHit:
 	checkobedience
 	usedmovetext
@@ -697,6 +699,7 @@ SpeedDownHit:
 	endmove
 
 SpecialAttackDownHit:
+Moonblast:
 	checkobedience
 	usedmovetext
 	doturn

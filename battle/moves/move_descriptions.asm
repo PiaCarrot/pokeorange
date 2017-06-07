@@ -250,16 +250,13 @@
 	dw RockSmashDescription
 	dw WhirlpoolDescription
 	dw BeatUpDescription
-	dw MoveFCDescription
-	dw MoveFDDescription
-	dw MoveFEDescription
+	dw MoonblastDescription
+	dw FairyWindDescription
+	dw DazzlingleamDescription
 	dw MoveFFDescription
 	dw Move00Description
 ; 2cd52
 
-MoveFCDescription:
-MoveFDDescription:
-MoveFEDescription:
 MoveFFDescription:
 Move00Description:
 UnknownMoveDescription:
@@ -1267,4 +1264,16 @@ WhirlpoolDescription:
 BeatUpDescription:
 	db   "Party #MON join"
 	next "in the attack.@"
+
+MoonblastDescription:
+	db   "An attack that may"
+	next "lower SPCL.ATK.@"
+
+FairyWindDescription:
+	db   "Strikes the foe"
+	next "with fairy wind.@"
+
+DazzlingleamDescription:
+	db   "Dazzles with a"
+	next "powerful flash.@"
 ; 2ed44

@@ -259,7 +259,7 @@ MikanGym_MapEventHeader:: db 0, 0
 	signpost 7, 6, SIGNPOST_READ, MikanGymStatue
 
 .ObjectEvents: db 4
-	person_event SPRITE_FALKNER, 3, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, FalknerScript_0x683c2, -1
+	person_event SPRITE_CISSY, 3, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, FalknerScript_0x683c2, -1
 	person_event SPRITE_SWIMMER_GIRL, 11, 9, SPRITEMOVEDATA_STANDING_LEFT, 0, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerBird_keeperRod, -1
 	person_event SPRITE_LASS, 7, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerBird_keeperAbe, -1
 	person_event SPRITE_GYM_GUY, 15, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, MikanGymGuyScript, -1

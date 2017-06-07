@@ -11,11 +11,11 @@ sprite_header: MACRO
 ENDM
 
 ChrisSprite: ; 14736
-	sprite_header ChrisSpriteGFX, 3, WALKING_SPRITE, PAL_OW_PINK
+	sprite_header ChrisSpriteGFX, 3, WALKING_SPRITE, PAL_OW_PURPLE
 ; 1473c
 
 ChrisBikeSprite: ; 1473c
-	sprite_header ChrisBikeSpriteGFX, 3, WALKING_SPRITE, PAL_OW_PINK
+	sprite_header ChrisBikeSpriteGFX, 3, WALKING_SPRITE, PAL_OW_PURPLE
 ; 14742
 
 GameboyKidSprite: ; 14742
@@ -71,7 +71,7 @@ DaisySprite: ; 1478a
 ; 14790
 
 ElmSprite: ; 14790
-	sprite_header ElmSpriteGFX, 3, WALKING_SPRITE, PAL_OW_PINK
+	sprite_header ElmSpriteGFX, 3, WALKING_SPRITE, PAL_OW_PURPLE
 ; 14796
 
 WillSprite: ; 14796

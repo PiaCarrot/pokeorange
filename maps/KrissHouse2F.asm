@@ -12,7 +12,6 @@ KrissHouse2F_MapScriptHeader:
 	dbw MAPCALLBACK_NEWMAP, .InitializeRoom
 
 .InitializeRoom:
-	setevent EVENT_IN_YOUR_ROOM
 	checkevent EVENT_INITIALIZED_EVENTS
 	iftrue .SkipInizialization
 	jumpstd initializeevents

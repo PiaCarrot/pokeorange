@@ -81,15 +81,10 @@ HiddenPowerDamage: ; fbced
 ; Skip Normal
 	inc a
 
-; Skip Bird
-	cp BIRD
+; Skip Curse
+	cp CURSE_T
 	jr c, .done
 	inc a
-
-; Skip unused types
-	cp UNUSED_TYPES
-	jr c, .done
-	add SPECIAL - UNUSED_TYPES
 
 .done
 

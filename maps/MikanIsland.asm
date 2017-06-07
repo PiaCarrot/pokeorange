@@ -130,7 +130,7 @@ MikanIsland_MapEventHeader:: db 0, 0
 	signpost 4, 28, SIGNPOST_ITEM, MikanIslandHiddenHyperPotion
 
 .ObjectEvents: db 7
-	person_event SPRITE_LASS, 21, 23, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, MikanIslandLassScript, -1
+	person_event SPRITE_LASS, 21, 23, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, MikanIslandLassScript, -1
 	person_event SPRITE_SUPER_NERD, 24, 11, SPRITEMOVEDATA_WANDER, 2, 1, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, MikanIslandSuperNerdScript, -1
 	person_event SPRITE_YOUNGSTER, 8, 13, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, MikanIslandGrampsScript, -1
 	person_event SPRITE_YOUNGSTER, 17, 9, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, MikanIslandYoungsterScript, -1

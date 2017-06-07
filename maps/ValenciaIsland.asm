@@ -15,7 +15,6 @@ ValenciaIsland_MapScriptHeader:
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_VALENCIA
-	clearevent EVENT_FIRST_TIME_BANKING_WITH_MOM
 	return
 
 ValenciaIsland_TeacherStopsYouTrigger1:

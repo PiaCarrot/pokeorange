@@ -27,7 +27,6 @@ CrystalCave1FBrockScript:
 	closetext
 	applymovement CRYSTAL_CAVE_1F_BROCK, Brock_Movement
 	disappear CRYSTAL_CAVE_1F_BROCK
-;	clearevent EVENT_BROCK_CRYSTAL_CAVE_1F
 	setevent EVENT_BROCK_1F_DONE
 	end
 	
