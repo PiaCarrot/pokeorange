@@ -347,7 +347,6 @@ Continue: ; 5d65
 	ld a, MUSIC_NONE / $100
 	ld [MusicFadeIDHi], a
 	call ClearBGPalettes
-	call ConfirmContinue
 	call CloseWindow
 	call ClearTileMap
 	ld c, 20
