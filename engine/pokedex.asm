@@ -198,7 +198,8 @@ Pokedex_InitMainScreen: ; 4013c (10:413c)
 	ld a, 7
 	ld [wDexListingHeight], a
 	call Pokedex_PrintListing
-	call Pokedex_SetBGMapMode_3ifDMG_4ifCGB
+	call Pokedex_SetBGMapMode4
+	call Pokedex_SetBGMapMode3
 	call Pokedex_ResetBGMapMode
 	call Pokedex_DrawMainScreenBG
 	ld a, $5
@@ -235,9 +236,6 @@ Pokedex_UpdateMainScreen: ; 401ae (10:41ae)
 	and A_BUTTON
 	jr nz, .a
 	ld a, [hl]
-;	and SELECT
-;	jr nz, .select
-;	ld a, [hl]
 	and START
 	jr nz, .start
 	call Pokedex_ListingHandleDPadInput
@@ -259,17 +257,6 @@ Pokedex_UpdateMainScreen: ; 401ae (10:41ae)
 	ld a, DEXSTATE_MAIN_SCR
 	ld [wDexEntryPrevJumptableIndex], a
 	ret
-
-;.select
-;	call Pokedex_BlackOutBG
-;	ld a, DEXSTATE_OPTION_SCR
-;	ld [wJumptableIndex], a
-;	xor a
-;	ld [hSCX], a
-;	ld a, $a7
-;	ld [hWX], a
-;	call DelayFrame
-;	ret
 
 .start
 	call Pokedex_BlackOutBG
@@ -828,9 +815,6 @@ Pokedex_DrawMainScreenBG: ; 4074c (10:474c)
 	hlcoord 5, 15
 	lb bc, 1, 3
 	call PrintNum
-;	hlcoord 1, 17
-;	ld de, String_SELECT_OPTION
-;	call Pokedex_PlaceString
 	hlcoord 8, 1
 	ld b, 7
 	ld a, $5a
@@ -854,8 +838,6 @@ String_SEEN: ; 407e1
 	db "SEEN", $ff
 String_OWN: ; 407e6
 	db "OWN", $ff
-String_SELECT_OPTION: ; 407ea
-;	db $3b, $48, $49, $4a, $44, $45, $46, $47 ; SELECT > OPTION
 String_START_SEARCH: ; 407f2
 	db $32, $3b, $41, $42, $43, $4b, $4c, $4d, $4e, $3c, $ff ; START > SEARCH
 
@@ -1941,10 +1923,6 @@ Pokedex_SetBGMapMode4: ; 41ae1 (10:5ae1)
 	ld [hBGMapMode], a
 	ld c, 4
 	call DelayFrames
-	ret
-
-Pokedex_SetBGMapMode_3ifDMG_4ifCGB: ; 41aeb (10:5aeb)
-	call Pokedex_SetBGMapMode4
 	ret
 
 
