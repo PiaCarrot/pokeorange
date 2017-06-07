@@ -44,5 +44,5 @@ SunburstPokeCenter_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 2
 	person_event SPRITE_NURSE, 1, 3, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, SunburstNurseScript, -1
-	person_event SPRITE_LASS, 5, 1, SPRITEMOVEDATA_SPINRANDOM_SLOW, 2, 2, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, SunburstLassScript, -1
+	person_event SPRITE_LASS, 5, 1, SPRITEMOVEDATA_SPINRANDOM_SLOW, 2, 2, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, SunburstLassScript, -1
 

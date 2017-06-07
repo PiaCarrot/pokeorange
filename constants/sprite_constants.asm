@@ -5,7 +5,7 @@
 	const SPRITE_CHRIS ; 01
 	const SPRITE_CHRIS_BIKE ; 02
 	const SPRITE_GAMEBOY_KID ; 03
-	const SPRITE_SILVER ; 04
+	const SPRITE_TRACEY ; 04
 	const SPRITE_OAK ; 05
 	const SPRITE_RED ; 06
 	const SPRITE_BLUE ; 07
@@ -17,18 +17,18 @@
 	const SPRITE_BLAINE ; 0d
 	const SPRITE_REDS_MOM ; 0e
 	const SPRITE_DAISY ; 0f
-	const SPRITE_ELM ; 10
+	const SPRITE_IVY ; 10
 	const SPRITE_WILL ; 11
-	const SPRITE_FALKNER ; 12
-	const SPRITE_WHITNEY ; 13
-	const SPRITE_BUGSY ; 14
-	const SPRITE_MORTY ; 15
-	const SPRITE_CHUCK ; 16
+	const SPRITE_CISSY ; 12
+	const SPRITE_DANNY ; 13
+	const SPRITE_RUDY ; 14
+	const SPRITE_LUANA ; 15
+	const SPRITE_DRAKE ; 16
 	const SPRITE_JASMINE ; 17
 	const SPRITE_PRYCE ; 18
 	const SPRITE_CLAIR ; 19
 	const SPRITE_BROCK ; 1a
-	const SPRITE_KAREN ; 1b
+	const SPRITE_LORELEI ; 1b
 	const SPRITE_BRUNO ; 1c
 	const SPRITE_MISTY ; 1d
 	const SPRITE_LANCE ; 1e
@@ -104,7 +104,7 @@
 	const SPRITE_ENTEI ; 64
 	const SPRITE_RAIKOU ; 65
 	const SPRITE_STANDING_YOUNGSTER ; 66
-	const SPRITE_SIGHT_SEER
+	const SPRITE_SIGHTSEER_F
 	const SPRITE_BUG_BOY
 	const SPRITE_PC_SLOUCH
 
@@ -122,19 +122,7 @@ const_value SET $e0
 
 const_value SET $f0
 SPRITE_VARS EQU const_value
-	const SPRITE_CONSOLE ; f0
-	const SPRITE_DOLL_1 ; f1
-	const SPRITE_DOLL_2 ; f2
-	const SPRITE_BIG_DOLL ; f3
-	const SPRITE_WEIRD_TREE ; f4
-	const SPRITE_OLIVINE_RIVAL ; f5
-	const SPRITE_AZALEA_ROCKET ; f6
-	const SPRITE_FUCHSIA_GYM_1 ; f7
-	const SPRITE_FUCHSIA_GYM_2 ; f8
-	const SPRITE_FUCHSIA_GYM_3 ; f9
-	const SPRITE_FUCHSIA_GYM_4 ; fa
-	const SPRITE_COPYCAT ; fb
-	const SPRITE_JANINE_IMPERSONATOR ; fc
+	const SPRITE_BIG_DOLL ; f0
 
 ; sprite types
 const_value SET 1
@@ -158,7 +146,7 @@ NUM_SPRITEHEADER_FIELDS EQU const_value
 	const PAL_OW_BLUE
 	const PAL_OW_GREEN
 	const PAL_OW_BROWN
-	const PAL_OW_PINK
+	const PAL_OW_PURPLE
 	const PAL_OW_SILVER
 	const PAL_OW_TREE
 	const PAL_OW_ROCK

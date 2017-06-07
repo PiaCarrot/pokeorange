@@ -172,86 +172,11 @@ LinkReceptionistScript_Battle:
 	closetext
 	end
 
-Script_TimeCapsuleClosed:
+LinkReceptionistScript_TimeCapsule:
 	faceplayer
 	opentext
 	writetext Text_TimeCapsuleClosed
 	waitbutton
-	closetext
-	end
-
-LinkReceptionistScript_TimeCapsule:
-	checkevent EVENT_MET_BILL
-	iftrue Script_TimeCapsuleClosed
-	checkflag ENGINE_TIME_CAPSULE
-	iftrue Script_TimeCapsuleClosed
-	special Special_SetBitsForTimeCapsuleRequest
-	faceplayer
-	opentext
-	writetext Text_TimeCapsuleReceptionistIntro
-	yesorno
-	iffalse .Cancel
-	special Special_CheckTimeCapsuleCompatibility
-	if_equal $1, .MonTooNew
-	if_equal $2, .MonMoveTooNew
-	if_equal $3, .MonHasMail
-	writetext Text_PleaseWait
-	special Special_WaitForLinkedFriend
-	iffalse .FriendNotReady
-	writetext Text_MustSaveGame
-	yesorno
-	iffalse .DidNotSave
-	special Special_TryQuickSave
-	iffalse .DidNotSave
-	writetext Text_PleaseWait
-	special Special_CheckLinkTimeout
-	iffalse .LinkTimedOut
-	copybytetovar wOtherPlayerLinkMode
-	iffalse .OK
-	special Special_CheckBothSelectedSameRoom
-	writetext Text_IncompatibleRooms
-	special Special_CloseLink
-	closetext
-	end
-
-.OK:
-	special Special_EnterTimeCapsule
-	writetext Text_PleaseComeIn2
-	waitbutton
-	closetext
-	scall TimeCapsuleScript_CheckPlayerGender
-	warpcheck
-	end
-
-.FriendNotReady:
-	special WaitForOtherPlayerToExit
-	writetext Text_FriendNotReady
-	closetext
-	end
-
-.LinkTimedOut:
-	writetext Text_LinkTimedOut
-	jump .Cancel
-
-.DidNotSave:
-	writetext Text_PleaseComeAgain
-.Cancel:
-	special WaitForOtherPlayerToExit
-	closetext
-	end
-
-.MonTooNew:
-	writetext Text_RejectNewMon
-	closetext
-	end
-
-.MonMoveTooNew:
-	writetext Text_RejectMonWithNewMove
-	closetext
-	end
-
-.MonHasMail:
-	writetext Text_RejectMonWithMail
 	closetext
 	end
 

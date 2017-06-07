@@ -35,5 +35,5 @@ Route56PokeCenter_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 2
 	person_event SPRITE_NURSE, 1, 3, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route56NurseScript, -1
-	person_event SPRITE_SIGHT_SEER, 5, 6, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route56SightseerFScript, -1
+	person_event SPRITE_SIGHTSEER_F, 5, 6, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route56SightseerFScript, -1
 

@@ -11,14 +11,8 @@ RedsHouse1F_MapScriptHeader:
 RedsMom:
 	faceplayer
 	opentext
-	checkevent EVENT_MET_REDS_MOM
-	iftrue .MetAlready
 	writetext RedsMomText1
 	waitbutton
-	closetext
-	setevent EVENT_MET_REDS_MOM
-	end
-.MetAlready:
 	writetext RedsMomText2
 	waitbutton
 	closetext

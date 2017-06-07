@@ -17,12 +17,12 @@ DayCare_MapScriptHeader:
 	checkflag ENGINE_DAYCARE_MAN_HAS_EGG
 	iftrue .PutDaycareManOutside
 	clearevent EVENT_DAYCARE_MAN_IN_DAYCARE
-	setevent EVENT_DAYCARE_MAN_ON_ROUTE_34
+	setevent EVENT_DAYCARE_MAN_OUTSIDE
 	return
 
 .PutDaycareManOutside:
 	setevent EVENT_DAYCARE_MAN_IN_DAYCARE
-	clearevent EVENT_DAYCARE_MAN_ON_ROUTE_34
+	clearevent EVENT_DAYCARE_MAN_OUTSIDE
 	return
 
 DayCareManScript_Inside:

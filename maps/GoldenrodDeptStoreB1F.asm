@@ -1,12 +1,4 @@
 const_value set 2
-	const GOLDENRODDEPTSTOREB1F_POKE_BALL1
-	const GOLDENRODDEPTSTOREB1F_POKE_BALL2
-	const GOLDENRODDEPTSTOREB1F_POKE_BALL3
-	const GOLDENRODDEPTSTOREB1F_POKE_BALL4
-	const GOLDENRODDEPTSTOREB1F_BLACK_BELT1
-	const GOLDENRODDEPTSTOREB1F_BLACK_BELT2
-	const GOLDENRODDEPTSTOREB1F_BLACK_BELT3
-	const GOLDENRODDEPTSTOREB1F_MACHOP
 
 GoldenrodDeptStoreB1F_MapScriptHeader:
 .MapTriggers:
@@ -50,69 +42,6 @@ UnknownScript_0x7d7ac:
 	clearevent EVENT_WAREHOUSE_BLOCKED_OFF
 	return
 
-BlackBeltScript_0x7d7b0:
-	jumptextfaceplayer UnknownText_0x7d7cb
-
-BlackBeltScript_0x7d7b3:
-	jumptextfaceplayer UnknownText_0x7d82c
-
-BlackBeltScript_0x7d7b6:
-	jumptextfaceplayer UnknownText_0x7d875
-
-MachopScript_0x7d7b9:
-	opentext
-	writetext UnknownText_0x7d8bb
-	cry MACHOKE
-	waitbutton
-	closetext
-	end
-
-GoldenrodDeptStoreB1FEther:
-	itemball ETHER
-
-GoldenrodDeptStoreB1FAmuletCoin:
-	itemball AMULET_COIN
-
-GoldenrodDeptStoreB1FBurnHeal:
-	itemball BURN_HEAL
-
-GoldenrodDeptStoreB1FUltraBall:
-	itemball ULTRA_BALL
-
-UnknownText_0x7d7cb:
-	text "Hey, kid! You're"
-	line "holding us up!"
-
-	para "Our policy is to"
-	line "work behind the"
-
-	para "scenes where no"
-	line "one can see us!"
-	done
-
-UnknownText_0x7d82c:
-	text "I lose my passion"
-	line "for work if some-"
-	cont "one's watching."
-
-	para "Come on, kid,"
-	line "scoot!"
-	done
-
-UnknownText_0x7d875:
-	text "Oohah! Oohah!"
-
-	para "The stuff on the"
-	line "ground's junk."
-
-	para "Take it if you"
-	line "want it!"
-	done
-
-UnknownText_0x7d8bb:
-	text "MACHOKE: Maaacho!"
-	done
-
 GoldenrodDeptStoreB1F_MapEventHeader:
 	; filler
 	db 0, 0
@@ -130,12 +59,4 @@ GoldenrodDeptStoreB1F_MapEventHeader:
 	db 0
 
 .PersonEvents:
-	db 8
-	person_event SPRITE_POKE_BALL, 15, 10, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, GoldenrodDeptStoreB1FEther, EVENT_GOLDENROD_DEPT_STORE_B1F_ETHER
-	person_event SPRITE_POKE_BALL, 2, 14, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, GoldenrodDeptStoreB1FAmuletCoin, EVENT_GOLDENROD_DEPT_STORE_B1F_AMULET_COIN
-	person_event SPRITE_POKE_BALL, 3, 6, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, GoldenrodDeptStoreB1FBurnHeal, EVENT_GOLDENROD_DEPT_STORE_B1F_BURN_HEAL
-	person_event SPRITE_POKE_BALL, 15, 15, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, GoldenrodDeptStoreB1FUltraBall, EVENT_GOLDENROD_DEPT_STORE_B1F_ULTRA_BALL
-	person_event SPRITE_BLACK_BELT, 10, 9, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, BlackBeltScript_0x7d7b0, -1
-	person_event SPRITE_BLACK_BELT, 8, 4, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, BlackBeltScript_0x7d7b3, -1
-	person_event SPRITE_BLACK_BELT, 13, 6, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, BlackBeltScript_0x7d7b6, -1
-	person_event SPRITE_MACHOP, 7, 7, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MachopScript_0x7d7b9, -1
+	db 0

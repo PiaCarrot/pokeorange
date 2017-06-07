@@ -30,4 +30,4 @@ SunburstLargeHouse_MapEventHeader:: db 0, 0
 .BGEvents: db 0
 
 .ObjectEvents: db 1
-	person_event SPRITE_GRANNY, 4, 2, SPRITEMOVEDATA_STANDING_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, SunburstGrannyScript, -1
+	person_event SPRITE_GRANNY, 4, 2, SPRITEMOVEDATA_STANDING_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, SunburstGrannyScript, -1
