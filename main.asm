@@ -4540,31 +4540,36 @@ INCLUDE "gfx/pics/animation.asm"
 ;	following bytes are tile ids mapped to each bit in the mask
 
 ; Main animations (played everywhere)
-INCLUDE "gfx/pics/anim_pointers.asm"
-INCLUDE "gfx/pics/anims.asm"
-
+AnimationPointers:
 ; Extra animations, appended to the main animation
 ; Used in the status screen (blinking, tail wags etc.)
-INCLUDE "gfx/pics/extra_pointers.asm"
-INCLUDE "gfx/pics/extras.asm"
-
+AnimationExtraPointers:
 ; Spinda has its own animation data despite having an entry in the main tables
-INCLUDE "gfx/pics/spinda_anim_pointers.asm"
-INCLUDE "gfx/pics/spinda_anims.asm"
-INCLUDE "gfx/pics/spinda_extra_pointers.asm"
-INCLUDE "gfx/pics/spinda_extras.asm"
-
+SpindaAnimationPointers:
+SpindaAnimationExtraPointers:
 ; Bitmasks
-INCLUDE "gfx/pics/bitmask_pointers.asm"
-INCLUDE "gfx/pics/bitmasks.asm"
-INCLUDE "gfx/pics/spinda_bitmask_pointers.asm"
-INCLUDE "gfx/pics/spinda_bitmasks.asm"
-
+BitmasksPointers:
+SpindaBitmasksPointers:
 ; Frames
-INCLUDE "gfx/pics/frame_pointers.asm"
-INCLUDE "gfx/pics/frames.asm"
-INCLUDE "gfx/pics/spinda_frame_pointers.asm"
-INCLUDE "gfx/pics/spinda_frames.asm"
+FramesPointers:
+SpindaFramesPointers:
+rept 256
+	dw DummyAnimation ; DummyAnimationExtra, DummyBitmask, DummyFrame
+endr
+
+PicAnimations:
+SpindaAnimations:
+AnimationFrames:
+SpindasFrames:
+EggAnimation:
+EggAnimationExtra:
+EggBitmasks:
+EggFrames:
+DummyAnimation:
+DummyAnimationExtra:
+DummyBitmask:
+DummyFrame:
+	endanim
 
 SECTION "Tileset Data 6", ROMX, BANK[TILESETS_6]
 
