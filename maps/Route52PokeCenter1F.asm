@@ -23,7 +23,7 @@ UnknownText_0x69b83:
 	text "There are a lot"
 	line "of TRAINERS on"
 	cont "ROUTE 52."
-	
+
 	para "They're all tra-"
 	line "ining to face"
 	cont "CISSY of the"
@@ -35,7 +35,7 @@ UnknownText_0x69cac:
 	line "caught in the"
 	cont "TANGELO JUNGLE"
 	cont "is amazing!"
-	
+
 	para "THUNDERSHOCK is"
 	line "a great move"
 	cont "against WATER-"

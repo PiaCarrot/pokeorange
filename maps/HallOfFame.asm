@@ -3,20 +3,16 @@ const_value set 2
 
 HallOfFame_MapScriptHeader:
 .MapTriggers:
-	db 2
+	db 1
 
 	; triggers
 	maptrigger .Trigger0
-	maptrigger .Trigger1
 
 .MapCallbacks:
 	db 0
 
 .Trigger0:
 	priorityjump HallOfFameScript
-	end
-
-.Trigger1:
 	end
 
 HallOfFameScript:

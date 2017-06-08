@@ -7,7 +7,7 @@ MandarinNorthSmallHouse_MapScriptHeader:
 
 .MapCallbacks:
 	db 0
-	
+
 MandarinNorthHMCut:
 	itemball HM_CUT
 

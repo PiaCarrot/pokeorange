@@ -114,15 +114,15 @@ MikanGymStatue:
 UnknownText_0x68473:
 	text "Welcome, CHALLEN-"
 	line "GER."
-	
+
 	para "I am CISSY of the"
 	line "ORANGE CREW."
-	
+
 	para "I grew up on this"
 	line "island, raising my"
 	cont "WATER #MON to"
 	cont "perfection."
-	
+
 	para "Well then, why"
 	line "don't we get"
 	cont "started?"
@@ -133,7 +133,7 @@ UnknownText_0x6854a:
 
 	para "My perfect WATER"
 	line "#MON!"
-	
+
 	para "Very well! You've"
 	line "earned this."
 
@@ -149,12 +149,12 @@ UnknownText_0x685af:
 
 UnknownText_0x685c8:
 	text "I'm impressed."
-	
+
 	para "That badge will"
 	line "allow any #MON"
 	cont "up to Level 35"
 	cont "to obey you."
-	
+
 	para "Here--take this"
 	line "too."
 	done
@@ -186,7 +186,7 @@ UnknownText_0x68648:
 UnknownText_0x68735:
 	text "Your next test is"
 	line "on NAVEL ISLAND."
-	
+
 	para "Good luck."
 	done
 
@@ -202,7 +202,7 @@ Bird_keeperRodBeatenText:
 UnknownText_0x68837:
 	text "My CORSOLA<...>"
 	done
-	
+
 Bird_keeperAbeSeenText:
 	text "I hope you did"
 	line "some serious trai-"
@@ -226,12 +226,12 @@ UnknownText_0x688c7:
 MikanGymGuyText:
 	text "Look, some fresh"
 	line "meat."
-	
+
 	para "Listen kid, CISSY"
 	line "is no joke. She"
 	cont "uses strong WATER-"
 	cont "TYPE #MON."
-	
+
 	para "But if you got a"
 	line "ELECTRIC or GRASS-"
 	cont "TYPE, you might"

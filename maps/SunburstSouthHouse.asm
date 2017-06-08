@@ -6,7 +6,7 @@ SunburstSouthHouse_MapScriptHeader:
 
 .MapCallbacks:
 	db 0
-	
+
 SunburstGreenLassScript:
 	faceplayer
 	opentext
@@ -17,7 +17,7 @@ SunburstGreenLassScript:
 	setevent EVENT_GOT_SHARP_BEAK
 	closetext
 	end
-	
+
 .AlreadyGotSharpBeak:
     writetext GotSharpBeakText
 	waitbutton
@@ -32,23 +32,23 @@ SunburstBirdScript:
 	waitbutton
 	closetext
 	end
-	
+
 GiveSharpBeakText:
 	text "Bird-type #MON"
 	line "are great."
-	
+
 	para "Here's something"
 	line "to make them a"
 	cont "bit stronger."
 	done
-	
+
 GotSharpBeakText:
 	text "SHARP BEAK will"
 	line "increase damage"
 	cont "from FLYING-type"
 	cont "attacks."
 	done
-	
+
 BirdText:
 	text "Winnhaa!"
 	done

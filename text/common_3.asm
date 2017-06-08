@@ -1083,7 +1083,7 @@ _OakText1::
 	para "PROFESSOR IVY."
 	line "I run a lab on"
 	cont "VALENCIA ISLAND."
-	
+
 	prompt
 
 _OakText2::

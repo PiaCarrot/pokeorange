@@ -2773,7 +2773,7 @@ PinkanBerry:
     call UseItem_SelectMon
     ; Exit early if the player canceled
     jp c, PinkanBerry_ExitMenu
-	
+
 ; Pinkan Berry has no effect on native mons
     ld a, MON_CAUGHTLOCATION
     call GetPartyParamLocation
@@ -2824,7 +2824,7 @@ PinkanBerry_ExitMenu:
     call ClearPalettes
     ret
 
-Brightpowder:	
+Brightpowder:
 LuckyPunch:
 MetalPowder:
 Nugget:

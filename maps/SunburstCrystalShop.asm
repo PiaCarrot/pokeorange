@@ -1,13 +1,13 @@
 const_value set 2
 	const SUNBURST_ITEM
-	
+
 SunburstCrystalShop_MapScriptHeader:
 .MapTriggers:
 	db 0
 
 .MapCallbacks:
 	db 0
-	
+
 SunburstCrystalShop:
 	itemball ODD_CRYSTAL
 

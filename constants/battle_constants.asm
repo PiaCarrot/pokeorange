@@ -96,7 +96,7 @@ const_value = 3
     const FRZ
     const PAR
     const PNK
-	
+
 ALL_STATUS EQU (1 << PNK) + (1 << PSN) + (1 << BRN) + (1 << FRZ) + (1 << PAR) + SLP
 
 ; substatus

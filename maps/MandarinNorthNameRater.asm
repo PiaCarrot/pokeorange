@@ -7,7 +7,7 @@ MandarinNorthNameRater_MapScriptHeader:
 
 .MapCallbacks:
 	db 0
-	
+
 GoldenrodNameRater:
 	faceplayer
 	opentext

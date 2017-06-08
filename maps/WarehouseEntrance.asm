@@ -9,12 +9,11 @@ WarehouseEntrance_MapScriptHeader:
 	db 0
 
 .MapCallbacks:
-	db 3
+	db 2
 
 	; callbacks
 
 	dbw MAPCALLBACK_NEWMAP, .ResetSwitches
-
 	dbw MAPCALLBACK_OBJECTS, .CheckDayOfWeek
 
 .ResetSwitches:

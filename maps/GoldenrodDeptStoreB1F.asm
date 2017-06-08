@@ -10,7 +10,6 @@ GoldenrodDeptStoreB1F_MapScriptHeader:
 	; callbacks
 
 	dbw MAPCALLBACK_TILES, UnknownScript_0x7d781
-
 	dbw MAPCALLBACK_NEWMAP, UnknownScript_0x7d7ac
 
 UnknownScript_0x7d781:

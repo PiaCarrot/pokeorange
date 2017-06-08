@@ -22,19 +22,19 @@ TrainerSwimmerMayumi:
 	waitbutton
 	closetext
 	end
-	
+
 SwimmerMayumiSeenText:
 	text "Hello there!"
-	
+
 	para "Perhaps you would"
 	line "like to battle?"
 	done
-	
+
 SwimmerMayumiBeatenText:
 	text "Ayaa! I didn't"
 	line "think I'd lose!"
 	done
-	
+
 SwimmerMayumiAfterText:
 	text "Thanks for the"
 	line "great battle!"
@@ -50,18 +50,18 @@ TrainerSwimmerKosuke:
 	waitbutton
 	closetext
 	end
-	
+
 SwimmerKosukeSeenText:
 	text "I saw a PINK"
 	line "MANKEY on the"
 	cont "island near by!"
 	done
-	
+
 SwimmerKosukeBeatenText:
 	text "I swear it's the"
 	line "truth!"
 	done
-	
+
 SwimmerKosukeAfterText:
 	text "I wonder if my"
 	line "#MON could"
@@ -78,25 +78,25 @@ TrainerAthleteHideki:
 	waitbutton
 	closetext
 	end
-	
+
 AthleteHidekiSeenText:
 	text "Jogging on this"
 	line "island made my"
 	cont "#MON strong!"
 	done
-	
+
 AthleteHidekiBeatenText:
 	text "Looks like I"
 	line "have more run-"
 	cont "ning to do!"
 	done
-	
+
 AthleteHidekiAfterText:
 	text "To win a marathon,"
 	line "you have to train"
 	cont "super hard!"
 	done
-	
+
 Route55MaxRevive:
 	itemball MAX_REVIVE
 
@@ -108,17 +108,17 @@ RangiSign:
 
 Route55PotHiddenItem:
 	dwb EVENT_ROUTE_55_HIDDEN_SOFT_SAND, SOFT_SAND
-	
+
 .Text:
 
 Route55SignText:
 	text "ROUTE 55"
 	line "TO KINNOW ISLAND"
 	done
-	
+
 RangiSignText:
 	text "RANGI ISLAND"
-	
+
 	para "GITHUB lies here."
 	done
 

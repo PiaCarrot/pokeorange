@@ -67,7 +67,7 @@ HandlePlayerStep: ; d4e5 (3:54e5)
 
 .fail ; d508 (3:5508)
 	ret
- 
+
 UpdatePlayerCoords: ; d511 (3:5511)
 	ld a, [wPlayerStepDirection]
 	and a

@@ -11,10 +11,10 @@ MandarinNorthPokeCenter_MapScriptHeader:
 
 MandarinNoNurseScript:
 	jumpstd pokecenternurse
-	
+
 MandarinNorthCooltrainerMScript:
 	jumptextfaceplayer MandarinNorthCooltrainerMText
-	
+
 MandarinNorthCooltrainerMText:
 	text "I came here to"
 	line "stock up on GREAT"
@@ -25,7 +25,7 @@ MandarinNorthCooltrainerMText:
 	cont "here are harder"
 	cont "to capture."
 	done
-	
+
 MandarinNorthPokeCenter_MapEventHeader:: db 0, 0
 
 .Warps: db 2

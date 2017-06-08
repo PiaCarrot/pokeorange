@@ -8,7 +8,7 @@ Music_PokemonCenter_Ch1: ; be56 (2:7e56)
 	volume 119
 	dutycycle 3
 	vibrato 10, 34
-	
+
 
 Music_PokemonCenter_branch_be61:
 	notetype 12, 163

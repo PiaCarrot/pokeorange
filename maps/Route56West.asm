@@ -10,20 +10,10 @@ const_value set 2
 Route56West_MapScriptHeader::
 
 .Triggers:
-	db 2
-
-	; triggers
-	maptrigger .Trigger0
-	maptrigger .Trigger1
+	db 0
 
 .Callbacks:
 	db 0
-
-.Trigger0:
-	end
-
-.Trigger1:
-	end
 
 .Scripts:
 

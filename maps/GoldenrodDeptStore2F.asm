@@ -9,7 +9,6 @@ GoldenrodDeptStore2F_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-
 GoldenrodDeptStore2FDirectory:
 	jumptext GoldenrodDeptStore2FDirectoryText
 

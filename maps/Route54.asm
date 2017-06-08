@@ -21,7 +21,7 @@ TrainerSwimmerLucas:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmerBrand:
 	trainer EVENT_BEAT_SWIMMERM_BRAND, SWIMMERM, DAISUKE, SwimmerBrandSeenText, SwimmerBrandBeatenText, 0, .Script
 
@@ -32,7 +32,7 @@ TrainerSwimmerBrand:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmerArnold:
 	trainer EVENT_BEAT_SWIMMERM_ARNOLD, SWIMMERM, JUNPEI, SwimmerArnoldSeenText, SwimmerArnoldBeatenText, 0, .Script
 
@@ -43,7 +43,7 @@ TrainerSwimmerArnold:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmerPaula:
 	trainer EVENT_BEAT_SWIMMERF_PAULA, SWIMMERF, REINA, SwimmerPaulaSeenText, SwimmerPaulaBeatenText, 0, .Script
 
@@ -54,7 +54,7 @@ TrainerSwimmerPaula:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerSwimmerUmiko:
 	trainer EVENT_BEAT_SWIMMERF_UMIKO, SWIMMERF, UMIKO, SwimmerUmikoSeenText, SwimmerUmikoBeatenText, 0, .Script
 
@@ -65,13 +65,13 @@ TrainerSwimmerUmiko:
 	waitbutton
 	closetext
 	end
-	
+
 Route54Sign:
 	jumptext Route54SignText
 
 NicoSign:
 	jumptext NicoSignText
-	
+
 .Text:
 
 SwimmerLucasSeenText:
@@ -90,7 +90,7 @@ SwimmerLucasAfterText:
 	text "I wonder who they"
 	line "are?"
 	done
-	
+
 SwimmerBrandSeenText:
 	text "Racing #MON"
 	line "is the best exer-"
@@ -107,12 +107,12 @@ SwimmerBrandAfterText:
 	line "world record some"
 	cont "day!"
 	done
-	
+
 SwimmerArnoldSeenText:
 	text "My #MON"
 	line "have been raised"
 	cont "with care!"
-	
+
 	para "Let's see who's"
 	line "stronger!"
 	done
@@ -126,12 +126,12 @@ SwimmerArnoldAfterText:
 	text "That wasn't too"
 	line "bad!"
 	done
-	
+
 SwimmerPaulaSeenText:
 	text "I see you're"
 	line "heading to"
 	cont "MANDARIN NORTH."
-	
+
 	para "Care to spar"
 	line "with me first?"
 	done
@@ -168,10 +168,10 @@ Route54SignText:
 	text "ROUTE 54 -"
 	line "MANDARIN NORTH"
 	done
-	
+
 NicoSignText:
 	text "NICO ISLAND"
-	
+
 	para "Nico nico nii!"
 	done
 

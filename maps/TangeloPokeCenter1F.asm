@@ -24,7 +24,7 @@ UnknownText_0x19698a:
 	line "#MON CENTER"
 	cont "lets you stay"
 	cont "the night."
-	
+
 	para "Free food too! I"
 	line "love this life."
 	done

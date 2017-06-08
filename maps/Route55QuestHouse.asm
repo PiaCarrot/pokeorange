@@ -7,22 +7,22 @@ Route55QuestHouse_MapScriptHeader:
 
 .MapCallbacks:
 	db 0
-	
+
 BaasamaScript:
 	jumptextfaceplayer BaasamaText
-	
+
 BaasamaText:
 	text "Ah, hello there,"
 	line "young child."
-	
+
 	para "A long time ago, I"
 	line "had children of my"
 	cont "own."
-	
+
 	para "I wonder what bec-"
 	line "ame of them. It's"
 	cont "been so long<...>"
-	
+
 	para "By now, they would"
 	line "have children of"
 	cont "their own."

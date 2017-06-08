@@ -18,7 +18,6 @@ GoldenrodDeptStoreRoof_MapScriptHeader:
 	; callbacks
 
 	dbw MAPCALLBACK_TILES, .CheckSaleChangeBlock
-
 	dbw MAPCALLBACK_OBJECTS, .CheckSaleChangeClerk
 
 .CheckSaleChangeBlock:
