@@ -26,11 +26,7 @@ PYTHON := python
 MD5 := md5sum -c --quiet
 RM := rm -f
 
-ifneq ($(wildcard gfx2.py),)
-gfx      := $(PYTHON) gfx2.py
-else
 gfx      := $(PYTHON) gfx.py
-endif
 includes := $(PYTHON) scan_includes.py
 
 
