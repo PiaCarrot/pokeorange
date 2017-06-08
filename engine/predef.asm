@@ -89,7 +89,6 @@ PredefPointers:: ; 856b
 	add_predef CheckTypeMatchup
 	add_predef ConvertMon_1to2
 	add_predef NewPokedexEntry
-	add_predef AnimateMon_Slow_Normal
 	add_predef PlaceStatusString
 	add_predef LoadMonAnimation
 	add_predef AnimateFrontpic

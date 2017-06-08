@@ -1,59 +1,5 @@
 ; Pic animation arrangement.
 
-
-AnimateMon_Slow_Normal: ; d0000
-	hlcoord 12, 0
-	ld a, [wBattleMode]
-	cp WILD_BATTLE
-	jr z, .wild
-	ld e, ANIM_MON_SLOW
-	ld d, $0
-	call AnimateFrontpic
-	ret
-
-.wild
-	ld e, ANIM_MON_NORMAL
-	ld d, $0
-	call AnimateFrontpic
-	ret
-; d001a
-
-AnimateMon_Menu: ; d001a
-	ld e, ANIM_MON_MENU
-	ld d, $0
-	call AnimateFrontpic
-	ret
-; d0022
-
-AnimateMon_Trade: ; d0022
-	ld e, ANIM_MON_TRADE
-	ld d, $0
-	call AnimateFrontpic
-	ret
-; d002a
-
-AnimateMon_Evolve: ; d002a
-	ld e, ANIM_MON_EVOLVE
-	ld d, $0
-	call AnimateFrontpic
-	ret
-; d0032
-
-AnimateMon_Hatch: ; d0032
-	ld e, ANIM_MON_HATCH
-	ld d, $0
-	call AnimateFrontpic
-	ret
-; d003a
-
-AnimateMon_Unused: ; d003a
-	ld e, ANIM_MON_UNUSED
-	ld d, $0
-	call AnimateFrontpic
-	ret
-; d0042
-
-
 POKEANIM: MACRO
 	rept _NARG
 
@@ -946,56 +892,11 @@ PokeAnim_GetAttrMapCoord: ; d0551
 ; d055c
 
 GetMonAnimPointer: ; d055c
-	call PokeAnim_IsEgg
-	jr z, .egg
-
-	ld c, BANK(SpindaAnimations)
-	ld hl, SpindaAnimationPointers
-	ld de, SpindaAnimationExtraPointers
-	call PokeAnim_IsSpinda
-	jr z, .spinda
-	ld c, BANK(PicAnimations)
-	ld hl, AnimationPointers
-	ld de, AnimationExtraPointers
-.spinda
-
-	ld a, [wPokeAnimExtraFlag]
-	and a
-	jr z, .extras
-	ld h, d
-	ld l, e
-.extras
-
-	ld a, [wPokeAnimSpeciesOrSpindaPattern]
-	dec a
-	ld e, a
-	ld d, 0
-	add hl, de
-	add hl, de
-	ld a, c
+	ld a, BANK(DummyAnimation)
 	ld [wPokeAnimPointerBank], a
-	call GetFarHalfword
-	ld a, l
+	ld a, DummyAnimation % $100
 	ld [wPokeAnimPointerAddr], a
-	ld a, h
-	ld [wPokeAnimPointerAddr + 1], a
-	ret
-
-.egg
-	ld hl, EggAnimation
-	ld c, BANK(EggAnimation)
-	ld a, [wPokeAnimExtraFlag]
-	and a
-	jr z, .extras_egg
-	ld hl, EggAnimationExtra
-	ld c, BANK(EggAnimationExtra)
-.extras_egg
-
-	ld a, c
-	ld [wPokeAnimPointerBank], a
-	ld a, l
-	ld [wPokeAnimPointerAddr], a
-	ld a, h
+	ld a, DummyAnimation / $100
 	ld [wPokeAnimPointerAddr + 1], a
 	ret
 ; d05b4
@@ -1017,82 +918,21 @@ PokeAnim_GetFrontpicDims: ; d05b4
 ; d05ce
 
 GetMonFramesPointer: ; d05ce
-	call PokeAnim_IsEgg
-	jr z, .egg
-
-	call PokeAnim_IsSpinda
-	ld b, BANK(SpindaFramesPointers)
-	ld c, BANK(SpindasFrames)
-	ld hl, SpindaFramesPointers
-	jr z, .got_frames
-	ld b, BANK(FramesPointers)
-	ld c, BANK(AnimationFrames)
-	ld hl, FramesPointers
-.got_frames
-	ld a, c
+	ld a, BANK(DummyFrames)
 	ld [wPokeAnimFramesBank], a
-
-	ld a, [wPokeAnimSpeciesOrSpindaPattern]
-	dec a
-	ld e, a
-	ld d, 0
-	add hl, de
-	add hl, de
-	ld a, b
-	call GetFarHalfword
-	ld a, l
+	ld a, DummyFrames % $100
 	ld [wPokeAnimFramesAddr], a
-	ld a, h
-	ld [wPokeAnimFramesAddr + 1], a
-	ret
-
-.egg
-	ld hl, EggFrames
-	ld c, BANK(EggFrames)
-	ld a, c
-	ld [wPokeAnimFramesBank], a
-	ld a, l
-	ld [wPokeAnimFramesAddr], a
-	ld a, h
+	ld a, DummyFrames / $100
 	ld [wPokeAnimFramesAddr + 1], a
 	ret
 ; d061b
 
 GetMonBitmaskPointer: ; d061b
-	call PokeAnim_IsEgg
-	jr z, .egg
-
-	call PokeAnim_IsSpinda
-	ld a, BANK(SpindaBitmasksPointers)
-	ld hl, SpindaBitmasksPointers
-	jr z, .spinda
-	ld a, BANK(BitmasksPointers)
-	ld hl, BitmasksPointers
-.spinda
+	ld a, BANK(DummyBitmask)
 	ld [wPokeAnimBitmaskBank], a
-
-	ld a, [wPokeAnimSpeciesOrSpindaPattern]
-	dec a
-	ld e, a
-	ld d, 0
-	add hl, de
-	add hl, de
-	ld a, [wPokeAnimBitmaskBank]
-	call GetFarHalfword
-	ld a, l
+	ld a, DummyBitmask % $100
 	ld [wPokeAnimBitmaskAddr], a
-	ld a, h
-	ld [wPokeAnimBitmaskAddr + 1], a
-	ret
-
-.egg
-	ld c, BANK(EggBitmasks)
-	ld hl, EggBitmasks
-	ld a, c
-	ld [wPokeAnimBitmaskBank], a
-	ld a, l
-	ld [wPokeAnimBitmaskAddr], a
-	ld a, h
+	ld a, DummyBitmask / $100
 	ld [wPokeAnimBitmaskAddr + 1], a
 	ret
 ; d065c
@@ -1133,3 +973,10 @@ HOF_AnimateFrontpic: ; d066e Predef 49
 	ld [CurPartySpecies], a
 	ret
 ; d0695
+
+DummyAnimation:
+	endanim
+
+DummyFrames:
+DummyBitmask:
+	; nothing

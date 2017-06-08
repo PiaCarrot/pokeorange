@@ -4520,56 +4520,9 @@ INCLUDE "battle/anim_commands.asm"
 
 INCLUDE "battle/anim_objects.asm"
 
-SECTION "Pic Animations 1", ROMX, BANK[$34]
+SECTION "Pic Animations", ROMX, BANK[$34]
 
 INCLUDE "gfx/pics/animation.asm"
-
-; Pic animations are assembled in 3 parts:
-
-; Top-level animations:
-; 	frame #, duration: Frame 0 is the original pic (no change)
-;	setrepeat #:       Sets the number of times to repeat
-; 	dorepeat #:        Repeats from command # (starting from 0)
-; 	end
-
-; Bitmasks:
-;	Layered over the pic to designate affected tiles
-
-; Frame definitions:
-;	first byte is the bitmask used for this frame
-;	following bytes are tile ids mapped to each bit in the mask
-
-; Main animations (played everywhere)
-AnimationPointers:
-; Extra animations, appended to the main animation
-; Used in the status screen (blinking, tail wags etc.)
-AnimationExtraPointers:
-; Spinda has its own animation data despite having an entry in the main tables
-SpindaAnimationPointers:
-SpindaAnimationExtraPointers:
-; Bitmasks
-BitmasksPointers:
-SpindaBitmasksPointers:
-; Frames
-FramesPointers:
-SpindaFramesPointers:
-rept 256
-	dw DummyAnimation ; DummyAnimationExtra, DummyBitmask, DummyFrame
-endr
-
-PicAnimations:
-SpindaAnimations:
-AnimationFrames:
-SpindasFrames:
-EggAnimation:
-EggAnimationExtra:
-EggBitmasks:
-EggFrames:
-DummyAnimation:
-DummyAnimationExtra:
-DummyBitmask:
-DummyFrame:
-	endanim
 
 SECTION "Tileset Data 6", ROMX, BANK[TILESETS_6]
 
