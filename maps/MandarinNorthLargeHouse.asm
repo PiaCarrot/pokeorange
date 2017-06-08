@@ -7,19 +7,19 @@ MandarinNorthLargeHouse_MapScriptHeader:
 
 .MapCallbacks:
 	db 0
-	
+
 MandarinNorthOldManScript:
 	jumptextfaceplayer MandarinNorthOldManText
-	
+
 MandarinNorthOldManText:
 	text "Used to be lots of"
 	line "people here."
-	
+
 	para "Tourism died down"
 	line "on the southwest"
 	cont "ORANGE ISLANDS in"
 	cont "recent years."
-	
+
 	para "Now, it's just us"
 	line "and the #MON."
 	done

@@ -4,11 +4,10 @@ const_value set 2
 
 TimeCapsule_MapScriptHeader:
 .MapTriggers:
-	db 2
+	db 1
 
 	; triggers
 	maptrigger .Trigger0
-	maptrigger .Trigger1
 
 .MapCallbacks:
 	db 1
@@ -19,9 +18,6 @@ TimeCapsule_MapScriptHeader:
 
 .Trigger0:
 	priorityjump TimeCapsule_Initialize
-	end
-
-.Trigger1:
 	end
 
 TimeCapsule_SetWhichChris:

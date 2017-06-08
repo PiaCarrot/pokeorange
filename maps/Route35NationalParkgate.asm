@@ -7,9 +7,9 @@ Route35NationalParkgate_MapScriptHeader:
 	db 3
 
 	; triggers
-	dw Route35NationalParkgate_Trigger1, 0
-	dw Route35NationalParkgate_Trigger2, 0
-	dw Route35NationalParkgate_Trigger3, 0
+	maptrigger .Trigger0
+	maptrigger .Trigger1
+	maptrigger .Trigger2
 
 .MapCallbacks:
 	db 2
@@ -17,17 +17,12 @@ Route35NationalParkgate_MapScriptHeader:
 	; callbacks
 
 	dbw MAPCALLBACK_NEWMAP, Route35NationalParkgate_CheckIfStillInContest
-
 	dbw MAPCALLBACK_OBJECTS, Route35NationalParkgate_CheckIfContestDay
 
-Route35NationalParkgate_Trigger1:
-	end
-
-Route35NationalParkgate_Trigger2:
-	end
-
-Route35NationalParkgate_Trigger3:
+.Trigger2:
 	priorityjump Route35NationalParkGate_LeavingContestEarly
+.Trigger0:
+.Trigger2:
 	end
 
 Route35NationalParkgate_CheckIfStillInContest:

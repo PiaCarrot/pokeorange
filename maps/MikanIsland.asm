@@ -77,7 +77,7 @@ MikanIslandGrampsText:
 	text "My sister, CISSY"
 	line "is the strongest"
 	cont "trainer I know!"
-	
+
 	para "Fat chance you can"
 	line "beat her!"
 	done
@@ -86,7 +86,7 @@ MikanIslandYoungsterText:
 	text "CISSY's brother,"
 	line "SENDA is pretty"
 	cont "arrogant."
-	
+
 	para "If he says some-"
 	line "thing dumb, just"
 	cont "ignore him."
@@ -94,7 +94,7 @@ MikanIslandYoungsterText:
 
 MikanIslandSignText:
 	text "MIKAN ISLAND"
-	
+
 	para "The island where"
 	line "vivid coral lies."
 	done

@@ -6,10 +6,10 @@ SunburstLargeHouse_MapScriptHeader:
 
 .MapCallbacks:
 	db 0
-	
+
 SunburstGrannyScript:
 	jumptextfaceplayer SunburstGrannyText
-	
+
 SunburstGrannyText:
 	text "Once you go past"
 	line "CRYSTAL CAVE, you"

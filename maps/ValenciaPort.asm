@@ -17,7 +17,7 @@ SailorScript:
 	iftrue .ToTangelo
 	closetext
 	end
-	
+
 .ToTangelo:
 	writetext SailorAhoyText
 	waitbutton
@@ -34,7 +34,7 @@ SailorScript:
 	appear VALENCIAPORT_SAILOR
 	warp TANGELO_PORT, 9, 15
 	end
-	
+
 FishingGuruScript_0x74a01:
 	faceplayer
 	opentext
@@ -59,13 +59,13 @@ MovementData_0x74a34:
 	step RIGHT
 	turn_head LEFT
 	step_end
-	
+
 SailorText:
 	text "Hey, kid! Do you"
 	line "need a ride to"
 	cont "TANGELO ISLAND?"
 	done
-	
+
 SailorAhoyText:
 	text "Alright! Off we"
 	line "go!"
@@ -74,7 +74,7 @@ SailorAhoyText:
 UnknownText_0x74bf4:
 	text "Fish in ports when"
 	line "you can!"
-	
+
 	para "Some #MON"
 	line "only appear around"
 	cont "them."

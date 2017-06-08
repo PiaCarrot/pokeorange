@@ -262,7 +262,7 @@ PicnickerLiz1AfterText:
 Bird_keeperPeterSeenText:
 	text "Diving for rubies"
 	line "to make THONSU."
-	
+
 	para "Is new invention"
 	line "to add FLUTE of"
 	cont "mystical power."

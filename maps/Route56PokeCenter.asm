@@ -7,14 +7,14 @@ Route56PokeCenter_MapScriptHeader:
 
 .MapCallbacks:
 	db 0
-	
+
 Route56SightseerFScript:
 	jumptextfaceplayer R56SightseerText
 
 R56SightseerText:
 	text "PINKAN ISLAND is"
 	line "simply amazing!"
-	
+
 	para "I caught a PINK"
 	line "PIKACHU there."
 	cont "It's adorable!"
@@ -22,7 +22,7 @@ R56SightseerText:
 
 Route56NurseScript:
 	jumpstd pokecenternurse
-	
+
 Route56PokeCenter_MapEventHeader:: db 0, 0
 
 .Warps: db 2

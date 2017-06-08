@@ -26,7 +26,7 @@ Bug_catcherWayneScript:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBug_catcherMushi:
 	trainer EVENT_BEAT_BUG_CATCHER_MUSHI, BUG_CATCHER, MUSHI, Bug_catcherMushiSeenText, Bug_catcherMushiBeatenText, 0, Bug_catcherMushiScript
 
@@ -37,7 +37,7 @@ Bug_catcherMushiScript:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerBug_catcherAlex:
 	trainer EVENT_BEAT_BUG_CATCHER_ALEX, BUG_CATCHER, ALEX, Bug_catcherAlexSeenText, Bug_catcherAlexBeatenText, 0, Bug_catcherAlexScript
 
@@ -48,7 +48,7 @@ Bug_catcherAlexScript:
 	waitbutton
 	closetext
 	end
-	
+
 TrainerYoungsterNess:
 	trainer EVENT_BEAT_YOUNGSTER_NESS, YOUNGSTER, NESS, YoungsterNessSeenText, YoungsterNessBeatenText, 0, YoungsterNessScript
 
@@ -91,7 +91,7 @@ Text_TangeloJungleLass:
 	text "Oh, no! I got"
 	line "lost! It's my"
 	cont "fault, really."
-	
+
 	para "I was trying to"
 	line "catch a PIKACHU!"
 	done
@@ -99,7 +99,7 @@ Text_TangeloJungleLass:
 Text_TangeloJungleSignpost4:
 	text "TANGELO JUNGLE"
 	line "Warning!"
-	
+
 	para "Wild #MON are"
 	line "very dangeous!"
 	cont "Be careful."
@@ -121,7 +121,7 @@ Bug_catcherWayneAfterText:
 	cont "#MON, there are"
 	cont "others here too!"
 	done
-	
+
 Bug_catcherMushiSeenText:
 	text "Hm? You aren't"
 	line "a BUTTERFREE!"
@@ -137,7 +137,7 @@ Bug_catcherMushiAfterText:
 	line "times appear in"
 	cont "this JUNGLE."
 	done
-	
+
 Bug_catcherAlexSeenText:
 	text "I'm a BUG COLLEC-"
 	line "TOR! I will own"
@@ -153,7 +153,7 @@ Bug_catcherAlexAfterText:
 	text "I hear there are"
 	line "over 80 BUG-TYPE"
 	cont "#MON."
-	
+
 	para "I'm gonna catch"
 	line "'em all!"
 	done
@@ -175,10 +175,10 @@ YoungsterNessAfterText:
 	text "Think you're so"
 	line "tough after I"
 	cont "lost on purpose?"
-	
+
 	para "What a loser."
 	done
-	
+
 TangeloJungle_MapEventHeader:: db 0, 0
 
 .Warps: db 3

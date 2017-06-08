@@ -31,16 +31,16 @@ PinkanIslandSign:
 
 PinkanTrainerTipsSign:
 	jumptext PinkanTrainerTipsSignText
-	
+
 PinkanIslandSweetScent:
 	itemball TM_SWEET_SCENT
-	
+
 PinkanIslandRevive:
 	itemball REVIVE
-	
+
 PinkanIslandHiddenLoveBall:
 	dwb EVENT_PINKAN_ISLAND_HIDDEN_LOVE_BALL, LOVE_BALL
-	
+
 PinkanIslandHiddenPinkanBerry:
 	dwb EVENT_PINKAN_ISLAND_HIDDEN_PINKAN_BERRY, PINKAN_BERRY
 
@@ -48,20 +48,20 @@ PinkanIslandHiddenPinkanBerry:
 
 ManiacShawnSeenText:
 	text "Ahaha!"
-	
+
 	para "I painted myself"
 	line "to blend in with"
 	cont "the #MON!"
-	
+
 	para "How do you like"
 	line "it?"
 	done
-	
+
 ManiacShawnBeatenText:
 	text "PINK! PINK!"
 	line "PIIIIIIINK!"
 	done
-	
+
 ManiacShawnAfterText:
 	text "I am an absolute"
 	line "MANIAC when it"
@@ -71,18 +71,18 @@ ManiacShawnAfterText:
 
 PinkanIslandSignText:
 	text "PINKAN ISLAND"
-	line "EAST to KINNOW" 
+	line "EAST to KINNOW"
 	cont "ISLAND"
 	done
-	
+
 PinkanTrainerTipsSignText:
 	text "TRAINER TIPS"
-	
+
 	para "#MON that are"
 	line "caught on PINKAN"
 	cont "ISLAND are PINK"
 	cont "permanently."
-	
+
 	para "However, #MON"
 	line "that eat PINKAN"
 	cont "BERRIES will be"
@@ -97,7 +97,7 @@ PinkanIslandFruitTree2:
 
 PinkanIslandFruitTree3:
 	fruittree FRUITTREE_PINKAN_ISLAND_3
-	
+
 PinkanIslandFruitTree4:
 	fruittree FRUITTREE_PINKAN_ISLAND_4
 

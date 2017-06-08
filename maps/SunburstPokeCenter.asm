@@ -11,27 +11,27 @@ SunburstPokeCenter_MapScriptHeader:
 
 SunburstNurseScript:
 	jumpstd pokecenternurse
-	
+
 SunburstLassScript:
 	jumptextfaceplayer SunburstLassText
-	
+
 SunburstLassText:
 	text "There used to be a"
 	line "man who lived here"
 	cont "named MATEO."
-	
+
 	para "He used to make"
 	line "glass sculptures"
 	cont "in his shop on the"
 	cont "small island west"
 	cont "of here."
-	
+
 	para "He left because"
 	line "business here died"
 	cont "and customers quit"
 	cont "coming."
 	done
-	
+
 SunburstPokeCenter_MapEventHeader:: db 0, 0
 
 .Warps: db 2

@@ -6,13 +6,13 @@ SunburstSmallHouse_MapScriptHeader:
 
 .MapCallbacks:
 	db 0
-	
+
 SunburstCooltrainerScript:
 	jumptextfaceplayer SunburstCooltrainerText
-	
+
 SunburstCooltrainerText:
 	text "I saw them!"
-	
+
 	para "WAILMER on ROUTE"
 	line "55! Isn't the"
 	cont "ocean amazing?"

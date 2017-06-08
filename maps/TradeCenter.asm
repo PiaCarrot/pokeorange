@@ -4,11 +4,10 @@ const_value set 2
 
 TradeCenter_MapScriptHeader:
 .MapTriggers:
-	db 2
+	db 1
 
 	; triggers
 	maptrigger .Trigger0
-	maptrigger .Trigger1
 
 .MapCallbacks:
 	db 1
@@ -19,9 +18,6 @@ TradeCenter_MapScriptHeader:
 
 .Trigger0:
 	priorityjump TradeCenter_Initialize
-	end
-
-.Trigger1:
 	end
 
 TradeCenter_SetWhichChris:

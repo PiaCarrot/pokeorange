@@ -27,7 +27,7 @@ MandarinNorthGuruScript:
 
 MandarinNorthRareCandy:
 	itemball RARE_CANDY
-	
+
 MandarinNorthPikachuScript:
 	faceplayer
 	opentext
@@ -36,57 +36,57 @@ MandarinNorthPikachuScript:
 	waitbutton
 	closetext
 	end
-	
+
 MandarinTownSign:
 	jumptext MandarinTownSignText
 
 UndergroundSign:
 	jumptext UndergroundSignText
-	
+
 NameRaterSign:
 	jumptext NameRaterSignText
 
 MandarinNorthHiddenSuperPotion:
 	dbw EVENT_MANDARIN_NORTH_HIDDEN_SUPER_POTION, SUPER_POTION
-	
+
 .Text:
 
 MandarinNorthLassText:
 	text "Welcome!"
-	
+
 	para "This is MANDARIN"
 	line "ISLAND NORTH."
-	
+
 	para "Though, I'm not"
 	line "sure why. MANDARIN"
 	cont "ISLAND SOUTH isn't"
 	cont "anywhere nearby."
 	done
-	
+
 MandarinNorthGuruText:
 	text "The ocean is so"
 	line "beautiful."
-	
+
 	para "I could stare at"
 	line "it forever."
 	done
-	
+
 PikachuText:
 	text "PIKACHU: Pikapii!"
 	done
-	
+
 MandarinTownSignText:
 	text "MANDARIN ISLAND"
 	line "NORTH"
-	
+
 	para "The island where"
 	line "fate takes turns"
 	done
-	
+
 UndergroundSignText:
 	text "UNDERGROUND"
 	done
-	
+
 NameRaterSignText:
 	text "NAME RATER"
 	done
