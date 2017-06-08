@@ -11,7 +11,7 @@ Music_PokeathelonFinal_Ch1:
 	notetype $2, $C3
 	vibrato 8, $24
 	dutycycle 2
-	
+
 	octave 4
 	note D#, 1
 	note D_, 1
@@ -19,7 +19,7 @@ Music_PokeathelonFinal_Ch1:
 	note C_, 1
 	octave 3
 	note B_, 1
-	
+
 	note A_, 1
 	note G#, 1
 	note G_, 2
@@ -41,7 +41,7 @@ Music_PokeathelonFinal_Ch1:
 	note D_, 1
 	note C#, 1
 	note C_, 4
-	
+
 	octave 4
 	note D#, 1
 	note D_, 1
@@ -49,7 +49,7 @@ Music_PokeathelonFinal_Ch1:
 	note C_, 1
 	octave 3
 	note B_, 1
-	
+
 	note A_, 1
 	note G#, 1
 	note G_, 2
@@ -62,7 +62,7 @@ Music_PokeathelonFinal_Ch1:
 	note C_, 1
 	octave 2
 	note B_, 1
-	
+
 	octave 1
 	note D_, 1
 	note C#, 1

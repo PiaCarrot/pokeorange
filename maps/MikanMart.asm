@@ -41,7 +41,7 @@ UnknownText_0x68323:
 	line "getting hard to"
 	cont "catch with just"
 	cont "#BALLS."
-	
+
 	para "I wonder if they"
 	line "have GREAT BALLS"
 	cont "on MANDARIN NORTH."

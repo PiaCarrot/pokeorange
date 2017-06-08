@@ -423,6 +423,6 @@ SightSeerSprite:
 
 BugBoySprite:
 	sprite_header BugBoySpriteGFX, 3, WALKING_SPRITE, PAL_OW_GREEN
-	
+
 PcSlouchSprite
 	sprite_header PcSlouchGFX, 1, STILL_SPRITE, PAL_OW_GREEN

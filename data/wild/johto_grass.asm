@@ -188,7 +188,7 @@
 	db 11, RATTATA
 	db 11, RATTATA
 	db 11, RATTATA
-	
+
 	map CRYSTAL_CAVE_1F
 	db 5 percent, 5 percent, 5 percent ; encounter rates: morn/day/nite
 	; morn
@@ -215,7 +215,7 @@
 	db 16, GEODUDE
 	db 16, ZUBAT
 	db 13, MARILL
-	
+
 	map CRYSTAL_CAVE_B1
 	db 5 percent, 5 percent, 5 percent ; encounter rates: morn/day/nite
 	; morn
@@ -242,7 +242,7 @@
 	db 16, GEODUDE
 	db 16, ZUBAT
 	db 13, MARILL
-	
+
 	map PINKAN_ISLAND
 	db 5 percent, 5 percent, 5 percent ; encounter rates: morn/day/nite
 	; morn
@@ -269,7 +269,7 @@
 	db 18, NIDORINA
 	db 18, NIDORINO
 	db 18, RHYHORN
-	
+
 	map ROUTE_55
 	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
 	; morn
@@ -296,7 +296,7 @@
 	db 18, SPINDA
 	db 18, RATTATA
 	db 18, DODUO
-	
+
 	map ROUTE_56_WEST
 	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
 	; morn

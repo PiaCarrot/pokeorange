@@ -17,13 +17,13 @@ MandarinNorthClerkScript:
 
 MandarinNorthGrannyScript:
 	jumptextfaceplayer MandarinNorthGrannyText
-	
+
 MandarinNorthGrannyText:
 	text "They started to"
 	line "carry GREAT BALLS"
 	cont "here to attract"
 	cont "trainers."
-	
+
 	para "Seems it worked!"
 	line "Kekekekeke<...>"
 	done

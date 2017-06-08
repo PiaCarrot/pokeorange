@@ -47,7 +47,7 @@ dbwww: MACRO
 	db \1
 	dw \2, \3, \4
 	ENDM
-	
+
 dbwwww: MACRO
     db \1
     dw \2, \3, \4, \5

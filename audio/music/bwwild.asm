@@ -4,7 +4,7 @@ Music_BWWild: ; cfd9e
 	musicheader 1, 3, Music_BWWild_Ch3
 	musicheader 1, 4, Music_BWWild_Ch4
 
-	
+
 Music_BWWild_Ch1:
 		tempo $32
 		volume $77
@@ -362,7 +362,7 @@ Music_BWWild_Ch1_Loop:
 		note A#, 16
 		notetype 12, $97
 ;Channel1_Bar51:
-		loopchannel 0, Music_BWWild_Ch1_Loop 
+		loopchannel 0, Music_BWWild_Ch1_Loop
 		endchannel
 
 ; ===========================================================================
@@ -850,7 +850,7 @@ Music_BWWild_Ch2_Loop:
 		note __, 1
 		note F_, 5
 		note A#, 5
-		loopchannel 0, Music_BWWild_Ch2_Loop 
+		loopchannel 0, Music_BWWild_Ch2_Loop
 		endchannel
 
 ; ===========================================================================
@@ -1320,7 +1320,7 @@ Music_BWWild_Ch3_Loop:
 		note A#, 4
 		octave 2
 		note D_, 4
-		loopchannel 0, Music_BWWild_Ch3_Loop 
+		loopchannel 0, Music_BWWild_Ch3_Loop
 		endchannel
 
 ; ===========================================================================
@@ -1667,5 +1667,5 @@ Music_BWWild_Ch4_Loop:
 		note D_, 4
 		note C_, 4
 ;Channel4_Bar51:
-		loopchannel 0, Music_BWWild_Ch4_Loop 
+		loopchannel 0, Music_BWWild_Ch4_Loop
 		endchannel
