@@ -2573,29 +2573,15 @@ wPokeAnimSpindaPattern:: ds 1
 wPokeAnimSpeciesOrSpindaPattern:: ds 1
 wPokeAnimGraphicStartTile:: ds 1
 wPokeAnimCoord:: ds 2
-wPokeAnimFrontpicHeight:: ds 1
+	ds 1
 ; PokeAnim Data
 wPokeAnimExtraFlag:: ds 1
 wPokeAnimSpeed:: ds 1
-wPokeAnimPointerBank:: ds 1
-wPokeAnimPointerAddr:: ds 2
-wPokeAnimFramesBank:: ds 1
-wPokeAnimFramesAddr:: ds 2
-wPokeAnimBitmaskBank:: ds 1
-wPokeAnimBitmaskAddr:: ds 2
-wPokeAnimFrame:: ds 1
+	ds 10
 wPokeAnimJumptableIndex:: ds 1
-wPokeAnimRepeatTimer:: ds 1
-wPokeAnimCurBitmask:: ds 1
-wPokeAnimWaitCounter:: ds 1
-wPokeAnimCommand:: ds 1
-wPokeAnimParameter:: ds 1
-	ds 1
-wPokeAnimBitmaskCurCol:: ds 1
-wPokeAnimBitmaskCurRow:: ds 1
-wPokeAnimBitmaskCurBit:: ds 1
-wPokeAnimBitmaskBuffer:: ds 7
 	ds 2
+wPokeAnimWaitCounter:: ds 1
+	ds 15
 wPokeAnimStructEnd::
 
 
