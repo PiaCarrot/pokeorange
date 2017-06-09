@@ -139,8 +139,7 @@ BattleCommand_CheckTurn: ; 34084
 	and a
 	jp nz, CheckEnemyTurn
 
-
-CheckPlayerTurn:
+;CheckPlayerTurn:
 
 	ld hl, PlayerSubStatus4
 	bit SUBSTATUS_RECHARGE, [hl]

@@ -1370,6 +1370,7 @@ Wrap:
 FireSpin:
 Clamp:
 Whirlpool:
+Trap:
 	checkobedience
 	usedmovetext
 	doturn

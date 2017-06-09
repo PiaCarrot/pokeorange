@@ -2468,11 +2468,6 @@ BillsPC_ChangeBoxSubmenu: ; e36f9 (38:76f9)
 	and a
 	ret
 
-.EmptyBox:
-	call BillsPC_PlaceEmptyBoxString_SFX
-	and a
-	ret
-
 .Switch:
 	ld a, [MenuSelection]
 	dec a
@@ -2539,21 +2534,6 @@ BillsPC_PlaceWhatsUpString: ; e37af (38:77af)
 .WhatsUp: ; e37b4
 	db "What's up?@"
 ; e37be
-
-BillsPC_PlaceEmptyBoxString_SFX: ; e37be (38:77be)
-	ld de, .NoMonString
-	call BillsPC_PlaceChangeBoxString
-	ld de, SFX_WRONG
-	call WaitPlaySFX
-	call WaitSFX
-	ld c, 50
-	call DelayFrames
-	ret
-; e37d3 (38:77d3)
-
-.NoMonString: ; e37d3
-	db "There's no #MON.@"
-; e37e3
 
 BillsPC_PlaceChangeBoxString: ; e37e3 (38:77e3)
 	push de

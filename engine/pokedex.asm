@@ -1848,8 +1848,6 @@ Pokedex_LoadGFX: ; 414b7
 	ld hl, PokedexLZ
 	ld de, VTiles2 tile $31
 	call Decompress
-
-.LoadPokedexSlowpokeLZ:
 	ld hl, PokedexSlowpokeLZ
 	ld de, VTiles0
 	call Decompress

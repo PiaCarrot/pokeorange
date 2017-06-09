@@ -11,18 +11,18 @@
 	dw AttackUp
 	dw DefenseUp
 	dw SpeedUp
-	dw Growth
+	dw SpecialAttackUp
 	dw SpecialDefenseUp
 	dw AccuracyUp
 	dw EvasionUp
 	dw NormalHit
-	dw Growl
+	dw AttackDown
 	dw DefenseDown
-	dw StringShot
+	dw SpeedDown
 	dw SpecialAttackDown
 	dw SpecialDefenseDown
 	dw AccuracyDown
-	dw SweetScent
+	dw EvasionDown
 	dw Haze
 	dw Bide
 	dw Rampage
@@ -31,42 +31,42 @@
 	dw Conversion
 	dw FlinchHit
 	dw Heal
-	dw Toxic
+	dw DoPoison
 	dw PayDay
-	dw LightScreen
+	dw Screen
 	dw TriAttack
 	dw NormalHit
 	dw OHKOHit
 	dw RazorWind
-	dw SuperFang
 	dw StaticDamage
-	dw Bind
+	dw StaticDamage
+	dw Trap
 	dw NormalHit
 	dw MultiHit
 	dw NormalHit
 	dw Mist
-	dw FocusEnergy
+	dw CriticalUp
 	dw RecoilHit
 	dw DoConfuse
-	dw SwordsDance
+	dw AttackUp2
 	dw DefenseUp2
-	dw Agility
+	dw SpeedUp2
 	dw SpecialAttackUp2
-	dw Amnesia
+	dw SpecialDefenseUp2
 	dw AccuracyUp2
 	dw EvasionUp2
 	dw Transform
-	dw Charm
-	dw Screech
+	dw AttackDown2
+	dw DefenseDown2
 	dw SpeedDown2
 	dw SpecialAttackDown2
 	dw SpecialDefenseDown2
 	dw AccuracyDown2
 	dw EvasionDown2
-	dw Reflect
+	dw Screen
 	dw DoPoison
 	dw DoParalyze
-	dw AuroraBeam
+	dw AttackDownHit
 	dw DefenseDownHit
 	dw SpeedDownHit
 	dw SpecialAttackDownHit
@@ -75,7 +75,7 @@
 	dw EvasionDownHit
 	dw SkyAttack
 	dw ConfuseHit
-	dw Twineedle
+	dw PoisonMultiHit
 	dw NormalHit
 	dw Substitute
 	dw HyperBeam
@@ -86,7 +86,7 @@
 	dw Splash
 	dw Disable
 	dw StaticDamage
-	dw Psywave
+	dw StaticDamage
 	dw Counter
 	dw Encore
 	dw PainSplit
@@ -136,9 +136,9 @@
 	dw HiddenPower
 	dw RainDance
 	dw SunnyDay
-	dw SteelWing
-	dw MetalClaw
-	dw Ancientpower
+	dw DefenseUpHit
+	dw AttackUpHit
+	dw AllUpHit
 	dw FakeOut
 	dw BellyDrum
 	dw PsychUp

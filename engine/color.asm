@@ -69,7 +69,6 @@ CheckContestMon:
 	cp 10
 	jr c, .Bad
 
-.Good:
 	scf
 	ret
 
@@ -702,19 +701,6 @@ CopyData: ; 0x9a52
 	jr nz, .loop
 	ret
 ; 0x9a5b
-
-ClearBytes: ; 0x9a5b
-; clear bc bytes of data starting from de
-.loop
-	xor a
-	ld [de], a
-	inc de
-	dec bc
-	ld a, c
-	or b
-	jr nz, .loop
-	ret
-; 0x9a64
 
 INCLUDE "gfx/pics/palette_pointers.asm"
 

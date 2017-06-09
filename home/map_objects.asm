@@ -187,7 +187,6 @@ CheckIceTile:: ; 18ac
 ; 18b4
 
 CheckWhirlpoolTile:: ; 18b4
-	nop
 	cp $24
 	ret z
 	cp $2c
@@ -202,18 +201,6 @@ CheckWaterfallTile:: ; 18bd
 	cp $3b
 	ret
 ; 18c3
-
-CheckStandingOnEntrance:: ; 18c3
-	ld a, [PlayerStandingTile]
-	cp $71 ; door
-	ret z
-	cp $79
-	ret z
-	cp $7a ; stairs
-	ret z
-	cp $7b ; cave
-	ret
-; 18d2
 
 GetMapObject:: ; 18d2
 ; Return the location of map object a in bc.

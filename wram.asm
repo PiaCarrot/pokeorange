@@ -344,9 +344,6 @@ wOddEggName:: ds PKMN_NAME_LENGTH
 wOddEggOTName:: ds PKMN_NAME_LENGTH
 	ds wc608 - @
 
-wBT_OTTemp:: battle_tower_struct wBT_OTTemp
-	ds wc608 - @
-
 	hall_of_fame wHallOfFameTemp
 	ds wc608 - @
 
@@ -1066,7 +1063,6 @@ wcd47:: ds 1
 BGMapPalBuffer:: ; cd48
 	ds 1 ; 40
 
-wBTTempOTSprite::
 wcd49:: ds 1
 wcd4a:: ds 1
 wcd4b:: ds 1
@@ -2176,14 +2172,14 @@ wPlayerSpriteSetupFlags:: ds 1 ; d45b
 wMapReentryScriptQueueFlag:: ds 1 ; d45c MemScriptFlag
 wMapReentryScriptBank:: ds 1 ; d45d MemScriptBank
 wMapReentryScriptAddress:: ds 2 ; d45e MemScriptAddr
-	ds 4     ; ?????????????
-wTimeCyclesSinceLastCall:: ds 1 ; d464
-wReceiveCallDelay_MinsRemaining:: ds 1 ; d465
-wReceiveCallDelay_StartTime:: ds 3 ; d466
-	ds 3
+
+	ds 12
+
 wBugContestMinsRemaining:: ds 1 ; d46c
 wBugContestSecsRemaining:: ds 1 ; d46d
+
 	ds 2
+
 wMapStatusEnd:: ds 2 ; d470
 
 wCrystalData::
@@ -2480,23 +2476,7 @@ wCurrMapCallbackCount:: ds 1 ; dc0a
 wCurrMapCallbackHeaderPointer:: ds 2 ; dc0b
 	ds 2
 
-; Sprite id of each decoration
-Bed:: ; dc0f
-	ds 1
-Carpet:: ; dc10
-	ds 1
-Plant:: ; dc11
-	ds 1
-Poster:: ; dc12
-	ds 1
-Console:: ; dc13
-	ds 1
-LeftOrnament:: ; dc14
-	ds 1
-RightOrnament:: ; dc15
-	ds 1
-BigDoll:: ; dc16
-	ds 1
+	ds 8
 
 ; Items bought from Mom
 wWhichMomItem:: ds 1 ; dc17
@@ -2518,10 +2498,7 @@ FruitTreeFlags:: flag_array NUM_FRUIT_TREES ; dc27
 wLuckyNumberDayBuffer:: ds 2 ; dc2d
 	ds 6
 wBugContestStartTime:: ds 4 ; day, hour, min, sec ; dc35
-wUnusedTwoDayTimerOn:: ds 1 ; dc39
-wUnusedTwoDayTimer:: ds 1
-wUnusedTwoDayTimerStartDate:: ds 1
-	ds 4
+	ds 7
 wMobileOrCable_LastSelection:: ds 1
 wdc41:: ds 1
 wdc42:: ds 8
@@ -2728,57 +2705,6 @@ wPokeAnimBitmaskBuffer:: ds 7
 wPokeAnimStructEnd::
 
 
-SECTION "Battle Tower", WRAMX, BANK [3]
-
-w3_d000:: ds 1 ; d000
-w3_d001:: ds 1
-w3_d002::
-	ds $7e
-w3_d080::
-	ds $10
-w3_d090::
-	ds $70
-
-w3_d100:: ; BattleTower OpponentTrainer-Data (length = 0xe0 = $a + $1 + 3*$3b + $24)
-BT_OTTrainer:: battle_tower_struct BT_OT
-; d1e0
-	ds $20
-; d200
-BT_TrainerTextIndex:: ds 2
-w3_d202:: battle_tower_struct w3_d202
-w3_d2e2:: battle_tower_struct w3_d2e2
-w3_d3c2:: battle_tower_struct w3_d3c2
-w3_d4a2:: battle_tower_struct w3_d4a2
-w3_d582:: battle_tower_struct w3_d582
-w3_d662:: battle_tower_struct w3_d662
-w3_d742:: battle_tower_struct w3_d742
-; d822
-	ds -$22
-
-wBTChoiceOfLvlGroup::
-w3_d800:: ; ds BG_MAP_WIDTH * SCREEN_HEIGHT ($240)
-	ds $69
-w3_d869:: ds $17
-w3_d880:: ds 1
-w3_d881:: ds 1
-w3_d882:: ds 1
-w3_d883:: ds 7
-w3_d88a:: ds 5
-w3_d88f:: ds 5
-w3_d894:: ds 1
-w3_d895:: ds 11
-w3_d8a0:: ds 1
-w3_d8a1:: ds 1
-w3_d8a2:: ds 1
-w3_d8a3:: ds $19d
-w3_da40:: ds $1c0
-
-w3_dc00:: ds SCREEN_WIDTH * SCREEN_HEIGHT
-w3_dd68:: ds SCREEN_WIDTH * SCREEN_HEIGHT
-	ds $11c
-w3_dfec:: ds $10
-w3_dffc:: ds 4
-
 SECTION "GBC Video", WRAMX, BANK [5]
 
 ; 8 4-color palettes
@@ -2846,7 +2772,6 @@ BattleAnimVar:: ; d416
 BattleAnimByte:: ; d417
 	ds 1
 wBattleAnimOAMPointerLo:: ds 1 ; d418
-BattleAnimTemps:: ; d419
 wBattleAnimTempOAMFlags::
 wBattleAnimTemp0:: ds 1
 wBattleAnimTemp1:: ds 1

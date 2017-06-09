@@ -78,7 +78,7 @@ EnableSpriteUpdates:: ; 2ee4
 INCLUDE "home/string.asm"
 
 IsInJohto:: ; 2f17
-; Return 0 if the player is in Johto, and 1 in Kanto.
+; Return 0 if the player is in Orange, and 1 in Kanto.
 
 	ld a, [MapGroup]
 	ld b, a
@@ -99,7 +99,7 @@ IsInJohto:: ; 2f17
 	cp KANTO_LANDMARK
 	jr nc, .Kanto
 
-.Johto:
+; Orange
 	xor a
 	ret
 
@@ -1385,31 +1385,6 @@ FacingPlayerDistance:: ; 36ad
 	and a
 	ret
 ; 36f5
-
-CheckTrainerFlag:: ; 36f5
-	push bc
-	ld hl, OBJECT_MAP_OBJECT_INDEX
-	add hl, bc
-	ld a, [hl]
-	call GetMapObject
-	ld hl, MAPOBJECT_SCRIPT_POINTER
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	call GetMapScriptHeaderBank
-	call GetFarHalfword
-	ld d, h
-	ld e, l
-	push de
-	ld b, CHECK_FLAG
-	call EventFlagAction
-	pop de
-	ld a, c
-	and a
-	pop bc
-	ret
-; 3718
 
 PrintWinLossText:: ; 3718
 	ld a, [wBattleResult]

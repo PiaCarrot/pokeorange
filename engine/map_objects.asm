@@ -414,13 +414,6 @@ RestoreDefaultMovement: ; 4769
 	ret
 ; 4780
 
-ClearObjectMovementByteIndex: ; 4780
-	ld hl, OBJECT_MOVEMENT_BYTE_INDEX
-	add hl, bc
-	ld [hl], 0
-	ret
-; 4787
-
 IncrementObjectMovementByteIndex: ; 4787
 	ld hl, OBJECT_MOVEMENT_BYTE_INDEX
 	add hl, bc
@@ -1809,7 +1802,6 @@ UpdateJumpPosition: ; 4fd5
 	ld e, [hl]
 	add e
 	ld [hl], a
-	nop
 	srl e
 	ld d, 0
 	ld hl, .y

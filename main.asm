@@ -590,7 +590,7 @@ LoadObjectMasks: ; 2454f
 	xor a
 	ld bc, NUM_OBJECTS
 	call ByteFill
-	nop
+
 	ld bc, MapObjects
 	ld de, wObjectMasks
 	xor a

@@ -2932,18 +2932,6 @@ IsntTheTimeMessage: ; f7ed
 
 WontHaveAnyEffectMessage: ; f7f2
 	ld hl, WontHaveAnyEffectText
-	jr CantUseItemMessage
-
-BelongsToSomeoneElseMessage: ; f7f7
-	ld hl, BelongsToSomeoneElseText
-	jr CantUseItemMessage
-
-CyclingIsntAllowedMessage: ; f7fc
-	ld hl, CyclingIsntAllowedText
-	jr CantUseItemMessage
-
-CantGetOnYourBikeMessage: ; f801
-	ld hl, CantGetOnYourBikeText
 
 CantUseItemMessage: ; f804
 ; Item couldn't be used.
@@ -2970,12 +2958,6 @@ IsntTheTimeText: ; 0xf815
 	db "@"
 ; 0xf81a
 
-BelongsToSomeoneElseText: ; 0xf81a
-	; That belongs to someone else!
-	text_jump UnknownText_0x1c5d97
-	db "@"
-; 0xf81f
-
 WontHaveAnyEffectText: ; 0xf81f
 	; It won't have any effect.
 	text_jump UnknownText_0x1c5db6
@@ -2993,18 +2975,6 @@ DontBeAThiefText: ; 0xf829
 	text_jump UnknownText_0x1c5def
 	db "@"
 ; 0xf82e
-
-CyclingIsntAllowedText: ; 0xf82e
-	; Cycling isn't allowed here.
-	text_jump UnknownText_0x1c5e01
-	db "@"
-; 0xf833
-
-CantGetOnYourBikeText: ; 0xf833
-	; Can't get on your @  now.
-	text_jump UnknownText_0x1c5e1d
-	db "@"
-; 0xf838
 
 Ball_BoxIsFullText: ; 0xf838
 	; The #MON BOX is full. That can't be used now.

@@ -677,13 +677,6 @@ AideText_GiveYouPotions:
 	line "#DEX quest!"
 	done
 
-
-AideText_AlwaysBusy:
-	text "There are only two"
-	line "of us, so we're"
-	cont "always busy."
-	done
-
 AideText_ExplainBalls:
 	text "HOPE: To complete"
 	line "the #DEX, you"

@@ -230,14 +230,6 @@ UnknownText_0x1c0acc::
 	line "fainted!"
 	prompt
 
-UnknownText_0x1c0ada::
-	text "<PLAYER> is out of"
-	line "useable #MON!"
-
-	para "<PLAYER> whited"
-	line "out!"
-	prompt
-
 UnknownText_0x1c0b03::
 	text_from_ram StringBuffer3
 	text " used"

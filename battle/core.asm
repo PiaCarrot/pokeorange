@@ -2417,7 +2417,7 @@ WinTrainerBattle: ; 3cfa4
 	call .DoubleReward
 	call .DoubleReward
 	pop af
-.KeepItAll:
+
 	ld hl, GotMoneyForWinningText
 	jp StdBattleTextBox
 ; 3d081

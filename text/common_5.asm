@@ -423,11 +423,6 @@ UnknownText_0x1c5d6e::
 	cont "time to use that!"
 	prompt
 
-UnknownText_0x1c5d97::
-	text "That belongs to"
-	line "someone else!"
-	prompt
-
 UnknownText_0x1c5db6::
 	text "It won't have any"
 	line "effect."
@@ -440,18 +435,6 @@ UnknownText_0x1c5dd0::
 
 UnknownText_0x1c5def::
 	text "Don't be a thief!"
-	prompt
-
-UnknownText_0x1c5e01::
-	text "Cycling isn't"
-	line "allowed here."
-	prompt
-
-UnknownText_0x1c5e1d::
-	text "Can't get on your"
-	line "@"
-	text_from_ram StringBuffer1
-	text " now."
 	prompt
 
 UnknownText_0x1c5e3a::

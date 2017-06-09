@@ -598,7 +598,6 @@ FlyMap: ; 91c90
 ; The first 46 locations are part of Orange. The rest are in Kanto
 	cp KANTO_LANDMARK
 	jr nc, .KantoFlyMap
-.OrangeFlyMap:
 ; Note that .NoKanto should be modified in tandem with this branch
 	push af
 ; Start from Valencia
@@ -1157,59 +1156,6 @@ LoadTownMapGFX: ; 91ff2
 	ret
 
 ; 91fff
-
-.HandleDPad: ; 923b8
-	ld hl, hJoyLast
-	ld a, [hl]
-	and D_DOWN | D_RIGHT
-	jr nz, .down_right
-	ld a, [hl]
-	and D_UP | D_LEFT
-	jr nz, .up_left
-	ret
-
-.down_right
-	ld hl, wd002
-	ld a, [hl]
-	cp FLY_VALENCIA
-	jr c, .okay_dr
-	ld [hl], -1
-.okay_dr
-	inc [hl]
-	jr .continue
-
-.up_left
-	ld hl, wd002
-	ld a, [hl]
-	and a
-	jr nz, .okay_ul
-	ld [hl], FLY_VALENCIA + 1
-.okay_ul
-	dec [hl]
-.continue
-	ld a, [wd002]
-	cp KANTO_FLYPOINT
-	jr c, .orange
-	call FillKantoMap
-	xor a
-	ld b, $9c
-	jr .finish
-
-.orange
-	call FillOrangeMap
-	ld a, $90
-	ld b, $98
-.finish
-	ld [hWY], a
-	ld a, b
-	ld [hBGMapAddress + 1], a
-	call TownMapBubble
-	call WaitBGMap
-	xor a
-	ld [hBGMapMode], a
-	ret
-
-; 92402
 
 TownMap_ConvertLineBreakCharacters: ; 1de2c5
 	ld hl, StringBuffer1

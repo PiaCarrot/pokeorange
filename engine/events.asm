@@ -120,7 +120,6 @@ StartMap: ; 96724
 	ld hl, MapStatus
 	ld bc, wMapStatusEnd - MapStatus
 	call ByteFill
-	farcall InitCallReceiveDelay
 	call ClearJoypad
 EnterMap: ; 9673e
 	xor a
@@ -314,8 +313,6 @@ PlayerEvents: ; 9681f
 ; 96867
 
 CheckTrainerBattle3: ; 96867
-	nop
-	nop
 	call CheckTrainerBattle2
 	jr nc, .nope
 
