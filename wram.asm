@@ -1439,30 +1439,24 @@ wBugContestWinnerName:: ds NAME_LENGTH
 wd002::
 wTempDayOfWeek::
 wApricorns::
-PhoneScriptBank::
-LuckyNumberDigit1Buffer::
+LuckyNumberFourDigitBuffer::
 wCurrentRadioLine::
 wMovementBufferCount::
 wMartItem1BCD::
 wWhichBoxMonToPrint::
 	ds 1
 wd003::
-LuckyNumberDigit2Buffer::
-PhoneCallerLo::
 wNextRadioLine::
 wMovementBufferPerson::
 wPlaceBallsDirection::
 wFinishedPrintingBox::
 	ds 1
 wd004::
-LuckyNumberDigit3Buffer::
-PhoneCallerHi::
 wRadioTextDelay::
 wTrainerHUDTiles::
 wAddrOfBoxToPrint::
 	ds 1
 wd005::
-LuckyNumberDigit4Buffer::
 StartFlypoint:: ; d005
 wNumRadioLinesPrinted::
 wMartItem2BCD::

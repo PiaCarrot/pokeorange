@@ -450,21 +450,6 @@ UnknownText_0x1c5e68::
 	text "."
 	done
 
-UnknownText_0x1c5e7b::
-	text "<PLAYER> got on the@"
-	text_low
-	text_from_ram StringBuffer2
-	text "."
-	prompt
-
-UnknownText_0x1c5e90::
-	text "<PLAYER> got off@"
-	text_low
-	text "the @"
-	text_from_ram StringBuffer2
-	text "."
-	prompt
-
 UnknownText_0x1c5ea8::
 	text_from_ram StringBuffer1
 	text " knows"

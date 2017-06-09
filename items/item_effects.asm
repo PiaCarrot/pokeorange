@@ -1991,22 +1991,6 @@ LoadCurHPIntoBuffer5: ; f328 (3:7328)
 	ret
 ; f336 (3:7336)
 
-LoadHPIntoBuffer5: ; f336
-	ld a, d
-	ld [Buffer6], a
-	ld a, e
-	ld [Buffer5], a
-	ret
-; f33f
-
-LoadHPFromBuffer5: ; f33f
-	ld a, [Buffer6]
-	ld d, a
-	ld a, [Buffer5]
-	ld e, a
-	ret
-; f348
-
 LoadCurHPToBuffer3: ; f348 (3:7348)
 	ld a, MON_HP
 	call GetPartyParamLocation
@@ -2987,19 +2971,6 @@ UsedItemText: ; 0xf83d
 	text_jump UnknownText_0x1c5e68
 	db "@"
 ; 0xf842
-
-GotOnTheItemText: ; 0xf842
-	; got on the@ .
-	text_jump UnknownText_0x1c5e7b
-	db "@"
-; 0xf847
-
-GotOffTheItemText: ; 0xf847
-	; got off@ the @ .
-	text_jump UnknownText_0x1c5e90
-	db "@"
-; 0xf84c
-
 
 ApplyPPUp: ; f84c
 	ld a, MON_MOVES

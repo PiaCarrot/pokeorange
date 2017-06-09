@@ -179,36 +179,10 @@ UpdateTimeRemaining: ; 11586
 	ret
 ; 11599
 
-GetSecondsSinceIfLessThan60: ; 11599
-	ld a, [wDaysSince]
-	and a
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wHoursSince]
-	and a
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wMinutesSince]
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wSecondsSince]
-	ret
-; 115ae
-
-GetHoursSinceIfLessThan24: ; 115be
-	ld a, [wDaysSince]
-	and a
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wHoursSince]
-	ret
-; 115c8
-
 GetDaysSince: ; 115c8
 	ld a, [wDaysSince]
 	ret
 ; 115cc
-
-GetTimeElapsed_ExceedsUnitLimit: ; 115cc
-	ld a, -1
-	ret
-; 115cf
 
 CalcDaysSince: ; 115cf
 	xor a

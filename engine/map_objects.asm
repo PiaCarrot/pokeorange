@@ -460,20 +460,6 @@ Object28AnonymousJumptable: ; 47a8
 	ret
 ; 47b0
 
-GetValueObjectStructField28: ; 47b0
-	ld hl, OBJECT_28
-	add hl, bc
-	ld a, [hl]
-	ret
-; 47b6
-
-SetValueObjectStructField28: ; 47b6
-	ld hl, OBJECT_28
-	add hl, bc
-	ld [hl], a
-	ret
-; 47bc
-
 ObjectMovementReset: ; 47bc
 	ld hl, OBJECT_NEXT_MAP_X
 	add hl, bc

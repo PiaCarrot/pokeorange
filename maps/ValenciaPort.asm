@@ -51,15 +51,6 @@ MovementData_0x74a30:
 	step UP
 	step_end
 
-MovementData_0x74a32:
-	step UP
-	step_end
-
-MovementData_0x74a34:
-	step RIGHT
-	turn_head LEFT
-	step_end
-
 SailorText:
 	text "Hey, kid! Do you"
 	line "need a ride to"

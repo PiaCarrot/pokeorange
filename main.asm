@@ -839,16 +839,6 @@ INCLUDE "engine/buy_sell_toss.asm"
 INCLUDE "engine/trainer_card.asm"
 INCLUDE "engine/prof_oaks_pc.asm"
 
-PadCoords_de: ; 27092
-	ld a, d
-	add 4
-	ld d, a
-	ld a, e
-	add 4
-	ld e, a
-	call GetBlockLocation
-	ret
-
 LevelUpHappinessMod: ; 2709e
 	ld a, [CurPartyMon]
 	ld hl, PartyMon1CaughtLocation
@@ -2408,7 +2398,7 @@ Special_CheckForLuckyNumberWinners: ; 4d87a
 	ld hl, Buffer1
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	call PrintNum
-	ld hl, LuckyNumberDigit1Buffer
+	ld hl, LuckyNumberFourDigitBuffer
 	ld de, wLuckyIDNumber
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	call PrintNum
@@ -3922,7 +3912,6 @@ ChrisNameMenuHeader: ; 882b5
 	db $91 ; flags
 	db 5 ; items
 	db "NEW NAME@"
-MalePlayerNameArray: ; 882c9
 	db "INDIGO@"
 	db "ORANGE@"
 	db "JAMES@"
@@ -3942,25 +3931,12 @@ KrisNameMenuHeader: ; 882e5
 	db $91 ; flags
 	db 5 ; items
 	db "NEW NAME@"
-FemalePlayerNameArray: ; 882f9
 	db "ORANGE@"
 	db "INDIGO@"
 	db "JESSIE@"
 	db "MOON@"
 	db 2 ; displacement
 	db " NAME @" ; title
-
-GetPlayerNameArray: ; 88318 This Function is never called
-	ld hl, PlayerName
-	ld de, MalePlayerNameArray
-	ld a, [PlayerGender]
-	bit 0, a
-	jr z, .done
-	ld de, FemalePlayerNameArray
-
-.done
-	call InitName
-	ret
 
 GetPlayerIcon: ; 8832c
 ; Get the player icon corresponding to gender
@@ -4636,13 +4612,6 @@ LoadSGBPokedexGFX: ; 1ddf1c
 	ld hl, SGBPokedexGFX_LZ
 	ld de, VTiles2 tile $31
 	call Decompress
-	ret
-
-LoadSGBPokedexGFX2: ; 1ddf26 (77:5f26)
-	ld hl, SGBPokedexGFX_LZ
-	ld de, VTiles2 tile $31
-	lb bc, BANK(SGBPokedexGFX_LZ), $3a
-	call DecompressRequest2bpp
 	ret
 
 SGBPokedexGFX_LZ: ; 1ddf33

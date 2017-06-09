@@ -1,105 +1,3 @@
-LinkTradeLayoutFillBox: ; 49336
-.row
-	push bc
-	push hl
-.col
-	ld [hli], a
-	dec c
-	jr nz, .col
-	pop hl
-	ld bc, SCREEN_WIDTH
-	add hl, bc
-	pop bc
-	dec b
-	jr nz, .row
-	ret
-; 49346
-
-LinkTradeLayoutWipeAttrMap: ; 49346 (12:5346)
-	hlcoord 0, 0, AttrMap
-	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
-	xor a
-	call ByteFill
-	ret
-
-LinkTradeLayoutLoadPals: ; 49351 (12:5351)
-	ld de, UnknBGPals
-	ld hl, Palette_493e1
-	ld bc, 5 palettes
-	ld a, $5 ; BANK(UnknBGPals)
-	call FarCopyWRAM
-	ld de, UnknBGPals + 7 palettes
-	ld hl, Palette_TextBG7
-	ld bc, 1 palettes
-	ld a, $5 ; BANK(UnknBGPals)
-	call FarCopyWRAM
-	ret
-
-LinkTradeLayoutCreatePalBoxes: ; 49384 (12:5384)
-	hlcoord 0, 0, AttrMap
-	lb bc, 4, 1
-	ld a, $1
-	call LinkTradeLayoutFillBox
-	lb bc, 2, 1
-	ld a, $2
-	call LinkTradeLayoutFillBox
-	lb bc, 6, 1
-	ld a, $3
-	call LinkTradeLayoutFillBox
-	hlcoord 1, 0, AttrMap
-	ld a, $1
-	lb bc, 3, 18
-	call LinkTradeLayoutFillBox
-	lb bc, 2, 18
-	ld a, $2
-	call LinkTradeLayoutFillBox
-	lb bc, 12, 18
-	ld a, $3
-	call LinkTradeLayoutFillBox
-	hlcoord 19, 0, AttrMap
-	lb bc, 4, 1
-	ld a, $1
-	call LinkTradeLayoutFillBox
-	lb bc, 2, 1
-	ld a, $2
-	call LinkTradeLayoutFillBox
-	lb bc, 6, 1
-	ld a, $3
-	call LinkTradeLayoutFillBox
-	hlcoord 0, 12, AttrMap
-	ld bc, 6 * SCREEN_WIDTH
-	ld a, $7
-	call ByteFill
-	ret
-; 493e1 (12:53e1)
-
-Palette_493e1: ; 493e1
-	RGB 03, 07, 09
-	RGB 26, 31, 00
-	RGB 20, 16, 03
-	RGB 31, 31, 31
-
-	RGB 13, 24, 29
-	RGB 11, 16, 30
-	RGB 07, 11, 22
-	RGB 05, 06, 18
-
-	RGB 31, 31, 31
-	RGB 20, 26, 31
-	RGB 13, 24, 29
-	RGB 11, 16, 30
-
-	RGB 31, 31, 31
-	RGB 20, 26, 31
-	RGB 00, 00, 00
-	RGB 00, 00, 00
-
-	RGB 31, 31, 31
-	RGB 20, 16, 08
-	RGB 31, 00, 00
-	RGB 00, 00, 00
-; 49409
-
 LoadOW_BGPal7:: ; 49409
 	ld hl, Palette_TextBG7
 	ld de, UnknBGPals + 8 * 7
@@ -317,6 +215,65 @@ MansionPalette2: ; 496fe
 	RGB 07, 07, 07
 ; 49706
 
+LoadTradeRoomBGPals: ; 49811
+	ld hl, Palette_49826
+	ld de, UnknBGPals + $10
+	ld bc, $30
+	ld a, $5
+	call FarCopyWRAM
+	farcall ApplyPals
+	ret
+; 49826
+
+Palette_49826: ; 49826
+	RGB 04, 02, 15
+	RGB 07, 09, 31
+	RGB 31, 00, 00
+	RGB 31, 31, 31
+
+	RGB 04, 02, 15
+	RGB 07, 09, 31
+	RGB 15, 23, 30
+	RGB 31, 31, 31
+
+	RGB 04, 02, 15
+	RGB 07, 09, 31
+	RGB 16, 16, 16
+	RGB 31, 31, 31
+
+	RGB 04, 02, 15
+	RGB 07, 09, 31
+	RGB 25, 07, 04
+	RGB 31, 31, 31
+
+	RGB 04, 02, 15
+	RGB 07, 09, 31
+	RGB 03, 22, 08
+	RGB 31, 31, 31
+
+	RGB 04, 02, 15
+	RGB 07, 09, 31
+	RGB 29, 28, 09
+	RGB 31, 31, 31
+; 49856
+
+LinkTradeLayoutFillBox: ; 49336
+.row
+	push bc
+	push hl
+.col
+	ld [hli], a
+	dec c
+	jr nz, .col
+	pop hl
+	ld bc, SCREEN_WIDTH
+	add hl, bc
+	pop bc
+	dec b
+	jr nz, .row
+	ret
+; 49346
+
 InitLinkTradePalMap: ; 49856
 	hlcoord 0, 0, AttrMap
 	lb bc, 16, 2
@@ -368,45 +325,3 @@ InitLinkTradePalMap: ; 49856
 	call ByteFill
 	ret
 ; 49811
-
-LoadTradeRoomBGPals: ; 49811
-	ld hl, Palette_49826
-	ld de, UnknBGPals + $10
-	ld bc, $30
-	ld a, $5
-	call FarCopyWRAM
-	farcall ApplyPals
-	ret
-; 49826
-
-Palette_49826: ; 49826
-	RGB 04, 02, 15
-	RGB 07, 09, 31
-	RGB 31, 00, 00
-	RGB 31, 31, 31
-
-	RGB 04, 02, 15
-	RGB 07, 09, 31
-	RGB 15, 23, 30
-	RGB 31, 31, 31
-
-	RGB 04, 02, 15
-	RGB 07, 09, 31
-	RGB 16, 16, 16
-	RGB 31, 31, 31
-
-	RGB 04, 02, 15
-	RGB 07, 09, 31
-	RGB 25, 07, 04
-	RGB 31, 31, 31
-
-	RGB 04, 02, 15
-	RGB 07, 09, 31
-	RGB 03, 22, 08
-	RGB 31, 31, 31
-
-	RGB 04, 02, 15
-	RGB 07, 09, 31
-	RGB 29, 28, 09
-	RGB 31, 31, 31
-; 49856

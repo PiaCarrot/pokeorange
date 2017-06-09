@@ -981,7 +981,6 @@ Pokedex_FillBackgroundColor2: ; 40aa6
 
 Pokedex_PlaceFrontpicTopLeftCorner: ; 40ab2
 	hlcoord 1, 1
-Pokedex_PlaceFrontpicAtHL: ; 40ab5
 	xor a
 	ld b, $7
 .row
@@ -1463,6 +1462,7 @@ Pokedex_DisplayTypeNotFoundMessage: ; 41107
 Pokedex_UpdateCursorOAM: ; 41148 (10:5148)
 	ld hl, .CursorOAM
 	call Pokedex_LoadCursorOAM
+	call Pokedex_PutScrollbarOAM
 	ret
 
 .CursorOAM: ; 41230
@@ -1742,8 +1742,6 @@ Pokedex_BlackOutBG: ; 41401 (10:5401)
 Pokedex_GetSGBLayout: ; 41423
 	ld b, a
 	call GetSGBLayout
-
-Pokedex_ApplyUsualPals: ; 41427
 ; This applies the palettes used for most Pokédex screens.
 	ld a, $e4
 	call DmgToCgbBGPals

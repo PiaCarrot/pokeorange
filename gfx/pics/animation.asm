@@ -446,12 +446,6 @@ PokeAnim_IsSpinda: ; d02ec
 	ret
 ; d02f2
 
-PokeAnim_IsEgg: ; d02f2
-	ld a, [wPokeAnimSpecies]
-	cp EGG
-	ret
-; d02f8
-
 PokeAnim_GetPointer: ; d02f8
 	push hl
 	ld a, [wPokeAnimFrame]

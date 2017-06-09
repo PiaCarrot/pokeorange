@@ -125,35 +125,6 @@ Radio_BackUpFarCallParams: ; 9187c (24:587c)
 	ld [wRadioChannelAddr + 1], a
 	ret
 
-NoRadioStation: ; 91888 (24:5888)
-	call NoRadioMusic
-	call NoRadioName
-	xor a
-	ld [wRadioChannelBank], a
-	ld [wRadioChannelAddr], a
-	ld [wRadioChannelAddr + 1], a
-	ld a, $1
-	ld [hBGMapMode], a
-	ret
-
-NoRadioMusic: ; 9189d (24:589d)
-	ld de, MUSIC_NONE
-	call PlayMusic
-	ld a, $ff
-	ld [wRadioMusicPlaying], a
-	ret
-
-NoRadioName: ; 918a9 (24:58a9)
-	xor a
-	ld [hBGMapMode], a
-	hlcoord 1, 8
-	lb bc, 3, 18
-	call ClearBox
-	hlcoord 0, 12
-	ld bc, $412
-	call TextBox
-	ret
-
 ; 918bf
 
 OaksPkmnTalkName:     db "OAK's <PK><MN> Talk@"
@@ -238,6 +209,7 @@ PlayRadio: ; 91a53
 	dw LoadStation_LuckyChannel
 	dw LoadStation_PlacesAndPeople
 	dw LoadStation_LetsAllSing
+	dw LoadStation_PokeFluteRadio
 
 ; 91acb
 
