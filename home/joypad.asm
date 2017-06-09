@@ -352,15 +352,6 @@ WaitPressAorB_BlinkCursor:: ; a80
 	ret
 ; aa5
 
-SimpleWaitPressAorB:: ; aa5
-.loop
-	call JoyTextDelay
-	ld a, [hJoyLast]
-	and A_BUTTON | B_BUTTON
-	jr z, .loop
-	ret
-; aaf
-
 ButtonSound:: ; aaf
 	ld a, [wLinkMode]
 	and a

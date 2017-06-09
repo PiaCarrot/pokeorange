@@ -129,8 +129,6 @@ HDMATransferToWRAMBank3: ; 10419d (41:419d)
 	call _LoadHDMAParameters
 	ld a, $23
 	ld [hDMATransfer], a
-
-WaitDMATransfer: ; 104a14
 .loop
 	call DelayFrame
 	ld a, [hDMATransfer]

@@ -432,10 +432,6 @@ GoodRodDesc:
 	db   "A good ROD for"
 	next "catching #MON.@"
 
-SilverLeafDesc:
-	db   "A strange, silver-"
-	next "colored leaf.@"
-
 SuperRodDesc:
 	db   "A strong ROD for"
 	next "catching #MON.@"

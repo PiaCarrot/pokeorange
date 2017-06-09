@@ -24,7 +24,7 @@ ShinyIcon: ; f8a90
 ; also part of StatsScreenPageTilesGFX
 INCBIN "gfx/stats/shiny.2bpp"
 
-StatsScreenPageTilesGFX_Part2: ; f8aa0
+; StatsScreenPageTilesGFX_Part2: ; f8aa0
 ; not referenced on its own, but part of StatsScreenPageTilesGFX
 INCBIN "gfx/stats/exp_bar_ends.2bpp"
 ; f8ac0

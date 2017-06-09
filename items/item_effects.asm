@@ -1038,21 +1038,6 @@ LevelBallMultiplier:
 	ld b, $ff
 	ret
 
-; These two texts were carried over from gen 1.
-; They are not used in gen 2, and are dummied out.
-
-Text_RBY_CatchMarowak: ; 0xedab
-	; It dodged the thrown BALL! This #MON can't be caught!
-	text_jump UnknownText_0x1c5a5a
-	db "@"
-; 0xedb0
-
-Text_RBY_NoShake: ; 0xedb0
-	; You missed the #MON!
-	text_jump UnknownText_0x1c5a90
-	db "@"
-; 0xedb5
-
 Text_NoShake: ; 0xedb5
 	; Oh no! The #MON broke free!
 	text_jump UnknownText_0x1c5aa6
@@ -2807,7 +2792,6 @@ Blackbelt:
 BlkApricorn:
 PnkApricorn:
 Blackglasses:
-Slowpoketail:
 PinkBow:
 Stick:
 SmokeBall:

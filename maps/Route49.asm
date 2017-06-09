@@ -51,14 +51,6 @@ Route49FruitTree:
 Route49FreshWater:
 	itemball FRESH_WATER
 
-UnknownText_0x1a10a7:
-	text "#MON hide in"
-	line "the grass. Who"
-
-	para "knows when they'll"
-	line "pop out<...>"
-	done
-
 Route49YoungsterText:
 	text "Yo. That's a"
 	line "cool #MON."

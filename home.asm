@@ -108,10 +108,6 @@ IsInJohto:: ; 2f17
 	ret
 ; 2f3e
 
-ret_2f3e:: ; 2f3e
-	ret
-; 2f3f
-
 INCLUDE "home/item.asm"
 INCLUDE "home/random.asm"
 INCLUDE "home/sram.asm"
@@ -1529,16 +1525,6 @@ PrintLevel:: ; 382d
 ; 3-digit numbers overwrite the :L.
 	dec hl
 	inc c
-	jr Print8BitNumRightAlign
-; 383d
-
-PrintLevel_Force3Digits:: ; 383d
-; Print :L and all 3 digits
-	ld [hl], "<LV>"
-	inc hl
-	ld c, 3
-; 3842
-
 Print8BitNumRightAlign:: ; 3842
 	ld [wd265], a
 	ld de, wd265

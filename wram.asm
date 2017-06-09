@@ -339,11 +339,6 @@ TileMapEnd::
 
 SECTION "Battle", WRAM0
 wc608::
-wOddEgg:: party_struct OddEgg
-wOddEggName:: ds PKMN_NAME_LENGTH
-wOddEggOTName:: ds PKMN_NAME_LENGTH
-	ds wc608 - @
-
 	hall_of_fame wHallOfFameTemp
 	ds wc608 - @
 
@@ -617,8 +612,8 @@ CurEnemyMoveNum:: ; c6e9
 wEnemyHPAtTimeOfPlayerSwitch:: ds 2 ; c6ea
 wPayDayMoney:: ds 3 ; c6ec
 
-wSafariMonAngerCount:: ds 1
-wSafariMonEating:: ds 2
+	ds 3
+
 wEnemyBackupDVs:: ; used when enemy is transformed
 	ds 2
 AlreadyDisobeyed:: ; c6f4
@@ -838,9 +833,7 @@ wDexArrowCursorPosIndex:: ds 1
 wDexArrowCursorDelayCounter:: ds 1
 wDexArrowCursorBlinkCounter:: ds 1
 wDexSearchSlowpokeFrame:: ds 1
-wUnlockedUnownMode:: ds 1
-wDexCurrentUnownIndex:: ds 1
-wDexUnownCount:: ds 1
+	ds 3
 wDexConvertedMonType:: ds 1 ; mon type converted from dex search mon type
 wDexListingScrollOffsetBackup:: ds 1
 wDexListingCursorBackup:: ds 1
@@ -1001,13 +994,6 @@ wccba:: ds 102
 SECTION "Video", WRAM0
 CreditsPos::
 BGMapBuffer::
-wMobileMonSpeciesPointerBuffer:: dw
-wMobileMonStructurePointerBuffer:: dw
-wMobileMonOTNamePointerBuffer:: dw
-wMobileMonNicknamePointerBuffer:: dw
-wMobileMonMailPointerBuffer:: dw
-	ds CreditsPos - @
-
 wcd20:: ds 1
 wcd21:: ds 1
 wcd22::
@@ -1016,14 +1002,12 @@ CreditsTimer:: ; cd22
 
 wcd23:: ds 1
 wcd24:: ds 1
-wMobileCommsJumptableIndex:: ds 1 ; cd25
+wcd25:: ds 1 ; cd25
 wcd26:: ds 1
 wcd27:: ds 1
 wcd28:: ds 1
 wcd29:: ds 1
-wMobileMonSpeciesBuffer::
 wcd2a:: ds 1
-wTempOddEggNickname::
 wcd2b:: ds 1
 wcd2c:: ds 1
 wcd2d:: ds 1
@@ -1052,12 +1036,9 @@ wcd40:: ds 1
 wcd41:: ds 1
 wcd42:: ds 1
 wcd43:: ds 1
-
-; some sort of timer in link battles
-wMobileInactivityTimerMinutes:: ds 1 ; mins
-wMobileInactivityTimerSeconds:: ds 1 ; secs
-wMobileInactivityTimerFrames:: ds 1 ; frames
-
+wcd44:: ds 1
+wcd45:: ds 1
+wcd46:: ds 1
 wcd47:: ds 1
 
 BGMapPalBuffer:: ; cd48
@@ -1066,16 +1047,13 @@ BGMapPalBuffer:: ; cd48
 wcd49:: ds 1
 wcd4a:: ds 1
 wcd4b:: ds 1
-wEZChatCursorXCoord::
 wcd4c:: ds 1
-wEZChatCursorYCoord::
 wcd4d:: ds 1
 wcd4e:: ds 1
 wcd4f:: ds 1
 wcd50:: ds 1
 wcd51:: ds 1
 wcd52:: ds 1
-wMobileOpponentBattleMessage:: ; dc $c
 wcd53:: ds 1
 wcd54:: ds 1
 wcd55:: ds 1
@@ -1113,7 +1091,8 @@ wcd71:: ds 1
 wcd72:: ds 1
 wcd73:: ds 1
 wcd74:: ds 1
-wOTMonSelection:: ds 2 ; ds 3
+wcd75:: ds 1
+wcd76:: ds 1
 wcd77:: ds 1
 wcd78:: ds 1
 wcd79:: ds 1
@@ -1180,25 +1159,19 @@ CurMove::
 wNamedObjectTypeBuffer:: ds 1
 	ds 1
 wJumptableIndex::
-wBattleTowerBattleEnded::
 wcf63:: ds 1
-wMomBankDigitCursorPosition::
 wIntroSceneFrameCounter::
-wHoldingUnownPuzzlePiece::
 wCardFlipCursorY::
 wCreditsBorderFrame::
 wDexEntryPrevJumptableIndex::
 wcf64:: ds 1
 wCreditsBorderMon::
 wTitleScreenTimerLo::
-wUnownPuzzleCursorPosition::
 wCardFlipCursorX::
 wCurrPocket::
-wPrinterQueueLength::
 wcf65:: ds 1
 wCreditsLYOverride::
 wTitleScreenTimerHi::
-wUnownPuzzleHeldPiece::
 wCardFlipWhichCard::
 wcf66:: ds 1
 
@@ -1438,23 +1411,19 @@ wBugContestWinnerName:: ds NAME_LENGTH
 
 wd002::
 wTempDayOfWeek::
-wApricorns::
 LuckyNumberFourDigitBuffer::
 wCurrentRadioLine::
 wMovementBufferCount::
 wMartItem1BCD::
-wWhichBoxMonToPrint::
 	ds 1
 wd003::
 wNextRadioLine::
 wMovementBufferPerson::
 wPlaceBallsDirection::
-wFinishedPrintingBox::
 	ds 1
 wd004::
 wRadioTextDelay::
 wTrainerHUDTiles::
-wAddrOfBoxToPrint::
 	ds 1
 wd005::
 StartFlypoint:: ; d005
@@ -1462,15 +1431,12 @@ wNumRadioLinesPrinted::
 wMartItem2BCD::
 	ds 1
 wd006::
-wMobileParticipant1Nickname::
 LuckyNumberDigit5Buffer::
 EndFlypoint:: ; d006
 wOaksPkmnTalkSegmentCounter::
-wBankOfBoxToPrint::
 	ds 1
 
 wd007::
-wWhichBoxToPrint::
 MovementBuffer:: ; d007
 	ds 1
 
@@ -1484,7 +1450,6 @@ wRadioText:: ds 2 * SCREEN_WIDTH
 wRadioTextEnd::
 	ds wRadioText - @
 
-wMobileParticipant2Nickname::
 wd00c:: ds 1
 wd00d:: ds 1
 wMartItem5BCD::
@@ -1493,7 +1458,6 @@ wd00f:: ds 1
 wd010:: ds 1
 wMartItem6BCD::
 wd011:: ds 1
-wMobileParticipant3Nickname::
 wd012:: ds 1
 wd013:: ds 1
 wMartItem7BCD::
@@ -1583,7 +1547,8 @@ WalkingTile:: ; d047
 wWinTextPointer::
 	ds 1
 
-wPhoneScriptPointer:: ds 1
+	ds 1
+
 wLossTextPointer:: ds 2
 wScriptAfterPointer:: ds 2
 wRunningTrainerBattleScript:: ds 1
@@ -2080,20 +2045,7 @@ OTPartyCount::   ds 1 ; d280
 OTPartySpecies:: ds PARTY_LENGTH ; d281
 OTPartyEnd::     ds 1
 
-wDudeBag:: ; d288
-wDudeNumItems:: ds 1
-wDudeItems:: ds 2 * 4
-wDudeItemsEnd:: ds 1
-
-wDudeNumKeyItems:: ds 1 ; d292
-wDudeKeyItems:: ds 18
-wDudeKeyItemsEnd:: ds 1
-
-wDudeNumBalls:: ds 1 ; d2a6
-wDudeBalls:: ds 2 * 4 ; d2a7
-wDudeBallsEnd:: ds 1 ; d2af
-wDudeBagEnd::
-	ds wDudeBag - @
+	ds 40
 
 OTPartyMons::
 OTPartyMon1:: party_struct OTPartyMon1 ; d288
@@ -2122,6 +2074,7 @@ MapEventStatus:: ; d433
 
 ScriptFlags:: ; d434
 ; bit 3: priority jump
+ScriptFlags1::
 	ds 1
 ScriptFlags2:: ; d435
 	ds 1
@@ -2176,21 +2129,13 @@ wBugContestSecsRemaining:: ds 1 ; d46d
 
 wMapStatusEnd:: ds 2 ; d470
 
-wCrystalData::
 PlayerGender:: ; d472
 ; bit 0:
 ;	0 male
 ;	1 female
 	ds 1
-wd473:: ds 1
-wd474:: ds 1
-wd475:: ds 1
-wd476:: ds 1
-wd477:: ds 1
-wd478:: ds 1
-wCrystalDataEnd::
 
-wd479:: ds 2
+	ds 8
 
 wGameData::
 wPlayerData::
@@ -2395,47 +2340,13 @@ wTangeloPortTrigger::            ds 1
 wMandarinUndergroundTrigger::    ds 1
 wRoute56WestTrigger::            ds 1
 
-	ds 60
-
-
-;SECTION "Events", WRAMX, BANK [1]
-
-wJackFightCount::    ds 1 ; d9f2
-wBeverlyFightCount:: ds 1 ; unused
-wHueyFightCount::    ds 1
-wGavenFightCount::   ds 1
-wBethFightCount::    ds 1
-wJoseFightCount::    ds 1
-wReenaFightCount::   ds 1
-wJoeyFightCount::    ds 1
-wWadeFightCount::    ds 1
-wRalphFightCount::   ds 1
-wLizFightCount::     ds 1
-wAnthonyFightCount:: ds 1
-wToddFightCount::    ds 1
-wGinaFightCount::    ds 1
-wIrwinFightCount::   ds 1 ; unused
-wArnieFightCount::   ds 1
-wAlanFightCount::    ds 1
-wDanaFightCount::    ds 1
-wChadFightCount::    ds 1
-wDerekFightCount::   ds 1 ; unused
-wTullyFightCount::   ds 1
-wBrentFightCount::   ds 1
-wTiffanyFightCount:: ds 1
-wVanceFightCount::   ds 1
-wWiltonFightCount::  ds 1
-wKenjiFightCount::   ds 1 ; unused
-wParryFightCount::   ds 1
-wErinFightCount::    ds 1
-; da0e
-	ds 100
+	ds 24
 
 EventFlags:: ; da72
 	flag_array NUM_EVENTS
 ; db6c
 
-	ds 6
+	ds 170
 
 wCurBox:: ; db72
 	ds 1
@@ -2468,14 +2379,8 @@ wCurrMapTriggerCount:: ds 1 ; dc07
 wCurrMapTriggerHeaderPointer:: ds 2 ; dc08
 wCurrMapCallbackCount:: ds 1 ; dc0a
 wCurrMapCallbackHeaderPointer:: ds 2 ; dc0b
-	ds 2
 
-	ds 8
-
-; Items bought from Mom
-wWhichMomItem:: ds 1 ; dc17
-wWhichMomItemSet:: ds 1 ; dc18
-MomItemTriggerBalance:: ds 3 ; dc19
+	ds 15
 
 wDailyResetTimer:: ds 2 ; dc1c
 DailyFlags:: ds 1
@@ -2492,8 +2397,7 @@ FruitTreeFlags:: flag_array NUM_FRUIT_TREES ; dc27
 wLuckyNumberDayBuffer:: ds 2 ; dc2d
 	ds 6
 wBugContestStartTime:: ds 4 ; day, hour, min, sec ; dc35
-	ds 7
-wMobileOrCable_LastSelection:: ds 1
+	ds 8
 wdc41:: ds 1
 wdc42:: ds 8
 	ds 2
@@ -2503,7 +2407,7 @@ wDailyPhoneTimeOfDayFlags:: ds 4
 	ds 2
 wYanmaMapGroup:: ds 1 ; dc5a
 wYanmaMapNumber:: ds 1
-wPlayerMonSelection:: ds 3
+	ds 3
 wdc5f:: ds 1
 wdc60:: ds 19
 
@@ -2515,16 +2419,12 @@ PoisonStepCount:: ; dc74
 	ds 2
 wHappinessStepCount:: ds 1
 	ds 1
-wParkBallsRemaining::
-wSafariBallsRemaining:: ds 1 ; dc79
-wSafariTimeRemaining:: ds 2 ; dc7a
-wPhoneList:: ds 10 ; dc7c
-; dc86
-	ds 24
+wParkBallsRemaining:: ds 1
+	ds 36
 wLuckyNumberShowFlag:: ds 2 ; dc9d
 wLuckyIDNumber:: ds 2 ; dc9f
 wRepelEffect:: ds 1 ; If a Repel is in use, it contains the nr of steps it's still active
-wBikeStep:: ds 2
+	ds 2
 
 wPlayerDataEnd::
 
@@ -2787,17 +2687,6 @@ wSurfWaveBGEffect:: ds $40
 wSurfWaveBGEffectEnd::
 	ds -$e
 wBattleAnimEnd::
-
-SECTION "WRAM 5 MOBILE", WRAMX [$d800], BANK [5]
-w5_d800:: ds $200
-w5_da00:: ds $200
-w5_dc00:: ds $d
-w5_dc0d:: ds 4
-w5_dc11:: ds 9
-w5_MobileOpponentBattleMessages:: ds $c ; dc1a
-w5_MobileOpponentBattleStartMessage:: ds $c ; dc26
-w5_MobileOpponentBattleWinMessage:: ds $c ; dc32
-w5_MobileOpponentBattleLossMessage:: ds $c ; dc3e
 
 SECTION "WRAM 6", WRAMX, BANK [6]
 

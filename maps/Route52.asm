@@ -18,23 +18,6 @@ Route52_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-Route52RoarTMGuyScript:
-	faceplayer
-	opentext
-	checkevent EVENT_GOT_TM05_ROAR
-	iftrue .AlreadyHaveRoar
-	writetext Text_RoarIntro
-	buttonsound
-	verbosegiveitem TM_ROAR
-	iffalse .Finish
-	setevent EVENT_GOT_TM05_ROAR
-.AlreadyHaveRoar:
-	writetext Text_RoarOutro
-	waitbutton
-.Finish:
-	closetext
-	end
-
 TrainerCamperRoland:
 	trainer EVENT_BEAT_CAMPER_ROLAND, CAMPER, SAMM, CamperRolandSeenText, CamperRolandBeatenText, 0, .Script
 
@@ -276,25 +259,6 @@ Bird_keeperPeterBeatenText:
 Bird_keeperPeterAfterText:
 	text "I stop now. SUN"
 	line "is getting DIRTY."
-	done
-
-Text_RoarIntro:
-	text "WROOOOAR!"
-	line "PEOPLE RUN WHEN I"
-
-	para "ROAR! BUT YOU"
-	line "CAME LOOKING!"
-
-	para "THAT PLEASES ME!"
-	line "NOW TAKE THIS!"
-	done
-
-Text_RoarOutro:
-	text "WROOOAR!"
-	line "IT'S ROAR!"
-
-	para "EVEN #MON RUN"
-	line "FROM A GOOD ROAR!"
 	done
 
 Route52SignText:

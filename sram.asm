@@ -177,11 +177,8 @@ sHallOfFame:: ; b2c0
 sHallOfFameEnd::
 
 SECTION "SRAM Crystal Data", SRAM, BANK [1]
-sMobileEventIndex:: ds 1 ; be3c
 
-sCrystalData::
-	ds wCrystalDataEnd - wCrystalData
-sMobileEventIndexBackup:: ds 1
+sPlayerGender:: ds 1
 
 SECTION "Boxes 1-7",  SRAM, BANK [2]
 	box sBox1

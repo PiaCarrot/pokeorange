@@ -156,11 +156,6 @@ UnknownText_0x1c0965::
 	text "Not even a nibble!"
 	prompt
 
-UnknownText_0x1c0979::
-	text "Looks like there's"
-	line "nothing here."
-	prompt
-
 UnknownText_0x1c099a::
 	text "You can't get off"
 	line "here!"
@@ -259,10 +254,6 @@ Text_AnEGGCantHoldAnItem::
 	line "an item."
 	prompt
 
-UnknownText_0x1c0b9a::
-	text "No items."
-	done
-
 UnknownText_0x1c0ba5::
 	text "Throw away how"
 	line "many?"
@@ -315,11 +306,6 @@ UnknownText_0x1c0c63::
 UnknownText_0x1c0c83::
 	text ""
 	done
-
-Text_YouCantUseItInABattle::
-	text "You can't use it"
-	line "in a battle."
-	prompt
 
 Text_AreYouABoyOrAreYouAGirl::
 	text "Are you a boy?"
@@ -516,21 +502,6 @@ UnknownText_0x1c102b::
 
 	para "Please remove the"
 	line "MAIL."
-	prompt
-
-UnknownText_0x1c1062::
-	text "You don't have a"
-	line "single #MON!"
-	prompt
-
-UnknownText_0x1c1080::
-	text "You can't deposit"
-	line "your last #MON!"
-	prompt
-
-UnknownText_0x1c10a2::
-	text "You can't take any"
-	line "more #MON."
 	prompt
 
 UnknownText_0x1c10c0::

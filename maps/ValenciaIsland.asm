@@ -176,23 +176,6 @@ Text_YourMonIsAdorable:
 	cont "I wish I had one!"
 	done
 
-Text_TellMomIfLeaving:
-	text "Hi, <PLAYER>!"
-	line "Leaving again?"
-
-	para "You should tell"
-	line "your mom if you"
-	cont "are leaving."
-	done
-
-Text_CallMomOnGear:
-	text "Call your mom on"
-	line "your #GEAR to"
-
-	para "let her know how"
-	line "you're doing."
-	done
-
 Text_ElmDiscoveredNewMon:
 	text "<PLAYER>!"
 
