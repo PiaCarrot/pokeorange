@@ -1,5 +1,6 @@
 const_value set 2
 	const KRISSNEIGHBORSHOUSE_COOLTRAINER_F
+	const KRISSNEIGHBORSHOUSE_POKEDEX
 
 KrissNeighborsHouse_MapScriptHeader:
 .MapTriggers:
@@ -16,8 +17,9 @@ KrissNeighborsDaughter:
 	writetext KrissNeighborsDaughterText
 	buttonsound
 	verbosegiveitem TOWN_MAP
-	setevent EVENT_TOWN_MAP_OBTAINED
-	waitbutton
+	iffalse .Done
+	disappear KRISSNEIGHBORSHOUSE_POKEDEX
+.Done
 	closetext
 	end
 
@@ -26,6 +28,9 @@ KrissNeighborsDaughter:
 	waitbutton
 	closetext
 	end
+
+KrissNeighborsTownMap:
+	jumptext KrissNeighborsTownMapText
 
 KrissNeighborsHouseBookshelf:
 	jumpstd magazinebookshelf
@@ -93,6 +98,11 @@ KrisNeighborRadioText4:
 	line "#MON CHANNEL<...>"
 	done
 
+KrissNeighborsTownMapText:
+	text "It's a map of the"
+	line "ORANGE ISLANDS."
+	done
+
 KrissNeighborsHouse_MapEventHeader:
 	; filler
 	db 0, 0
@@ -114,3 +124,4 @@ KrissNeighborsHouse_MapEventHeader:
 .PersonEvents:
 	db 2
 	person_event SPRITE_LASS, 3, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, KrissNeighborsDaughter, -1
+	person_event SPRITE_POKEDEX, 3, 3, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, KrissNeighborsTownMap, EVENT_TOWN_MAP_OBTAINED
