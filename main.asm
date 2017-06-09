@@ -4544,13 +4544,98 @@ INCLUDE "engine/crystal_intro.asm"
 SECTION "bank3E", ROMX, BANK[$3E]
 
 INCLUDE "gfx/font.asm"
-INCLUDE "engine/time_capsule/conversion.asm"
+INCLUDE "event/name_rater.asm"
 INCLUDE "engine/unowndex.asm"
 INCLUDE "event/magikarp.asm"
 
 INCLUDE "battle/hidden_power.asm"
 
 INCLUDE "battle/misc.asm"
+
+PlaySlowCry: ; fb841
+	ld a, [ScriptVar]
+	call LoadCryHeader
+	jr c, .done
+
+	ld hl, CryPitch
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld bc, -$140
+	add hl, bc
+	ld a, l
+	ld [CryPitch], a
+	ld a, h
+	ld [CryPitch + 1], a
+	ld hl, CryLength
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld bc, $60
+	add hl, bc
+	ld a, l
+	ld [CryLength], a
+	ld a, h
+	ld [CryLength + 1], a
+	farcall _PlayCryHeader
+	call WaitSFX
+
+.done
+	ret
+; fb877
+
+NewPokedexEntry: ; fb877
+	ld a, [hMapAnims]
+	push af
+	xor a
+	ld [hMapAnims], a
+	call LowVolume
+	call ClearBGPalettes
+	call ClearTileMap
+	call UpdateSprites
+	call ClearSprites
+	ld a, [wPokedexStatus]
+	push af
+	ld a, [hSCX]
+	add $5
+	ld [hSCX], a
+	xor a
+	ld [wPokedexStatus], a
+	farcall _NewPokedexEntry
+	call WaitPressAorB_BlinkCursor
+	ld a, $1
+	ld [wPokedexStatus], a
+	farcall DisplayDexEntry
+	call WaitPressAorB_BlinkCursor
+	pop af
+	ld [wPokedexStatus], a
+	call MaxVolume
+	call RotateThreePalettesRight
+	ld a, [hSCX]
+	add -5 ; 251 ; NUM_POKEMON
+	ld [hSCX], a
+	call .ReturnFromDexRegistration
+	pop af
+	ld [hMapAnims], a
+	ret
+; fb8c8
+
+.ReturnFromDexRegistration: ; fb8c8
+	call ClearTileMap
+	call LoadFontsExtra
+	call LoadStandardFont
+	farcall Pokedex_PlaceFrontpicTopLeftCorner
+	call WaitBGMap2
+	farcall GetEnemyMonDVs
+	ld a, [hli]
+	ld [TempMonDVs], a
+	ld a, [hl]
+	ld [TempMonDVs + 1], a
+	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
+	call GetSGBLayout
+	call SetPalettes
+	ret
+; fb8f1
 
 SECTION "bank3F", ROMX, BANK[$3F]
 

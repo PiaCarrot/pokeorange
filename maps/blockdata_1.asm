@@ -19,7 +19,6 @@ Colosseum_BlockData:
 	INCBIN "maps/Colosseum.blk"
 
 TradeCenter_BlockData:
-TimeCapsule_BlockData:
 	INCBIN "maps/TradeCenter.blk"
 
 BluesHouse_BlockData:

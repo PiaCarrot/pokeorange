@@ -550,11 +550,10 @@ PokeCenter2F_MapEventHeader:
 	db 0, 0
 
 .Warps:
-	db 4
+	db 3
 	warp_def $7, $0, -1, POKECENTER_2F
 	warp_def $0, $5, 1, TRADE_CENTER
 	warp_def $0, $9, 1, COLOSSEUM
-	warp_def $2, $d, 1, TIME_CAPSULE
 
 .XYTriggers:
 	db 0

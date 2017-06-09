@@ -81,7 +81,6 @@ MAP_NONE EQU 0
 	mapgroup POKECENTER_2F, 4, 8
 	mapgroup TRADE_CENTER, 4, 5
 	mapgroup COLOSSEUM, 4, 5
-	mapgroup TIME_CAPSULE, 4, 5
 
 	newgroup ; 11
 
