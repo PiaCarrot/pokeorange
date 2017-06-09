@@ -833,61 +833,6 @@ StartMenu_PrintBugContestStatus: ; 24be7
 .LEVEL: ; 24c5e
 	db "LEVEL@"
 
-FindApricornsInBag: ; 24c64
-; Checks the bag for Apricorns.
-	ld hl, Buffer1
-	xor a
-	ld [hli], a
-	dec a
-	ld bc, 10
-	call ByteFill
-
-	ld hl, .ApricornBalls
-.loop
-	ld a, [hl]
-	cp -1
-	jr z, .done
-	push hl
-	ld [CurItem], a
-	ld hl, NumItems
-	call CheckItem
-	pop hl
-	jr nc, .nope
-	ld a, [hl]
-	call .addtobuffer
-.nope
-	inc hl
-	inc hl
-	jr .loop
-
-.done
-	ld a, [Buffer1]
-	and a
-	ret nz
-	scf
-	ret
-
-.addtobuffer ; 24c94
-	push hl
-	ld hl, Buffer1
-	inc [hl]
-	ld e, [hl]
-	ld d, 0
-	add hl, de
-	ld [hl], a
-	pop hl
-	ret
-
-.ApricornBalls: ; 24ca0
-	db RED_APRICORN, LEVEL_BALL
-	db BLU_APRICORN, LURE_BALL
-	db YLW_APRICORN, MOON_BALL
-	db GRN_APRICORN, FRIEND_BALL
-	db WHT_APRICORN, FAST_BALL
-	db BLK_APRICORN, HEAVY_BALL
-	db PNK_APRICORN, LOVE_BALL
-	db -1
-
 INCLUDE "engine/mon_menu.asm"
 INCLUDE "battle/menu.asm"
 INCLUDE "engine/buy_sell_toss.asm"
@@ -1026,11 +971,6 @@ INCLUDE "battle/moves/move_effects_pointers.asm"
 MoveEffects: ; 2732e
 INCLUDE "battle/moves/move_effects.asm"
 
-Kurt_SelectQuantity_InterpretJoypad: ; 27a28
-	call BuySellToss_InterpretJoypad
-	ld b, a
-	ret
-
 SECTION "bankA", ROMX, BANK[$A]
 
 INCLUDE "engine/link.asm"
@@ -1053,8 +993,7 @@ INCLUDE "engine/tmhm2.asm"
 MoveDescriptions:: ; 2cb52
 INCLUDE "battle/moves/move_descriptions.asm"
 
-GivePokerusAndConvertBerries: ; 2ed44
-	call ConvertBerriesToBerryJuice
+GivePokerus: ; 2ed44
 	ld hl, PartyMon1PokerusStatus
 	ld a, [PartyCount]
 	ld b, a
@@ -1071,18 +1010,13 @@ GivePokerusAndConvertBerries: ; 2ed44
 	dec b
 	jr nz, .loopMons
 
-; If we haven't been to Goldenrod City at least once,
-; prevent the contraction of Pokerus.
-	ld hl, StatusFlags2
-	bit 6, [hl]
-	ret z
 	call Random
 	ld a, [hRandomAdd]
 	and a
 	ret nz
 	ld a, [hRandomSub]
 	cp $3
-	ret nc                 ; 3/65536 chance (00 00, 00 01 or 00 02)
+	ret nc ; 3/65536 chance (00 00, 00 01 or 00 02)
 	ld a, [PartyCount]
 	ld b, a
 .randomMonSelectLoop
@@ -1174,44 +1108,6 @@ GivePokerusAndConvertBerries: ; 2ed44
 	inc a
 	add b
 	ld [hl], a
-	ret
-
-; any berry held by a Shuckle may be converted to berry juice
-ConvertBerriesToBerryJuice: ; 2ede6
-	ld hl, StatusFlags2
-	bit 6, [hl]
-	ret z
-	call Random
-	cp $10
-	ret nc              ; 1/16 chance
-	ld hl, PartyMons
-	ld a, [PartyCount]
-.partyMonLoop
-	push af
-	push hl
-	ld a, [hl]
-	cp SHUCKLE
-	jr nz, .loopMon
-	ld bc, MON_ITEM
-	add hl, bc
-	ld a, [hl]
-	cp BERRY
-	jr z, .convertToJuice
-
-.loopMon
-	pop hl
-	ld bc, PARTYMON_STRUCT_LENGTH
-	add hl, bc
-	pop af
-	dec a
-	jr nz, .partyMonLoop
-	ret
-
-.convertToJuice
-	ld a, BERRY_JUICE
-	ld [hl], a
-	pop hl
-	pop af
 	ret
 
 ShowLinkBattleParticipants: ; 2ee18
@@ -1781,9 +1677,6 @@ DisplayDexEntry: ; 4424d
 	call FarString
 	ret
 
-String_44331: ; 44331
-	db "#@"
-
 INCLUDE "data/pokedex/entry_pointers.asm"
 
 INCLUDE "engine/mail.asm"
@@ -1792,33 +1685,12 @@ SECTION "Crystal Unique", ROMX, BANK[$12]
 
 INCLUDE "engine/init_gender.asm"
 
-DrawKrisPackGFX: ; 48e81
-	ld hl, PackFGFXPointers
-	add hl, de
-	add hl, de
-	ld a, [hli]
-	ld e, a
-	ld d, [hl]
-	ld hl, VTiles2 tile $50
-	lb bc, BANK(PackFGFX), 15
-	call Request2bpp
-	ret
-
-PackFGFXPointers: ; 48e93
-	dw PackFGFX + (15 tiles) * 1
-	dw PackFGFX + (15 tiles) * 3
-	dw PackFGFX + (15 tiles) * 0
-	dw PackFGFX + (15 tiles) * 2
-
-PackFGFX: ; 48e9b
-INCBIN "gfx/misc/pack_f.2bpp"
-
 Special_MoveTutor: ; 4925b
 	call FadeToMenu
 	call ClearBGPalettes
 	call ClearScreen
 	call DelayFrame
-	ld b, SCGB_PACKPALS
+	ld b, SCGB_PACK_PALS
 	call GetSGBLayout
 	xor a
 	ld [wItemAttributeParamBuffer], a
@@ -1920,65 +1792,6 @@ CheckCanLearnMoveTutorMove: ; 492b9
 INCLUDE "predef/crystal.asm"
 INCLUDE "engine/main_menu.asm"
 INCLUDE "engine/search.asm"
-
-AskRememberPassword: ; 4ae12
-	call .DoMenu
-	ld a, $0
-	jr c, .okay
-	ld a, $1
-
-.okay
-	ld [ScriptVar], a
-	ret
-
-.DoMenu: ; 4ae1f
-	lb bc, 14, 7
-	push bc
-	ld hl, YesNoMenuDataHeader
-	call CopyMenuDataHeader
-	pop bc
-	ld a, b
-	ld [wMenuBorderLeftCoord], a
-	add $5
-	ld [wMenuBorderRightCoord], a
-	ld a, c
-	ld [wMenuBorderTopCoord], a
-	add $4
-	ld [wMenuBorderBottomCoord], a
-	call PushWindow
-	call VerticalMenu
-	push af
-	ld c, 15
-	call DelayFrames
-	call Buena_ExitMenu
-	pop af
-	jr c, .refused
-	ld a, [wMenuCursorY]
-	cp $2
-	jr z, .refused
-	and a
-	ret
-
-.refused
-	ld a, $2
-	ld [wMenuCursorY], a
-	scf
-	ret
-
-Buena_ExitMenu: ; 4ae5e
-	ld a, [hOAMUpdate]
-	push af
-	call ExitMenu
-	call UpdateSprites
-	xor a
-	ld [hOAMUpdate], a
-	call DelayFrame
-	ld a, $1
-	ld [hOAMUpdate], a
-	call ApplyTilemap
-	pop af
-	ld [hOAMUpdate], a
-	ret
 
 SECTION "bank13", ROMX, BANK[$13]
 
@@ -4186,13 +3999,13 @@ GetCardPic: ; 8833e
 	ret
 
 ChrisCardPic: ; 88365
-INCBIN "gfx/misc/chris_card.5x7.2bpp"
+INCBIN "gfx/trainer_card/chris_card.5x7.2bpp"
 
 KrisCardPic: ; 88595
-INCBIN "gfx/misc/kris_card.5x7.2bpp"
+INCBIN "gfx/trainer_card/kris_card.5x7.2bpp"
 
 CardGFX: ; 887c5
-INCBIN "gfx/misc/trainer_card.2bpp"
+INCBIN "gfx/trainer_card/trainer_card.2bpp"
 
 GetPlayerBackpic: ; 88825
 	ld hl, ChrisBackpic
@@ -4208,10 +4021,10 @@ GetPlayerBackpic: ; 88825
 	ret
 
 ChrisBackpic: ; 2ba1a
-INCBIN "gfx/misc/chris_back.6x6.2bpp.lz"
+INCBIN "gfx/player/chris_back.6x6.2bpp.lz"
 
 KrisBackpic: ; 88ed6
-INCBIN "gfx/misc/kris_back.6x6.2bpp.lz"
+INCBIN "gfx/player/kris_back.6x6.2bpp.lz"
 
 HOF_LoadTrainerFrontpic: ; 88840
 	call WaitBGMap
@@ -4276,10 +4089,10 @@ DrawIntroPlayerPic: ; 88874
 	ret
 
 ChrisPic: ; 888a9
-INCBIN "gfx/misc/chris.7x7.2bpp"
+INCBIN "gfx/player/chris.7x7.2bpp"
 
 KrisPic: ; 88bb9
-INCBIN "gfx/misc/kris.7x7.2bpp"
+INCBIN "gfx/player/kris.7x7.2bpp"
 
 SECTION "bank23", ROMX, BANK[$23]
 
@@ -4300,7 +4113,8 @@ INCLUDE "engine/mon_icons.asm"
 SECTION "bank24", ROMX, BANK[$24]
 
 INCLUDE "engine/timeset.asm"
-INCLUDE "engine/pokegear.asm"
+INCLUDE "engine/town_map.asm"
+INCLUDE "engine/radio2.asm"
 
 INCLUDE "engine/fish.asm"
 INCLUDE "engine/slot_machine.asm"
@@ -4536,7 +4350,7 @@ INCLUDE "engine/billspc.asm"
 SECTION "bank39", ROMX, BANK[$39]
 
 CopyrightGFX:: ; e4000
-INCBIN "gfx/misc/copyright.2bpp"
+INCBIN "gfx/intro/copyright.2bpp"
 
 INCLUDE "engine/options_menu.asm"
 INCLUDE "engine/crystal_intro.asm"
@@ -4980,75 +4794,6 @@ Bank77_FillColumn: ; 1de27f
 	jr nz, .loop
 	pop de
 	ret
-
-_DudeAutoInput_A:: ; 1de28a
-	ld hl, DudeAutoInput_A
-	jr _DudeAutoInput
-
-_DudeAutoInput_RightA: ; 1de28f
-	ld hl, DudeAutoInput_RightA
-	jr _DudeAutoInput
-
-_DudeAutoInput_DownA: ; 1de294
-	ld hl, DudeAutoInput_DownA
-	jr _DudeAutoInput
-
-_DudeAutoInput: ; 1de299
-	ld a, BANK(DudeAutoInputs)
-	call StartAutoInput
-	ret
-
-DudeAutoInputs:
-
-DudeAutoInput_A: ; 1de29f
-	db NO_INPUT, $50
-	db A_BUTTON, $00
-	db NO_INPUT, $ff ; end
-
-DudeAutoInput_RightA: ; 1de2a5
-	db NO_INPUT, $08
-	db D_RIGHT,  $00
-	db NO_INPUT, $08
-	db A_BUTTON, $00
-	db NO_INPUT, $ff ; end
-
-DudeAutoInput_DownA: ; 1de2af
-	db NO_INPUT, $fe
-	db NO_INPUT, $fe
-	db NO_INPUT, $fe
-	db NO_INPUT, $fe
-	db D_DOWN,   $00
-	db NO_INPUT, $fe
-	db NO_INPUT, $fe
-	db NO_INPUT, $fe
-	db NO_INPUT, $fe
-	db A_BUTTON, $00
-	db NO_INPUT, $ff ; end
-
-TownMap_ConvertLineBreakCharacters: ; 1de2c5
-	ld hl, StringBuffer1
-.loop
-	ld a, [hl]
-	cp "@"
-	jr z, .end
-	cp "%"
-	jr z, .line_break
-	cp "<WBR>"
-	jr z, .line_break
-	inc hl
-	jr .loop
-
-.line_break
-	ld [hl], "<LNBRK>"
-
-.end
-	ld de, StringBuffer1
-	hlcoord 1, 0
-	call PlaceString
-	ret
-
-PokegearGFX: ; 1de2e4
-INCBIN "gfx/misc/pokegear.2bpp.lz"
 
 SECTION "Tileset Data 8", ROMX, BANK[TILESETS_8]
 

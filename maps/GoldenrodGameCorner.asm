@@ -17,30 +17,7 @@ GoldenrodGameCorner_MapScriptHeader:
 	db 0
 
 .MapCallbacks:
-	db 1
-
-	; callbacks
-
-	dbw MAPCALLBACK_OBJECTS, .Callback
-
-.Callback:
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iffalse .finish
-	checkitem COIN_CASE
-	iffalse .move_tutor_inside
-	checkcode VAR_WEEKDAY
-	if_equal WEDNESDAY, .move_tutor_outside
-	if_equal SATURDAY, .move_tutor_outside
-.move_tutor_inside
-	appear GOLDENRODGAMECORNER_POKEFAN_M3
-	return
-
-.move_tutor_outside
-	checkflag ENGINE_DAILY_MOVE_TUTOR
-	iftrue .finish
-	disappear GOLDENRODGAMECORNER_POKEFAN_M3
-.finish
-	return
+	db 0
 
 GoldenrodGameCornerPokefanM3Script:
 	faceplayer

@@ -112,7 +112,7 @@ GrannyScript_0x7c132:
 
 GrampsScript_0x7c146:
 	opentext
-	checkflag ENGINE_GOLDENROD_UNDERGROUND_MERCHANT_CLOSED
+	checkflag ENGINE_BARGAINED_TODAY
 	iftrue WarehouseEntranceScript_ShopClosed
 	checkcode VAR_WEEKDAY
 	if_equal MONDAY, .CheckMorn
@@ -134,7 +134,7 @@ OlderHaircutBrotherScript:
 	jump WarehouseEntranceScript_ShopClosed
 
 .DoHaircut:
-	checkflag ENGINE_GOLDENROD_UNDERGROUND_GOT_HAIRCUT
+	checkflag ENGINE_GOT_HAIRCUT
 	iftrue .AlreadyGotHaircut
 	special PlaceMoneyTopRight
 	writetext UnknownText_0x7c5f9
@@ -147,7 +147,7 @@ OlderHaircutBrotherScript:
 	special Special_YoungerHaircutBrother
 	if_equal $0, .Refused
 	if_equal $1, .Refused
-	setflag ENGINE_GOLDENROD_UNDERGROUND_GOT_HAIRCUT
+	setflag ENGINE_GOT_HAIRCUT
 	if_equal $2, .two
 	if_equal $3, .three
 	jump .else
@@ -217,7 +217,7 @@ YoungerHaircutBrotherScript:
 	jump WarehouseEntranceScript_ShopClosed
 
 .DoHaircut:
-	checkflag ENGINE_GOLDENROD_UNDERGROUND_GOT_HAIRCUT
+	checkflag ENGINE_GOT_HAIRCUT
 	iftrue .AlreadyGotHaircut
 	special PlaceMoneyTopRight
 	writetext UnknownText_0x7c75c
@@ -230,7 +230,7 @@ YoungerHaircutBrotherScript:
 	special Special_OlderHaircutBrother
 	if_equal $0, .Refused
 	if_equal $1, .Refused
-	setflag ENGINE_GOLDENROD_UNDERGROUND_GOT_HAIRCUT
+	setflag ENGINE_GOT_HAIRCUT
 	if_equal $2, .two
 	if_equal $3, .three
 	jump .else

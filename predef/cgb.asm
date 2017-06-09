@@ -29,7 +29,7 @@ Predef_LoadSGBLayoutCGB: ; 8d59
 .dw ; 8d7a
 	dw _CGB_BattleGrayscale
 	dw _CGB_BattleColors
-	dw _CGB_PokegearPals
+	dw _CGB_TownMapPals
 	dw _CGB_StatsScreenHPPals
 	dw _CGB_Pokedex
 	dw _CGB_SlotMachine
@@ -156,18 +156,20 @@ InitPartyMenuBGPal0: ; 8e9f
 	ret
 ; 8eb9
 
-_CGB_PokegearPals: ; 8eb9
+_CGB_TownMapPals: ; 8eb9
+	ld hl, MaleTownMapPals
 	ld a, [PlayerGender]
 	bit 0, a
 	jr z, .male
-	ld hl, FemalePokegearPals
-	jr .got_pals
-
+	ld hl, FemaleTownMapPals
 .male
-	ld hl, MalePokegearPals
-.got_pals
 	ld de, UnknBGPals
 	ld bc, 6 palettes
+	ld a, $5
+	call FarCopyWRAM
+	ld hl, TownMapOBPals
+	ld de, UnknOBPals
+	ld bc, 2 palettes
 	ld a, $5
 	call FarCopyWRAM
 	call ApplyPals
@@ -426,7 +428,7 @@ _CGB_Diploma: ; 91ad
 
 _CGB_MapPals: ; 91c8
 	call LoadMapPals
-	ld a, SCGB_MAPPALS
+	ld a, SCGB_MAP_PALS
 	ld [SGBPredef], a
 	ret
 ; 91d1

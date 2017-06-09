@@ -135,7 +135,7 @@ TrainerCard_Page2_LoadGFX: ; 251f4 (9:51f4)
 	ret
 
 TrainerCard_Page2_Joypad: ; 25221 (9:5221)
-	ld hl, TrainerCard_JohtoBadgesOAM
+	ld hl, TrainerCard_BadgesOAM
 	call TrainerCard_Page2_AnimateBadges
 	ld hl, hJoyLast
 	ld a, [hl]
@@ -254,7 +254,7 @@ endr
 	jr nz, .loop
 	xor a
 	ld [wcf64], a
-	ld hl, TrainerCard_JohtoBadgesOAM
+	ld hl, TrainerCard_BadgesOAM
 	call TrainerCard_Page2_OAMUpdate
 	ret
 
@@ -483,41 +483,39 @@ TrainerCard_Page2_OAMUpdate: ; 25448 (9:5448)
 	db 8, 8, 2, X_FLIP
 	db -1
 
-TrainerCard_JohtoBadgesOAM: ; 254c9
+TrainerCard_BadgesOAM: ; 254c9
 ; Template OAM data for each badge on the trainer card.
 ; Format:
 	; y, x, palette
 	; cycle 1: face tile, in1 tile, in2 tile, in3 tile
 	; cycle 2: face tile, in1 tile, in2 tile, in3 tile
 
-	dw JohtoBadges
+	dw Badges
 
-	; Zephyrbadge
+	; Coral-Eye Badge
 	db $68, $18, 0
 	db $00, $20, $24, $20 | $80
 	db $00, $20, $24, $20 | $80
 
-	; Hivebadge
+	; Sea Ruby Badge
 	db $68, $38, 0
 	db $04, $20, $24, $20 | $80
 	db $04, $20, $24, $20 | $80
 
-	; Plainbadge
+	; Spike Shell Badge
 	db $68, $58, 0
 	db $08, $20, $24, $20 | $80
 	db $08, $20, $24, $20 | $80
 
-	; Fogbadge
+	; Jade Star Badge
 	db $68, $78, 0
 	db $0c, $20, $24, $20 | $80
 	db $0c, $20, $24, $20 | $80
 ; 25523
 
-CardStatusGFX: INCBIN "gfx/misc/card_status.2bpp"
+CardStatusGFX: INCBIN "gfx/trainer_card/card_status.2bpp"
 
-LeaderGFX:  INCBIN "gfx/misc/leaders.w24.2bpp"
-LeaderGFX2: INCBIN "gfx/misc/leaders.w24.2bpp"
-BadgeGFX:   INCBIN "gfx/misc/badges.2bpp"
-BadgeGFX2:  INCBIN "gfx/misc/badges.2bpp"
+CardRightCornerGFX: INCBIN "gfx/trainer_card/card_right_corner.2bpp"
 
-CardRightCornerGFX: INCBIN "gfx/misc/card_right_corner.2bpp"
+LeaderGFX:  INCBIN "gfx/trainer_card/leaders.w24.2bpp"
+BadgeGFX:   INCBIN "gfx/trainer_card/badges.2bpp"

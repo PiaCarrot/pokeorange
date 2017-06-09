@@ -1972,7 +1972,7 @@ ExitAllMenus:: ; 2b4d
 	call ReloadTilesetAndPalettes
 	call UpdateSprites
 FinishExitMenu:: ; 2b5c
-	ld b, SCGB_MAPPALS
+	ld b, SCGB_MAP_PALS
 	call GetSGBLayout
 	farcall LoadOW_BGPal7
 	call WaitBGMap2
@@ -1995,7 +1995,7 @@ ReturnToMapWithSpeechTextbox:: ; 0x2b74
 	set 0, [hl]
 	call UpdateSprites
 	call WaitBGMap2
-	ld b, SCGB_MAPPALS
+	ld b, SCGB_MAP_PALS
 	call GetSGBLayout
 	farcall LoadOW_BGPal7
 	call UpdateTimePals

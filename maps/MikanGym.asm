@@ -28,9 +28,8 @@ FalknerScript_0x683c2:
 	writetext UnknownText_0x685af
 	playsound SFX_GET_BADGE
 	waitsfx
-	setflag ENGINE_ZEPHYRBADGE
+	setflag ENGINE_CORAL_EYE_BADGE
 	checkcode VAR_BADGES
-	scall MikanGymTriggerRockets
 .FightDone:
 	checkevent EVENT_GOT_TM32_BUBBLEBEAM
 	iftrue .SpeechAfterTM
@@ -53,17 +52,6 @@ FalknerScript_0x683c2:
 .NoRoomForBubblebeam:
 	closetext
 	end
-
-MikanGymTriggerRockets:
-	if_equal 7, .RadioTowerRockets
-	if_equal 6, .GoldenrodRockets
-	end
-
-.GoldenrodRockets:
-	jumpstd goldenrodrockets
-
-.RadioTowerRockets:
-	jumpstd radiotowerrockets
 
 TrainerBird_keeperRod:
 	trainer EVENT_BEAT_BIRD_KEEPER_ROD, SWIMMERF, MARIA, Bird_keeperRodSeenText, Bird_keeperRodBeatenText, 0, Bird_keeperRodScript
@@ -104,7 +92,7 @@ MikanGymGuyScript:
 	end
 
 MikanGymStatue:
-	checkflag ENGINE_ZEPHYRBADGE
+	checkflag ENGINE_CORAL_EYE_BADGE
 	iftrue .Beaten
 	jumpstd gymstatue1
 .Beaten:

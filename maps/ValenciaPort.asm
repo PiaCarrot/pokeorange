@@ -44,7 +44,7 @@ FishingGuruScript_0x74a01:
 	spriteface VALENCIAPORT_FISHING_GURU, LEFT
 	end
 
-ValenciaPortHiddenProtein:
+ValenciaPortHiddenSuperPotion:
 	dwb EVENT_VALENCIA_PORT_HIDDEN_SUPER_POTION, SUPER_POTION
 
 MovementData_0x74a30:
@@ -89,7 +89,7 @@ ValenciaPort_MapEventHeader:: db 0, 0
 .CoordEvents: db 0
 
 .BGEvents: db 1
-	signpost 19, 8, SIGNPOST_ITEM, ValenciaPortHiddenProtein
+	signpost 19, 8, SIGNPOST_ITEM, ValenciaPortHiddenSuperPotion
 
 .ObjectEvents: db 2
 	person_event SPRITE_SAILOR, 14, 9, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SailorScript, -1

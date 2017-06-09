@@ -110,11 +110,9 @@ SpecialsPointers:: ; c029
 	add_special Reset
 	add_special Special_MoveTutor
 	add_special SpecialPokeSeer
-	add_special Special_SampleKenjiBreakCountdown
 	add_special SpecialMonCheck
 	add_special Special_SetPlayerPalette
 	add_special RefreshSprites
-	add_special AskRememberPassword
 	add_special LoadMapPalettes
 	add_special Special_InitialSetDSTFlag
 	add_special Special_InitialClearDSTFlag
@@ -340,17 +338,6 @@ Special_ActivateFishingSwarm: ; c3fc
 
 
 StoreSwarmMapIndices:: ; c403
-	ld a, c
-	and a
-	jr nz, .yanma
-; swarm dark cave violet entrance
-	ld a, d
-	ld [wDunsparceMapGroup], a
-	ld a, e
-	ld [wDunsparceMapNumber], a
-	ret
-
-.yanma
 	ld a, d
 	ld [wYanmaMapGroup], a
 	ld a, e

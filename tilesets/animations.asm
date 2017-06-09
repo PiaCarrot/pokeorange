@@ -553,14 +553,6 @@ ForestTreeLeftAnimation: ; fc45c
 	ld b, h
 	ld c, l
 
-; Only during the Celebi event.
-	ld a, [wCelebiEvent]
-	bit 2, a
-	jr nz, .asm_fc46c
-	ld hl, ForestTreeLeftFrames
-	jr .asm_fc47d
-
-.asm_fc46c
 	ld a, [TileAnimationTimer]
 	call GetForestTreeFrame
 	add a
@@ -572,7 +564,6 @@ ForestTreeLeftAnimation: ; fc45c
 	adc ForestTreeLeftFrames / $100
 	ld h, a
 
-.asm_fc47d
 	ld sp, hl
 	ld hl, VTiles2 tile $0c
 	jp WriteTile
@@ -595,14 +586,6 @@ ForestTreeRightAnimation: ; fc4c4
 	ld b, h
 	ld c, l
 
-; Only during the Celebi event.
-	ld a, [wCelebiEvent]
-	bit 2, a
-	jr nz, .asm_fc4d4
-	ld hl, ForestTreeRightFrames
-	jr .asm_fc4eb
-
-.asm_fc4d4
 	ld a, [TileAnimationTimer]
 	call GetForestTreeFrame
 	add a
@@ -618,7 +601,6 @@ ForestTreeRightAnimation: ; fc4c4
 	add hl, bc
 	pop bc
 
-.asm_fc4eb
 	ld sp, hl
 	ld hl, VTiles2 tile $0f
 	jp WriteTile
@@ -630,14 +612,6 @@ ForestTreeLeftAnimation2: ; fc4f2
 	ld b, h
 	ld c, l
 
-; Only during the Celebi event.
-	ld a, [wCelebiEvent]
-	bit 2, a
-	jr nz, .asm_fc502
-	ld hl, ForestTreeLeftFrames
-	jr .asm_fc515
-
-.asm_fc502
 	ld a, [TileAnimationTimer]
 	call GetForestTreeFrame
 	xor 2
@@ -650,7 +624,6 @@ ForestTreeLeftAnimation2: ; fc4f2
 	adc ForestTreeLeftFrames / $100
 	ld h, a
 
-.asm_fc515
 	ld sp, hl
 	ld hl, VTiles2 tile $0c
 	jp WriteTile
@@ -662,14 +635,6 @@ ForestTreeRightAnimation2: ; fc51c
 	ld b, h
 	ld c, l
 
-; Only during the Celebi event.
-	ld a, [wCelebiEvent]
-	bit 2, a
-	jr nz, .asm_fc52c
-	ld hl, ForestTreeRightFrames
-	jr .asm_fc545
-
-.asm_fc52c
 	ld a, [TileAnimationTimer]
 	call GetForestTreeFrame
 	xor 2
@@ -686,7 +651,6 @@ ForestTreeRightAnimation2: ; fc51c
 	add hl, bc
 	pop bc
 
-.asm_fc545
 	ld sp, hl
 	ld hl, VTiles2 tile $0f
 	jp WriteTile

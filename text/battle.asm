@@ -211,22 +211,6 @@ TiedAgainstText: ; 0x809eb
 	prompt
 ; 0x809fc
 
-SentSomeToMomText:
-	text "<PLAYER> got ¥@"
-	deciram wBattleReward, 3, 6
-	text ""
-	line "for winning!"
-	cont "Sent some to MOM!"
-	prompt
-
-SentHalfToMomText:
-	text "Sent half to MOM!"
-	prompt
-
-SentAllToMomText:
-	text "Sent all to MOM!"
-	prompt
-
 BattleText_0x80a4f: ; 0x80a4f
 	text "<RIVAL>: Huh? I"
 	line "should've chosen"

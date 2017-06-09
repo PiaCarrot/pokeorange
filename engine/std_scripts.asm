@@ -3,7 +3,6 @@ StdScripts::
 	dba DifficultBookshelfScript
 	dba PictureBookshelfScript
 	dba MagazineBookshelfScript
-	dba TeamRocketOathScript
 	dba IncenseBurnerScript
 	dba MerchandiseShelfScript
 	dba TownMapScript
@@ -16,8 +15,6 @@ StdScripts::
 	dba SmashRockScript
 	dba PokeCenterSignScript
 	dba MartSignScript
-	dba GoldenrodRocketsScript
-	dba RadioTowerRocketsScript
 	dba ElevatorButtonScript
 	dba DayToTextScript
 	dba BugContestResultsWarpScript
@@ -26,7 +23,6 @@ StdScripts::
 	dba GymStatue1Script
 	dba GymStatue2Script
 	dba ReceiveItemScript
-	dba ReceiveTogepiEggScript
 	dba PCScript
 	dba GameCornerCoinVendorScript
 	dba HappinessCheckScript
@@ -145,9 +141,6 @@ PictureBookshelfScript:
 MagazineBookshelfScript:
 	farjumptext MagazineBookshelfText
 
-TeamRocketOathScript:
-	farjumptext TeamRocketOathText
-
 IncenseBurnerScript:
 	farjumptext IncenseBurnerText
 
@@ -256,10 +249,6 @@ DayToTextScript:
 	db "FRIDAY@"
 .SaturdayText:
 	db "SATURDAY@"
-
-GoldenrodRocketsScript:
-RadioTowerRocketsScript:
-	end
 
 BugContestResultsWarpScript:
 	special ClearBGPalettes
@@ -472,9 +461,6 @@ InitializeEventsScript:
 	setevent EVENT_BUG_CATCHING_CONTESTANT_9B
 	setevent EVENT_BUG_CATCHING_CONTESTANT_10B
 
-	setflag ENGINE_ROCKET_SIGNAL_ON_CH20
-	setflag ENGINE_ROCKETS_IN_MAHOGANY
-
 	variablesprite SPRITE_BIG_DOLL, SPRITE_BIG_SNORLAX
 
 	setevent EVENT_INITIALIZED_EVENTS
@@ -505,14 +491,6 @@ ReceiveItemScript: ; 0xbcdb9
 	waitsfx
 	end
 ; 0xbcdc3
-
-ReceiveTogepiEggScript: ; 0xbcdc3
-	waitsfx
-	farwritetext ReceivedItemText
-	playsound SFX_GET_EGG_FROM_DAYCARE_LADY
-	waitsfx
-	end
-; 0xbcdcd
 
 GameCornerCoinVendorScript: ; 0xbcdcd
 	faceplayer

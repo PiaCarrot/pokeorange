@@ -2,11 +2,6 @@
 	enum_start
 CHRIS EQU __enum__
 	trainerclass TRAINER_NONE ; 0
-	const PHONECONTACT_MOM
-	const PHONECONTACT_BIKESHOP
-	const PHONECONTACT_BILL
-	const PHONECONTACT_ELM
-	const PHONECONTACT_BUENA
 
 KRIS EQU __enum__
 	trainerclass CISSY

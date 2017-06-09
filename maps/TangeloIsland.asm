@@ -88,36 +88,10 @@ TangeloTraceyScript:
 	end
 
 TangeloTeacherScript:
-	faceplayer
-	opentext
-	checkflag ENGINE_MAP_CARD
-	iftrue .HaveMapCard
-	writetext TangeloTeacherText_NoMapCard
-	waitbutton
-	closetext
-	end
-
-.HaveMapCard:
-	writetext TangeloTeacherText_HaveMapCard
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer TangeloTeacherText
 
 TangeloYoungsterScript:
-	faceplayer
-	opentext
-	checkflag ENGINE_POKEDEX
-	iftrue .HavePokedex
-	writetext TangeloYoungsterText_NoPokedex
-	waitbutton
-	closetext
-	end
-
-.HavePokedex:
-	writetext TangeloYoungsterText_HavePokedex
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer TangeloYoungsterText
 
 TangeloIslandRareCandy:
 	itemball RARE_CANDY
@@ -214,7 +188,7 @@ TraceyWinLoss:
 	line "have a chance!"
 	done
 
-TangeloTeacherText_NoMapCard:
+TangeloTeacherText:
 	text "There are lots of"
 	line "TRAINERS on ROUTE"
 	cont "50."
@@ -224,29 +198,7 @@ TangeloTeacherText_NoMapCard:
 	cont "ORANGE CREW."
 	done
 
-TangeloTeacherText_HaveMapCard:
-	text "There are lots of"
-	line "TRAINERS on ROUTE"
-	cont "50."
-
-	para "They all plan on"
-	line "taking on the"
-	cont "ORANGE CREW."
-	done
-
-TangeloYoungsterText_NoPokedex:
-	text "The #MART is"
-	line "all the way over"
-	cont "here on the west"
-	cont "end of town."
-
-	para "What kind of man"
-	line "thought that was"
-	cont "a good place to"
-	cont "put it!?"
-	done
-
-TangeloYoungsterText_HavePokedex:
+TangeloYoungsterText:
 	text "The #MART is"
 	line "all the way over"
 	cont "here on the west"

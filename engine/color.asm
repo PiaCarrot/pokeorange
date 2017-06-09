@@ -1428,7 +1428,7 @@ PartyMenuOBPals:
 	RGB 20, 15, 03
 	RGB 07, 07, 07
 
-MalePokegearPals:
+MaleTownMapPals:
 	RGB 28, 31, 20
 	RGB 21, 21, 21
 	RGB 13, 13, 13
@@ -1460,7 +1460,7 @@ MalePokegearPals:
 	RGB 15, 07, 00
 	RGB 31, 00, 00
 
-FemalePokegearPals:
+FemaleTownMapPals:
 	RGB 28, 31, 20
 	RGB 21, 21, 21
 	RGB 13, 13, 13
@@ -1491,6 +1491,17 @@ FemalePokegearPals:
 	RGB 00, 31, 00
 	RGB 15, 07, 00
 	RGB 31, 00, 00
+
+TownMapOBPals:
+	RGB 28, 31, 16
+	RGB 31, 19, 10
+	RGB 18, 00, 18
+	RGB 00, 00, 00
+
+	RGB 28, 31, 16
+	RGB 31, 19, 10
+	RGB 31, 07, 01
+	RGB 00, 00, 00
 
 SlotMachinePals:
 	RGB 31, 31, 31

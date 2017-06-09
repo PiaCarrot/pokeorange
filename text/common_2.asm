@@ -177,11 +177,6 @@ UnknownText_0x1c03c2::
 	text "."
 	prompt
 
-_BadgeRequiredText::
-	text "Sorry! A new BADGE"
-	line "is required."
-	prompt
-
 UnknownText_0x1c05c8::
 UnknownText_0x1c0705::
 	text "Can't use that"

@@ -3,7 +3,6 @@
 	enum difficultbookshelf
 	enum picturebookshelf
 	enum magazinebookshelf
-	enum teamrocketoath
 	enum incenseburner
 	enum merchandiseshelf
 	enum townmap
@@ -16,8 +15,6 @@
 	enum smashrock
 	enum pokecentersign
 	enum martsign
-	enum goldenrodrockets
-	enum radiotowerrockets
 	enum elevatorbutton
 	enum daytotext
 	enum bugcontestresultswarp
@@ -26,7 +23,6 @@
 	enum gymstatue1
 	enum gymstatue2
 	enum receiveitem
-	enum receivetogepiegg
 	enum pcscript
 	enum gamecornercoinvendor
 	enum happinesschecknpc

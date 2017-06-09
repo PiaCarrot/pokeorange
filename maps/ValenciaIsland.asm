@@ -82,14 +82,17 @@ ValenciaIslandTeacherScript:
 
 ValenciaIslandFisherScript:
 if def(DEBUG)
-	setflag ENGINE_HIVEBADGE
-	setflag ENGINE_PLAINBADGE
-	setflag ENGINE_FOGBADGE
+	setflag ENGINE_CORAL_EYE_BADGE
+	setflag ENGINE_SEA_RUBY_BADGE
+	setflag ENGINE_SPIKE_SHELL_BADGE
+	setflag ENGINE_JADE_STAR_BADGE
 	giveitem RARE_CANDY, 99
 	opentext
-	givepoke MUK, 50, BERRY
-	givepoke BLASTOISE, 50, BERRY
-	givepoke CHARIZARD, 50, BERRY
+	givepoke CHARIZARD, 50, GOLD_BERRY
+	givepoke LAPRAS, 50, GOLD_BERRY
+	givepoke EXEGGUTOR, 50, GOLD_BERRY
+	givepoke MUK, 50, GOLD_BERRY
+	givepoke MEW, 50, GOLD_BERRY
 	closetext
 	warp SUNBURST_ISLAND, 8, 4
 	end
