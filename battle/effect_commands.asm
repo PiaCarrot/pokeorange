@@ -726,30 +726,26 @@ BattleCommand_CheckObedience: ; 343db
 
 .obeylevel
 	; The maximum obedience level is constrained by owned badges:
-	ld hl, JohtoBadges
+	ld hl, Badges
 
-	; risingbadge
-	bit RISINGBADGE, [hl]
+	bit JADE_STAR_BADGE, [hl]
 	ld a, MAX_LEVEL + 1
 	jr nz, .getlevel
 
-	; stormbadge
-	bit STORMBADGE, [hl]
-	ld a, 70
+	bit SPIKE_SHELL_BADGE, [hl]
+	ld a, 75
 	jr nz, .getlevel
 
-	; fogbadge
-	bit FOGBADGE, [hl]
-	ld a, 50
+	bit SEA_RUBY_BADGE, [hl]
+	ld a, 55
 	jr nz, .getlevel
 
-	; hivebadge
-	bit HIVEBADGE, [hl]
-	ld a, 30
+	bit CORAL_EYE_BADGE, [hl]
+	ld a, 35
 	jr nz, .getlevel
 
 	; no badges
-	ld a, 10
+	ld a, 20
 
 
 .getlevel
@@ -1389,12 +1385,6 @@ BattleCommand_Stab: ; 346d2
 	pop bc
 	pop de
 	pop hl
-
-	push de
-	push bc
-	farcall DoBadgeTypeBoosts
-	pop bc
-	pop de
 
 	ld a, [wTypeMatchup]
 	cp b
@@ -6326,9 +6316,6 @@ CalcPlayerStats: ; 365d7
 
 	ld a, 5
 	call CalcStats
-
-	ld hl, BadgeStatBoosts
-	call CallBattleCore
 
 	call BattleCommand_SwitchTurn
 

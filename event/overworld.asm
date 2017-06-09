@@ -47,22 +47,6 @@ CheckEngineFlag: ; c721
 	xor a
 	ret
 
-CheckBadge: ; c731
-; Check engine flag a (ENGINE_ZEPHYRBADGE thru ENGINE_EARTHBADGE)
-; Display "Badge required" text and return carry if the badge is not owned
-	call CheckEngineFlag
-	ret nc
-	ld hl, .BadgeRequiredText
-	call MenuTextBoxBackup ; push text to queue
-	scf
-	ret
-
-.BadgeRequiredText: ; c73d
-	; Sorry! A new BADGE
-	; is required.
-	text_jump _BadgeRequiredText
-	db "@"
-
 CheckPartyMove: ; c742
 ; Check if a monster in your party has move d.
 
@@ -134,9 +118,6 @@ CutFunction: ; c785
 	dw .FailCut
 
 .CheckAble: ; c79c (3:479c)
-;	ld de, ENGINE_HIVEBADGE
-;	call CheckBadge
-;	jr c, .nohivebadge
 	call CheckMapForSomethingToCut
 	jr c, .nothingtocut
 	ld a, $1
@@ -333,9 +314,6 @@ OWFlash: ; c8ac
 
 .CheckUseFlash: ; c8b5
 ; Flash
-	ld de, ENGINE_ZEPHYRBADGE
-	farcall CheckBadge
-	jr c, .nozephyrbadge
 	ld a, [wTimeOfDayPalset]
 	cp %11111111 ; 3, 3, 3, 3
 	jr nz, .notadarkcave
@@ -346,10 +324,6 @@ OWFlash: ; c8ac
 
 .notadarkcave
 	call FieldMoveFailed
-	ld a, $80
-	ret
-
-.nozephyrbadge
 	ld a, $80
 	ret
 
@@ -395,9 +369,6 @@ SurfFunction: ; c909
 	dw .AlreadySurfing
 
 .TrySurf: ; c922 (3:4922)
-;	ld de, ENGINE_FOGBADGE
-;	call CheckBadge
-;	jr c, .asm_c956
 	ld hl, BikeFlags
 	bit 1, [hl] ; always on bike
 	jr nz, .cannotsurf
@@ -415,9 +386,6 @@ SurfFunction: ; c909
 	farcall CheckFacingObject
 	jr c, .cannotsurf
 	ld a, $1
-	ret
-.asm_c956
-	ld a, $80
 	ret
 .alreadyfail
 	ld a, $3
@@ -546,10 +514,6 @@ TrySurfOW:: ; c9e7
 	call CheckDirection
 	jr c, .quit
 
-;	ld de, ENGINE_FOGBADGE
-;	call CheckEngineFlag
-;	jr c, .quit
-
 	ld d, SURF
 	call CheckPartyMove
 	jr c, .quit
@@ -602,9 +566,6 @@ FlyFunction: ; ca3b
 
 .TryFly: ; ca52
 ; Fly
-	ld de, ENGINE_STORMBADGE
-	call CheckBadge
-	jr c, .nostormbadge
 	call GetMapPermission
 	call CheckOutdoorMap
 	jr z, .outdoors
@@ -625,10 +586,6 @@ FlyFunction: ; ca3b
 	ld [wd001], a
 	call CloseWindow
 	ld a, $1
-	ret
-
-.nostormbadge
-	ld a, $82
 	ret
 
 .indoors
@@ -682,10 +639,6 @@ WaterfallFunction: ; cade
 
 .TryWaterfall: ; cae7
 ; Waterfall
-	ld de, ENGINE_RISINGBADGE
-	farcall CheckBadge
-	ld a, $80
-	ret c
 	call CheckMapCanWaterfall
 	jr c, .failed
 	ld hl, Script_WaterfallFromMenu
@@ -751,9 +704,6 @@ Script_UsedWaterfall: ; 0xcb20
 TryWaterfallOW:: ; cb56
 	ld d, WATERFALL
 	call CheckPartyMove
-	jr c, .failed
-	ld de, ENGINE_RISINGBADGE
-	call CheckEngineFlag
 	jr c, .failed
 	call CheckMapCanWaterfall
 	jr c, .failed
@@ -1014,17 +964,10 @@ StrengthFunction: ; cce5
 
 .TryStrength: ; ccee
 ; Strength
-	ld de, ENGINE_PLAINBADGE
-	call CheckBadge
-	jr c, .Failed
 .UseStrength: ; cd09
 	ld hl, Script_StrengthFromMenu
 	call QueueScript
 	ld a, $81
-	ret
-
-.Failed: ; cd06
-	ld a, $80
 	ret
 
 SetStrengthFlag: ; cd12
@@ -1102,10 +1045,6 @@ TryStrengthOW: ; cd78
 	call CheckPartyMove
 	jr c, .nope
 
-	ld de, ENGINE_PLAINBADGE
-	call CheckEngineFlag
-	jr c, .nope
-
 	ld hl, BikeFlags
 	bit 0, [hl]
 	jr z, .already_using
@@ -1141,9 +1080,6 @@ Jumptable_cdae: ; cdae
 	dw .FailWhirlpool
 
 .TryWhirlpool: ; cdb4
-	ld de, ENGINE_GLACIERBADGE
-	call CheckBadge
-	jr c, .noglacierbadge
 	call TryWhirlpoolMenu
 	jr c, .failed
 	ld a, $1
@@ -1151,10 +1087,6 @@ Jumptable_cdae: ; cdae
 
 .failed
 	ld a, $2
-	ret
-
-.noglacierbadge
-	ld a, $80
 	ret
 
 .DoWhirlpool: ; cdca
@@ -1234,9 +1166,6 @@ DisappearWhirlpool: ; ce1d
 TryWhirlpoolOW:: ; ce3e
 	ld d, WHIRLPOOL
 	call CheckPartyMove
-	jr c, .failed
-	ld de, ENGINE_GLACIERBADGE
-	call CheckEngineFlag
 	jr c, .failed
 	call TryWhirlpoolMenu
 	jr c, .failed
@@ -1807,10 +1736,6 @@ TryCutOW:: ; d186
 	ld d, CUT
 	call CheckPartyMove
 	jr c, .cant_cut
-
-;	ld de, ENGINE_HIVEBADGE
-;	call CheckEngineFlag
-;	jr c, .cant_cut
 
 	ld a, BANK(AskCutScript)
 	ld hl, AskCutScript

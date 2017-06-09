@@ -2395,17 +2395,7 @@ WinTrainerBattle: ; 3cfa4
 	call nz, .DoubleReward
 	call .CheckMaxedOutMomMoney
 	push af
-	ld a, $0
-	jr nc, .okay
-	ld a, [wMomSavingMoney]
-	and $7
-	cp $3
-	jr nz, .okay
-	inc a
-
-.okay
-	ld b, a
-	ld c, $4
+	ld bc, $4
 .loop
 	ld a, b
 	and a
@@ -2427,21 +2417,6 @@ WinTrainerBattle: ; 3cfa4
 	call .DoubleReward
 	call .DoubleReward
 	pop af
-	jr nc, .KeepItAll
-	ld a, [wMomSavingMoney]
-	and $7
-	jr z, .KeepItAll
-	ld hl, .SentToMomTexts
-	dec a
-	ld c, a
-	ld b, 0
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	jp StdBattleTextBox
-
 .KeepItAll:
 	ld hl, GotMoneyForWinningText
 	jp StdBattleTextBox
@@ -2479,12 +2454,6 @@ WinTrainerBattle: ; 3cfa4
 	ld [hl], a
 	ret
 ; 3d0ab
-
-.SentToMomTexts: ; 3d0ab
-	dw SentSomeToMomText
-	dw SentHalfToMomText
-	dw SentAllToMomText
-; 3d0b1
 
 .CheckMaxedOutMomMoney: ; 3d0b1
 	ld hl, wMomsMoney + 2
@@ -3401,13 +3370,13 @@ LoadEnemyPkmnToSwitchTo: ; 3d6ca
 	ld a, [CurPartySpecies]
 	cp SPINDA
 	jr nz, .skip_unown
-	ld a, [wFirstUnownSeen]
+	ld a, [wFirstSpindaSeen]
 	and a
 	jr nz, .skip_unown
 	ld hl, EnemyMonDVs
 	predef GetSpindaPattern
 	ld a, [SpindaPattern]
-	ld [wFirstUnownSeen], a
+	ld [wFirstSpindaSeen], a
 .skip_unown
 
 	ld hl, EnemyMonHP
@@ -3848,7 +3817,6 @@ InitBattleMon: ; 3da0d
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_ATK
 	call CopyBytes
 	call ApplyStatusEffectOnPlayerStats
-	call BadgeStatBoosts
 	ret
 ; 3da74
 
@@ -6682,92 +6650,6 @@ ApplyStatLevelMultiplier: ; 3ecb7
 	db  4,  1 ; 400%
 ; 3ed45
 
-BadgeStatBoosts: ; 3ed45
-; Raise BattleMon stats depending on which badges have been obtained.
-
-; Every other badge boosts a stat, starting from the first.
-
-; 	ZephyrBadge:  Attack
-; 	PlainBadge:   Speed
-; 	MineralBadge: Defense
-; 	GlacierBadge: Special Attack
-; 	RisingBadge:  Special Defense
-
-; The boosted stats are in order, except PlainBadge and MineralBadge's boosts are swapped.
-
-	ld a, [wLinkMode]
-	and a
-	ret nz
-
-	ld a, [JohtoBadges]
-
-; Swap badges 3 (PlainBadge) and 5 (MineralBadge).
-	ld d, a
-	and (1 << PLAINBADGE)
-	add a
-	add a
-	ld b, a
-	ld a, d
-	and (1 << MINERALBADGE)
-	rrca
-	rrca
-	ld c, a
-	ld a, d
-	and ((1 << ZEPHYRBADGE) | (1 << HIVEBADGE) | (1 << FOGBADGE) | (1 << STORMBADGE) | (1 << GLACIERBADGE) | (1 << RISINGBADGE))
-	or b
-	or c
-	ld b, a
-
-	ld hl, BattleMonAttack
-	ld c, 4
-.CheckBadge:
-	ld a, b
-	srl b
-	call c, BoostStat
-	inc hl
-	inc hl
-; Check every other badge.
-	srl b
-	dec c
-	jr nz, .CheckBadge
-; And the last one (RisingBadge) too.
-	srl a
-	call c, BoostStat
-	ret
-; 3ed7c
-
-BoostStat: ; 3ed7c
-; Raise stat at hl by 1/8.
-
-	ld a, [hli]
-	ld d, a
-	ld e, [hl]
-	srl d
-	rr e
-	srl d
-	rr e
-	srl d
-	rr e
-	ld a, [hl]
-	add e
-	ld [hld], a
-	ld a, [hl]
-	adc d
-	ld [hli], a
-
-; Cap at 999.
-	ld a, [hld]
-	sub 999 % $100
-	ld a, [hl]
-	sbc 999 / $100
-	ret c
-	ld a, 999 / $100
-	ld [hli], a
-	ld a, 999 % $100
-	ld [hld], a
-	ret
-; 3ed9f
-
 _LoadBattleFontsHPBar: ; 3ed9f
 	farcall LoadBattleFontsHPBar
 	ret
@@ -7178,7 +7060,6 @@ GiveExperiencePoints: ; 3ee3b
 	ld [wd265], a
 	call ApplyStatLevelMultiplierOnAllStats
 	farcall ApplyStatusEffectOnPlayerStats
-	farcall BadgeStatBoosts
 	farcall UpdatePlayerHUD
 	call EmptyBattleTextBox
 	call LoadTileMapToTempTileMap
@@ -8077,11 +7958,11 @@ InitEnemyWildmon: ; 3f607
 	ld a, [CurPartySpecies]
 	cp SPINDA
 	jr nz, .skip_unown
-	ld a, [wFirstUnownSeen]
+	ld a, [wFirstSpindaSeen]
 	and a
 	jr nz, .skip_unown
 	ld a, [SpindaPattern]
-	ld [wFirstUnownSeen], a
+	ld [wFirstSpindaSeen], a
 .skip_unown
 	ld de, VTiles2
 	predef FrontpicPredef
@@ -8117,7 +7998,7 @@ ExitBattle: ; 3f69e
 	xor a
 	ld [wForceEvolution], a
 	predef EvolveAfterBattle
-	farcall GivePokerusAndConvertBerries
+	farcall GivePokerus
 	ret
 ; 3f6d0
 

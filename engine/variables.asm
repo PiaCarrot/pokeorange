@@ -52,19 +52,12 @@ _GetVarAction:: ; 80648 (20:4648)
 	dwb .DayOfWeek,                     RETVAR_EXECUTE
 	dwb MapGroup,                       RETVAR_STRBUF2
 	dwb MapNumber,                      RETVAR_STRBUF2
-	dwb .UnownCaught,                   RETVAR_EXECUTE
 	dwb wPermission,                    RETVAR_STRBUF2
 	dwb .BoxFreeSpace,                  RETVAR_EXECUTE
 	dwb wBugContestMinsRemaining,       RETVAR_STRBUF2
 	dwb XCoord,                         RETVAR_STRBUF2
 	dwb YCoord,                         RETVAR_STRBUF2
-	dwb wSpecialPhoneCallID,            RETVAR_STRBUF2
-	dwb wNrOfBeatenBattleTowerTrainers, RETVAR_STRBUF2
-	dwb wKurtApricornQuantity,          RETVAR_STRBUF2
-	dwb wCurrentCaller,                 RETVAR_ADDR_DE
-	dwb wBlueCardBalance,               RETVAR_ADDR_DE
 	dwb wBuenasPassword,                RETVAR_ADDR_DE
-	dwb wKenjiBreakTimer,               RETVAR_STRBUF2
 	dwb NULL,                           RETVAR_STRBUF2
 ; 806c5
 
@@ -89,7 +82,7 @@ _GetVarAction:: ; 80648 (20:4648)
 .CountBadges: ; 806e1
 ; Number of owned badges.
 	ld hl, Badges
-	ld b, 2
+	ld b, 1
 	call CountSetBits
 	ld a, [wd265]
 	jp .loadstringbuffer2
@@ -109,26 +102,6 @@ _GetVarAction:: ; 80648 (20:4648)
 	call GetWeekday
 	jp .loadstringbuffer2
 ; 806ff
-
-.UnownCaught: ; 806ff
-; Number of unique Unown caught.
-	call .count
-	ld a, b
-	jp .loadstringbuffer2
-
-.count
-	ld hl, UnownDex
-	ld b, 0
-.loop
-	ld a, [hli]
-	and a
-	ret z
-	inc b
-	ld a, b
-	cp 26
-	jr c, .loop
-	ret
-; 80715
 
 .BoxFreeSpace: ; 80715
 ; Remaining slots in the current box.

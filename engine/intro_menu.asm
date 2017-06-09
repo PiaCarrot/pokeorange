@@ -165,8 +165,7 @@ _ResetWRAM: ; 5bae
 	xor a
 	ld [MonType], a
 
-	ld [JohtoBadges], a
-	ld [KantoBadges], a
+	ld [Badges], a
 
 	ld [Coins], a
 	ld [Coins + 1], a
@@ -539,8 +538,8 @@ Continue_UnknownGameTime: ; 5f48
 
 Continue_DisplayBadgeCount: ; 5f58
 	push hl
-	ld hl, JohtoBadges
-	ld b, 2
+	ld hl, Badges
+	ld b, 1
 	call CountSetBits
 	pop hl
 	ld de, wd265

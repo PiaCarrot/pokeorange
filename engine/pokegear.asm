@@ -237,15 +237,10 @@ LoadStation_BuenasPassword: ; 917a5 (24:57a5)
 	ld hl, PlayRadioShow
 	call Radio_BackUpFarCallParams
 	ld de, NotBuenasPasswordName
-	ld a, [StatusFlags2]
-	bit 0, a
-	ret z
-	ld de, BuenasPasswordName
 	ret
 
 ; 917c3 (24:57c3)
 
-BuenasPasswordName:    db "BUENA'S PASSWORD@"
 NotBuenasPasswordName: db "@"
 
 LoadStation_UnownRadio: ; 917d5 (24:57d5)

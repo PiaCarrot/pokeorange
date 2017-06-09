@@ -434,23 +434,6 @@ _SwarmWildmonCheck
 	ld hl, SwarmFlags
 	bit 2, [hl]
 	pop hl
-	jr z, .CheckYanma
-	ld a, [wDunsparceMapGroup]
-	cp d
-	jr nz, .CheckYanma
-	ld a, [wDunsparceMapNumber]
-	cp e
-	jr nz, .CheckYanma
-	call LookUpWildmonsForMapDE
-	jr nc, _NoSwarmWildmon
-	scf
-	ret
-
-.CheckYanma:
-	push hl
-	ld hl, SwarmFlags
-	bit 3, [hl]
-	pop hl
 	jr z, _NoSwarmWildmon
 	ld a, [wYanmaMapGroup]
 	cp d

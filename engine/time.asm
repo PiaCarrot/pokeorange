@@ -118,26 +118,8 @@ endr
 rept 4
 	ld [hli], a
 endr
-	ld hl, wKenjiBreakTimer
-	ld a, [hl]
-	and a
-	jr z, .RestartKenjiBreakCountdown
-	dec [hl]
-	jr nz, .DontRestartKenjiBreakCountdown
-.RestartKenjiBreakCountdown:
-	call Special_SampleKenjiBreakCountdown
-.DontRestartKenjiBreakCountdown:
 	jr RestartDailyResetTimer
 ; 11485
-
-Special_SampleKenjiBreakCountdown: ; 11485
-; Generate a random number between 3 and 6
-	call Random
-	and 3
-	add 3
-	ld [wKenjiBreakTimer], a
-	ret
-; 11490
 
 StartBugContestTimer: ; 11490
 	ld a, 20

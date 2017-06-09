@@ -1193,7 +1193,6 @@ wNamedObjectTypeBuffer:: ds 1
 wJumptableIndex::
 wBattleTowerBattleEnded::
 wcf63:: ds 1
-wNrOfBeatenBattleTowerTrainers::
 wMomBankDigitCursorPosition::
 wIntroSceneFrameCounter::
 wHoldingUnownPuzzlePiece::
@@ -2342,18 +2341,15 @@ Money:: ; d84e
 
 wMomsMoney:: ; d851
 	ds 3
-wMomSavingMoney:: ; d854
+
+wIsDST:: ; d854
 	ds 1
 
 Coins:: ; d855
 	ds 2
 
-Badges::
-JohtoBadges:: ; d857
-	flag_array 8
-KantoBadges:: ; d858
-	flag_array 8
-
+Badges:: ; d857
+	flag_array NUM_BADGES
 
 TMsHMs:: ; d859
 	ds NUM_TMS + NUM_HMS
@@ -2400,7 +2396,7 @@ PlayerState:: ; d95d
 	ds 1
 
 wHallOfFameCount:: ds 2
-wTradeFlags:: flag_array 6 ; d960
+wTradeFlags:: flag_array PARTY_LENGTH ; d960
 	ds 1
 MooMooBerries:: ; d962
 	ds 1 ; how many berries fed to MooMoo
@@ -2478,8 +2474,7 @@ wCurBox:: ; db72
 ; 8 chars + $50
 wBoxNames:: ds BOX_NAME_LENGTH * NUM_BOXES ; db75
 
-wCelebiEvent:: ds 1
-	ds 1
+	ds 4
 
 BikeFlags:: ; dbf5
 ; bit 0: using strength
@@ -2490,7 +2485,6 @@ BikeFlags:: ; dbf5
 	ds 1
 wCurrentMapTriggerPointer:: ds 2 ; dbf7
 
-wCurrentCaller:: ds 2 ; dbf9
 wCurrMapWarpCount:: ds 1 ; dbfb
 wCurrMapWarpHeaderPointer:: ds 2 ; dbfc
 wCurrentMapXYTriggerCount:: ds 1 ; dbfe
@@ -2541,9 +2535,7 @@ FruitTreeFlags:: flag_array NUM_FRUIT_TREES ; dc27
 	ds 2
 
 wLuckyNumberDayBuffer:: ds 2 ; dc2d
-	ds 2
-wSpecialPhoneCallID:: ds 1 ; dc31
-	ds 3
+	ds 6
 wBugContestStartTime:: ds 4 ; day, hour, min, sec ; dc35
 wUnusedTwoDayTimerOn:: ds 1 ; dc39
 wUnusedTwoDayTimer:: ds 1
@@ -2553,11 +2545,11 @@ wMobileOrCable_LastSelection:: ds 1
 wdc41:: ds 1
 wdc42:: ds 8
 wBuenasPassword:: ds 1
-wBlueCardBalance:: ds 1
+	ds 1
 wDailyRematchFlags:: ds 4
 wDailyPhoneItemFlags:: ds 4
 wDailyPhoneTimeOfDayFlags:: ds 4
-wKenjiBreakTimer:: ds 2 ; Kenji
+	ds 2
 wYanmaMapGroup:: ds 1 ; dc5a
 wYanmaMapNumber:: ds 1
 wPlayerMonSelection:: ds 3
@@ -2577,12 +2569,11 @@ wSafariBallsRemaining:: ds 1 ; dc79
 wSafariTimeRemaining:: ds 2 ; dc7a
 wPhoneList:: ds 10 ; dc7c
 ; dc86
-	ds 23
+	ds 24
 wLuckyNumberShowFlag:: ds 2 ; dc9d
 wLuckyIDNumber:: ds 2 ; dc9f
 wRepelEffect:: ds 1 ; If a Repel is in use, it contains the nr of steps it's still active
 wBikeStep:: ds 2
-wKurtApricornQuantity:: ds 1
 
 wPlayerDataEnd::
 
@@ -2660,12 +2651,9 @@ PokedexSeen:: ; deb9
 	flag_array NUM_POKEMON
 EndPokedexSeen::
 
-UnownDex:: ; ded9
-	ds 26
+	ds 27
 
-	ds 1
-
-wFirstUnownSeen:: ds 1
+wFirstSpindaSeen:: ds 1
 
 
 wDaycareMan:: ; def5
@@ -2704,8 +2692,6 @@ wEggMon::  box_struct wEggMon ; df7b
 wBugContestSecondPartySpecies:: ds 1
 wContestMon:: party_struct wContestMon ; df9c
 
-wDunsparceMapGroup:: ds 1
-wDunsparceMapNumber:: ds 1
 wFishingSwarmFlag:: ds 1
 
 wRoamMon1:: roam_struct wRoamMon1 ; dfcf
