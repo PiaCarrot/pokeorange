@@ -9,9 +9,7 @@
 	db NO_ITEM ; item 1
 	db MIRACLEBERRY ; item 2
 	db 255 ; gender
-	db 100 ; unknown
 	db 120 ; step cycles to hatch
-	db 5 ; unknown
 	dn 5, 5 ; frontpic dimensions
 
 	db MEDIUM_SLOW ; growth rate

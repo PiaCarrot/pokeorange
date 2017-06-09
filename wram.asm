@@ -2040,11 +2040,7 @@ BaseItems:: ; d241
 	ds 2
 BaseGender:: ; d243
 	ds 1
-BaseUnknown1:: ; d244
-	ds 1
 BaseEggSteps:: ; d245
-	ds 1
-BaseUnknown2:: ; d246
 	ds 1
 BasePicSize:: ; d247
 	ds 1
@@ -2055,7 +2051,7 @@ BaseEggGroups:: ; d24d
 BaseTMHM:: ; d24e
 	ds 8
 
-	ds 4
+	ds 6
 
 CurDamage:: ; d256
 	ds 2

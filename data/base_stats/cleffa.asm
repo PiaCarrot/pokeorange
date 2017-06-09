@@ -9,9 +9,7 @@
 	db MYSTERYBERRY ; item 1
 	db MOON_STONE ; item 2
 	db 191 ; gender
-	db 100 ; unknown
 	db 10 ; step cycles to hatch
-	db 5 ; unknown
 	dn 5, 5 ; frontpic dimensions
 
 	db FAST ; growth rate

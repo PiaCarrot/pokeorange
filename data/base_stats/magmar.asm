@@ -9,9 +9,7 @@
 	db BURNT_BERRY ; item 1
 	db BURNT_BERRY ; item 2
 	db 63 ; gender
-	db 100 ; unknown
 	db 25 ; step cycles to hatch
-	db 5 ; unknown
 	dn 6, 6 ; frontpic dimensions
 
 	db MEDIUM_FAST ; growth rate
