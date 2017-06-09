@@ -204,74 +204,9 @@ ENDM
 
 	engine_flag PlayerGender, 0 ; player is female
 
-	engine_flag wCelebiEvent, 2 ; have gs ball after kurt examined it
-
-	; rematches
-	engine_flag wDailyRematchFlags, 0 ; jack
-	engine_flag wDailyRematchFlags, 1 ; huey
-	engine_flag wDailyRematchFlags, 2 ; gaven
-	engine_flag wDailyRematchFlags, 3 ; beth
-	engine_flag wDailyRematchFlags, 4 ; jose
-	engine_flag wDailyRematchFlags, 5 ; reena
-	engine_flag wDailyRematchFlags, 6 ; joey
-	engine_flag wDailyRematchFlags, 7 ; wade
-	engine_flag wDailyRematchFlags + 1, 0 ; ralph
-	engine_flag wDailyRematchFlags + 1, 1 ; liz
-	engine_flag wDailyRematchFlags + 1, 2 ; anthony
-	engine_flag wDailyRematchFlags + 1, 3 ; todd
-	engine_flag wDailyRematchFlags + 1, 4 ; gina
-	engine_flag wDailyRematchFlags + 1, 5 ; arnie
-	engine_flag wDailyRematchFlags + 1, 6 ; alan
-	engine_flag wDailyRematchFlags + 1, 7 ; dana
-	engine_flag wDailyRematchFlags + 2, 0 ; chad
-	engine_flag wDailyRematchFlags + 2, 1 ; tully
-	engine_flag wDailyRematchFlags + 2, 2 ; brent
-	engine_flag wDailyRematchFlags + 2, 3 ; tiffany
-	engine_flag wDailyRematchFlags + 2, 4 ; vance
-	engine_flag wDailyRematchFlags + 2, 5 ; wilton
-	engine_flag wDailyRematchFlags + 2, 6 ; parry
-	engine_flag wDailyRematchFlags + 2, 7 ; erin
-
-	engine_flag wDailyPhoneItemFlags, 0 ; beverly has nugget
-	engine_flag wDailyPhoneItemFlags, 1 ; jose has star piece
-	engine_flag wDailyPhoneItemFlags, 2 ; wade has item (see EVENT_WADE_HAS_*** in constants/event_flags.asm)
-	engine_flag wDailyPhoneItemFlags, 3 ; gina has leaf stone
-	engine_flag wDailyPhoneItemFlags, 4 ; alan has fire stone
-	engine_flag wDailyPhoneItemFlags, 5 ; liz has thunderstone
-	engine_flag wDailyPhoneItemFlags, 6 ; derek has nugget
-	engine_flag wDailyPhoneItemFlags, 7 ; tully has water stone
-
-	engine_flag wDailyPhoneItemFlags + 1, 0 ; tiffany has pink bow
-	engine_flag wDailyPhoneItemFlags + 1, 1 ; wilton has item (see EVENT_WILTON_HAS_*** in constants/event_flags.asm)
-
-	engine_flag wDailyPhoneTimeOfDayFlags, 0
-	engine_flag wDailyPhoneTimeOfDayFlags, 1  ; $88
-	engine_flag wDailyPhoneTimeOfDayFlags, 2
-	engine_flag wDailyPhoneTimeOfDayFlags, 3
-	engine_flag wDailyPhoneTimeOfDayFlags, 4
-	engine_flag wDailyPhoneTimeOfDayFlags, 5
-	engine_flag wDailyPhoneTimeOfDayFlags, 6
-	engine_flag wDailyPhoneTimeOfDayFlags, 7
-
-	engine_flag wDailyPhoneTimeOfDayFlags + 1, 0
-	engine_flag wDailyPhoneTimeOfDayFlags + 1, 1  ; $90
-	engine_flag wDailyPhoneTimeOfDayFlags + 1, 2
-	engine_flag wDailyPhoneTimeOfDayFlags + 1, 3
-	engine_flag wDailyPhoneTimeOfDayFlags + 1, 4
-	engine_flag wDailyPhoneTimeOfDayFlags + 1, 5
-	engine_flag wDailyPhoneTimeOfDayFlags + 1, 6
-	engine_flag wDailyPhoneTimeOfDayFlags + 1, 7
-
-	engine_flag wDailyPhoneTimeOfDayFlags + 2, 0
-	engine_flag wDailyPhoneTimeOfDayFlags + 2, 1  ; $98
-	engine_flag wDailyPhoneTimeOfDayFlags + 2, 2
-	engine_flag wDailyPhoneTimeOfDayFlags + 2, 3
-	engine_flag wDailyPhoneTimeOfDayFlags + 2, 4
-	engine_flag wDailyPhoneTimeOfDayFlags + 2, 5
-	engine_flag wDailyPhoneTimeOfDayFlags + 2, 6
-	engine_flag wDailyPhoneTimeOfDayFlags + 2, 7
-
 	engine_flag wPlayerSpriteSetupFlags, 2 ; female player has been transformed into male
 
 	engine_flag SwarmFlags, 2 ; dunsparce swarm   ; $a0
 	engine_flag SwarmFlags, 3 ; yanma swarm
+
+	engine_flag wCelebiEvent, 2 ; have gs ball after kurt examined it

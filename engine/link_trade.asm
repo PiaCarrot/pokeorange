@@ -120,7 +120,7 @@ InitTradeSpeciesList: ; 16d673
 	call _LoadTradeScreenBorder
 	call Function16d6ae
 	farcall InitLinkTradePalMap
-	farcall PlaceTradePartnerNamesAndParty
+	call PlaceTradePartnerNamesAndParty
 	hlcoord 10, 17
 	ld de, .CANCEL
 	call PlaceString
@@ -144,11 +144,6 @@ LinkComms_LoadPleaseWaitTextboxBorderGFX: ; 16d69a
 	call Get2bpp
 	ret
 ; 16d6a7
-
-LoadTradeRoomBGPals_: ; 16d6a7
-	farcall LoadTradeRoomBGPals
-	ret
-; 16d6ae
 
 Function16d6ae: ; 16d6ae
 	call Function16d42e
@@ -361,3 +356,45 @@ LinkTradeMenu: ; 16d70c
 	scf
 	ret
 ; 16d7fe
+
+PlaceTradePartnerNamesAndParty: ; fb60d
+	hlcoord 4, 0
+	ld de, PlayerName
+	call PlaceString
+	ld a, $14
+	ld [bc], a
+	hlcoord 4, 8
+	ld de, OTPlayerName
+	call PlaceString
+	ld a, $14
+	ld [bc], a
+	hlcoord 7, 1
+	ld de, PartySpecies
+	call .PlaceSpeciesNames
+	hlcoord 7, 9
+	ld de, OTPartySpecies
+.PlaceSpeciesNames: ; fb634
+	ld c, $0
+.loop
+	ld a, [de]
+	cp -1
+	ret z
+	ld [wd265], a
+	push bc
+	push hl
+	push de
+	push hl
+	ld a, c
+	ld [hProduct], a
+	call GetPokemonName
+	pop hl
+	call PlaceString
+	pop de
+	inc de
+	pop hl
+	ld bc, SCREEN_WIDTH
+	add hl, bc
+	pop bc
+	inc c
+	jr .loop
+; fb656

@@ -662,9 +662,6 @@ StatsScreen_LoadGFX: ; 4dfb6 (13:5fb6)
 	ld a, [TempMonItem]
 	and a
 	ret z
-	ld b, a
-	farcall TimeCapsule_ReplaceTeruSama
-	ld a, b
 	ld [wd265], a
 	call GetItemName
 	ret

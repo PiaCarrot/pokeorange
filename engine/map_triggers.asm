@@ -11,7 +11,6 @@ ENDM
 	trigger_def POKECENTER_2F,              wPokecenter2FTrigger
 	trigger_def TRADE_CENTER,               wTradeCenterTrigger
 	trigger_def COLOSSEUM,                  wColosseumTrigger
-	trigger_def TIME_CAPSULE,               wTimeCapsuleTrigger
 	trigger_def HALL_OF_FAME,               wHallOfFameTrigger
 	trigger_def KRISS_HOUSE_1F,             wKrissHouse1FTrigger
 	trigger_def VALENCIA_ISLAND,            wValenciaIslandTrigger

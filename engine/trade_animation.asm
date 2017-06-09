@@ -1273,9 +1273,6 @@ TradeAnim_AnimateTrademonInTube: ; 29676 (a:5676)
 ; 29701 (a:5701)
 
 TradeAnim_SentToOTText: ; 29701
-	ld a, [wLinkMode]
-	cp LINK_TIMECAPSULE
-	jr z, .time_capsule
 	ld hl, .Text_MonName
 	call PrintText
 	ld c, 189
@@ -1285,13 +1282,6 @@ TradeAnim_SentToOTText: ; 29701
 	call TradeAnim_Wait80Frames
 	ld c, 128
 	call DelayFrames
-	call TradeAnim_AdvanceScriptPointer
-	ret
-
-.time_capsule
-	ld hl, .Text_WasSentTo
-	call PrintText
-	call TradeAnim_Wait80Frames
 	call TradeAnim_AdvanceScriptPointer
 	ret
 

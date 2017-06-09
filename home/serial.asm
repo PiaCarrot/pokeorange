@@ -330,14 +330,9 @@ WaitLinkTransfer:: ; 87d
 
 LinkTransfer:: ; 8c1
 	push bc
-	ld b, SERIAL_TIMECAPSULE
-	ld a, [wLinkMode]
-	cp LINK_TIMECAPSULE
-	jr z, .got_high_nybble
-	ld b, SERIAL_TIMECAPSULE
-	jr c, .got_high_nybble
-	cp LINK_TRADECENTER
 	ld b, SERIAL_TRADECENTER
+	ld a, [wLinkMode]
+	cp LINK_TRADECENTER
 	jr z, .got_high_nybble
 	ld b, SERIAL_BATTLE
 

@@ -885,18 +885,6 @@ wLinkPartyCount:: ds 1
 wLinkPartySpecies:: ds PARTY_LENGTH
 wLinkPartySpeciesEnd:: ds 1
 
-wTimeCapsulePlayerData::
-wTimeCapsulePartyMon1:: red_party_struct wTimeCapsulePartyMon1
-wTimeCapsulePartyMon2:: red_party_struct wTimeCapsulePartyMon2
-wTimeCapsulePartyMon3:: red_party_struct wTimeCapsulePartyMon3
-wTimeCapsulePartyMon4:: red_party_struct wTimeCapsulePartyMon4
-wTimeCapsulePartyMon5:: red_party_struct wTimeCapsulePartyMon5
-wTimeCapsulePartyMon6:: red_party_struct wTimeCapsulePartyMon6
-wTimeCapsulePartyMonOTNames:: ds PARTY_LENGTH * NAME_LENGTH
-wTimeCapsulePartyMonNicks:: ds PARTY_LENGTH * PKMN_NAME_LENGTH
-wTimeCapsulePlayerDataEnd::
-	ds wTimeCapsulePlayerData - @
-
 wLinkPlayerData::
 wLinkPlayerPartyMon1:: party_struct wLinkPlayerPartyMon1
 wLinkPlayerPartyMon2:: party_struct wLinkPlayerPartyMon2
@@ -2052,11 +2040,7 @@ BaseItems:: ; d241
 	ds 2
 BaseGender:: ; d243
 	ds 1
-BaseUnknown1:: ; d244
-	ds 1
 BaseEggSteps:: ; d245
-	ds 1
-BaseUnknown2:: ; d246
 	ds 1
 BasePicSize:: ; d247
 	ds 1
@@ -2067,7 +2051,7 @@ BaseEggGroups:: ; d24d
 BaseTMHM:: ; d24e
 	ds 8
 
-	ds 4
+	ds 6
 
 CurDamage:: ; d256
 	ds 2
@@ -2433,7 +2417,6 @@ FarfetchdPosition:: ; d964
 wPokecenter2FTrigger::           ds 1
 wTradeCenterTrigger::            ds 1
 wColosseumTrigger::              ds 1
-wTimeCapsuleTrigger::            ds 1
 wHallOfFameTrigger::             ds 1
 wKrissHouse1FTrigger::           ds 1
 wValenciaIslandTrigger::         ds 1

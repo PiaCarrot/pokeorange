@@ -9,9 +9,7 @@
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 191 ; gender
-	db 100 ; unknown
 	db 10 ; step cycles to hatch
-	db 5 ; unknown
 	dn 6, 6 ; frontpic dimensions
 
 	db FAST ; growth rate

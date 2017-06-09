@@ -9,9 +9,7 @@
 	db MINT_BERRY ; item 1
 	db NO_ITEM ; item 2
 	db 128 ; gender
-	db 100 ; unknown
 	db 40 ; step cycles to hatch
-	db 5 ; unknown
 	dn 6, 6 ; frontpic dimensions
 
 	db MEDIUM_FAST ; growth rate

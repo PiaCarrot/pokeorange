@@ -157,10 +157,6 @@ EvolveAfterBattle_MasterLoop
 	inc a
 	jr z, .proceed
 
-	ld a, [wLinkMode]
-	cp LINK_TIMECAPSULE
-	jp z, .dont_evolve_3
-
 	ld a, [TempMonItem]
 	cp b
 	jp nz, .dont_evolve_3
@@ -305,15 +301,6 @@ EvolveAfterBattle_MasterLoop
 	dec a
 	call SetSeenAndCaughtMon
 
-	ld a, [wd265]
-	cp SPINDA
-	jr nz, .skip_unown
-
-	ld hl, TempMonDVs
-	predef GetSpindaPattern
-	farcall UpdateUnownDex
-
-.skip_unown
 	pop de
 	pop hl
 	ld a, [TempMonSpecies]
