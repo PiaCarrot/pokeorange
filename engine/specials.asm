@@ -113,7 +113,6 @@ SpecialsPointers:: ; c029
 	add_special SpecialMonCheck
 	add_special Special_SetPlayerPalette
 	add_special RefreshSprites
-	add_special AskRememberPassword
 	add_special LoadMapPalettes
 	add_special Special_InitialSetDSTFlag
 	add_special Special_InitialClearDSTFlag

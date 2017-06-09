@@ -57,7 +57,6 @@ _GetVarAction:: ; 80648 (20:4648)
 	dwb wBugContestMinsRemaining,       RETVAR_STRBUF2
 	dwb XCoord,                         RETVAR_STRBUF2
 	dwb YCoord,                         RETVAR_STRBUF2
-	dwb wBuenasPassword,                RETVAR_ADDR_DE
 	dwb NULL,                           RETVAR_STRBUF2
 ; 806c5
 

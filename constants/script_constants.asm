@@ -22,7 +22,6 @@ LAST_TALKED EQU -2
 	const VAR_CONTESTMINUTES   ; 11
 	const VAR_XCOORD           ; 12
 	const VAR_YCOORD           ; 13
-	const VAR_BUENASPASSWORD   ; 19
 NUM_VARS EQU const_value       ; 1b
 
 RETVAR_STRBUF2 EQU (0 << 6)

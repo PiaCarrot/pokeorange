@@ -2544,8 +2544,7 @@ wUnusedTwoDayTimerStartDate:: ds 1
 wMobileOrCable_LastSelection:: ds 1
 wdc41:: ds 1
 wdc42:: ds 8
-wBuenasPassword:: ds 1
-	ds 1
+	ds 2
 wDailyRematchFlags:: ds 4
 wDailyPhoneItemFlags:: ds 4
 wDailyPhoneTimeOfDayFlags:: ds 4
