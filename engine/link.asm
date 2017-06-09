@@ -1934,3 +1934,71 @@ Functionfb5dd: ; fb5dd
 	and a
 	ret
 ; fb60d
+
+_LinkBattleSendReceiveAction: ; 100a09
+; Note that only the lower 4 bits is usable. The higher 4 determines what kind of
+; linking we are performing.
+	call .StageForSend
+	ld [wd431], a
+	farcall PlaceWaitingText
+	call .LinkBattle_SendReceiveAction
+	ret
+; 100a2e
+
+.StageForSend: ; 100a2e
+	ld a, [wPlayerAction]
+	and a
+	jr nz, .switch
+	ld a, [CurPlayerMove]
+	ld b, BATTLEACTION_E
+	cp STRUGGLE
+	jr z, .struggle
+	ld b, BATTLEACTION_D
+	cp $ff
+	jr z, .struggle
+	ld a, [CurMoveNum]
+	jr .use_move
+
+.switch
+	ld a, [CurPartyMon]
+	add BATTLEACTION_SWITCH1
+	jr .use_move
+
+.struggle
+	ld a, b
+
+.use_move
+	and $0f
+	ret
+; 100a53
+
+.LinkBattle_SendReceiveAction: ; 100a53
+	ld a, [wd431]
+	ld [wPlayerLinkAction], a
+	ld a, $ff
+	ld [wOtherPlayerLinkAction], a
+.waiting
+	call LinkTransfer
+	call DelayFrame
+	ld a, [wOtherPlayerLinkAction]
+	inc a
+	jr z, .waiting
+
+	ld b, 10
+.receive
+	call DelayFrame
+	call LinkTransfer
+	dec b
+	jr nz, .receive
+
+	ld b, 10
+.acknowledge
+	call DelayFrame
+	call LinkDataReceived
+	dec b
+	jr nz, .acknowledge
+
+	ld a, [wOtherPlayerLinkAction]
+	ld [wBattleAction], a
+	ret
+; 100a87
