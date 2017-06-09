@@ -772,18 +772,11 @@ wNamingScreenLastCharacter:: ds 1 ; c6d7
 wNamingScreenStringEntryCoord:: ds 2 ; c6d8
 	ds wc6d0 - @
 
-; pokegear
-wPokegearPhoneLoadNameBuffer:: ds 1 ; c6d0
-wPokegearPhoneCursorPosition:: ds 1 ; c6d1
-wPokegearPhoneScrollPosition:: ds 1 ; c6d2
-wPokegearPhoneSelectedPerson:: ds 1 ; c6d3
-wPokegearPhoneSubmenuCursor:: ds 1 ; c6d4
-wPokegearMapCursorObjectPointer:: ds 2 ; c6d5
-wPokegearMapCursorLandmark:: ds 1 ; c6d7
-wPokegearMapPlayerIconLandmark:: ds 1 ; c6d8
-wPokegearRadioChannelBank:: ds 1 ; c6d9
-wPokegearRadioChannelAddr:: ds 2 ; c6da
-wPokegearRadioMusicPlaying:: ds 1 ; c6dc
+; radio
+	ds 9
+wRadioChannelBank:: ds 1 ; c6d9
+wRadioChannelAddr:: ds 2 ; c6da
+wRadioMusicPlaying:: ds 1 ; c6dc
 	ds wc6d0 - @
 
 wSlots::
@@ -2377,16 +2370,8 @@ PCItems:: ; d8f1
 	ds MAX_PC_ITEMS * 2 + 1
 PCItemsEnd::
 
-	ds 1
+	ds 5
 
-wPokegearFlags:: ds 1
-; bit 0: map
-; bit 1: radio
-; bit 2: phone
-; bit 3: expn
-; bit 7: on/off
-wRadioTuningKnob:: ds 1
-wLastDexMode:: ds 2
 WhichRegisteredItem:: ; d95b
 	ds 1
 RegisteredItem:: ; d95c
@@ -2397,15 +2382,11 @@ PlayerState:: ; d95d
 
 wHallOfFameCount:: ds 2
 wTradeFlags:: flag_array PARTY_LENGTH ; d960
-	ds 1
-MooMooBerries:: ; d962
-	ds 1 ; how many berries fed to MooMoo
+
 UndergroundSwitchPositions:: ; d963
 	ds 1 ; which positions the switches are in
-FarfetchdPosition:: ; d964
-	ds 1 ; which position the ilex farfetch'd is in
 
-	ds 13
+	ds 16
 
 
 ;SECTION "Map Triggers", WRAMX, BANK [1]

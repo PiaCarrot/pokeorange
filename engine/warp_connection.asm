@@ -295,7 +295,7 @@ LoadGraphics: ; 1047cf
 	ret
 
 LoadMapPalettes: ; 1047eb
-	ld b, SCGB_MAPPALS
+	ld b, SCGB_MAP_PALS
 	jp GetSGBLayout
 ; 1047f0
 

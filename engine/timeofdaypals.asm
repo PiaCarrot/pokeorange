@@ -65,7 +65,7 @@ _TimeOfDayPals:: ; 8c011
 
 
 ; update sgb pals
-	ld b, SCGB_MAPPALS
+	ld b, SCGB_MAP_PALS
 	call GetSGBLayout
 
 

@@ -1,17 +1,17 @@
-ExitPokegearRadio_HandleMusic: ; 91492
-	ld a, [wPokegearRadioMusicPlaying]
+ExitRadio_HandleMusic: ; 91492
+	ld a, [wRadioMusicPlaying]
 	cp $fe
 	jr z, .restart_map_music
 	cp $ff
 	call z, EnterMapMusic
 	xor a
-	ld [wPokegearRadioMusicPlaying], a
+	ld [wRadioMusicPlaying], a
 	ret
 
 .restart_map_music
 	call RestartMapMusic
 	xor a
-	ld [wPokegearRadioMusicPlaying], a
+	ld [wRadioMusicPlaying], a
 	ret
 
 ; 914ab
@@ -97,7 +97,7 @@ LoadStation_PokeFluteRadio: ; 91829 (24:5829)
 RadioMusicRestartDE: ; 91854 (24:5854)
 	push de
 	ld a, e
-	ld [wPokegearRadioMusicPlaying], a
+	ld [wRadioMusicPlaying], a
 	ld de, MUSIC_NONE
 	call PlayMusic
 	pop de
@@ -109,7 +109,7 @@ RadioMusicRestartDE: ; 91854 (24:5854)
 RadioMusicRestartPokemonChannel: ; 91868 (24:5868)
 	push de
 	ld a, $fe
-	ld [wPokegearRadioMusicPlaying], a
+	ld [wRadioMusicPlaying], a
 	ld de, MUSIC_NONE
 	call PlayMusic
 	pop de
@@ -118,20 +118,20 @@ RadioMusicRestartPokemonChannel: ; 91868 (24:5868)
 	ret
 
 Radio_BackUpFarCallParams: ; 9187c (24:587c)
-	ld [wPokegearRadioChannelBank], a
+	ld [wRadioChannelBank], a
 	ld a, l
-	ld [wPokegearRadioChannelAddr], a
+	ld [wRadioChannelAddr], a
 	ld a, h
-	ld [wPokegearRadioChannelAddr + 1], a
+	ld [wRadioChannelAddr + 1], a
 	ret
 
 NoRadioStation: ; 91888 (24:5888)
 	call NoRadioMusic
 	call NoRadioName
 	xor a
-	ld [wPokegearRadioChannelBank], a
-	ld [wPokegearRadioChannelAddr], a
-	ld [wPokegearRadioChannelAddr + 1], a
+	ld [wRadioChannelBank], a
+	ld [wRadioChannelAddr], a
+	ld [wRadioChannelAddr + 1], a
 	ld a, $1
 	ld [hBGMapMode], a
 	ret
@@ -140,7 +140,7 @@ NoRadioMusic: ; 9189d (24:589d)
 	ld de, MUSIC_NONE
 	call PlayMusic
 	ld a, $ff
-	ld [wPokegearRadioMusicPlaying], a
+	ld [wRadioMusicPlaying], a
 	ret
 
 NoRadioName: ; 918a9 (24:58a9)
@@ -178,11 +178,11 @@ PlayRadio: ; 91a53
 	ld a, [hJoyPressed]
 	and A_BUTTON | B_BUTTON
 	jr nz, .stop
-	ld a, [wPokegearRadioChannelAddr]
+	ld a, [wRadioChannelAddr]
 	ld l, a
-	ld a, [wPokegearRadioChannelAddr + 1]
+	ld a, [wRadioChannelAddr + 1]
 	ld h, a
-	ld a, [wPokegearRadioChannelBank]
+	ld a, [wRadioChannelBank]
 	and a
 	jr z, .zero
 	rst FarCall
@@ -193,7 +193,7 @@ PlayRadio: ; 91a53
 .stop
 	pop af
 	ld [Options], a
-	call ExitPokegearRadio_HandleMusic
+	call ExitRadio_HandleMusic
 	ret
 
 ; 91a87

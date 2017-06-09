@@ -42,7 +42,7 @@ INCBIN "gfx/battle/expbar.2bpp"
 ; f8ba0
 
 TownMapGFX: ; f8ba0
-INCBIN "gfx/misc/town_map.2bpp.lz"
+INCBIN "gfx/town_map/town_map.2bpp.lz"
 ; f8ea4
 
 TextBoxSpaceGFX: ; f9204

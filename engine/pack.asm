@@ -1371,7 +1371,7 @@ ClearPocketList: ; 10a36 (4:4a36)
 
 Pack_InitColors: ; 10a40
 	call WaitBGMap
-	ld b, SCGB_PACKPALS
+	ld b, SCGB_PACK_PALS
 	call GetSGBLayout
 	call SetPalettes
 	call DelayFrame

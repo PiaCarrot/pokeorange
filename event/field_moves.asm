@@ -12,7 +12,7 @@ BlindingFlash: ; 8c7e1
 	set 2, [hl] ; Flash
 	farcall ReplaceTimeOfDayPals
 	farcall UpdateTimeOfDayPal
-	ld b, SCGB_MAPPALS
+	ld b, SCGB_MAP_PALS
 	call GetSGBLayout
 	farcall LoadOW_BGPal7
 	farcall FadeInPalettes
