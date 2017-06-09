@@ -1,3 +1,5 @@
+INCLUDE "engine/trade_animation.asm"
+
 LinkCommunications: ; 28000
 	call ClearBGPalettes
 	ld c, 80
@@ -1451,12 +1453,10 @@ LoadTradeScreenBorder: ; 28ef8
 ; 28eff
 
 SetTradeRoomBGPals: ; 28eff
-	farcall LoadTradeRoomBGPals_ ; just a nested farcall; so wasteful
+	farcall LoadTradeRoomBGPals
 	call SetPalettes
 	ret
 ; 28f09
-
-INCLUDE "engine/trade/animation.asm"
 
 WaitForOtherPlayerToExit: ; 29c92
 	ld c, 3

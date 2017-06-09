@@ -534,7 +534,7 @@ INCLUDE "engine/mart.asm"
 INCLUDE "engine/money.asm"
 INCLUDE "items/marts.asm"
 INCLUDE "event/daycare.asm"
-INCLUDE "engine/breeding/egg.asm"
+INCLUDE "engine/breeding.asm"
 
 SECTION "Tileset Data 1", ROMX, BANK[TILESETS_1]
 
@@ -4545,7 +4545,6 @@ SECTION "bank3E", ROMX, BANK[$3E]
 
 INCLUDE "gfx/font.asm"
 INCLUDE "event/name_rater.asm"
-INCLUDE "engine/unowndex.asm"
 INCLUDE "event/magikarp.asm"
 
 INCLUDE "battle/hidden_power.asm"

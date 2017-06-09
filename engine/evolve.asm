@@ -301,15 +301,6 @@ EvolveAfterBattle_MasterLoop
 	dec a
 	call SetSeenAndCaughtMon
 
-	ld a, [wd265]
-	cp SPINDA
-	jr nz, .skip_unown
-
-	ld hl, TempMonDVs
-	predef GetSpindaPattern
-	farcall UpdateUnownDex
-
-.skip_unown
 	pop de
 	pop hl
 	ld a, [TempMonSpecies]

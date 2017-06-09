@@ -290,7 +290,7 @@ endr
 	ld bc, 2 * 6 ; MaxHP + 5 Stats
 	call CopyBytes
 	pop hl
-	jr .next3
+	jr .done
 
 .generatestats
 	pop hl
@@ -298,21 +298,6 @@ endr
 	add hl, bc
 	ld b, $0 ; if b = 1, then stat calculation takes stat exp into account.
 	call CalcPkmnStats
-
-.next3
-	ld a, [MonType]
-	and $f
-	jr nz, .done
-	ld a, [CurPartySpecies]
-	cp SPINDA
-	jr nz, .done
-	ld hl, PartyMon1DVs
-	ld a, [PartyCount]
-	dec a
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
-	predef GetSpindaPattern
-	farcall UpdateUnownDex
 
 .done
 	scf ; When this function returns, the carry flag indicates success vs failure.
@@ -403,7 +388,7 @@ AddTempmonToParty: ; da96
 	ld a, [CurPartySpecies]
 	ld [wNamedObjectIndexBuffer], a
 	cp EGG
-	jr z, .egg
+	jr z, .done
 	dec a
 	call SetSeenAndCaughtMon
 	ld hl, PartyMon1Happiness
@@ -412,25 +397,8 @@ AddTempmonToParty: ; da96
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
 	ld [hl], BASE_HAPPINESS
-.egg
 
-	ld a, [CurPartySpecies]
-	cp SPINDA
-	jr nz, .done
-	ld hl, PartyMon1DVs
-	ld a, [PartyCount]
-	dec a
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
-	predef GetSpindaPattern
-	farcall UpdateUnownDex
-	ld a, [wFirstUnownSeen]
-	and a
-	jr nz, .done
-	ld a, [SpindaPattern]
-	ld [wFirstUnownSeen], a
 .done
-
 	and a
 	ret
 
@@ -1006,14 +974,7 @@ SentPkmnIntoBox: ; de6e
 	ld a, [CurPartySpecies]
 	dec a
 	call SetSeenAndCaughtMon
-	ld a, [CurPartySpecies]
-	cp SPINDA
-	jr nz, .not_unown
-	ld hl, sBoxMon1DVs
-	predef GetSpindaPattern
-	farcall UpdateUnownDex
 
-.not_unown
 	ld hl, sBoxMon1Moves
 	ld de, TempMonMoves
 	ld bc, NUM_MOVES

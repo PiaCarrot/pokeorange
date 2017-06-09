@@ -145,11 +145,6 @@ LinkComms_LoadPleaseWaitTextboxBorderGFX: ; 16d69a
 	ret
 ; 16d6a7
 
-LoadTradeRoomBGPals_: ; 16d6a7
-	farcall LoadTradeRoomBGPals
-	ret
-; 16d6ae
-
 Function16d6ae: ; 16d6ae
 	call Function16d42e
 	ld hl, Tilemap_16d5cd
