@@ -63,7 +63,6 @@ ItemEffects: ; e73c
 	dw SodaPop
 	dw Lemonade
 	dw XAttack
-	dw Item32
 	dw XDefend
 	dw XSpeed
 	dw XSpecial
@@ -79,16 +78,11 @@ ItemEffects: ; e73c
 	dw Ether
 	dw MaxEther
 	dw Elixer
-	dw RedScale
-	dw Secretpotion
-	dw SSTicket
-	dw MysteryEgg
-	dw ClearBell
+	dw OddCrystal
 	dw SilverWing
 	dw MoomooMilk
 	dw QuickClaw
 	dw Psncureberry
-	dw GoldLeaf
 	dw SoftSand
 	dw SharpBeak
 	dw Przcureberry
@@ -103,7 +97,6 @@ ItemEffects: ; e73c
 	dw BigMushroom
 	dw Silverpowder
 	dw BluApricorn
-	dw Item5A
 	dw AmuletCoin
 	dw YlwApricorn
 	dw GrnApricorn
@@ -113,10 +106,8 @@ ItemEffects: ; e73c
 	dw WhtApricorn
 	dw Blackbelt
 	dw BlkApricorn
-	dw Item64
 	dw PnkApricorn
 	dw Blackglasses
-	dw Slowpoketail
 	dw PinkBow
 	dw Stick
 	dw SmokeBall
@@ -127,72 +118,62 @@ ItemEffects: ; e73c
 	dw BigPearl
 	dw Everstone
 	dw SpellTag
-	dw Ragecandybar
-	dw GsBall
-	dw BlueCard
+	dw SweetOrange
+	dw GSBall
 	dw MiracleSeed
 	dw ThickClub
 	dw FocusBand
-	dw Item78
 	dw Energypowder
 	dw EnergyRoot
 	dw HealPowder
 	dw RevivalHerb
 	dw HardStone
 	dw LuckyEgg
-	dw CardKey
-	dw MachinePart
-	dw EggTicket
-	dw LostItem
 	dw Stardust
 	dw StarPiece
-	dw BasementKey
-	dw Pass
-	dw Item87
-	dw Item88
-	dw Item89
 	dw Charcoal
 	dw BerryJuice
 	dw ScopeLens
-	dw Item8D
-	dw Item8E
 	dw MetalCoat
 	dw DragonFang
-	dw Item91
 	dw Leftovers
-	dw Item93
-	dw Item94
-	dw Item95
 	dw Mysteryberry
 	dw DragonScale
 	dw BerserkGene
-	dw Item99
-	dw Item9A
-	dw Item9B
 	dw SacredAsh
 	dw HeavyBall
 	dw FlowerMail
 	dw LevelBall
 	dw LureBall
 	dw FastBall
-	dw ItemA2
 	dw LightBall
 	dw FriendBall
 	dw MoonBall
 	dw LoveBall
-	dw NormalBox
-	dw GorgeousBox
 	dw SunStone
 	dw PolkadotBow
-	dw ItemAB
 	dw UpGrade
 	dw Berry
 	dw GoldBerry
 	dw Squirtbottle
-	dw ItemB0
 	dw ParkBall
 	dw RainbowWing
-	dw ItemB3
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
+	dw TeruSama
 ; e8a2
 
 
@@ -706,7 +687,6 @@ BallMultiplierFunctionTable:
 ; which ball is used in a certain situation.
 	dbw ULTRA_BALL,  UltraBallMultiplier
 	dbw GREAT_BALL,  GreatBallMultiplier
-	dbw SAFARI_BALL, SafariBallMultiplier ; Safari Ball, leftover from RBY
 	dbw HEAVY_BALL,  HeavyBallMultiplier
 	dbw LEVEL_BALL,  LevelBallMultiplier
 	dbw LURE_BALL,   LureBallMultiplier
@@ -723,7 +703,6 @@ UltraBallMultiplier:
 	ld b, $ff
 	ret
 
-SafariBallMultiplier:
 GreatBallMultiplier:
 ParkBallMultiplier:
 ; multiply catch rate by 1.5
@@ -1738,7 +1717,7 @@ FreshWater:
 SodaPop:
 Lemonade:
 MoomooMilk:
-Ragecandybar:
+SweetOrange:
 BerryJuice:
 Berry:
 GoldBerry: ; f186
@@ -2120,7 +2099,7 @@ GetHealingItemAmount: ; f395 (3:7395)
 	dbw GOLD_BERRY,    30
 	dbw ENERGYPOWDER,  50
 	dbw ENERGY_ROOT,  200
-	dbw RAGECANDYBAR,  20
+	dbw SWEET_ORANGE,  20
 	dbw BERRY_JUICE,   20
 	dbw -1,             0
 ; f3df
@@ -2747,15 +2726,6 @@ Squirtbottle: ; f73e
 ; f745
 
 
-CardKey: ; f745
-BasementKey: ; f74c
-NormalBox: ; f763
-GorgeousBox: ; f767
-BlueCard: ; f58f
-	ret
-; f74c
-
-
 SacredAsh: ; f753
 	farcall _SacredAsh
 	ld a, [wItemEffectSucceeded]
@@ -2828,17 +2798,11 @@ Brightpowder:
 LuckyPunch:
 MetalPowder:
 Nugget:
-Item32:
 ExpShare:
 SilverLeaf:
-RedScale:
-Secretpotion:
-SSTicket:
-MysteryEgg:
-ClearBell:
+OddCrystal:
 SilverWing:
 QuickClaw:
-GoldLeaf:
 SoftSand:
 SharpBeak:
 PoisonBarb:
@@ -2848,7 +2812,6 @@ Tinymushroom:
 BigMushroom:
 Silverpowder:
 BluApricorn:
-Item5A:
 AmuletCoin:
 YlwApricorn:
 GrnApricorn:
@@ -2858,7 +2821,6 @@ Twistedspoon:
 WhtApricorn:
 Blackbelt:
 BlkApricorn:
-Item64:
 PnkApricorn:
 Blackglasses:
 Slowpoketail:
@@ -2871,47 +2833,26 @@ Pearl:
 BigPearl:
 Everstone:
 SpellTag:
-GsBall:
+GSBall:
 MiracleSeed:
 ThickClub:
 FocusBand:
-Item78:
 HardStone:
 LuckyEgg:
-MachinePart:
-EggTicket:
-LostItem:
 Stardust:
 StarPiece:
-Pass:
-Item87:
-Item88:
-Item89:
 Charcoal:
 ScopeLens:
-Item8D:
-Item8E:
 MetalCoat:
 DragonFang:
-Item91:
 Leftovers:
-Item93:
-Item94:
-Item95:
 DragonScale:
 BerserkGene:
-Item99:
-Item9A:
-Item9B:
 FlowerMail:
-ItemA2:
 LightBall:
 PolkadotBow:
-ItemAB:
 UpGrade:
-ItemB0:
 RainbowWing:
-ItemB3:
 TeruSama: ; f77d
 	jp IsntTheTimeMessage
 ; f780

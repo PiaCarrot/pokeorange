@@ -72,7 +72,7 @@ SunburstMart2: ; 16118
 SunburstMart3: ; 16121
 	db 6 ; # items
 	db POKE_DOLL
-	db RAGECANDYBAR
+	db SWEET_ORANGE
 	db FRESH_WATER
 	db SODA_POP
 	db LEMONADE
