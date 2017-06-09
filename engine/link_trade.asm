@@ -18,22 +18,6 @@ Function16d42e: ; 16d42e
 	ret
 ; 16d43b
 
-Function16d43b: ; 16d43b
-	call LoadStandardMenuDataHeader
-	call ClearBGPalettes
-	call ClearTileMap
-	call ClearSprites
-	call __LoadTradeScreenBorder
-	call Function16d42e
-	ld b, SCGB_DIPLOMA
-	call GetSGBLayout
-	call SetPalettes
-	call WaitBGMap
-	call JoyWaitAorB
-	call Call_ExitMenu
-	ret
-; 16d465
-
 Tilemap_16d465:
 INCBIN "gfx/link/16d465.tilemap"
 

@@ -216,20 +216,6 @@ DeinitializeSprite: ; 8d036
 ; 8d03d
 
 
-DeinitializeAllSprites: ; 8d03d (23:503d)
-; Clear the index field of every struct in the wSpriteAnimationStructs array.
-	ld hl, wSpriteAnimationStructs
-	ld bc, $10
-	ld e, 10
-	xor a
-.loop
-	ld [hl], a
-	add hl, bc
-	dec e
-	jr nz, .loop
-	ret
-
-
 UpdateAnimFrame: ; 8d04c
 	call InitSpriteAnimBuffer ; init WRAM
 	call GetSpriteAnimFrame ; read from a memory array

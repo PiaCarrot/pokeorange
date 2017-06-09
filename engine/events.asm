@@ -40,48 +40,6 @@ CheckBit5_ScriptFlags3: ; 966d6
 	ret
 ; 966dc
 
-DisableWarpsConnxns: ; 966dc
-	ld hl, ScriptFlags3
-	res 2, [hl]
-	ret
-; 966e2
-
-DisableCoordEvents: ; 966e2
-	ld hl, ScriptFlags3
-	res 1, [hl]
-	ret
-; 966e8
-
-DisableStepCount: ; 966e8
-	ld hl, ScriptFlags3
-	res 0, [hl]
-	ret
-; 966ee
-
-DisableWildEncounters: ; 966ee
-	ld hl, ScriptFlags3
-	res 4, [hl]
-	ret
-; 966f4
-
-EnableWarpsConnxns: ; 966f4
-	ld hl, ScriptFlags3
-	set 2, [hl]
-	ret
-; 966fa
-
-EnableCoordEvents: ; 966fa
-	ld hl, ScriptFlags3
-	set 1, [hl]
-	ret
-; 96700
-
-EnableStepCount: ; 96700
-	ld hl, ScriptFlags3
-	set 0, [hl]
-	ret
-; 96706
-
 EnableWildEncounters: ; 96706
 	ld hl, ScriptFlags3
 	set 4, [hl]

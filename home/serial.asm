@@ -272,13 +272,6 @@ Function862:: ; 862
 	jp Call_LoadTempTileMapToTileMap
 ; 871
 
-
-Function871:: ; 871
-	call LoadTileMapToTempTileMap
-	farcall PlaceWaitingText
-	jp WaitLinkTransfer
-; 87d
-
 ; One "giant" leap for machinekind
 
 WaitLinkTransfer:: ; 87d

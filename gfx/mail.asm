@@ -984,7 +984,7 @@ INCBIN "gfx/mail/0b9c9e.1bpp"
 FlowerMailLargeFlowerGFX: ; b9cbe
 INCBIN "gfx/mail/0b9cbe.1bpp"
 
-FlowerMailSmallFlowerGFX: ; b9cde
+; FlowerMailSmallFlowerGFX: ; b9cde
 ; indirectly referenced
 INCBIN "gfx/mail/0b9cde.1bpp"
 

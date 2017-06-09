@@ -2592,16 +2592,6 @@ SetFlagsForMovement_1:: ; 585c
 	ret
 ; 586e
 
-Function586e: ; 586e
-	call CheckObjectVisibility
-	ret c
-	ld hl, OBJECT_FLAGS2
-	add hl, bc
-	set 5, [hl]
-	xor a
-	ret
-; 587a
-
 Function587a: ; 587a
 	ld bc, ObjectStructs
 	xor a
@@ -2670,21 +2660,12 @@ Function58b9:: ; 58b9
 	ret
 ; 58d8
 
-Function58d8: ; 58d8
-	call CheckObjectVisibility
-	ret c
-	ld hl, OBJECT_FLAGS2
-	add hl, bc
-	res 5, [hl]
-	ret
-; 58e3
-
 Function58e3: ; 58e3
 	ld hl, OBJECT_MAP_OBJECT_INDEX
 	add hl, bc
 	ld a, [hl]
 	cp -1
-	jp z, Function5903 ; a jr would have been appropriate here
+	jr z, Function5903
 	push bc
 	call GetMapObject
 	ld hl, MAPOBJECT_MOVEMENT
