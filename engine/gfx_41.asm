@@ -540,7 +540,7 @@ LoadOverworldFont:: ; 106594
 ; 1065ad
 
 .bgfont
-INCBIN "gfx/misc/bgfont.2bpp"
+INCBIN "gfx/ow/popup_font.2bpp"
 
 ShockEmote:     INCBIN "gfx/emotes/shock.2bpp"
 QuestionEmote:  INCBIN "gfx/emotes/question.2bpp"
@@ -550,7 +550,7 @@ HeartEmote:     INCBIN "gfx/emotes/heart.2bpp"
 BoltEmote:      INCBIN "gfx/emotes/bolt.2bpp"
 SleepEmote:     INCBIN "gfx/emotes/sleep.2bpp"
 FishEmote:      INCBIN "gfx/emotes/fish.2bpp"
-JumpShadowGFX:  INCBIN "gfx/misc/shadow.2bpp"
-FishingRodGFX2: INCBIN "gfx/misc/fishing2.2bpp"
-BoulderDustGFX: INCBIN "gfx/misc/boulderdust.2bpp"
-FishingRodGFX4: INCBIN "gfx/misc/fishing4.2bpp"
+JumpShadowGFX:  INCBIN "gfx/ow/shadow.2bpp"
+FishingRodGFX2: INCBIN "gfx/ow/fishing2.2bpp"
+BoulderDustGFX: INCBIN "gfx/ow/boulderdust.2bpp"
+FishingRodGFX4: INCBIN "gfx/ow/fishing4.2bpp"

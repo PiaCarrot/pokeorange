@@ -1,8 +1,8 @@
 Font:
-INCBIN "gfx/misc/font.1bpp"
+INCBIN "gfx/font/font.1bpp"
 
 FontBattleExtra:
-INCBIN "gfx/misc/font_battle_extra.2bpp"
+INCBIN "gfx/font/battle_extra.2bpp"
 
 Frames: ; f8800
 INCBIN "gfx/frames/1.1bpp"
@@ -54,7 +54,7 @@ INCBIN "gfx/frames/map_entry_sign.2bpp"
 ; f9424
 
 Footprints: ; f9434
-INCBIN "gfx/misc/footprints.1bpp"
+INCBIN "gfx/pokedex/footprints.1bpp"
 ; fb434
 
 _LoadStandardFont:: ; fb449

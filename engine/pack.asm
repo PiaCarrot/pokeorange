@@ -1142,31 +1142,35 @@ DrawPackGFX: ; 1089d
 	and $3
 	ld e, a
 	ld d, $0
+	ld hl, PackGFXPointers
 	ld a, [PlayerGender]
 	bit 0, a
-	jr nz, .female
-	ld hl, PackGFXPointers
+	jr z, .male
+	ld hl, PackFGFXPointers
+.male
 	add hl, de
 	add hl, de
 	ld a, [hli]
 	ld e, a
 	ld d, [hl]
 	ld hl, VTiles2 tile $50
-	lb bc, BANK(PackGFX), 15
+	lb bc, BANK(PackGFX), 15 ; BANK(PackFGFX), 15
 	call Request2bpp
-	ret
-
-.female
-	farcall DrawKrisPackGFX
 	ret
 ; 108cc
 
 PackGFXPointers: ; 108cc
-	dw PackGFX + $f0 * 1
-	dw PackGFX + $f0 * 3
-	dw PackGFX + $f0 * 0
-	dw PackGFX + $f0 * 2
+	dw PackGFX + (15 tiles) * 1
+	dw PackGFX + (15 tiles) * 3
+	dw PackGFX + (15 tiles) * 0
+	dw PackGFX + (15 tiles) * 2
 ; 108d4
+
+PackFGFXPointers: ; 48e93
+	dw PackFGFX + (15 tiles) * 1
+	dw PackFGFX + (15 tiles) * 3
+	dw PackFGFX + (15 tiles) * 0
+	dw PackFGFX + (15 tiles) * 2
 
 Pack_InterpretJoypad: ; 108d4 (4:48d4)
 	ld hl, wMenuJoypad
@@ -1554,6 +1558,8 @@ TextJump_YouCantUseItInABattle: ; 0x10b11
 ; 0x10b16
 
 PackMenuGFX:
-INCBIN "gfx/misc/pack_menu.2bpp"
+INCBIN "gfx/pack/pack_menu.2bpp"
 PackGFX:
-INCBIN "gfx/misc/pack.2bpp"
+INCBIN "gfx/pack/pack.2bpp"
+PackFGFX: ; 48e9b
+INCBIN "gfx/pack/pack_f.2bpp"

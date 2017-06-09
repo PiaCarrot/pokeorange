@@ -103,6 +103,7 @@
 	charmap "'t",       $d5
 	charmap "'v",       $d6
 
+	charmap "<UPDN>",   $d7
 	charmap "<PO>",     $d8
 	charmap "<KE>",     $d9
 	charmap "<``>",     $da

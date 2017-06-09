@@ -4,10 +4,6 @@ LoadTownMapInterfaceGFX: ; 90c4e
 	ld de, VTiles2
 	ld a, BANK(TownMapGFX)
 	call FarDecompress
-	ld hl, TownMapInterfaceGFX
-	ld de, VTiles2 + $34 tiles
-	ld a, BANK(TownMapInterfaceGFX)
-	call FarDecompress
 	ld hl, TownMapCursorGFX
 	ld de, VTiles0 + 4 tiles
 	ld a, BANK(TownMapCursorGFX)
@@ -124,7 +120,7 @@ TownMap_UpdateLandmarkName: ; 910b4
 	pop de
 	call TownMap_ConvertLineBreakCharacters
 	hlcoord 0, 0
-	ld [hl], $34
+	ld [hl], "<UPDN>"
 	ret
 
 ; 910d4
@@ -485,7 +481,7 @@ TownMapBubble: ; 91bb5
 	call .Name
 ; Up/down arrows
 	hlcoord 18, 1
-	ld [hl], $34
+	ld [hl], "<UPDN>"
 	ret
 
 .Where:
@@ -1221,24 +1217,13 @@ TownMap_ConvertLineBreakCharacters: ; 1de2c5
 	ld a, [hl]
 	cp "@"
 	jr z, .end
-	cp "%"
-	jr z, .line_break
-	cp "<WBR>"
-	jr z, .line_break
 	inc hl
 	jr .loop
-
-.line_break
-	ld [hl], "<LNBRK>"
-
 .end
 	ld de, StringBuffer1
 	hlcoord 1, 0
 	call PlaceString
 	ret
-
-TownMapInterfaceGFX: ; 1de2e4
-INCBIN "gfx/town_map/interface.2bpp.lz"
 
 FastShipGFX: ; 90cb2
 INCBIN "gfx/town_map/fast_ship.2bpp"

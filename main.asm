@@ -1685,27 +1685,6 @@ SECTION "Crystal Unique", ROMX, BANK[$12]
 
 INCLUDE "engine/init_gender.asm"
 
-DrawKrisPackGFX: ; 48e81
-	ld hl, PackFGFXPointers
-	add hl, de
-	add hl, de
-	ld a, [hli]
-	ld e, a
-	ld d, [hl]
-	ld hl, VTiles2 tile $50
-	lb bc, BANK(PackFGFX), 15
-	call Request2bpp
-	ret
-
-PackFGFXPointers: ; 48e93
-	dw PackFGFX + (15 tiles) * 1
-	dw PackFGFX + (15 tiles) * 3
-	dw PackFGFX + (15 tiles) * 0
-	dw PackFGFX + (15 tiles) * 2
-
-PackFGFX: ; 48e9b
-INCBIN "gfx/misc/pack_f.2bpp"
-
 Special_MoveTutor: ; 4925b
 	call FadeToMenu
 	call ClearBGPalettes
@@ -4020,13 +3999,13 @@ GetCardPic: ; 8833e
 	ret
 
 ChrisCardPic: ; 88365
-INCBIN "gfx/misc/chris_card.5x7.2bpp"
+INCBIN "gfx/trainer_card/chris_card.5x7.2bpp"
 
 KrisCardPic: ; 88595
-INCBIN "gfx/misc/kris_card.5x7.2bpp"
+INCBIN "gfx/trainer_card/kris_card.5x7.2bpp"
 
 CardGFX: ; 887c5
-INCBIN "gfx/misc/trainer_card.2bpp"
+INCBIN "gfx/trainer_card/trainer_card.2bpp"
 
 GetPlayerBackpic: ; 88825
 	ld hl, ChrisBackpic
@@ -4042,10 +4021,10 @@ GetPlayerBackpic: ; 88825
 	ret
 
 ChrisBackpic: ; 2ba1a
-INCBIN "gfx/misc/chris_back.6x6.2bpp.lz"
+INCBIN "gfx/player/chris_back.6x6.2bpp.lz"
 
 KrisBackpic: ; 88ed6
-INCBIN "gfx/misc/kris_back.6x6.2bpp.lz"
+INCBIN "gfx/player/kris_back.6x6.2bpp.lz"
 
 HOF_LoadTrainerFrontpic: ; 88840
 	call WaitBGMap
@@ -4110,10 +4089,10 @@ DrawIntroPlayerPic: ; 88874
 	ret
 
 ChrisPic: ; 888a9
-INCBIN "gfx/misc/chris.7x7.2bpp"
+INCBIN "gfx/player/chris.7x7.2bpp"
 
 KrisPic: ; 88bb9
-INCBIN "gfx/misc/kris.7x7.2bpp"
+INCBIN "gfx/player/kris.7x7.2bpp"
 
 SECTION "bank23", ROMX, BANK[$23]
 
@@ -4371,7 +4350,7 @@ INCLUDE "engine/billspc.asm"
 SECTION "bank39", ROMX, BANK[$39]
 
 CopyrightGFX:: ; e4000
-INCBIN "gfx/misc/copyright.2bpp"
+INCBIN "gfx/intro/copyright.2bpp"
 
 INCLUDE "engine/options_menu.asm"
 INCLUDE "engine/crystal_intro.asm"

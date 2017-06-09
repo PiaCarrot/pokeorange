@@ -513,11 +513,9 @@ TrainerCard_BadgesOAM: ; 254c9
 	db $0c, $20, $24, $20 | $80
 ; 25523
 
-CardStatusGFX: INCBIN "gfx/misc/card_status.2bpp"
+CardStatusGFX: INCBIN "gfx/trainer_card/card_status.2bpp"
 
-LeaderGFX:  INCBIN "gfx/misc/leaders.w24.2bpp"
-LeaderGFX2: INCBIN "gfx/misc/leaders.w24.2bpp"
-BadgeGFX:   INCBIN "gfx/misc/badges.2bpp"
-BadgeGFX2:  INCBIN "gfx/misc/badges.2bpp"
+CardRightCornerGFX: INCBIN "gfx/trainer_card/card_right_corner.2bpp"
 
-CardRightCornerGFX: INCBIN "gfx/misc/card_right_corner.2bpp"
+LeaderGFX:  INCBIN "gfx/trainer_card/leaders.w24.2bpp"
+BadgeGFX:   INCBIN "gfx/trainer_card/badges.2bpp"

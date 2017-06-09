@@ -75,7 +75,7 @@ ShakeHeadbuttTree: ; 8c80a
 ; 8c893
 
 HeadbuttTreeGFX: ; 8c893
-INCBIN "gfx/misc/headbutt_tree.2bpp"
+INCBIN "gfx/ow/headbutt_tree.2bpp"
 ; 8c913
 
 HideHeadbuttTree: ; 8c913
@@ -152,11 +152,11 @@ OWCutAnimation: ; 8c940
 ; 8c98c
 
 CutTreeGFX: ; c898c
-INCBIN "gfx/misc/cut_tree.2bpp"
+INCBIN "gfx/ow/cut_tree.2bpp"
 ; c89cc
 
 CutGrassGFX: ; 8c9cc
-INCBIN "gfx/misc/cut_grass.2bpp"
+INCBIN "gfx/ow/cut_grass.2bpp"
 ; 8ca0c
 
 OWCutJumptable: ; 8ca0c
