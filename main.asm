@@ -833,61 +833,6 @@ StartMenu_PrintBugContestStatus: ; 24be7
 .LEVEL: ; 24c5e
 	db "LEVEL@"
 
-FindApricornsInBag: ; 24c64
-; Checks the bag for Apricorns.
-	ld hl, Buffer1
-	xor a
-	ld [hli], a
-	dec a
-	ld bc, 10
-	call ByteFill
-
-	ld hl, .ApricornBalls
-.loop
-	ld a, [hl]
-	cp -1
-	jr z, .done
-	push hl
-	ld [CurItem], a
-	ld hl, NumItems
-	call CheckItem
-	pop hl
-	jr nc, .nope
-	ld a, [hl]
-	call .addtobuffer
-.nope
-	inc hl
-	inc hl
-	jr .loop
-
-.done
-	ld a, [Buffer1]
-	and a
-	ret nz
-	scf
-	ret
-
-.addtobuffer ; 24c94
-	push hl
-	ld hl, Buffer1
-	inc [hl]
-	ld e, [hl]
-	ld d, 0
-	add hl, de
-	ld [hl], a
-	pop hl
-	ret
-
-.ApricornBalls: ; 24ca0
-	db RED_APRICORN, LEVEL_BALL
-	db BLU_APRICORN, LURE_BALL
-	db YLW_APRICORN, MOON_BALL
-	db GRN_APRICORN, FRIEND_BALL
-	db WHT_APRICORN, FAST_BALL
-	db BLK_APRICORN, HEAVY_BALL
-	db PNK_APRICORN, LOVE_BALL
-	db -1
-
 INCLUDE "engine/mon_menu.asm"
 INCLUDE "battle/menu.asm"
 INCLUDE "engine/buy_sell_toss.asm"
@@ -1025,11 +970,6 @@ INCLUDE "battle/moves/move_effects_pointers.asm"
 
 MoveEffects: ; 2732e
 INCLUDE "battle/moves/move_effects.asm"
-
-Kurt_SelectQuantity_InterpretJoypad: ; 27a28
-	call BuySellToss_InterpretJoypad
-	ld b, a
-	ret
 
 SECTION "bankA", ROMX, BANK[$A]
 
@@ -1736,9 +1676,6 @@ DisplayDexEntry: ; 4424d
 	hlcoord 2, 11
 	call FarString
 	ret
-
-String_44331: ; 44331
-	db "#@"
 
 INCLUDE "data/pokedex/entry_pointers.asm"
 

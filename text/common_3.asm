@@ -865,9 +865,9 @@ _OakRating11::
 	done
 
 _OakRating12::
-	text "Have you met KURT?"
-	line "His custom BALLS"
-	cont "should help."
+	text "Using special"
+	line "# BALLS should"
+	cont "help."
 	done
 
 _OakRating13::
