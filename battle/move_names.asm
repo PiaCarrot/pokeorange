@@ -252,3 +252,4 @@
 	db "MOONBLAST@"
 	db "FAIRY WIND@"
 	db "DAZZLINGLEAM@"
+	db "SMART STRIKE@"

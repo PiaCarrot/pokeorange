@@ -254,8 +254,9 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_Moonblast
 	dw BattleAnim_FairyWind
 	dw BattleAnim_Dazzlingleam
-	dw BattleAnim_SweetScent2
+	dw BattleAnim_SmartStrike
 ; $100
+	dw BattleAnim_SweetScent2
 	dw BattleAnim_ThrowPokeBall
 	dw BattleAnim_SendOutMon
 	dw BattleAnim_ReturnMon
@@ -2398,6 +2399,22 @@ BattleAnim_PoisonGas: ; ca428
 	anim_wait 128
 	anim_ret
 ; ca439
+
+BattleAnim_SmartStrike:
+	anim_1gfx ANIM_GFX_REFLECT
+	anim_obp0 $0
+	anim_sound 0, 0, SFX_RAGE
+	anim_call BattleAnim_FollowEnemyFeet_0
+	anim_call BattleAnim_SmartStrike_branch
+	anim_call BattleAnim_ShowMon_0
+	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
+	anim_resetobp0
+	anim_obj ANIM_OBJ_HORN,   9, 0,  10, 0, $1
+	anim_wait 16
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_01, -15, 0,   7, 0, $0
+	anim_wait 16
+	anim_ret
 
 BattleAnim_HornAttack: ; ca439
 	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
@@ -5091,6 +5108,7 @@ BattleAnim_Toxic_branch_cbc35: ; cbc35
 	anim_ret
 ; cbc43
 
+BattleAnim_SmartStrike_branch:
 BattleAnim_Harden_branch_cbc43: ; cbc43
 BattleAnim_IronTail_branch_cbc43: ; cbc43
 BattleAnim_MetalClaw_branch_cbc43: ; cbc43

@@ -35,6 +35,7 @@ MachPunch:
 Extremespeed:
 FairyWind:
 Dazzlingleam:
+SmartStrike:
 NormalHit:
 	checkobedience
 	usedmovetext
