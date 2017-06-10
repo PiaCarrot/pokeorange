@@ -199,33 +199,28 @@ Options_BattleScene: ; e4365
 	jr z, .NonePressed
 	bit BATTLE_SCENE, [hl]
 	jr nz, .ToggleOn
-	jr .ToggleOff
-
-.LeftPressed:
-	bit BATTLE_SCENE, [hl]
-	jr z, .ToggleOff
-	jr .ToggleOn
-
-.NonePressed:
-	bit BATTLE_SCENE, [hl]
-	jr z, .ToggleOn
-	jr .ToggleOff
-
-.ToggleOn:
-	res BATTLE_SCENE, [hl]
-	ld de, .On
-	jr .Display
-
 .ToggleOff:
 	set BATTLE_SCENE, [hl]
 	ld de, .Off
-
 .Display:
 	hlcoord 11, 5
 	call PlaceString
 	and a
 	ret
 ; e4398
+
+.LeftPressed:
+	bit BATTLE_SCENE, [hl]
+	jr z, .ToggleOff
+.ToggleOn:
+	res BATTLE_SCENE, [hl]
+	ld de, .On
+	jr .Display
+
+.NonePressed:
+	bit BATTLE_SCENE, [hl]
+	jr z, .ToggleOn
+	jr .ToggleOff
 
 .On:
 	db "ON @"
@@ -243,32 +238,28 @@ Options_BattleStyle: ; e43a0
 	jr z, .NonePressed
 	bit BATTLE_SHIFT, [hl]
 	jr nz, .ToggleShift
-	jr .ToggleSet
-
-.LeftPressed:
-	bit BATTLE_SHIFT, [hl]
-	jr z, .ToggleSet
-	jr .ToggleShift
-
-.NonePressed:
-	bit BATTLE_SHIFT, [hl]
-	jr nz, .ToggleSet
-
-.ToggleShift:
-	res BATTLE_SHIFT, [hl]
-	ld de, .Shift
-	jr .Display
-
 .ToggleSet:
 	set BATTLE_SHIFT, [hl]
 	ld de, .Set
-
 .Display:
 	hlcoord 11, 7
 	call PlaceString
 	and a
 	ret
 ; e43d1
+
+.LeftPressed:
+	bit BATTLE_SHIFT, [hl]
+	jr z, .ToggleSet
+.ToggleShift:
+	res BATTLE_SHIFT, [hl]
+	ld de, .Shift
+	jr .Display
+
+.NonePressed:
+	bit BATTLE_SHIFT, [hl]
+	jr nz, .ToggleSet
+	jr .ToggleShift
 
 .Shift:
 	db "SHIFT@"
@@ -286,39 +277,32 @@ Options_Sound: ; e43dd
 	jr z, .NonePressed
 	bit STEREO, [hl]
 	jr nz, .SetMono
-	jr .SetStereo
-
-.LeftPressed:
-	bit STEREO, [hl]
-	jr z, .SetStereo
-	jr .SetMono
-
-.NonePressed:
-	bit STEREO, [hl]
-	jr nz, .ToggleStereo
-	jr .ToggleMono
-
-.SetMono:
-	res STEREO, [hl]
-	call RestartMapMusic
-
-.ToggleMono:
-	ld de, .Mono
-	jr .Display
-
 .SetStereo:
 	set STEREO, [hl]
 	call RestartMapMusic
-
 .ToggleStereo:
 	ld de, .Stereo
-
 .Display:
 	hlcoord 11, 9
 	call PlaceString
 	and a
 	ret
 ; e4416
+
+.LeftPressed:
+	bit STEREO, [hl]
+	jr z, .SetStereo
+.SetMono:
+	res STEREO, [hl]
+	call RestartMapMusic
+.ToggleMono:
+	ld de, .Mono
+	jr .Display
+
+.NonePressed:
+	bit STEREO, [hl]
+	jr nz, .ToggleStereo
+	jr .ToggleMono
 
 .Mono:
 	db "MONO  @"
@@ -336,32 +320,28 @@ Options_MenuAccount: ; e44c1
 	jr z, .NonePressed
 	bit MENU_ACCOUNT, [hl]
 	jr nz, .ToggleOff
-	jr .ToggleOn
-
-.LeftPressed:
-	bit MENU_ACCOUNT, [hl]
-	jr z, .ToggleOn
-	jr .ToggleOff
-
-.NonePressed:
-	bit MENU_ACCOUNT, [hl]
-	jr nz, .ToggleOn
-
-.ToggleOff:
-	res MENU_ACCOUNT, [hl]
-	ld de, .Off
-	jr .Display
-
 .ToggleOn:
 	set MENU_ACCOUNT, [hl]
 	ld de, .On
-
 .Display:
 	hlcoord 11, 11
 	call PlaceString
 	and a
 	ret
 ; e44f2
+
+.LeftPressed:
+	bit MENU_ACCOUNT, [hl]
+	jr z, .ToggleOn
+.ToggleOff:
+	res MENU_ACCOUNT, [hl]
+	ld de, .Off
+	jr .Display
+
+.NonePressed:
+	bit MENU_ACCOUNT, [hl]
+	jr nz, .ToggleOn
+	jr .ToggleOff
 
 .Off:
 	db "OFF@"
@@ -394,7 +374,6 @@ Options_Frame: ; e44fa
 	cp $ff ; min - 1
 	jr nz, .Save
 	ld a, $8 ; max
-
 .Save:
 	ld [hl], a
 UpdateFrame: ; e4512
@@ -403,14 +382,10 @@ UpdateFrame: ; e4512
 	add "1"
 	ld [hl], a
 	call LoadFontsExtra
-	and a
-	ret
-; e4520
-
-
 Options_Unused:
 	and a
 	ret
+; e4520
 
 
 Options_Done: ; e4520
@@ -424,6 +399,7 @@ Options_Done: ; e4520
 	scf
 	ret
 ; e452a
+
 
 OptionsControl: ; e452a
 	ld hl, wJumptableIndex
