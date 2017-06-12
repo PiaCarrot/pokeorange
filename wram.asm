@@ -824,7 +824,6 @@ wDexListingEnd::
 wc7d2:: ds 1 ; Last mon to display
 wDexListingHeight:: ; number of entries displayed at once in the dex listing
 wc7d3:: ds 1
-wCurrentDexMode::   ; Pokedex Mode
 wc7d4:: ds 1 ; Index of the topmost visible item in a scrolling menu
 wDexSearchMonType1:: ds 1 ; first type to search
 wDexSearchMonType2:: ds 1 ; second type to search
