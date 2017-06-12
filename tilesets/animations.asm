@@ -206,11 +206,6 @@ Tileset22Anim: ; 0xfc2e7
 Tileset26Anim: ; 0xfc2e7
 Tileset27Anim: ; 0xfc2e7
 Tileset28Anim: ; 0xfc2e7
-Tileset32Anim: ; 0xfc2e7
-Tileset33Anim: ; 0xfc2e7
-Tileset34Anim: ; 0xfc2e7
-Tileset35Anim: ; 0xfc2e7
-Tileset36Anim: ; 0xfc2e7
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation

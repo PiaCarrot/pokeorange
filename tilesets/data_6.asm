@@ -53,15 +53,3 @@ INCBIN "tilesets/11_metatiles.bin"
 Tileset11Coll: ; 0xded90
 INCBIN "tilesets/11_collision.bin"
 ; 0xdee90
-
-Tileset32Meta: ; 0xdf890
-INCBIN "tilesets/32_metatiles.bin"
-; 0xdfc90
-
-Tileset32Coll: ; 0xdfc90
-Tileset33Coll: ; 0xdfc90
-Tileset34Coll: ; 0xdfc90
-Tileset35Coll: ; 0xdfc90
-Tileset36Coll: ; 0xdfc90
-INCBIN "tilesets/36_collision.bin"
-; 0xdfd90
