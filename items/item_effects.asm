@@ -79,7 +79,6 @@ ItemEffects: ; e73c
 	dw MaxEther
 	dw Elixer
 	dw OddCrystal
-	dw SilverWing
 	dw MoomooMilk
 	dw QuickClaw
 	dw Psncureberry
@@ -92,21 +91,14 @@ ItemEffects: ; e73c
 	dw KingsRock
 	dw BitterBerry
 	dw MintBerry
-	dw RedApricorn
 	dw Tinymushroom
 	dw BigMushroom
 	dw Silverpowder
-	dw BluApricorn
 	dw AmuletCoin
-	dw YlwApricorn
-	dw GrnApricorn
 	dw CleanseTag
 	dw MysticWater
 	dw Twistedspoon
-	dw WhtApricorn
 	dw Blackbelt
-	dw BlkApricorn
-	dw PnkApricorn
 	dw Blackglasses
 	dw PinkBow
 	dw Stick
@@ -139,10 +131,7 @@ ItemEffects: ; e73c
 	dw Leftovers
 	dw Mysteryberry
 	dw DragonScale
-	dw BerserkGene
-	dw SacredAsh
 	dw HeavyBall
-	dw FlowerMail
 	dw LevelBall
 	dw LureBall
 	dw FastBall
@@ -157,6 +146,9 @@ ItemEffects: ; e73c
 	dw GoldBerry
 	dw Squirtbottle
 	dw ParkBall
+	dw BerserkGene
+	dw SacredAsh
+	dw SilverWing
 	dw RainbowWing
 	dw TeruSama
 	dw TeruSama
@@ -166,14 +158,16 @@ ItemEffects: ; e73c
 	dw TeruSama
 	dw TeruSama
 	dw TeruSama
-	dw TeruSama
-	dw TeruSama
-	dw TeruSama
-	dw TeruSama
-	dw TeruSama
-	dw TeruSama
-	dw TeruSama
-	dw TeruSama
+	dw FlowerMail
+	dw FlowerMail
+	dw FlowerMail
+	dw FlowerMail
+	dw FlowerMail
+	dw FlowerMail
+	dw FlowerMail
+	dw FlowerMail
+	dw FlowerMail
+	dw FlowerMail
 ; e8a2
 
 
@@ -2776,21 +2770,14 @@ SoftSand:
 SharpBeak:
 PoisonBarb:
 KingsRock:
-RedApricorn:
 Tinymushroom:
 BigMushroom:
 Silverpowder:
-BluApricorn:
 AmuletCoin:
-YlwApricorn:
-GrnApricorn:
 CleanseTag:
 MysticWater:
 Twistedspoon:
-WhtApricorn:
 Blackbelt:
-BlkApricorn:
-PnkApricorn:
 Blackglasses:
 PinkBow:
 Stick:
