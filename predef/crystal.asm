@@ -42,7 +42,6 @@ LoadEightTimeOfDayBGPalettes:
 	and $3
 	ld bc, 8 palettes
 	call AddNTimes
-	ld a, $5
 LoadEightBGPalettes: ; 494f2
 	ld a, $5
 	ld de, UnknBGPals
