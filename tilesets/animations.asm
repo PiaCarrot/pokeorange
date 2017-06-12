@@ -38,6 +38,7 @@ _AnimateTileset:: ; fc000
 Tileset00Anim: ; 0xfc01b
 Tileset02Anim: ; 0xfc01b
 Tileset03Anim: ; 0xfc01b
+Tileset31Anim: ; 0xfc073
 	dw VTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -64,21 +65,6 @@ Tileset25Anim: ; 0xfc047
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 ; 0xfc073
-
-Tileset31Anim: ; 0xfc073
-	dw NULL,  ForestTreeLeftAnimation
-	dw NULL,  ForestTreeRightAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  ForestTreeLeftAnimation2
-	dw NULL,  ForestTreeRightAnimation2
-	dw NULL,  AnimateFlowerTile
-	dw VTiles2 tile $14, AnimateWaterTile
-	dw NULL,  WaitTileAnimation
-	dw NULL,  StandingTileFrame8
-	dw NULL,  DoneTileAnimation
-; 0xfc0a3
 
 Tileset01Anim: ; 0xfc0a3
 	dw RSEWaterFrames1, AnimateRSEWaterTile
@@ -415,7 +401,7 @@ AnimateWaterTile: ; fc402
 ; fc41c
 
 WaterTileFrames: ; fc41c
-	INCBIN "gfx/tilesets/water.2bpp"
+	INCBIN "gfx/tilesets/water/1.2bpp"
 ; fc45c
 
 AnimateRSEWaterTile:
@@ -467,124 +453,8 @@ RSEWaterFrames1: dw VTiles2 tile $14, RSEWaterTiles1
 RSEWaterFrames2: dw VTiles2 tile $59, RSEWaterTiles2
 
 ; each file is just the 8 frames in a row
-RSEWaterTiles1: INCBIN "gfx/tilesets/rse_water_1.2bpp"
-RSEWaterTiles2: INCBIN "gfx/tilesets/rse_water_2.2bpp"
-
-ForestTreeLeftAnimation: ; fc45c
-	ld hl, sp+$0
-	ld b, h
-	ld c, l
-
-	ld a, [TileAnimationTimer]
-	call GetForestTreeFrame
-	add a
-	add a
-	add a
-	add ForestTreeLeftFrames % $100
-	ld l, a
-	ld a, 0
-	adc ForestTreeLeftFrames / $100
-	ld h, a
-
-	ld sp, hl
-	ld hl, VTiles2 tile $0c
-	jp WriteTile
-; fc484
-
-
-ForestTreeLeftFrames: ; fc484
-	INCBIN "gfx/tilesets/forest-tree/1.2bpp"
-	INCBIN "gfx/tilesets/forest-tree/2.2bpp"
-; fc4a4
-
-ForestTreeRightFrames: ; fc4a4
-	INCBIN "gfx/tilesets/forest-tree/3.2bpp"
-	INCBIN "gfx/tilesets/forest-tree/4.2bpp"
-; fc4c4
-
-
-ForestTreeRightAnimation: ; fc4c4
-	ld hl, sp+$0
-	ld b, h
-	ld c, l
-
-	ld a, [TileAnimationTimer]
-	call GetForestTreeFrame
-	add a
-	add a
-	add a
-	add ForestTreeLeftFrames % $100
-	ld l, a
-	ld a, 0
-	adc ForestTreeLeftFrames / $100
-	ld h, a
-	push bc
-	ld bc, ForestTreeRightFrames - ForestTreeLeftFrames
-	add hl, bc
-	pop bc
-
-	ld sp, hl
-	ld hl, VTiles2 tile $0f
-	jp WriteTile
-; fc4f2
-
-
-ForestTreeLeftAnimation2: ; fc4f2
-	ld hl, sp+$0
-	ld b, h
-	ld c, l
-
-	ld a, [TileAnimationTimer]
-	call GetForestTreeFrame
-	xor 2
-	add a
-	add a
-	add a
-	add ForestTreeLeftFrames % $100
-	ld l, a
-	ld a, 0
-	adc ForestTreeLeftFrames / $100
-	ld h, a
-
-	ld sp, hl
-	ld hl, VTiles2 tile $0c
-	jp WriteTile
-; fc51c
-
-
-ForestTreeRightAnimation2: ; fc51c
-	ld hl, sp+$0
-	ld b, h
-	ld c, l
-
-	ld a, [TileAnimationTimer]
-	call GetForestTreeFrame
-	xor 2
-	add a
-	add a
-	add a
-	add ForestTreeLeftFrames % $100
-	ld l, a
-	ld a, 0
-	adc ForestTreeLeftFrames / $100
-	ld h, a
-	push bc
-	ld bc, ForestTreeRightFrames - ForestTreeLeftFrames
-	add hl, bc
-	pop bc
-
-	ld sp, hl
-	ld hl, VTiles2 tile $0f
-	jp WriteTile
-; fc54c
-
-
-GetForestTreeFrame: ; fc54c
-; Return 0 if a is even, or 2 if odd.
-	and 1
-	sla a
-	ret
-; fc56d
+RSEWaterTiles1: INCBIN "gfx/tilesets/rse-water/1.2bpp"
+RSEWaterTiles2: INCBIN "gfx/tilesets/rse-water/2.2bpp"
 
 
 AnimateFlowerTile: ; fc56d
