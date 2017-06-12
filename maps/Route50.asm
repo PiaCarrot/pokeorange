@@ -15,34 +15,34 @@ Route50_MapScriptHeader:
 	db 0
 
 TrainerYoungsterJoey:
-	trainer EVENT_BEAT_YOUNGSTER_JOEY, YOUNGSTER, TOM, YoungsterJoey1SeenText, YoungsterJoey1BeatenText, 0, .Script
+	trainer EVENT_BEAT_YOUNGSTER_TOM, YOUNGSTER, TOM, YoungsterTomSeenText, YoungsterTomBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext YoungsterJoey1AfterText
+	writetext YoungsterTomAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerYoungsterMikey:
-	trainer EVENT_BEAT_YOUNGSTER_MIKEY, YOUNGSTER, SAWYER, YoungsterMikeySeenText, YoungsterMikeyBeatenText, 0, .Script
+TrainerYoungsterSawyer:
+	trainer EVENT_BEAT_YOUNGSTER_SAWYER, YOUNGSTER, SAWYER, YoungsterSawyerSeenText, YoungsterSawyerBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext YoungsterMikeyAfterText
+	writetext YoungsterSawyerAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerBug_catcherDon:
-	trainer EVENT_BEAT_BUG_CATCHER_DON, BUG_CATCHER, EUGENE, Bug_catcherDonSeenText, Bug_catcherDonBeatenText, 0, .Script
+TrainerBug_catcherEugene:
+	trainer EVENT_BEAT_BUG_CATCHER_EUGENE, BUG_CATCHER, EUGENE, Bug_catcherEugeneSeenText, Bug_catcherEugeneBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext Bug_catcherDonAfterText
+	writetext Bug_catcherEugeneAfterText
 	waitbutton
 	closetext
 	end
@@ -68,7 +68,7 @@ Route50FruitTree2:
 Route50HiddenPotion:
 	dwb EVENT_ROUTE_50_HIDDEN_POTION, POTION
 
-YoungsterJoey1SeenText:
+YoungsterTomSeenText:
 	text "Hey, you're taking"
 	line "the ORANGE CREW"
 	cont "CHALLENGE?"
@@ -77,18 +77,18 @@ YoungsterJoey1SeenText:
 	line "Let's battle!"
 	done
 
-YoungsterJoey1BeatenText:
+YoungsterTomBeatenText:
 	text "Agh! I lost!"
 	done
 
-YoungsterJoey1AfterText:
+YoungsterTomAfterText:
 	text "Darn! I have to"
 	line "train even more"
 	cont "to take on the"
 	cont "ORANGE CREW!"
 	done
 
-YoungsterMikeySeenText:
+YoungsterSawyerSeenText:
 	text "You're a #MON"
 	line "trainer, right?"
 
@@ -96,12 +96,12 @@ YoungsterMikeySeenText:
 	line "battle!"
 	done
 
-YoungsterMikeyBeatenText:
+YoungsterSawyerBeatenText:
 	text "You are way too"
 	line "strong!"
 	done
 
-YoungsterMikeyAfterText:
+YoungsterSawyerAfterText:
 	text "Becoming a good"
 	line "trainer is really"
 	cont "tough."
@@ -111,17 +111,17 @@ YoungsterMikeyAfterText:
 	cont "to get better."
 	done
 
-Bug_catcherDonSeenText:
+Bug_catcherEugeneSeenText:
 	text "Instead of a bug"
 	line "#MON, I found"
 	cont "a trainer!"
 	done
 
-Bug_catcherDonBeatenText:
+Bug_catcherEugeneBeatenText:
 	text "Aiyaa!"
 	done
 
-Bug_catcherDonAfterText:
+Bug_catcherEugeneAfterText:
 	text "I ran out of #"
 	line "BALLS while I was"
 	cont "catching #MON."
@@ -165,8 +165,8 @@ Route50_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 7
 	person_event SPRITE_YOUNGSTER, 29, 0, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerYoungsterJoey, -1
-	person_event SPRITE_YOUNGSTER, 14, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerYoungsterMikey, -1
-	person_event SPRITE_BUG_CATCHER, 13, 10, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerBug_catcherDon, -1
+	person_event SPRITE_YOUNGSTER, 14, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerYoungsterSawyer, -1
+	person_event SPRITE_BUG_CATCHER, 13, 10, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerBug_catcherEugene, -1
 	person_event SPRITE_FRUIT_TREE, 10, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50FruitTree1, -1
 	person_event SPRITE_FRUIT_TREE, 49, 1, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50FruitTree2, -1
 	person_event SPRITE_COOLTRAINER_F, 42, 13, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50CooltrainerFScript, -1

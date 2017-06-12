@@ -15,35 +15,35 @@ Route53_MapScriptHeader:
 Route53LassScript:
 	jumptextfaceplayer Route53LassText
 
-TrainerHikerAnthony:
-	trainer EVENT_BEAT_HIKER_ANTHONY, FISHER, NAT_PAGLE, HikerAnthony2SeenText, HikerAnthony2BeatenText, 0, .Script
+TrainerFisherNatPagle:
+	trainer EVENT_BEAT_FISHER_NAT_PAGLE, FISHER, NAT_PAGLE, FisherNatPagleSeenText, FisherNatPagleBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext HikerAnthony2AfterText
+	writetext FisherNatPagleAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerSwimmerArturo:
-	trainer EVENT_BEAT_SWIMMERM_ARTURO, SWIMMERM, KOJURO, SwimmerArturoSeenText, SwimmerArturoBeatenText, 0, .Script
+TrainerSwimmermKojuro:
+	trainer EVENT_BEAT_SWIMMERM_KOJURO, SWIMMERM, KOJURO, SwimmermKojuroSeenText, SwimmermKojuroBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext SwimmerArturoAfterText
+	writetext SwimmermKojuroAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerSwimmerRandy:
-	trainer EVENT_BEAT_SWIMMERM_RANDY, SWIMMERM, YOUTA, SwimmerRandySeenText, SwimmerRandyBeatenText, 0, .Script
+TrainerSwimmermYouta:
+	trainer EVENT_BEAT_SWIMMERM_YOUTA, SWIMMERM, YOUTA, SwimmermYoutaSeenText, SwimmermYoutaBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext SwimmerRandyAfterText
+	writetext SwimmermYoutaAfterText
 	waitbutton
 	closetext
 	end
@@ -57,7 +57,7 @@ Route53Tips:
 Route53FruitTreeScript:
 	fruittree FRUITTREE_ROUTE_53
 
-HikerAnthony2SeenText:
+FisherNatPagleSeenText:
 	text "If you ask me,"
 	line "the best part"
 	cont "about fishing is"
@@ -70,12 +70,12 @@ HikerAnthony2SeenText:
 	cont "for future ones."
 	done
 
-HikerAnthony2BeatenText:
+FisherNatPagleBeatenText:
 	text "I'm like some kind"
 	line "of fishing god<...>"
 	done
 
-HikerAnthony2AfterText:
+FisherNatPagleAfterText:
 	text "Now, I'm not say-"
 	line "ing you need to"
 	cont "fish for 30 years"
@@ -93,23 +93,23 @@ HikerAnthony2AfterText:
 	cont "time."
 	done
 
-SwimmerArturoSeenText:
+SwimmermKojuroSeenText:
 	text "You beat CISSY?"
 	line "Let's see what"
 	cont "you're made of!"
 	done
 
-SwimmerArturoBeatenText:
+SwimmermKojuroBeatenText:
 	text "Fried like a"
 	line "fish!"
 	done
 
-SwimmerArturoAfterText:
+SwimmermKojuroAfterText:
 	text "You're hot stuff,"
 	line "kid!"
 	done
 
-SwimmerRandySeenText:
+SwimmermYoutaSeenText:
 	text "Some kid riding a"
 	line "MARILL came by!"
 
@@ -118,11 +118,11 @@ SwimmerRandySeenText:
 	cont "my anger on you!"
 	done
 
-SwimmerRandyBeatenText:
+SwimmermYoutaBeatenText:
 	text "Yaaaah! I'm mad!"
 	done
 
-SwimmerRandyAfterText:
+SwimmermYoutaAfterText:
 	text "Two brats in a"
 	line "single day! Yah!"
 	done
@@ -168,8 +168,8 @@ Route53_MapEventHeader:: db 0, 0
 	signpost 9, 41, SIGNPOST_READ, Route53Tips
 
 .ObjectEvents: db 5
-	person_event SPRITE_FISHING_GURU, 11, 40, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerHikerAnthony, -1
+	person_event SPRITE_FISHING_GURU, 11, 40, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerFisherNatPagle, -1
 	person_event SPRITE_LASS, 6, 10, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, Route53LassScript, -1
 	person_event SPRITE_FRUIT_TREE, 5, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route53FruitTreeScript, -1
-	person_event SPRITE_SWIMMER_GUY, 10, 20, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmerArturo, -1
-	person_event SPRITE_SWIMMER_GUY, 9, 50, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmerRandy, -1
+	person_event SPRITE_SWIMMER_GUY, 10, 20, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmermKojuro, -1
+	person_event SPRITE_SWIMMER_GUY, 9, 50, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmermYouta, -1

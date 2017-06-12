@@ -17,7 +17,7 @@ TangeloJungle_MapScriptHeader:
 	db 0
 
 TrainerBug_catcherWayne:
-	trainer EVENT_BEAT_BUG_CATCHER_WAYNE, BUG_CATCHER, MIKE, Bug_catcherWayneSeenText, Bug_catcherWayneBeatenText, 0, Bug_catcherWayneScript
+	trainer EVENT_BEAT_BUG_CATCHER_MIKE, BUG_CATCHER, MIKE, Bug_catcherWayneSeenText, Bug_catcherWayneBeatenText, 0, Bug_catcherWayneScript
 
 Bug_catcherWayneScript:
 	end_if_just_battled

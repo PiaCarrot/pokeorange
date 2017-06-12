@@ -12,13 +12,13 @@ Route51_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-TrainerBug_catcherWade1:
-	trainer EVENT_BEAT_BUG_CATCHER_WADE, BUG_CATCHER, SAM, Bug_catcherWade1SeenText, Bug_catcherWade1BeatenText, 2, .Script
+TrainerBug_catcherSam:
+	trainer EVENT_BEAT_BUG_CATCHER_SAM, BUG_CATCHER, SAM, Bug_catcherSamSeenText, Bug_catcherSamBeatenText, 2, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext Bug_catcherWade1AfterText
+	writetext Bug_catcherSamAfterText
 	waitbutton
 	closetext
 	end
@@ -38,16 +38,16 @@ Route51Potion:
 Route51PokeBall:
 	itemball POKE_BALL
 
-Bug_catcherWade1SeenText:
+Bug_catcherSamSeenText:
 	text "My BEEDRILL is"
 	line "sure to beat you!"
 	done
 
-Bug_catcherWade1BeatenText:
+Bug_catcherSamBeatenText:
 	text "BEEDRILL!"
 	done
 
-Bug_catcherWade1AfterText:
+Bug_catcherSamAfterText:
 	text "Listen, BUG-type"
 	line "#MON evolve"
 	cont "very quickly."
@@ -81,7 +81,7 @@ Route51_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 5
 	person_event SPRITE_YOUNGSTER, 19, 14, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route51YoungsterScript, -1
-	person_event SPRITE_BUG_CATCHER, 4, 6, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 1, TrainerBug_catcherWade1, -1
+	person_event SPRITE_BUG_CATCHER, 4, 6, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 1, TrainerBug_catcherSam, -1
 	person_event SPRITE_FRUIT_TREE, 21, 17, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route51FruitTree, -1
 	person_event SPRITE_POKE_BALL, 21, 25, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route51Potion, EVENT_ROUTE_51_POTION
 	person_event SPRITE_POKE_BALL, 6, 21, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route51PokeBall, EVENT_ROUTE_51_POKE_BALL
