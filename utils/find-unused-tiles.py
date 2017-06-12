@@ -47,7 +47,8 @@ def pretty(n):
 def pretty_join(s, g, x='none!'):
 	return g.join(sorted(s)) if s else x
 
-def build_unused_ids(used_ids, domain=None, limit=0xff):
+def build_unused_ids(used_ids, domain=None, limit=None):
+	limit = (0xff if domain is None else max(domain)) if limit is None else limit
 	domain = set(range(limit + 1)) if domain is None else domain
 	unused_ids = set()
 	first, last = None, None
