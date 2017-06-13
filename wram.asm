@@ -1341,13 +1341,8 @@ TextBoxFrame:: ; cfce
 TextBoxFlags::
 	ds 1
 
-	ds 1
+	ds 4
 
-Options2:: ; cfd1
-; bit 1: menu account off/on
-	ds 1
-
-	ds 2
 OptionsEnd::
 
 ; Time buffer, for counting the amount of time since

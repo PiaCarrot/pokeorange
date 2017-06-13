@@ -16,9 +16,6 @@ STEREO         EQU 5
 BATTLE_SHIFT   EQU 6
 BATTLE_SCENE   EQU 7
 
-; Options2:
-MENU_ACCOUNT EQU 0
-
 ; WalkingDirection: ; d043
 STANDING EQU -1
 DOWN     EQU 0

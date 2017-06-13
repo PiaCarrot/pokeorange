@@ -70,10 +70,10 @@ StringOptions: ; e4241
 	db "        :<LNBRK>"
 	db "SOUND<LNBRK>"
 	db "        :<LNBRK>"
-	db "MENU ACCOUNT<LNBRK>"
-	db "        :<LNBRK>"
 	db "FRAME<LNBRK>"
 	db "        :TYPE<LNBRK>"
+	db "<LNBRK>"
+	db "<LNBRK>"
 	db "<LNBRK>"
 	db "<LNBRK>"
 	db "DONE@"
@@ -98,8 +98,8 @@ GetOptionPointer: ; e42d6
 	dw Options_BattleScene
 	dw Options_BattleStyle
 	dw Options_Sound
-	dw Options_MenuAccount
 	dw Options_Frame
+	dw Options_Unused
 	dw Options_Unused
 	dw Options_Done
 ; e42f5
@@ -311,45 +311,6 @@ Options_Sound: ; e43dd
 ; e4424
 
 
-Options_MenuAccount: ; e44c1
-	ld hl, Options2
-	ld a, [hJoyPressed]
-	bit D_LEFT_F, a
-	jr nz, .LeftPressed
-	bit D_RIGHT_F, a
-	jr z, .NonePressed
-	bit MENU_ACCOUNT, [hl]
-	jr nz, .ToggleOff
-.ToggleOn:
-	set MENU_ACCOUNT, [hl]
-	ld de, .On
-.Display:
-	hlcoord 11, 11
-	call PlaceString
-	and a
-	ret
-; e44f2
-
-.LeftPressed:
-	bit MENU_ACCOUNT, [hl]
-	jr z, .ToggleOn
-.ToggleOff:
-	res MENU_ACCOUNT, [hl]
-	ld de, .Off
-	jr .Display
-
-.NonePressed:
-	bit MENU_ACCOUNT, [hl]
-	jr nz, .ToggleOn
-	jr .ToggleOff
-
-.Off:
-	db "OFF@"
-.On:
-	db "ON @"
-; e44fa
-
-
 Options_Frame: ; e44fa
 	ld hl, TextBoxFrame
 	ld a, [hJoyPressed]
@@ -378,7 +339,7 @@ Options_Frame: ; e44fa
 	ld [hl], a
 UpdateFrame: ; e4512
 	ld a, [TextBoxFrame]
-	hlcoord 16, 13 ; where on the screen the number is drawn
+	hlcoord 16, 11 ; where on the screen the number is drawn
 	add "1"
 	ld [hl], a
 	call LoadFontsExtra
@@ -415,8 +376,9 @@ OptionsControl: ; e452a
 	ld a, [hl] ; load the cursor position to a
 	cp $7 ; last item
 	jr z, .WrapTop
-	cp $5 ; before unused $6
+	cp $4 ; before unused $5 and $6
 	jr nz, .noskipdown
+	inc [hl]
 	inc [hl]
 .noskipdown
 	inc [hl]
@@ -432,8 +394,9 @@ OptionsControl: ; e452a
 	ld a, [hl] ; load the cursor position to a
 	cp $0 ; first item
 	jr z, .WrapBottom
-	cp $7 ; after unused $6
+	cp $7 ; after unused $6 and $5
 	jr nz, .noskipup
+	dec [hl]
 	dec [hl]
 .noskipup
 	dec [hl]
