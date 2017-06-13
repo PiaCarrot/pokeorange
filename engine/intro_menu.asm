@@ -181,16 +181,6 @@ ENDC
 	ld a, START_MONEY % $100
 	ld [Money + 2], a
 
-	xor a
-	ld [wWhichMomItem], a
-
-	ld hl, MomItemTriggerBalance
-	ld [hl], 2300 / $10000
-	inc hl
-	ld [hl], 2300 / $100 % $100
-	inc hl
-	ld [hl], 2300 % $100
-
 	farcall DeletePartyMonMail
 
 	call ResetGameTime

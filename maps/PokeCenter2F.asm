@@ -263,71 +263,6 @@ Script_WalkOutOfLinkBattleRoom:
 	applymovement POKECENTER2F_BATTLE_RECEPTIONIST, PokeCenter2FMovementData_ReceptionistStepsRightAndDown
 	end
 
-TimeCapsuleScript_CheckPlayerGender:
-	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .Female
-	checkcode VAR_FACING
-	if_equal LEFT, .MaleFacingLeft
-	if_equal RIGHT, .MaleFacingRight
-	applymovement2 PokeCenter2FMovementData_ReceptionistStepsLeftLooksDown
-	applymovement PLAYER, PokeCenter2FMovementData_PlayerTakesTwoStepsUp
-	end
-
-.MaleFacingLeft:
-	applymovement2 PokeCenter2FMovementData_ReceptionistStepsLeftLooksDown
-	applymovement PLAYER, PokeCenter2FMovementData_PlayerWalksLeftAndUp
-	end
-
-.MaleFacingRight:
-	applymovement2 PokeCenter2FMovementData_ReceptionistStepsRightLooksDown
-	applymovement PLAYER, PokeCenter2FMovementData_PlayerWalksRightAndUp
-	end
-
-.Female:
-	checkcode VAR_FACING
-	if_equal RIGHT, .FemaleFacingRight
-	if_equal LEFT, .FemaleFacingLeft
-	applymovement2 PokeCenter2FMovementData_ReceptionistStepsLeftLooksRight
-	applymovement PLAYER, PokeCenter2FMovementData_PlayerTakesOneStepUp
-	jump .FemaleContinue
-
-.FemaleFacingRight:
-	applymovement2 PokeCenter2FMovementData_ReceptionistStepsRightLooksLeft
-	applymovement PLAYER, PokeCenter2FMovementData_PlayerTakesOneStepRight
-	jump .FemaleContinue
-
-.FemaleFacingLeft:
-	applymovement2 PokeCenter2FMovementData_ReceptionistStepsLeftLooksRight
-	applymovement PLAYER, PokeCenter2FMovementData_PlayerTakesOneStepLeft
-.FemaleContinue:
-	opentext
-	writetext Text_OhPleaseWait
-	waitbutton
-	closetext
-	checkcode VAR_FACING
-	if_not_equal UP, .FemaleChangeApperance
-	spriteface PLAYER, LEFT
-.FemaleChangeApperance:
-	opentext
-	writetext Text_ChangeTheLook
-	waitbutton
-	closetext
-	playsound SFX_TINGLE
-	applymovement PLAYER, PokeCenter2FMovementData_PlayerSpinsClockwiseEndsFacingRight
-	writebyte (1 << 7) | (PAL_OW_RED << 4)
-	special Special_SetPlayerPalette
-	applymovement PLAYER, PokeCenter2FMovementData_PlayerSpinsClockwiseEndsFacingDown
-	faceperson PLAYER, POKECENTER2F_TIME_CAPSULE_RECEPTIONIST
-	setflag ENGINE_KRIS_IN_CABLE_CLUB
-	special ReplaceKrisSprite
-	opentext
-	writetext Text_LikeTheLook
-	waitbutton
-	closetext
-	showemote EMOTE_SHOCK, PLAYER, 15
-	applymovement PLAYER, PokeCenter2FMovementData_PlayerTakesOneStepUp
-	end
-
 MapPokeCenter2FSignpost0Script:
 	refreshscreen $0
 	special Special_DisplayLinkRecord
@@ -336,24 +271,8 @@ MapPokeCenter2FSignpost0Script:
 
 PokeCenter2FMovementData_ReceptionistWalksUpAndLeft_LookRight:
 	slow_step UP
-PokeCenter2FMovementData_ReceptionistStepsLeftLooksRight:
 	slow_step LEFT
 	turn_head RIGHT
-	step_end
-
-PokeCenter2FMovementData_ReceptionistStepsLeftLooksDown:
-	slow_step LEFT
-	turn_head DOWN
-	step_end
-
-PokeCenter2FMovementData_ReceptionistStepsRightLooksDown:
-	slow_step RIGHT
-	turn_head DOWN
-	step_end
-
-PokeCenter2FMovementData_ReceptionistStepsRightLooksLeft:
-	slow_step RIGHT
-	turn_head LEFT
 	step_end
 
 PokeCenter2FMovementData_ReceptionistLooksRight:
@@ -365,16 +284,6 @@ PokeCenter2FMovementData_PlayerTakesThreeStepsUp:
 PokeCenter2FMovementData_PlayerTakesTwoStepsUp:
 	step UP
 PokeCenter2FMovementData_PlayerTakesOneStepUp:
-	step UP
-	step_end
-
-PokeCenter2FMovementData_PlayerWalksLeftAndUp:
-	step LEFT
-	step UP
-	step_end
-
-PokeCenter2FMovementData_PlayerWalksRightAndUp:
-	step RIGHT
 	step UP
 	step_end
 
@@ -404,22 +313,6 @@ PokeCenter2FMovementData_PlayerSpinsClockwiseEndsFacingLeft:
 	turn_head UP
 	turn_head RIGHT
 	turn_head LEFT
-	step_end
-
-PokeCenter2FMovementData_PlayerSpinsClockwiseEndsFacingDown:
-	turn_head DOWN
-	turn_head LEFT
-	turn_head UP
-	turn_head RIGHT
-	turn_head DOWN
-	step_end
-
-PokeCenter2FMovementData_PlayerTakesOneStepRight:
-	step RIGHT
-	step_end
-
-PokeCenter2FMovementData_PlayerTakesOneStepLeft:
-	step LEFT
 	step_end
 
 Text_BattleReceptionistIntro:
@@ -486,31 +379,6 @@ Text_CantLinkToThePast:
 Text_IncompatibleRooms:
 	text "Incompatible rooms"
 	line "were chosen."
-	prompt
-
-Text_RejectNewMon:
-	text "Sorry--@"
-	text_from_ram StringBuffer1
-	text ""
-	line "can't be taken."
-	prompt
-
-Text_RejectMonWithNewMove:
-	text "You can't take the"
-	line "@"
-	text_from_ram StringBuffer1
-	text " with a"
-	cont "@"
-	text_from_ram StringBuffer2
-	text "."
-	prompt
-
-Text_RejectMonWithMail:
-	text "You can't take the"
-	line "@"
-	text_from_ram StringBuffer1
-	text " that"
-	cont "has MAIL with you."
 	prompt
 
 Text_TimeCapsuleClosed:

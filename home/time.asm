@@ -257,17 +257,17 @@ SetClock:: ; 691
 ; 6c4
 
 
-ClearRTCStatus:: ; 6c4
-; clear sRTCStatusFlags
-	xor a
-	push af
-	ld a, BANK(sRTCStatusFlags)
-	call GetSRAMBank
-	pop af
-	ld [sRTCStatusFlags], a
-	call CloseSRAM
-	ret
-; 6d3
+;ClearRTCStatus:: ; 6c4
+;; clear sRTCStatusFlags
+;	xor a
+;	push af
+;	ld a, BANK(sRTCStatusFlags)
+;	call GetSRAMBank
+;	pop af
+;	ld [sRTCStatusFlags], a
+;	call CloseSRAM
+;	ret
+;; 6d3
 
 RecordRTCStatus:: ; 6d3
 ; append flags to sRTCStatusFlags

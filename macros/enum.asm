@@ -18,10 +18,6 @@ enum: macro
 __enum__ = __enum__ + __enumdir__
 endm
 
-enum_set: macro
-__enum__ = \1
-endm
-
 
 ; Enumerate constants
 

@@ -57,10 +57,6 @@ Text_GrampsLookingForYou:
 	line "for you."
 	done
 
-DayCareText_ComeAgain:
-	text "Come again."
-	done
-
 DayCare_MapEventHeader:
 	; filler
 	db 0, 0

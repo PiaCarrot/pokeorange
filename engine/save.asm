@@ -574,14 +574,14 @@ TryLoadSaveData: ; 14f1c
 ; 14f7c
 
 DefaultOptions: ; 14f7c
-	db $03 ; mid text speed
+	db $03 ; Options: mid text speed
 	db $00 ; wSaveFileExists
-	db $00 ; frame 0
+	db $00 ; TextBoxFrame: frame 0
 	db $01 ; TextBoxFlags
-	db $40 ; gb printer: normal brightness
-	db $01 ; menu account on
-	db $00 ; ??
-	db $00 ; ??
+	db $00 ; unused
+	db $00 ; unused
+	db $00 ; unused
+	db $00 ; unused
 ; 14f84
 
 CheckPrimarySaveFile: ; 14f84
@@ -718,38 +718,22 @@ VerifyBackupChecksum: ; 1507c (5:507c)
 
 
 _SaveData: ; 1509a
-	ld a, BANK(sCrystalData)
+	ld a, BANK(sPlayerGender)
 	call GetSRAMBank
-	ld hl, wCrystalData
-	ld de, sCrystalData
-	ld bc, wCrystalDataEnd - wCrystalData
+	ld hl, PlayerGender
+	ld de, sPlayerGender
+	ld bc, 1
 	call CopyBytes
-
-	; XXX SRAM bank 7
-	ld hl, wd479
-	ld a, [hli]
-	ld [$a60e + 0], a
-	ld a, [hli]
-	ld [$a60e + 1], a
-
 	jp CloseSRAM
 
 
 _LoadData: ; 150b9
-	ld a, BANK(sCrystalData)
+	ld a, BANK(sPlayerGender)
 	call GetSRAMBank
-	ld hl, sCrystalData
-	ld de, wCrystalData
-	ld bc, wCrystalDataEnd - wCrystalData
+	ld hl, sPlayerGender
+	ld de, PlayerGender
+	ld bc, 1
 	call CopyBytes
-
-	; XXX SRAM bank 7
-	ld hl, wd479
-	ld a, [$a60e + 0]
-	ld [hli], a
-	ld a, [$a60e + 1]
-	ld [hli], a
-
 	jp CloseSRAM
 
 

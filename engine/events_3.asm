@@ -68,7 +68,7 @@ ReturnFromMapSetupScript:: ; b8000
 	ret
 ; b8089
 
-.CheckNationalParkGate: ; b8089
+;.CheckNationalParkGate: ; b8089
 ;	ld a, [MapGroup]
 ;	cp GROUP_ROUTE_35_NATIONAL_PARK_GATE
 ;	ret nz
@@ -76,7 +76,7 @@ ReturnFromMapSetupScript:: ; b8000
 ;	cp MAP_ROUTE_35_NATIONAL_PARK_GATE
 ;	ret z
 ;	cp MAP_ROUTE_36_NATIONAL_PARK_GATE
-	ret
+;	ret
 ; b8098
 
 

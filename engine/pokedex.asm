@@ -376,7 +376,6 @@ DexEntryScreen_ArrowCursorData: ; 402e8
 	dwcoord 6, 17
 	dwcoord 11, 17
 
-
 DexEntryScreen_MenuActionJumptable: ; 402f2
 	dw Pokedex_Page
 	dw .Area
@@ -779,7 +778,6 @@ Pokedex_FillColumn: ; 40741
 	pop de
 	ret
 
-
 Pokedex_DrawMainScreenBG: ; 4074c (10:474c)
 ; Draws the left sidebar and the bottom bar on the main screen.
 	hlcoord 0, 17
@@ -981,7 +979,6 @@ Pokedex_FillBackgroundColor2: ; 40aa6
 
 Pokedex_PlaceFrontpicTopLeftCorner: ; 40ab2
 	hlcoord 1, 1
-Pokedex_PlaceFrontpicAtHL: ; 40ab5
 	xor a
 	ld b, $7
 .row
@@ -1010,7 +1007,6 @@ Pokedex_PlaceString: ; 40acd
 	inc de
 	ld [hli], a
 	jr .loop
-
 
 Pokedex_PlaceBorder: ; 40ad5
 	push hl
@@ -1145,7 +1141,6 @@ Pokedex_DrawFootprint: ; 40ba0
 	ld [hl], a
 	ret
 
-
 Pokedex_GetSelectedMon: ; 40bb1
 ; Gets the species of the currently selected Pokémon. This corresponds to the
 ; position of the cursor in the main listing, but this function can be used
@@ -1161,7 +1156,6 @@ Pokedex_GetSelectedMon: ; 40bb1
 	ld [wd265], a
 	ret
 
-
 Pokedex_CheckCaught: ; 40bc4 (10:4bc4)
 	push de
 	push hl
@@ -1172,7 +1166,6 @@ Pokedex_CheckCaught: ; 40bc4 (10:4bc4)
 	pop de
 	ret
 
-
 Pokedex_CheckSeen: ; 40bd0
 	push de
 	push hl
@@ -1182,8 +1175,6 @@ Pokedex_CheckSeen: ; 40bd0
 	pop hl
 	pop de
 	ret
-
-
 
 Pokedex_OrderMonsByMode: ; 40bdc
 	ld hl, wPokedexDataStart
@@ -1463,6 +1454,7 @@ Pokedex_DisplayTypeNotFoundMessage: ; 41107
 Pokedex_UpdateCursorOAM: ; 41148 (10:5148)
 	ld hl, .CursorOAM
 	call Pokedex_LoadCursorOAM
+	call Pokedex_PutScrollbarOAM
 	ret
 
 .CursorOAM: ; 41230
@@ -1742,15 +1734,12 @@ Pokedex_BlackOutBG: ; 41401 (10:5401)
 Pokedex_GetSGBLayout: ; 41423
 	ld b, a
 	call GetSGBLayout
-
-Pokedex_ApplyUsualPals: ; 41427
 ; This applies the palettes used for most Pokédex screens.
 	ld a, $e4
 	call DmgToCgbBGPals
 	ld a, $e0
 	call DmgToCgbObjPal0
 	ret
-
 
 Pokedex_LoadPointer: ; 41432
 	ld e, a
@@ -1788,7 +1777,6 @@ Pokedex_LoadSelectedMonTiles: ; 4143b
 	call Get2bpp
 	call CloseSRAM
 	ret
-
 
 Pokedex_LoadCurrentFootprint: ; 41478 (10:5478)
 	call Pokedex_GetSelectedMon
@@ -1833,7 +1821,6 @@ Pokedex_LoadAnyFootprint: ; 4147b
 
 	ret
 
-
 Pokedex_LoadGFX: ; 414b7
 	call DisableLCD
 	ld hl, VTiles2
@@ -1848,8 +1835,6 @@ Pokedex_LoadGFX: ; 414b7
 	ld hl, PokedexLZ
 	ld de, VTiles2 tile $31
 	call Decompress
-
-.LoadPokedexSlowpokeLZ:
 	ld hl, PokedexSlowpokeLZ
 	ld de, VTiles0
 	call Decompress
@@ -1873,12 +1858,6 @@ Pokedex_InvertTiles: ; 41504
 	or c
 	jr nz, .loop
 	ret
-
-PokedexLZ: ; 4150e
-INCBIN "gfx/pokedex/pokedex.2bpp.lz"
-
-PokedexSlowpokeLZ: ; 416b0
-INCBIN "gfx/pokedex/slowpoke.2bpp.lz"
 
 _NewPokedexEntry: ; 41a7f
 	xor a
@@ -1912,7 +1891,6 @@ _NewPokedexEntry: ; 41a7f
 	call PlayCry
 	ret
 
-
 Pokedex_SetBGMapMode3: ; 41ad7 (10:5ad7)
 	ld a, $3
 	ld [hBGMapMode], a
@@ -1927,8 +1905,13 @@ Pokedex_SetBGMapMode4: ; 41ae1 (10:5ae1)
 	call DelayFrames
 	ret
 
-
 Pokedex_ResetBGMapMode: ; 41af7
 	xor a
 	ld [hBGMapMode], a
 	ret
+
+PokedexLZ: ; 4150e
+INCBIN "gfx/pokedex/pokedex.2bpp.lz"
+
+PokedexSlowpokeLZ: ; 416b0
+INCBIN "gfx/pokedex/slowpoke.2bpp.lz"

@@ -15,7 +15,7 @@ MAP_NONE EQU 0
 	mapgroup MANDARIN_NORTH_NAME_RATER, 4, 4
 	mapgroup MANDARIN_NORTH_SMALL_HOUSE, 4, 4
 	mapgroup MANDARIN_NORTH_LARGE_HOUSE, 4, 4
-	mapgroup MANDARIN_UNDERGROUND, 12, 20
+	mapgroup MANDARIN_UNDERGROUND, 10, 16
 	mapgroup MANDARIN_NORTH_MART, 4, 6
 	mapgroup SUNBURST_POKECENTER, 4, 5
 	mapgroup SUNBURST_SMALL_HOUSE, 4, 4
@@ -33,8 +33,8 @@ MAP_NONE EQU 0
 
 	newgroup ; 4
 
-	mapgroup CRYSTAL_CAVE_1F, 16, 20
-	mapgroup CRYSTAL_CAVE_B1, 16, 20
+	mapgroup CRYSTAL_CAVE_1F, 14, 17
+	mapgroup CRYSTAL_CAVE_B1, 14, 18
 	mapgroup ROUTE_55, 25, 25
 	mapgroup PINKAN_ISLAND, 17, 21
 	mapgroup ROUTE_56_WEST, 17, 35
@@ -58,7 +58,7 @@ MAP_NONE EQU 0
 
 	newgroup ; 6
 
-	mapgroup DAYCARE, 4, 5
+	mapgroup DAYCARE, 4, 4
 
 	newgroup ; 7
 
@@ -69,8 +69,8 @@ MAP_NONE EQU 0
 
 	newgroup ; 8
 
-	mapgroup VALENCIA_PORT, 16, 10
-	mapgroup TANGELO_PORT, 16, 10
+	mapgroup VALENCIA_PORT, 14, 10
+	mapgroup TANGELO_PORT, 14, 10
 
 	newgroup ; 9
 
@@ -90,7 +90,7 @@ MAP_NONE EQU 0
 	mapgroup KRISS_HOUSE_1F, 4, 5
 	mapgroup KRISS_HOUSE_2F, 3, 4
 	mapgroup KRISS_NEIGHBORS_HOUSE, 4, 4
-	mapgroup IVYS_HOUSE, 4, 4
+	mapgroup IVYS_HOUSE, 4, 3
 
 	newgroup ; 12
 

@@ -36,39 +36,6 @@ GLOBAL PokedexEntries4
 	db BANK(PokedexEntries3)
 	db BANK(PokedexEntries4)
 
-GetDexEntryPagePointer: ; 44355
-	call GetDexEntryPointer ; b:de
-	push hl
-	ld h, d
-	ld l, e
-; skip species name
-.loop1
-	ld a, b
-	call GetFarByte
-	inc hl
-	cp "@"
-	jr nz, .loop1
-; skip height and weight
-rept 4
-	inc hl
-endr
-; if c != 1: skip entry
-	dec c
-	jr z, .done
-; skip entry
-.loop2
-	ld a, b
-	call GetFarByte
-	inc hl
-	cp "@"
-	jr nz, .loop2
-
-.done
-	ld d, h
-	ld e, l
-	pop hl
-	ret
-
 PokedexDataPointerTable: ; 0x44378
 ; Pointers to all the Pokedex entries.
 

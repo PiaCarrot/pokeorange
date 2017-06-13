@@ -24,7 +24,7 @@ ShinyIcon: ; f8a90
 ; also part of StatsScreenPageTilesGFX
 INCBIN "gfx/stats/shiny.2bpp"
 
-StatsScreenPageTilesGFX_Part2: ; f8aa0
+; StatsScreenPageTilesGFX_Part2: ; f8aa0
 ; not referenced on its own, but part of StatsScreenPageTilesGFX
 INCBIN "gfx/stats/exp_bar_ends.2bpp"
 ; f8ac0
@@ -40,10 +40,6 @@ INCBIN "gfx/battle/hp_exp_bar_border.1bpp"
 ExpBarGFX: ; f8b10
 INCBIN "gfx/battle/expbar.2bpp"
 ; f8ba0
-
-TownMapGFX: ; f8ba0
-INCBIN "gfx/town_map/town_map.2bpp.lz"
-; f8ea4
 
 TextBoxSpaceGFX: ; f9204
 INCBIN "gfx/frames/space.2bpp"

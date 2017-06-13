@@ -252,43 +252,6 @@ IvysLabHealingMachine_HealParty:
 
 IvysLabWindow:
 	jumptext IvysLabWindowText
-
-IvyJumpBackScript1:
-	closetext
-	checkcode VAR_FACING
-	if_equal DOWN, IvyJumpDownScript
-	if_equal UP, IvyJumpUpScript
-	if_equal LEFT, IvyJumpLeftScript
-	if_equal RIGHT, IvyJumpRightScript
-	end
-
-IvyJumpBackScript2:
-	closetext
-	checkcode VAR_FACING
-	if_equal DOWN, IvyJumpUpScript
-	if_equal UP, IvyJumpDownScript
-	if_equal LEFT, IvyJumpRightScript
-	if_equal RIGHT, IvyJumpLeftScript
-	end
-
-IvyJumpUpScript:
-	applymovement IVYSLAB_IVY, IvyJumpUpMovement
-	opentext
-	end
-
-IvyJumpDownScript:
-	applymovement IVYSLAB_IVY, IvyJumpDownMovement
-	opentext
-	end
-
-IvyJumpLeftScript:
-	applymovement IVYSLAB_IVY, IvyJumpLeftMovement
-	opentext
-	end
-
-IvyJumpRightScript:
-	applymovement IVYSLAB_IVY, IvyJumpRightMovement
-	opentext
 	end
 
 AideScript_WalkPotions1:
@@ -396,30 +359,6 @@ AideWalksLeft2:
 	step LEFT
 	step LEFT
 	turn_head DOWN
-	step_end
-
-IvyJumpUpMovement:
-	fix_facing
-	big_step UP
-	remove_fixed_facing
-	step_end
-
-IvyJumpDownMovement:
-	fix_facing
-	big_step DOWN
-	remove_fixed_facing
-	step_end
-
-IvyJumpLeftMovement:
-	fix_facing
-	big_step LEFT
-	remove_fixed_facing
-	step_end
-
-IvyJumpRightMovement:
-	fix_facing
-	big_step RIGHT
-	remove_fixed_facing
 	step_end
 
 IvysLab_IvyToDefaultPositionMovement1:
@@ -562,12 +501,6 @@ IvyText_ChooseAPokemon:
 	para "Go on. Pick one!"
 	done
 
-IvyText_LetYourMonBattleIt:
-	text "If a wild #MON"
-	line "appears, let your"
-	cont "#MON battle it!"
-	done
-
 LabWhereGoingText:
 	text "IVY: Wait! Where"
 	line "are you going?"
@@ -638,11 +571,6 @@ IvyDirectionsText3:
 	line "is your #DEX!"
 	done
 
-GotIvysNumberText:
-	text "<PLAYER> got IVY's"
-	line "phone number."
-	done
-
 IvyDescribesMrPokemonText:
 	text "Best of luck,"
 	line "<PLAYER>!"
@@ -664,24 +592,11 @@ IvysLabHealingMachineText2:
 	line "heal your #MON?"
 	done
 
-IvysLabSignpostText_Egg:
-	text "It's the #MON"
-	line "EGG being studied"
-	cont "by PROF.IVY."
-	done
-
 AideText_GiveYouPotions:
 	text "HOPE: <PLAYER>!"
 
 	para "Use these on your"
 	line "#DEX quest!"
-	done
-
-
-AideText_AlwaysBusy:
-	text "There are only two"
-	line "of us, so we're"
-	cont "always busy."
 	done
 
 AideText_ExplainBalls:

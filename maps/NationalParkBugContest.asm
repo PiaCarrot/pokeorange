@@ -176,30 +176,6 @@ UnknownText_0x5cb64:
 	line "for sure."
 	done
 
-UnknownText_0x5cba7:
-	text "RELAXATION SQUARE"
-	line "NATIONAL PARK"
-	done
-
-UnknownText_0x5cbc8:
-	text "What is this"
-	line "notice?"
-
-	para "Please battle only"
-	line "in the grass."
-
-	para "NATIONAL PARK"
-	line "WARDEN'S OFFICE"
-	done
-
-UnknownText_0x5cc1d:
-	text "TRAINER TIPS"
-
-	para "Print out MAIL by"
-	line "opening it then"
-	cont "pressing START."
-	done
-
 NationalParkBugContest_MapEventHeader:
 	; filler
 	db 0, 0

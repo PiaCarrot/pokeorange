@@ -664,11 +664,8 @@ MailComposition_TryAddCharacter: ; 11b17 (4:5b17)
 
 	ld a, [wNamingScreenLastCharacter]
 
-NamingScreen_LoadNextCharacter: ; 11b23
 	call NamingScreen_GetTextCursorPosition
 	ld [hl], a
-
-NamingScreen_AdvanceCursor_CheckEndOfString: ; 11b27
 	ld hl, wNamingScreenCurrNameLength
 	inc [hl]
 	call NamingScreen_GetTextCursorPosition

@@ -11,57 +11,57 @@ Route54_MapScriptHeader::
 
 .Callbacks: db 0
 
-TrainerSwimmerLucas:
-	trainer EVENT_BEAT_SWIMMERM_LUCAS, SWIMMERM, HAIRO, SwimmerLucasSeenText, SwimmerLucasBeatenText, 0, .Script
+TrainerSwimmermHairo:
+	trainer EVENT_BEAT_SWIMMERM_HAIRO, SWIMMERM, HAIRO, SwimmermHairoSeenText, SwimmermHairoBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext SwimmerLucasAfterText
+	writetext SwimmermHairoAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerSwimmerBrand:
-	trainer EVENT_BEAT_SWIMMERM_BRAND, SWIMMERM, DAISUKE, SwimmerBrandSeenText, SwimmerBrandBeatenText, 0, .Script
+TrainerSwimmermDaisuke:
+	trainer EVENT_BEAT_SWIMMERM_DAISUKE, SWIMMERM, DAISUKE, SwimmermDaisukeSeenText, SwimmermDaisukeBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext SwimmerBrandAfterText
+	writetext SwimmermDaisukeAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerSwimmerArnold:
-	trainer EVENT_BEAT_SWIMMERM_ARNOLD, SWIMMERM, JUNPEI, SwimmerArnoldSeenText, SwimmerArnoldBeatenText, 0, .Script
+TrainerSwimmermJunpei:
+	trainer EVENT_BEAT_SWIMMERM_JUNPEI, SWIMMERM, JUNPEI, SwimmermJunpeiSeenText, SwimmermJunpeiBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext SwimmerArnoldAfterText
+	writetext SwimmermJunpeiAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerSwimmerPaula:
-	trainer EVENT_BEAT_SWIMMERF_PAULA, SWIMMERF, REINA, SwimmerPaulaSeenText, SwimmerPaulaBeatenText, 0, .Script
+TrainerSwimmerfReina:
+	trainer EVENT_BEAT_SWIMMERF_REINA, SWIMMERF, REINA, SwimmerfReinaSeenText, SwimmerfReinaBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext SwimmerPaulaAfterText
+	writetext SwimmerfReinaAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerSwimmerUmiko:
-	trainer EVENT_BEAT_SWIMMERF_UMIKO, SWIMMERF, UMIKO, SwimmerUmikoSeenText, SwimmerUmikoBeatenText, 0, .Script
+TrainerSwimmerfUmiko:
+	trainer EVENT_BEAT_SWIMMERF_UMIKO, SWIMMERF, UMIKO, SwimmerfUmikoSeenText, SwimmerfUmikoBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext SwimmerUmikoAfterText
+	writetext SwimmerfUmikoAfterText
 	waitbutton
 	closetext
 	end
@@ -74,41 +74,41 @@ NicoSign:
 
 .Text:
 
-SwimmerLucasSeenText:
+SwimmermHairoSeenText:
 	text "Did you see those"
 	line "two weirdos in"
 	cont "TEAM ROCKET out-"
 	cont "fits earlier?"
 	done
 
-SwimmerLucasBeatenText:
+SwimmermHairoBeatenText:
 	text "I wonder who they"
 	line "are?"
 	done
 
-SwimmerLucasAfterText:
+SwimmermHairoAfterText:
 	text "I wonder who they"
 	line "are?"
 	done
 
-SwimmerBrandSeenText:
+SwimmermDaisukeSeenText:
 	text "Racing #MON"
 	line "is the best exer-"
 	cont "cise!"
 	done
 
-SwimmerBrandBeatenText:
+SwimmermDaisukeBeatenText:
 	text "Are you faster"
 	line "than me?"
 	done
 
-SwimmerBrandAfterText:
+SwimmermDaisukeAfterText:
 	text "I'll beat the"
 	line "world record some"
 	cont "day!"
 	done
 
-SwimmerArnoldSeenText:
+SwimmermJunpeiSeenText:
 	text "My #MON"
 	line "have been raised"
 	cont "with care!"
@@ -117,17 +117,17 @@ SwimmerArnoldSeenText:
 	line "stronger!"
 	done
 
-SwimmerArnoldBeatenText:
+SwimmermJunpeiBeatenText:
 	text "Yo, that was a"
 	line "good fight!"
 	done
 
-SwimmerArnoldAfterText:
+SwimmermJunpeiAfterText:
 	text "That wasn't too"
 	line "bad!"
 	done
 
-SwimmerPaulaSeenText:
+SwimmerfReinaSeenText:
 	text "I see you're"
 	line "heading to"
 	cont "MANDARIN NORTH."
@@ -136,29 +136,29 @@ SwimmerPaulaSeenText:
 	line "with me first?"
 	done
 
-SwimmerPaulaBeatenText:
+SwimmerfReinaBeatenText:
 	text "Ohoho, not bad!"
 	done
 
-SwimmerPaulaAfterText:
+SwimmerfReinaAfterText:
 	text "Ohohoho! STARYU"
 	line "was no match for"
 	cont "you!"
 	done
 
-SwimmerUmikoSeenText:
+SwimmerfUmikoSeenText:
 	text "Yikes! I think a"
 	line "MAREANIE almost"
 	cont "touched me!"
 	done
 
-SwimmerUmikoBeatenText:
+SwimmerfUmikoBeatenText:
 	text "Thank goodness, it"
 	line "was just some sea-"
 	cont "weed<...>"
 	done
 
-SwimmerUmikoAfterText:
+SwimmerfUmikoAfterText:
 	text "Thank goodness, it"
 	line "was just some sea-"
 	cont "weed<...>"
@@ -186,9 +186,8 @@ Route54_MapEventHeader:: db 0, 0
 	signpost 9, 13, SIGNPOST_READ, NicoSign
 
 .ObjectEvents: db 5
-	person_event SPRITE_SWIMMER_GUY, 38, 4, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmerLucas, -1
-	person_event SPRITE_SWIMMER_GUY, 36, 15, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmerBrand, -1
-	person_event SPRITE_SWIMMER_GUY, 26, 4, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmerArnold, -1
-	person_event SPRITE_SWIMMER_GIRL, 13, 7, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmerUmiko, -1
-	person_event SPRITE_SWIMMER_GIRL, 30, 8, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmerPaula, -1
-
+	person_event SPRITE_SWIMMER_GUY, 38, 4, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmermHairo, -1
+	person_event SPRITE_SWIMMER_GUY, 36, 15, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmermDaisuke, -1
+	person_event SPRITE_SWIMMER_GUY, 26, 4, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmermJunpei, -1
+	person_event SPRITE_SWIMMER_GIRL, 13, 7, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmerfUmiko, -1
+	person_event SPRITE_SWIMMER_GIRL, 30, 8, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmerfReina, -1

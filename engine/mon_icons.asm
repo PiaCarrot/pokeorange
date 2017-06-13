@@ -43,37 +43,6 @@ LoadMenuMonIcon: ; 8e83f
 	dw MoveList_InitAnimatedMonIcon ; moves (?)
 	dw Trade_LoadMonIconGFX ; trade
 
-.GetPartyMonItemGFX: ; 8e86c (23:686c)
-	push bc
-	ld a, [hObjectStructIndexBuffer]
-	ld hl, PartyMon1Item
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
-	pop bc
-	ld a, [hl]
-	and a
-	jr z, .no_item
-	push hl
-	push bc
-	ld d, a
-	farcall ItemIsMail
-	pop bc
-	pop hl
-	jr c, .not_mail
-	ld a, $6
-	jr .got_tile
-.not_mail
-	ld a, $5
-	; jr .got_tile
-
-.no_item
-	ld a, $4
-.got_tile
-	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
-	add hl, bc
-	ld [hl], a
-	ret
-
 PartyMenu_InitAnimatedMonIcon: ; 8e8d5 (23:68d5)
 	call InitPartyMenuIcon
 	call .SpawnItemIcon
@@ -251,12 +220,6 @@ HeldItemIcons:
 INCBIN "gfx/icon/mail.2bpp"
 INCBIN "gfx/icon/item.2bpp"
 ; 8ea17
-
-GetIcon_de: ; 8ea17
-; Load icon graphics into VRAM starting from tile de.
-	ld l, e
-	ld h, d
-	jr GetIcon
 
 GetIcon_a: ; 8ea1b
 ; Load icon graphics into VRAM starting from tile a.

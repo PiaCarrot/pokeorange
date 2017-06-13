@@ -271,35 +271,6 @@ StopAutoInput:: ; a0a
 ; a1b
 
 
-JoyTitleScreenInput:: ; a1b
-.loop
-
-	call DelayFrame
-
-	push bc
-	call JoyTextDelay
-	pop bc
-
-	ld a, [hJoyDown]
-	cp D_UP | SELECT | B_BUTTON
-	jr z, .keycombo
-
-	ld a, [hJoyLast]
-	and START | A_BUTTON
-	jr nz, .keycombo
-
-	dec c
-	jr nz, .loop
-
-	and a
-	ret
-
-.keycombo
-	scf
-	ret
-; a36
-
-
 JoyWaitAorB:: ; a36
 .loop
 	call DelayFrame
@@ -380,15 +351,6 @@ WaitPressAorB_BlinkCursor:: ; a80
 	ld [hMapObjectIndexBuffer], a
 	ret
 ; aa5
-
-SimpleWaitPressAorB:: ; aa5
-.loop
-	call JoyTextDelay
-	ld a, [hJoyLast]
-	and A_BUTTON | B_BUTTON
-	jr z, .loop
-	ret
-; aaf
 
 ButtonSound:: ; aaf
 	ld a, [wLinkMode]

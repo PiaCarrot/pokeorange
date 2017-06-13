@@ -150,13 +150,6 @@ SwitchSometimes: ; 380c1
 ; 380ff
 
 
-CheckSubstatusCantRun: ; 380ff
-	ld a, [EnemySubStatus5]
-	bit SUBSTATUS_CANT_RUN, a
-	ret
-; 38105
-
-
 AI_TryItem: ; 38105
 	; items are not allowed in the BattleTower
 	ld a, [InBattleTowerBattle]

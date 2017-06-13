@@ -39,8 +39,3 @@ Tileset01::
 	tileset Tileset29
 	tileset Tileset30
 	tileset Tileset31
-	tileset Tileset32
-	tileset Tileset33
-	tileset Tileset34
-	tileset Tileset35
-	tileset Tileset36

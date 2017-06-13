@@ -53,6 +53,8 @@ INCLUDE "engine/map_objects.asm"
 
 INCLUDE "engine/intro_menu.asm"
 
+INCLUDE "engine/clock_reset.asm"
+
 ReanchorBGMap_NoOAMUpdate:: ; 6454
 	call DelayFrame
 	ld a, [hOAMUpdate]
@@ -165,6 +167,7 @@ INCLUDE "items/item_attributes.asm"
 INCLUDE "engine/npc_movement.asm"
 INCLUDE "event/happiness_egg.asm"
 INCLUDE "event/special.asm"
+INCLUDE "event/halloffame.asm"
 
 SECTION "bank2", ROMX, BANK[$2]
 
@@ -313,6 +316,16 @@ Script_AbortBugContest: ; 0x122c1
 	setflag ENGINE_DAILY_BUG_CONTEST
 	special ContestReturnMons
 .finish
+	end
+
+Script_AlertToFullBox::
+	refreshscreen $0
+	playsound SFX_CALL
+	waitsfx
+	opentext
+	farwritetext FullBoxText
+	waitbutton
+	closetext
 	end
 
 INCLUDE "event/itemball.asm"
@@ -548,10 +561,6 @@ SECTION "Tileset Data 2", ROMX, BANK[TILESETS_2]
 
 INCLUDE "tilesets/data_2.asm"
 
-SECTION "bank8", ROMX, BANK[$8]
-
-INCLUDE "engine/clock_reset.asm"
-
 SECTION "Tileset Data 3", ROMX, BANK[TILESETS_3]
 
 INCLUDE "tilesets/data_3.asm"
@@ -590,7 +599,7 @@ LoadObjectMasks: ; 2454f
 	xor a
 	ld bc, NUM_OBJECTS
 	call ByteFill
-	nop
+
 	ld bc, MapObjects
 	ld de, wObjectMasks
 	xor a
@@ -838,16 +847,6 @@ INCLUDE "battle/menu.asm"
 INCLUDE "engine/buy_sell_toss.asm"
 INCLUDE "engine/trainer_card.asm"
 INCLUDE "engine/prof_oaks_pc.asm"
-
-PadCoords_de: ; 27092
-	ld a, d
-	add 4
-	ld d, a
-	ld a, e
-	add 4
-	ld e, a
-	call GetBlockLocation
-	ret
 
 LevelUpHappinessMod: ; 2709e
 	ld a, [CurPartyMon]
@@ -2408,7 +2407,7 @@ Special_CheckForLuckyNumberWinners: ; 4d87a
 	ld hl, Buffer1
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	call PrintNum
-	ld hl, LuckyNumberDigit1Buffer
+	ld hl, LuckyNumberFourDigitBuffer
 	ld de, wLuckyIDNumber
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	call PrintNum
@@ -3842,11 +3841,7 @@ INCLUDE "engine/variables.asm"
 BattleText::
 INCLUDE "text/battle.asm"
 
-SECTION "bank21", ROMX, BANK[$21]
-
 INCLUDE "battle/anim_gfx.asm"
-
-INCLUDE "event/halloffame.asm"
 
 SECTION "bank22", ROMX, BANK[$22]
 
@@ -3922,7 +3917,6 @@ ChrisNameMenuHeader: ; 882b5
 	db $91 ; flags
 	db 5 ; items
 	db "NEW NAME@"
-MalePlayerNameArray: ; 882c9
 	db "INDIGO@"
 	db "ORANGE@"
 	db "JAMES@"
@@ -3942,25 +3936,12 @@ KrisNameMenuHeader: ; 882e5
 	db $91 ; flags
 	db 5 ; items
 	db "NEW NAME@"
-FemalePlayerNameArray: ; 882f9
 	db "ORANGE@"
 	db "INDIGO@"
 	db "JESSIE@"
 	db "MOON@"
 	db 2 ; displacement
 	db " NAME @" ; title
-
-GetPlayerNameArray: ; 88318 This Function is never called
-	ld hl, PlayerName
-	ld de, MalePlayerNameArray
-	ld a, [PlayerGender]
-	bit 0, a
-	jr z, .done
-	ld de, FemalePlayerNameArray
-
-.done
-	call InitName
-	ret
 
 GetPlayerIcon: ; 8832c
 ; Get the player icon corresponding to gender
@@ -4119,18 +4100,6 @@ INCLUDE "engine/radio2.asm"
 INCLUDE "engine/fish.asm"
 INCLUDE "engine/slot_machine.asm"
 
-SECTION "Phone Engine", ROMX, BANK[$28]
-
-Script_AlertToFullBox::
-	refreshscreen $0
-	playsound SFX_CALL
-	waitsfx
-	opentext
-	farwritetext FullBoxText
-	waitbutton
-	closetext
-	end
-
 SECTION "Tileset Data 5", ROMX, BANK[TILESETS_5]
 
 INCLUDE "tilesets/data_5.asm"
@@ -4142,8 +4111,6 @@ INCLUDE "engine/events_3.asm"
 INCLUDE "engine/radio.asm"
 
 INCLUDE "gfx/mail.asm"
-
-SECTION "bank2F", ROMX, BANK[$2F]
 
 INCLUDE "engine/std_scripts.asm"
 
@@ -4179,15 +4146,15 @@ StartBattleWithMapTrainerScript: ; 0xbe68a
 AlreadyBeatenTrainerScript:
 	scripttalkafter
 
-SECTION "bank30", ROMX, BANK[$30]
+SECTION "Overworld Sprites 1", ROMX, BANK[$30]
 
 INCLUDE "gfx/overworld/sprites_1.asm"
 
-SECTION "bank31", ROMX, BANK[$31]
+SECTION "Overworld Sprites 2", ROMX, BANK[$31]
 
 INCLUDE "gfx/overworld/sprites_2.asm"
 
-SECTION "Sprite 3", ROMX
+SECTION "Overworld Sprites 3", ROMX
 
 INCLUDE "gfx/overworld/sprites_3.asm"
 
@@ -4456,76 +4423,6 @@ INCLUDE "tilesets/animations.asm"
 
 INCLUDE "engine/npctrade.asm"
 
-SECTION "bank40", ROMX, BANK[$40]
-
-_LinkBattleSendReceiveAction: ; 100a09
-; Note that only the lower 4 bits is usable. The higher 4 determines what kind of
-; linking we are performing.
-	call .StageForSend
-	ld [wd431], a
-	farcall PlaceWaitingText
-	call .LinkBattle_SendReceiveAction
-	ret
-; 100a2e
-
-.StageForSend: ; 100a2e
-	ld a, [wPlayerAction]
-	and a
-	jr nz, .switch
-	ld a, [CurPlayerMove]
-	ld b, BATTLEACTION_E
-	cp STRUGGLE
-	jr z, .struggle
-	ld b, BATTLEACTION_D
-	cp $ff
-	jr z, .struggle
-	ld a, [CurMoveNum]
-	jr .use_move
-
-.switch
-	ld a, [CurPartyMon]
-	add BATTLEACTION_SWITCH1
-	jr .use_move
-
-.struggle
-	ld a, b
-
-.use_move
-	and $0f
-	ret
-; 100a53
-
-.LinkBattle_SendReceiveAction: ; 100a53
-	ld a, [wd431]
-	ld [wPlayerLinkAction], a
-	ld a, $ff
-	ld [wOtherPlayerLinkAction], a
-.waiting
-	call LinkTransfer
-	call DelayFrame
-	ld a, [wOtherPlayerLinkAction]
-	inc a
-	jr z, .waiting
-
-	ld b, 10
-.receive
-	call DelayFrame
-	call LinkTransfer
-	dec b
-	jr nz, .receive
-
-	ld b, 10
-.acknowledge
-	call DelayFrame
-	call LinkDataReceived
-	dec b
-	jr nz, .acknowledge
-
-	ld a, [wOtherPlayerLinkAction]
-	ld [wBattleAction], a
-	ret
-; 100a87
-
 SECTION "bank41", ROMX, BANK[$41]
 
 INCLUDE "engine/gfx_41.asm"
@@ -4638,13 +4535,6 @@ LoadSGBPokedexGFX: ; 1ddf1c
 	call Decompress
 	ret
 
-LoadSGBPokedexGFX2: ; 1ddf26 (77:5f26)
-	ld hl, SGBPokedexGFX_LZ
-	ld de, VTiles2 tile $31
-	lb bc, BANK(SGBPokedexGFX_LZ), $3a
-	call DecompressRequest2bpp
-	ret
-
 SGBPokedexGFX_LZ: ; 1ddf33
 INCBIN "gfx/pokedex/sgb.2bpp.lz"
 
@@ -4677,10 +4567,6 @@ DrawPokedexListWindow: ; 1de171 (77:6171)
 	ld [hl], $3f
 	hlcoord 5, 16
 	ld [hl], $40
-	ld a, [wCurrentDexMode]
-	cp DEXMODE_OLD
-	jr z, .OldMode
-; scroll bar
 	hlcoord 11, 0
 	ld [hl], $50
 	ld a, $51
@@ -4688,18 +4574,6 @@ DrawPokedexListWindow: ; 1de171 (77:6171)
 	ld b, SCREEN_HEIGHT - 3
 	call Bank77_FillColumn
 	ld [hl], $52
-	jr .Done
-
-.OldMode:
-; no scroll bar
-	hlcoord 11, 0
-	ld [hl], $66
-	ld a, $67
-	hlcoord 11, 1
-	ld b, SCREEN_HEIGHT - 3
-	call Bank77_FillColumn
-	ld [hl], $68
-.Done:
 	ret
 
 DrawPokedexSearchResultsWindow: ; 1de1d1 (77:61d1)

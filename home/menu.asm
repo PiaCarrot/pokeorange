@@ -92,14 +92,6 @@ VerticalMenu::
 	ret
 ; 0x1dab
 
-GetMenu2:: ; 1dab
-	call LoadMenuDataHeader
-	call VerticalMenu
-	call CloseWindow
-	ld a, [wMenuCursorY]
-	ret
-; 1db8
-
 CopyNameFromMenu::
 	push hl
 	push bc
@@ -125,23 +117,16 @@ YesNoBox:: ; 1dcf
 	lb bc, SCREEN_WIDTH - 6, 7
 
 PlaceYesNoBox:: ; 1dd2
-	jr _YesNoBox
-
-PlaceGenericTwoOptionBox:: ; 1dd4
-	call LoadMenuDataHeader
-	jr InterpretTwoOptionMenu
-
-_YesNoBox:: ; 1dd9
 ; Return nc (yes) or c (no).
 	push bc
 	ld hl, YesNoMenuDataHeader
 	call CopyMenuDataHeader
 	pop bc
-; This seems to be an overflow prevention, but
-; it was coded wrong.
+
+	; overflow prevention
 	ld a, b
 	cp SCREEN_WIDTH - 6
-	jr nz, .okay ; should this be "jr nc"?
+	jr nc, .okay
 	ld a, SCREEN_WIDTH - 6
 	ld b, a
 
@@ -156,7 +141,6 @@ _YesNoBox:: ; 1dd9
 	ld [wMenuBorderBottomCoord], a
 	call PushWindow
 
-InterpretTwoOptionMenu:: ; 1dfe
 	call VerticalMenu
 	push af
 	ld c, $f

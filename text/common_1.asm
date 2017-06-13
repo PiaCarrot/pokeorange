@@ -202,52 +202,6 @@ UnknownText_0x1bc774::
 	text "."
 	done
 
-UnknownText_0x1bc787::
-	text_from_ram wPlayerTrademonSenderName
-	text " will"
-	line "trade @"
-	text_from_ram wPlayerTrademonSpeciesName
-	db "@@"
-
-UnknownText_0x1bc79d::
-	text "for @"
-	text_from_ram wOTTrademonSenderName
-	text "'s"
-	line "@"
-	text_from_ram wOTTrademonSpeciesName
-	text "."
-	done
-
-UnknownText_0x1bc7b0::
-	text_from_ram wPlayerTrademonSenderName
-	text "'s"
-	line "@"
-	text_from_ram wPlayerTrademonSpeciesName
-	text " trade<...>"
-	done
-
-UnknownText_0x1bc7c3::
-	text "Take good care of"
-	line "@"
-	text_from_ram wOTTrademonSpeciesName
-	text "."
-	done
-
-UnknownText_0x1bc7dd::
-	text_from_ram wPlayerTrademonSenderName
-	text "'s"
-	line "@"
-	text_from_ram wPlayerTrademonSpeciesName
-	text " trade<...>"
-	done
-
-UnknownText_0x1bc7f0::
-	text "Take good care of"
-	line "@"
-	text_from_ram wOTTrademonSpeciesName
-	text "."
-	done
-
 ; Oak's Pokémon Talk
 
 _OPT_IntroText1::
@@ -928,10 +882,6 @@ UnknownText_0x1bd745::
 
 	para "I still have a lot"
 	line "to learn about it."
-	done
-
-UnknownText_0x1bdaa7::
-	text ""
 	done
 
 UnknownText_0x1bdaa9::

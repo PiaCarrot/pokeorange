@@ -106,12 +106,6 @@ UndergroundPathSwitchRoomEntrances_MapScriptHeader:
 .false14
 	return
 
-SuperNerdScript_0x7ca7a:
-	jumptextfaceplayer UndergroundPathSwitchRoomEntrances_SuperNerdText
-
-TeacherScript_0x7ca7d:
-	jumptextfaceplayer UndergroundPathSwitchRoomEntrances_TeacherText
-
 Switch1Script:
 	opentext
 	writetext SwitchRoomText_Switch1

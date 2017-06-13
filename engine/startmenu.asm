@@ -18,7 +18,7 @@ StartMenu:: ; 125cd
 	call .SetUpMenuItems
 	ld a, [wd0d2]
 	ld [wMenuCursorBuffer], a
-	call .DrawMenuAccount_
+	call .DrawDayTimeBox
 	call DrawVariableLengthMenuBox
 	call .DrawBugContestStatusBox
 	call SafeUpdateSprites
@@ -38,7 +38,7 @@ StartMenu:: ; 125cd
 .Select:
 	call .GetInput
 	jr c, .Exit
-	call .DrawMenuAccount
+	call .DrawDayTimeBox
 	ld a, [wMenuCursorBuffer]
 	ld [wd0d2], a
 	call PlayClickSFX
@@ -85,12 +85,12 @@ StartMenu:: ; 125cd
 ; Return carry on exit, and no-carry on selection.
 	xor a
 	ld [hBGMapMode], a
-	call .DrawMenuAccount
+	call .DrawDayTimeBox
 	call SetUpMenu
 	ld a, $ff
 	ld [MenuSelection], a
 .loop
-	call .PrintMenuAccount
+	call .PrintDayTime
 	call GetScrollingMenuJoypad
 	ld a, [wMenuJoypad]
 	cp B_BUTTON
@@ -141,7 +141,7 @@ StartMenu:: ; 125cd
 	call ClearBGPalettes
 	call Call_ExitMenu
 	call ReloadTilesetAndPalettes
-	call .DrawMenuAccount_
+	call .DrawDayTimeBox
 	call DrawVariableLengthMenuBox
 	call .DrawBugContestStatus
 	call UpdateSprites
@@ -168,66 +168,13 @@ StartMenu:: ; 125cd
 	db %10101000 ; x padding, wrap around, start can close
 	dn 0, 0 ; rows, columns
 	dw MenuItemsList
-	dw .MenuString
+	dw .ItemName
 	dw .Items
 
-.Items:
-	dw StartMenu_Pokedex,  .PokedexString,  .PokedexDesc
-	dw StartMenu_Pokemon,  .PartyString,    .PartyDesc
-	dw StartMenu_Pack,     .PackString,     .PackDesc
-	dw StartMenu_Status,   .StatusString,   .StatusDesc
-	dw StartMenu_Save,     .SaveString,     .SaveDesc
-	dw StartMenu_Option,   .OptionString,   .OptionDesc
-	dw StartMenu_Exit,     .ExitString,     .ExitDesc
-	dw StartMenu_Quit,     .QuitString,     .QuitDesc
-
-.PokedexString: 	db "#DEX@"
-.PartyString:   	db "#MON@"
-.PackString:    	db "PACK@"
-.StatusString:  	db "<PLAYER>@"
-.SaveString:    	db "SAVE@"
-.OptionString:  	db "OPTION@"
-.ExitString:    	db "EXIT@"
-.QuitString:    	db "QUIT@"
-
-.PokedexDesc:  db   "#MON"
-	next "database@"
-
-.PartyDesc:    db   "Party <PK><MN>"
-	next "status@"
-
-.PackDesc:     db   "Contains"
-	next "items@"
-
-.StatusDesc:   db   "Your own"
-	next "status@"
-
-.SaveDesc:     db   "Save your"
-	next "progress@"
-
-.OptionDesc:   db   "Change"
-	next "settings@"
-
-.ExitDesc:     db   "Close this"
-	next "menu@"
-
-.QuitDesc:     db   "Quit and"
-	next "be judged.@"
-
-
-.OpenMenu: ; 127e5
-	ld a, [MenuSelection]
-	call .GetMenuAccountTextPointer
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	jp hl
-; 127ef
-
-.MenuString: ; 127ef
+.ItemName: ; 127ef
 	push de
 	ld a, [MenuSelection]
-	call .GetMenuAccountTextPointer
+	call .GetMenuItemTextPointer
 	inc hl
 	inc hl
 	ld a, [hli]
@@ -238,35 +185,44 @@ StartMenu:: ; 125cd
 	ret
 ; 12800
 
-.MenuDesc: ; 12800
-	push de
+.Items:
+	dw StartMenu_Pokedex, .PokedexString
+	dw StartMenu_Pokemon, .PartyString
+	dw StartMenu_Pack,    .PackString
+	dw StartMenu_Status,  .StatusString
+	dw StartMenu_Save,    .SaveString
+	dw StartMenu_Option,  .OptionString
+	dw StartMenu_Exit,    .ExitString
+	dw StartMenu_Quit,    .QuitString
+
+.PokedexString: db "#DEX@"
+.PartyString:   db "#MON@"
+.PackString:    db "PACK@"
+.StatusString:  db "<PLAYER>@"
+.SaveString:    db "SAVE@"
+.OptionString:  db "OPTION@"
+.ExitString:    db "EXIT@"
+.QuitString:    db "QUIT@"
+
+
+.OpenMenu: ; 127e5
 	ld a, [MenuSelection]
-	cp $ff
-	jr z, .none
-	call .GetMenuAccountTextPointer
-rept 4
-	inc hl
-endr
+	call .GetMenuItemTextPointer
 	ld a, [hli]
-	ld d, [hl]
-	ld e, a
-	pop hl
-	call PlaceString
-	ret
-.none
-	pop de
-	ret
-; 12819
+	ld h, [hl]
+	ld l, a
+	jp hl
+; 127ef
 
 
-.GetMenuAccountTextPointer: ; 12819
+.GetMenuItemTextPointer: ; 12819
 	ld e, a
 	ld d, 0
 	ld hl, wMenuData2PointerTableAddr
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-rept 6
+rept 4
 	add hl, de
 endr
 	ret
@@ -346,21 +302,7 @@ endr
 	ret
 ; 128a4
 
-.DrawMenuAccount_: ; 128a4
-	jp .DrawMenuAccount
-; 128a7
-
-.PrintMenuAccount: ; 128a7
-	call .IsMenuAccountOn
-	ret z
-	call .DrawMenuAccount
-	decoord 0, 14
-	jp .MenuDesc
-; 128b4
-
-.DrawMenuAccount: ; 128b4
-	call .IsMenuAccountOn
-	ret z
+.DrawDayTimeBox: ; 128b4
 	hlcoord 0, 13
 	lb bc, 5, 10
 	call ClearBox
@@ -370,11 +312,18 @@ endr
 	jp TextBoxPalette
 ; 128cb
 
-.IsMenuAccountOn: ; 128cb
-	ld a, [Options2]
-	and 1
+.PrintDayTime: ; 128a7
+	call .DrawDayTimeBox
+	bccoord 0, 14
+	farcall Text_TX_DAY
+	ld a, [hHours]
+	ld b, a
+	ld a, [hMinutes]
+	ld c, a
+	decoord 0, 16
+	farcall PrintHoursMins
 	ret
-; 128d1
+; 128b4
 
 .DrawBugContestStatusBox: ; 128d1
 	ld hl, StatusFlags2

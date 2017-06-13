@@ -18,108 +18,91 @@ Route52_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-Route52RoarTMGuyScript:
-	faceplayer
-	opentext
-	checkevent EVENT_GOT_TM05_ROAR
-	iftrue .AlreadyHaveRoar
-	writetext Text_RoarIntro
-	buttonsound
-	verbosegiveitem TM_ROAR
-	iffalse .Finish
-	setevent EVENT_GOT_TM05_ROAR
-.AlreadyHaveRoar:
-	writetext Text_RoarOutro
-	waitbutton
-.Finish:
-	closetext
-	end
-
-TrainerCamperRoland:
-	trainer EVENT_BEAT_CAMPER_ROLAND, CAMPER, SAMM, CamperRolandSeenText, CamperRolandBeatenText, 0, .Script
+TrainerCamperSamm:
+	trainer EVENT_BEAT_CAMPER_SAMM, CAMPER, SAMM, CamperSammSeenText, CamperSammBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext CamperRolandAfterText
+	writetext CamperSammAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerFisherJustin:
-	trainer EVENT_BEAT_FISHER_JUSTIN, FISHER, SOJIRO, FisherJustinSeenText, FisherJustinBeatenText, 0, .Script
+TrainerFisherSojiro:
+	trainer EVENT_BEAT_FISHER_SOJIRO, FISHER, SOJIRO, FisherSojiroSeenText, FisherSojiroBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext FisherJustinAfterText
+	writetext FisherSojiroAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerFisherRalph:
-	trainer EVENT_BEAT_FISHER_RALPH, FISHER, FUGU, FisherRalph1SeenText, FisherRalph1BeatenText, 0, .Script
+TrainerFisherFugu:
+	trainer EVENT_BEAT_FISHER_FUGU, FISHER, FUGU, FisherFuguSeenText, FisherFuguBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext FisherRalphAfterText
+	writetext FisherFuguAfterText
 	waitbutton
 	closetext
 	end
 
 
-TrainerFisherHenry:
-	trainer EVENT_BEAT_FISHER_HENRY, FISHER, NOBU, FisherHenrySeenText, FisherHenryBeatenText, 0, .Script
+TrainerFisherNobu:
+	trainer EVENT_BEAT_FISHER_NOBU, FISHER, NOBU, FisherNobuSeenText, FisherNobuBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext FisherHenryAfterText
+	writetext FisherNobuAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerPicnickerLiz:
-	trainer EVENT_BEAT_PICNICKER_LIZ, SWIMMERF, YUKA, PicnickerLiz1SeenText, PicnickerLiz1BeatenText, 0, .Script
+TrainerSwimmerfYuka:
+	trainer EVENT_BEAT_SWIMMERF_YUKA, SWIMMERF, YUKA, SwimmerfYukaSeenText, SwimmerfYukaBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext PicnickerLiz1AfterText
+	writetext SwimmerfYukaAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerYoungsterAlbert:
-	trainer EVENT_BEAT_YOUNGSTER_ALBERT, SWIMMERM, THEO, YoungsterAlbertSeenText, YoungsterAlbertBeatenText, 0, .Script
+TrainerSwimmermTheo:
+	trainer EVENT_BEAT_SWIMMERM_THEO, SWIMMERM, THEO, SwimmermTheoSeenText, SwimmermTheoBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext YoungsterAlbertAfterText
+	writetext SwimmermTheoAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerYoungsterGordon:
-	trainer EVENT_BEAT_YOUNGSTER_GORDON, YOUNGSTER, BOWIE, YoungsterGordonSeenText, YoungsterGordonBeatenText, 0, .Script
+TrainerYoungsterBowie:
+	trainer EVENT_BEAT_YOUNGSTER_BOWIE, YOUNGSTER, BOWIE, YoungsterBowieSeenText, YoungsterBowieBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext YoungsterGordonAfterText
+	writetext YoungsterBowieAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerBird_keeperPeter:
-	trainer EVENT_BEAT_BIRD_KEEPER_PETER, SWIMMERM, ATECAIN, Bird_keeperPeterSeenText, Bird_keeperPeterBeatenText, 0, .Script
+TrainerSwimmermAtecain:
+	trainer EVENT_BEAT_SWIMMERM_ATECAIN, SWIMMERM, ATECAIN, SwimmermAtecainSeenText, SwimmermAtecainBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext Bird_keeperPeterAfterText
+	writetext SwimmermAtecainAfterText
 	waitbutton
 	closetext
 	end
@@ -142,18 +125,18 @@ Route52HiddenGreatBall:
 Route52HiddenSuperPotion:
 	dwb EVENT_ROUTE_52_HIDDEN_SUPER_POTION, SUPER_POTION
 
-FisherJustinSeenText:
+FisherSojiroSeenText:
 	text "I been lookin'"
 	line "for a fish to"
 	cont "catch. Looks to"
 	cont "me I caught you!"
 	done
 
-FisherJustinBeatenText:
+FisherSojiroBeatenText:
 	text "Fishing's fun!"
 	done
 
-FisherJustinAfterText:
+FisherSojiroAfterText:
 	text "Calm, collected<...>"
 	line "The essence of"
 
@@ -161,7 +144,7 @@ FisherJustinAfterText:
 	line "MON is the same."
 	done
 
-FisherRalph1SeenText:
+FisherFuguSeenText:
 	text "#MON caught"
 	line "on a ROD are"
 	cont "much cooler than"
@@ -170,96 +153,96 @@ FisherRalph1SeenText:
 	para "I'll show ya!"
 	done
 
-FisherRalph1BeatenText:
+FisherFuguBeatenText:
 	text "Darn. I should've"
 	line "used my ace<...>"
 	done
 
-FisherRalphAfterText:
+FisherFuguAfterText:
 	text "You're good, kid."
 	done
 
-FisherHenrySeenText:
+FisherNobuSeenText:
 	text "My #MON?"
 	line "Freshly caught!"
 	done
 
-FisherHenryBeatenText:
+FisherNobuBeatenText:
 	text "Off to the SUSHI"
 	line "stand they go<...>"
 	done
 
-FisherHenryAfterText:
+FisherNobuAfterText:
 	text "Freshly caught"
 	line "#MON taste"
 	cont "phenomenal!"
 	done
 
-YoungsterAlbertSeenText:
+SwimmermTheoSeenText:
 	text "Man I'm starving."
 	line "Could use a JELLY-"
 	cont "FILLED DONUT right"
 	cont "now."
 	done
 
-YoungsterAlbertBeatenText:
+SwimmermTheoBeatenText:
 	text "Or was it a RICE-"
 	line "BALL?"
 	done
 
-YoungsterAlbertAfterText:
+SwimmermTheoAfterText:
 	text "Mmm<...> DONUTS<...>"
 	done
 
-YoungsterGordonSeenText:
+YoungsterBowieSeenText:
 	text "There's some rare"
 	line "#MON in the"
 	cont "grass here."
 	done
 
-YoungsterGordonBeatenText:
+YoungsterBowieBeatenText:
 	text "But my #MON"
 	line "is rare!"
 	done
 
-YoungsterGordonAfterText:
+YoungsterBowieAfterText:
 	text "TANGELA is still"
 	line "a pretty good"
 	cont "#MON."
 	done
 
-CamperRolandSeenText:
+CamperSammSeenText:
 	text "Want that item?"
 	line "Gonna have to"
 	cont "beat me first."
 	done
 
-CamperRolandBeatenText:
+CamperSammBeatenText:
 	text "Ugh. Take it."
 	done
 
-CamperRolandAfterText:
+CamperSammAfterText:
 	text "It's not even a"
 	line "good item."
 	done
 
-PicnickerLiz1SeenText:
+SwimmerfYukaSeenText:
 	text "CISSY is a WATER-"
 	line "TYPE trainer. If"
 	cont "can't beat me you"
 	cont "are hopeless!"
 	done
 
-PicnickerLiz1BeatenText:
+SwimmerfYukaBeatenText:
 	text "Ooh, you've got"
 	line "a chance!"
 	done
 
-PicnickerLiz1AfterText:
+SwimmerfYukaAfterText:
 	text "Good luck!"
 	done
 
-Bird_keeperPeterSeenText:
+SwimmermAtecainSeenText:
 	text "Diving for rubies"
 	line "to make THONSU."
 
@@ -268,33 +251,14 @@ Bird_keeperPeterSeenText:
 	cont "mystical power."
 	done
 
-Bird_keeperPeterBeatenText:
+SwimmermAtecainBeatenText:
 	text "Do not said give"
 	line "you money."
 	done
 
-Bird_keeperPeterAfterText:
+SwimmermAtecainAfterText:
 	text "I stop now. SUN"
 	line "is getting DIRTY."
-	done
-
-Text_RoarIntro:
-	text "WROOOOAR!"
-	line "PEOPLE RUN WHEN I"
-
-	para "ROAR! BUT YOU"
-	line "CAME LOOKING!"
-
-	para "THAT PLEASES ME!"
-	line "NOW TAKE THIS!"
-	done
-
-Text_RoarOutro:
-	text "WROOOAR!"
-	line "IT'S ROAR!"
-
-	para "EVEN #MON RUN"
-	line "FROM A GOOD ROAR!"
 	done
 
 Route52SignText:
@@ -320,13 +284,13 @@ Route52_MapEventHeader:: db 0, 0
 	signpost 49, 16, SIGNPOST_ITEM, Route52HiddenSuperPotion
 
 .ObjectEvents: db 10
-	person_event SPRITE_FISHER, 41, 7, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerFisherJustin, -1
-	person_event SPRITE_FISHER, 14, 12, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerFisherRalph, -1
-	person_event SPRITE_FISHER, 37, 4, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerFisherHenry, -1
-	person_event SPRITE_SWIMMER_GUY, 27, 1, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerYoungsterAlbert, -1
-	person_event SPRITE_YOUNGSTER, 53, 14, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerYoungsterGordon, -1
-	person_event SPRITE_YOUNGSTER, 16, 10, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 4, TrainerCamperRoland, -1
-	person_event SPRITE_SWIMMER_GIRL, 30, 20, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 3, TrainerPicnickerLiz, -1
-	person_event SPRITE_SWIMMER_GUY, 43, 18, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerBird_keeperPeter, -1
+	person_event SPRITE_FISHER, 41, 7, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerFisherSojiro, -1
+	person_event SPRITE_FISHER, 14, 12, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerFisherFugu, -1
+	person_event SPRITE_FISHER, 37, 4, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerFisherNobu, -1
+	person_event SPRITE_SWIMMER_GUY, 27, 1, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmermTheo, -1
+	person_event SPRITE_YOUNGSTER, 53, 14, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerYoungsterBowie, -1
+	person_event SPRITE_YOUNGSTER, 16, 10, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 4, TrainerCamperSamm, -1
+	person_event SPRITE_SWIMMER_GIRL, 30, 20, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 3, TrainerSwimmerfYuka, -1
+	person_event SPRITE_SWIMMER_GUY, 43, 18, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmermAtecain, -1
 	person_event SPRITE_POKE_BALL, 54, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route52GreatBall, EVENT_ROUTE_52_GREAT_BALL
 	person_event SPRITE_POKE_BALL, 14, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route52Repel, EVENT_ROUTE_52_REPEL

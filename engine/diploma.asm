@@ -53,42 +53,8 @@ PlaceDiplomaOnScreen: ; 1dd709
 	db   "@"
 ; 1dd7ae
 
-PrintDiplomaPage2: ; 1dd7ae
-	hlcoord 0, 0
-	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	ld a, $7f
-	call ByteFill
-	ld hl, DiplomaPage2Tilemap
-	decoord 0, 0
-	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call CopyBytes
-	ld de, .GameFreak
-	hlcoord 8, 0
-	call PlaceString
-	ld de, .PlayTime
-	hlcoord 3, 15
-	call PlaceString
-	hlcoord 12, 15
-	ld de, GameTimeHours
-	lb bc, 2, 4
-	call PrintNum
-	ld [hl], $67 ; colon
-	inc hl
-	ld de, GameTimeMinutes
-	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
-	ret
-; 1dd7f0
-
-.PlayTime: db "PLAY TIME@"
-.GameFreak: db "GAME FREAK@"
-; 1dd805
-
 DiplomaGFX: ; 1dd805
 INCBIN "gfx/diploma/diploma.2bpp.lz"
 
 DiplomaPage1Tilemap: ; 1ddc4b
-INCBIN "gfx/diploma/page1.tilemap"
-
-DiplomaPage2Tilemap: ; 1dddb3
-INCBIN "gfx/diploma/page2.tilemap"
+INCBIN "gfx/diploma/diploma.tilemap"

@@ -155,8 +155,3 @@ DoPoisonStep:: ; 505da
 	text_jump UnknownText_0x1c0acc
 	db "@"
 ; 506b7
-
-.PoisonWhiteOutText: ; 506b7
-	text_jump UnknownText_0x1c0ada
-	db "@"
-; 506bc

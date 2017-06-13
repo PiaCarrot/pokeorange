@@ -152,138 +152,6 @@ UnknownText_0x1c581a::
 	text "Darn<...>"
 	done
 
-UnknownText_0x1c5821::
-	current_day
-	db "@@"
-
-UnknownText_0x1c5824::
-	text "<...><...>"
-	done
-
-UnknownText_0x1c5827::
-	text "You're out of the"
-	line "service area."
-	prompt
-
-UnknownText_0x1c5847::
-	text "Whom do you want"
-	line "to call?"
-	done
-
-UnknownText_0x1c5862::
-	text "Press any button"
-	line "to exit."
-	done
-
-UnknownText_0x1c587d::
-	text "Delete this stored"
-	line "phone number?"
-	done
-
-UnknownText_0x1c589f::
-	text "Which prize would"
-	line "you like?"
-	done
-
-UnknownText_0x1c58bc::
-	text_from_ram StringBuffer1
-	text "?"
-	line "Is that right?"
-	done
-
-UnknownText_0x1c58d1::
-	text "Here you go!"
-	para ""
-	done
-
-UnknownText_0x1c58e0::
-	text "You don't have"
-	line "enough points."
-	para ""
-	done
-
-UnknownText_0x1c58ff::
-	text "You have no room"
-	line "for it."
-	para ""
-	done
-
-UnknownText_0x1c591a::
-	text "Oh. Please come"
-	line "back again!"
-	done
-
-UnknownText_0x1c5937::
-	text "Excuse me!"
-	para ""
-	done
-
-Text_ExcuseMeYoureNotReady::
-	text "Excuse me."
-	line "You're not ready."
-	para ""
-	done
-
-UnknownText_0x1c5962::
-	text "Please return when"
-	line "you're ready."
-	done
-
-UnknownText_0x1c5983::
-	text "You need at least"
-	line "three #MON."
-	para ""
-	done
-
-UnknownText_0x1c59a3::
-	text "Sorry, an EGG"
-	line "doesn't qualify."
-	para ""
-	done
-
-Text_OnlyThreePkmnMayBeEntered::
-	text "Only three #MON"
-	line "may be entered."
-	para ""
-	done
-
-Text_ThePkmnMustAllBeDifferentKinds::
-	text "The @"
-	text_from_ram StringBuffer2
-	text " #MON"
-	line "must all be"
-	cont "different kinds."
-	para ""
-	done
-
-Text_ThePkmnMustNotHoldTheSameItems::
-	text "The @"
-	text_from_ram StringBuffer2
-	text " #MON"
-	line "must not hold the"
-	cont "same items."
-	para ""
-	done
-
-Text_YouCantTakeAnEgg::
-	text "You can't take an"
-	line "EGG!"
-	para ""
-	done
-
-UnknownText_0x1c5a5a::
-	text "It dodged the"
-	line "thrown BALL!"
-
-	para "This #MON"
-	line "can't be caught!"
-	prompt
-
-UnknownText_0x1c5a90::
-	text "You missed the"
-	line "#MON!"
-	prompt
-
 UnknownText_0x1c5aa6::
 	text "Oh no! The #MON"
 	line "broke free!"
@@ -423,11 +291,6 @@ UnknownText_0x1c5d6e::
 	cont "time to use that!"
 	prompt
 
-UnknownText_0x1c5d97::
-	text "That belongs to"
-	line "someone else!"
-	prompt
-
 UnknownText_0x1c5db6::
 	text "It won't have any"
 	line "effect."
@@ -442,18 +305,6 @@ UnknownText_0x1c5def::
 	text "Don't be a thief!"
 	prompt
 
-UnknownText_0x1c5e01::
-	text "Cycling isn't"
-	line "allowed here."
-	prompt
-
-UnknownText_0x1c5e1d::
-	text "Can't get on your"
-	line "@"
-	text_from_ram StringBuffer1
-	text " now."
-	prompt
-
 UnknownText_0x1c5e3a::
 	text "The #MON BOX"
 	line "is full. That"
@@ -466,21 +317,6 @@ UnknownText_0x1c5e68::
 	text_from_ram StringBuffer2
 	text "."
 	done
-
-UnknownText_0x1c5e7b::
-	text "<PLAYER> got on the@"
-	text_low
-	text_from_ram StringBuffer2
-	text "."
-	prompt
-
-UnknownText_0x1c5e90::
-	text "<PLAYER> got off@"
-	text_low
-	text "the @"
-	text_from_ram StringBuffer2
-	text "."
-	prompt
 
 UnknownText_0x1c5ea8::
 	text_from_ram StringBuffer1

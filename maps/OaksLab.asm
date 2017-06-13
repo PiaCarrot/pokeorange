@@ -11,9 +11,6 @@ OaksLab_MapScriptHeader:
 .MapCallbacks:
 	db 0
 
-.DummyTrigger:
-	end
-
 Oak:
 	faceplayer
 	opentext

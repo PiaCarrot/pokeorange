@@ -23,7 +23,7 @@ RGBFIX_FLAGS = -Cjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -p $(FILLER) -k 01 
 
 
 PYTHON := python
-MD5 := md5sum -c --quiet
+MD5 := md5sum -c
 RM := rm -f
 
 gfx      := $(PYTHON) gfx.py

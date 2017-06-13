@@ -14,7 +14,7 @@ MikanGym_MapScriptHeader:
 FalknerScript_0x683c2:
 	faceplayer
 	opentext
-	checkevent EVENT_BEAT_FALKNER
+	checkevent EVENT_BEAT_CISSY
 	iftrue .FightDone
 	writetext UnknownText_0x68473
 	waitbutton
@@ -23,7 +23,7 @@ FalknerScript_0x683c2:
 	loadtrainer CISSY, 1
 	startbattle
 	reloadmapafterbattle
-	setevent EVENT_BEAT_FALKNER
+	setevent EVENT_BEAT_CISSY
 	opentext
 	writetext UnknownText_0x685af
 	playsound SFX_GET_BADGE
@@ -33,8 +33,8 @@ FalknerScript_0x683c2:
 .FightDone:
 	checkevent EVENT_GOT_TM32_BUBBLEBEAM
 	iftrue .SpeechAfterTM
-	setevent EVENT_BEAT_BIRD_KEEPER_ROD
-	setevent EVENT_BEAT_BIRD_KEEPER_ABE
+	setevent EVENT_BEAT_SWIMMERF_MARIA
+	setevent EVENT_BEAT_LASS_NICOLE
 	writetext UnknownText_0x685c8
 	domaptrigger MIKAN_ISLAND_ROUTE_53_GATE, $1
 	buttonsound
@@ -53,10 +53,10 @@ FalknerScript_0x683c2:
 	closetext
 	end
 
-TrainerBird_keeperRod:
-	trainer EVENT_BEAT_BIRD_KEEPER_ROD, SWIMMERF, MARIA, Bird_keeperRodSeenText, Bird_keeperRodBeatenText, 0, Bird_keeperRodScript
+TrainerSwimmerfMaria:
+	trainer EVENT_BEAT_SWIMMERF_MARIA, SWIMMERF, MARIA, SwimmerfMariaSeenText, SwimmerfMariaBeatenText, 0, SwimmerfMariaScript
 
-Bird_keeperRodScript:
+SwimmerfMariaScript:
 	end_if_just_battled
 	opentext
 	writetext UnknownText_0x68837
@@ -64,10 +64,10 @@ Bird_keeperRodScript:
 	closetext
 	end
 
-TrainerBird_keeperAbe:
-	trainer EVENT_BEAT_BIRD_KEEPER_ABE, LASS, NICOLE, Bird_keeperAbeSeenText, Bird_keeperAbeBeatenText, 0, Bird_keeperAbeScript
+TrainerLassNicole:
+	trainer EVENT_BEAT_LASS_NICOLE, LASS, NICOLE, LassNicoleSeenText, LassNicoleBeatenText, 0, LassNicoleScript
 
-Bird_keeperAbeScript:
+LassNicoleScript:
 	end_if_just_battled
 	opentext
 	writetext UnknownText_0x688c7
@@ -78,7 +78,7 @@ Bird_keeperAbeScript:
 MikanGymGuyScript:
 	faceplayer
 	opentext
-	checkevent EVENT_BEAT_FALKNER
+	checkevent EVENT_BEAT_CISSY
 	iftrue .MikanGymGuyWinScript
 	writetext MikanGymGuyText
 	waitbutton
@@ -178,12 +178,12 @@ UnknownText_0x68735:
 	para "Good luck."
 	done
 
-Bird_keeperRodSeenText:
+SwimmerfMariaSeenText:
 	text "CORSOLA and I are"
 	line "unbeatable!"
 	done
 
-Bird_keeperRodBeatenText:
+SwimmerfMariaBeatenText:
 	text "Noooooo!"
 	done
 
@@ -191,14 +191,14 @@ UnknownText_0x68837:
 	text "My CORSOLA<...>"
 	done
 
-Bird_keeperAbeSeenText:
+LassNicoleSeenText:
 	text "I hope you did"
 	line "some serious trai-"
 	cont "ning before you"
 	cont "came!"
 	done
 
-Bird_keeperAbeBeatenText:
+LassNicoleBeatenText:
 	text "Woah!"
 	done
 
@@ -248,6 +248,6 @@ MikanGym_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 4
 	person_event SPRITE_CISSY, 3, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, FalknerScript_0x683c2, -1
-	person_event SPRITE_SWIMMER_GIRL, 11, 9, SPRITEMOVEDATA_STANDING_LEFT, 0, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerBird_keeperRod, -1
-	person_event SPRITE_LASS, 7, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerBird_keeperAbe, -1
+	person_event SPRITE_SWIMMER_GIRL, 11, 9, SPRITEMOVEDATA_STANDING_LEFT, 0, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmerfMaria, -1
+	person_event SPRITE_LASS, 7, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerLassNicole, -1
 	person_event SPRITE_GYM_GUY, 15, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, MikanGymGuyScript, -1

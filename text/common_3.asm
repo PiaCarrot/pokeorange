@@ -156,11 +156,6 @@ UnknownText_0x1c0965::
 	text "Not even a nibble!"
 	prompt
 
-UnknownText_0x1c0979::
-	text "Looks like there's"
-	line "nothing here."
-	prompt
-
 UnknownText_0x1c099a::
 	text "You can't get off"
 	line "here!"
@@ -230,14 +225,6 @@ UnknownText_0x1c0acc::
 	line "fainted!"
 	prompt
 
-UnknownText_0x1c0ada::
-	text "<PLAYER> is out of"
-	line "useable #MON!"
-
-	para "<PLAYER> whited"
-	line "out!"
-	prompt
-
 UnknownText_0x1c0b03::
 	text_from_ram StringBuffer3
 	text " used"
@@ -266,10 +253,6 @@ Text_AnEGGCantHoldAnItem::
 	text "An EGG can't hold"
 	line "an item."
 	prompt
-
-UnknownText_0x1c0b9a::
-	text "No items."
-	done
 
 UnknownText_0x1c0ba5::
 	text "Throw away how"
@@ -323,11 +306,6 @@ UnknownText_0x1c0c63::
 UnknownText_0x1c0c83::
 	text ""
 	done
-
-Text_YouCantUseItInABattle::
-	text "You can't use it"
-	line "in a battle."
-	prompt
 
 Text_AreYouABoyOrAreYouAGirl::
 	text "Are you a boy?"
@@ -524,21 +502,6 @@ UnknownText_0x1c102b::
 
 	para "Please remove the"
 	line "MAIL."
-	prompt
-
-UnknownText_0x1c1062::
-	text "You don't have a"
-	line "single #MON!"
-	prompt
-
-UnknownText_0x1c1080::
-	text "You can't deposit"
-	line "your last #MON!"
-	prompt
-
-UnknownText_0x1c10a2::
-	text "You can't take any"
-	line "more #MON."
 	prompt
 
 UnknownText_0x1c10c0::

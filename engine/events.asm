@@ -34,54 +34,6 @@ EnableEvents:: ; 966d0
 	ret
 ; 966d6
 
-CheckBit5_ScriptFlags3: ; 966d6
-	ld hl, ScriptFlags3
-	bit 5, [hl]
-	ret
-; 966dc
-
-DisableWarpsConnxns: ; 966dc
-	ld hl, ScriptFlags3
-	res 2, [hl]
-	ret
-; 966e2
-
-DisableCoordEvents: ; 966e2
-	ld hl, ScriptFlags3
-	res 1, [hl]
-	ret
-; 966e8
-
-DisableStepCount: ; 966e8
-	ld hl, ScriptFlags3
-	res 0, [hl]
-	ret
-; 966ee
-
-DisableWildEncounters: ; 966ee
-	ld hl, ScriptFlags3
-	res 4, [hl]
-	ret
-; 966f4
-
-EnableWarpsConnxns: ; 966f4
-	ld hl, ScriptFlags3
-	set 2, [hl]
-	ret
-; 966fa
-
-EnableCoordEvents: ; 966fa
-	ld hl, ScriptFlags3
-	set 1, [hl]
-	ret
-; 96700
-
-EnableStepCount: ; 96700
-	ld hl, ScriptFlags3
-	set 0, [hl]
-	ret
-; 96706
-
 EnableWildEncounters: ; 96706
 	ld hl, ScriptFlags3
 	set 4, [hl]
@@ -120,7 +72,6 @@ StartMap: ; 96724
 	ld hl, MapStatus
 	ld bc, wMapStatusEnd - MapStatus
 	call ByteFill
-	farcall InitCallReceiveDelay
 	call ClearJoypad
 EnterMap: ; 9673e
 	xor a
@@ -269,8 +220,6 @@ PlayerEvents: ; 9681f
 	and a
 	ret nz
 
-	call Dummy_CheckScriptFlags3Bit5 ; This is a waste of time
-
 	call CheckTrainerBattle3
 	jr c, .ok
 
@@ -314,8 +263,6 @@ PlayerEvents: ; 9681f
 ; 96867
 
 CheckTrainerBattle3: ; 96867
-	nop
-	nop
 	call CheckTrainerBattle2
 	jr nc, .nope
 
@@ -408,22 +355,6 @@ SetUpFiveStepWildEncounterCooldown: ; 968d1
 	ld [wWildEncounterCooldown], a
 	ret
 ; 968d7
-
-SetMinTwoStepWildEncounterCooldown: ; 968d8
-	ld a, [wWildEncounterCooldown]
-	cp 2
-	ret nc
-	ld a, 2
-	ld [wWildEncounterCooldown], a
-	ret
-; 968e4
-
-Dummy_CheckScriptFlags3Bit5: ; 968e4
-	call CheckBit5_ScriptFlags3
-	ret z
-	call ret_2f3e
-	ret
-; 968ec
 
 DoMapTrigger: ; 968ec
 	ld a, [wCurrMapTriggerCount]

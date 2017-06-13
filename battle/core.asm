@@ -2417,7 +2417,7 @@ WinTrainerBattle: ; 3cfa4
 	call .DoubleReward
 	call .DoubleReward
 	pop af
-.KeepItAll:
+
 	ld hl, GotMoneyForWinningText
 	jp StdBattleTextBox
 ; 3d081
@@ -7988,6 +7988,7 @@ ExitBattle: ; 3f69e
 	call ShowLinkBattleParticipantsAfterEnd
 	ld c, 150
 	call DelayFrames
+	call ShowLinkBattleResult
 	ret
 
 .not_linked
@@ -8076,6 +8077,52 @@ ShowLinkBattleParticipantsAfterEnd: ; 3f759
 	farcall _ShowLinkBattleParticipants
 	ret
 ; 3f77c
+
+ShowLinkBattleResult: ; 3f77c
+	farcall DetermineLinkBattleResult
+
+	ld a, [wBattleResult]
+	and $f
+	cp $1
+	jr c, .victory
+	jr z, .loss
+	ld de, .Draw
+	jr .store_result
+
+.victory
+	ld de, .Win
+	jr .store_result
+
+.loss
+	ld de, .Lose
+	jr .store_result
+
+.store_result
+	hlcoord 6, 8
+	call PlaceString
+	ld c, 200
+	call DelayFrames
+
+	ld a, BANK(sLinkBattleStats)
+	call GetSRAMBank
+
+	call AddLastBattleToLinkRecord
+	call ReadAndPrintLinkBattleRecord
+
+	call CloseSRAM
+
+	call WaitPressAorB_BlinkCursor
+	call ClearTileMap
+	ret
+; 3f7f7
+
+.Win:
+	db "You Win@"
+.Lose:
+	db "You Lose@"
+.Draw:
+	db "  Draw@"
+; 3f80f
 
 DisplayLinkRecord: ; 3f836
 	ld a, BANK(sLinkBattleStats)
@@ -8338,6 +8385,215 @@ GetRoamMonSpecies: ; 3fa31
 	ld hl, wRoamMon3Species
 	ret
 ; 3fa42
+
+
+AddLastBattleToLinkRecord: ; 3fa42
+	ld hl, OTPlayerID
+	ld de, StringBuffer1
+	ld bc, 2
+	call CopyBytes
+	ld hl, OTPlayerName
+	ld bc, NAME_LENGTH - 1
+	call CopyBytes
+	ld hl, sLinkBattleResults
+	call .StoreResult
+	ld hl, sLinkBattleRecord
+	ld d, 5
+.loop
+	push hl
+	inc hl
+	inc hl
+	ld a, [hl]
+	dec hl
+	dec hl
+	and a
+	jr z, .copy
+	push de
+	ld bc, 12
+	ld de, StringBuffer1
+	call CompareLong
+	pop de
+	pop hl
+	jr c, .done
+	ld bc, 18
+	add hl, bc
+	dec d
+	jr nz, .loop
+	ld bc, -18
+	add hl, bc
+	push hl
+
+.copy
+	ld d, h
+	ld e, l
+	ld hl, StringBuffer1
+	ld bc, 12
+	call CopyBytes
+	ld b, 6
+	xor a
+.loop2
+	ld [de], a
+	inc de
+	dec b
+	jr nz, .loop2
+	pop hl
+
+.done
+	call .StoreResult
+	call .FindOpponentAndAppendRecord
+	ret
+; 3faa0
+.StoreResult: ; 3faa0
+	ld a, [wBattleResult]
+	and $f
+	cp $1
+	ld bc, sLinkBattleWins + 1 - sLinkBattleResults
+	jr c, .okay
+	ld bc, sLinkBattleLosses + 1 - sLinkBattleResults
+	jr z, .okay
+	ld bc, sLinkBattleDraws + 1 - sLinkBattleResults
+.okay
+	add hl, bc
+	call .CheckOverflow
+	ret nc
+	inc [hl]
+	ret nz
+	dec hl
+	inc [hl]
+	ret
+; 3fabe
+
+.CheckOverflow: ; 3fabe
+	dec hl
+	ld a, [hl]
+	inc hl
+	cp 9999 / $100
+	ret c
+	ld a, [hl]
+	cp 9999 % $100
+	ret
+; 3fac8
+
+.FindOpponentAndAppendRecord: ; 3fac8
+	ld b, 5
+	ld hl, sLinkBattleRecord + 17
+	ld de, wd002
+.loop3
+	push bc
+	push de
+	push hl
+	call .LoadPointer
+	pop hl
+	ld a, e
+	pop de
+	ld [de], a
+	inc de
+	ld a, b
+	ld [de], a
+	inc de
+	ld a, c
+	ld [de], a
+	inc de
+	ld bc, 18
+	add hl, bc
+	pop bc
+	dec b
+	jr nz, .loop3
+	ld b, $0
+	ld c, $1
+.loop4
+	ld a, b
+	add b
+	add b
+	ld e, a
+	ld d, $0
+	ld hl, wd002
+	add hl, de
+	push hl
+	ld a, c
+	add c
+	add c
+	ld e, a
+	ld d, $0
+	ld hl, wd002
+	add hl, de
+	ld d, h
+	ld e, l
+	pop hl
+	push bc
+	ld c, 3
+	call StringCmp
+	pop bc
+	jr z, .equal
+	jr nc, .done2
+
+.equal
+	inc c
+	ld a, c
+	cp $5
+	jr nz, .loop4
+	inc b
+	ld c, b
+	inc c
+	ld a, b
+	cp $4
+	jr nz, .loop4
+	ret
+
+.done2
+	push bc
+	ld a, b
+	ld bc, 18
+	ld hl, sLinkBattleRecord
+	call AddNTimes
+	push hl
+	ld de, wd002
+	ld bc, 18
+	call CopyBytes
+	pop hl
+	pop bc
+	push hl
+	ld a, c
+	ld bc, 18
+	ld hl, sLinkBattleRecord
+	call AddNTimes
+	pop de
+	push hl
+	ld bc, 18
+	call CopyBytes
+	ld hl, wd002
+	ld bc, 18
+	pop de
+	call CopyBytes
+	ret
+; 3fb54
+
+.LoadPointer: ; 3fb54
+	ld e, $0
+	ld a, [hld]
+	ld c, a
+	ld a, [hld]
+	ld b, a
+	ld a, [hld]
+	add c
+	ld c, a
+	ld a, [hld]
+	adc b
+	ld b, a
+	jr nc, .okay2
+	inc e
+
+.okay2
+	ld a, [hld]
+	add c
+	ld c, a
+	ld a, [hl]
+	adc b
+	ld b, a
+	ret nc
+	inc e
+	ret
+; 3fb6c
 
 InitBattleDisplay: ; 3fb6c
 	call .InitBackPic

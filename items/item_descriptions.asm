@@ -96,7 +96,6 @@ ItemDescriptions:
 	dw MaxEtherDesc
 	dw ElixerDesc
 	dw OddCrystalDesc
-	dw SilverWingDesc
 	dw MoomooMilkDesc
 	dw QuickClawDesc
 	dw PsnCureBerryDesc
@@ -109,21 +108,14 @@ ItemDescriptions:
 	dw KingsRockDesc
 	dw BitterBerryDesc
 	dw MintBerryDesc
-	dw RedApricornDesc
 	dw TinyMushroomDesc
 	dw BigMushroomDesc
 	dw SilverPowderDesc
-	dw BluApricornDesc
 	dw AmuletCoinDesc
-	dw YlwApricornDesc
-	dw GrnApricornDesc
 	dw CleanseTagDesc
 	dw MysticWaterDesc
 	dw TwistedSpoonDesc
-	dw WhtApricornDesc
 	dw BlackbeltDesc
-	dw BlkApricornDesc
-	dw PnkApricornDesc
 	dw BlackGlassesDesc
 	dw PinkBowDesc
 	dw StickDesc
@@ -156,10 +148,7 @@ ItemDescriptions:
 	dw LeftoversDesc
 	dw MysteryBerryDesc
 	dw DragonScaleDesc
-	dw BerserkGeneDesc
-	dw SacredAshDesc
 	dw HeavyBallDesc
-	dw FlowerMailDesc
 	dw LevelBallDesc
 	dw LureBallDesc
 	dw FastBallDesc
@@ -174,6 +163,9 @@ ItemDescriptions:
 	dw GoldBerryDesc
 	dw SquirtBottleDesc
 	dw ParkBallDesc
+	dw BerserkGeneDesc
+	dw SacredAshDesc
+	dw SilverWingDesc
 	dw RainbowWingDesc
 	dw TeruSamaDesc
 	dw TeruSamaDesc
@@ -183,14 +175,7 @@ ItemDescriptions:
 	dw TeruSamaDesc
 	dw TeruSamaDesc
 	dw TeruSamaDesc
-	dw TeruSamaDesc
-	dw TeruSamaDesc
-	dw TeruSamaDesc
-	dw TeruSamaDesc
-	dw TeruSamaDesc
-	dw TeruSamaDesc
-	dw TeruSamaDesc
-	dw TeruSamaDesc
+	dw FlowerMailDesc
 	dw SurfMailDesc
 	dw LiteBlueMailDesc
 	dw PortraitMailDesc
@@ -432,10 +417,6 @@ GoodRodDesc:
 	db   "A good ROD for"
 	next "catching #MON.@"
 
-SilverLeafDesc:
-	db   "A strange, silver-"
-	next "colored leaf.@"
-
 SuperRodDesc:
 	db   "A strong ROD for"
 	next "catching #MON.@"
@@ -512,9 +493,6 @@ MintBerryDesc:
 	db   "A self-awakening"
 	next "for sleep. (HOLD)@"
 
-RedApricornDesc:
-	db   "A red APRICORN.@"
-
 TinyMushroomDesc:
 	db   "An ordinary mush-"
 	next "room. Sell low.@"
@@ -527,18 +505,9 @@ SilverPowderDesc:
 	db   "Powers up bug-type"
 	next "moves. (HOLD)@"
 
-BluApricornDesc:
-	db   "A blue APRICORN.@"
-
 AmuletCoinDesc:
 	db   "Doubles monetary"
 	next "earnings. (HOLD)@"
-
-YlwApricornDesc:
-	db   "A yellow APRICORN.@"
-
-GrnApricornDesc:
-	db   "A green APRICORN.@"
 
 CleanseTagDesc:
 	db   "Helps repel wild"
@@ -552,20 +521,9 @@ TwistedSpoonDesc:
 	db   "Powers up psychic-"
 	next "type moves. (HOLD)@"
 
-WhtApricornDesc:
-	db   "A white APRICORN.@"
-
 BlackbeltDesc:
 	db   "Boosts fighting-"
 	next "type moves. (HOLD)@"
-
-BlkApricornDesc:
-	db   "A black APRICORN."
-	next "@"
-
-PnkApricornDesc:
-	db   "A pink APRICORN."
-	next "@"
 
 BlackGlassesDesc:
 	db   "Powers up dark-"

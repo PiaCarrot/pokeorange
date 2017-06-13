@@ -33,20 +33,6 @@ GetPartyNick: ; c706
 	call CopyName2
 	ret
 
-CheckEngineFlag: ; c721
-; Check engine flag de
-; Return carry if flag is not set
-	ld b, CHECK_FLAG
-	farcall EngineFlagAction
-	ld a, c
-	and a
-	jr nz, .isset
-	scf
-	ret
-.isset
-	xor a
-	ret
-
 CheckPartyMove: ; c742
 ; Check if a monster in your party has move d.
 
@@ -964,7 +950,6 @@ StrengthFunction: ; cce5
 
 .TryStrength: ; ccee
 ; Strength
-.UseStrength: ; cd09
 	ld hl, Script_StrengthFromMenu
 	call QueueScript
 	ld a, $81

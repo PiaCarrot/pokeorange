@@ -6,48 +6,9 @@ _InitializeStartDay: ; 113d6
 ClearDailyTimers: ; 113da
 	xor a
 	ld [wLuckyNumberDayBuffer], a
-	ld [wUnusedTwoDayTimer], a
 	ld [wDailyResetTimer], a
 	ret
 ; 113e5
-
-InitCallReceiveDelay:: ; 113e5
-	xor a
-	ld [wTimeCyclesSinceLastCall], a
-
-NextCallReceiveDelay: ; 113e9
-	ld a, [wTimeCyclesSinceLastCall]
-	cp 3
-	jr c, .okay
-	ld a, 3
-
-.okay
-	ld e, a
-	ld d, 0
-	ld hl, .ReceiveCallDelays
-	add hl, de
-	ld a, [hl]
-	jp RestartReceiveCallDelay
-; 113fd
-
-.ReceiveCallDelays:
-	db 20, 10, 5, 3
-; 11401
-
-CheckReceiveCallTimer: ; 11401
-	call CheckReceiveCallDelay ; check timer
-	ret nc
-	ld hl, wTimeCyclesSinceLastCall
-	ld a, [hl]
-	cp 3
-	jr nc, .ok
-	inc [hl]
-
-.ok
-	call NextCallReceiveDelay ; restart timer
-	scf
-	ret
-; 11413
 
 InitOneDayCountdown: ; 11413
 	ld a, 1
@@ -72,24 +33,6 @@ CheckDayDependentEventHL: ; 11420
 	call UpdateTimeRemaining
 	ret
 ; 1142e
-
-RestartReceiveCallDelay: ; 1142e
-	ld hl, wReceiveCallDelay_MinsRemaining
-	ld [hl], a
-	call UpdateTime
-	ld hl, wReceiveCallDelay_StartTime
-	call CopyDayHourMinToHL
-	ret
-; 1143c
-
-CheckReceiveCallDelay: ; 1143c
-	ld hl, wReceiveCallDelay_StartTime
-	call CalcMinsHoursDaysSince
-	call GetMinutesSinceIfLessThan60
-	ld hl, wReceiveCallDelay_MinsRemaining
-	call UpdateTimeRemaining
-	ret
-; 1144c
 
 RestartDailyResetTimer: ; 1144c
 	ld hl, wDailyResetTimer
@@ -188,25 +131,6 @@ CheckPokerusTick:: ; 114e7
 	ret
 ; 114fc
 
-SetUnusedTwoDayTimer: ; 114fc
-	ld a, 2
-	ld hl, wUnusedTwoDayTimer
-	ld [hl], a
-	call UpdateTime
-	ld hl, wUnusedTwoDayTimerStartDate
-	call CopyDayToHL
-	ret
-; 1150c
-
-CheckUnusedTwoDayTimer: ; 1150c
-	ld hl, wUnusedTwoDayTimerStartDate
-	call CalcDaysSince
-	call GetDaysSince
-	ld hl, wUnusedTwoDayTimer
-	call UpdateTimeRemaining
-	ret
-; 1151c
-
 RestartLuckyNumberCountdown: ; 1152b
 	call .GetDaysUntilNextFriday
 	ld hl, wLuckyNumberDayBuffer
@@ -255,65 +179,15 @@ UpdateTimeRemaining: ; 11586
 	ret
 ; 11599
 
-GetSecondsSinceIfLessThan60: ; 11599
-	ld a, [wDaysSince]
-	and a
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wHoursSince]
-	and a
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wMinutesSince]
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wSecondsSince]
-	ret
-; 115ae
-
-GetMinutesSinceIfLessThan60: ; 115ae
-	ld a, [wDaysSince]
-	and a
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wHoursSince]
-	and a
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wMinutesSince]
-	ret
-; 115be
-
-GetHoursSinceIfLessThan24: ; 115be
-	ld a, [wDaysSince]
-	and a
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wHoursSince]
-	ret
-; 115c8
-
 GetDaysSince: ; 115c8
 	ld a, [wDaysSince]
 	ret
 ; 115cc
 
-GetTimeElapsed_ExceedsUnitLimit: ; 115cc
-	ld a, -1
-	ret
-; 115cf
-
 CalcDaysSince: ; 115cf
 	xor a
 	jr _CalcDaysSince
 ; 115d2
-
-CalcHoursDaysSince: ; 115d2
-	inc hl
-	xor a
-	jr _CalcHoursDaysSince
-; 115d6
-
-CalcMinsHoursDaysSince: ; 115d6
-	inc hl
-	inc hl
-	xor a
-	jr _CalcMinsHoursDaysSince
-; 115db
 
 CalcSecsMinsHoursDaysSince: ; 115db
 	inc hl
@@ -322,31 +196,31 @@ CalcSecsMinsHoursDaysSince: ; 115db
 	ld a, [hSeconds]
 	ld c, a
 	sub [hl]
-	jr nc, .skip
+	jr nc, .skip1
 	add 60
-.skip
+.skip1
 	ld [hl], c ; current seconds
 	dec hl
 	ld [wSecondsSince], a ; seconds since
 
-_CalcMinsHoursDaysSince: ; 115eb
+;_CalcMinsHoursDaysSince: ; 115eb
 	ld a, [hMinutes]
 	ld c, a
 	sbc [hl]
-	jr nc, .skip
+	jr nc, .skip2
 	add 60
-.skip
+.skip2
 	ld [hl], c ; current minutes
 	dec hl
 	ld [wMinutesSince], a ; minutes since
 
-_CalcHoursDaysSince: ; 115f8
+;_CalcHoursDaysSince: ; 115f8
 	ld a, [hHours]
 	ld c, a
 	sbc [hl]
-	jr nc, .skip
+	jr nc, .skip3
 	add 24
-.skip
+.skip3
 	ld [hl], c ; current hours
 	dec hl
 	ld [wHoursSince], a ; hours since
@@ -355,9 +229,9 @@ _CalcDaysSince:
 	ld a, [CurDay]
 	ld c, a
 	sbc [hl]
-	jr nc, .skip
+	jr nc, .skip4
 	add 20 * 7
-.skip
+.skip4
 	ld [hl], c ; current days
 	ld [wDaysSince], a ; days since
 	ret
@@ -380,14 +254,6 @@ CopyDayToHL: ; 11621
 	ld [hl], a
 	ret
 ; 11626
-
-CopyDayHourToHL: ; 11626
-	ld a, [CurDay]
-	ld [hli], a
-	ld a, [hHours]
-	ld [hli], a
-	ret
-; 1162e
 
 CopyDayHourMinToHL: ; 1162e
 	ld a, [CurDay]
