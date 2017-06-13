@@ -1346,12 +1346,12 @@ DiplomaPalettes:
 PartyMenuOBPals:
 	RGB 27, 31, 27
 	RGB 31, 19, 10
-	RGB 31, 07, 04
+	RGB 31, 07, 01
 	RGB 00, 00, 00
 
 	RGB 27, 31, 27
 	RGB 31, 19, 10
-	RGB 10, 14, 20
+	RGB 18, 00, 18
 	RGB 00, 00, 00
 
 	RGB 27, 31, 27
@@ -1477,17 +1477,6 @@ FemaleTownMapPals:
 	RGB 00, 31, 00
 	RGB 15, 07, 00
 	RGB 31, 00, 00
-
-TownMapOBPals:
-	RGB 28, 31, 16
-	RGB 31, 19, 10
-	RGB 18, 00, 18
-	RGB 00, 00, 00
-
-	RGB 28, 31, 16
-	RGB 31, 19, 10
-	RGB 31, 07, 01
-	RGB 00, 00, 00
 
 SlotMachinePals:
 	RGB 31, 31, 31

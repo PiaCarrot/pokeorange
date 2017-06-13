@@ -167,7 +167,7 @@ _CGB_TownMapPals: ; 8eb9
 	ld bc, 6 palettes
 	ld a, $5
 	call FarCopyWRAM
-	ld hl, TownMapOBPals
+	ld hl, PartyMenuOBPals
 	ld de, UnknOBPals
 	ld bc, 2 palettes
 	ld a, $5

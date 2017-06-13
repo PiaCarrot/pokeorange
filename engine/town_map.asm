@@ -63,11 +63,11 @@ TownMap_GetCurrentLandmark: ; 90d56
 TownMap_InitPlayerIcon: ; 9106a
 	push af
 	depixel 0, 0
-	ld b, SPRITE_ANIM_INDEX_RED_WALK
+	ld b, SPRITE_ANIM_INDEX_PURPLE_WALK
 	ld a, [PlayerGender]
 	bit 0, a
 	jr z, .got_gender
-	ld b, SPRITE_ANIM_INDEX_BLUE_WALK
+	ld b, SPRITE_ANIM_INDEX_RED_WALK
 .got_gender
 	ld a, b
 	call _InitSpriteAnimStruct
@@ -1115,15 +1115,14 @@ TownMapPlayerIcon: ; 91fa6
 	ld e, l
 	ld hl, VTiles0 tile $14
 	ld c, 4 ; # tiles
-	ld a, BANK(ChrisSpriteGFX) ; does nothing
 	call Request2bpp
 ; Animation/palette
 	depixel 0, 0
-	ld b, SPRITE_ANIM_INDEX_RED_WALK ; Male
+	ld b, SPRITE_ANIM_INDEX_PURPLE_WALK ; Male
 	ld a, [PlayerGender]
 	bit 0, a
 	jr z, .got_gender
-	ld b, SPRITE_ANIM_INDEX_BLUE_WALK ; Female
+	ld b, SPRITE_ANIM_INDEX_RED_WALK ; Female
 .got_gender
 	ld a, b
 	call _InitSpriteAnimStruct
