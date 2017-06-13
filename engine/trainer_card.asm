@@ -124,11 +124,11 @@ TrainerCard_Page2_LoadGFX: ; 251f4 (9:51f4)
 	call WaitBGMap
 	ld de, LeaderGFX
 	ld hl, VTiles2 tile $29
-	lb bc, BANK(LeaderGFX), $56
+	lb bc, BANK(LeaderGFX), $2d
 	call Request2bpp
 	ld de, BadgeGFX
 	ld hl, VTiles0 tile $00
-	lb bc, BANK(BadgeGFX), $2c
+	lb bc, BANK(BadgeGFX), $1c
 	call Request2bpp
 	call TrainerCard_Page2_InitObjectsAndStrings
 	call TrainerCard_IncrementJumptable
@@ -261,7 +261,7 @@ endr
 ; 253a2 (9:53a2)
 
 .BadgesTilemap: ; 253a2
-	db $79, $7a, $7b, $7c, $7d, $ff ; "BADGES"
+	db $51, $52, $53, $54, $55, $ff ; "BADGES"
 ; 253a8
 
 TrainerCardSetup_PlaceTilemapString: ; 253a8 (9:53a8)
@@ -494,23 +494,23 @@ TrainerCard_BadgesOAM: ; 254c9
 
 	; Coral-Eye Badge
 	db $68, $18, 0
-	db $00, $20, $24, $20 | $80
-	db $00, $20, $24, $20 | $80
+	db $00, $10, $14, $10 | $80
+	db $00, $10, $14, $10 | $80
 
 	; Sea Ruby Badge
 	db $68, $38, 0
-	db $04, $20, $24, $20 | $80
-	db $04, $20, $24, $20 | $80
+	db $04, $10, $14, $10 | $80
+	db $04, $10, $14, $10 | $80
 
 	; Spike Shell Badge
 	db $68, $58, 0
-	db $08, $20, $24, $20 | $80
-	db $08, $20, $24, $20 | $80
+	db $08, $10, $14, $10 | $80
+	db $08, $10, $14, $10 | $80
 
 	; Jade Star Badge
 	db $68, $78, 0
-	db $0c, $20, $24, $20 | $80
-	db $0c, $20, $24, $20 | $80
+	db $0c, $10, $14, $10 | $80
+	db $0c, $10, $14, $10 | $80
 ; 25523
 
 CardStatusGFX: INCBIN "gfx/trainer_card/card_status.2bpp"

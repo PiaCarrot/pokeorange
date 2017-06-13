@@ -464,34 +464,30 @@ _CGB_Evolution: ; 91e4
 
 _CGB_TrainerCard: ; 9289
 	ld de, UnknBGPals
-	xor a
+	xor a ; INDIGO
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $1
+	ld a, $1 ; ORANGE
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $3
+	ld a, $2 ; CISSY
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $2
+	ld a, $3 ; DANNY
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $4
+	ld a, $4 ; RUDY
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $7
+	ld a, $5 ; LUANA
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $6
-	call GetTrainerPalettePointer
-	call LoadPalette_White_Col1_Col2_Black
-	ld a, $5
-	call GetTrainerPalettePointer
-	call LoadPalette_White_Col1_Col2_Black
+	; badges
+	ld de, UnknOBPals
 	ld a, $24
 	call GetPredefPal
 	call LoadHLPaletteIntoDE
-
+	; background
 	hlcoord 0, 0, AttrMap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, [PlayerGender]
@@ -501,6 +497,7 @@ _CGB_TrainerCard: ; 9289
 	ld a, $0
 .got_gender
 	call ByteFill
+	; player
 	hlcoord 14, 1, AttrMap
 	lb bc, 7, 5
 	ld a, [PlayerGender]
@@ -510,53 +507,35 @@ _CGB_TrainerCard: ; 9289
 	ld a, $1
 .got_gender2
 	call FillBoxCGB
+	; top-right corner
 	hlcoord 18, 1, AttrMap
-	ld [hl], $1
-	hlcoord 2, 11, AttrMap
-	lb bc, 2, 4
-	ld a, $1
-	call FillBoxCGB
-	hlcoord 6, 11, AttrMap
-	lb bc, 2, 4
-	ld a, $2
-	call FillBoxCGB
-	hlcoord 10, 11, AttrMap
-	lb bc, 2, 4
-	ld a, $3
-	call FillBoxCGB
-	hlcoord 14, 11, AttrMap
-	lb bc, 2, 4
-	ld a, $4
-	call FillBoxCGB
-	hlcoord 2, 14, AttrMap
-	lb bc, 2, 4
-	ld a, $5
-	call FillBoxCGB
-	hlcoord 6, 14, AttrMap
-	lb bc, 2, 4
-	ld a, $6
-	call FillBoxCGB
-	hlcoord 10, 14, AttrMap
-	lb bc, 2, 4
-	ld a, $7
-	call FillBoxCGB
 	ld a, [PlayerGender]
 	and a
-	push af
+	ld a, $1
 	jr z, .got_gender3
-	hlcoord 14, 14, AttrMap
-	lb bc, 2, 4
+	ld a, $0
+.got_gender3
+	ld [hl], a
+	; CISSY
+	hlcoord 3, 10, AttrMap
+	lb bc, 3, 3
 	ld a, $1
 	call FillBoxCGB
-.got_gender3
-	pop af
-	ld c, $0
-	jr nz, .got_gender4
-	inc c
-.got_gender4
-	ld a, c
-	hlcoord 18, 1, AttrMap
-	ld [hl], a
+	; DANNY
+	hlcoord 7, 10, AttrMap
+	lb bc, 3, 3
+	ld a, $2
+	call FillBoxCGB
+	; RUDY
+	hlcoord 11, 10, AttrMap
+	lb bc, 3, 3
+	ld a, $3
+	call FillBoxCGB
+	; LUANA
+	hlcoord 15, 10, AttrMap
+	lb bc, 3, 3
+	ld a, $4
+	call FillBoxCGB
 	call ApplyAttrMap
 	call ApplyPals
 	ld a, $1
