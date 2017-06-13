@@ -1067,12 +1067,9 @@ rept _NARG / 2
 	shift
 endr
 endm
-	townmappals 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 3, 1, 1, 1, 4, 5
-	townmappals 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1
-	townmappals 1, 1, 1, 2, 2, 2, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0
-	townmappals 0, 0, 0, 0, 4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0
-	townmappals 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0
-	townmappals 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0
+	townmappals 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 4, 5
+	townmappals 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1
+	townmappals 1, 1, 1, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
 ; 91f7b
 
 TownMapMon: ; 91f7b
@@ -1170,6 +1167,10 @@ TownMap_ConvertLineBreakCharacters: ; 1de2c5
 	hlcoord 1, 0
 	call PlaceString
 	ret
+
+TownMapGFX: ; f8ba0
+INCBIN "gfx/town_map/town_map.w128.2bpp.lz"
+; f8ea4
 
 FastShipGFX: ; 90cb2
 INCBIN "gfx/town_map/fast_ship.2bpp"

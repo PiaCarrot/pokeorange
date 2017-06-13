@@ -41,10 +41,6 @@ ExpBarGFX: ; f8b10
 INCBIN "gfx/battle/expbar.2bpp"
 ; f8ba0
 
-TownMapGFX: ; f8ba0
-INCBIN "gfx/town_map/town_map.2bpp.lz"
-; f8ea4
-
 TextBoxSpaceGFX: ; f9204
 INCBIN "gfx/frames/space.2bpp"
 ; f9214
