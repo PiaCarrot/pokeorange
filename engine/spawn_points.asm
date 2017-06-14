@@ -15,6 +15,7 @@ ENDM
 	spawn MANDARIN_NORTH,  7, 16
 	spawn SUNBURST_ISLAND, 27, 28
 	spawn ROUTE_56_WEST,   35, 8
+	spawn KINNOW_ISLAND,   17, 10
 	spawn N_A,             -1, -1
 
 

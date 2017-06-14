@@ -98,6 +98,11 @@ INCLUDE "maps/Route56PokeCenter.asm"
 INCLUDE "maps/Route56East.asm"
 INCLUDE "maps/Route56West.asm"
 INCLUDE "maps/KinnowIsland.asm"
+INCLUDE "maps/KinnowTradeHouse.asm"
+INCLUDE "maps/KinnowLoreHouse.asm"
+INCLUDE "maps/KinnowCharcoalHouse.asm"
+INCLUDE "maps/KinnowPokeCenter.asm"
+INCLUDE "maps/KinnowMart.asm"
 
 
 SECTION "Map Scripts 7", ROMX, BANK[MAP_SCRIPTS_7]

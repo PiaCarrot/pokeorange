@@ -74,14 +74,15 @@ UnknownText_0x74bf4:
 ValenciaPort_MapEventHeader:: db 0, 0
 
 .Warps: db 2
-	warp_def 27, 8, 1, ROUTE_49
-	warp_def 27, 9, 1, ROUTE_49
+	warp_def 19, 8, 1, ROUTE_49
+	warp_def 19, 9, 1, ROUTE_49
 
 .CoordEvents: db 0
 
 .BGEvents: db 1
-	signpost 19, 8, SIGNPOST_ITEM, ValenciaPortHiddenSuperPotion
+	signpost 11, 7, SIGNPOST_ITEM, ValenciaPortHiddenSuperPotion
 
 .ObjectEvents: db 2
-	person_event SPRITE_SAILOR, 14, 9, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SailorScript, -1
-	person_event SPRITE_FISHING_GURU, 16, 12, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, FishingGuruScript_0x74a01, -1
+	person_event SPRITE_SAILOR, 6, 9, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SailorScript, -1
+	person_event SPRITE_FISHING_GURU, 9, 12, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, FishingGuruScript_0x74a01, -1
+

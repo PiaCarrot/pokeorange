@@ -4,6 +4,7 @@ MandarinNorthPokeCenter_BlockData:
 SunburstPokeCenter_BlockData:
 Route52PokeCenter1F_BlockData:
 Route56PokeCenter_BlockData:
+KinnowPokeCenter_BlockData:
 	INCBIN "maps/PokeCenter1F.blk"
 
 PokeCenter2F_BlockData:
@@ -13,6 +14,7 @@ TangeloMart_BlockData:
 MikanMart_BlockData:
 MandarinNorthMart_BlockData:
 VermilionMart_BlockData:
+KinnowMart_BlockData:
 	INCBIN "maps/Mart.blk"
 
 Colosseum_BlockData:
@@ -31,11 +33,14 @@ MandarinNorthLargeHouse_BlockData:
 SunburstSmallHouse_BlockData:
 SunburstLargeHouse_BlockData:
 SunburstSouthHouse_BlockData:
+KinnowTradeHouse_BlockData:
+KinnowLoreHouse_BlockData:
 	INCBIN "maps/House1.blk"
 
 MikanNicknameSpeechHouse_BlockData:
 MikanOnixTradeHouse_BlockData:
 Route55QuestHouse_BlockData:
+KinnowCharcoalHouse_BlockData:
 	INCBIN "maps/House2.blk"
 
 Route52TangeloJungleGate_BlockData:
