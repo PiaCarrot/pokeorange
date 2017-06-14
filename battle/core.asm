@@ -2792,8 +2792,7 @@ JumpToPartyMenuAndPrintText: ; 3d313
 	farcall PrintPartyMenuText
 	call WaitBGMap
 	call SetPalettes
-	call DelayFrame
-	ret
+	jp DelayFrame
 ; 3d329
 
 SelectBattleMon: ; 3d329
@@ -3043,8 +3042,7 @@ ForceEnemySwitch: ; 3d4c3
 	call ResetEnemyStatLevels
 	call Function_SetEnemyPkmnAndSendOutAnimation
 	call BreakAttraction
-	call ResetBattleParticipants
-	ret
+	jp ResetBattleParticipants
 ; 3d4e1
 
 EnemySwitch: ; 3d4e1
@@ -3508,8 +3506,7 @@ Function_SetEnemyPkmnAndSendOutAnimation: ; 3d7c7
 	farcall CheckBattleScene
 	jr c, .cry_no_anim
 	hlcoord 12, 0
-	ld d, $0
-	ld e, ANIM_MON_SLOW
+	lb de, $0, ANIM_MON_SLOW
 	predef AnimateFrontpic
 	jr .skip_cry
 
@@ -3946,8 +3943,7 @@ SendOutPlayerMon: ; 3db5f
 	ld hl, BattleMonDVs
 	predef GetSpindaPattern
 	hlcoord 1, 5
-	ld b, 7
-	ld c, 8
+	lb bc, 7, 8
 	call ClearBox
 	call WaitBGMap
 	xor a
@@ -4814,14 +4810,12 @@ DrawEnemyHUD: ; 3e043
 	ld [wWhichHPBar], a
 	hlcoord 2, 2
 	ld b, 0
-	call DrawBattleHPBar
-	ret
+	jp DrawBattleHPBar
 ; 3e127
 
 UpdateEnemyHPPal: ; 3e127
 	ld hl, EnemyHPPal
-	call UpdateHPPal
-	ret
+	jp UpdateHPPal
 ; 3e12e
 
 UpdateHPPal: ; 3e12e
@@ -4907,8 +4901,7 @@ BattleMenu_Pack: ; 3e1c7
 	call DoItemEffect
 
 .got_item
-	call .UseItem
-	ret
+	jp .UseItem
 
 .didnt_use_item
 	call ClearPalettes
@@ -5053,8 +5046,7 @@ Battle_StatsScreen: ; 3e308
 	ld bc, $31 tiles
 	call CopyBytes
 
-	call EnableLCD
-	ret
+	jp EnableLCD
 ; 3e358
 
 TryPlayerSwitch: ; 3e358
@@ -5127,8 +5119,7 @@ PlayerSwitch: ; 3e3ad
 	jp c, .switch
 	cp BATTLEACTION_FORFEIT
 	jr nz, .dont_run
-	call WildFled_EnemyFled_LinkBattleCanceled
-	ret
+	jp WildFled_EnemyFled_LinkBattleCanceled
 
 .dont_run
 	ld a, [hLinkPlayerNumber]
@@ -5263,15 +5254,12 @@ MoveSelectionScreen: ; 3e4bc
 	ld [hBGMapMode], a
 
 	hlcoord 4, 17 - NUM_MOVES - 1
-	ld b, 4
-	ld c, 14
 	ld a, [wMoveSelectionMenuType]
 	cp $2
 	jr nz, .got_dims
 	hlcoord 4, 17 - NUM_MOVES - 1 - 4
-	ld b, 4
-	ld c, 14
 .got_dims
+	lb bc, 4, 14
 	call TextBox
 
 	hlcoord 6, 17 - NUM_MOVES
@@ -5284,15 +5272,14 @@ MoveSelectionScreen: ; 3e4bc
 	ld [Buffer1], a
 	predef ListMoves
 
-	ld b, 5
 	ld a, [wMoveSelectionMenuType]
 	cp $2
 	ld a, 17 - NUM_MOVES
 	jr nz, .got_default_coord
-	ld b, 5
 	ld a, 17 - NUM_MOVES - 4
 
 .got_default_coord
+	ld b, 5
 	ld [w2DMenuCursorInitY], a
 	ld a, b
 	ld [w2DMenuCursorInitX], a
@@ -5554,8 +5541,7 @@ MoveInfoBox: ; 3e6c8
 	ld [hBGMapMode], a
 
 	hlcoord 0, 8
-	ld b, 3
-	ld c, 9
+	lb bc, 3, 9
 	call TextBox
 
 	ld a, [PlayerDisableCount]
@@ -5639,8 +5625,7 @@ MoveInfoBox: ; 3e6c8
 	inc hl
 	ld de, wNamedObjectIndexBuffer
 	lb bc, 1, 2
-	call PrintNum
-	ret
+	jp PrintNum
 ; 3e786
 
 CheckPlayerHasUsableMoves: ; 3e786
@@ -6026,8 +6011,7 @@ LoadEnemyMon: ; 3e8eb
 	cp a, BATTLETYPE_SHINY
 	jr nz, .GenerateDVs
 
-	ld b, ATKDEFDV_SHINY ; $ea
-	ld c, SPDSPCDV_SHINY ; $aa
+	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
 	jr .UpdateDVs
 
 .GenerateDVs:
@@ -7085,8 +7069,7 @@ GiveExperiencePoints: ; 3ee3b
 	ld [MonType], a
 	predef CopyPkmnToTempMon
 	hlcoord 9, 0
-	ld b, $a
-	ld c, $9
+	lb bc, $a, $9
 	call TextBox
 	hlcoord 11, 1
 	ld bc, 4
@@ -8032,8 +8015,7 @@ CleanUpBattleRAM: ; 3f6d0
 	ld [hli], a
 	dec b
 	jr nz, .loop
-	call WaitSFX
-	ret
+	jp WaitSFX
 ; 3f71d
 
 CheckPayDay: ; 3f71d
@@ -8063,8 +8045,7 @@ CheckPayDay: ; 3f71d
 	ld de, Money + 2
 	call AddBattleMoneyToAccount
 	ld hl, BattleText_PlayerPickedUpPayDayMoney
-	call StdBattleTextBox
-	ret
+	jp StdBattleTextBox
 ; 3f759
 
 ShowLinkBattleParticipantsAfterEnd: ; 3f759
@@ -8499,8 +8480,7 @@ AddLastBattleToLinkRecord: ; 3fa42
 	pop bc
 	dec b
 	jr nz, .loop3
-	ld b, $0
-	ld c, $1
+	lb bc, $0, $1
 .loop4
 	ld a, b
 	add b
@@ -8564,8 +8544,7 @@ AddLastBattleToLinkRecord: ; 3fa42
 	ld hl, wd002
 	ld bc, 18
 	pop de
-	call CopyBytes
-	ret
+	jp CopyBytes
 ; 3fb54
 
 .LoadPointer: ; 3fb54
@@ -8598,8 +8577,7 @@ AddLastBattleToLinkRecord: ; 3fa42
 InitBattleDisplay: ; 3fb6c
 	call .InitBackPic
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call TextBox
 	hlcoord 1, 5
 	lb bc, 3, 7
@@ -8767,8 +8745,7 @@ BattleStartMessage: ; 3fc8b
 	jr c, .cry_no_anim
 
 	hlcoord 12, 0
-	ld d, $0
-	ld e, ANIM_MON_NORMAL
+	lb de, $0, ANIM_MON_NORMAL
 	predef AnimateFrontpic
 	jr .skip_cry ; cry is played during the animation
 
@@ -8799,6 +8776,5 @@ BattleStartMessage: ; 3fc8b
 	push hl
 	farcall BattleStart_TrainerHuds
 	pop hl
-	call StdBattleTextBox
-	ret
+	jp StdBattleTextBox
 ; 3fd26

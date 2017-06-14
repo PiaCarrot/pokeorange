@@ -12,8 +12,7 @@ CheckPlayerMoveTypeMatchups: ; 3484e
 	and a
 	jr z, .unknown_moves
 
-	ld d, NUM_MOVES
-	ld e, 0
+	lb de, NUM_MOVES, 0
 .loop
 	ld a, [hli]
 	and a
@@ -100,8 +99,7 @@ CheckPlayerMoveTypeMatchups: ; 3484e
 
 .CheckEnemyMoveMatchups: ; 348de
 	ld de, EnemyMonMoves
-	ld b, NUM_MOVES + 1
-	ld c, 0
+	lb bc, NUM_MOVES + 1, 0
 
 	ld a, [wTypeMatchup]
 	push af
@@ -302,8 +300,7 @@ FindAliveEnemyMons: ; 349f4
 
 	ld d, a
 	ld e, 0
-	ld b, 1 << (PARTY_LENGTH - 1)
-	ld c, 0
+	lb bc, 1 << (PARTY_LENGTH - 1), 0
 	ld hl, OTPartyMon1HP
 
 .loop
@@ -420,8 +417,7 @@ FindAliveEnemyMonsWithASuperEffectiveMove: ; 34a85
 	ld a, [OTPartyCount]
 	ld e, a
 	ld hl, OTPartyMon1HP
-	ld b, 1 << (PARTY_LENGTH - 1)
-	ld c, 0
+	lb bc, 1 << (PARTY_LENGTH - 1), 0
 .loop
 	ld a, [hli]
 	or [hl]
@@ -451,8 +447,7 @@ FindEnemyMonsWithASuperEffectiveMove: ; 34aa7
 	ld [wEnemyAISwitchScore], a
 	ld hl, OTPartyMon1Moves
 	ld b, 1 << (PARTY_LENGTH - 1)
-	ld d, 0
-	ld e, 0
+	lb de, 0, 0
 .loop
 	ld a, b
 	and c
@@ -461,8 +456,7 @@ FindEnemyMonsWithASuperEffectiveMove: ; 34aa7
 	push hl
 	push bc
 	; for move on mon:
-	ld b, NUM_MOVES
-	ld c, 0
+	lb bc, NUM_MOVES, 0
 .loop3
 	; if move is None: break
 	ld a, [hli]
@@ -557,8 +551,7 @@ FindEnemyMonsWithASuperEffectiveMove: ; 34aa7
 FindEnemyMonsThatResistPlayer: ; 34b20
 	push bc
 	ld hl, OTPartySpecies
-	ld b, 1 << (PARTY_LENGTH - 1)
-	ld c, 0
+	lb bc, 1 << (PARTY_LENGTH - 1), 0
 
 .loop
 	ld a, [hli]
@@ -619,8 +612,7 @@ FindEnemyMonsThatResistPlayer: ; 34b20
 FindEnemyMonsWithAtLeastQuarterMaxHP: ; 34b77
 	push bc
 	ld de, OTPartySpecies
-	ld b, 1 << (PARTY_LENGTH - 1)
-	ld c, 0
+	lb bc, 1 << (PARTY_LENGTH - 1), 0
 	ld hl, OTPartyMon1HP
 
 .loop

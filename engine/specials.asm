@@ -48,7 +48,6 @@ SpecialsPointers:: ; c029
 	add_special Special_DayCareManOutside
 	add_special MoveDeletion
 	add_special Special_MagnetTrain
-	add_special Special_SetDayOfWeek
 	add_special Special_TownMap
 	add_special Special_TownMapItem
 	add_special MapRadio
@@ -143,15 +142,13 @@ Special_GameCornerPrizeMonCheckDex: ; c230
 	ld a, [ScriptVar]
 	ld [wd265], a
 	farcall NewPokedexEntry
-	call ExitAllMenus
-	ret
+	jp ExitAllMenus
 ; c252
 
 SpecialSeenMon: ; c252
 	ld a, [ScriptVar]
 	dec a
-	call SetSeenMon
-	ret
+	jp SetSeenMon
 ; c25a
 
 Special_FindGreaterThanThatLevel: ; c25a
@@ -201,8 +198,7 @@ SpecialNameRater: ; c2b9
 Special_TownMap: ; c2c0
 	call FadeToMenu
 	farcall _TownMap
-	call ExitAllMenus
-	ret
+	jp ExitAllMenus
 ; c2cd
 
 Special_TownMapItem:
@@ -215,8 +211,7 @@ Special_TownMapItem:
 Special_DisplayLinkRecord: ; c2da
 	call FadeToMenu
 	farcall DisplayLinkRecord
-	call ExitAllMenus
-	ret
+	jp ExitAllMenus
 ; c2e7
 
 Special_KrissHousePC: ; c2e7
@@ -247,8 +242,7 @@ Special_SlotMachine: ; c373
 	ret c
 	ld a, BANK(_SlotMachine)
 	ld hl, _SlotMachine
-	call Special_StartGameCornerGame
-	ret
+	jp Special_StartGameCornerGame
 ; c380
 
 Special_CardFlip: ; c380
@@ -256,8 +250,7 @@ Special_CardFlip: ; c380
 	ret c
 	ld a, BANK(_CardFlip)
 	ld hl, _CardFlip
-	call Special_StartGameCornerGame
-	ret
+	jp Special_StartGameCornerGame
 ; c38d
 
 Special_StartGameCornerGame: ; c39a
@@ -271,8 +264,7 @@ Special_StartGameCornerGame: ; c39a
 	ld l, a
 	pop af
 	rst FarCall
-	call ExitAllMenus
-	ret
+	jp ExitAllMenus
 ; c3ae
 
 Special_CheckCoins: ; c3ae
@@ -435,8 +427,7 @@ Special_FadeOutMusic: ; c48f
 Diploma: ; c49f
 	call FadeToMenu
 	farcall _Diploma
-	call ExitAllMenus
-	ret
+	jp ExitAllMenus
 ; c4ac
 
 ClockResetter:

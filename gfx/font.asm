@@ -50,7 +50,7 @@ INCBIN "gfx/frames/map_entry_sign.2bpp"
 ; f9424
 
 Footprints: ; f9434
-INCBIN "gfx/pokedex/footprints.1bpp"
+INCBIN "gfx/pokedex/footprints.w128.1bpp"
 ; fb434
 
 _LoadStandardFont:: ; fb449
@@ -64,8 +64,7 @@ _LoadStandardFont:: ; fb449
 	ld de, Font
 	ld hl, VTiles1
 	lb bc, BANK(Font), $80
-	call Get1bpp_2
-	ret
+	jp Get1bpp_2
 ; fb48a
 
 _LoadFontsBattleExtra:: ; fb4be
@@ -86,8 +85,7 @@ LoadFrame:: ; fb4cc
 	ld hl, VTiles2 tile $7f
 	ld de, TextBoxSpaceGFX
 	lb bc, BANK(TextBoxSpaceGFX), 1
-	call Get1bpp_2
-	ret
+	jp Get1bpp_2
 ; fb4f2
 
 LoadBattleFontsHPBar: ; fb4f2
@@ -113,8 +111,7 @@ LoadHPBar: ; fb50d
 	ld de, ExpBarGFX
 	ld hl, VTiles2 tile $55
 	lb bc, BANK(ExpBarGFX), 9
-	call Get2bpp_2
-	ret
+	jp Get2bpp_2
 ; fb53e
 
 StatsScreen_LoadFont: ; fb53e
@@ -139,6 +136,5 @@ LoadStatsScreenPageTilesGFX: ; fb571
 	ld de, StatsScreenPageTilesGFX
 	ld hl, VTiles2 tile $31
 	lb bc, BANK(StatsScreenPageTilesGFX), $11
-	call Get2bpp_2
-	ret
+	jp Get2bpp_2
 ; fb57e

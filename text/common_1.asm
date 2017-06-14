@@ -108,27 +108,16 @@ UnknownText_0x1bc2eb::
 	text "What hour is it?"
 	done
 
-UnknownText_0x1bc2fd::
-	text "Okay.@@"
-	done
-
-UnknownText_0x1bc305::
-UnknownText_0x1bc323::
-	text "?"
-	done
-
 UnknownText_0x1bc308::
 	text "How many minutes?"
 	done
 
-UnknownText_0x1bc31b::
-	text "Okay!@@"
+UnknownText_0x1bc323::
+	text "?"
 	done
 
-UnknownText_0x1bc326::
-UnknownText_0x1bc336::
-UnknownText_0x1bc34f::
-	text "."
+UnknownText_0x1bc31b::
+	text "Okay!@@"
 	done
 
 UnknownText_0x1bc369::
@@ -137,6 +126,10 @@ UnknownText_0x1bc369::
 
 UnknownText_0x1bc37a::
 	text ", is it?"
+	done
+
+UnknownText_0x1bc326::
+	text ""
 	done
 
 UnknownText_0x1bc6e9::

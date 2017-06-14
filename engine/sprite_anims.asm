@@ -199,8 +199,7 @@ DoAnimFrame: ; 8d24b
 	ret
 
 .asm_8d356
-	call DeinitializeSprite
-	ret
+	jp DeinitializeSprite
 ; 8d35a
 
 .twentyfive ; 8d35a (23:535a)
@@ -276,8 +275,7 @@ DoAnimFrame: ; 8d24b
 .asm_8d3ba
 	ld a, $1
 	ld [wcf64], a
-	call DeinitializeSprite
-	ret
+	jp DeinitializeSprite
 
 .eight ; 8d3c3 (23:53c3)
 	ld hl, SPRITEANIMSTRUCT_0C
@@ -353,8 +351,7 @@ DoAnimFrame: ; 8d24b
 	ret
 
 .asm_8d41e
-	call DeinitializeSprite
-	ret
+	jp DeinitializeSprite
 
 .SlotsGolem: ; 8d422 (23:5422)
 	farcall SlotMachine_AnimateGolem
@@ -368,8 +365,7 @@ DoAnimFrame: ; 8d24b
 	ret nz
 	ld [hl], $3
 	ld a, $f
-	call _ReinitSpriteAnimFrame
-	ret
+	jp _ReinitSpriteAnimFrame
 
 .SlotsChanseyEgg: ; 8d43e (23:543e)
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
@@ -389,8 +385,7 @@ DoAnimFrame: ; 8d24b
 	ld a, $4
 	ld [wcf64], a
 	ld de, SFX_PLACE_PUZZLE_PIECE_DOWN
-	call PlaySFX
-	ret
+	jp PlaySFX
 
 .move_right
 	inc [hl]
@@ -526,8 +521,7 @@ DoAnimFrame: ; 8d24b
 	sub $c
 	ld [hl], a
 	ld de, SFX_SWITCH_POKEMON
-	call PlaySFX
-	ret
+	jp PlaySFX
 
 .asm_8d51c
 	xor a
@@ -535,12 +529,10 @@ DoAnimFrame: ; 8d24b
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
-	call .IncrementJumptableIndex
-	ret
+	jp .IncrementJumptableIndex
 
 .sixteen_five ; 8d526
-	call DeinitializeSprite
-	ret
+	jp DeinitializeSprite
 ; 8d52a
 
 .seventeen ; 8d52a (23:552a)
@@ -554,12 +546,10 @@ DoAnimFrame: ; 8d24b
 	and $3
 	ret nz
 	ld de, SFX_POKEBALLS_PLACED_ON_TABLE
-	call PlaySFX
-	ret
+	jp PlaySFX
 
 .delete
-	call DeinitializeSprite
-	ret
+	jp DeinitializeSprite
 
 .eighteen ; 8d543 (23:5543)
 	farcall TradeAnim_AnimateTrademonInTube
@@ -599,8 +589,7 @@ DoAnimFrame: ; 8d24b
 	ret
 
 .finish_EggShell
-	call DeinitializeSprite
-	ret
+	jp DeinitializeSprite
 
 .twentyone ; 8d57f (23:557f)
 	ld hl, SPRITEANIMSTRUCT_0D
@@ -706,8 +695,7 @@ DoAnimFrame: ; 8d24b
 	ret
 
 .delete_leaf
-	call DeinitializeSprite
-	ret
+	jp DeinitializeSprite
 
 .FlyTo: ; 8d607 (23:5607)
 	ld hl, SPRITEANIMSTRUCT_YCOORD
@@ -765,8 +753,7 @@ DoAnimFrame: ; 8d24b
 	add hl, bc
 	ld [hl], a
 	ld a, $36
-	call _ReinitSpriteAnimFrame
-	ret
+	jp _ReinitSpriteAnimFrame
 
 .thirty ; 8d666 (23:5666)
 	ld hl, SPRITEANIMSTRUCT_0C
@@ -819,8 +806,7 @@ DoAnimFrame: ; 8d24b
 	cp $40
 	ret nz
 	ld a, $3d
-	call _ReinitSpriteAnimFrame
-	ret
+	jp _ReinitSpriteAnimFrame
 
 .thirtyfour ; 8d6ae (23:56ae)
 	ld hl, SPRITEANIMSTRUCT_YCOORD
@@ -863,10 +849,8 @@ DoAnimFrame: ; 8d24b
 ; 8d6de
 
 .Sprites_Sine: ; 8d6de (23:56de)
-	call Sprites_Sine
-	ret
+	jp Sprites_Sine
 
 .Sprites_Cosine: ; 8d6e2 (23:56e2)
-	call Sprites_Cosine
-	ret
+	jp Sprites_Cosine
 ; 8d6e6 (23:56e6)

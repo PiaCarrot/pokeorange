@@ -1,18 +1,3 @@
-	ld hl, OBJECT_ACTION
-	add hl, bc
-	ld a, [hl]
-	ld l, a
-	ld h, 0
-	add hl, hl
-	add hl, hl
-	add hl, de
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	call _hl_
-	ret
-; 445f
-
 Pointers445f: ; 445f
 	dw SetFacingStanding, SetFacingStanding ; 00
 	dw Function44b5,      SetFacingCurrent ; 01 standing?

@@ -298,8 +298,7 @@ UpdateChannels: ; e8125
 	and %10001110 ; ch1 off
 	ld [rNR52], a
 	ld hl, rNR10
-	call ClearChannel
-	ret
+	jp ClearChannel
 
 .asm_e81a2
 	ld hl, wCurTrackDuty
@@ -351,8 +350,7 @@ UpdateChannels: ; e8125
 	and %10001101 ; ch2 off
 	ld [rNR52], a
 	ld hl, rNR20
-	call ClearChannel
-	ret
+	jp ClearChannel
 
 .asm_e8204
 	ld hl, wCurTrackDuty
@@ -390,8 +388,7 @@ UpdateChannels: ; e8125
 	and %10001011 ; ch3 off
 	ld [rNR52], a
 	ld hl, rNR30
-	call ClearChannel
-	ret
+	jp ClearChannel
 
 .asm_e824d
 	ld a, $3f
@@ -477,8 +474,7 @@ endr
 	and %10000111 ; ch4 off
 	ld [rNR52], a
 	ld hl, rNR40
-	call ClearChannel
-	ret
+	jp ClearChannel
 
 .asm_e82d4
 	ld a, $3f ; sound length
@@ -1851,8 +1847,7 @@ Music_NoteType: ; e8963
 	cp CHAN4 ; CHAN8 & $3
 	ret z
 	; intensity
-	call Music_Intensity
-	ret
+	jp Music_Intensity
 
 ; e8977
 
@@ -1903,8 +1898,7 @@ Music_Tempo: ; e899a
 	ld d, a
 	call GetMusicByte
 	ld e, a
-	call SetGlobalTempo
-	ret
+	jp SetGlobalTempo
 
 ; e89a6
 
@@ -1946,8 +1940,7 @@ Music_StereoPanning: ; e89ba
 	bit 5, a ; stereo
 	jr nz, Music_Panning
 	; skip param
-	call GetMusicByte
-	ret
+	jp GetMusicByte
 
 ; e89c5
 
@@ -2005,8 +1998,7 @@ Music_TempoRelative: ; e89e1
 	add hl, de
 	ld e, l
 	ld d, h
-	call SetGlobalTempo
-	ret
+	jp SetGlobalTempo
 
 ; e89fd
 
@@ -2350,8 +2342,7 @@ _PlayMusic:: ; e8b30
 	ld [NoiseSampleAddressHi], a
 	ld [wNoiseSampleDelay], a
 	ld [MusicNoiseSampleSet], a
-	call MusicOn
-	ret
+	jp MusicOn
 
 ; e8b79
 
@@ -2463,8 +2454,7 @@ _PlayCryHeader:: ; e8b79
 .end
 	ld a, 1 ; stop playing music
 	ld [SFXPriority], a
-	call MusicOn
-	ret
+	jp MusicOn
 
 ; e8c04
 
@@ -2667,8 +2657,7 @@ PlayStereoSFX:: ; e8ca6
 	jr nz, .loop
 
 ; we're done
-	call MusicOn
-	ret
+	jp MusicOn
 
 ; e8d1b
 

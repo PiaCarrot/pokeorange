@@ -97,8 +97,7 @@ ComputePathToWalkToPlayer:: ; 1b5f
 	ld a, l
 	call .GetMovementData
 	ld c, e
-	call AppendToMovementBufferNTimes
-	ret
+	jp AppendToMovementBufferNTimes
 ; 1b92
 
 .GetMovementData: ; 1b92
@@ -159,14 +158,12 @@ SetMenuAttributes:: ; 1bb1
 
 StaticMenuJoypad:: ; 1bc9
 	farcall _StaticMenuJoypad
-	call GetMenuJoypad
-	ret
+	jp GetMenuJoypad
 ; 1bd3
 
 ScrollingMenuJoypad:: ; 1bd3
 	farcall _ScrollingMenuJoypad
-	call GetMenuJoypad
-	ret
+	jp GetMenuJoypad
 ; 1bdd
 
 GetMenuJoypad:: ; 1bdd

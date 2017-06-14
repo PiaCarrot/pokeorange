@@ -870,8 +870,7 @@ BattleCommand_CheckObedience: ; 343db
 
 	ld hl, BattleMonPP
 	ld de, BattleMonMoves
-	ld b, 0
-	ld c, NUM_MOVES
+	lb bc, 0, NUM_MOVES
 
 .GetTotalPP:
 	ld a, [hli]
@@ -1127,8 +1126,7 @@ BattleCommand_DoTurn: ; 34555
 
 .mimic
 	ld hl, wWildMonPP
-	call .consume_pp
-	ret
+	jp .consume_pp
 
 .out_of_pp
 	call BattleCommand_MoveDelay
@@ -2978,8 +2976,7 @@ ThickClubBoost: ; 353b5
 ; it's holding a Thick Club, double it.
 	push bc
 	push de
-	ld b, CUBONE
-	ld c, MAROWAK
+	lb bc, CUBONE, MAROWAK
 	ld d, THICK_CLUB
 	call SpeciesItemBoost
 	pop de
@@ -2996,8 +2993,7 @@ LightBallBoost: ; 353c3
 ; holding a Light Ball, double it.
 	push bc
 	push de
-	ld b, PIKACHU
-	ld c, PIKACHU
+	lb bc, PIKACHU, PIKACHU
 	ld d, LIGHT_BALL
 	call SpeciesItemBoost
 	pop de
@@ -9011,8 +9007,7 @@ BattleCommand_BatonPass: ; 379c9
 	ld hl, PassedBattleMonEntrance
 	call CallBattleCore
 
-	call ResetBatonPassStatus
-	ret
+	jp ResetBatonPassStatus
 
 
 .Enemy:

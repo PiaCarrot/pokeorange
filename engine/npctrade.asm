@@ -73,8 +73,7 @@ NPCTrade:: ; fcba8
 	ld a, TRADE_COMPLETE
 
 .done
-	call PrintTradeText
-	ret
+	jp PrintTradeText
 ; fcc07
 
 .TradeAnimation: ; fcc07
@@ -88,8 +87,7 @@ NPCTrade:: ; fcba8
 	ld [wcf64], a
 	pop af
 	ld [wJumptableIndex], a
-	call ReturnToMapWithSpeechTextbox
-	ret
+	jp ReturnToMapWithSpeechTextbox
 ; fcc23
 
 CheckTradeGender: ; fcc23
@@ -320,8 +318,7 @@ GetTradeAttribute: ; 0xfcdc2
 
 Trade_GetAttributeOfCurrentPartymon: ; fcdd7
 	ld a, [CurPartyMon]
-	call AddNTimes
-	ret
+	jp AddNTimes
 ; fcdde
 
 Trade_GetAttributeOfLastPartymon: ; fcdde
@@ -344,8 +341,7 @@ GetTradeMonName: ; fcde8
 
 CopyTradeName: ; fcdf4
 	ld bc, NAME_LENGTH
-	call CopyBytes
-	ret
+	jp CopyBytes
 ; fcdfb
 
 Trade_CopyTwoBytes: ; fce0f
@@ -444,8 +440,7 @@ PrintTradeText: ; fcf38
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PrintText
-	ret
+	jp PrintText
 ; fcf53
 
 TradeTexts: ; fcf53

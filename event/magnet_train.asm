@@ -153,8 +153,7 @@ MagntTrain_LoadGFX_PlayMusic: ; 8ccc9
 	ld [hli], a
 	ld [hli], a
 	ld de, MUSIC_MAGNET_TRAIN
-	call PlayMusic2
-	ret
+	jp PlayMusic2
 ; 8cd27
 
 DrawMagnetTrain: ; 8cd27
@@ -182,8 +181,7 @@ DrawMagnetTrain: ; 8cd27
 	hlbgcoord 0, 9
 	ld de, MagnetTrainTilemap4
 	ld c, 20
-	call .FillLine
-	ret
+	jp .FillLine
 ; 8cd65
 
 .FillLine: ; 8cd65
@@ -380,8 +378,7 @@ MagnetTrain_Jumptable: ; 8cdf7
 	ret
 
 .DoneWaiting:
-	call .Next
-	ret
+	jp .Next
 ; 8ce7a
 
 .MoveTrain2: ; 8ce7a
@@ -410,16 +407,14 @@ MagnetTrain_Jumptable: ; 8cdf7
 	ret
 
 .PrepareToFinishAnim:
-	call .Next
-	ret
+	jp .Next
 ; 8cea2
 
 .TrainArrived: ; 8cea2
 	ld a, $80
 	ld [wJumptableIndex], a
 	ld de, SFX_TRAIN_ARRIVED
-	call PlaySFX
-	ret
+	jp PlaySFX
 ; 8ceae
 
 MagnetTrain_Jumptable_FirstRunThrough: ; 8ceae

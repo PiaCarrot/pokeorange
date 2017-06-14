@@ -19,8 +19,7 @@ LinkCommunications: ; 28000
 	farcall LinkComms_LoadPleaseWaitTextboxBorderGFX
 	call WaitBGMap2
 	hlcoord 3, 8
-	ld b, 2
-	ld c, 12
+	lb bc, 2, 12
 	ld d, h
 	ld e, l
 	farcall LinkTextbox2
@@ -322,8 +321,7 @@ LinkTimeout: ; 283b2
 	ld [hVBlank], a
 	push de
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	push de
 	ld d, h
 	ld e, l
@@ -567,8 +565,7 @@ Link_PrepPartyData_Gen2: ; 28595
 	jr nz, .loop5
 	ld hl, wcabf
 	ld de, wcb13
-	ld b, PARTY_LENGTH * (sPartyMon1MailEnd - sPartyMon1MailAuthor)
-	ld c, $0
+	lb bc, PARTY_LENGTH * (sPartyMon1MailEnd - sPartyMon1MailAuthor), $0
 .loop6
 	inc c
 	ld a, [hl]
@@ -825,8 +822,7 @@ Function28926: ; 28926
 	ld a, [wMenuCursorY]
 	push af
 	hlcoord 0, 15
-	ld b, 1
-	ld c, 18
+	lb bc, 1, 18
 	call Predef_LinkTextbox
 	hlcoord 2, 16
 	ld de, .String_Stats_Trade
@@ -934,8 +930,7 @@ Function28926: ; 28926
 	ld [wcf57], a
 	ld [wOtherPlayerLinkAction], a
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call Predef_LinkTextbox
 	farcall Link_WaitBGMap
 	ld hl, .Text_CantTradeLastMon
@@ -956,8 +951,7 @@ Function28926: ; 28926
 	ld [wd265], a
 	call GetPokemonName
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call Predef_LinkTextbox
 	farcall Link_WaitBGMap
 	ld hl, .Text_Abnormal
@@ -966,8 +960,7 @@ Function28926: ; 28926
 
 .cancel_trade
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call Predef_LinkTextbox
 	hlcoord 1, 14
 	ld de, String_TooBadTheTradeWasCanceled
@@ -1093,8 +1086,7 @@ LinkTrade: ; 28b87
 	ld [wcf57], a
 	ld [wOtherPlayerLinkAction], a
 	hlcoord 0, 12
-	ld b, $4
-	ld c, $12
+	lb bc, 4, 18
 	call Predef_LinkTextbox
 	farcall Link_WaitBGMap
 	ld a, [wd002]
@@ -1122,8 +1114,7 @@ LinkTrade: ; 28b87
 	call PlaceHLTextAtBC
 	call LoadStandardMenuDataHeader
 	hlcoord 10, 7
-	ld b, 3
-	ld c, 7
+	lb bc, 3, 7
 	call Predef_LinkTextbox
 	ld de, String28eab
 	hlcoord 12, 8
@@ -1162,8 +1153,7 @@ LinkTrade: ; 28b87
 	ld a, $1
 	ld [wPlayerLinkAction], a
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call Predef_LinkTextbox
 	hlcoord 1, 14
 	ld de, String_TooBadTheTradeWasCanceled
@@ -1179,8 +1169,7 @@ LinkTrade: ; 28b87
 	dec a
 	jr nz, .asm_28c7b
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call Predef_LinkTextbox
 	hlcoord 1, 14
 	ld de, String_TooBadTheTradeWasCanceled
@@ -1404,8 +1393,7 @@ LinkTrade: ; 28b87
 	ld c, 40
 	call DelayFrames
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call Predef_LinkTextbox
 	hlcoord 1, 14
 	ld de, String28ebd
@@ -1454,8 +1442,7 @@ LoadTradeScreenBorder: ; 28ef8
 
 SetTradeRoomBGPals: ; 28eff
 	farcall LoadTradeRoomBGPals
-	call SetPalettes
-	ret
+	jp SetPalettes
 ; 28f09
 
 WaitForOtherPlayerToExit: ; 29c92
@@ -1941,8 +1928,7 @@ _LinkBattleSendReceiveAction: ; 100a09
 	call .StageForSend
 	ld [wd431], a
 	farcall PlaceWaitingText
-	call .LinkBattle_SendReceiveAction
-	ret
+	jp .LinkBattle_SendReceiveAction
 ; 100a2e
 
 .StageForSend: ; 100a2e

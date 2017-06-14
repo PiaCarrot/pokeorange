@@ -1,6 +1,5 @@
 _InitializeStartDay: ; 113d6
-	call InitializeStartDay
-	ret
+	jp InitializeStartDay
 ; 113da
 
 ClearDailyTimers: ; 113da
@@ -19,8 +18,7 @@ InitNDaysCountdown: ; 11415
 	call UpdateTime
 	pop hl
 	inc hl
-	call CopyDayToHL
-	ret
+	jp CopyDayToHL
 ; 11420
 
 CheckDayDependentEventHL: ; 11420
@@ -30,8 +28,7 @@ CheckDayDependentEventHL: ; 11420
 	call GetDaysSince
 	pop hl
 	dec hl
-	call UpdateTimeRemaining
-	ret
+	jp UpdateTimeRemaining
 ; 1142e
 
 RestartDailyResetTimer: ; 1144c
@@ -71,8 +68,7 @@ StartBugContestTimer: ; 11490
 	ld [wBugContestSecsRemaining], a
 	call UpdateTime
 	ld hl, wBugContestStartTime
-	call CopyDayHourMinSecToHL
-	ret
+	jp CopyDayHourMinSecToHL
 ; 114a4
 
 
@@ -114,8 +110,7 @@ CheckBugContestTimer:: ; 114a4 (4:54a4)
 InitializeStartDay: ; 114dd
 	call UpdateTime
 	ld hl, wStartDay
-	call CopyDayToHL
-	ret
+	jp CopyDayToHL
 ; 114e7
 
 CheckPokerusTick:: ; 114e7

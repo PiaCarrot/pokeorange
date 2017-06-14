@@ -143,8 +143,7 @@ InitPartyMenuBGPal7: ; 8e85
 	ld de, UnknBGPals + 8 * 7
 	ld bc, 1 palettes
 	ld a, $5
-	call FarCopyWRAM
-	ret
+	jp FarCopyWRAM
 ; 8e9f
 
 InitPartyMenuBGPal0: ; 8e9f
@@ -152,8 +151,7 @@ InitPartyMenuBGPal0: ; 8e9f
 	ld de, UnknBGPals
 	ld bc, 1 palettes
 	ld a, $5
-	call FarCopyWRAM
-	ret
+	jp FarCopyWRAM
 ; 8eb9
 
 _CGB_TownMapPals: ; 8eb9
@@ -167,7 +165,7 @@ _CGB_TownMapPals: ; 8eb9
 	ld bc, 6 palettes
 	ld a, $5
 	call FarCopyWRAM
-	ld hl, TownMapOBPals
+	ld hl, PartyMenuOBPals
 	ld de, UnknOBPals
 	ld bc, 2 palettes
 	ld a, $5
@@ -269,18 +267,27 @@ _CGB_Pokedex: ; 8f70
 	ld hl, Palette8fba
 	call LoadHLPaletteIntoDE
 	jr .got_palette
-
 .is_pokemon
 	call GetMonPalettePointer_
 	call LoadPalette_White_Col1_Col2_Black
 .got_palette
+	ld hl, PokedexEdgePalette
+	call LoadHLPaletteIntoDE
 	call WipeAttrMap
+	hlcoord 0, 0, AttrMap
+	lb bc, 9, 9
+	ld a, $2
+	call FillBoxCGB
 	hlcoord 1, 1, AttrMap
 	lb bc, 7, 7
 	ld a, $1
 	call FillBoxCGB
-	call InitPartyMenuOBPals
-	ld hl, Palette8fc2
+	ld hl, PokedexCursorPalette
+	ld de, UnknOBPals
+	ld bc, 1 palettes
+	ld a, $5
+	call FarCopyWRAM
+	ld hl, PokedexScrollbarPalette
 	ld de, UnknOBPals + 7 palettes
 	ld bc, 1 palettes
 	ld a, $5
@@ -293,13 +300,25 @@ _CGB_Pokedex: ; 8f70
 ; 8fba
 
 Palette8fba: ; 8fba
-	RGB 27, 14, 02
-	RGB 23, 12, 01
-	RGB 23, 12, 01
-	RGB 20, 10, 02
-
-Palette8fc2: ; 8fc2
+	RGB 31, 15, 00
+	RGB 23, 12, 00
+	RGB 15, 07, 00
 	RGB 00, 00, 00
+
+PokedexEdgePalette:
+	RGB 31, 31, 31
+	RGB 31, 15, 00
+	RGB 26, 10, 06
+	RGB 00, 00, 00
+
+PokedexCursorPalette:
+	RGB 31, 31, 31
+	RGB 31, 19, 10
+	RGB 31, 07, 01
+	RGB 00, 00, 00
+
+PokedexScrollbarPalette: ; 8fc2
+	RGB 31, 31, 31
 	RGB 27, 14, 02
 	RGB 23, 12, 01
 	RGB 00, 00, 00
@@ -406,8 +425,7 @@ _CGB_Diploma: ; 91ad
 	ld hl, PalPacket_Diploma
 	call CopyFourPalettes
 	call WipeAttrMap
-	call ApplyAttrMap
-	ret
+	jp ApplyAttrMap
 ; 91c8
 
 _CGB_MapPals: ; 91c8
@@ -423,8 +441,7 @@ _CGB_PartyMenu: ; 91d1
 	call InitPartyMenuBGPal0
 	call InitPartyMenuBGPal7
 	call InitPartyMenuOBPals
-	call ApplyAttrMap
-	ret
+	jp ApplyAttrMap
 ; 91e4
 
 _CGB_Evolution: ; 91e4
@@ -467,20 +484,19 @@ _CGB_TrainerCard: ; 9289
 	xor a ; INDIGO
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $1 ; ORANGE
+	ld a, CISSY
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $2 ; CISSY
+	ld a, DANNY
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $3 ; DANNY
+	ld a, RUDY
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $4 ; RUDY
+	ld a, LUANA
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $5 ; LUANA
-	call GetTrainerPalettePointer
+	ld hl, .StarPalette
 	call LoadPalette_White_Col1_Col2_Black
 	; badges
 	ld de, UnknOBPals
@@ -517,30 +533,39 @@ _CGB_TrainerCard: ; 9289
 .got_gender3
 	ld [hl], a
 	; CISSY
-	hlcoord 3, 10, AttrMap
+	hlcoord 3, 13, AttrMap
 	lb bc, 3, 3
 	ld a, $1
 	call FillBoxCGB
 	; DANNY
-	hlcoord 7, 10, AttrMap
+	hlcoord 7, 13, AttrMap
 	lb bc, 3, 3
 	ld a, $2
 	call FillBoxCGB
 	; RUDY
-	hlcoord 11, 10, AttrMap
+	hlcoord 11, 13, AttrMap
 	lb bc, 3, 3
 	ld a, $3
 	call FillBoxCGB
 	; LUANA
-	hlcoord 15, 10, AttrMap
+	hlcoord 15, 13, AttrMap
 	lb bc, 3, 3
 	ld a, $4
+	call FillBoxCGB
+	; stars
+	hlcoord 15, 8, AttrMap
+	lb bc, 3, 3
+	ld a, $5
 	call FillBoxCGB
 	call ApplyAttrMap
 	call ApplyPals
 	ld a, $1
 	ld [hCGBPalUpdate], a
 	ret
+
+.StarPalette:
+	RGB 31, 16, 01
+	RGB 31, 16, 01
 ; 9373
 
 _CGB_MoveList: ; 9373
@@ -754,8 +779,7 @@ _CGB_PlayerOrMonFrontpicPals: ; 9529
 	call LoadPalette_White_Col1_Col2_Black
 	call WipeAttrMap
 	call ApplyAttrMap
-	call ApplyPals
-	ret
+	jp ApplyPals
 ; 9542
 
 _CGB_TradeTube: ; 9555
@@ -770,8 +794,7 @@ _CGB_TradeTube: ; 9555
 	ld a, $1c
 	call GetPredefPal
 	call LoadHLPaletteIntoDE
-	call WipeAttrMap
-	ret
+	jp WipeAttrMap
 ; 9578
 
 _CGB_TrainerOrMonFrontpicPals: ; 9578
@@ -782,6 +805,5 @@ _CGB_TrainerOrMonFrontpicPals: ; 9578
 	call LoadPalette_White_Col1_Col2_Black
 	call WipeAttrMap
 	call ApplyAttrMap
-	call ApplyPals
-	ret
+	jp ApplyPals
 ; 9591

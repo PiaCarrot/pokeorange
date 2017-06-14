@@ -88,8 +88,7 @@ InitPokedex: ; 40063
 	call Pokedex_InitCursorPosition
 	call Pokedex_GetLandmark
 	farcall DrawDexEntryScreenRightEdge
-	call Pokedex_ResetBGMapMode
-	ret
+	jp Pokedex_ResetBGMapMode
 
 Pokedex_InitCursorPosition: ; 400b4
 	ld hl, wPokedexDataStart
@@ -245,8 +244,7 @@ Pokedex_UpdateMainScreen: ; 401ae (10:41ae)
 	ld [hBGMapMode], a
 	call Pokedex_PrintListing
 	call Pokedex_SetBGMapMode3
-	call Pokedex_ResetBGMapMode
-	ret
+	jp Pokedex_ResetBGMapMode
 
 .a
 	call Pokedex_GetSelectedMon
@@ -259,15 +257,14 @@ Pokedex_UpdateMainScreen: ; 401ae (10:41ae)
 	ret
 
 .start
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	ld a, DEXSTATE_SEARCH_SCR
 	ld [wJumptableIndex], a
 	xor a
 	ld [hSCX], a
 	ld a, $a7
 	ld [hWX], a
-	call DelayFrame
-	ret
+	jp DelayFrame
 
 .b
 	ld a, DEXSTATE_EXIT
@@ -312,8 +309,7 @@ Pokedex_UpdateDexEntryScreen: ; 40258 (10:4258)
 	jr nz, .do_menu_action
 	call Pokedex_NextOrPreviousDexEntry
 	ret nc
-	call Pokedex_IncrementDexPointer
-	ret
+	jp Pokedex_IncrementDexPointer
 
 .do_menu_action
 	ld a, [wDexArrowCursorPosIndex]
@@ -341,12 +337,11 @@ Pokedex_Page: ; 40292
 	call Pokedex_GetSelectedMon
 	ld [wLastDexEntry], a
 	farcall DisplayDexEntry
-	call WaitBGMap
-	ret
+	jp WaitBGMap
 
 Pokedex_ReinitDexEntryScreen: ; 402aa (10:42aa)
 ; Reinitialize the Pokédex entry screen after changing the selected mon.
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	xor a
 	ld [wPokedexStatus], a
 	xor a
@@ -382,7 +377,7 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 	dw .Cry
 
 .Area: ; 402fa
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	xor a
 	ld [hSCX], a
 	call DelayFrame
@@ -394,7 +389,7 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 	ld a, [wDexCurrentLocation]
 	ld e, a
 	predef _Area
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	call DelayFrame
 	xor a
 	ld [hBGMapMode], a
@@ -409,8 +404,7 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 	call Pokedex_GetSelectedMon
 	ld [CurPartySpecies], a
 	ld a, SCGB_POKEDEX
-	call Pokedex_GetSGBLayout
-	ret
+	jp Pokedex_GetSGBLayout
 
 .Cry: ; 40340
 	call Pokedex_GetSelectedMon
@@ -418,15 +412,13 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 	call GetCryIndex
 	ld e, c
 	ld d, b
-	call PlayCryHeader
-	ret
+	jp PlayCryHeader
 
 Pokedex_RedisplayDexEntry: ; 4038d
 	call Pokedex_DrawDexEntryScreenBG
 	call Pokedex_GetSelectedMon
 	farcall DisplayDexEntry
-	call Pokedex_DrawFootprint
-	ret
+	jp Pokedex_DrawFootprint
 
 Pokedex_InitSearchScreen: ; 40443 (10:4443)
 	xor a
@@ -469,7 +461,7 @@ Pokedex_UpdateSearchScreen: ; 40471 (10:4471)
 	jp hl
 
 .cancel
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	ld a, DEXSTATE_MAIN_SCR
 	ld [wJumptableIndex], a
 	ret
@@ -521,13 +513,13 @@ Pokedex_UpdateSearchScreen: ; 40471 (10:4471)
 	xor a
 	ld [wDexListingScrollOffset], a
 	ld [wDexListingCursor], a
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	ld a, DEXSTATE_SEARCH_RESULTS_SCR
 	ld [wJumptableIndex], a
 	ret
 
 .MenuAction_Cancel: ; 40501
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	ld a, DEXSTATE_MAIN_SCR
 	ld [wJumptableIndex], a
 	ret
@@ -582,8 +574,7 @@ Pokedex_UpdateSearchResultsScreen: ; 40562 (10:4562)
 	ld [hBGMapMode], a
 	call Pokedex_PrintListing
 	call Pokedex_SetBGMapMode3
-	call Pokedex_ResetBGMapMode
-	ret
+	jp Pokedex_ResetBGMapMode
 
 .go_to_dex_entry
 	call Pokedex_GetSelectedMon
@@ -602,7 +593,7 @@ Pokedex_UpdateSearchResultsScreen: ; 40562 (10:4562)
 	ld [wDexListingCursor], a
 	ld a, [wcf65]
 	ld [wLastDexEntry], a
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	call ClearSprites
 	call Pokedex_OrderMonsByMode
 	ld a, DEXSTATE_SEARCH_SCR
@@ -789,7 +780,7 @@ Pokedex_DrawMainScreenBG: ; 4074c (10:474c)
 	call ByteFill
 	hlcoord 0, 0
 	lb bc, 7, 7
-	call Pokedex_PlaceBorder
+	call Pokedex_PlaceFrontpicBorder
 	hlcoord 0, 9
 	lb bc, 6, 7
 	call Pokedex_PlaceBorder
@@ -815,22 +806,21 @@ Pokedex_DrawMainScreenBG: ; 4074c (10:474c)
 	call PrintNum
 	hlcoord 8, 1
 	ld b, 7
-	ld a, $5a
+	ld a, $49
 	call Pokedex_FillColumn
 	hlcoord 8, 10
 	ld b, 6
 	ld a, $5a
 	call Pokedex_FillColumn
 	hlcoord 8, 0
-	ld [hl], $59
+	ld [hl], $47
 	hlcoord 8, 8
-	ld [hl], $53
+	ld [hl], $65
 	hlcoord 8, 9
 	ld [hl], $54
 	hlcoord 8, 16
 	ld [hl], $5b
-	call Pokedex_PlaceFrontpicTopLeftCorner
-	ret
+	jp Pokedex_PlaceFrontpicTopLeftCorner
 
 String_SEEN: ; 407e1
 	db "SEEN", $ff
@@ -888,23 +878,22 @@ Pokedex_DrawSearchScreenBG: ; 408f0 (10:48f0)
 	call Pokedex_PlaceString
 	hlcoord 8, 4
 	ld de, .TypeLeftRightArrows
-	call Pokedex_PlaceString
+	call PlaceString
 	hlcoord 8, 6
 	ld de, .TypeLeftRightArrows
-	call Pokedex_PlaceString
+	call PlaceString
 	hlcoord 3, 4
 	ld de, .Types
 	call PlaceString
 	hlcoord 3, 13
 	ld de, .Menu
-	call PlaceString
-	ret
+	jp PlaceString
 
 .Title: ; 4092a
 	db $3b, " SEARCH ", $3c, $ff
 
 .TypeLeftRightArrows: ; 40935
-	db $3d, "        ", $3e, $ff
+	db "◀        ▶@"
 
 .Types: ; 40940
 	db   "TYPE1"
@@ -912,7 +901,7 @@ Pokedex_DrawSearchScreenBG: ; 408f0 (10:48f0)
 	db   "@"
 
 .Menu: ; 4094c
-	db   "BEGIN SEARCH!!"
+	db   "BEGIN SEARCH!"
 	next "CANCEL"
 	db   "@"
 
@@ -920,7 +909,7 @@ Pokedex_DrawSearchResultsScreenBG: ; 40962 (10:4962)
 	call Pokedex_FillBackgroundColor2
 	hlcoord 0, 0
 	lb bc, 7, 7
-	call Pokedex_PlaceBorder
+	call Pokedex_PlaceFrontpicBorder
 	hlcoord 0, 11
 	lb bc, 5, 18
 	call Pokedex_PlaceBorder
@@ -932,19 +921,18 @@ Pokedex_DrawSearchResultsScreenBG: ; 40962 (10:4962)
 	lb bc, 1, 3
 	call PrintNum
 	hlcoord 8, 0
-	ld [hl], $59
+	ld [hl], $47
 	hlcoord 8, 1
 	ld b, 7
-	ld a, $5a
+	ld a, $49
 	call Pokedex_FillColumn
 	hlcoord 8, 8
-	ld [hl], $53
+	ld [hl], $65
 	hlcoord 8, 9
 	ld [hl], $69
 	hlcoord 8, 10
 	ld [hl], $6a
-	call Pokedex_PlaceFrontpicTopLeftCorner
-	ret
+	jp Pokedex_PlaceFrontpicTopLeftCorner
 
 .BottomWindowText: ; 409ae
 	db   "SEARCH RESULTS"
@@ -974,8 +962,7 @@ Pokedex_FillBackgroundColor2: ; 40aa6
 	hlcoord 0, 0
 	ld a, $32
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
-	ret
+	jp ByteFill
 
 Pokedex_PlaceFrontpicTopLeftCorner: ; 40ab2
 	hlcoord 1, 1
@@ -1013,7 +1000,7 @@ Pokedex_PlaceBorder: ; 40ad5
 	ld a, $33
 	ld [hli], a
 	ld d, $34
-	call .FillRow
+	call Pokedex_PlaceBorder_FillRow
 	ld a, $35
 	ld [hl], a
 	pop hl
@@ -1024,7 +1011,7 @@ Pokedex_PlaceBorder: ; 40ad5
 	ld a, $36
 	ld [hli], a
 	ld d, $7f
-	call .FillRow
+	call Pokedex_PlaceBorder_FillRow
 	ld a, $37
 	ld [hl], a
 	pop hl
@@ -1035,12 +1022,44 @@ Pokedex_PlaceBorder: ; 40ad5
 	ld a, $38
 	ld [hli], a
 	ld d, $39
-	call .FillRow
+	call Pokedex_PlaceBorder_FillRow
 	ld a, $3a
 	ld [hl], a
 	ret
 
-.FillRow: ; 40b06
+Pokedex_PlaceFrontpicBorder:
+	push hl
+	ld a, $45
+	ld [hli], a
+	ld d, $46
+	call Pokedex_PlaceBorder_FillRow
+	ld a, $47
+	ld [hl], a
+	pop hl
+	ld de, SCREEN_WIDTH
+	add hl, de
+.loop
+	push hl
+	ld a, $48
+	ld [hli], a
+	ld d, $7f
+	call Pokedex_PlaceBorder_FillRow
+	ld a, $49
+	ld [hl], a
+	pop hl
+	ld de, SCREEN_WIDTH
+	add hl, de
+	dec b
+	jr nz, .loop
+	ld a, $63
+	ld [hli], a
+	ld d, $64
+	call Pokedex_PlaceBorder_FillRow
+	ld a, $65
+	ld [hl], a
+	ret
+
+Pokedex_PlaceBorder_FillRow: ; 40b06
 	ld e, c
 .row_loop
 	ld a, e
@@ -1089,8 +1108,7 @@ Pokedex_PrintListing: ; 40b0f (10:4b0f)
 	pop af
 	dec a
 	jr nz, .loop
-	call Pokedex_LoadSelectedMonTiles
-	ret
+	jp Pokedex_LoadSelectedMonTiles
 
 .PrintEntry: ; 40b55 (10:4b55)
 ; Prints one entry in the list of Pokémon on the main Pokédex screen.
@@ -1102,8 +1120,7 @@ Pokedex_PrintListing: ; 40b0f (10:4b0f)
 	push hl
 	call GetPokemonName
 	pop hl
-	call PlaceString
-	ret
+	jp PlaceString
 
 Pokedex_PlaceCaughtSymbolIfCaught: ; 40b82 (10:4b82)
 	call Pokedex_CheckCaught
@@ -1130,12 +1147,12 @@ Pokedex_PlaceDefaultStringIfNotSeen: ; 40b8d (10:4b8d)
 
 Pokedex_DrawFootprint: ; 40ba0
 	hlcoord 18, 1
-	ld a, $62
+	ld a, $6c
 	ld [hli], a
 	inc a
 	ld [hl], a
 	hlcoord 18, 2
-	ld a, $64
+	ld a, $6e
 	ld [hli], a
 	inc a
 	ld [hl], a
@@ -1191,8 +1208,7 @@ Pokedex_OrderMonsByMode: ; 40bdc
 	ld [hli], a
 	dec c
 	jr nz, .loopnew
-	call .FindLastSeen
-	ret
+	jp .FindLastSeen
 
 .FindLastSeen: ; 40c18 (10:4c18)
 	ld hl, wPokedexDataStart + NUM_POKEMON - 1
@@ -1313,8 +1329,7 @@ endr
 	ld e, l
 	ld d, h
 	pop hl
-	call PlaceString
-	ret
+	jp PlaceString
 
 .TypeStrings: ; 40fe4
 	db "  ----  @"
@@ -1444,8 +1459,7 @@ Pokedex_DisplayTypeNotFoundMessage: ; 41107
 	ld a, $1
 	ld [hBGMapMode], a
 	ld c, $80
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 .TypeNotFound: ; 41126
 	db   "The specified type"
@@ -1482,8 +1496,7 @@ Pokedex_UpdateCursorOAM: ; 41148 (10:5148)
 
 Pokedex_UpdateSearchResultsCursorOAM: ; 41281 (10:5281)
 	ld hl, .CursorOAM
-	call Pokedex_LoadCursorOAM
-	ret
+	jp Pokedex_LoadCursorOAM
 
 .CursorOAM: ; 41290
 	db $1b, $47, $30, $07
@@ -1712,34 +1725,28 @@ Pokedex_ArrowCursorDelay: ; 413f5 (10:53f5)
 Pokedex_FillBox: ; 413fe (10:53fe)
 	jp FillBoxWithByte
 
-Pokedex_BlackOutBG: ; 41401 (10:5401)
-; Make BG palettes black so that the BG becomes all black.
+Pokedex_WhiteOutBG: ; 41401 (10:5401)
+; Make BG palettes white so that the BG becomes all white.
 	ld a, [rSVBK]
 	push af
 	ld a, $5
 	ld [rSVBK], a
 	ld hl, UnknBGPals
 	ld bc, $40
-	xor a
+	ld a, $ff ; xor a
 	call ByteFill
 	pop af
 	ld [rSVBK], a
-	ld a, $ff
+	xor a
 	call DmgToCgbBGPals
-	ld a, $ff
+	xor a
 	call DmgToCgbObjPal0
 	call DelayFrame
 	ret
 
 Pokedex_GetSGBLayout: ; 41423
 	ld b, a
-	call GetSGBLayout
-; This applies the palettes used for most Pokédex screens.
-	ld a, $e4
-	call DmgToCgbBGPals
-	ld a, $e0
-	call DmgToCgbObjPal0
-	ret
+	jp GetSGBLayout
 
 Pokedex_LoadPointer: ; 41432
 	ld e, a
@@ -1803,7 +1810,7 @@ Pokedex_LoadAnyFootprint: ; 4147b
 	push hl
 	ld e, l
 	ld d, h
-	ld hl, VTiles2 tile $62
+	ld hl, VTiles2 tile $6c
 	lb bc, BANK(Footprints), 2
 	call Request1bpp
 	pop hl
@@ -1815,7 +1822,7 @@ Pokedex_LoadAnyFootprint: ; 4147b
 
 	ld e, l
 	ld d, h
-	ld hl, VTiles2 tile $64
+	ld hl, VTiles2 tile $6e
 	lb bc, BANK(Footprints), 2
 	call Request1bpp
 
@@ -1827,11 +1834,8 @@ Pokedex_LoadGFX: ; 414b7
 	ld bc, $31 tiles
 	xor a
 	call ByteFill
-	call Pokedex_LoadInvertedFont
+	call LoadStandardFont
 	call LoadFontsExtra
-	ld hl, VTiles2 tile $60
-	ld bc, $20 tiles
-	call Pokedex_InvertTiles
 	ld hl, PokedexLZ
 	ld de, VTiles2 tile $31
 	call Decompress
@@ -1841,22 +1845,6 @@ Pokedex_LoadGFX: ; 414b7
 	ld a, 6
 	call SkipMusic
 	call EnableLCD
-	ret
-
-Pokedex_LoadInvertedFont: ; 414fb
-	call LoadStandardFont
-	ld hl, VTiles1
-	ld bc, $80 tiles
-
-Pokedex_InvertTiles: ; 41504
-.loop
-	ld a, [hl]
-	xor $ff
-	ld [hli], a
-	dec bc
-	ld a, b
-	or c
-	jr nz, .loop
 	ret
 
 _NewPokedexEntry: ; 41a7f
@@ -1888,22 +1876,19 @@ _NewPokedexEntry: ; 41a7f
 	ld a, SCGB_POKEDEX
 	call Pokedex_GetSGBLayout
 	ld a, [CurPartySpecies]
-	call PlayCry
-	ret
+	jp PlayCry
 
 Pokedex_SetBGMapMode3: ; 41ad7 (10:5ad7)
 	ld a, $3
 	ld [hBGMapMode], a
 	ld c, 4
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 Pokedex_SetBGMapMode4: ; 41ae1 (10:5ae1)
 	ld a, $4
 	ld [hBGMapMode], a
 	ld c, 4
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 Pokedex_ResetBGMapMode: ; 41af7
 	xor a

@@ -181,8 +181,7 @@ StartMenu:: ; 125cd
 	ld d, [hl]
 	ld e, a
 	pop hl
-	call PlaceString
-	ret
+	jp PlaceString
 ; 12800
 
 .Items:
@@ -307,8 +306,7 @@ endr
 	lb bc, 5, 10
 	call ClearBox
 	hlcoord 0, 13
-	ld b, 3
-	ld c, 8
+	lb bc, 3, 8
 	jp TextBoxPalette
 ; 128cb
 
@@ -573,8 +571,7 @@ TossItemFromPC: ; 129f4
 
 .CantToss:
 	ld hl, .TooImportantToToss
-	call MenuTextBoxBackup
-	ret
+	jp MenuTextBoxBackup
 
 .TooImportantToToss:
 	; That's too impor- tant to toss out!
@@ -584,8 +581,7 @@ TossItemFromPC: ; 129f4
 
 CantUseItem: ; 12a60
 	ld hl, CantUseItemText
-	call MenuTextBoxWaitButton
-	ret
+	jp MenuTextBoxWaitButton
 ; 12a67
 
 CantUseItemText: ; 12a67
@@ -705,8 +701,7 @@ SwitchPartyMons: ; 12aec
 .DontSwitch:
 	xor a
 	ld [PartyMenuActionText], a
-	call CancelPokemonAction
-	ret
+	jp CancelPokemonAction
 ; 12b60
 
 
@@ -811,8 +806,7 @@ TryGiveItemToPartymon: ; 12bd9
 
 .please_remove_mail
 	ld hl, PleaseRemoveMailText
-	call MenuTextBoxBackup
-	ret
+	jp MenuTextBoxBackup
 
 .already_holding_item
 	ld [wd265], a
@@ -835,8 +829,7 @@ TryGiveItemToPartymon: ; 12bd9
 	call MenuTextBoxBackup
 	ld a, [wd265]
 	ld [CurItem], a
-	call GivePartyItem
-	ret
+	jp GivePartyItem
 
 .bag_full
 	ld a, [wd265]
@@ -1013,8 +1006,7 @@ ComposeMailMessage: ; 12cfe (4:6cfe)
 	ld a, BANK(sPartyMail)
 	call GetSRAMBank
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 
 MonMailAction: ; 12d45
 ; If in the time capsule or trade center,
@@ -1692,12 +1684,10 @@ SetUpMoveScreenBG: ; 13172
 	ld e, $2
 	farcall LoadMenuMonIcon
 	hlcoord 0, 1
-	ld b, 9
-	ld c, 18
+	lb bc, 9, 18
 	call TextBox
 	hlcoord 0, 11
-	ld b, 5
-	ld c, 18
+	lb bc, 5, 18
 	call TextBox
 	hlcoord 2, 0
 	lb bc, 2, 3
@@ -1744,8 +1734,7 @@ SetUpMoveList: ; 131ef
 	inc a
 	ld [w2DMenuNumRows], a
 	hlcoord 0, 11
-	ld b, 5
-	ld c, 18
+	lb bc, 5, 18
 	jp TextBox
 ; 13235
 

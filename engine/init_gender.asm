@@ -23,8 +23,7 @@ InitGender: ; 48dcb (12:4dcb)
 	dec a
 	ld [PlayerGender], a
 	ld c, 10
-	call DelayFrames
-	ret
+	jp DelayFrames
 ; 48dfc (12:4dfc)
 
 .MenuDataHeader: ; 0x48dfc
@@ -67,8 +66,7 @@ InitGenderScreen: ; 48e14 (12:4e14)
 	hlcoord 0, 0, AttrMap
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	xor a
-	call ByteFill
-	ret
+	jp ByteFill
 
 LoadGenderScreenPal: ; 48e47 (12:4e47)
 	ld hl, .Palette
@@ -91,8 +89,7 @@ LoadGenderScreenLightBlueTile: ; 48e64 (12:4e64)
 	ld de, .LightBlueTile
 	ld hl, VTiles2 tile $00
 	lb bc, BANK(.LightBlueTile), 1
-	call Get2bpp
-	ret
+	jp Get2bpp
 ; 48e71 (12:4e71)
 
 .LightBlueTile: ; 48e71

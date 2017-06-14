@@ -38,24 +38,6 @@ IvysLab_AutowalkUpToIvy:
 	writetext IvyText_Intro
 	waitbutton
 	closetext
-	playsound SFX_GLASS_TING
-	pause 30
-	showemote EMOTE_SHOCK, IVYSLAB_IVY, 10
-	spriteface IVYSLAB_IVY, DOWN
-	opentext
-	writetext IvyText_GotAnEmail
-	waitbutton
-	closetext
-	opentext
-	spriteface IVYSLAB_IVY, RIGHT
-	writetext IvyText_MissionFromMrPokemon
-	waitbutton
-	closetext
-	opentext
-	special Special_SetDayOfWeek
-	closetext
-	applymovement IVYSLAB_IVY, IvysLab_TurnDown
-	pause 40
 	applymovement IVYSLAB_IVY, IvysLab_IvyToDefaultPositionMovement1
 	spriteface PLAYER, UP
 	applymovement IVYSLAB_IVY, IvysLab_IvyToDefaultPositionMovement2
@@ -327,10 +309,6 @@ IvysLab_WalkUpToIvyMovement:
 	step LEFT
 	step_end
 
-IvysLab_TurnDown:
-	turn_head DOWN
-	step_end
-
 MovementData_0x78f70:
 	step UP
 	step_end
@@ -457,34 +435,13 @@ IvyText_Intro:
 	para "known as a"
 	line "#DEX. It will"
 	cont "record data of"
-
-	para "#MON you meet."
-
-	para "So!"
+	cont "#MON you meet."
 
 	para "I'd like you to"
 	line "take a #MON"
 
 	para "that I recently"
 	line "caught."
-	done
-
-IvyText_GotAnEmail:
-	text "Oh, hey! I got an"
-	line "e-mail!"
-
-	para "<...><...><...>"
-	line "Hm<...> Uh-huh<...>"
-
-	para "Okay<...>"
-	done
-
-IvyText_MissionFromMrPokemon:
-	text "I'll need to write"
-	line "back<...>"
-
-	para "Uh<...> Do you know"
-	line "what day it is?"
 	done
 
 IvyText_ChooseAPokemon:

@@ -82,8 +82,7 @@ LoadOW_BGPal7:: ; 49409
 	ld de, UnknBGPals + 8 * 7
 	ld bc, 8
 	ld a, $5
-	call FarCopyWRAM
-	ret
+	jp FarCopyWRAM
 ; 49418
 
 Palette_TextBG7: ; 49418
@@ -185,8 +184,7 @@ InitLinkTradePalMap: ; 49856
 	hlcoord 2, 17, AttrMap
 	ld a, $3
 	ld bc, 6
-	call ByteFill
-	ret
+	jp ByteFill
 ; 49811
 
 LinkTradeLayoutFillBox: ; 49336

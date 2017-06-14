@@ -13,8 +13,7 @@ _ReplaceKrisSprite:: ; 14135
 	ld [hUsedSpriteIndex], a
 	ld a, [UsedSprites + 1]
 	ld [hUsedSpriteTile], a
-	call GetUsedSprite
-	ret
+	jp GetUsedSprite
 ; 14146
 
 RefreshSprites:: ; 14168
@@ -91,12 +90,10 @@ AddMapSprites: ; 141c9
 	call GetMapPermission
 	call CheckOutdoorMap
 	jr z, .outdoor
-	call AddIndoorSprites
-	ret
+	jp AddIndoorSprites
 
 .outdoor
-	call AddOutdoorSprites
-	ret
+	jp AddOutdoorSprites
 ; 141d9
 
 
@@ -141,8 +138,7 @@ MapCallbackSprites_LoadUsedSpritesGFX: ; 14209
 	ld a, MAPCALLBACK_SPRITES
 	call RunMapCallback
 	call GetUsedSprites
-	call .LoadMiscTiles
-	ret
+	jp .LoadMiscTiles
 ; 14215
 
 .LoadMiscTiles: ; 14215
@@ -240,8 +236,7 @@ GetMonSprite: ; 14259
 
 	farcall LoadOverworldMonIcon
 
-	ld l, 1
-	ld h, 0
+	lb hl, 0, 1
 	scf
 	ret
 
@@ -257,8 +252,7 @@ GetMonSprite: ; 14259
 
 .NoBreedmon:
 	ld a, 1
-	ld l, 1
-	ld h, 0
+	lb hl, 0, 1
 	and a
 	ret
 ; 142a7
@@ -316,8 +310,7 @@ _GetSpritePalette:: ; 142c4
 LoadAndSortSprites: ; 142db
 	call LoadSpriteGFX
 	call SortUsedSprites
-	call ArrangeUsedSprites
-	ret
+	jp ArrangeUsedSprites
 ; 142e5
 
 
@@ -462,8 +455,7 @@ ArrangeUsedSprites: ; 14355
 ; Crystal introduces a second table in VRAM bank 0.
 
 	ld hl, UsedSprites
-	ld c, SPRITE_GFX_LIST_CAPACITY
-	ld b, 0
+	lb bc, 0, SPRITE_GFX_LIST_CAPACITY
 .FirstTableLength:
 ; Keep going until the end of the list.
 	ld a, [hli]
@@ -682,8 +674,7 @@ LoadEmote:: ; 1442f
 	ld a, c
 	and a
 	ret z
-	call GetEmote2bpp
-	ret
+	jp GetEmote2bpp
 ; 1444d
 
 emote_header: MACRO

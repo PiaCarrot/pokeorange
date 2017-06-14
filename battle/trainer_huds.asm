@@ -234,8 +234,7 @@ LoadBallIconGFX: ; 2c165
 	ld de, .gfx
 	ld hl, VTiles0 tile $31
 	lb bc, BANK(LoadBallIconGFX), 4
-	call Get2bpp_2
-	ret
+	jp Get2bpp_2
 ; 2c172
 
 .gfx ; 2c172
@@ -246,8 +245,7 @@ _ShowLinkBattleParticipants: ; 2c1b2
 	call ClearBGPalettes
 	call LoadFontsExtra
 	hlcoord 2, 3
-	ld b, 9
-	ld c, 14
+	lb bc, 9, 14
 	call TextBox
 	hlcoord 4, 5
 	ld de, PlayerName

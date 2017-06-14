@@ -24,8 +24,7 @@ Pokepic:: ; 244e3
 	ld [hGraphicStartTile], a
 	lb bc, 7, 7
 	predef PlaceGraphic
-	call WaitBGMap
-	ret
+	jp WaitBGMap
 
 ClosePokepic:: ; 24528
 	ld hl, PokepicMenuDataHeader

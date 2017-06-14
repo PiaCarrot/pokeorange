@@ -445,8 +445,7 @@ WaitBGMap:: ; 31f6
 	ld [hBGMapMode], a
 ; Wait for it to do its magic
 	ld c, 4
-	call DelayFrames
-	ret
+	jp DelayFrames
 ; 3200
 
 WaitBGMap2:: ; 0x3200
@@ -458,8 +457,7 @@ WaitBGMap2:: ; 0x3200
 	ld a, 1
 	ld [hBGMapMode], a
 	ld c, 4
-	call DelayFrames
-	ret
+	jp DelayFrames
 ; 0x3218
 
 ApplyTilemap:: ; 321c
@@ -476,8 +474,7 @@ ApplyTilemap:: ; 321c
 	ld a, 1
 	ld [hBGMapMode], a
 	ld c, 4
-	call DelayFrames
-	ret
+	jp DelayFrames
 ; 3238
 
 CGBOnly_LoadEDTile:: ; 3238
@@ -529,8 +526,7 @@ LoadEDTile:: ; 323d
 	ld l, 0
 	ld a, SCREEN_HEIGHT
 	ld [hTilesPerCycle], a
-	ld b, 1 << 1 ; not in v/hblank
-	ld c, rSTAT % $100
+	lb bc, (1 << 1), (rSTAT % $100) ; b: not in v/hblank
 
 .loop
 rept SCREEN_WIDTH / 2
