@@ -50,7 +50,7 @@ INCBIN "gfx/frames/map_entry_sign.2bpp"
 ; f9424
 
 Footprints: ; f9434
-INCBIN "gfx/pokedex/footprints.1bpp"
+INCBIN "gfx/pokedex/footprints.w128.1bpp"
 ; fb434
 
 _LoadStandardFont:: ; fb449

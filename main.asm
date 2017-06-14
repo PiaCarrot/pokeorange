@@ -1547,9 +1547,9 @@ DisplayDexEntry: ; 4424d
 	push de
 ; Print dex number
 	hlcoord 2, 8
-	ld a, $5c ; No
+	ld a, "№"
 	ld [hli], a
-	ld a, $5d ; .
+	ld a, "."
 	ld [hli], a
 	ld de, wd265
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 3
@@ -4481,14 +4481,6 @@ String_AM: db "AM@" ; 1dd6fc
 String_PM: db "PM@" ; 1dd6ff
 
 INCLUDE "engine/diploma.asm"
-
-LoadSGBPokedexGFX: ; 1ddf1c
-	ld hl, SGBPokedexGFX_LZ
-	ld de, VTiles2 tile $31
-	jp Decompress
-
-SGBPokedexGFX_LZ: ; 1ddf33
-INCBIN "gfx/pokedex/sgb.2bpp.lz"
 
 LoadQuestionMarkPic: ; 1de0d7
 	ld hl, .QuestionMarkLZ

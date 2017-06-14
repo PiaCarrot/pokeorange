@@ -257,7 +257,7 @@ Pokedex_UpdateMainScreen: ; 401ae (10:41ae)
 	ret
 
 .start
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	ld a, DEXSTATE_SEARCH_SCR
 	ld [wJumptableIndex], a
 	xor a
@@ -341,7 +341,7 @@ Pokedex_Page: ; 40292
 
 Pokedex_ReinitDexEntryScreen: ; 402aa (10:42aa)
 ; Reinitialize the Pokédex entry screen after changing the selected mon.
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	xor a
 	ld [wPokedexStatus], a
 	xor a
@@ -377,7 +377,7 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 	dw .Cry
 
 .Area: ; 402fa
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	xor a
 	ld [hSCX], a
 	call DelayFrame
@@ -389,7 +389,7 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 	ld a, [wDexCurrentLocation]
 	ld e, a
 	predef _Area
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	call DelayFrame
 	xor a
 	ld [hBGMapMode], a
@@ -461,7 +461,7 @@ Pokedex_UpdateSearchScreen: ; 40471 (10:4471)
 	jp hl
 
 .cancel
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	ld a, DEXSTATE_MAIN_SCR
 	ld [wJumptableIndex], a
 	ret
@@ -513,13 +513,13 @@ Pokedex_UpdateSearchScreen: ; 40471 (10:4471)
 	xor a
 	ld [wDexListingScrollOffset], a
 	ld [wDexListingCursor], a
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	ld a, DEXSTATE_SEARCH_RESULTS_SCR
 	ld [wJumptableIndex], a
 	ret
 
 .MenuAction_Cancel: ; 40501
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	ld a, DEXSTATE_MAIN_SCR
 	ld [wJumptableIndex], a
 	ret
@@ -593,7 +593,7 @@ Pokedex_UpdateSearchResultsScreen: ; 40562 (10:4562)
 	ld [wDexListingCursor], a
 	ld a, [wcf65]
 	ld [wLastDexEntry], a
-	call Pokedex_BlackOutBG
+	call Pokedex_WhiteOutBG
 	call ClearSprites
 	call Pokedex_OrderMonsByMode
 	ld a, DEXSTATE_SEARCH_SCR
@@ -878,10 +878,10 @@ Pokedex_DrawSearchScreenBG: ; 408f0 (10:48f0)
 	call Pokedex_PlaceString
 	hlcoord 8, 4
 	ld de, .TypeLeftRightArrows
-	call Pokedex_PlaceString
+	call PlaceString
 	hlcoord 8, 6
 	ld de, .TypeLeftRightArrows
-	call Pokedex_PlaceString
+	call PlaceString
 	hlcoord 3, 4
 	ld de, .Types
 	call PlaceString
@@ -893,7 +893,7 @@ Pokedex_DrawSearchScreenBG: ; 408f0 (10:48f0)
 	db $3b, " SEARCH ", $3c, $ff
 
 .TypeLeftRightArrows: ; 40935
-	db $3d, "        ", $3e, $ff
+	db "◀        ▶@"
 
 .Types: ; 40940
 	db   "TYPE1"
@@ -901,7 +901,7 @@ Pokedex_DrawSearchScreenBG: ; 408f0 (10:48f0)
 	db   "@"
 
 .Menu: ; 4094c
-	db   "BEGIN SEARCH!!"
+	db   "BEGIN SEARCH!"
 	next "CANCEL"
 	db   "@"
 
@@ -1693,33 +1693,28 @@ Pokedex_ArrowCursorDelay: ; 413f5 (10:53f5)
 Pokedex_FillBox: ; 413fe (10:53fe)
 	jp FillBoxWithByte
 
-Pokedex_BlackOutBG: ; 41401 (10:5401)
-; Make BG palettes black so that the BG becomes all black.
+Pokedex_WhiteOutBG: ; 41401 (10:5401)
+; Make BG palettes white so that the BG becomes all white.
 	ld a, [rSVBK]
 	push af
 	ld a, $5
 	ld [rSVBK], a
 	ld hl, UnknBGPals
 	ld bc, $40
-	xor a
+	ld a, $ff ; xor a
 	call ByteFill
 	pop af
 	ld [rSVBK], a
-	ld a, $ff
+	xor a
 	call DmgToCgbBGPals
-	ld a, $ff
+	xor a
 	call DmgToCgbObjPal0
 	call DelayFrame
 	ret
 
 Pokedex_GetSGBLayout: ; 41423
 	ld b, a
-	call GetSGBLayout
-; This applies the palettes used for most Pokédex screens.
-	ld a, $e4
-	call DmgToCgbBGPals
-	ld a, $e0
-	jp DmgToCgbObjPal0
+	jp GetSGBLayout
 
 Pokedex_LoadPointer: ; 41432
 	ld e, a
@@ -1807,11 +1802,8 @@ Pokedex_LoadGFX: ; 414b7
 	ld bc, $31 tiles
 	xor a
 	call ByteFill
-	call Pokedex_LoadInvertedFont
+	call LoadStandardFont
 	call LoadFontsExtra
-	ld hl, VTiles2 tile $60
-	ld bc, $20 tiles
-	call Pokedex_InvertTiles
 	ld hl, PokedexLZ
 	ld de, VTiles2 tile $31
 	call Decompress
@@ -1821,22 +1813,6 @@ Pokedex_LoadGFX: ; 414b7
 	ld a, 6
 	call SkipMusic
 	call EnableLCD
-	ret
-
-Pokedex_LoadInvertedFont: ; 414fb
-	call LoadStandardFont
-	ld hl, VTiles1
-	ld bc, $80 tiles
-
-Pokedex_InvertTiles: ; 41504
-.loop
-	ld a, [hl]
-	xor $ff
-	ld [hli], a
-	dec bc
-	ld a, b
-	or c
-	jr nz, .loop
 	ret
 
 _NewPokedexEntry: ; 41a7f

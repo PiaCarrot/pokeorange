@@ -277,8 +277,12 @@ _CGB_Pokedex: ; 8f70
 	lb bc, 7, 7
 	ld a, $1
 	call FillBoxCGB
-	call InitPartyMenuOBPals
-	ld hl, Palette8fc2
+	ld hl, PokedexCursorPalette
+	ld de, UnknOBPals
+	ld bc, 1 palettes
+	ld a, $5
+	call FarCopyWRAM
+	ld hl, PokedexScrollbarPalette
 	ld de, UnknOBPals + 7 palettes
 	ld bc, 1 palettes
 	ld a, $5
@@ -291,13 +295,19 @@ _CGB_Pokedex: ; 8f70
 ; 8fba
 
 Palette8fba: ; 8fba
-	RGB 27, 14, 02
-	RGB 23, 12, 01
-	RGB 23, 12, 01
-	RGB 20, 10, 02
-
-Palette8fc2: ; 8fc2
+	RGB 31, 15, 00
+	RGB 23, 12, 00
+	RGB 15, 07, 00
 	RGB 00, 00, 00
+
+PokedexCursorPalette:
+	RGB 31, 31, 31
+	RGB 31, 19, 10
+	RGB 31, 07, 01
+	RGB 00, 00, 00
+
+PokedexScrollbarPalette: ; 8fc2
+	RGB 31, 31, 31
 	RGB 27, 14, 02
 	RGB 23, 12, 01
 	RGB 00, 00, 00
