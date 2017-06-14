@@ -32,7 +32,7 @@ SailorScript:
 	special FadeOutPalettes
 	waitsfx
 	appear VALENCIAPORT_SAILOR
-	warp TANGELO_PORT, 9, 15
+	warp TANGELO_PORT, 9, 7
 	end
 
 FishingGuruScript_0x74a01:

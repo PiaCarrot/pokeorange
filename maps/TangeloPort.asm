@@ -31,7 +31,7 @@ TangeloPortSailorScript:
 	special FadeOutPalettes
 	waitsfx
 	appear TANGELOPORT_SAILOR
-	warp VALENCIA_PORT, 9, 15
+	warp VALENCIA_PORT, 9, 7
 	end
 
 SailorMove1:
