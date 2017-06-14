@@ -49,17 +49,16 @@ TangeloPortSailorAhoyText:
 	line "go!"
 	done
 
-TangeloPort_MapEventHeader::
-	; filler
-	db 0, 0
+TangeloPort_MapEventHeader:: db 0, 0
 
 .Warps: db 2
-	warp_def 27, 8, 5, TANGELO_ISLAND
-	warp_def 27, 9, 5, TANGELO_ISLAND
+	warp_def 19, 8, 5, TANGELO_ISLAND
+	warp_def 19, 9, 5, TANGELO_ISLAND
 
 .CoordEvents: db 0
 
 .BGEvents: db 0
 
 .ObjectEvents: db 1
-	person_event SPRITE_SAILOR, 14, 9, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloPortSailorScript, -1
+	person_event SPRITE_SAILOR, 6, 9, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloPortSailorScript, -1
+

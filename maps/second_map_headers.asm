@@ -61,7 +61,7 @@
 	map_header_2 IvysHouse, IVYS_HOUSE, 0, 0
 	map_header_2 IvysLab, IVYS_LAB, 0, 0
 	map_header_2 ValenciaPort, VALENCIA_PORT, 10, 0
-	map_header_2 TangeloPort, TANGELO_PORT, $a, 0
+	map_header_2 TangeloPort, TANGELO_PORT, 10, 0
 	map_header_2 TangeloMart, TANGELO_MART, $0, 0
 	map_header_2 TangeloPokeCenter1F, TANGELO_POKECENTER_1F, $0, 0
 	map_header_2 TangeloGymSpeechHouse, TANGELO_GYM_SPEECH_HOUSE, $0, 0
