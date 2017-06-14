@@ -267,12 +267,17 @@ _CGB_Pokedex: ; 8f70
 	ld hl, Palette8fba
 	call LoadHLPaletteIntoDE
 	jr .got_palette
-
 .is_pokemon
 	call GetMonPalettePointer_
 	call LoadPalette_White_Col1_Col2_Black
 .got_palette
+	ld hl, PokedexEdgePalette
+	call LoadHLPaletteIntoDE
 	call WipeAttrMap
+	hlcoord 0, 0, AttrMap
+	lb bc, 9, 9
+	ld a, $2
+	call FillBoxCGB
 	hlcoord 1, 1, AttrMap
 	lb bc, 7, 7
 	ld a, $1
@@ -298,6 +303,12 @@ Palette8fba: ; 8fba
 	RGB 31, 15, 00
 	RGB 23, 12, 00
 	RGB 15, 07, 00
+	RGB 00, 00, 00
+
+PokedexEdgePalette:
+	RGB 31, 31, 31
+	RGB 31, 15, 00
+	RGB 26, 10, 06
 	RGB 00, 00, 00
 
 PokedexCursorPalette:

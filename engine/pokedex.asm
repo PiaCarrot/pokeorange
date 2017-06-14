@@ -780,7 +780,7 @@ Pokedex_DrawMainScreenBG: ; 4074c (10:474c)
 	call ByteFill
 	hlcoord 0, 0
 	lb bc, 7, 7
-	call Pokedex_PlaceBorder
+	call Pokedex_PlaceFrontpicBorder
 	hlcoord 0, 9
 	lb bc, 6, 7
 	call Pokedex_PlaceBorder
@@ -806,16 +806,16 @@ Pokedex_DrawMainScreenBG: ; 4074c (10:474c)
 	call PrintNum
 	hlcoord 8, 1
 	ld b, 7
-	ld a, $5a
+	ld a, $49
 	call Pokedex_FillColumn
 	hlcoord 8, 10
 	ld b, 6
 	ld a, $5a
 	call Pokedex_FillColumn
 	hlcoord 8, 0
-	ld [hl], $59
+	ld [hl], $47
 	hlcoord 8, 8
-	ld [hl], $53
+	ld [hl], $65
 	hlcoord 8, 9
 	ld [hl], $54
 	hlcoord 8, 16
@@ -909,7 +909,7 @@ Pokedex_DrawSearchResultsScreenBG: ; 40962 (10:4962)
 	call Pokedex_FillBackgroundColor2
 	hlcoord 0, 0
 	lb bc, 7, 7
-	call Pokedex_PlaceBorder
+	call Pokedex_PlaceFrontpicBorder
 	hlcoord 0, 11
 	lb bc, 5, 18
 	call Pokedex_PlaceBorder
@@ -921,13 +921,13 @@ Pokedex_DrawSearchResultsScreenBG: ; 40962 (10:4962)
 	lb bc, 1, 3
 	call PrintNum
 	hlcoord 8, 0
-	ld [hl], $59
+	ld [hl], $47
 	hlcoord 8, 1
 	ld b, 7
-	ld a, $5a
+	ld a, $49
 	call Pokedex_FillColumn
 	hlcoord 8, 8
-	ld [hl], $53
+	ld [hl], $65
 	hlcoord 8, 9
 	ld [hl], $69
 	hlcoord 8, 10
@@ -1000,7 +1000,7 @@ Pokedex_PlaceBorder: ; 40ad5
 	ld a, $33
 	ld [hli], a
 	ld d, $34
-	call .FillRow
+	call Pokedex_PlaceBorder_FillRow
 	ld a, $35
 	ld [hl], a
 	pop hl
@@ -1011,7 +1011,7 @@ Pokedex_PlaceBorder: ; 40ad5
 	ld a, $36
 	ld [hli], a
 	ld d, $7f
-	call .FillRow
+	call Pokedex_PlaceBorder_FillRow
 	ld a, $37
 	ld [hl], a
 	pop hl
@@ -1022,12 +1022,44 @@ Pokedex_PlaceBorder: ; 40ad5
 	ld a, $38
 	ld [hli], a
 	ld d, $39
-	call .FillRow
+	call Pokedex_PlaceBorder_FillRow
 	ld a, $3a
 	ld [hl], a
 	ret
 
-.FillRow: ; 40b06
+Pokedex_PlaceFrontpicBorder:
+	push hl
+	ld a, $45
+	ld [hli], a
+	ld d, $46
+	call Pokedex_PlaceBorder_FillRow
+	ld a, $47
+	ld [hl], a
+	pop hl
+	ld de, SCREEN_WIDTH
+	add hl, de
+.loop
+	push hl
+	ld a, $48
+	ld [hli], a
+	ld d, $7f
+	call Pokedex_PlaceBorder_FillRow
+	ld a, $49
+	ld [hl], a
+	pop hl
+	ld de, SCREEN_WIDTH
+	add hl, de
+	dec b
+	jr nz, .loop
+	ld a, $63
+	ld [hli], a
+	ld d, $64
+	call Pokedex_PlaceBorder_FillRow
+	ld a, $65
+	ld [hl], a
+	ret
+
+Pokedex_PlaceBorder_FillRow: ; 40b06
 	ld e, c
 .row_loop
 	ld a, e
@@ -1115,12 +1147,12 @@ Pokedex_PlaceDefaultStringIfNotSeen: ; 40b8d (10:4b8d)
 
 Pokedex_DrawFootprint: ; 40ba0
 	hlcoord 18, 1
-	ld a, $62
+	ld a, $6c
 	ld [hli], a
 	inc a
 	ld [hl], a
 	hlcoord 18, 2
-	ld a, $64
+	ld a, $6e
 	ld [hli], a
 	inc a
 	ld [hl], a
@@ -1778,7 +1810,7 @@ Pokedex_LoadAnyFootprint: ; 4147b
 	push hl
 	ld e, l
 	ld d, h
-	ld hl, VTiles2 tile $62
+	ld hl, VTiles2 tile $6c
 	lb bc, BANK(Footprints), 2
 	call Request1bpp
 	pop hl
@@ -1790,7 +1822,7 @@ Pokedex_LoadAnyFootprint: ; 4147b
 
 	ld e, l
 	ld d, h
-	ld hl, VTiles2 tile $64
+	ld hl, VTiles2 tile $6e
 	lb bc, BANK(Footprints), 2
 	call Request1bpp
 
