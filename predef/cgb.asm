@@ -467,20 +467,19 @@ _CGB_TrainerCard: ; 9289
 	xor a ; INDIGO
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $1 ; ORANGE
+	ld a, CISSY
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $2 ; CISSY
+	ld a, DANNY
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $3 ; DANNY
+	ld a, RUDY
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $4 ; RUDY
+	ld a, LUANA
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, $5 ; LUANA
-	call GetTrainerPalettePointer
+	ld hl, .StarPalette
 	call LoadPalette_White_Col1_Col2_Black
 	; badges
 	ld de, UnknOBPals
@@ -517,30 +516,39 @@ _CGB_TrainerCard: ; 9289
 .got_gender3
 	ld [hl], a
 	; CISSY
-	hlcoord 3, 10, AttrMap
+	hlcoord 3, 13, AttrMap
 	lb bc, 3, 3
 	ld a, $1
 	call FillBoxCGB
 	; DANNY
-	hlcoord 7, 10, AttrMap
+	hlcoord 7, 13, AttrMap
 	lb bc, 3, 3
 	ld a, $2
 	call FillBoxCGB
 	; RUDY
-	hlcoord 11, 10, AttrMap
+	hlcoord 11, 13, AttrMap
 	lb bc, 3, 3
 	ld a, $3
 	call FillBoxCGB
 	; LUANA
-	hlcoord 15, 10, AttrMap
+	hlcoord 15, 13, AttrMap
 	lb bc, 3, 3
 	ld a, $4
+	call FillBoxCGB
+	; stars
+	hlcoord 15, 8, AttrMap
+	lb bc, 3, 3
+	ld a, $5
 	call FillBoxCGB
 	call ApplyAttrMap
 	call ApplyPals
 	ld a, $1
 	ld [hCGBPalUpdate], a
 	ret
+
+.StarPalette:
+	RGB 31, 16, 01
+	RGB 31, 16, 01
 ; 9373
 
 _CGB_MoveList: ; 9373

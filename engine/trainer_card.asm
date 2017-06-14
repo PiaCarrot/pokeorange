@@ -6,20 +6,168 @@ TrainerCard: ; 25105
 	ld hl, Options
 	ld a, [hl]
 	push af
-	set 4, [hl]
-	call .InitRAM
-.loop
+	set NO_TEXT_SCROLL, [hl]
+
+	call ClearBGPalettes
+	call ClearSprites
+	call ClearTileMap
+	call DisableLCD
+
+	ld hl, ChrisCardPic
+	ld a, [PlayerGender]
+	bit 0, a
+	jr z, .GotClass
+	ld hl, KrisCardPic
+.GotClass:
+	ld de, VTiles2 tile $00
+	ld bc, 35 tiles
+	ld a, BANK(ChrisCardPic) ; BANK(KrisCardPic)
+	call FarCopyBytes
+
+	ld hl, CardGFX
+	ld de, VTiles2 tile $23
+	ld bc, 6 tiles
+	ld a, BANK(CardGFX)
+	call FarCopyBytes
+
+	ld hl, LeaderGFX
+	ld de, VTiles2 tile $29
+	ld bc, 40 tiles
+	ld a, BANK(LeaderGFX)
+	call FarCopyBytes
+
+	ld hl, BadgeGFX
+	ld de, VTiles0 tile $0
+	ld bc, 28 tiles
+	ld a, BANK(BadgeGFX)
+	call FarCopyBytes
+
+	call EnableLCD
+	call WaitBGMap
+
+	call TrainerCard_InitBorder
+
+	hlcoord 2, 2
+	ld de, .Headings
+	call PlaceString
+
+	hlcoord 7, 2
+	ld de, PlayerName
+	call PlaceString
+
+	hlcoord 1, 3
+	ld de, .HorizontalDivider
+.loop0
+	ld a, [de]
+	ld [hli], a
+	inc de
+	cp $28
+	jr nz, .loop0
+
+	hlcoord 5, 4
+	ld de, PlayerID
+	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
+	call PrintNum
+
+	hlcoord 7, 6
+	ld de, Money
+	lb bc, PRINTNUM_MONEY | 3, 6
+	call PrintNum
+
+	ld hl, PokedexCaught
+	ld b, EndPokedexCaught - PokedexCaught
+	call CountSetBits
+	ld de, wd265
+	hlcoord 11, 8
+	lb bc, 1, 3
+	call PrintNum
+
+	ld a, [StatusFlags] ; pokedex
+	bit 0, a
+	jr nz, .keep_pokedex
+	hlcoord 2, 8
+	lb bc, 1, 12
+	call ClearBox
+.keep_pokedex
+
+	call TrainerCard_PrintGameTime
+
+	hlcoord 14, 1
+	lb bc, 5, 7
+	xor a
+	ld [hGraphicStartTile], a
+	predef PlaceGraphic
+
+	hlcoord 2, 13
+	ld a, $29
+	ld c, 4
+.loop1
+	call TrainerCard_PlaceLeadersFace
+rept 4
+	inc hl
+endr
+	dec c
+	jr nz, .loop1
+
+	hlcoord 15, 8
+	push hl
+	ld de, EVENT_BEAT_ORANGE_LEAGUE
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	pop hl
+	ld a, c
+	and a
+	jr z, .nostar1
+	ld [hli], a
+	ld a, $26
+.nostar1
+	push hl
+	ld de, EVENT_BEAT_RED
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	pop hl
+	ld a, c
+	and a
+	jr z, .nostar2
+	ld [hli], a
+	ld a, $26
+.nostar2
+	push hl
+	ld hl, PokedexCaught
+	ld b, EndPokedexCaught - PokedexCaught
+	call CountSetBits
+	pop hl
+	cp NUM_POKEMON
+	jr c, .nostar3
+	ld [hl], $26
+.nostar3
+
+	hlcoord SCREEN_WIDTH - 2, 1
+	ld [hl], $25
+
+	hlcoord 1, SCREEN_HEIGHT - 2
+	ld [hl], $24
+
+	ld b, SCGB_TRAINER_CARD
+	call GetSGBLayout
+	call SetPalettes
+	call WaitBGMap
+
+	xor a
+	ld [wcf64], a
+	call TrainerCard_OAMUpdate
+
+.loop2
 	call UpdateTime
 	call JoyTextDelay
-	ld a, [wJumptableIndex]
-	bit 7, a
+	call TrainerCard_PrintGameTime
+	ld hl, hJoyLast
+	ld a, [hl]
+	and A_BUTTON | B_BUTTON
 	jr nz, .quit
-	ld a, [hJoyLast]
-	and B_BUTTON
-	jr nz, .quit
-	call .RunJumptable
+	call TrainerCard_AnimateBadges
 	call DelayFrame
-	jr .loop
+	jr .loop2
 
 .quit
 	pop af
@@ -28,310 +176,45 @@ TrainerCard: ; 25105
 	ld [VramState], a
 	ret
 
-.InitRAM: ; 2513b (9:513b)
-	call ClearBGPalettes
-	call ClearSprites
-	call ClearTileMap
-	call DisableLCD
-
-	farcall GetCardPic
-
-	ld hl, CardRightCornerGFX
-	ld de, VTiles2 tile $1c
-	ld bc, 1 tiles
-	ld a, BANK(CardRightCornerGFX)
-	call FarCopyBytes
-
-	ld hl, CardStatusGFX
-	ld de, VTiles2 tile $29
-	ld bc, 86 tiles
-	ld a, BANK(CardStatusGFX)
-	call FarCopyBytes
-
-	call TrainerCard_PrintTopHalfOfCard
-
-	hlcoord 0, 8
-	ld d, 6
-	call TrainerCard_InitBorder
-
-	call EnableLCD
-	call WaitBGMap
-	ld b, SCGB_TRAINER_CARD
-	call GetSGBLayout
-	call SetPalettes
-	call WaitBGMap
-	ld hl, wJumptableIndex
-	xor a
-	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hl], a
-	ret
-
-.RunJumptable: ; 2518e (9:518e)
-	jumptable .Jumptable, wJumptableIndex
-
-.Jumptable: ; 2519d (9:519d)
-	dw TrainerCard_Page1_LoadGFX
-	dw TrainerCard_Page1_Joypad
-	dw TrainerCard_Page2_LoadGFX
-	dw TrainerCard_Page2_Joypad
-	dw TrainerCard_Quit
-
-
-TrainerCard_IncrementJumptable: ; 251ab (9:51ab)
-	ld hl, wJumptableIndex
-	inc [hl]
-	ret
-
-TrainerCard_Quit: ; 251b0 (9:51b0)
-	ld hl, wJumptableIndex
-	set 7, [hl]
-	ret
-
-TrainerCard_Page1_LoadGFX: ; 251b6 (9:51b6)
-	call ClearSprites
-	hlcoord 0, 8
-	ld d, 6
-	call TrainerCard_InitBorder
-	call WaitBGMap
-	ld de, CardStatusGFX
-	ld hl, VTiles2 tile $29
-	lb bc, BANK(CardStatusGFX), 86
-	call Request2bpp
-	call TrainerCard_Page1_PrintDexCaught_GameTime
-	call TrainerCard_IncrementJumptable
-	ret
-
-TrainerCard_Page1_Joypad: ; 251d7 (9:51d7)
-	call TrainerCard_Page1_PrintGameTime
-	ld hl, hJoyLast
-	ld a, [hl]
-	and D_RIGHT | A_BUTTON
-	jr nz, .pressed_right_a
-	ret
-
-.pressed_right_a
-	ld a, $2
-	ld [wJumptableIndex], a
-	ret
-
-TrainerCard_Page2_LoadGFX: ; 251f4 (9:51f4)
-	call ClearSprites
-	hlcoord 0, 8
-	ld d, 6
-	call TrainerCard_InitBorder
-	call WaitBGMap
-	ld de, LeaderGFX
-	ld hl, VTiles2 tile $29
-	lb bc, BANK(LeaderGFX), $2d
-	call Request2bpp
-	ld de, BadgeGFX
-	ld hl, VTiles0 tile $00
-	lb bc, BANK(BadgeGFX), $1c
-	call Request2bpp
-	call TrainerCard_Page2_InitObjectsAndStrings
-	call TrainerCard_IncrementJumptable
-	ret
-
-TrainerCard_Page2_Joypad: ; 25221 (9:5221)
-	ld hl, TrainerCard_BadgesOAM
-	call TrainerCard_Page2_AnimateBadges
-	ld hl, hJoyLast
-	ld a, [hl]
-	and A_BUTTON
-	jr nz, .Quit
-	ld a, [hl]
-	and D_LEFT
-	jr nz, .d_left
-	ret
-
-.d_left
-	ld a, $0
-	ld [wJumptableIndex], a
-	ret
-
-.Quit:
-	ld a, $4
-	ld [wJumptableIndex], a
-	ret
-
-TrainerCard_PrintTopHalfOfCard: ; 25299 (9:5299)
-	hlcoord 0, 0
-	ld d, 5
-	call TrainerCard_InitBorder
-	hlcoord 2, 2
-	ld de, .Name_Money
-	call PlaceString
-	hlcoord 2, 4
-	ld de, .ID_No
-	call TrainerCardSetup_PlaceTilemapString
-	hlcoord 7, 2
-	ld de, PlayerName
-	call PlaceString
-	hlcoord 5, 4
-	ld de, PlayerID
-	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
-	hlcoord 7, 6
-	ld de, Money
-	lb bc, PRINTNUM_MONEY | 3, 6
-	call PrintNum
-	hlcoord 1, 3
-	ld de, .HorizontalDivider
-	call TrainerCardSetup_PlaceTilemapString
-	hlcoord 14, 1
-	lb bc, 5, 7
-	xor a
-	ld [hGraphicStartTile], a
-	predef PlaceGraphic
-	ret
-
-; 252ec (9:52ec)
-
-.Name_Money: ; 252ec
+.Headings: ; 252ec
 	db   "NAME/"
-	next ""
-	next "MONEY@"
-
-.ID_No: ; 252f9
-	db $27, $28, $ff ; ID NO
+	next "<ID>№."
+	next "MONEY"
+	next "POKéDEX"
+	next "TIME"
+	next "BADGES@"
 
 .HorizontalDivider: ; 252fc
-	db $25, $25, $25, $25, $25, $25, $25, $25, $25, $25, $25, $25, $26, $ff ; ____________>
+	db $27, $27, $27, $27, $27, $27, $27, $27, $27, $27, $27, $27, $28
 ; 2530a
 
-TrainerCard_Page1_PrintDexCaught_GameTime: ; 2530a (9:530a)
-	hlcoord 2, 10
-	ld de, .Dex_PlayTime
-	call PlaceString
-	hlcoord 10, 15
-	ld de, .Badges
-	call PlaceString
-	ld hl, PokedexCaught
-	ld b, EndPokedexCaught - PokedexCaught
-	call CountSetBits
-	ld de, wd265
-	hlcoord 15, 10
-	lb bc, 1, 3
-	call PrintNum
-	call TrainerCard_Page1_PrintGameTime
-	hlcoord 2, 8
-	ld de, .StatusTilemap
-	call TrainerCardSetup_PlaceTilemapString
-	ld a, [StatusFlags] ; pokedex
-	bit 0, a
-	ret nz
-	hlcoord 1, 9
-	lb bc, 2, 17
-	call ClearBox
-	ret
-
-.Dex_PlayTime:
-	db   "#DEX"
-	next "PLAY TIME@@"
-
-.Badges:
-	db "  BADGES▶@"
-
-.StatusTilemap: ; 25366
-	db $29, $2a, $2b, $2c, $2d, $ff
-; 2536c
-
-TrainerCard_Page2_InitObjectsAndStrings: ; 2536c (9:536c)
-	hlcoord 2, 8
-	ld de, .BadgesTilemap
-	call TrainerCardSetup_PlaceTilemapString
-	hlcoord 2, 10
-	ld a, $29
-	ld c, 4
-.loop
-	call TrainerCard_Page2_PlaceLeadersFaces
-rept 4
-	inc hl
-endr
-	dec c
-	jr nz, .loop
-	xor a
-	ld [wcf64], a
-	ld hl, TrainerCard_BadgesOAM
-	call TrainerCard_Page2_OAMUpdate
-	ret
-
-; 253a2 (9:53a2)
-
-.BadgesTilemap: ; 253a2
-	db $51, $52, $53, $54, $55, $ff ; "BADGES"
-; 253a8
-
-TrainerCardSetup_PlaceTilemapString: ; 253a8 (9:53a8)
-.loop
-	ld a, [de]
-	cp $ff
-	ret z
-	ld [hli], a
-	inc de
-	jr .loop
-
 TrainerCard_InitBorder: ; 253b0 (9:53b0)
-	ld e, 20
-.loop1
+	hlcoord 0, 0
+	ld b, SCREEN_WIDTH
 	ld a, $23
+.loop1
 	ld [hli], a
-	dec e
+	dec b
 	jr nz, .loop1
 
-	ld a, $23
-	ld [hli], a
-	ld e, 17
-	ld a, " "
+	ld de, SCREEN_WIDTH - 2
+	ld b, SCREEN_HEIGHT - 2
 .loop2
 	ld [hli], a
-	dec e
+	add hl, de
+	ld [hli], a
+	dec b
 	jr nz, .loop2
 
-	ld a, $1c
-	ld [hli], a
+	ld b, SCREEN_WIDTH
 	ld a, $23
-	ld [hli], a
 .loop3
-	ld a, $23
 	ld [hli], a
-
-	ld e, 18
-	ld a, " "
-.loop4
-	ld [hli], a
-	dec e
-	jr nz, .loop4
-
-	ld a, $23
-	ld [hli], a
-	dec d
+	dec b
 	jr nz, .loop3
-
-	ld a, $23
-	ld [hli], a
-	ld a, $24
-	ld [hli], a
-
-	ld e, 17
-	ld a, " "
-.loop5
-	ld [hli], a
-	dec e
-	jr nz, .loop5
-	ld a, $23
-	ld [hli], a
-	ld e, 20
-.loop6
-	ld a, $23
-	ld [hli], a
-	dec e
-	jr nz, .loop6
 	ret
 
-TrainerCard_Page2_PlaceLeadersFaces: ; 253f4 (9:53f4)
+TrainerCard_PlaceLeadersFace: ; 253f4 (9:53f4)
 	push de
 	push hl
 	ld [hli], a
@@ -362,8 +245,8 @@ TrainerCard_Page2_PlaceLeadersFaces: ; 253f4 (9:53f4)
 	pop de
 	ret
 
-TrainerCard_Page1_PrintGameTime: ; 25415 (9:5415)
-	hlcoord 11, 12
+TrainerCard_PrintGameTime: ; 25415 (9:5415)
+	hlcoord 7, 10
 	ld de, GameTimeHours
 	lb bc, 2, 4
 	call PrintNum
@@ -374,13 +257,19 @@ TrainerCard_Page1_PrintGameTime: ; 25415 (9:5415)
 	ld a, [hVBlankCounter]
 	and $1f
 	ret nz
-	hlcoord 15, 12
+	hlcoord 11, 10
 	ld a, [hl]
-	xor %01010001 ; $7F <--> $2E
+	cp " "
+	jr z, .colon
+	ld a, " "
+	jr .ok
+.colon
+	ld a, ":"
+.ok
 	ld [hl], a
 	ret
 
-TrainerCard_Page2_AnimateBadges: ; 25438 (9:5438)
+TrainerCard_AnimateBadges: ; 25438 (9:5438)
 	ld a, [hVBlankCounter]
 	and $7
 	ret nz
@@ -388,16 +277,10 @@ TrainerCard_Page2_AnimateBadges: ; 25438 (9:5438)
 	inc a
 	and $7
 	ld [wcf64], a
-	jr TrainerCard_Page2_OAMUpdate
-
-TrainerCard_Page2_OAMUpdate: ; 25448 (9:5448)
-; copy flag array pointer
-	ld a, [hli]
-	ld e, a
-	ld a, [hli]
+TrainerCard_OAMUpdate: ; 25448 (9:5448)
+	ld hl, .BadgesOAM
 ; get flag array
-	ld d, a
-	ld a, [de]
+	ld a, [Badges]
 	ld c, a
 	ld de, Sprites
 	ld b, 8
@@ -483,39 +366,41 @@ TrainerCard_Page2_OAMUpdate: ; 25448 (9:5448)
 	db 8, 8, 2, X_FLIP
 	db -1
 
-TrainerCard_BadgesOAM: ; 254c9
+.BadgesOAM: ; 254c9
 ; Template OAM data for each badge on the trainer card.
 ; Format:
 	; y, x, palette
 	; cycle 1: face tile, in1 tile, in2 tile, in3 tile
 	; cycle 2: face tile, in1 tile, in2 tile, in3 tile
 
-	dw Badges
-
 	; Coral-Eye Badge
-	db $68, $18, 0
+	db $80, $18, 0
 	db $00, $10, $14, $10 | $80
 	db $00, $10, $14, $10 | $80
 
 	; Sea Ruby Badge
-	db $68, $38, 0
+	db $80, $38, 0
 	db $04, $10, $14, $10 | $80
 	db $04, $10, $14, $10 | $80
 
 	; Spike Shell Badge
-	db $68, $58, 0
+	db $80, $58, 0
 	db $08, $10, $14, $10 | $80
 	db $08, $10, $14, $10 | $80
 
 	; Jade Star Badge
-	db $68, $78, 0
+	db $80, $78, 0
 	db $0c, $10, $14, $10 | $80
 	db $0c, $10, $14, $10 | $80
 ; 25523
 
-CardStatusGFX: INCBIN "gfx/trainer_card/card_status.2bpp"
+ChrisCardPic: ; 88365
+INCBIN "gfx/trainer_card/chris_card.5x7.2bpp"
 
-CardRightCornerGFX: INCBIN "gfx/trainer_card/card_right_corner.2bpp"
+KrisCardPic: ; 88595
+INCBIN "gfx/trainer_card/kris_card.5x7.2bpp"
 
-LeaderGFX:  INCBIN "gfx/trainer_card/leaders.w24.2bpp"
+CardGFX:    INCBIN "gfx/trainer_card/trainer_card.2bpp"
+
+LeaderGFX:  INCBIN "gfx/trainer_card/leaders.2bpp"
 BadgeGFX:   INCBIN "gfx/trainer_card/badges.2bpp"

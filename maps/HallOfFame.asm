@@ -30,7 +30,7 @@ HallOfFameScript:
 	pause 15
 	writebyte 2 ; Machine is in the Hall of Fame
 	special HealMachineAnim
-	setevent EVENT_BEAT_ELITE_FOUR
+	setevent EVENT_BEAT_ORANGE_LEAGUE
 	special HealParty
 	halloffame
 	end

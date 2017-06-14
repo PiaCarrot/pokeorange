@@ -3961,33 +3961,6 @@ GetPlayerIcon: ; 8832c
 .done
 	ret
 
-GetCardPic: ; 8833e
-	ld hl, ChrisCardPic
-	ld a, [PlayerGender]
-	bit 0, a
-	jr z, .GotClass
-	ld hl, KrisCardPic
-.GotClass:
-	ld de, VTiles2 tile $00
-	ld bc, $23 tiles
-	ld a, BANK(ChrisCardPic) ; BANK(KrisCardPic)
-	call FarCopyBytes
-	ld hl, CardGFX
-	ld de, VTiles2 tile $23
-	ld bc, 6 tiles
-	ld a, BANK(CardGFX)
-	call FarCopyBytes
-	ret
-
-ChrisCardPic: ; 88365
-INCBIN "gfx/trainer_card/chris_card.5x7.2bpp"
-
-KrisCardPic: ; 88595
-INCBIN "gfx/trainer_card/kris_card.5x7.2bpp"
-
-CardGFX: ; 887c5
-INCBIN "gfx/trainer_card/trainer_card.2bpp"
-
 GetPlayerBackpic: ; 88825
 	ld hl, ChrisBackpic
 	ld a, [PlayerGender]
