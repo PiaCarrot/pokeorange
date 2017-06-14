@@ -1354,8 +1354,7 @@ RareCandy: ; ef14
 	predef CopyPkmnToTempMon
 
 	hlcoord 9, 0
-	ld b, 10
-	ld c, 9
+	lb bc, 10, 9
 	call TextBox
 
 	hlcoord 11, 1

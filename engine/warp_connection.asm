@@ -261,8 +261,7 @@ LoadMapTimeOfDay: ; 104750
 	ld [rVBK], a
 .copy
 	hlbgcoord 0, 0
-	ld c, SCREEN_WIDTH
-	ld b, SCREEN_HEIGHT
+	lb bc, SCREEN_HEIGHT, SCREEN_WIDTH
 .row
 	push bc
 .column

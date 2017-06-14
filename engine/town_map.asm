@@ -137,21 +137,6 @@ TownMap_UpdateCursorPosition: ; 910d4
 
 ; 910e8
 
-TownMap_GetKantoLandmarkLimits: ; 910e8
-	ld a, [StatusFlags]
-	bit 6, a
-	jr z, .not_hof
-	ld d, RAINBOW_ISLAND
-	ld e, VERMILION_CITY
-	ret
-
-.not_hof
-	ld d, RAINBOW_ISLAND
-	ld e, VERMILION_CITY
-	ret
-
-; 910f9
-
 _TownMap: ; 9191c
 	ld hl, Options
 	ld a, [hl]
@@ -199,19 +184,13 @@ _TownMap: ; 9191c
 	ld a, %11100100
 	call DmgToCgbObjPal0
 	call DelayFrame
+	lb de, RAINBOW_ISLAND, VERMILION_CITY
 	ld a, [wd002]
 	cp KANTO_LANDMARK
-	jr nc, .kanto
-    ld d, LIGHTNING_ISLAND ; last orange islands landmark
-    ld e, VALENCIA_ISLAND ; first orange islands landmark
-	call .loop
-	jr .resume
-
-.kanto
-	call TownMap_GetKantoLandmarkLimits
-	call .loop
-
+	jr nc, .resume
+    lb de, LIGHTNING_ISLAND, VALENCIA_ISLAND
 .resume
+	call .loop
 	pop af
 	ld [VramState], a
 	pop af

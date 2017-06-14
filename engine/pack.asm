@@ -70,8 +70,7 @@ Pack: ; 10000
 	ld [wItemsPocketScrollPosition], a
 	ld a, [wMenuCursorY]
 	ld [wItemsPocketCursor], a
-	ld b, $7
-	ld c, $3
+	lb bc, $7, $3
 	call Pack_InterpretJoypad
 	ret c
 	jp .ItemBallsKey_LoadSubmenu
@@ -97,8 +96,7 @@ Pack: ; 10000
 	ld [wKeyItemsPocketScrollPosition], a
 	ld a, [wMenuCursorY]
 	ld [wKeyItemsPocketCursor], a
-	ld b, $3
-	ld c, $7
+	lb bc, $3, $7
 	call Pack_InterpretJoypad
 	ret c
 	jp .ItemBallsKey_LoadSubmenu
@@ -116,8 +114,7 @@ Pack: ; 10000
 
 .TMHMPocketMenu: ; 100e8 (4:40e8)
 	farcall TMHMPocket
-	ld b, $5
-	ld c, $1
+	lb bc, $5, $1
 	call Pack_InterpretJoypad
 	ret c
 	farcall _CheckTossableItem
@@ -228,8 +225,7 @@ Pack: ; 10000
 	ld [wBallsPocketScrollPosition], a
 	ld a, [wMenuCursorY]
 	ld [wBallsPocketCursor], a
-	ld b, $1
-	ld c, $5
+	lb bc, $1, $5
 	call Pack_InterpretJoypad
 	ret c
 	jp .ItemBallsKey_LoadSubmenu
@@ -693,8 +689,7 @@ BattlePack: ; 10493
 	ld [wItemsPocketScrollPosition], a
 	ld a, [wMenuCursorY]
 	ld [wItemsPocketCursor], a
-	ld b, $7
-	ld c, $3
+	lb bc, $7, $3
 	call Pack_InterpretJoypad
 	ret c
 	jp ItemSubmenu
@@ -720,8 +715,7 @@ BattlePack: ; 10493
 	ld [wKeyItemsPocketScrollPosition], a
 	ld a, [wMenuCursorY]
 	ld [wKeyItemsPocketCursor], a
-	ld b, $3
-	ld c, $7
+	lb bc, $3, $7
 	call Pack_InterpretJoypad
 	ret c
 	jp ItemSubmenu
@@ -741,8 +735,7 @@ BattlePack: ; 10493
 
 .TMHMPocketMenu: ; 10581 (4:4581)
 	farcall TMHMPocket
-	ld b, $5
-	ld c, $1
+	lb bc, $5, $1
 	call Pack_InterpretJoypad
 	ret c
 	xor a
@@ -769,8 +762,7 @@ BattlePack: ; 10493
 	ld [wBallsPocketScrollPosition], a
 	ld a, [wMenuCursorY]
 	ld [wBallsPocketCursor], a
-	ld b, $1
-	ld c, $5
+	lb bc, $1, $5
 	call Pack_InterpretJoypad
 	ret c
 	jp ItemSubmenu

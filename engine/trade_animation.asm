@@ -981,8 +981,7 @@ TrademonStats_MonTemplate: ; 29573
 	ld a, VBGMap1 / $100
 	ld [hBGMapAddress + 1], a
 	hlcoord 3, 0
-	ld b, $6
-	ld c, $d
+	lb bc, $6, $d
 	call TextBox
 	hlcoord 4, 0
 	ld de, .OTMonData
@@ -1003,8 +1002,7 @@ TrademonStats_Egg: ; 295a1
 	ld a, VBGMap1 / $100
 	ld [hBGMapAddress + 1], a
 	hlcoord 3, 0
-	ld b, 6
-	ld c, 13
+	lb bc, $6, $d
 	call TextBox
 	hlcoord 4, 2
 	ld de, .EggData

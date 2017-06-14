@@ -4,8 +4,7 @@ SECTION "bank1", ROMX, BANK[$1]
 
 PlaceWaitingText:: ; 4000
 	hlcoord 3, 10
-	ld b, 1
-	ld c, 11
+	lb bc, 1, 11
 
 	ld a, [wBattleMode]
 	and a
@@ -28,8 +27,8 @@ PlaceWaitingText:: ; 4000
 	db "Waiting...!@"
 
 LoadPushOAM:: ; 4031
-	ld c, hPushOAM - $ff00
 	ld b, PushOAMEnd - PushOAM
+	ld c, hPushOAM - $ff00
 	ld hl, PushOAM
 .loop
 	ld a, [hli]
@@ -579,8 +578,7 @@ UpdateItemDescription: ; 0x244c3
 	ld a, [MenuSelection]
 	ld [CurSpecies], a
 	hlcoord 0, 12
-	ld b, 4
-	ld c, SCREEN_WIDTH - 2
+	lb bc, 4, SCREEN_WIDTH - 2
 	call TextBox
 	ld a, [MenuSelection]
 	cp -1
@@ -734,8 +732,7 @@ MenuDataHeader_0x24b1d: ; 0x24b1d
 Special_DisplayCoinCaseBalance: ; 24b25
 	; Place a text box of size 1x7 at 11, 0.
 	hlcoord 11, 0
-	ld b, 1
-	ld c, 7
+	lb bc, 1, 7
 	call TextBox
 	hlcoord 12, 0
 	ld de, CoinString
@@ -750,8 +747,7 @@ Special_DisplayCoinCaseBalance: ; 24b25
 
 Special_DisplayMoneyAndCoinBalance: ; 24b4e
 	hlcoord 5, 0
-	ld b, 3
-	ld c, 13
+	lb bc, 3, 13
 	call TextBox
 	hlcoord 6, 1
 	ld de, MoneyString
@@ -777,8 +773,7 @@ ShowMoney_TerminatorString: ; 24b8e
 
 StartMenu_DrawBugContestStatusBox: ; 24bdc
 	hlcoord 0, 0
-	ld b, 5
-	ld c, 17
+	lb bc, 5, 17
 	jp TextBox
 
 StartMenu_PrintBugContestStatus: ; 24be7
@@ -1937,8 +1932,7 @@ SaveMenu_LoadEDTile: ; 4cf45 (13:4f45)
 	ld l, 0
 	ld a, SCREEN_HEIGHT
 	ld [hTilesPerCycle], a
-	ld b, 1 << 1
-	ld c, rSTAT % $100
+	lb bc, (1 << 1), (rSTAT % $100)
 
 .loop
 rept SCREEN_WIDTH / 2
@@ -2234,8 +2228,7 @@ AnimateTrademonFrontpic: ; 4d81e
 	ld a, [wOTTrademonSpecies]
 	ld [CurPartySpecies], a
 	hlcoord 7, 2
-	ld d, $0
-	ld e, ANIM_MON_TRADE
+	lb de, $0, ANIM_MON_TRADE
 	predef AnimateFrontpic
 	ret
 
@@ -2397,8 +2390,7 @@ Special_CheckForLuckyNumberWinners: ; 4d87a
 	ld de, wLuckyIDNumber
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	call PrintNum
-	ld b, 5
-	ld c, 0
+	lb bc, 5, 0
 	ld hl, LuckyNumberDigit5Buffer
 	ld de, Buffer5
 .loop
@@ -3950,9 +3942,8 @@ GetPlayerBackpic: ; 88825
 	jr z, .male
 	ld hl, KrisBackpic
 .male
-	ld b, BANK(ChrisBackpic)
 	ld de, VTiles2 tile $31
-	ld c, 7 * 7
+	lb bc, BANK(ChrisBackpic), 6 * 6
 	predef DecompressPredef
 	ret
 
@@ -3983,8 +3974,7 @@ HOF_LoadTrainerFrontpic: ; 88840
 
 .GotPic:
 	ld hl, VTiles2
-	ld b, BANK(ChrisPic) ; BANK(KrisPic)
-	ld c, 7 * 7
+	lb bc, BANK(ChrisPic), 7 * 7 ; BANK(KrisPic)
 	call Get2bpp
 	call WaitBGMap
 	ld a, $1
@@ -4160,13 +4150,11 @@ DisplayCaughtContestMonStats: ; cc000
 	set 4, [hl]
 
 	hlcoord 0, 0
-	ld b, 4
-	ld c, 13
+	lb bc, 4, 13
 	call TextBox
 
 	hlcoord 0, 6
-	ld b, 4
-	ld c, 13
+	lb bc, 4, 13
 	call TextBox
 
 	hlcoord 2, 0

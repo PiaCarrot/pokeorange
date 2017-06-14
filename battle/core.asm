@@ -3506,8 +3506,7 @@ Function_SetEnemyPkmnAndSendOutAnimation: ; 3d7c7
 	farcall CheckBattleScene
 	jr c, .cry_no_anim
 	hlcoord 12, 0
-	ld d, $0
-	ld e, ANIM_MON_SLOW
+	lb de, $0, ANIM_MON_SLOW
 	predef AnimateFrontpic
 	jr .skip_cry
 
@@ -3944,8 +3943,7 @@ SendOutPlayerMon: ; 3db5f
 	ld hl, BattleMonDVs
 	predef GetSpindaPattern
 	hlcoord 1, 5
-	ld b, 7
-	ld c, 8
+	lb bc, 7, 8
 	call ClearBox
 	call WaitBGMap
 	xor a
@@ -5256,15 +5254,12 @@ MoveSelectionScreen: ; 3e4bc
 	ld [hBGMapMode], a
 
 	hlcoord 4, 17 - NUM_MOVES - 1
-	ld b, 4
-	ld c, 14
 	ld a, [wMoveSelectionMenuType]
 	cp $2
 	jr nz, .got_dims
 	hlcoord 4, 17 - NUM_MOVES - 1 - 4
-	ld b, 4
-	ld c, 14
 .got_dims
+	lb bc, 4, 14
 	call TextBox
 
 	hlcoord 6, 17 - NUM_MOVES
@@ -5277,15 +5272,14 @@ MoveSelectionScreen: ; 3e4bc
 	ld [Buffer1], a
 	predef ListMoves
 
-	ld b, 5
 	ld a, [wMoveSelectionMenuType]
 	cp $2
 	ld a, 17 - NUM_MOVES
 	jr nz, .got_default_coord
-	ld b, 5
 	ld a, 17 - NUM_MOVES - 4
 
 .got_default_coord
+	ld b, 5
 	ld [w2DMenuCursorInitY], a
 	ld a, b
 	ld [w2DMenuCursorInitX], a
@@ -5547,8 +5541,7 @@ MoveInfoBox: ; 3e6c8
 	ld [hBGMapMode], a
 
 	hlcoord 0, 8
-	ld b, 3
-	ld c, 9
+	lb bc, 3, 9
 	call TextBox
 
 	ld a, [PlayerDisableCount]
@@ -6018,8 +6011,7 @@ LoadEnemyMon: ; 3e8eb
 	cp a, BATTLETYPE_SHINY
 	jr nz, .GenerateDVs
 
-	ld b, ATKDEFDV_SHINY ; $ea
-	ld c, SPDSPCDV_SHINY ; $aa
+	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
 	jr .UpdateDVs
 
 .GenerateDVs:
@@ -7077,8 +7069,7 @@ GiveExperiencePoints: ; 3ee3b
 	ld [MonType], a
 	predef CopyPkmnToTempMon
 	hlcoord 9, 0
-	ld b, $a
-	ld c, $9
+	lb bc, $a, $9
 	call TextBox
 	hlcoord 11, 1
 	ld bc, 4
@@ -8489,8 +8480,7 @@ AddLastBattleToLinkRecord: ; 3fa42
 	pop bc
 	dec b
 	jr nz, .loop3
-	ld b, $0
-	ld c, $1
+	lb bc, $0, $1
 .loop4
 	ld a, b
 	add b
@@ -8587,8 +8577,7 @@ AddLastBattleToLinkRecord: ; 3fa42
 InitBattleDisplay: ; 3fb6c
 	call .InitBackPic
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call TextBox
 	hlcoord 1, 5
 	lb bc, 3, 7
@@ -8756,8 +8745,7 @@ BattleStartMessage: ; 3fc8b
 	jr c, .cry_no_anim
 
 	hlcoord 12, 0
-	ld d, $0
-	ld e, ANIM_MON_NORMAL
+	lb de, $0, ANIM_MON_NORMAL
 	predef AnimateFrontpic
 	jr .skip_cry ; cry is played during the animation
 

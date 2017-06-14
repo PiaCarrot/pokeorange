@@ -1409,8 +1409,7 @@ BufferScreen:: ; 2879
 	ld h, [hl]
 	ld l, a
 	ld de, wScreenSave
-	ld c, $5
-	ld b, $6
+	lb bc, $6, $5
 .row
 	push bc
 	push hl
@@ -1463,8 +1462,7 @@ SaveScreen:: ; 289d
 .down
 	ld de, wScreenSave
 .vertical
-	ld b, 6
-	ld c, 4
+	lb bc, 6, 4
 	jr SaveScreen_LoadNeighbor
 
 .left
@@ -1475,8 +1473,7 @@ SaveScreen:: ; 289d
 .right
 	ld de, wScreenSave
 .horizontal
-	ld b, 5
-	ld c, 5
+	lb bc, 5, 5
 	jr SaveScreen_LoadNeighbor
 
 LoadNeighboringBlockData:: ; 28e3
@@ -1488,8 +1485,7 @@ LoadNeighboringBlockData:: ; 28e3
 	add 6
 	ld [hConnectionStripLength], a
 	ld de, wScreenSave
-	ld b, 6
-	ld c, 5
+	lb bc, 6, 5
 
 SaveScreen_LoadNeighbor:: ; 28f7
 .row

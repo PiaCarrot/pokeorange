@@ -306,8 +306,7 @@ endr
 	lb bc, 5, 10
 	call ClearBox
 	hlcoord 0, 13
-	ld b, 3
-	ld c, 8
+	lb bc, 3, 8
 	jp TextBoxPalette
 ; 128cb
 
@@ -1685,12 +1684,10 @@ SetUpMoveScreenBG: ; 13172
 	ld e, $2
 	farcall LoadMenuMonIcon
 	hlcoord 0, 1
-	ld b, 9
-	ld c, 18
+	lb bc, 9, 18
 	call TextBox
 	hlcoord 0, 11
-	ld b, 5
-	ld c, 18
+	lb bc, 5, 18
 	call TextBox
 	hlcoord 2, 0
 	lb bc, 2, 3
@@ -1737,8 +1734,7 @@ SetUpMoveList: ; 131ef
 	inc a
 	ld [w2DMenuNumRows], a
 	hlcoord 0, 11
-	ld b, 5
-	ld c, 18
+	lb bc, 5, 18
 	jp TextBox
 ; 13235
 

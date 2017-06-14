@@ -244,8 +244,7 @@ TMHM_ShowTMMoveDescription: ; 2c946 (b:4946)
 	call TMHM_CheckHoveringOverCancel
 	jp nc, TMHM_ExitPocket
 	hlcoord 0, 12
-	ld b, 4
-	ld c, SCREEN_WIDTH - 2
+	lb bc, 4, SCREEN_WIDTH - 2
 	call TextBox
 	ld a, [CurItem]
 	cp NUM_TMS + NUM_HMS + 1
@@ -487,8 +486,7 @@ ConsumeTM: ; 2cb0c (b:4b0c)
 	ret
 
 CountTMsHMs: ; 2cb2a (b:4b2a)
-	ld b, 0
-	ld c, NUM_TMS + NUM_HMS
+	lb bc, 0, NUM_TMS + NUM_HMS
 	ld hl, TMsHMs
 .loop
 	ld a, [hli]

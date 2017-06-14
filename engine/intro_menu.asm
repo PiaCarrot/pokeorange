@@ -757,8 +757,7 @@ ShrinkPlayer: ; 610f
 	call DelayFrames
 
 	hlcoord 6, 5
-	ld b, 7
-	ld c, 7
+	lb bc, 7, 7
 	call ClearBox
 
 	ld c, 3

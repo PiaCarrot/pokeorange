@@ -51,8 +51,7 @@ InitClock: ; 90672 (24:4672)
 	ld hl, Text_WhatTimeIsIt
 	call PrintText
 	hlcoord 3, 7
-	ld b, 2
-	ld c, 15
+	lb bc, 2, 15
 	call TextBox
 	hlcoord 11, 7
 	ld [hl], $1
@@ -426,8 +425,7 @@ AskForDayOfWeek: ; 90913
 	xor a
 	ld [hBGMapMode], a
 	hlcoord 10, 8
-	ld b, 2
-	ld c, 9
+	lb bc, 2, 9
 	call ClearBox
 	hlcoord 10, 9
 	call PlaceWeekdayString
