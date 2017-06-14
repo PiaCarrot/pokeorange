@@ -264,8 +264,7 @@ BattleTextBox:: ; 3ac3
 	call UpdateSprites
 	call ApplyTilemap
 	pop hl
-	call PrintTextBoxText
-	ret
+	jp PrintTextBoxText
 ; 3ad5
 
 

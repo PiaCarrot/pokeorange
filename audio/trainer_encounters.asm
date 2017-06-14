@@ -17,8 +17,7 @@ PlayTrainerEncounterMusic:: ; e900a
 	ld hl, TrainerEncounterMusic
 	add hl, de
 	ld e, [hl]
-	call PlayMusic
-	ret
+	jp PlayMusic
 ; e9027
 
 TrainerEncounterMusic: ; e9027

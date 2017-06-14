@@ -445,8 +445,7 @@ WaitBGMap:: ; 31f6
 	ld [hBGMapMode], a
 ; Wait for it to do its magic
 	ld c, 4
-	call DelayFrames
-	ret
+	jp DelayFrames
 ; 3200
 
 WaitBGMap2:: ; 0x3200
@@ -458,8 +457,7 @@ WaitBGMap2:: ; 0x3200
 	ld a, 1
 	ld [hBGMapMode], a
 	ld c, 4
-	call DelayFrames
-	ret
+	jp DelayFrames
 ; 0x3218
 
 ApplyTilemap:: ; 321c
@@ -476,8 +474,7 @@ ApplyTilemap:: ; 321c
 	ld a, 1
 	ld [hBGMapMode], a
 	ld c, 4
-	call DelayFrames
-	ret
+	jp DelayFrames
 ; 3238
 
 CGBOnly_LoadEDTile:: ; 3238

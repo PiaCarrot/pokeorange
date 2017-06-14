@@ -295,8 +295,7 @@ Special_ReloadSpritesNoPalettes:: ; d91
 	ld [rSVBK], a
 	ld a, 1
 	ld [hCGBPalUpdate], a
-	call DelayFrame
-	ret
+	jp DelayFrame
 ; db1
 
 

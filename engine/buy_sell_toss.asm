@@ -143,8 +143,7 @@ BuySellToss_UpdateQuantityDisplay: ; 25072
 	ld a, [wMenuData2Pointer + 1]
 	ld d, a
 	ld a, [wMenuDataBank]
-	call FarCall_de
-	ret
+	jp FarCall_de
 ; 25097
 
 ret_25097: ; 25097
@@ -160,8 +159,7 @@ DisplayPurchasePrice: ; 25098
 DisplaySellingPrice: ; 2509f
 	call BuySell_MultiplyPrice
 	call Sell_HalvePrice
-	call BuySell_DisplaySubtotal
-	ret
+	jp BuySell_DisplaySubtotal
 ; 250a9
 
 BuySell_MultiplyPrice: ; 250a9

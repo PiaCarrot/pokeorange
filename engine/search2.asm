@@ -1,12 +1,10 @@
 _FindGreaterThanThatLevel: ; 4dbd2
 	ld hl, PartyMon1Level
-	call FindGreaterThanThatLevel
-	ret
+	jp FindGreaterThanThatLevel
 
 _FindAtLeastThatHappy: ; 4dbd9
 	ld hl, PartyMon1Happiness
-	call FindAtLeastThatHappy
-	ret
+	jp FindAtLeastThatHappy
 
 _FindThatSpecies: ; 4dbe0
 	ld hl, PartyMon1Species

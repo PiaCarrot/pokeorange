@@ -30,8 +30,7 @@ MartDialog: ; 15a61
 	ld [EngineBuffer1], a
 	xor a
 	ld [EngineBuffer5], a
-	call StandardMart
-	ret
+	jp StandardMart
 ; 15a6e
 
 HerbShop: ; 15a6e
@@ -41,8 +40,7 @@ HerbShop: ; 15a6e
 	call MartTextBox
 	call BuyMenu
 	ld hl, Text_HerbShop_ComeAgain
-	call MartTextBox
-	ret
+	jp MartTextBox
 ; 15a84
 
 BargainShop: ; 15a84
@@ -63,8 +61,7 @@ BargainShop: ; 15a84
 
 .skip_set
 	ld hl, Text_BargainShop_ComeAgain
-	call MartTextBox
-	ret
+	jp MartTextBox
 ; 15aae
 
 Pharmacist: ; 15aae
@@ -74,8 +71,7 @@ Pharmacist: ; 15aae
 	call MartTextBox
 	call BuyMenu
 	ld hl, Text_Pharmacist_ComeAgain
-	call MartTextBox
-	ret
+	jp MartTextBox
 ; 15ac4
 
 RooftopSale: ; 15ac4
@@ -95,8 +91,7 @@ RooftopSale: ; 15ac4
 	call MartTextBox
 	call BuyMenu
 	ld hl, Text_Mart_ComeAgain
-	call MartTextBox
-	ret
+	jp MartTextBox
 ; 15aee
 
 RooftopSaleData1: ; 15aee
@@ -376,8 +371,7 @@ BuyMenu: ; 15c62
 .loop
 	call BuyMenuLoop ; menu loop
 	jr nc, .loop
-	call CloseSubmenu
-	ret
+	jp CloseSubmenu
 ; 15c7d
 
 LoadBuyMenuText: ; 15c7d
@@ -397,8 +391,7 @@ LoadBuyMenuText: ; 15c7d
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PrintText
-	ret
+	jp PrintText
 ; 15c91
 
 MartAskPurchaseQuantity: ; 15c91
@@ -539,8 +532,7 @@ StandardMartAskPurchaseQuantity:
 	ld a, MARTTEXT_HOW_MANY
 	call LoadBuyMenuText
 	farcall SelectQuantityToBuy
-	call ExitMenu
-	ret
+	jp ExitMenu
 ; 15d97
 
 MartConfirmPurchase: ; 15d97
@@ -599,8 +591,7 @@ RooftopSaleAskPurchaseQuantity:
 	ld a, 99
 	ld [wItemQuantityBuffer], a
 	farcall RooftopSale_SelectQuantityToBuy
-	call ExitMenu
-	ret
+	jp ExitMenu
 ; 15df9
 
 .GetSalePrice: ; 15df9
@@ -668,8 +659,7 @@ MenuDataHeader_Buy: ; 0x15e18
 	ld bc, SCREEN_WIDTH
 	add hl, bc
 	ld c, PRINTNUM_LEADINGZEROS | PRINTNUM_MONEY | 3
-	call PrintBCDNumber
-	ret
+	jp PrintBCDNumber
 ; 15e4a (5:5e4a)
 
 Text_HerbShop_Intro: ; 0x15e4a
@@ -962,13 +952,11 @@ Text_Mart_SoldForAmount: ; 0x15fbe
 PlayTransactionSound: ; 15fc3
 	call WaitSFX
 	ld de, SFX_TRANSACTION
-	call PlaySFX
-	ret
+	jp PlaySFX
 ; 15fcd
 
 MartTextBox: ; 15fcd
 	call MenuTextBox
 	call JoyWaitAorB
-	call ExitMenu
-	ret
+	jp ExitMenu
 ; 15fd7

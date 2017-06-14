@@ -134,12 +134,10 @@ MainMenu_PrintCurrentTimeAndDay: ; 49e09
 	hlcoord 0, 14
 	ld b, 2
 	ld c, 18
-	call TextBox
-	ret
+	jp TextBox
 
 .TimeFail:
-	call SpeechTextBox
-	ret
+	jp SpeechTextBox
 ; 49e3d
 
 
@@ -163,14 +161,12 @@ MainMenu_PrintCurrentTimeAndDay: ; 49e09
 	inc hl
 	ld de, hMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
-	ret
+	jp PrintNum
 
 .PrintTimeNotSet: ; 49e75
 	hlcoord 1, 14
 	ld de, .TimeNotSet
-	call PlaceString
-	ret
+	jp PlaceString
 ; 49e7f
 
 .TimeNotSet: ; 49e7f
@@ -189,8 +185,7 @@ MainMenu_PrintCurrentTimeAndDay: ; 49e09
 	ld h, b
 	ld l, c
 	ld de, .Day
-	call PlaceString
-	ret
+	jp PlaceString
 ; 49ea8
 
 .Days:

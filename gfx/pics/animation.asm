@@ -61,8 +61,7 @@ LoadMonAnimation: ; d00a3
 	ld b, [hl]
 	ld c, a
 	pop hl
-	call PokeAnim_InitPicAttributes
-	ret
+	jp PokeAnim_InitPicAttributes
 ; d00b4
 
 SetUpPokeAnim: ; d00b4
@@ -353,8 +352,7 @@ PokeAnim_DoAnimScript: ; d0250
 	dec a
 	ld [wPokeAnimWaitCounter], a
 	ret nz
-	call PokeAnim_StopWaitAnim
-	ret
+	jp PokeAnim_StopWaitAnim
 ; d028e
 
 PokeAnim_GetDuration: ; d02ae
@@ -445,8 +443,7 @@ PokeAnim_PlaceGraphic: ; d04bd
 	ld l, a
 	ld b, 7
 	ld c, 7
-	call ClearBox
-	ret
+	jp ClearBox
 ; d0504
 
 PokeAnim_SetVBank1: ; d0504

@@ -389,8 +389,7 @@ Function512ab: ; 512ab
 	jr nz, .five_loop
 	ld c, $70
 	xor a
-	call .Fill
-	ret
+	jp .Fill
 
 .Fill:
 	ld [hli], a

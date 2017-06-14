@@ -143,8 +143,7 @@ InitPartyMenuBGPal7: ; 8e85
 	ld de, UnknBGPals + 8 * 7
 	ld bc, 1 palettes
 	ld a, $5
-	call FarCopyWRAM
-	ret
+	jp FarCopyWRAM
 ; 8e9f
 
 InitPartyMenuBGPal0: ; 8e9f
@@ -152,8 +151,7 @@ InitPartyMenuBGPal0: ; 8e9f
 	ld de, UnknBGPals
 	ld bc, 1 palettes
 	ld a, $5
-	call FarCopyWRAM
-	ret
+	jp FarCopyWRAM
 ; 8eb9
 
 _CGB_TownMapPals: ; 8eb9
@@ -406,8 +404,7 @@ _CGB_Diploma: ; 91ad
 	ld hl, PalPacket_Diploma
 	call CopyFourPalettes
 	call WipeAttrMap
-	call ApplyAttrMap
-	ret
+	jp ApplyAttrMap
 ; 91c8
 
 _CGB_MapPals: ; 91c8
@@ -423,8 +420,7 @@ _CGB_PartyMenu: ; 91d1
 	call InitPartyMenuBGPal0
 	call InitPartyMenuBGPal7
 	call InitPartyMenuOBPals
-	call ApplyAttrMap
-	ret
+	jp ApplyAttrMap
 ; 91e4
 
 _CGB_Evolution: ; 91e4
@@ -762,8 +758,7 @@ _CGB_PlayerOrMonFrontpicPals: ; 9529
 	call LoadPalette_White_Col1_Col2_Black
 	call WipeAttrMap
 	call ApplyAttrMap
-	call ApplyPals
-	ret
+	jp ApplyPals
 ; 9542
 
 _CGB_TradeTube: ; 9555
@@ -778,8 +773,7 @@ _CGB_TradeTube: ; 9555
 	ld a, $1c
 	call GetPredefPal
 	call LoadHLPaletteIntoDE
-	call WipeAttrMap
-	ret
+	jp WipeAttrMap
 ; 9578
 
 _CGB_TrainerOrMonFrontpicPals: ; 9578
@@ -790,6 +784,5 @@ _CGB_TrainerOrMonFrontpicPals: ; 9578
 	call LoadPalette_White_Col1_Col2_Black
 	call WipeAttrMap
 	call ApplyAttrMap
-	call ApplyPals
-	ret
+	jp ApplyPals
 ; 9591

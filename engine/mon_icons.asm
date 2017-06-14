@@ -46,8 +46,7 @@ LoadMenuMonIcon: ; 8e83f
 PartyMenu_InitAnimatedMonIcon: ; 8e8d5 (23:68d5)
 	call InitPartyMenuIcon
 	call .SpawnItemIcon
-	call SetPartyMonIconAnimSpeed
-	ret
+	jp SetPartyMonIconAnimSpeed
 
 .SpawnItemIcon: ; 8e8df (23:68df)
 	push bc
@@ -175,8 +174,7 @@ Trade_LoadMonIconGFX: ; 8e99a (23:699a)
 	ld [CurIcon], a
 	ld a, $62
 	ld [wCurIconTile], a
-	call GetMemIconGFX
-	ret
+	jp GetMemIconGFX
 
 GetSpeciesIcon: ; 8e9ac
 ; Load species icon into VRAM at tile a
@@ -186,8 +184,7 @@ GetSpeciesIcon: ; 8e9ac
 	ld [CurIcon], a
 	pop de
 	ld a, e
-	call GetIconGFX
-	ret
+	jp GetIconGFX
 ; 8e9bc
 
 
@@ -198,8 +195,7 @@ FlyFunction_GetMonIcon: ; 8e9bc (23:69bc)
 	ld [CurIcon], a
 	pop de
 	ld a, e
-	call GetIcon_a
-	ret
+	jp GetIcon_a
 ; 8e9cc (23:69cc)
 
 GetMemIconGFX: ; 8e9db (23:69db)

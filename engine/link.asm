@@ -1454,8 +1454,7 @@ LoadTradeScreenBorder: ; 28ef8
 
 SetTradeRoomBGPals: ; 28eff
 	farcall LoadTradeRoomBGPals
-	call SetPalettes
-	ret
+	jp SetPalettes
 ; 28f09
 
 WaitForOtherPlayerToExit: ; 29c92
@@ -1941,8 +1940,7 @@ _LinkBattleSendReceiveAction: ; 100a09
 	call .StageForSend
 	ld [wd431], a
 	farcall PlaceWaitingText
-	call .LinkBattle_SendReceiveAction
-	ret
+	jp .LinkBattle_SendReceiveAction
 ; 100a2e
 
 .StageForSend: ; 100a2e

@@ -229,8 +229,7 @@ _CardFlip: ; e00ee (38:40ee)
 	call CardFlip_FillGreenBox
 	pop af
 	ld [wCardFlipWhichCard], a
-	call .Increment
-	ret
+	jp .Increment
 ; e02b2
 
 .ChooseACardText: ; 0xe02b2
@@ -253,8 +252,7 @@ _CardFlip: ; e00ee (38:40ee)
 	jr .betloop
 
 .betdone
-	call .Increment
-	ret
+	jp .Increment
 ; e02d5
 
 .PlaceYourBetText: ; 0xe02d5
@@ -296,8 +294,7 @@ _CardFlip: ; e00ee (38:40ee)
 .TabulateTheResult: ; e0314
 	call CardFlip_CheckWinCondition
 	call WaitPressAorB_BlinkCursor
-	call .Increment
-	ret
+	jp .Increment
 ; e031e
 
 .PlayAgain: ; e031e
@@ -306,8 +303,7 @@ _CardFlip: ; e00ee (38:40ee)
 	call CardFlip_UpdateCoinBalanceDisplay
 	call YesNoBox
 	jr nc, .Continue
-	call .Increment
-	ret
+	jp .Increment
 
 .Continue:
 	ld a, [wCardFlipNumCardsPlayed]
@@ -375,8 +371,7 @@ CardFlip_ShuffleDeck: ; e0366
 	ld [wCardFlipNumCardsPlayed], a
 	ld hl, wDiscardPile
 	ld bc, CARDFLIP_DECK_SIZE
-	call ByteFill
-	ret
+	jp ByteFill
 ; e0398
 
 CollapseCursorPosition: ; e0398
@@ -412,8 +407,7 @@ PlaceCardFaceDown: ; e03c1
 	ld [hBGMapMode], a
 	ld de, .FaceDownCardTilemap
 	lb bc, 6, 5
-	call CardFlip_CopyToBox
-	ret
+	jp CardFlip_CopyToBox
 ; e03ce
 
 .FaceDownCardTilemap: ; e03ce
@@ -479,8 +473,7 @@ CardFlip_DisplayCardFaceUp: ; e03ec
 	and 3
 	inc a
 	lb bc, 6, 5
-	call CardFlip_FillBox
-	ret
+	jp CardFlip_FillBox
 ; e043b
 
 .FaceUpCardTilemap: ; e043b
@@ -525,8 +518,7 @@ CardFlip_PrintCoinBalance: ; e049c
 	hlcoord 15, 16
 	ld de, Coins
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 4
-	call PrintNum
-	ret
+	jp PrintNum
 ; e04bc
 
 .CoinStr:
@@ -546,8 +538,7 @@ CardFlip_InitTilemap: ; e04c1 (38:44c1)
 	call CardFlip_CopyToBox
 	hlcoord 0, 12
 	lb bc, 4, 18
-	call TextBox
-	ret
+	jp TextBox
 ; e04e5 (38:44e5)
 
 CardFlip_FillGreenBox: ; e04e5
@@ -1174,8 +1165,7 @@ CardFlip_CheckWinCondition: ; e0637
 	ld a, l
 	ld [Coins + 1], a
 	ld de, SFX_PAY_DAY
-	call PlaySFX
-	ret
+	jp PlaySFX
 ; e0833
 
 .IsCoinCaseFull: ; e0833
@@ -1202,8 +1192,7 @@ CardFlip_CheckWinCondition: ; e0637
 PlaceOAMCardBorder: ; e0849
 	call GetCoordsOfChosenCard
 	ld hl, .SpriteData
-	call CardFlip_CopyOAM
-	ret
+	jp CardFlip_CopyOAM
 ; e0853
 
 .SpriteData: ; e0853
@@ -1369,8 +1358,7 @@ ChooseCard_HandleJoypad: ; e089c
 
 .play_sound ; e0959
 	ld de, SFX_POKEBALLS_PLACED_ON_TABLE
-	call PlaySFX
-	ret
+	jp PlaySFX
 ; e0960
 
 CardFlip_UpdateCursorOAM: ; e0960
@@ -1387,8 +1375,7 @@ CardFlip_UpdateCursorOAM: ; e0960
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call CardFlip_CopyOAM
-	ret
+	jp CardFlip_CopyOAM
 ; e0981
 
 .OAMData: ; e0981

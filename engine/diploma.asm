@@ -34,8 +34,7 @@ PlaceDiplomaOnScreen: ; 1dd709
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call SetPalettes
-	call DelayFrame
-	ret
+	jp DelayFrame
 ; 1dd760
 
 .Player:

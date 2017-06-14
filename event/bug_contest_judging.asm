@@ -236,8 +236,7 @@ BugContest_JudgeContestants: ; 13819
 	ld [hli], a
 	ld a, [hProduct + 1]
 	ld [hl], a
-	call DetermineContestWinners
-	ret
+	jp DetermineContestWinners
 ; 13833
 
 ClearContestResults: ; 13833

@@ -31,8 +31,7 @@ SaveAfterLinkTrade: ; 14a58
 	call SaveBackupChecksum
 	farcall BackupPartyMonMail
 	farcall SaveRTC
-	call ResumeGameLogic
-	ret
+	jp ResumeGameLogic
 ; 14a83
 
 
@@ -111,8 +110,7 @@ MovePkmnWOMail_InsertMon_SaveGame: ; 14ad5
 	ld de, SFX_SAVE
 	call PlaySFX
 	ld c, 24
-	call DelayFrames
-	ret
+	jp DelayFrames
 ; 14b34
 
 StartMovePkmnWOMail_SaveGame: ; 14b34
@@ -170,8 +168,7 @@ AddHallOfFameEntry: ; 14b5f
 ; 14b85
 
 SaveGameData: ; 14b85
-	call SaveGameData_
-	ret
+	jp SaveGameData_
 ; 14b89
 
 AskOverwriteSaveFile: ; 14b89
@@ -256,8 +253,7 @@ SavedTheGame: ; 14be6
 	call WaitSFX
 	; wait 30 frames
 	ld c, $1e
-	call DelayFrames
-	ret
+	jp DelayFrames
 ; 14c10
 
 
@@ -302,8 +298,7 @@ SavingDontTurnOffThePower: ; 14c99
 	ld [Options], a
 	; Wait for 16 frames
 	ld c, $10
-	call DelayFrames
-	ret
+	jp DelayFrames
 ; 14cbb
 
 
@@ -338,16 +333,14 @@ EraseHallOfFame: ; 14d06
 ; 14d18
 
 SaveData: ; 14d68
-	call _SaveData
-	ret
+	jp _SaveData
 ; 14d6c
 
 HallOfFame_InitSaveIfNeeded: ; 14da0
 	ld a, [wSavedAtLeastOnce]
 	and a
 	ret nz
-	call ErasePreviousSave
-	ret
+	jp ErasePreviousSave
 ; 14da9
 
 ValidateSave: ; 14da9
@@ -414,8 +407,7 @@ SaveChecksum: ; 14e13
 	ld [sChecksum + 0], a
 	ld a, d
 	ld [sChecksum + 1], a
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 ; 14e2d
 
 ValidateBackupSave: ; 14e2d
@@ -425,8 +417,7 @@ ValidateBackupSave: ; 14e2d
 	ld [s0_b208], a
 	ld a, " "
 	ld [s0_bf0f], a
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 ; 14e40
 
 SaveBackupOptions: ; 14e40
@@ -476,8 +467,7 @@ SaveBackupChecksum: ; 14e8b
 	ld [sBackupChecksum + 0], a
 	ld a, d
 	ld [sBackupChecksum + 1], a
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 ; 14ea5
 
 
@@ -542,8 +532,7 @@ TryLoadSaveData: ; 14f1c
 	ld de, StatusFlags
 	ld a, [hl]
 	ld [de], a
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 
 .backup
 	call CheckBackupSaveFile
@@ -561,8 +550,7 @@ TryLoadSaveData: ; 14f1c
 	ld de, StatusFlags
 	ld a, [hl]
 	ld [de], a
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 
 .corrupt
 	ld hl, DefaultOptions
@@ -602,8 +590,7 @@ CheckPrimarySaveFile: ; 14f84
 	ld [wSaveFileExists], a
 
 .nope
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 ; 14faf
 
 CheckBackupSaveFile: ; 14faf
@@ -623,8 +610,7 @@ CheckBackupSaveFile: ; 14faf
 	ld [wSaveFileExists], a
 
 .nope
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 ; 14fd7
 
 

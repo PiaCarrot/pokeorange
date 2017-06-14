@@ -103,8 +103,7 @@ RadioMusicRestartDE: ; 91854 (24:5854)
 	pop de
 	ld a, e
 	ld [wMapMusic], a
-	call PlayMusic
-	ret
+	jp PlayMusic
 
 RadioMusicRestartPokemonChannel: ; 91868 (24:5868)
 	push de
@@ -114,8 +113,7 @@ RadioMusicRestartPokemonChannel: ; 91868 (24:5868)
 	call PlayMusic
 	pop de
 	ld de, MUSIC_POKEMON_CHANNEL
-	call PlayMusic
-	ret
+	jp PlayMusic
 
 Radio_BackUpFarCallParams: ; 9187c (24:587c)
 	ld [wRadioChannelBank], a
@@ -164,8 +162,7 @@ PlayRadio: ; 91a53
 .stop
 	pop af
 	ld [Options], a
-	call ExitRadio_HandleMusic
-	ret
+	jp ExitRadio_HandleMusic
 
 ; 91a87
 
@@ -196,8 +193,7 @@ PlayRadio: ; 91a53
 	ld h, b
 	ld l, c
 	ld [hl], $73
-	call WaitBGMap
-	ret
+	jp WaitBGMap
 
 ; 91ab9
 

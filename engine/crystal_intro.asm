@@ -102,8 +102,7 @@ Copyright_GFPresents: ; e4579
 	ld a, $90
 	ld [hWY], a
 	lb de, %11100100, %11100100
-	call DmgToCgbObjPals
-	ret
+	jp DmgToCgbObjPals
 ; e465e
 
 .StopGamefreakAnim: ; e465e
@@ -111,8 +110,7 @@ Copyright_GFPresents: ; e4579
 	call ClearTileMap
 	call ClearSprites
 	ld c, 16
-	call DelayFrames
-	ret
+	jp DelayFrames
 ; e4670
 
 PlaceGameFreakPresents: ; e4670
@@ -161,8 +159,7 @@ PlaceGameFreakPresents_1: ; e468d
 	call CopyBytes
 	call PlaceGameFreakPresents_AdvanceIndex
 	ld de, SFX_GAME_FREAK_PRESENTS
-	call PlaySFX
-	ret
+	jp PlaySFX
 ; e46af
 
 .GAME_FREAK:
@@ -269,8 +266,7 @@ GameFreakLogoScene2: ; e470d (39:470d)
 	sub $30
 	ld [hl], a
 	ld de, SFX_DITTO_BOUNCE
-	call PlaySFX
-	ret
+	jp PlaySFX
 
 .asm_e4747
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
@@ -280,8 +276,7 @@ GameFreakLogoScene2: ; e470d (39:470d)
 	add hl, bc
 	ld [hl], $0
 	ld de, SFX_DITTO_POP_UP
-	call PlaySFX
-	ret
+	jp PlaySFX
 
 GameFreakLogoScene3: ; e4759 (39:4759)
 	ld hl, SPRITEANIMSTRUCT_0D
@@ -300,8 +295,7 @@ GameFreakLogoScene3: ; e4759 (39:4759)
 	add hl, bc
 	ld [hl], $0
 	ld de, SFX_DITTO_TRANSFORM
-	call PlaySFX
-	ret
+	jp PlaySFX
 
 GameFreakLogoScene4: ; e4776 (39:4776)
 	ld hl, SPRITEANIMSTRUCT_0D

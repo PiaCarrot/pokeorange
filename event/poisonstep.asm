@@ -105,8 +105,7 @@ DoPoisonStep:: ; 505da
 	call PlaySFX
 	ld b, $2
 	predef LoadPoisonBGPals
-	call DelayFrame
-	ret
+	jp DelayFrame
 ; 50669
 
 .Script_MonFaintedToPoison: ; 50669

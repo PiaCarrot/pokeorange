@@ -8,8 +8,7 @@ SelectMonFromParty: ; 50000
 	call SetPalettes
 	call DelayFrame
 	call PartyMenuSelect
-	call ReturnToMapWithSpeechTextbox
-	ret
+	jp ReturnToMapWithSpeechTextbox
 ; 5001d
 
 
@@ -25,8 +24,7 @@ SelectTradeOrDaycareMon: ; 5001d
 	call SetPalettes
 	call DelayFrame
 	call PartyMenuSelect
-	call ReturnToMapWithSpeechTextbox
-	ret
+	jp ReturnToMapWithSpeechTextbox
 ; 5003f
 
 InitPartyMenuLayout: ; 5003f
@@ -34,8 +32,7 @@ InitPartyMenuLayout: ; 5003f
 	call InitPartyMenuWithCancel
 	call InitPartyMenuGFX
 	call WritePartyMenuTilemap
-	call PrintPartyMenuText
-	ret
+	jp PrintPartyMenuText
 ; 5004f
 
 LoadPartyMenuGFX: ; 5004f
@@ -112,8 +109,7 @@ PlacePartyNicknames: ; 5009b
 	dec hl
 	dec hl
 	ld de, .CANCEL
-	call PlaceString
-	ret
+	jp PlaceString
 ; 500c8
 
 .CANCEL: ; 500c8
@@ -160,8 +156,7 @@ PlacePartyHPBar: ; 500cf
 	dec c
 	jr nz, .loop
 	ld b, SCGB_PARTY_MENU
-	call GetSGBLayout
-	ret
+	jp GetSGBLayout
 ; 50117
 
 PlacePartymonHPBar: ; 50117
@@ -753,8 +748,7 @@ PrintPartyMenuActionText: ; 50566
 	ld a, [PartyMenuActionText]
 	and $f
 	ld hl, .MenuActionTexts
-	call .PrintText
-	ret
+	jp .PrintText
 ; 5057b
 
 .MenuActionTexts: ; 5057b

@@ -71,8 +71,7 @@ Special_CheckBugContestContestantFlag: ; 139ed
 	inc hl
 	ld d, [hl]
 	ld b, CHECK_FLAG
-	call EventFlagAction
-	ret
+	jp EventFlagAction
 ; 139fe
 
 BugCatchingContestantEventFlagTable: ; 139fe

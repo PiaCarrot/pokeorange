@@ -104,8 +104,7 @@ ReanchorBGMap_NoOAMUpdate:: ; 6454
 	xor a
 	ld [hSCX], a
 	ld [hSCY], a
-	call ApplyBGMapAnchorToObjects
-	ret
+	jp ApplyBGMapAnchorToObjects
 
 .LoadBGMapAddrIntoHRAM: ; 64b9
 	ld [hBGMapAddress + 1], a
@@ -253,8 +252,7 @@ BugContest_SetCaughtContestMon: ; e6ce
 	ld [wd265], a
 	call GetPokemonName
 	ld hl, .caughttext
-	call PrintText
-	ret
+	jp PrintText
 
 .generatestats ; e6fd
 	ld a, [TempEnemyMonSpecies]
@@ -430,8 +428,7 @@ SetMemEvent: ; 1364f
 	ld d, [hl]
 	ld e, a
 	ld b, SET_FLAG
-	call EventFlagAction
-	ret
+	jp EventFlagAction
 
 CheckFacingTileForStd:: ; 1365b
 ; Checks to see if the tile you're facing has a std script associated with it.  If so, executes the script and returns carry.
@@ -674,8 +671,7 @@ PlaceMenuItemName: ; 0x24ab4
 	ld [wNamedObjectIndexBuffer], a
 	call GetItemName
 	pop hl
-	call PlaceString
-	ret
+	jp PlaceString
 
 PlaceMenuItemQuantity: ; 0x24ac3
 	push de
@@ -719,8 +715,7 @@ PlaceMoneyDataHeader: ; 24b01
 	add hl, de
 	ld de, Money
 	lb bc, PRINTNUM_MONEY | 3, 6
-	call PrintNum
-	ret
+	jp PrintNum
 
 MenuDataHeader_0x24b15: ; 0x24b15
 	db $40 ; flags
@@ -751,8 +746,7 @@ Special_DisplayCoinCaseBalance: ; 24b25
 	ld de, Coins
 	lb bc, 2, 4
 	hlcoord 13, 1
-	call PrintNum
-	ret
+	jp PrintNum
 
 Special_DisplayMoneyAndCoinBalance: ; 24b4e
 	hlcoord 5, 0
@@ -772,8 +766,7 @@ Special_DisplayMoneyAndCoinBalance: ; 24b4e
 	hlcoord 15, 3
 	ld de, Coins
 	lb bc, 2, 4
-	call PrintNum
-	ret
+	jp PrintNum
 
 MoneyString: ; 24b83
 	db "MONEY@"
@@ -786,8 +779,7 @@ StartMenu_DrawBugContestStatusBox: ; 24bdc
 	hlcoord 0, 0
 	ld b, 5
 	ld c, 17
-	call TextBox
-	ret
+	jp TextBox
 
 StartMenu_PrintBugContestStatus: ; 24be7
 	ld hl, Options
@@ -1120,8 +1112,7 @@ ShowLinkBattleParticipants: ; 2ee18
 	ld c, 150
 	call DelayFrames
 	call ClearTileMap
-	call ClearSprites
-	ret
+	jp ClearSprites
 
 FindFirstAliveMonAndStartBattle: ; 2ee2f
 	xor a
@@ -1491,8 +1482,7 @@ AnimateDexSearchSlowpoke: ; 441cf
 	ld [wDexSearchSlowpokeFrame], a
 	call DoDexSearchSlowpokeFrame
 	ld c, 32
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 .FrameIDs: ; 441fc
 	; frame ID, duration
@@ -1673,8 +1663,7 @@ DisplayDexEntry: ; 4424d
 	inc de
 	pop af
 	hlcoord 2, 11
-	call FarString
-	ret
+	jp FarString
 
 INCLUDE "data/pokedex/entry_pointers.asm"
 
@@ -1716,8 +1705,7 @@ Special_MoveTutor: ; 4925b
 	ld a, -1
 	ld [ScriptVar], a
 .quit
-	call CloseSubmenu
-	ret
+	jp CloseSubmenu
 
 .GetMoveTutorMove: ; 492a5
 	ld a, [ScriptVar]
@@ -1894,8 +1882,7 @@ EmptyAllSRAMBanks: ; 4cf1f
 	ld a, $2
 	call .EmptyBank
 	ld a, $3
-	call .EmptyBank
-	ret
+	jp .EmptyBank
 
 .EmptyBank: ; 4cf34
 	call GetSRAMBank
@@ -2062,8 +2049,7 @@ LinkMonStatsScreen: ; 4d319
 	farcall Link_WaitBGMap
 	farcall InitTradeSpeciesList
 	farcall SetTradeRoomBGPals
-	call WaitBGMap2
-	ret
+	jp WaitBGMap2
 
 Link_WaitBGMap: ; 4d354
 	call WaitBGMap
@@ -2779,8 +2765,7 @@ InitDisplayForHallOfFame: ; 4e881
 	ld hl, .SavingRecordDontTurnOff
 	call PrintText
 	call WaitBGMap2
-	call SetPalettes
-	ret
+	jp SetPalettes
 
 .SavingRecordDontTurnOff: ; 0x4e8bd
 	; SAVING RECORD… DON'T TURN OFF!
@@ -2816,8 +2801,7 @@ InitDisplayForRedCredits: ; 4e8c2
 	ld [hSCX], a
 	call EnableLCD
 	call WaitBGMap2
-	call SetPalettes
-	ret
+	jp SetPalettes
 
 ResetDisplayBetweenHallOfFameMons: ; 4e906
 	ld a, [rSVBK]
@@ -3714,8 +3698,7 @@ _SwitchPartyMons:
 	dec c
 	jr nz, .gfx_loop
 	ld de, SFX_SWITCH_POKEMON
-	call WaitPlaySFX
-	ret
+	jp WaitPlaySFX
 
 .SwapMonAndMail: ; 50f62 (14:4f62)
 	push hl
@@ -3819,8 +3802,7 @@ _SwitchPartyMons:
 
 .CopyName: ; 51039 (14:5039)
 	ld bc, NAME_LENGTH
-	call CopyBytes
-	ret
+	jp CopyBytes
 
 INCLUDE "gfx/load_pics.asm"
 INCLUDE "engine/move_mon_wo_mail.asm"
@@ -4057,8 +4039,7 @@ INCLUDE "event/field_moves.asm"
 INCLUDE "event/magnet_train.asm"
 
 BattleStart_LoadEDTile: ; 8cf4f
-	call CGBOnly_LoadEDTile
-	ret
+	jp CGBOnly_LoadEDTile
 
 INCLUDE "engine/sprites.asm"
 
@@ -4494,8 +4475,7 @@ PrintHoursMins ; 1dd6bb (77:56bb)
 	ld de, String_PM
 .place_am_pm
 	inc hl
-	call PlaceString
-	ret
+	jp PlaceString
 
 String_AM: db "AM@" ; 1dd6fc
 String_PM: db "PM@" ; 1dd6ff
@@ -4505,8 +4485,7 @@ INCLUDE "engine/diploma.asm"
 LoadSGBPokedexGFX: ; 1ddf1c
 	ld hl, SGBPokedexGFX_LZ
 	ld de, VTiles2 tile $31
-	call Decompress
-	ret
+	jp Decompress
 
 SGBPokedexGFX_LZ: ; 1ddf33
 INCBIN "gfx/pokedex/sgb.2bpp.lz"
@@ -4514,8 +4493,7 @@ INCBIN "gfx/pokedex/sgb.2bpp.lz"
 LoadQuestionMarkPic: ; 1de0d7
 	ld hl, .QuestionMarkLZ
 	ld de, sScratch
-	call Decompress
-	ret
+	jp Decompress
 
 .QuestionMarkLZ: ; 1de0e1
 INCBIN "gfx/pics/questionmark/front.2bpp.lz"
@@ -4589,8 +4567,7 @@ DrawPokedexSearchResultsWindow: ; 1de1d1 (77:61d1)
 	call ClearBox
 	ld de, .esults_D
 	hlcoord 0, 12
-	call PlaceString
-	ret
+	jp PlaceString
 
 .esults_D ; 1de23c
 ; (SEARCH R)

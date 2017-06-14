@@ -222,8 +222,7 @@ InitPartyMenuPalettes:
 	ld hl, PalPacket_PartyMenu
 	call CopyFourPalettes
 	call InitPartyMenuOBPals
-	call WipeAttrMap
-	ret
+	jp WipeAttrMap
 
 ApplyMonOrTrainerPals:
 	ld a, e
@@ -292,8 +291,7 @@ ApplyHPBarPals:
 .done
 	lb bc, 2, 8
 	ld a, e
-	call FillBoxCGB
-	ret
+	jp FillBoxCGB
 
 LoadStatsScreenPals:
 	ld hl, StatsScreenPals
@@ -516,16 +514,14 @@ WipeAttrMap:
 	hlcoord 0, 0, AttrMap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	xor a
-	call ByteFill
-	ret
+	jp ByteFill
 
 ApplyPals:
 	ld hl, UnknBGPals
 	ld de, BGPals
 	ld bc, 16 palettes
 	ld a, $5
-	call FarCopyWRAM
-	ret
+	jp FarCopyWRAM
 
 ApplyAttrMap:
 	ld a, [rLCDC]
@@ -592,16 +588,14 @@ CGB_ApplyPartyMenuHPPals: ; 96f3 CGB layout $fc
 .done
 	lb bc, 2, 8
 	ld a, e
-	call FillBoxCGB
-	ret
+	jp FillBoxCGB
 
 InitPartyMenuOBPals:
 	ld hl, PartyMenuOBPals
 	ld de, UnknOBPals
 	ld bc, 2 palettes
 	ld a, $5
-	call FarCopyWRAM
-	ret
+	jp FarCopyWRAM
 
 GetPlayerOrMonPalettePointer:
 	and a
@@ -634,8 +628,7 @@ GetTrainerPalettePointer:
 	ret
 
 GetMonPalettePointer_:
-	call GetMonPalettePointer
-	ret
+	jp GetMonPalettePointer
 
 InitCGBPals::
 	ld a, $1
@@ -803,8 +796,7 @@ endr
 	ld de, UnknBGPals + 6 palettes + 2
 	ld bc, 4
 	ld a, $5
-	call FarCopyWRAM
-	ret
+	jp FarCopyWRAM
 
 .TilesetColorsPointers:
 	dw .OutdoorColors ; unused

@@ -47,8 +47,7 @@ Pack: ; 10000
 	call Pack_InitGFX
 	ld a, [wcf64]
 	ld [wJumptableIndex], a
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 
 .InitItemsPocket: ; 10056 (4:4056)
 	xor a
@@ -75,8 +74,7 @@ Pack: ; 10000
 	ld c, $3
 	call Pack_InterpretJoypad
 	ret c
-	call .ItemBallsKey_LoadSubmenu
-	ret
+	jp .ItemBallsKey_LoadSubmenu
 
 .InitKeyItemsPocket: ; 10094 (4:4094)
 	ld a, $2
@@ -103,8 +101,7 @@ Pack: ; 10000
 	ld c, $7
 	call Pack_InterpretJoypad
 	ret c
-	call .ItemBallsKey_LoadSubmenu
-	ret
+	jp .ItemBallsKey_LoadSubmenu
 
 .InitTMHMPocket: ; 100d3 (4:40d3)
 	ld a, $3
@@ -208,8 +205,7 @@ Pack: ; 10000
 	ld [hBGMapMode], a
 	call Pack_InitGFX
 	call WaitBGMap_DrawPackGFX
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 
 .InitBallsPocket: ; 10186 (4:4186)
 	ld a, $1
@@ -236,8 +232,7 @@ Pack: ; 10000
 	ld c, $5
 	call Pack_InterpretJoypad
 	ret c
-	call .ItemBallsKey_LoadSubmenu
-	ret
+	jp .ItemBallsKey_LoadSubmenu
 
 .ItemBallsKey_LoadSubmenu: ; 101c5 (4:41c5)
 	farcall _CheckTossableItem
@@ -475,12 +470,10 @@ UseItem: ; 10311
 
 .Oak: ; 1032d (4:432d)
 	ld hl, Text_ThisIsntTheTime
-	call Pack_PrintTextNoScroll
-	ret
+	jp Pack_PrintTextNoScroll
 
 .Current: ; 10334 (4:4334)
-	call DoItemEffect
-	ret
+	jp DoItemEffect
 
 .Party: ; 10338 (4:4338)
 	ld a, [PartyCount]
@@ -491,13 +484,11 @@ UseItem: ; 10311
 	ld [hBGMapMode], a
 	call Pack_InitGFX
 	call WaitBGMap_DrawPackGFX
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 
 .NoPokemon:
 	ld hl, TextJump_YouDontHaveAPkmn
-	call Pack_PrintTextNoScroll
-	ret
+	jp Pack_PrintTextNoScroll
 
 .Field: ; 10355 (4:4355)
 	call DoItemEffect
@@ -556,13 +547,11 @@ RegisterItem: ; 103c2
 	ld de, SFX_FULL_HEAL
 	call WaitPlaySFX
 	ld hl, Text_RegisteredItem
-	call Pack_PrintTextNoScroll
-	ret
+	jp Pack_PrintTextNoScroll
 
 .cant_register
 	ld hl, Text_CantRegister
-	call Pack_PrintTextNoScroll
-	ret
+	jp Pack_PrintTextNoScroll
 ; 103fd
 
 GiveItem: ; 103fd
@@ -616,13 +605,11 @@ GiveItem: ; 103fd
 	ld [hBGMapMode], a
 	call Pack_InitGFX
 	call WaitBGMap_DrawPackGFX
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 
 .NoPokemon: ; 10486 (4:4486)
 	ld hl, TextJump_YouDontHaveAPkmn
-	call Pack_PrintTextNoScroll
-	ret
+	jp Pack_PrintTextNoScroll
 ; 1048d (4:448d)
 .Egg: ; 0x1048d
 	; An EGG can't hold an item.
@@ -683,8 +670,7 @@ BattlePack: ; 10493
 	call Pack_InitGFX
 	ld a, [wcf64]
 	ld [wJumptableIndex], a
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 
 .InitItemsPocket: ; 104e9 (4:44e9)
 	xor a
@@ -711,8 +697,7 @@ BattlePack: ; 10493
 	ld c, $3
 	call Pack_InterpretJoypad
 	ret c
-	call ItemSubmenu
-	ret
+	jp ItemSubmenu
 
 .InitKeyItemsPocket: ; 10527 (4:4527)
 	ld a, $2
@@ -739,8 +724,7 @@ BattlePack: ; 10493
 	ld c, $7
 	call Pack_InterpretJoypad
 	ret c
-	call ItemSubmenu
-	ret
+	jp ItemSubmenu
 
 .InitTMHMPocket: ; 10566 (4:4566)
 	ld a, $3
@@ -762,8 +746,7 @@ BattlePack: ; 10493
 	call Pack_InterpretJoypad
 	ret c
 	xor a
-	call TMHMSubmenu
-	ret
+	jp TMHMSubmenu
 
 .InitBallsPocket: ; 10594 (4:4594)
 	ld a, $1
@@ -790,8 +773,7 @@ BattlePack: ; 10493
 	ld c, $5
 	call Pack_InterpretJoypad
 	ret c
-	call ItemSubmenu
-	ret
+	jp ItemSubmenu
 
 ItemSubmenu: ; 105d3 (4:45d3)
 	farcall CheckItemContext
@@ -878,8 +860,7 @@ TMHMSubmenu: ; 105dc (4:45dc)
 
 .Oak: ; 10645 (4:4645)
 	ld hl, Text_ThisIsntTheTime
-	call Pack_PrintTextNoScroll
-	ret
+	jp Pack_PrintTextNoScroll
 
 .Unused: ; 1064c (4:464c)
 	call DoItemEffect
@@ -897,8 +878,7 @@ TMHMSubmenu: ; 105dc (4:45dc)
 	ld [hBGMapMode], a
 	call Pack_InitGFX
 	call WaitBGMap_DrawPackGFX
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 
 .ReturnToBattle: ; 1066c (4:466c)
 	call ClearBGPalettes
@@ -1038,8 +1018,7 @@ InitPocket: ; 10762 (4:4762)
 	ld [wCurrPocket], a
 	call ClearPocketList
 	call DrawPocketName
-	call WaitBGMap_DrawPackGFX
-	ret
+	jp WaitBGMap_DrawPackGFX
 
 DepositSell_InterpretJoypad: ; 1076f
 	ld hl, wMenuJoypad
@@ -1155,8 +1134,7 @@ DrawPackGFX: ; 1089d
 	ld d, [hl]
 	ld hl, VTiles2 tile $50
 	lb bc, BANK(PackGFX), 15 ; BANK(PackFGFX), 15
-	call Request2bpp
-	ret
+	jp Request2bpp
 ; 108cc
 
 PackGFXPointers: ; 108cc
@@ -1291,8 +1269,7 @@ Pack_InitGFX: ; 10955
 	lb bc, 4, SCREEN_WIDTH - 2
 	call TextBox
 	call EnableLCD
-	call DrawPackGFX
-	ret
+	jp DrawPackGFX
 ; 109a5
 
 PlacePackGFX: ; 109a5
@@ -1370,16 +1347,14 @@ Pack_GetItemName: ; 10a1d
 ClearPocketList: ; 10a36 (4:4a36)
 	hlcoord 5, 2
 	lb bc, 10, SCREEN_WIDTH - 5
-	call ClearBox
-	ret
+	jp ClearBox
 
 Pack_InitColors: ; 10a40
 	call WaitBGMap
 	ld b, SCGB_PACK_PALS
 	call GetSGBLayout
 	call SetPalettes
-	call DelayFrame
-	ret
+	jp DelayFrame
 ; 10a4f
 
 ItemsPocketMenuDataHeader: ; 0x10a4f

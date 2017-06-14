@@ -1282,8 +1282,7 @@ RareCandy_StatBooster_GetParameters: ; eef5
 	call GetBaseData
 	ld a, [CurPartyMon]
 	ld hl, PartyMonNicknames
-	call GetNick
-	ret
+	jp GetNick
 ; 0xef14
 
 
@@ -1857,8 +1856,7 @@ StatusHealer_ExitMenu: ; f29e (3:729e)
 	xor a
 	ld [wItemEffectSucceeded], a
 StatusHealer_ClearPalettes: ; f2a2 (3:72a2)
-	call ClearPalettes
-	ret
+	jp ClearPalettes
 
 IsItemUsedOnBattleMon: ; f2a6 (3:72a6)
 	ld a, [wBattleMode]
@@ -1936,8 +1934,7 @@ RemoveHP: ; f2f9 (3:72f9)
 	ld [hld], a
 	ld [hl], a
 .okay
-	call LoadCurHPIntoBuffer5
-	ret
+	jp LoadCurHPIntoBuffer5
 
 IsMonFainted: ; f30d (3:730d)
 	push de
@@ -2694,8 +2691,7 @@ SacredAsh: ; f753
 	ld a, [wItemEffectSucceeded]
 	cp $1
 	ret nz
-	call UseDisposableItem
-	ret
+	jp UseDisposableItem
 ; f763
 
 

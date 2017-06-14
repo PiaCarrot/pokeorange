@@ -78,8 +78,7 @@ HallOfFame_PlayMusicDE: ; 864b4
 	call PlayMusic
 	call DelayFrame
 	pop de
-	call PlayMusic
-	ret
+	jp PlayMusic
 ; 864c3
 
 AnimateHallOfFame: ; 864c3
@@ -116,8 +115,7 @@ AnimateHallOfFame: ; 864c3
 	ld [MusicFade], a
 	call RotateThreePalettesRight
 	ld c, 8
-	call DelayFrames
-	ret
+	jp DelayFrames
 ; 8650c
 
 .DisplayNewHallOfFamer: ; 8650c
@@ -277,8 +275,7 @@ AnimateHOFMonEntrance: ; 865b5
 	xor a
 	ld [hBGMapMode], a
 	ld [hSCY], a
-	call HOF_SlideFrontpic
-	ret
+	jp HOF_SlideFrontpic
 ; 86635
 
 HOF_SlideBackpic:
@@ -525,8 +522,7 @@ DisplayHOFMon: ; 86748
 	hlcoord 10, 16
 	ld de, TempMonID
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
-	ret
+	jp PrintNum
 ; 86810
 
 HOF_AnimatePlayerPic: ; 86810

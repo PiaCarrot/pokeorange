@@ -99,8 +99,7 @@ Slots_GetPals: ; 9279b (24:679b)
 	ld a, %11100100
 	call DmgToCgbBGPals
 	lb de, %11100100, %11100100
-	call DmgToCgbObjPals
-	ret
+	jp DmgToCgbObjPals
 
 SlotsLoop: ; 927af (24:67af)
 	ld a, [wJumptableIndex]
@@ -134,8 +133,7 @@ SlotsLoop: ; 927af (24:67af)
 	and a
 	jr nz, .matching_sevens
 	ld a, %11100100
-	call DmgToCgbBGPals
-	ret
+	jp DmgToCgbBGPals
 
 .matching_sevens
 	ld a, [TextDelayFrames]
@@ -143,8 +141,7 @@ SlotsLoop: ; 927af (24:67af)
 	ret nz
 	ld a, [rBGP]
 	xor %00001100
-	call DmgToCgbBGPals
-	ret
+	jp DmgToCgbBGPals
 
 ; 927f8
 
@@ -156,8 +153,7 @@ SlotsLoop: ; 927af (24:67af)
 	hlcoord 11, 1
 	ld de, wPayout
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 4
-	call PrintNum
-	ret
+	jp PrintNum
 
 ; 92811 (24:6811)
 
@@ -222,8 +218,7 @@ Slots_BetAndStart: ; 9288e (24:688e)
 	ld [wReel3Slot09], a
 	call WaitSFX
 	ld a, SFX_SLOT_MACHINE_START
-	call Slots_PlaySFX
-	ret
+	jp Slots_PlaySFX
 
 Slots_WaitStart: ; 928c6 (24:68c6)
 	ld hl, wcf64
@@ -326,8 +321,7 @@ Slots_FlashScreen: ; 9296b (24:696b)
 	xor $ff
 	ld e, a
 	ld d, a
-	call DmgToCgbObjPals
-	ret
+	jp DmgToCgbObjPals
 
 .done
 	call Slots_GetPals
@@ -343,8 +337,7 @@ Slots_GiveEarnedCoins: ; 92987 (24:6987)
 	call SlotGetPayout
 	xor a
 	ld [wcf64], a
-	call Slots_Next
-	ret
+	jp Slots_Next
 
 Slots_PayoutTextAndAnim: ; 9299e (24:699e)
 	call SlotPayoutText
@@ -380,12 +373,10 @@ Slots_PayoutAnim: ; 929a4 (24:69a4)
 	and $7
 	ret z ; ret nz would be more appropriate
 	ld de, SFX_GET_COIN_FROM_SLOTS
-	call PlaySFX
-	ret
+	jp PlaySFX
 
 .done
-	call Slots_Next
-	ret
+	jp Slots_Next
 
 Slots_RestartOrQuit: ; 929d9 (24:69d9)
 	call Slots_DeilluminateBetLights
@@ -582,8 +573,7 @@ InitReelTiles: ; 92a98 (24:6a98)
 	ld hl, wReel1XCoord - wReel1
 	add hl, bc
 	ld [hl], 14 * 8
-	call .OAM
-	ret
+	jp .OAM
 
 .OAM: ; 92af9 (24:6af9)
 	ld hl, wReel1ReelAction - wReel1
@@ -595,8 +585,7 @@ InitReelTiles: ; 92a98 (24:6a98)
 	ld hl, wReel1SpinDistance - wReel1
 	add hl, bc
 	ld [hl], $0
-	call UpdateReelPositionAndOAM
-	ret
+	jp UpdateReelPositionAndOAM
 
 Slots_SpinReels: ; 92b0f (24:6b0f)
 	ld bc, wReel1
@@ -604,8 +593,7 @@ Slots_SpinReels: ; 92b0f (24:6b0f)
 	ld bc, wReel2
 	call .SpinReel
 	ld bc, wReel3
-	call .SpinReel
-	ret
+	jp .SpinReel
 
 .SpinReel: ; 92b22 (24:6b22)
 	ld hl, wReel1SpinDistance - wReel1
@@ -847,8 +835,7 @@ ReelAction_StopReel1: ; 92c5e
 	call .CheckForBias
 	ret nz
 .NoBias:
-	call Slots_StopReel
-	ret
+	jp Slots_StopReel
 
 ; 92c76
 
@@ -888,8 +875,7 @@ ReelAction_StopReel2: ; 92c86
 	ret
 
 .NoBias:
-	call Slots_StopReel
-	ret
+	jp Slots_StopReel
 
 ; 92ca9
 
@@ -920,8 +906,7 @@ ReelAction_StopReel3: ; 92ca9
 	ret
 
 .NoBias:
-	call Slots_StopReel
-	ret
+	jp Slots_StopReel
 
 ; 92cd2
 
@@ -931,8 +916,7 @@ ReelAction_SetUpReel2SkipTo7: ; 92cd2
 	ld a, [wFirstTwoReelsMatchingSevens]
 	and a
 	jr z, .no_match
-	call Slots_StopReel
-	ret
+	jp Slots_StopReel
 
 .no_match
 	ld a, SFX_STOP_SLOT
@@ -978,8 +962,7 @@ ReelAction_FastSpinReel2UntilLinedUp7s: ; 92d13
 	ld a, [wFirstTwoReelsMatchingSevens]
 	and a
 	ret z
-	call Slots_StopReel
-	ret
+	jp Slots_StopReel
 
 ; 92d20
 
@@ -1106,8 +1089,7 @@ ReelAction_DropReel: ; 92dca
 	jr nz, .EggAgain
 	ld a, $5
 	ld [wcf64], a
-	call Slots_StopReel
-	ret
+	jp Slots_StopReel
 
 .EggAgain:
 	ld hl, wReel1SpinRate - wReel1
@@ -1201,8 +1183,7 @@ ReelAction_WaitSlowAdvanceReel3: ; 92e64
 	dec [hl]
 .play_sfx
 	ld a, SFX_GOT_SAFARI_BALLS
-	call Slots_PlaySFX
-	ret
+	jp Slots_PlaySFX
 
 .check1
 	ld a, [wSlotBias]
@@ -1766,8 +1747,7 @@ SlotPayoutText: ; 93158 (24:7158)
 	cp -1
 	jr nz, .MatchedSomething
 	ld hl, .Text_Darn
-	call PrintText
-	ret
+	jp PrintText
 
 .MatchedSomething:
 	srl a
@@ -1789,8 +1769,7 @@ SlotPayoutText: ; 93158 (24:7158)
 
 .return
 	ld hl, .Text_PrintPayout
-	call PrintText
-	ret
+	jp PrintText
 
 ; 93195 (24:7195)
 
@@ -1947,8 +1926,7 @@ SlotMachine_AnimateGolem: ; 9321d (24:721d)
 	ld a, $1
 	ld [wcf64], a
 	ld a, SFX_PLACE_PUZZLE_PIECE_DOWN
-	call Slots_PlaySFX
-	ret
+	jp Slots_PlaySFX
 
 .roll ; 93289 (24:7289)
 	ld hl, SPRITEANIMSTRUCT_XOFFSET
@@ -2007,8 +1985,7 @@ Slots_AnimateChansey: ; 932ac (24:72ac)
 	and $f
 	ret nz
 	ld de, SFX_JUMP_OVER_LEDGE
-	call PlaySFX
-	ret
+	jp PlaySFX
 
 .limit
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX

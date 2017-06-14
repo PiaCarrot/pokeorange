@@ -27,8 +27,7 @@ ScriptEvents:: ; 96c5e
 	dw WaitScript
 
 EndScript: ; 96c76
-	call StopScript
-	ret
+	jp StopScript
 ; 96c7a
 
 WaitScript: ; 96c7a
@@ -42,8 +41,7 @@ WaitScript: ; 96c7a
 
 	ld a, SCRIPT_READ
 	ld [ScriptMode], a
-	call StartScript
-	ret
+	jp StartScript
 ; 96c91
 
 WaitScriptMovement: ; 96c91
@@ -57,8 +55,7 @@ WaitScriptMovement: ; 96c91
 
 	ld a, SCRIPT_READ
 	ld [ScriptMode], a
-	call StartScript
-	ret
+	jp StartScript
 ; 96ca9
 
 RunScriptCommand: ; 96ca9
@@ -365,8 +362,7 @@ Script_writetext: ; 96e9b
 	ld h, a
 	ld a, [ScriptBank]
 	ld b, a
-	call MapTextbox
-	ret
+	jp MapTextbox
 ; 96eab
 
 Script_farwritetext: ; 96eab
@@ -380,8 +376,7 @@ Script_farwritetext: ; 96eab
 	ld l, a
 	call GetScriptByte
 	ld h, a
-	call MapTextbox
-	ret
+	jp MapTextbox
 ; 96ebb
 
 Script_repeattext: ; 96ebb
@@ -405,8 +400,7 @@ Script_repeattext: ; 96ebb
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call MapTextbox
-	ret
+	jp MapTextbox
 
 .done
 	ret
@@ -600,8 +594,7 @@ Script_itemnotify: ; 96fc6
 	call CurItemName
 	ld b, BANK(PutItemInPocketText)
 	ld hl, PutItemInPocketText
-	call MapTextbox
-	ret
+	jp MapTextbox
 ; 96fd5
 
 Script_pocketisfull: ; 96fd5
@@ -611,8 +604,7 @@ Script_pocketisfull: ; 96fd5
 	call CurItemName
 	ld b, BANK(PocketIsFullText)
 	ld hl, PocketIsFullText
-	call MapTextbox
-	ret
+	jp MapTextbox
 ; 96fe4
 
 Script_specialsound: ; 96fe4
@@ -645,8 +637,7 @@ GetPocketName: ; 96ffe
 	ld d, [hl]
 	ld e, a
 	ld hl, StringBuffer3
-	call CopyName2
-	ret
+	jp CopyName2
 
 .Pockets:
 	dw .Item
@@ -667,8 +658,7 @@ GetPocketName: ; 96ffe
 CurItemName: ; 97051
 	ld a, [CurItem]
 	ld [wd265], a
-	call GetItemName
-	ret
+	jp GetItemName
 ; 9705b
 
 
@@ -777,8 +767,7 @@ Script_trainertext: ; 9710f
 	ld l, a
 	ld a, [EngineBuffer1]
 	ld b, a
-	call MapTextbox
-	ret
+	jp MapTextbox
 ; 97125
 
 Script_scripttalkafter: ; 97125
@@ -868,8 +857,7 @@ Script_encountermusic: ; 9717a
 Script_playmapmusic: ; 97185
 ; script command 0x82
 
-	call PlayMapMusic
-	ret
+	jp PlayMapMusic
 ; 97189
 
 Script_playmusic: ; 97189
@@ -886,8 +874,7 @@ Script_playmusic: ; 97189
 	ld e, a
 	call GetScriptByte
 	ld d, a
-	call PlayMusic
-	ret
+	jp PlayMusic
 ; 971a2
 
 Script_musicfadeout: ; 971a2
@@ -915,23 +902,20 @@ Script_playsound: ; 971b7
 	ld e, a
 	call GetScriptByte
 	ld d, a
-	call PlaySFX
-	ret
+	jp PlaySFX
 ; 971c3
 
 Script_waitsfx: ; 971c3
 ; script command 0x86
 
-	call WaitSFX
-	ret
+	jp WaitSFX
 ; 971c7
 
 Script_warpsound: ; 971c7
 ; script command 0x87
 
 	farcall Function14a07
-	call PlaySFX
-	ret
+	jp PlaySFX
 ; 971d1
 
 Script_cry: ; 971d1
@@ -947,8 +931,7 @@ Script_cry: ; 971d1
 	jr nz, .ok
 	ld a, [ScriptVar]
 .ok
-	call PlayCry
-	ret
+	jp PlayCry
 ; 971e3
 
 GetScriptPerson: ; 971e3
@@ -1003,8 +986,7 @@ ApplyMovement: ; 971fa
 
 	ld a, SCRIPT_WAIT_MOVEMENT
 	ld [ScriptMode], a
-	call StopScript
-	ret
+	jp StopScript
 ; 97221
 
 SetFlagsForMovement_2: ; 97221
@@ -1039,8 +1021,7 @@ Script_faceplayer: ; 9722e
 	ld e, a
 	ld a, [hLastTalked]
 	ld d, a
-	call ApplyPersonFacing
-	ret
+	jp ApplyPersonFacing
 ; 97248
 
 Script_faceperson: ; 97248
@@ -1072,8 +1053,7 @@ Script_faceperson: ; 97248
 	add a
 	ld e, a
 	ld d, c
-	call ApplyPersonFacing
-	ret
+	jp ApplyPersonFacing
 ; 97274
 
 Script_spriteface: ; 97274
@@ -1093,8 +1073,7 @@ Script_spriteface: ; 97274
 	add a
 	add a
 	ld e, a
-	call ApplyPersonFacing
-	ret
+	jp ApplyPersonFacing
 ; 9728b
 
 ApplyPersonFacing: ; 9728b
@@ -1121,8 +1100,7 @@ ApplyPersonFacing: ; 9728b
 	jr nz, .text_state
 	call .DisableTextTiles
 .text_state
-	call UpdateSprites
-	ret
+	jp UpdateSprites
 
 .not_visible
 	pop de
@@ -1170,8 +1148,7 @@ Script_appear: ; 972dd
 	call _CopyObjectStruct
 	ld a, [hMapObjectIndexBuffer]
 	ld b, 0 ; clear
-	call ApplyEventActionAppearDisappear
-	ret
+	jp ApplyEventActionAppearDisappear
 ; 972ee
 
 Script_disappear: ; 972ee
@@ -1210,8 +1187,7 @@ ApplyEventActionAppearDisappear: ; 9730b
 	xor a
 	ret
 .okay
-	call EventFlagAction
-	ret
+	jp EventFlagAction
 ; 97325
 
 Script_follow: ; 97325
@@ -1715,8 +1691,7 @@ StdScript: ; 9757b
 	ld b, a
 	inc hl
 	ld a, BANK(StdScripts)
-	call GetFarHalfword
-	ret
+	jp GetFarHalfword
 ; 97596
 
 SkipTwoScriptBytes: ; 97596
@@ -2153,8 +2128,7 @@ ResetStringBuffer1: ; 97771
 	ld hl, StringBuffer1
 	ld bc, NAME_LENGTH
 	ld a, "@"
-	call ByteFill
-	ret
+	jp ByteFill
 ; 9777d
 
 Script_stringtotext: ; 9777d
@@ -2489,8 +2463,7 @@ Script_setevent: ; 97988
 	call GetScriptByte
 	ld d, a
 	ld b, SET_FLAG
-	call EventFlagAction
-	ret
+	jp EventFlagAction
 ; 97996
 
 Script_clearevent: ; 97996
@@ -2503,8 +2476,7 @@ Script_clearevent: ; 97996
 	call GetScriptByte
 	ld d, a
 	ld b, RESET_FLAG
-	call EventFlagAction
-	ret
+	jp EventFlagAction
 ; 979a4
 
 Script_checkevent: ; 979a4
@@ -2537,8 +2509,7 @@ Script_setflag: ; 979bb
 	call GetScriptByte
 	ld d, a
 	ld b, SET_FLAG
-	call _EngineFlagAction
-	ret
+	jp _EngineFlagAction
 ; 979c9
 
 Script_clearflag: ; 979c9
@@ -2551,8 +2522,7 @@ Script_clearflag: ; 979c9
 	call GetScriptByte
 	ld d, a
 	ld b, RESET_FLAG
-	call _EngineFlagAction
-	ret
+	jp _EngineFlagAction
 ; 979d7
 
 Script_checkflag: ; 979d7
@@ -2768,8 +2738,7 @@ Script_changeblock: ; 97acc
 	call GetBlockLocation
 	call GetScriptByte
 	ld [hl], a
-	call BufferScreen
-	ret
+	jp BufferScreen
 ; 97ae3
 
 Script_reloadmappart:: ; 97ae3
@@ -2780,8 +2749,7 @@ Script_reloadmappart:: ; 97ae3
 	call OverworldTextModeSwitch
 	call GetMovementPermissions
 	farcall ReloadMapPart
-	call UpdateSprites
-	ret
+	jp UpdateSprites
 ; 97af6
 
 Script_warpcheck: ; 97af6
@@ -2816,8 +2784,7 @@ Script_reloadandreturn: ; 97b16
 Script_textbox: ; 97b1c
 ; script command 0x47
 
-	call OpenText
-	ret
+	jp OpenText
 ; 97b20
 
 Script_refreshscreen: ; 97b20
@@ -2851,8 +2818,7 @@ Script_passtoengine: ; 97b36
 	call GetScriptByte
 	ld h, a
 	pop af
-	call StartAutoInput
-	ret
+	jp StartAutoInput
 ; 97b47
 
 Script_pause: ; 97b47
@@ -2885,8 +2851,7 @@ Script_deactivatefacing: ; 97b5c
 .no_time
 	ld a, SCRIPT_WAIT
 	ld [ScriptMode], a
-	call StopScript
-	ret
+	jp StopScript
 ; 97b6e
 
 Script_ptpriorityjump: ; 97b6e
@@ -2912,8 +2877,7 @@ Script_end: ; 97b74
 	ld [ScriptMode], a
 	ld hl, ScriptFlags
 	res 0, [hl]
-	call StopScript
-	ret
+	jp StopScript
 ; 97b8c
 
 Script_return: ; 97b8c
@@ -2924,8 +2888,7 @@ Script_return: ; 97b8c
 .dummy
 	ld hl, ScriptFlags
 	res 0, [hl]
-	call StopScript
-	ret
+	jp StopScript
 ; 97b9a
 
 ExitScriptSubroutine: ; 97b9a
@@ -2969,8 +2932,7 @@ Script_end_all: ; 97bc0
 	ld [ScriptMode], a
 	ld hl, ScriptFlags
 	res 0, [hl]
-	call StopScript
-	ret
+	jp StopScript
 ; 97bd5
 
 Script_halloffame: ; 97bd5

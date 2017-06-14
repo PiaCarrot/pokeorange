@@ -32,15 +32,13 @@ LoadTownMapInterfaceGFX: ; 90c4e
 	add hl, de
 	ld de, VTiles0 tile $14
 	ld bc, 4 tiles
-	call FarCopyBytes
-	ret
+	jp FarCopyBytes
 
 .ssaqua
 	ld hl, FastShipGFX
 	ld de, VTiles0 tile $10
 	ld bc, 8 tiles
-	call CopyBytes
-	ret
+	jp CopyBytes
 
 ; 90cb2
 
@@ -56,8 +54,7 @@ TownMap_GetCurrentLandmark: ; 90d56
 	ld b, a
 	ld a, [BackupMapNumber]
 	ld c, a
-	call GetWorldMapLocation
-	ret
+	jp GetWorldMapLocation
 ; 90d70
 
 TownMap_InitPlayerIcon: ; 9106a
@@ -221,8 +218,7 @@ _TownMap: ; 9191c
 	ld [hInMenu], a
 	pop af
 	ld [Options], a
-	call ClearBGPalettes
-	ret
+	jp ClearBGPalettes
 
 .loop
 	call JoyTextDelay
@@ -499,8 +495,7 @@ TownMapBubble: ; 91bb5
 	farcall GetLandmarkName
 	hlcoord 0, 0
 	ld de, StringBuffer1
-	call PlaceString
-	ret
+	jp PlaceString
 
 ; 91c17
 
@@ -612,8 +607,7 @@ FlyMap: ; 91c90
 	call FillOrangeMap
 	call .MapHud
 	pop af
-	call TownMapPlayerIcon
-	ret
+	jp TownMapPlayerIcon
 
 .KantoFlyMap:
 ; The event that there are no flypoints enabled in a map is not
@@ -649,8 +643,7 @@ FlyMap: ; 91c90
 	call FillKantoMap
 	call .MapHud
 	pop af
-	call TownMapPlayerIcon
-	ret
+	jp TownMapPlayerIcon
 
 .NoKanto:
 ; If Indigo Plateau hasn't been visited, we use Orange's map instead
@@ -764,8 +757,7 @@ _Area: ; 91d11
 	ld a, $90
 	ld [hWY], a
 	xor a ; Orange
-	call .GetAndPlaceNest
-	ret
+	jp .GetAndPlaceNest
 
 .right
 	ld a, [StatusFlags]
@@ -778,8 +770,7 @@ _Area: ; 91d11
 	xor a
 	ld [hWY], a
 	ld a, 1 ; Kanto
-	call .GetAndPlaceNest
-	ret
+	jp .GetAndPlaceNest
 
 ; 91dcd
 
@@ -791,15 +782,13 @@ _Area: ; 91d11
 	ld a, e
 	and $10
 	jr nz, .copy_sprites
-	call ClearSprites
-	ret
+	jp ClearSprites
 
 .copy_sprites
 	hlcoord 0, 0
 	ld de, Sprites
 	ld bc, SpritesEnd - Sprites
-	call CopyBytes
-	ret
+	jp CopyBytes
 
 ; 91de9
 
@@ -814,8 +803,7 @@ _Area: ; 91d11
 	ld h, b
 	ld l, c
 	ld de, .String_SNest
-	call PlaceString
-	ret
+	jp PlaceString
 
 ; 91e16
 
@@ -858,8 +846,7 @@ _Area: ; 91d11
 	ld hl, Sprites
 	decoord 0, 0
 	ld bc, SpritesEnd - Sprites
-	call CopyBytes
-	ret
+	jp CopyBytes
 
 ; 91e5a
 
@@ -904,8 +891,7 @@ _Area: ; 91d11
 	ld hl, Sprites + 4 * 4
 	ld bc, SpritesEnd - (Sprites + 4 * 4)
 	xor a
-	call ByteFill
-	ret
+	jp ByteFill
 
 ; 91e9c
 
@@ -1148,8 +1134,7 @@ LoadTownMapGFX: ; 91ff2
 	ld hl, TownMapGFX
 	ld de, VTiles2
 	lb bc, BANK(TownMapGFX), $30
-	call DecompressRequest2bpp
-	ret
+	jp DecompressRequest2bpp
 
 ; 91fff
 
@@ -1164,8 +1149,7 @@ TownMap_ConvertLineBreakCharacters: ; 1de2c5
 .end
 	ld de, StringBuffer1
 	hlcoord 1, 0
-	call PlaceString
-	ret
+	jp PlaceString
 
 TownMapGFX: ; f8ba0
 INCBIN "gfx/town_map/town_map.w128.2bpp.lz"

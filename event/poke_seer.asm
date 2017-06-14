@@ -37,16 +37,14 @@ SpecialPokeSeer: ; 4f0bc
 
 .cancel
 	ld a, SEER_CANCEL
-	call PrintSeerText
-	ret
+	jp PrintSeerText
 
 .no_mon
 	ret
 
 .egg
 	ld a, SEER_EGG
-	call PrintSeerText
-	ret
+	jp PrintSeerText
 ; 4f0ee
 
 
@@ -86,14 +84,12 @@ SeerAction1: ; 4f10e
 
 SeerAction2: ; 4f11f
 	ld a, SEER_CANT_TELL
-	call PrintSeerText
-	ret
+	jp PrintSeerText
 ; 4f125
 
 SeerAction3: ; 4f125
 	ld a, SEER_CANT_TELL
-	call PrintSeerText
-	ret
+	jp PrintSeerText
 ; 4f12b
 
 SeerAction4: ; 4f12b
@@ -152,8 +148,7 @@ GetCaughtName: ; 4f176
 	call AddNTimes
 	ld de, wSeerNickname
 	ld bc, PKMN_NAME_LENGTH
-	call CopyBytes
-	ret
+	jp CopyBytes
 ; 4f18c
 
 GetCaughtLevel: ; 4f18c
@@ -176,15 +171,13 @@ GetCaughtLevel: ; 4f18c
 	ld hl, wSeerCaughtLevelString
 	ld de, wSeerCaughtLevel
 	lb bc, PRINTNUM_RIGHTALIGN | 1, 3
-	call PrintNum
-	ret
+	jp PrintNum
 
 .unknown
 	ld de, wSeerCaughtLevelString
 	ld hl, .unknown_level
 	ld bc, 4
-	call CopyBytes
-	ret
+	jp CopyBytes
 ; 4f1c1
 
 .unknown_level ; 4f1c1
@@ -210,8 +203,7 @@ GetCaughtTime: ; 4f1c5
 
 .none
 	ld de, wSeerTimeOfDay
-	call UnknownCaughtData
-	ret
+	jp UnknownCaughtData
 ; 4f1e6
 
 .times ; 4f1e6
@@ -223,8 +215,7 @@ GetCaughtTime: ; 4f1c5
 UnknownCaughtData: ; 4f1f8
 	ld hl, .unknown
 	ld bc, NAME_LENGTH
-	call CopyBytes
-	ret
+	jp CopyBytes
 ; 4f202
 
 .unknown ; 4f202
@@ -272,8 +263,7 @@ GetCaughtOT: ; 4f242
 	call AddNTimes
 	ld de, wSeerOTName
 	ld bc, NAME_LENGTH
-	call CopyBytes
-	ret
+	jp CopyBytes
 ; 4f26b
 
 PrintSeerText: ; 4f26d
@@ -285,8 +275,7 @@ PrintSeerText: ; 4f26d
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PrintText
-	ret
+	jp PrintText
 ; 4f27c
 
 SeerTexts: ; 4f27c
@@ -372,8 +361,7 @@ SeerAdvice: ; 4f2b4
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PrintText
-	ret
+	jp PrintText
 ; 4f2d6
 
 SeerAdviceTexts: ; 4f2d6
