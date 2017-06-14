@@ -74,8 +74,8 @@ MAP_NONE EQU 0
 
 	newgroup ; 8
 
-	mapgroup VALENCIA_PORT, 12, 9
-	mapgroup TANGELO_PORT, 12, 9
+	mapgroup VALENCIA_PORT, 12, 12
+	mapgroup TANGELO_PORT, 12, 12
 
 	newgroup ; 9
 
