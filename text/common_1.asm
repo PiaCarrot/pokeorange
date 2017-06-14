@@ -112,10 +112,6 @@ UnknownText_0x1bc308::
 	text "How many minutes?"
 	done
 
-UnknownText_0x1bc305::
-	text "What day is it?"
-	done
-
 UnknownText_0x1bc323::
 	text "?"
 	done
@@ -124,16 +120,16 @@ UnknownText_0x1bc31b::
 	text "Okay!@@"
 	done
 
-UnknownText_0x1bc326::
-	text "."
-	done
-
 UnknownText_0x1bc369::
 	text "What day is it?"
 	done
 
 UnknownText_0x1bc37a::
 	text ", is it?"
+	done
+
+UnknownText_0x1bc326::
+	text ""
 	done
 
 UnknownText_0x1bc6e9::

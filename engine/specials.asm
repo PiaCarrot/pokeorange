@@ -48,7 +48,6 @@ SpecialsPointers:: ; c029
 	add_special Special_DayCareManOutside
 	add_special MoveDeletion
 	add_special Special_MagnetTrain
-	add_special Special_SetDayOfWeek
 	add_special Special_TownMap
 	add_special Special_TownMapItem
 	add_special MapRadio

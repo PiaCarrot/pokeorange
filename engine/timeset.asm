@@ -110,6 +110,12 @@ InitClock: ; 90672 (24:4672)
 
 .MinutesAreSet:
 	call SetTimeOfDay
+
+	call AskForDayOfWeek
+	ld a, [wTempDayOfWeek]
+	ld [StringBuffer2], a
+	call SetDayOfWeek
+
 	ld hl, OakText_ResponseToSetTime
 	call PrintText
 	call WaitPressAorB_BlinkCursor
@@ -315,23 +321,23 @@ Text_QuestionMark: ; 0x908b3
 
 OakText_ResponseToSetTime: ; 0x908b8
 	start_asm
-	decoord 1, 14
-	ld a, [wInitHourBuffer]
+	hlcoord 1, 14
+	call PlaceWeekdayString
+	ld a, [hHours]
+	ld b, a
+	ld a, [hMinutes]
 	ld c, a
-	call PrintHour
-	ld [hl], ":"
-	inc hl
-	ld de, BattleMonNick + 5
-	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
-	ld b, h
-	ld c, l
-	ld hl, .period
+	decoord 1, 16
+	farcall PrintHoursMins
+	hlcoord 9, 16
+	ld a, "."
+	ld [hli], a
+	ld hl, .end
 	ret
 ; 908ec (24:48ec)
 
-.period ; 0x908f6
-	; .
+.end ; 0x908f6
+	;
 	text_jump UnknownText_0x1bc326
 	db "@"
 ; 0x908f1
@@ -344,38 +350,22 @@ TimesetDownArrowGFX: ; 9090b
 INCBIN "gfx/timeset/down.2bpp"
 ; 90913
 
-Special_SetDayOfWeek: ; 90913
-	ld a, [hInMenu]
-	push af
-	ld a, $1
-	ld [hInMenu], a
-	ld de, TimesetUpArrowGFX
-	ld hl, VTiles1 tile $6f
-	lb bc, BANK(TimesetUpArrowGFX), 1
-	call Request1bpp
-	ld de, TimesetDownArrowGFX
-	ld hl, VTiles1 tile $75
-	lb bc, BANK(TimesetDownArrowGFX), 1
-	call Request1bpp
+AskForDayOfWeek: ; 90913
 	xor a
 	ld [wTempDayOfWeek], a
 .loop
-	hlcoord 0, 12
-	lb bc, 4, 18
-	call TextBox
 	call LoadStandardMenuDataHeader
-	ld hl, .WhatDayIsItText
+	ld hl, Text_WhatDayIsIt
 	call PrintText
-	hlcoord 9, 0
-	ld b, 2
-	ld c, 9
+	hlcoord 9, 7
+	lb bc, 2, 9
 	call TextBox
-	hlcoord 14, 0
-	ld [hl], "♂" ; gets overwritten with special up arrow
-	hlcoord 14, 3
-	ld [hl], "♀" ; gets overwritten with special down arrow
-	hlcoord 10, 2
-	call .PlaceWeekdayString
+	hlcoord 14, 7
+	ld [hl], $1
+	hlcoord 14, 10
+	ld [hl], $2
+	hlcoord 10, 9
+	call PlaceWeekdayString
 	call ApplyTilemap
 	ld c, 10
 	call DelayFrames
@@ -385,16 +375,10 @@ Special_SetDayOfWeek: ; 90913
 	jr nc, .loop2
 	call ExitMenu
 	call UpdateSprites
-	ld hl, .ConfirmWeekdayText
+	ld hl, Text_ConfirmWeekday
 	call PrintText
 	call YesNoBox
 	jr c, .loop
-	ld a, [wTempDayOfWeek]
-	ld [StringBuffer2], a
-	call SetDayOfWeek
-	call LoadStandardFont
-	pop af
-	ld [hInMenu], a
 	ret
 ; 90993
 
@@ -443,18 +427,18 @@ Special_SetDayOfWeek: ; 90913
 .finish_dpad
 	xor a
 	ld [hBGMapMode], a
-	hlcoord 10, 1
+	hlcoord 10, 8
 	ld b, 2
 	ld c, 9
 	call ClearBox
-	hlcoord 10, 2
-	call .PlaceWeekdayString
+	hlcoord 10, 9
+	call PlaceWeekdayString
 	call WaitBGMap
 	and a
 	ret
 ; 909de
 
-.PlaceWeekdayString: ; 909de
+PlaceWeekdayString: ; 909de
 	push hl
 	ld a, [wTempDayOfWeek]
 	ld e, a
@@ -489,25 +473,26 @@ Special_SetDayOfWeek: ; 90913
 .Saturday:  db "SATURDAY@"
 
 
-.WhatDayIsItText: ; 0x90a3f
+Text_WhatDayIsIt: ; 0x90a3f
 	; What day is it?
 	text_jump UnknownText_0x1bc369
 	db "@"
 ; 0x90a44
 
-.ConfirmWeekdayText: ; 0x90a44
+Text_ConfirmWeekday: ; 0x90a44
 	start_asm
 	hlcoord 1, 14
-	call .PlaceWeekdayString
-	ld hl, .IsIt
+	call PlaceWeekdayString
+	ld hl, Text_IsIt
 	ret
 ; 90a4f (24:4a4f)
 
-.IsIt: ; 0x90a4f
+Text_IsIt: ; 0x90a4f
 	; , is it?
 	text_jump UnknownText_0x1bc37a
 	db "@"
 ; 0x90a54
+
 
 Special_InitialSetDSTFlag: ; 90a54
 	ld a, [wDST]
