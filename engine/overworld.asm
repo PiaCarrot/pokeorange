@@ -834,7 +834,7 @@ Group12Sprites: ; 14600
 ; Route50
 ; Route51
 ; TangeloIsland
-	db SPRITE_BUG_CATCHER
+	db SPRITE_BUG_BOY
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_TRACEY
 	db SPRITE_SURF
