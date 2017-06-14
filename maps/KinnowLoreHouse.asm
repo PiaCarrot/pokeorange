@@ -6,6 +6,20 @@ KinnowLoreHouse_MapScriptHeader:
 
 .MapCallbacks:
 	db 0
+	
+KinnowRockerLoreScript:
+	jumptextfaceplayer KinnowRockerLoreText
+	
+KinnowRockerLoreText:
+	text "Hey, kid!"
+	
+	para "Have you been to"
+	line "the SKATE SHOP?"
+	
+	para "Skateboarding is"
+	line "the way to go for"
+	cont "land travel!"
+	done
 
 KinnowLoreHouse_MapEventHeader:: db 0, 0
 
@@ -17,4 +31,6 @@ KinnowLoreHouse_MapEventHeader:: db 0, 0
 
 .BGEvents: db 0
 
-.ObjectEvents: db 0
+.ObjectEvents: db 1
+	person_event SPRITE_ROCKER, 4, 2, SPRITEMOVEDATA_STANDING_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, KinnowRockerLoreScript, -1
+

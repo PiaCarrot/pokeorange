@@ -10,11 +10,12 @@ KinnowCharcoalHouse_MapScriptHeader:
 KinnowCharcoalHouse_MapEventHeader:: db 0, 0
 
 .Warps: db 2
-	warp_def 7, 2, 3, KINNOW_ISLAND
 	warp_def 7, 3, 3, KINNOW_ISLAND
+	warp_def 7, 4, 3, KINNOW_ISLAND
 
 .CoordEvents: db 0
 
 .BGEvents: db 0
 
 .ObjectEvents: db 0
+
