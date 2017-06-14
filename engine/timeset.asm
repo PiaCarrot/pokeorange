@@ -280,19 +280,12 @@ String_oclock:
 
 Text_WhatHrs: ; 0x90886
 	; What?@ @
-	text_jump UnknownText_0x1bc2fd
 	start_asm
-	hlcoord 1, 16
+	hlcoord 1, 14
 	call DisplayHourOClock
-	ld hl, .QuestionMark
+	ld hl, Text_QuestionMark
 	ret
 ; 90895 (24:4895)
-
-.QuestionMark: ; 0x90895
-	; ?
-	text_jump UnknownText_0x1bc305
-	db "@"
-; 0x9089a
 
 Text_HowManyMinutes: ; 0x9089a
 	; How many minutes?
@@ -310,11 +303,11 @@ Text_WhoaMins: ; 0x908a4
 	start_asm
 	hlcoord 7, 14
 	call DisplayMinutesWithMinString
-	ld hl, .QuestionMark
+	ld hl, Text_QuestionMark
 	ret
 ; 908b3 (24:48b3)
 
-.QuestionMark: ; 0x908b3
+Text_QuestionMark: ; 0x908b3
 	; ?
 	text_jump UnknownText_0x1bc323
 	db "@"
@@ -333,41 +326,15 @@ OakText_ResponseToSetTime: ; 0x908b8
 	call PrintNum
 	ld b, h
 	ld c, l
-	ld a, [wInitHourBuffer]
-	cp 4
-	jr c, .NITE
-	cp 11
-	jr c, .MORN
-	cp 18
-	jr c, .DAY
-.NITE:
-	ld hl, .sodark
-	ret
-.MORN:
-	ld hl, .overslept
-	ret
-.DAY:
-	ld hl, .yikes
+	ld hl, .period
 	ret
 ; 908ec (24:48ec)
 
-.overslept ; 0x908ec
-	; ! I overslept!
+.period ; 0x908f6
+	; .
 	text_jump UnknownText_0x1bc326
 	db "@"
 ; 0x908f1
-
-.yikes ; 0x908f1
-	; ! Yikes! I over- slept!
-	text_jump UnknownText_0x1bc336
-	db "@"
-; 0x908f6
-
-.sodark ; 0x908f6
-	; ! No wonder it's so dark!
-	text_jump UnknownText_0x1bc34f
-	db "@"
-; 0x908fb
 
 TimesetBGGFX: ; 908fb
 INCBIN "gfx/timeset/bg.2bpp"
