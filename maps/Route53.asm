@@ -168,7 +168,7 @@ Route53_MapEventHeader:: db 0, 0
 	signpost 9, 41, SIGNPOST_READ, Route53Tips
 
 .ObjectEvents: db 5
-	person_event SPRITE_FISHING_GURU, 11, 40, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerFisherNatPagle, -1
+	person_event SPRITE_FISHER, 11, 40, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerFisherNatPagle, -1
 	person_event SPRITE_LASS, 6, 10, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, Route53LassScript, -1
 	person_event SPRITE_FRUIT_TREE, 5, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route53FruitTreeScript, -1
 	person_event SPRITE_SWIMMER_GUY, 10, 20, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmermKojuro, -1

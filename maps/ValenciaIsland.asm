@@ -86,15 +86,7 @@ if def(DEBUG)
 	setflag ENGINE_SEA_RUBY_BADGE
 	setflag ENGINE_SPIKE_SHELL_BADGE
 	setflag ENGINE_JADE_STAR_BADGE
-	giveitem RARE_CANDY, 99
-	opentext
-	givepoke CHARIZARD, 50, GOLD_BERRY
-	givepoke LAPRAS, 50, GOLD_BERRY
-	givepoke EXEGGUTOR, 50, GOLD_BERRY
-	givepoke MUK, 50, GOLD_BERRY
-	givepoke MEW, 50, GOLD_BERRY
-	closetext
-	warp SUNBURST_ISLAND, 8, 4
+	warp KINNOW_ISLAND, 8, 4
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

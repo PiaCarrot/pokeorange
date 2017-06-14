@@ -91,6 +91,11 @@
 	map_header_2 MandarinNorthMart, MANDARIN_NORTH_MART, 0, 0
 	map_header_2 Route55QuestHouse, ROUTE_55_QUEST_HOUSE, 0, 0
 	map_header_2 Route56PokeCenter, ROUTE_56_POKE_CENTER, 0, 0
+	map_header_2 KinnowTradeHouse, KINNOW_TRADE_HOUSE, 0, 0
+	map_header_2 KinnowLoreHouse, KINNOW_LORE_HOUSE, 0, 0
+	map_header_2 KinnowCharcoalHouse, KINNOW_CHARCOAL_HOUSE, 0, 0
+	map_header_2 KinnowPokeCenter, KINNOW_POKE_CENTER, 0, 0
+	map_header_2 KinnowMart, KINNOW_MART, 0, 0
 	map_header_2 HallOfFame, HALL_OF_FAME, $0, 0
 
 	map_header_2 DayCare, DAYCARE, $0, 0

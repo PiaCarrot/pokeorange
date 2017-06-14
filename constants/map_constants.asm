@@ -42,6 +42,11 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_55_QUEST_HOUSE, 4, 4
 	mapgroup ROUTE_56_POKE_CENTER, 4, 5
 	mapgroup KINNOW_ISLAND, 18, 20
+	mapgroup KINNOW_TRADE_HOUSE, 4, 4
+	mapgroup KINNOW_LORE_HOUSE, 4, 4
+	mapgroup KINNOW_CHARCOAL_HOUSE, 4, 4
+	mapgroup KINNOW_POKE_CENTER, 4, 5
+	mapgroup KINNOW_MART, 4, 6
 
 	newgroup ; 5
 
@@ -252,6 +257,7 @@ const_value = -1
 	const SPAWN_MIKAN
 	const SPAWN_MANDARIN_NORTH
 	const SPAWN_SUNBURST
+	const SPAWN_KINNOW
 NUM_SPAWNS EQU const_value
 
 	const_def
