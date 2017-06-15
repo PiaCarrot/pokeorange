@@ -312,7 +312,7 @@ AddOrSubtractY: ; 8d0be
 	jr z, .ok
 	; 8 - a
 	add $8
-	xor $ff
+	cpl
 	inc a
 
 .ok
@@ -328,7 +328,7 @@ AddOrSubtractX: ; 8d0ce
 	jr z, .ok
 	; 8 - a
 	add $8
-	xor $ff
+	cpl
 	inc a
 
 .ok
@@ -580,7 +580,7 @@ Sprites_Sine: ; 8e72c
 	and $1f
 	call .ApplySineWave
 	ld a, h
-	xor $ff ; cpl
+	cpl
 	inc a
 	ret
 ; 8e741

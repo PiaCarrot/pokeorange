@@ -47,7 +47,7 @@ NameRaterSign:
 	jumptext NameRaterSignText
 
 MandarinNorthHiddenSuperPotion:
-	dbw EVENT_MANDARIN_NORTH_HIDDEN_SUPER_POTION, SUPER_POTION
+	dwb EVENT_MANDARIN_NORTH_HIDDEN_SUPER_POTION, SUPER_POTION
 
 .Text:
 

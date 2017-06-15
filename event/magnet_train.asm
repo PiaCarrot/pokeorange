@@ -352,7 +352,7 @@ MagnetTrain_Jumptable: ; 8cdf7
 	jr z, .PrepareToHoldTrain
 	ld e, a
 	ld a, [wMagnetTrainDirection]
-	xor $ff
+	cpl
 	inc a
 	add e
 	ld [wcf65], a
@@ -388,7 +388,7 @@ MagnetTrain_Jumptable: ; 8cdf7
 	jr z, .PrepareToFinishAnim
 	ld e, a
 	ld a, [wMagnetTrainDirection]
-	xor $ff
+	cpl
 	inc a
 	ld d, a
 	ld a, e
