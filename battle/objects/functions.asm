@@ -688,7 +688,7 @@ BattleAnimFunction_09: ; cd3ae (33:53ae)
 	ld hl, BATTLEANIMSTRUCT_XOFFSET
 	add hl, bc
 	ld a, [hl]
-	xor $ff
+	cpl
 	inc a
 	ld [hl], a
 	ret
@@ -2211,7 +2211,7 @@ Functioncdcca: ; cdcca (33:5cca)
 	ld hl, BATTLEANIMSTRUCT_0B
 	add hl, bc
 	ld a, [hl]
-	xor $ff
+	cpl
 	add $3
 	ld [hl], a
 .asm_cdcd9
@@ -2265,7 +2265,7 @@ Functioncdcfe: ; cdcfe (33:5cfe)
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld a, d
-	xor $ff
+	cpl
 	inc a
 	ld [hl], a
 	ret
@@ -2532,7 +2532,7 @@ Functioncde90: ; cde90 (33:5e90)
 .asm_cdeb2
 	ld a, e
 	and $f
-	xor $ff
+	cpl
 	inc a
 	ld [hl], a
 	ld a, BATTLEANIMFRAMESET_6E
@@ -2557,7 +2557,7 @@ Functioncdebf: ; cdebf (33:5ebf)
 	ld hl, BATTLEANIMSTRUCT_XOFFSET
 	add hl, bc
 	ld a, [hl]
-	xor $ff
+	cpl
 	inc a
 	ld [hl], a
 	ret
@@ -2793,7 +2793,7 @@ Functionce023: ; ce023 (33:6023)
 	call BattleAnim_Sine
 	bit 7, a
 	jr nz, .asm_ce046
-	xor $ff
+	cpl
 	inc a
 .asm_ce046
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
@@ -2864,7 +2864,7 @@ Functionce09e: ; ce09e (33:609e)
 	add hl, bc
 	ld [hl], a
 	sra a
-	xor $ff
+	cpl
 	inc a
 	ld hl, BATTLEANIMSTRUCT_0F
 	add hl, bc
@@ -3291,7 +3291,7 @@ Functionce330: ; ce330 (33:6330)
 	ld hl, BATTLEANIMSTRUCT_0F
 	add hl, bc
 	ld a, [hl]
-	xor $ff
+	cpl
 	inc a
 	ld [hl], a
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
@@ -3582,7 +3582,7 @@ BattleAnimFunction_41: ; ce4dc (33:64dc)
 	call BattleAnim_Sine
 	bit 7, a
 	jr nz, .asm_ce4f4
-	xor $ff
+	cpl
 	inc a
 .asm_ce4f4
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
@@ -3938,7 +3938,7 @@ BattleAnimFunction_4D: ; ce6d2 (33:66d2)
 	add hl, bc
 	ld d, [hl]
 	call BattleAnim_Sine
-	xor $ff
+	cpl
 	inc a
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
@@ -4015,7 +4015,7 @@ BattleAnim_Sine: ; ce734 (33:6734)
 	and $1f
 	call .ApplySineWave
 	ld a, h
-	xor $ff
+	cpl
 	inc a
 	ret
 
