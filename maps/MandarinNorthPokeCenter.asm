@@ -37,6 +37,6 @@ MandarinNorthPokeCenter_MapEventHeader:: db 0, 0
 .BGEvents: db 0
 
 .ObjectEvents: db 2
-	person_event SPRITE_NURSE, 1, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MandarinNoNurseScript, -1
+	person_event SPRITE_NURSE, 1, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MandarinNoNurseScript, -1
 	person_event SPRITE_COOLTRAINER_M, 4, 6, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, MandarinNorthCooltrainerMScript, -1
 
