@@ -39,11 +39,7 @@ BattleStatsScreenInit: ; 4dc7b (13:5c7b)
 StatsScreenMain: ; 0x4dcd2
 	xor a
 	ld [wJumptableIndex], a
-	; stupid interns
-	ld [wcf64], a
-	ld a, [wcf64]
-	and $fc
-	or $1
+	inc a
 	ld [wcf64], a
 .loop ; 4dce3
 	ld a, [wJumptableIndex]
