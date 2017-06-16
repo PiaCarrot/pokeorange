@@ -1,4 +1,5 @@
 const_value set 2
+	const KINNOWLOREHOUSE_ROCKER
 
 KinnowLoreHouse_MapScriptHeader:
 .MapTriggers:

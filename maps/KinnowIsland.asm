@@ -53,12 +53,13 @@ SkateShopSignText:
 
 KinnowIsland_MapEventHeader:: db 0, 0
 
-.Warps: db 5
+.Warps: db 6
 	warp_def 15, 23, 1, KINNOW_TRADE_HOUSE
 	warp_def 9, 7, 1, KINNOW_LORE_HOUSE
 	warp_def 19, 13, 1, KINNOW_CHARCOAL_HOUSE
 	warp_def 9, 17, 1, KINNOW_POKE_CENTER
 	warp_def 9, 21, 2, KINNOW_MART
+	warp_def 23, 26, 1, KINNOW_CAFE
 
 .CoordEvents: db 0
 

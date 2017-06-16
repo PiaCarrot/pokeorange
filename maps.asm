@@ -103,6 +103,7 @@ INCLUDE "maps/KinnowLoreHouse.asm"
 INCLUDE "maps/KinnowCharcoalHouse.asm"
 INCLUDE "maps/KinnowPokeCenter.asm"
 INCLUDE "maps/KinnowMart.asm"
+INCLUDE "maps/KinnowCafe.asm"
 
 
 SECTION "Map Scripts 7", ROMX, BANK[MAP_SCRIPTS_7]

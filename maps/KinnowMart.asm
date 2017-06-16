@@ -1,5 +1,6 @@
 const_value set 2
 	const KINNOWMART_CLERK
+	const KINNOWMART_LASS
 
 KinnowMart_MapScriptHeader:
 .MapTriggers:
@@ -13,6 +14,19 @@ KinnowClerkScript:
 	pokemart MARTTYPE_STANDARD, MART_MANDARIN_NORTH
 	closetext
 	end
+	
+KinnowMartLassScript:
+	jumptextfaceplayer KinnowMartLassText
+	
+KinnowMartLassText:
+	text "I heard there is a"
+	line "old lady who sells"
+	cont "bitter herbs."
+	
+	para "They work wonders,"
+	line "but they taste bad"
+	cont "to #MON."
+	done
 
 KinnowMart_MapEventHeader:: db 0, 0
 
@@ -24,5 +38,7 @@ KinnowMart_MapEventHeader:: db 0, 0
 
 .BGEvents: db 0
 
-.ObjectEvents: db 1
+.ObjectEvents: db 2
 	person_event SPRITE_CLERK, 3, 1, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, KinnowClerkScript, -1
+	person_event SPRITE_LASS, 2, 9, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_PINK, PERSONTYPE_SCRIPT, 0, KinnowMartLassScript, -1
+

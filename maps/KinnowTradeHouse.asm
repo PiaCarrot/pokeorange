@@ -1,4 +1,5 @@
 const_value set 2
+	const KINNOWTRADEHOUSE_ARMON
 
 KinnowTradeHouse_MapScriptHeader:
 .MapTriggers:
@@ -6,7 +7,15 @@ KinnowTradeHouse_MapScriptHeader:
 
 .MapCallbacks:
 	db 0
-
+	
+Armon:
+	faceplayer
+	opentext
+	trade $0
+	waitbutton
+	closetext
+	end
+	
 KinnowTradeHouse_MapEventHeader:: db 0, 0
 
 .Warps: db 2
@@ -17,5 +26,6 @@ KinnowTradeHouse_MapEventHeader:: db 0, 0
 
 .BGEvents: db 0
 
-.ObjectEvents: db 0
+.ObjectEvents: db 1
+	person_event SPRITE_COOLTRAINER_M, 4, 5, SPRITEMOVEDATA_STANDING_LEFT, 2, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Armon, -1
 

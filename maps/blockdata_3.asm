@@ -1,5 +1,8 @@
 DayCare_BlockData:
 	INCBIN "maps/DayCare.blk"
+	
+KinnowCafe_BlockData: 
+	INCBIN "maps/KinnowCafe.blk"
 
 HallOfFame_BlockData:
 	INCBIN "maps/HallOfFame.blk"
