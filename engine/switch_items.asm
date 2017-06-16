@@ -224,18 +224,9 @@ Function24a6c: ; 24a6c (9:4a6c)
 	ret
 
 ItemSwitch_ConvertSpacingToDW: ; 24a80 (9:4a80)
-; This function is absolutely idiotic.
-	push hl
 	ld a, [wMenuData2_ScrollingMenuSpacing]
 	ld c, a
 	ld b, 0
-	ld hl, .spacing_dws
-	add hl, bc
-	add hl, bc
-	ld c, [hl]
-	inc hl
-	ld b, [hl]
-	pop hl
 	ret
 
 ; 24a91 (9:4a91)
