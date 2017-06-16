@@ -72,7 +72,6 @@ ItemEffects: ; e73c
 	dw ExpShare
 	dw OldRod
 	dw GoodRod
-	dw SilverLeaf
 	dw SuperRod
 	dw PPUp
 	dw Ether
@@ -2757,7 +2756,6 @@ LuckyPunch:
 MetalPowder:
 Nugget:
 ExpShare:
-SilverLeaf:
 OddCrystal:
 SilverWing:
 QuickClaw:
