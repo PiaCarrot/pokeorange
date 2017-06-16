@@ -14,7 +14,7 @@ KinnowCharcoalScript:
 	opentext
 	checkevent EVENT_GOT_CHARCOAL
 	iftrue .AlreadyGotCharcoal
-    writetext GiveSharpBeakText
+    writetext GiveCharcoalText
 	verbosegiveitem CHARCOAL
 	setevent EVENT_GOT_CHARCOAL
 	closetext

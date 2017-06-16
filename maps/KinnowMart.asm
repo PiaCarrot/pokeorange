@@ -11,7 +11,7 @@ KinnowMart_MapScriptHeader:
 
 KinnowClerkScript:
 	opentext
-	pokemart MARTTYPE_STANDARD, MART_MANDARIN_NORTH
+	pokemart MARTTYPE_STANDARD, MART_KINNOW
 	closetext
 	end
 	
@@ -19,7 +19,7 @@ KinnowMartLassScript:
 	jumptextfaceplayer KinnowMartLassText
 	
 KinnowMartLassText:
-	text "I heard there is a"
+	text "I heard there's an"
 	line "old lady who sells"
 	cont "bitter herbs."
 	
@@ -41,4 +41,3 @@ KinnowMart_MapEventHeader:: db 0, 0
 .ObjectEvents: db 2
 	person_event SPRITE_CLERK, 3, 1, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, KinnowClerkScript, -1
 	person_event SPRITE_LASS, 2, 9, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, KinnowMartLassScript, -1
-

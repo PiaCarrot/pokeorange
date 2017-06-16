@@ -36,24 +36,19 @@ UnknownText_0x1969c8:
 	cont "hometown."
 	done
 
-TangeloPokeCenter1F_MapEventHeader:
-	; filler
-	db 0, 0
+TangeloPokeCenter1F_MapEventHeader:: db 0, 0
 
-.Warps:
-	db 3
-	warp_def $7, $3, 2, TANGELO_ISLAND
-	warp_def $7, $4, 2, TANGELO_ISLAND
-	warp_def $7, $0, 1, POKECENTER_2F
+.Warps: db 3
+	warp_def 7, 4, 2, TANGELO_ISLAND
+	warp_def 7, 5, 2, TANGELO_ISLAND
+	warp_def 7, 0, 1, POKECENTER_2F
 
-.XYTriggers:
-	db 0
+.CoordEvents: db 0
 
-.Signposts:
-	db 0
+.BGEvents: db 0
 
-.PersonEvents:
-	db 3
-	person_event SPRITE_NURSE, 1, 3, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, NurseScript_0x19696d, -1
-	person_event SPRITE_FISHER, 3, 2, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, FisherScript_0x196970, -1
-	person_event SPRITE_SIGHTSEER_F, 6, 8, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GentlemanScript_0x196973, -1
+.ObjectEvents: db 3
+	person_event SPRITE_NURSE, 1, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, NurseScript_0x19696d, -1
+	person_event SPRITE_FISHER, 3, 4, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, FisherScript_0x196970, -1
+	person_event SPRITE_SIGHTSEER_F, 5, 8, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GentlemanScript_0x196973, -1
+

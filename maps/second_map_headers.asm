@@ -63,7 +63,7 @@
 	map_header_2 ValenciaPort, VALENCIA_PORT, 10, 0
 	map_header_2 TangeloPort, TANGELO_PORT, 10, 0
 	map_header_2 TangeloMart, TANGELO_MART, $0, 0
-	map_header_2 TangeloPokeCenter1F, TANGELO_POKECENTER_1F, $0, 0
+	map_header_2 TangeloPokeCenter1F, TANGELO_POKECENTER_1F, 0, 0
 	map_header_2 TangeloGymSpeechHouse, TANGELO_GYM_SPEECH_HOUSE, $0, 0
 	map_header_2 TangeloEvolutionSpeechHouse, TANGELO_EVOLUTION_SPEECH_HOUSE, 0, 0
 	map_header_2 Route51TangeloJungleGate, ROUTE_51_TANGELO_JUNGLE_GATE, $0, 0
@@ -73,7 +73,7 @@
 	map_header_2 MikanMart, MIKAN_MART, $0, 0
 	map_header_2 MikanGym, MIKAN_GYM, 0, 0
 	map_header_2 MikanNicknameSpeechHouse, MIKAN_NICKNAME_SPEECH_HOUSE, $0, 0
-	map_header_2 MikanPokeCenter1F, MIKAN_POKECENTER_1F, $0, 0
+	map_header_2 MikanPokeCenter1F, MIKAN_POKECENTER_1F, 0, 0
 	map_header_2 MikanOnixTradeHouse, MIKAN_ONIX_TRADE_HOUSE, $0, 0
 	map_header_2 MikanIslandRoute53Gate, MIKAN_ISLAND_ROUTE_53_GATE, 0, 0
 	map_header_2 SunburstPokeCenter, SUNBURST_POKECENTER, 0, 0

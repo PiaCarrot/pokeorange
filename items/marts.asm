@@ -5,6 +5,7 @@ Marts: ; 160a9
 	dw SunburstMart1
 	dw SunburstMart2
 	dw SunburstMart3
+	dw KinnowMart
 MartsEnd
 ; 160ed
 
@@ -79,6 +80,15 @@ SunburstMart3: ; 16121
 	db SURF_MAIL
 	db $ff
 ; 1612b
+
+KinnowMart:
+	db 5
+	db GREAT_BALL
+	db SUPER_POTION
+	db ESCAPE_ROPE
+	db FULL_HEAL
+	db REVIVE
+	db $ff
 
 DefaultMart: ; 16214
 	db 2 ; # items

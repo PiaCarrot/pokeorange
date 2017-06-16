@@ -61,25 +61,20 @@ UnknownText_0x698b8:
 	line "they please."
 	done
 
-MikanPokeCenter1F_MapEventHeader:
-	; filler
-	db 0, 0
+MikanPokeCenter1F_MapEventHeader:: db 0, 0
 
-.Warps:
-	db 3
-	warp_def $7, $3, 4, MIKAN_ISLAND
-	warp_def $7, $4, 4, MIKAN_ISLAND
-	warp_def $7, $0, 1, POKECENTER_2F
+.Warps: db 3
+	warp_def 7, 4, 4, MIKAN_ISLAND
+	warp_def 7, 5, 4, MIKAN_ISLAND
+	warp_def 7, 0, 1, POKECENTER_2F
 
-.XYTriggers:
-	db 0
+.CoordEvents: db 0
 
-.Signposts:
-	db 0
+.BGEvents: db 0
 
-.PersonEvents:
-	db 4
-	person_event SPRITE_NURSE, 1, 3, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MikanPokeCenterNurse, -1
-	person_event SPRITE_GAMEBOY_KID, 6, 7, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, GameboyKidScript_0x69540, -1
-	person_event SPRITE_POKEFAN_M, 4, 1, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GentlemanScript_0x69543, -1
+.ObjectEvents: db 4
+	person_event SPRITE_NURSE, 1, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MikanPokeCenterNurse, -1
+	person_event SPRITE_GAMEBOY_KID, 5, 8, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, GameboyKidScript_0x69540, -1
+	person_event SPRITE_POKEFAN_M, 4, 2, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GentlemanScript_0x69543, -1
 	person_event SPRITE_BUG_BOY, 1, 8, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, YoungsterScript_0x69546, -1
+
