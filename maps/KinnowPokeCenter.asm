@@ -19,6 +19,7 @@ KinnowGameboyKidScript:
 KinnowSlouchScript:
 	opentext
 	writetext KinnowSlouchText
+	waitbutton
 	closetext
 	end
 	

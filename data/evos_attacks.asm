@@ -67,8 +67,7 @@ CharmanderEvosAttacks:
 	db 1, SCRATCH
 	db 1, GROWL
 	db 7, EMBER
-	db 11, METAL_CLAW
-	db 13, SMOKESCREEN
+	db 13, METAL_CLAW
 	db 19, RAGE
 	db 25, SCARY_FACE
 	db 31, FLAMETHROWER
