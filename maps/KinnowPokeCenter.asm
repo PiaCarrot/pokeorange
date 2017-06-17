@@ -24,7 +24,12 @@ KinnowSlouchScript:
 	end
 	
 KinnowSlouchText:
-	text "deez nuts"
+	text "There are several"
+	line "uninhabited islan-"
+	cont "ds."
+	
+	para "You may find rare"
+	line "#MON there."
 	done
 	
 KinnowGBKidText:
