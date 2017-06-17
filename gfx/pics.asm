@@ -267,7 +267,7 @@ SECTION "Pics 10", ROMX, BANK[PICS_10]
 AbraFrontpic:        INCBIN "gfx/pics/abra/front.2bpp.lz"
 AipomFrontpic:       INCBIN "gfx/pics/aipom/front.2bpp.lz"
 AlakazamBackpic:     INCBIN "gfx/pics/alakazam/back.2bpp.lz"
-BoarderPic:          INCBIN "gfx/trainers/boarder.2bpp.lz"
+WaitressPic:         INCBIN "gfx/trainers/waitress.2bpp.lz"
 CelebiFrontpic:      INCBIN "gfx/pics/celebi/front.2bpp.lz"
 CloysterBackpic:     INCBIN "gfx/pics/cloyster/back.2bpp.lz"
 EeveeFrontpic:       INCBIN "gfx/pics/eevee/front.2bpp.lz"

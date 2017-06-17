@@ -70,6 +70,6 @@ TrainerGroups: ; 0x39999
 	dw PicnickerGroup
 	dw SageGroup
 	dw MediumGroup
-	dw BoarderGroup
+	dw WaitressGroup
 	dw PokefanMGroup
 	dw PokefanFGroup

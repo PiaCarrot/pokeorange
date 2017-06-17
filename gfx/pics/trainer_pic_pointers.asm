@@ -68,6 +68,6 @@
 	dba PicnickerPic
 	dba SagePic
 	dba MediumPic
-	dba BoarderPic
+	dba WaitressPic
 	dba PokefanMPic
 	dba PokefanFPic

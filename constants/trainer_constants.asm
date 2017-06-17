@@ -183,7 +183,7 @@ KRIS EQU __enum__
 
 	trainerclass MEDIUM
 
-	trainerclass BOARDER
+	trainerclass WAITRESS
 
 	trainerclass POKEFANM
 
