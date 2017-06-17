@@ -184,6 +184,10 @@ KRIS EQU __enum__
 	trainerclass MEDIUM
 
 	trainerclass WAITRESS
+	const SATOMI
+	const SAORI
+	const NAOMI
+	const JUN
 
 	trainerclass POKEFANM
 

@@ -1051,6 +1051,18 @@ MediumGroup:
 WaitressGroup:
 ; ================================
 ; ================
+
+	; WAITRESS (1)
+	db "SATOMI@"
+	db 0 ; normal
+
+	; party
+	db 24, JIGGLYPUFF
+	db 24, SPINDA
+	db 24, SKIPLOOM
+
+	db $ff ; end
+
 ; ================
 ; ================================
 
