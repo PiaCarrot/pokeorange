@@ -1057,12 +1057,45 @@ WaitressGroup:
 	db 0 ; normal
 
 	; party
+	db 24, CLEFAIRY
+	db 24, IVYSAUR
+	db 24, POLIWHIRL
+
+	db $ff ; end
+	
+	; WAITRESS (2)
+	db "SAORI@"
+	db 0 ; normal
+
+	; party
 	db 24, JIGGLYPUFF
-	db 24, SPINDA
-	db 24, SKIPLOOM
+	db 24, CHARMELEON
+	db 24, PIKACHU
 
 	db $ff ; end
 
+	; WAITRESS (3)
+	db "NAOMI@"
+	db 0 ; normal
+
+	; party
+	db 24, SMOOCHUM
+	db 24, WARTORTLE
+	db 24, VULPIX
+
+	db $ff ; end
+	
+	; WAITRESS (4)
+	db "JUN@"
+	db 0 ; normal
+
+	; party
+	db 23, EEVEE
+	db 23, MAGBY
+	db 23, ELEKID
+	db 23, MUNCHLAX
+
+	db $ff ; end
 ; ================
 ; ================================
 
