@@ -48,6 +48,7 @@ MAP_NONE EQU 0
 	mapgroup KINNOW_POKE_CENTER, 4, 5
 	mapgroup KINNOW_MART, 4, 6
 	mapgroup KINNOW_CAFE, 5, 5
+	mapgroup KINNOW_SKATE_SHOP, 4, 5
 
 	newgroup ; 5
 

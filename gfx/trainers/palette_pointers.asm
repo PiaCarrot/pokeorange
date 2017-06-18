@@ -73,6 +73,7 @@ PsychicPalette:      INCLUDE "gfx/trainers/psychic_t.pal"
 PicnickerPalette:    INCLUDE "gfx/trainers/picnicker.pal"
 SagePalette:         INCLUDE "gfx/trainers/sage.pal"
 MediumPalette:       INCLUDE "gfx/trainers/medium.pal"
+WaitressPalette:     INCLUDE "gfx/trainers/waitress.pal"
 PokefanMPalette:     INCLUDE "gfx/trainers/pokefan_m.pal"
 PokefanFPalette:     INCLUDE "gfx/trainers/pokefan_f.pal"
 ; b1de
