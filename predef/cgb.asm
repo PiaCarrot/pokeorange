@@ -319,7 +319,7 @@ PokedexCursorPalette:
 
 PokedexScrollbarPalette: ; 8fc2
 	RGB 31, 31, 31
-	RGB 27, 14, 02
+	RGB 31, 15, 00
 	RGB 23, 12, 01
 	RGB 00, 00, 00
 ; 8fca
