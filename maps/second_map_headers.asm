@@ -97,6 +97,7 @@
 	map_header_2 KinnowPokeCenter, KINNOW_POKE_CENTER, 0, 0
 	map_header_2 KinnowMart, KINNOW_MART, 0, 0
 	map_header_2 KinnowCafe, KINNOW_CAFE, 0, 0
+	map_header_2 KinnowSkateShop, KINNOW_SKATE_SHOP, 0, 0
 	map_header_2 HallOfFame, HALL_OF_FAME, $0, 0
 
 	map_header_2 DayCare, DAYCARE, $0, 0

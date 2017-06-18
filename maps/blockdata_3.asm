@@ -4,6 +4,9 @@ DayCare_BlockData:
 KinnowCafe_BlockData: 
 	INCBIN "maps/KinnowCafe.blk"
 
+KinnowSkateShop_BlockData: 
+	INCBIN "maps/KinnowSkateShop.blk"
+
 HallOfFame_BlockData:
 	INCBIN "maps/HallOfFame.blk"
 
