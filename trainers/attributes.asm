@@ -312,6 +312,12 @@ TrainerClassAttributes: ; 3959c
 	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_STATUS + AI_RISKY
 	dw CONTEXT_USE + SWITCH_SOMETIMES
 
+; Waitress
+	db 0, 0 ; items
+	db 18 ; base reward
+	dw AI_BASIC + AI_TYPES + AI_OPPORTUNIST + AI_STATUS
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+
 ; Schoolboy
 	db 0, 0 ; items
 	db 8 ; base reward
@@ -412,12 +418,6 @@ TrainerClassAttributes: ; 3959c
 	db 0, 0 ; items
 	db 10 ; base reward
 	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_CAUTIOUS + AI_STATUS + AI_RISKY
-	dw CONTEXT_USE + SWITCH_SOMETIMES
-
-; Waitress
-	db 0, 0 ; items
-	db 18 ; base reward
-	dw AI_BASIC + AI_TYPES + AI_OPPORTUNIST + AI_STATUS
 	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Pokefanm

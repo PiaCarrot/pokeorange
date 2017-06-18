@@ -149,6 +149,12 @@ KRIS EQU __enum__
 	trainerclass SIGHTSEERF
 	const ASAMI
 
+	trainerclass WAITRESS
+	const SATOMI
+	const SAORI
+	const NAOMI
+	const JUN
+
 	trainerclass SCHOOLBOY
 
 	trainerclass BIRD_KEEPER
@@ -182,12 +188,6 @@ KRIS EQU __enum__
 	trainerclass SAGE
 
 	trainerclass MEDIUM
-
-	trainerclass WAITRESS
-	const SATOMI
-	const SAORI
-	const NAOMI
-	const JUN
 
 	trainerclass POKEFANM
 

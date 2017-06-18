@@ -53,6 +53,7 @@ TrainerGroups: ; 0x39999
 	dw AthleteGroup
 	dw SightseerMGroup
 	dw SightseerFGroup
+	dw WaitressGroup
 	dw SchoolboyGroup
 	dw BirdKeeperGroup
 	dw CooltrainerMGroup
@@ -70,6 +71,5 @@ TrainerGroups: ; 0x39999
 	dw PicnickerGroup
 	dw SageGroup
 	dw MediumGroup
-	dw WaitressGroup
 	dw PokefanMGroup
 	dw PokefanFGroup

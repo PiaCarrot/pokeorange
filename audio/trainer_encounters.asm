@@ -75,6 +75,7 @@ TrainerEncounterMusic: ; e9027
 	db MUSIC_HIKER_ENCOUNTER		; sightseerm
 	db MUSIC_BEAUTY_ENCOUNTER		; sightseerf
 	db MUSIC_YOUNGSTER_ENCOUNTER	; schoolboy
+	db MUSIC_BEAUTY_ENCOUNTER		; waitress
 	db MUSIC_YOUNGSTER_ENCOUNTER	; bird_keeper
 	db MUSIC_HIKER_ENCOUNTER		; cooltrainerm
 	db MUSIC_BEAUTY_ENCOUNTER		; cooltrainerf
@@ -91,7 +92,6 @@ TrainerEncounterMusic: ; e9027
 	db MUSIC_LASS_ENCOUNTER			; picnicker
 	db MUSIC_SAGE_ENCOUNTER			; sage
 	db MUSIC_SAGE_ENCOUNTER			; medium
-	db MUSIC_HIKER_ENCOUNTER		; boarder
 	db MUSIC_HIKER_ENCOUNTER		; pokefanm
 	db MUSIC_BEAUTY_ENCOUNTER		; pokefanf
 ; e906e

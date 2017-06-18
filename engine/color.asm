@@ -128,6 +128,8 @@ CheckPink:
 
 GetBattlemonBackpicPalettePointer:
 ; check if caught location is PINKAN_ISLAND
+	and a
+	jp z, GetPlayerPalettePointer
 	ld hl, PartyMon1CaughtLocation
 	ld a, [CurBattleMon]
 	call GetPartyLocation
@@ -151,7 +153,7 @@ GetBattlemonBackpicPalettePointer:
 	ld c, l
 	ld b, h
 	ld a, [TempBattleMonSpecies]
-	call GetPlayerOrMonPalettePointer
+	call GetMonNormalOrShinyPalettePointer
 	pop de
 	ret
 
@@ -600,6 +602,7 @@ InitPartyMenuOBPals:
 GetPlayerOrMonPalettePointer:
 	and a
 	jp nz, GetMonNormalOrShinyPalettePointer
+GetPlayerPalettePointer:
 	ld a, [wPlayerSpriteSetupFlags]
 	bit 2, a ; transformed to male
 	jr nz, .male
