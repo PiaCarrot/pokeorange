@@ -319,117 +319,117 @@ TrainerClassAttributes: ; 3959c
 	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Schoolboy
-	db 0, 0 ; items
-	db 8 ; base reward
-	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_OPPORTUNIST + AI_CAUTIOUS + AI_STATUS
-	dw CONTEXT_USE + SWITCH_OFTEN
+;	db 0, 0 ; items
+;	db 8 ; base reward
+;	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_OPPORTUNIST + AI_CAUTIOUS + AI_STATUS
+;	dw CONTEXT_USE + SWITCH_OFTEN
 
 ; Bird Keeper
-	db 0, 0 ; items
-	db 6 ; base reward
-	dw AI_BASIC + AI_TYPES + AI_OFFENSIVE + AI_OPPORTUNIST + AI_STATUS
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 6 ; base reward
+;	dw AI_BASIC + AI_TYPES + AI_OFFENSIVE + AI_OPPORTUNIST + AI_STATUS
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Cooltrainerm
-	db 0, 0 ; items
-	db 12 ; base reward
-	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 12 ; base reward
+;	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Cooltrainerf
-	db 0, 0 ; items
-	db 12 ; base reward
-	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 12 ; base reward
+;	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Gentleman
-	db 0, 0 ; items
-	db 18 ; base reward
-	dw AI_BASIC + AI_SETUP + AI_AGGRESSIVE + AI_STATUS
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 18 ; base reward
+;	dw AI_BASIC + AI_SETUP + AI_AGGRESSIVE + AI_STATUS
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Teacher
-	db 0, 0 ; items
-	db 18 ; base reward
-	dw AI_BASIC + AI_OPPORTUNIST + AI_AGGRESSIVE + AI_STATUS
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 18 ; base reward
+;	dw AI_BASIC + AI_OPPORTUNIST + AI_AGGRESSIVE + AI_STATUS
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Sailor
-	db 0, 0 ; items
-	db 10 ; base reward
-	dw AI_BASIC + AI_OFFENSIVE + AI_OPPORTUNIST + AI_STATUS
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 10 ; base reward
+;	dw AI_BASIC + AI_OFFENSIVE + AI_OPPORTUNIST + AI_STATUS
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Super Nerd
-	db 0, 0 ; items
-	db 8 ; base reward
-	dw AI_BASIC + AI_TYPES + AI_SMART + AI_STATUS
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 8 ; base reward
+;	dw AI_BASIC + AI_TYPES + AI_SMART + AI_STATUS
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Guitarist
-	db 0, 0 ; items
-	db 8 ; base reward
-	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_CAUTIOUS + AI_STATUS
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 8 ; base reward
+;	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_CAUTIOUS + AI_STATUS
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Biker
-	db 0, 0 ; items
-	db 8 ; base reward
-	dw AI_BASIC + AI_TYPES + AI_STATUS + AI_RISKY
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 8 ; base reward
+;	dw AI_BASIC + AI_TYPES + AI_STATUS + AI_RISKY
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Firebreather
-	db 0, 0 ; items
-	db 12 ; base reward
-	dw AI_BASIC + AI_SETUP + AI_OFFENSIVE + AI_OPPORTUNIST + AI_STATUS
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 12 ; base reward
+;	dw AI_BASIC + AI_SETUP + AI_OFFENSIVE + AI_OPPORTUNIST + AI_STATUS
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Juggler
-	db 0, 0 ; items
-	db 10 ; base reward
-	dw AI_BASIC + AI_TYPES + AI_SMART + AI_STATUS
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 10 ; base reward
+;	dw AI_BASIC + AI_TYPES + AI_SMART + AI_STATUS
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Blackbelt T
-	db 0, 0 ; items
-	db 6 ; base reward
-	dw AI_BASIC + AI_OFFENSIVE + AI_STATUS + AI_RISKY
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 6 ; base reward
+;	dw AI_BASIC + AI_OFFENSIVE + AI_STATUS + AI_RISKY
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Psychic T
-	db 0, 0 ; items
-	db 8 ; base reward
-	dw AI_BASIC + AI_TYPES + AI_OPPORTUNIST + AI_CAUTIOUS + AI_STATUS
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 8 ; base reward
+;	dw AI_BASIC + AI_TYPES + AI_OPPORTUNIST + AI_CAUTIOUS + AI_STATUS
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Picnicker
-	db 0, 0 ; items
-	db 5 ; base reward
-	dw AI_BASIC + AI_CAUTIOUS + AI_STATUS
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 5 ; base reward
+;	dw AI_BASIC + AI_CAUTIOUS + AI_STATUS
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Sage
-	db 0, 0 ; items
-	db 8 ; base reward
-	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_CAUTIOUS + AI_STATUS + AI_RISKY
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 8 ; base reward
+;	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Medium
-	db 0, 0 ; items
-	db 10 ; base reward
-	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_CAUTIOUS + AI_STATUS + AI_RISKY
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 10 ; base reward
+;	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Pokefanm
-	db 0, 0 ; items
-	db 20 ; base reward
-	dw AI_BASIC + AI_TYPES + AI_SMART + AI_STATUS
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 20 ; base reward
+;	dw AI_BASIC + AI_TYPES + AI_SMART + AI_STATUS
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Pokefanf
-	db 0, 0 ; items
-	db 20 ; base reward
-	dw AI_BASIC + AI_TYPES + AI_SMART + AI_STATUS
-	dw CONTEXT_USE + SWITCH_SOMETIMES
+;	db 0, 0 ; items
+;	db 20 ; base reward
+;	dw AI_BASIC + AI_TYPES + AI_SMART + AI_STATUS
+;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; 39771

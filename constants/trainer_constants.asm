@@ -148,40 +148,6 @@ KRIS EQU __enum__
 
 	trainerclass SIGHTSEERF
 	const ASAMI
-
-	trainerclass SCHOOLBOY
-
-	trainerclass BIRD_KEEPER
-
-	trainerclass COOLTRAINERM
-
-	trainerclass COOLTRAINERF
-
-	trainerclass GENTLEMAN
-
-	trainerclass TEACHER
-
-	trainerclass SAILOR
-
-	trainerclass SUPER_NERD
-
-	trainerclass GUITARIST
-
-	trainerclass BIKER
-
-	trainerclass FIREBREATHER
-
-	trainerclass JUGGLER
-
-	trainerclass BLACKBELT_T
-
-	trainerclass PSYCHIC_T
-
-	trainerclass PICNICKER
-
-	trainerclass SAGE
-
-	trainerclass MEDIUM
 	
 	trainerclass WAITRESS
 	const SATOMI
@@ -189,9 +155,43 @@ KRIS EQU __enum__
 	const NAOMI
 	const JUN
 
-	trainerclass POKEFANM
+;	trainerclass SCHOOLBOY
 
-	trainerclass POKEFANF
+;	trainerclass BIRD_KEEPER
+
+;	trainerclass COOLTRAINERM
+
+;	trainerclass COOLTRAINERF
+
+;	trainerclass GENTLEMAN
+
+;	trainerclass TEACHER
+
+;	trainerclass SAILOR
+
+;	trainerclass SUPER_NERD
+
+;	trainerclass GUITARIST
+
+;	trainerclass BIKER
+
+;	trainerclass FIREBREATHER
+
+;	trainerclass JUGGLER
+
+;	trainerclass BLACKBELT_T
+
+;	trainerclass PSYCHIC_T
+
+;	trainerclass PICNICKER
+
+;	trainerclass SAGE
+
+;	trainerclass MEDIUM
+
+;	trainerclass POKEFANM
+
+;	trainerclass POKEFANF
 
 NUM_TRAINER_CLASSES EQU __enum__
 

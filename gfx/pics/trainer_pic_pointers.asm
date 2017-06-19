@@ -51,23 +51,23 @@
 	dba AthletePic
 	dba SightseerMPic
 	dba SightseerFPic
-	dba SchoolboyPic
-	dba BirdKeeperPic
-	dba CooltrainerMPic
-	dba CooltrainerFPic
-	dba GentlemanPic
-	dba TeacherPic
-	dba SailorPic
-	dba SuperNerdPic
-	dba GuitaristPic
-	dba BikerPic
-	dba FirebreatherPic
-	dba JugglerPic
-	dba BlackbeltTPic
-	dba PsychicTPic
-	dba PicnickerPic
-	dba SagePic
-	dba MediumPic
 	dba WaitressPic
-	dba PokefanMPic
-	dba PokefanFPic
+;	dba SchoolboyPic
+;	dba BirdKeeperPic
+;	dba CooltrainerMPic
+;	dba CooltrainerFPic
+;	dba GentlemanPic
+;	dba TeacherPic
+;	dba SailorPic
+;	dba SuperNerdPic
+;	dba GuitaristPic
+;	dba BikerPic
+;	dba FirebreatherPic
+;	dba JugglerPic
+;	dba BlackbeltTPic
+;	dba PsychicTPic
+;	dba PicnickerPic
+;	dba SagePic
+;	dba MediumPic
+;	dba PokefanMPic
+;	dba PokefanFPic

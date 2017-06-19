@@ -127,9 +127,10 @@ CheckPink:
 
 
 GetBattlemonBackpicPalettePointer:
-; check if caught location is PINKAN_ISLAND
+	ld a, [TempBattleMonSpecies]
 	and a
 	jp z, GetPlayerPalettePointer
+; check if caught location is PINKAN_ISLAND
 	ld hl, PartyMon1CaughtLocation
 	ld a, [CurBattleMon]
 	call GetPartyLocation

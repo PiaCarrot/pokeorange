@@ -74,24 +74,24 @@ TrainerEncounterMusic: ; e9027
 	db MUSIC_HIKER_ENCOUNTER		; athlete
 	db MUSIC_HIKER_ENCOUNTER		; sightseerm
 	db MUSIC_BEAUTY_ENCOUNTER		; sightseerf
-	db MUSIC_YOUNGSTER_ENCOUNTER	; schoolboy
 	db MUSIC_BEAUTY_ENCOUNTER		; waitress
-	db MUSIC_YOUNGSTER_ENCOUNTER	; bird_keeper
-	db MUSIC_HIKER_ENCOUNTER		; cooltrainerm
-	db MUSIC_BEAUTY_ENCOUNTER		; cooltrainerf
-	db MUSIC_HIKER_ENCOUNTER		; gentleman
-	db MUSIC_BEAUTY_ENCOUNTER		; teacher
-	db MUSIC_HIKER_ENCOUNTER		; sailor
-	db MUSIC_POKEMANIAC_ENCOUNTER	; super_nerd
-	db MUSIC_HIKER_ENCOUNTER		; guitarist
-	db MUSIC_HIKER_ENCOUNTER		; biker
-	db MUSIC_HIKER_ENCOUNTER		; firebreather
-	db MUSIC_POKEMANIAC_ENCOUNTER	; juggler
-	db MUSIC_HIKER_ENCOUNTER		; blackbelt_t
-	db MUSIC_YOUNGSTER_ENCOUNTER	; psychic_t
-	db MUSIC_LASS_ENCOUNTER			; picnicker
-	db MUSIC_SAGE_ENCOUNTER			; sage
-	db MUSIC_SAGE_ENCOUNTER			; medium
-	db MUSIC_HIKER_ENCOUNTER		; pokefanm
-	db MUSIC_BEAUTY_ENCOUNTER		; pokefanf
+;	db MUSIC_YOUNGSTER_ENCOUNTER	; schoolboy
+;	db MUSIC_YOUNGSTER_ENCOUNTER	; bird_keeper
+;	db MUSIC_HIKER_ENCOUNTER		; cooltrainerm
+;	db MUSIC_BEAUTY_ENCOUNTER		; cooltrainerf
+;	db MUSIC_HIKER_ENCOUNTER		; gentleman
+;	db MUSIC_BEAUTY_ENCOUNTER		; teacher
+;	db MUSIC_HIKER_ENCOUNTER		; sailor
+;	db MUSIC_POKEMANIAC_ENCOUNTER	; super_nerd
+;	db MUSIC_HIKER_ENCOUNTER		; guitarist
+;	db MUSIC_HIKER_ENCOUNTER		; biker
+;	db MUSIC_HIKER_ENCOUNTER		; firebreather
+;	db MUSIC_POKEMANIAC_ENCOUNTER	; juggler
+;	db MUSIC_HIKER_ENCOUNTER		; blackbelt_t
+;	db MUSIC_YOUNGSTER_ENCOUNTER	; psychic_t
+;	db MUSIC_LASS_ENCOUNTER			; picnicker
+;	db MUSIC_SAGE_ENCOUNTER			; sage
+;	db MUSIC_SAGE_ENCOUNTER			; medium
+;	db MUSIC_HIKER_ENCOUNTER		; pokefanm
+;	db MUSIC_BEAUTY_ENCOUNTER		; pokefanf
 ; e906e

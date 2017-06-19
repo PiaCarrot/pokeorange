@@ -137,9 +137,6 @@ SwimmerNaoyaAfterText:
 	cont "CULT."
 	done
 
-TraceyHaxScript:
-	jumptextfaceplayer YouBrokeItText
-
 TraceyScript1:
 	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
 	showemote EMOTE_SHOCK, ROUTE_56_TRACEY, 15
@@ -201,11 +198,6 @@ TraceyScript2:
 	pause 10
 	domaptrigger ROUTE_56_WEST, $1
 	end
-
-YouBrokeItText:
-	text "The event didn't"
-	line "work. It broke."
-	done
 
 TraceyYoText:
 	text "<PLAYER>!"
@@ -291,7 +283,7 @@ Route56West_MapEventHeader:: db 0, 0
 	person_event SPRITE_COOLTRAINER_M, 23, 14, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerAthleteKaito, -1
 	person_event SPRITE_SWIMMER_GIRL, 20, 33, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerSakako, -1
 	person_event SPRITE_SWIMMER_GUY, 9, 16, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerNaoya, -1
-	person_event SPRITE_TRACEY, 20, 55, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TraceyHaxScript, EVENT_ROUTE_56_TRACEY
+	person_event SPRITE_TRACEY, 20, 55, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_56_TRACEY
 	person_event SPRITE_POKE_BALL, 9, 51, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56WestHPUp, EVENT_ROUTE_56_WEST_HP_UP
 	person_event SPRITE_POKE_BALL, 27, 52, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56WestUltraBall, EVENT_ROUTE_56_WEST_ULTRA_BALL
 
