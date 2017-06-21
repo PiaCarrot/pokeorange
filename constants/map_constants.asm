@@ -30,6 +30,9 @@ MAP_NONE EQU 0
 	mapgroup NATIONAL_PARK_BUG_CONTEST, 27, 20
 
 	newgroup ; 3
+	
+	mapgroup ROUTE_57, 14, 10
+
 
 	newgroup ; 4
 
