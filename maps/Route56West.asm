@@ -166,7 +166,6 @@ TraceyScript1:
 	playmapmusic
 	pause 10
 	domaptrigger ROUTE_56_WEST, $1
-	setevent EVENT_ROUTE_56_TRACEY
 	end
 
 TraceyScript2:
@@ -198,7 +197,6 @@ TraceyScript2:
 	playmapmusic
 	pause 10
 	domaptrigger ROUTE_56_WEST, $1
-	setevent EVENT_ROUTE_56_TRACEY
 	end
 
 TraceyYoText:
