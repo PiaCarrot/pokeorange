@@ -23,10 +23,10 @@
 	RGB 17, 08, 07
 
 ; group 4 (Pinkan Island, Kinnow Island)
-	RGB 31, 19, 00
-	RGB 27, 10, 05
-	RGB 15, 07, 02
-	RGB 11, 04, 02
+	RGB 00, 15, 31
+	RGB 00, 10, 20
+	RGB 00, 07, 16
+	RGB 00, 05, 10
 
 ; group 5 (Mikan Island)
 	RGB 31, 19, 00
