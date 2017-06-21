@@ -10,7 +10,7 @@
 	db NO_ITEM ; item 2
 	db 128 ; gender
 	db 40 ; step cycles to hatch
-	dn 6, 6 ; frontpic dimensions
+	dn 7, 7 ; frontpic dimensions
 
 	db FAST ; growth rate
 	dn FIELD, FAIRYEGG ; egg groups
