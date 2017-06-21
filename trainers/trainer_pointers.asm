@@ -54,22 +54,22 @@ TrainerGroups: ; 0x39999
 	dw SightseerMGroup
 	dw SightseerFGroup
 	dw WaitressGroup
-	dw SchoolboyGroup
-	dw BirdKeeperGroup
-	dw CooltrainerMGroup
-	dw CooltrainerFGroup
-	dw GentlemanGroup
-	dw TeacherGroup
-	dw SailorGroup
-	dw SuperNerdGroup
-	dw GuitaristGroup
-	dw BikerGroup
-	dw FirebreatherGroup
-	dw JugglerGroup
-	dw BlackbeltGroup
-	dw PsychicGroup
-	dw PicnickerGroup
-	dw SageGroup
-	dw MediumGroup
-	dw PokefanMGroup
-	dw PokefanFGroup
+;	dw SchoolboyGroup
+;	dw BirdKeeperGroup
+;	dw CooltrainerMGroup
+;	dw CooltrainerFGroup
+;	dw GentlemanGroup
+;	dw TeacherGroup
+;	dw SailorGroup
+;	dw SuperNerdGroup
+;	dw GuitaristGroup
+;	dw BikerGroup
+;	dw FirebreatherGroup
+;	dw JugglerGroup
+;	dw BlackbeltGroup
+;	dw PsychicGroup
+;	dw PicnickerGroup
+;	dw SageGroup
+;	dw MediumGroup
+;	dw PokefanMGroup
+;	dw PokefanFGroup

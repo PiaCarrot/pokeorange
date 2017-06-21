@@ -75,23 +75,23 @@ TrainerClassDVs: ; 270d6
 	db $98, $88 ; sightseerm
 	db $68, $88 ; sightseerf
 	db $68, $88 ; waitress
-	db $98, $88 ; schoolboy
-	db $98, $88 ; bird keeper
-	db $D8, $C8 ; cooltrainerm
-	db $7C, $C8 ; cooltrainerf
-	db $98, $88 ; gentleman
-	db $68, $88 ; teacher
-	db $98, $88 ; sailor
-	db $98, $88 ; super nerd
-	db $98, $88 ; guitarist
-	db $98, $88 ; biker
-	db $98, $88 ; firebreather
-	db $98, $88 ; juggler
-	db $98, $88 ; blackbelt
-	db $98, $88 ; psychic
-	db $6A, $A8 ; picnicker
-	db $98, $88 ; sage
-	db $78, $88 ; medium
-	db $98, $88 ; pokefanm
-	db $6D, $88 ; pokefanf
+;	db $98, $88 ; schoolboy
+;	db $98, $88 ; bird keeper
+;	db $D8, $C8 ; cooltrainerm
+;	db $7C, $C8 ; cooltrainerf
+;	db $98, $88 ; gentleman
+;	db $68, $88 ; teacher
+;	db $98, $88 ; sailor
+;	db $98, $88 ; super nerd
+;	db $98, $88 ; guitarist
+;	db $98, $88 ; biker
+;	db $98, $88 ; firebreather
+;	db $98, $88 ; juggler
+;	db $98, $88 ; blackbelt
+;	db $98, $88 ; psychic
+;	db $6A, $A8 ; picnicker
+;	db $98, $88 ; sage
+;	db $78, $88 ; medium
+;	db $98, $88 ; pokefanm
+;	db $6D, $88 ; pokefanf
 ; 2715c
