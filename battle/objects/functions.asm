@@ -441,18 +441,18 @@ GetBallAnimPal: ; cd249 (33:5249)
 
 ; cd26c (33:526c)
 .balls
-	db MASTER_BALL, 5
-	db ULTRA_BALL,  3
-	db GREAT_BALL,  6
-	db POKE_BALL,   4
-	db HEAVY_BALL,  2
-	db LEVEL_BALL,  7
-	db LURE_BALL,   6
-	db FAST_BALL,   6
-	db FRIEND_BALL, 3
-	db MOON_BALL,   2
-	db LOVE_BALL,   4
-	db -1,          2
+	db MASTER_BALL, PAL_BATTLE_GREEN
+	db ULTRA_BALL,  PAL_BATTLE_YELLOW
+	db GREAT_BALL,  PAL_BATTLE_BLUE
+	db POKE_BALL,   PAL_BATTLE_RED
+	db HEAVY_BALL,  PAL_BATTLE_GRAY
+	db LEVEL_BALL,  PAL_BATTLE_BROWN
+	db LURE_BALL,   PAL_BATTLE_BLUE
+	db FAST_BALL,   PAL_BATTLE_BLUE
+	db FRIEND_BALL, PAL_BATTLE_YELLOW
+	db MOON_BALL,   PAL_BATTLE_GRAY
+	db LOVE_BALL,   PAL_BATTLE_RED
+	db -1,          PAL_BATTLE_GRAY
 ; cd284
 BattleAnimFunction_10: ; cd284 (33:5284)
 	call BattleAnim_AnonJumptable
@@ -2436,6 +2436,7 @@ Functioncde21: ; cde21 (33:5e21)
 Unknown_cde25: ; cde25
 	db $ec, $f8, $00
 ; cde28
+
 BattleAnimFunction_25: ; cde28 (33:5e28)
 	ld hl, BATTLEANIMSTRUCT_0F
 	add hl, bc
