@@ -51,6 +51,8 @@
 
 	map_header_2 KinnowIsland, KINNOW_ISLAND, 53, SOUTH
 	connection south, ROUTE_56_EAST, Route56East, 0, 25, 12, KINNOW_ISLAND
+	
+	map_header_2 Route57, ROUTE_57, 53, 0
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, $0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0

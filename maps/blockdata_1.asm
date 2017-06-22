@@ -88,3 +88,6 @@ Route56West_BlockData:
 
 Route56East_BlockData:
 	INCBIN "maps/Route56East.blk"
+
+Route57_BlockData: 
+	INCBIN "maps/Route57.blk"
