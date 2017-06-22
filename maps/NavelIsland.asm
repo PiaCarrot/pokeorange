@@ -19,9 +19,11 @@ NavelIslandSignText:
 
 NavelIsland_MapEventHeader:: db 0, 0
 
-.Warps: db 2
+.Warps: db 4
 	warp_def 21, 16, 1, MT_NAVEL_1F
 	warp_def 9, 26, 2, MT_NAVEL_1F
+	warp_def 27, 24, 3, MT_NAVEL_2F
+	warp_def 15, 10, 4, MT_NAVEL_2F
 
 .CoordEvents: db 0
 
