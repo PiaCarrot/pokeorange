@@ -21,10 +21,10 @@ R57SwimmerGirlText:
 	
 	para "Some people just"
 	line "like to swim!"
-	end
+	done
 	
 TrainerSightSeerAsami:
-	trainer EVENT_BEAT_SIGHTSEERF_ASAMI, SIGHTSEERM, ASAMI, SightSeerAsamiSeenText, SightSeerAsamiBeatenText, 0, .Script
+	trainer EVENT_BEAT_SIGHTSEERF_ASAMI, SIGHTSEERF, ASAMI, SightSeerAsamiSeenText, SightSeerAsamiBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -101,5 +101,5 @@ Route57_MapEventHeader:: db 0, 0
 	person_event SPRITE_POKE_BALL, 27, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route57HardStone, EVENT_ROUTE_57_HARD_STONE
 	person_event SPRITE_SWIMMER_GIRL, 17, 15, SPRITEMOVEDATA_SWIM_LEFT_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route57SwimmerGirlScript, -1
 	person_event SPRITE_SIGHTSEER_F, 26, 5, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, TrainerSightSeerAsami, -1
-	person_event SPRITE_SIGHTSEER_F, 9, 13, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerBugCatcherFAlia, -1
+	person_event SPRITE_SIGHTSEER_F, 9, 13, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 3, TrainerBugCatcherFAlia, -1
 

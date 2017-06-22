@@ -40,3 +40,7 @@ CrystalCaveB1_BlockData:
 
 MandarinUnderground_BlockData:
 	INCBIN "maps/MandarinUnderground.blk"
+	
+UnnamedIsland1_BlockData: 
+	INCBIN "maps/UnnamedIsland1.blk"
+

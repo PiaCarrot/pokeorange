@@ -86,6 +86,12 @@ if def(DEBUG)
 	setflag ENGINE_SEA_RUBY_BADGE
 	setflag ENGINE_SPIKE_SHELL_BADGE
 	setflag ENGINE_JADE_STAR_BADGE
+	opentext
+	givepoke LAPRAS, 30
+	givepoke CHARMELEON, 30
+	givepoke VICTREEBEL, 30
+	givepoke AMPHAROS, 30
+	closetext
 	warp KINNOW_ISLAND, 8, 4
 	end
 else
