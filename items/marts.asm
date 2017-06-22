@@ -6,6 +6,7 @@ Marts: ; 160a9
 	dw SunburstMart2
 	dw SunburstMart3
 	dw KinnowMart
+	dw Route58Mart
 MartsEnd
 ; 160ed
 
@@ -88,6 +89,14 @@ KinnowMart:
 	db ESCAPE_ROPE
 	db FULL_HEAL
 	db REVIVE
+	db $ff
+	
+Route58Mart:
+	db 4
+	db SUPER_POTION
+	db FULL_HEAL
+	db ICE_HEAL
+	db ESCAPE_ROPE
 	db $ff
 
 DefaultMart: ; 16214

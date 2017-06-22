@@ -434,15 +434,7 @@ treemon_map: macro
 	map \1
 	db  \2 ; treemon set
 endm
-	treemon_map ROUTE_49, 3
-	treemon_map ROUTE_50, 3
-	treemon_map ROUTE_51, 3
-	treemon_map ROUTE_52, 4
-	treemon_map ROUTE_53, 2
-	treemon_map VALENCIA_ISLAND, 0
-	treemon_map TANGELO_ISLAND, 0
-	treemon_map MIKAN_ISLAND, 0
-	treemon_map TANGELO_JUNGLE, 6
+	treemon_map UNNAMED_ISLAND_1, 1
 	db -1
 ; b82c5
 
@@ -494,37 +486,37 @@ TreeMons: ; b82e8
 ;	db  %, species, level
 
 TreeMons1: ; b82fa
-	db 50, SPEAROW,    10
-	db 15, SPEAROW,    10
-	db 15, SPEAROW,    10
-	db 10, STUNFISK,      10
-	db  5, STUNFISK,      10
-	db  5, STUNFISK,      10
+	db 50, KAKUNA,      10
+	db 15, SPEAROW,     10
+	db 15, PIDGEY,      10
+	db 10, BEEDRILL,    10
+	db  5, MANKEY,      10
+	db  5, LICKITUNG,   10
 	db -1
 
-	db 50, SPEAROW,    10
-	db 15, HERACROSS,  10
-	db 15, HERACROSS,  10
-	db 10, STUNFISK,      10
-	db  5, STUNFISK,      10
-	db  5, STUNFISK,      10
+	db 50, KAKUNA,      10
+	db 15, SPEAROW,     10
+	db 15, PIDGEY,      10
+	db 10, BEEDRILL,    10
+	db  5, MANKEY,      10
+	db  5, LICKITUNG,   10
 	db -1
 
 TreeMons2: ; b8320
 	db 50, SPEAROW,    10
 	db 15, EKANS,      10
 	db 15, SPEAROW,    10
-	db 10, STUNFISK,      10
-	db  5, STUNFISK,      10
-	db  5, STUNFISK,      10
+	db 10, PIDGEY,      10
+	db  5, PIDGEY,      10
+	db  5, PIDGEY,      10
 	db -1
 
 	db 50, SPEAROW,    10
 	db 15, HERACROSS,  10
 	db 15, HERACROSS,  10
-	db 10, STUNFISK,      10
-	db  5, STUNFISK,      10
-	db  5, STUNFISK,      10
+	db 10, PIDGEY,      10
+	db  5, PIDGEY,      10
+	db  5, PIDGEY,      10
 	db -1
 
 TreeMons3: ; b8346

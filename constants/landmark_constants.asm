@@ -81,7 +81,7 @@ KANTO_LANDMARK EQU const_value
 	const PALLET_TOWN
 	const ROUTE_1
 	const CINNABAR_SEA
-	const SEYDA_ISLAND
+	const SAYDA_ISLAND
 	const KANTO_SEA_1
 	const CAMOMILE_ISLAND
 	const VERMILION_SEA

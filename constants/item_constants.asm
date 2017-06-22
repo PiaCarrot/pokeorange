@@ -343,6 +343,7 @@ ITEMMENU_CLOSE              EQU 6
 	const MART_SUNBURST2
 	const MART_SUNBURST3
 	const MART_KINNOW
+	const MART_ROUTE_58
 
 ; PartyMenuActionText
 	const_def

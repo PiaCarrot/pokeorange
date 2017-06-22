@@ -132,7 +132,7 @@ ENDM
 	landmark   0,   0, PalletTownName
 	landmark   0,   0, Route1Name
 	landmark   0,   0, CinnabarSeaName
-	landmark   0,   0, SeydaIslandName
+	landmark   0,   0, SaydaIslandName
 	landmark   0,   0, KantoSea1Name
 	landmark   0,   0, CamomileIslandName
 	landmark   0,   0, VermilionSeaName
@@ -227,7 +227,7 @@ Route21Name:         db "ROUTE 21@"
 PalletTownName:      db "PALLET TOWN@"
 Route1Name:          db "ROUTE 1@"
 CinnabarSeaName:     db "CINNABAR SEA@"
-SeydaIslandName:     db "SEYDA ISLAND@"
+SaydaIslandName:     db "SAYDA ISLAND@"
 KantoSea1Name:       db "KANTO SEA@"
 CamomileIslandName:  db "CAMOMILE ISLAND@"
 VermilionSeaName:    db "VERMILION SEA@"

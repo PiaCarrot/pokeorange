@@ -5,6 +5,7 @@ SunburstPokeCenter_BlockData:
 Route52PokeCenter1F_BlockData:
 Route56PokeCenter_BlockData:
 KinnowPokeCenter_BlockData:
+UnnamedIsland1PokeCenter_BlockData:
 	INCBIN "maps/PokeCenter1F.blk"
 
 PokeCenter2F_BlockData:
@@ -92,3 +93,6 @@ Route56East_BlockData:
 
 Route57_BlockData: 
 	INCBIN "maps/Route57.blk"
+	
+Route58_BlockData: 
+	INCBIN "maps/Route58.blk"

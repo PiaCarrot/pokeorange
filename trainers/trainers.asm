@@ -1014,9 +1014,8 @@ CooltrainerMGroup:
 	db "AKIRA@"
 	db 0
 	
-	db 25, SANDSLASH
-	db 25, FEAROW
-	db 25, FLAREON
+	db 26, JYNX
+	db 25, SEEL
 	
 	db $ff
 	
@@ -1029,7 +1028,7 @@ CooltrainerFGroup:
 ; ================
 
 	; COOLTRAINERF (1)
-	db "MEGUMI@"
+	db "KEIKO@"
 	db 0
 	
 	db 26, SKIPLOOM

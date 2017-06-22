@@ -161,7 +161,7 @@ KRIS EQU __enum__
 	const AKIRA
 
 	trainerclass COOLTRAINERF
-	const MEGUMI
+	const KEIKO
 
 ;	trainerclass SCHOOLBOY
 

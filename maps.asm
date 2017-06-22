@@ -112,6 +112,7 @@ SECTION "Map Scripts 7", ROMX, BANK[MAP_SCRIPTS_7]
 INCLUDE "maps/Route52PokeCenter1F.asm"
 INCLUDE "maps/DayCare.asm"
 INCLUDE "maps/HallOfFame.asm"
+INCLUDE "maps/UnnamedIsland1PokeCenter.asm"
 
 
 SECTION "Map Scripts 8", ROMX, BANK[MAP_SCRIPTS_8]
@@ -129,7 +130,7 @@ SECTION "Map Scripts 9", ROMX, BANK[MAP_SCRIPTS_9]
 INCLUDE "maps/Route57.asm"
 INCLUDE "maps/KinnowIslandRoute57Gate.asm"
 INCLUDE "maps/UnnamedIsland1.asm"
-
+INCLUDE "maps/Route58.asm"
 
 SECTION "Map Scripts 10", ROMX, BANK[MAP_SCRIPTS_10]
 
