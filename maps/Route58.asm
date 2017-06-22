@@ -69,6 +69,7 @@ Route58SignText:
 	line "EAST to NAVEL"
 	cont "SOUTH to GRAPE-"
 	cont "FRUIT ISLANDS"
+	done
 
 Route58_MapEventHeader:: db 0, 0
 
