@@ -46,3 +46,9 @@ IcePathB2FBlackthornSide_BlockData:
 
 IcePathB3F_BlockData:
 	INCBIN "maps/IcePathB3F.blk"
+
+MtNavel1F_BlockData: 
+	INCBIN "maps/MtNavel1F.blk"
+	
+MtNavel2F_BlockData: 
+	INCBIN "maps/MtNavel2F.blk"

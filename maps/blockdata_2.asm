@@ -43,4 +43,6 @@ MandarinUnderground_BlockData:
 	
 UnnamedIsland1_BlockData: 
 	INCBIN "maps/UnnamedIsland1.blk"
-
+	
+NavelIsland_BlockData: 
+	INCBIN "maps/NavelIsland.blk"

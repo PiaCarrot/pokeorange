@@ -59,8 +59,12 @@
 	connection south, ROUTE_57, Route57, 0, 0, 10, UNNAMED_ISLAND_1
 	connection east, ROUTE_58, Route58, 2, 0, 10, UNNAMED_ISLAND_1
 	
-	map_header_2 Route58, ROUTE_58, 53, WEST
+	map_header_2 Route58, ROUTE_58, 53, WEST | EAST
 	connection west, UNNAMED_ISLAND_1, UnnamedIsland1, -2, 0, 10, ROUTE_58
+	connection east, NAVEL_ISLAND, NavelIsland, 0, 8, 10, ROUTE_58
+	
+	map_header_2 NavelIsland, NAVEL_ISLAND, 53, WEST
+	connection west, ROUTE_58, Route58, 8, 0, 10, NAVEL_ISLAND
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, $0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
@@ -110,6 +114,8 @@
 	map_header_2 KinnowSkateShop, KINNOW_SKATE_SHOP, 0, 0
 	map_header_2 KinnowIslandRoute57Gate, KINNOW_ISLAND_ROUTE_57_GATE, 0, 0
 	map_header_2 UnnamedIsland1PokeCenter, UNNAMED_ISLAND_1_POKE_CENTER, 0, 0
+	map_header_2 MtNavel1F, MT_NAVEL_1F, 9, 0
+	map_header_2 MtNavel2F, MT_NAVEL_2F, 9, 0
 	map_header_2 HallOfFame, HALL_OF_FAME, $0, 0
 
 	map_header_2 DayCare, DAYCARE, $0, 0

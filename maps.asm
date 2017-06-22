@@ -131,6 +131,9 @@ INCLUDE "maps/Route57.asm"
 INCLUDE "maps/KinnowIslandRoute57Gate.asm"
 INCLUDE "maps/UnnamedIsland1.asm"
 INCLUDE "maps/Route58.asm"
+INCLUDE "maps/NavelIsland.asm"
+INCLUDE "maps/MtNavel1F.asm"
+INCLUDE "maps/MtNavel2F.asm"
 
 SECTION "Map Scripts 10", ROMX, BANK[MAP_SCRIPTS_10]
 

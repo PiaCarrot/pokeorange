@@ -36,6 +36,9 @@ MAP_NONE EQU 0
 	mapgroup UNNAMED_ISLAND_1, 12, 12
 	mapgroup UNNAMED_ISLAND_1_POKE_CENTER, 4, 5
 	mapgroup ROUTE_58, 10, 18
+	mapgroup NAVEL_ISLAND, 18, 18
+	mapgroup MT_NAVEL_1F, 14, 14
+	mapgroup MT_NAVEL_2F, 12, 12
 
 
 	newgroup ; 4
