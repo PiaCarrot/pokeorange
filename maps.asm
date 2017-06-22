@@ -127,6 +127,7 @@ INCLUDE "maps/BluesHouse.asm"
 SECTION "Map Scripts 9", ROMX, BANK[MAP_SCRIPTS_9]
 
 INCLUDE "maps/Route57.asm"
+INCLUDE "maps/KinnowIslandRoute57Gate.asm"
 
 SECTION "Map Scripts 10", ROMX, BANK[MAP_SCRIPTS_10]
 

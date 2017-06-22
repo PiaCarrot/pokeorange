@@ -31,7 +31,8 @@ MAP_NONE EQU 0
 
 	newgroup ; 3
 	
-	mapgroup ROUTE_57, 14, 10
+	mapgroup ROUTE_57, 16, 10
+	mapgroup KINNOW_ISLAND_ROUTE_57_GATE, 4, 5
 
 
 	newgroup ; 4

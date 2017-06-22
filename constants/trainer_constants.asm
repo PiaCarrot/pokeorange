@@ -84,9 +84,9 @@ KRIS EQU __enum__
 	trainerclass OFFICER
 
 	trainerclass YOUNGSTER
-	const TOM
-	const SAWYER
-	const BOWIE
+	const KOJI
+	const TOUYA
+	const KOUTA
 	const NESS
 
 	trainerclass LASS
@@ -95,13 +95,14 @@ KRIS EQU __enum__
 	trainerclass BEAUTY
 
 	trainerclass BUG_CATCHER
-	const EUGENE
+	const KATTA
 	const SAM
 	const MIKE
 	const MUSHI
 	const ALEX
 
 	trainerclass BUG_CATCHER_F
+	const ALIA
 
 	trainerclass SWIMMERM
 	const KOJURO
@@ -135,6 +136,7 @@ KRIS EQU __enum__
 	const NAT_PAGLE
 	const NOBU
 	const ISAO
+	const YUUTA
 
 	trainerclass HIKER
 	const TEPPEI
@@ -154,14 +156,16 @@ KRIS EQU __enum__
 	const SAORI
 	const NAOMI
 	const JUN
+	
+	trainerclass COOLTRAINERM
+	const AKIRA
+
+	trainerclass COOLTRAINERF
+	const MEGUMI
 
 ;	trainerclass SCHOOLBOY
 
 ;	trainerclass BIRD_KEEPER
-
-;	trainerclass COOLTRAINERM
-
-;	trainerclass COOLTRAINERF
 
 ;	trainerclass GENTLEMAN
 

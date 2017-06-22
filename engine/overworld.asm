@@ -757,8 +757,20 @@ Group2Sprites: ; 146cf
 ; 146e6
 
 Group3Sprites: ; 146fd
-	db 0 ; end
-; 14714
+; Route57
+; Unnamed Island
+; Route 58
+; Navel Island
+; 7 Grapefruits
+; Route 59
+; Moro Island
+	db SPRITE_SIGHTSEER_F
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_FISHER
+	db SPRITE_OFFICER
+	db SPRITE_ROCK
+	db 0
 
 Group4Sprites: ; 146b8
 ; Route55

@@ -75,10 +75,10 @@ TrainerEncounterMusic: ; e9027
 	db MUSIC_HIKER_ENCOUNTER		; sightseerm
 	db MUSIC_BEAUTY_ENCOUNTER		; sightseerf
 	db MUSIC_BEAUTY_ENCOUNTER		; waitress
+	db MUSIC_HIKER_ENCOUNTER		; cooltrainerm
+	db MUSIC_BEAUTY_ENCOUNTER		; cooltrainerf
 ;	db MUSIC_YOUNGSTER_ENCOUNTER	; schoolboy
 ;	db MUSIC_YOUNGSTER_ENCOUNTER	; bird_keeper
-;	db MUSIC_HIKER_ENCOUNTER		; cooltrainerm
-;	db MUSIC_BEAUTY_ENCOUNTER		; cooltrainerf
 ;	db MUSIC_HIKER_ENCOUNTER		; gentleman
 ;	db MUSIC_BEAUTY_ENCOUNTER		; teacher
 ;	db MUSIC_HIKER_ENCOUNTER		; sailor

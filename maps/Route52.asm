@@ -85,13 +85,13 @@ TrainerSwimmermTheo:
 	closetext
 	end
 
-TrainerYoungsterBowie:
-	trainer EVENT_BEAT_YOUNGSTER_BOWIE, YOUNGSTER, BOWIE, YoungsterBowieSeenText, YoungsterBowieBeatenText, 0, .Script
+TrainerYoungsterKouta:
+	trainer EVENT_BEAT_YOUNGSTER_KOUTA, YOUNGSTER, KOUTA, YoungsterKoutaSeenText, YoungsterKoutaBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext YoungsterBowieAfterText
+	writetext YoungsterKoutaAfterText
 	waitbutton
 	closetext
 	end
@@ -194,18 +194,18 @@ SwimmermTheoAfterText:
 	text "Mmm<...> DONUTS<...>"
 	done
 
-YoungsterBowieSeenText:
+YoungsterKoutaSeenText:
 	text "There's some rare"
 	line "#MON in the"
 	cont "grass here."
 	done
 
-YoungsterBowieBeatenText:
+YoungsterKoutaBeatenText:
 	text "But my #MON"
 	line "is rare!"
 	done
 
-YoungsterBowieAfterText:
+YoungsterKoutaAfterText:
 	text "TANGELA is still"
 	line "a pretty good"
 	cont "#MON."
@@ -288,7 +288,7 @@ Route52_MapEventHeader:: db 0, 0
 	person_event SPRITE_FISHER, 30, 9, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerFisherFugu, -1
 	person_event SPRITE_FISHER, 32, 6, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerFisherNobu, -1
 	person_event SPRITE_SWIMMER_GUY, 15, 1, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmermTheo, -1
-	person_event SPRITE_YOUNGSTER, 53, 14, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerYoungsterBowie, -1
+	person_event SPRITE_YOUNGSTER, 53, 14, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerYoungsterKouta, -1
 	person_event SPRITE_YOUNGSTER, 16, 10, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 4, TrainerCamperSamm, -1
 	person_event SPRITE_SWIMMER_GIRL, 23, 20, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 3, TrainerSwimmerfYuka, -1
 	person_event SPRITE_SWIMMER_GUY, 43, 18, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmermAtecain, -1

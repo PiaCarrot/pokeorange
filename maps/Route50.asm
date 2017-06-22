@@ -15,34 +15,34 @@ Route50_MapScriptHeader:
 	db 0
 
 TrainerYoungsterJoey:
-	trainer EVENT_BEAT_YOUNGSTER_TOM, YOUNGSTER, TOM, YoungsterTomSeenText, YoungsterTomBeatenText, 0, .Script
+	trainer EVENT_BEAT_YOUNGSTER_KOJI, YOUNGSTER, KOJI, YoungsterKojiSeenText, YoungsterKojiBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext YoungsterTomAfterText
+	writetext YoungsterKojiAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerYoungsterSawyer:
-	trainer EVENT_BEAT_YOUNGSTER_SAWYER, YOUNGSTER, SAWYER, YoungsterSawyerSeenText, YoungsterSawyerBeatenText, 0, .Script
+TrainerYoungsterTouya:
+	trainer EVENT_BEAT_YOUNGSTER_TOUYA, YOUNGSTER, TOUYA, YoungsterTouyaSeenText, YoungsterTouyaBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext YoungsterSawyerAfterText
+	writetext YoungsterTouyaAfterText
 	waitbutton
 	closetext
 	end
 
-TrainerBug_catcherEugene:
-	trainer EVENT_BEAT_BUG_CATCHER_EUGENE, BUG_CATCHER, EUGENE, Bug_catcherEugeneSeenText, Bug_catcherEugeneBeatenText, 0, .Script
+TrainerBug_catcherKatta:
+	trainer EVENT_BEAT_BUG_CATCHER_KATTA, BUG_CATCHER, KATTA, Bug_catcherKattaSeenText, Bug_catcherKattaBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
 	opentext
-	writetext Bug_catcherEugeneAfterText
+	writetext Bug_catcherKattaAfterText
 	waitbutton
 	closetext
 	end
@@ -68,66 +68,58 @@ Route50FruitTree2:
 Route50HiddenPotion:
 	dwb EVENT_ROUTE_50_HIDDEN_POTION, POTION
 
-YoungsterTomSeenText:
+YoungsterKojiSeenText:
 	text "Hey, you're taking"
 	line "the ORANGE CREW"
 	cont "CHALLENGE?"
 
-	para "So am I!"
-	line "Let's battle!"
+	para "No way a complete"
+	line "newbie like you"
+	cont "has a chance!"
 	done
 
-YoungsterTomBeatenText:
-	text "Agh! I lost!"
+YoungsterKojiBeatenText:
+	text "I'm the weakling?"
 	done
 
-YoungsterTomAfterText:
+YoungsterKojiAfterText:
 	text "Darn! I have to"
 	line "train even more"
 	cont "to take on the"
 	cont "ORANGE CREW!"
 	done
 
-YoungsterSawyerSeenText:
+YoungsterTouyaSeenText:
 	text "You're a #MON"
-	line "trainer, right?"
+	line "trainer?"
 
-	para "Then you have to"
-	line "battle!"
+	para "You don't look so"
+	line "tough!"
 	done
 
-YoungsterSawyerBeatenText:
+YoungsterTouyaBeatenText:
 	text "You are way too"
 	line "strong!"
 	done
 
-YoungsterSawyerAfterText:
+YoungsterTouyaAfterText:
 	text "Becoming a good"
-	line "trainer is really"
-	cont "tough."
-
-	para "I'm going to bat-"
-	line "tle other people"
-	cont "to get better."
+	line "trainer isn't"
+	cont "easy."
 	done
 
-Bug_catcherEugeneSeenText:
-	text "Instead of a bug"
-	line "#MON, I found"
-	cont "a trainer!"
+Bug_catcherKattaSeenText:
+	text "More prey for my"
+	line "BUG #MON!"
 	done
 
-Bug_catcherEugeneBeatenText:
+Bug_catcherKattaBeatenText:
 	text "Aiyaa!"
 	done
 
-Bug_catcherEugeneAfterText:
-	text "I ran out of #"
-	line "BALLS while I was"
-	cont "catching #MON."
-
-	para "I should've bought"
-	line "some more<...>"
+Bug_catcherKattaAfterText:
+	text "I became prey for"
+	line "yours, instead."
 	done
 
 Route50CooltrainerFText:
@@ -165,8 +157,8 @@ Route50_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 7
 	person_event SPRITE_YOUNGSTER, 29, 0, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerYoungsterJoey, -1
-	person_event SPRITE_YOUNGSTER, 14, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerYoungsterSawyer, -1
-	person_event SPRITE_BUG_BOY, 50, 12, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerBug_catcherEugene, -1
+	person_event SPRITE_YOUNGSTER, 14, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerYoungsterTouya, -1
+	person_event SPRITE_BUG_BOY, 50, 12, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerBug_catcherKatta, -1
 	person_event SPRITE_FRUIT_TREE, 11, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50FruitTree1, -1
 	person_event SPRITE_FRUIT_TREE, 33, 0, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50FruitTree2, -1
 	person_event SPRITE_COOLTRAINER_F, 39, 14, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50CooltrainerFScript, -1

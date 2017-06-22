@@ -54,10 +54,10 @@ TrainerGroups: ; 0x39999
 	dw SightseerMGroup
 	dw SightseerFGroup
 	dw WaitressGroup
+	dw CooltrainerMGroup
+	dw CooltrainerFGroup
 ;	dw SchoolboyGroup
 ;	dw BirdKeeperGroup
-;	dw CooltrainerMGroup
-;	dw CooltrainerFGroup
 ;	dw GentlemanGroup
 ;	dw TeacherGroup
 ;	dw SailorGroup

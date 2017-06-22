@@ -52,10 +52,10 @@
 	dba SightseerMPic
 	dba SightseerFPic
 	dba WaitressPic
+	dba CooltrainerMPic
+	dba CooltrainerFPic
 ;	dba SchoolboyPic
 ;	dba BirdKeeperPic
-;	dba CooltrainerMPic
-;	dba CooltrainerFPic
 ;	dba GentlemanPic
 ;	dba TeacherPic
 ;	dba SailorPic

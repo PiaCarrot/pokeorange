@@ -390,7 +390,7 @@ YoungsterGroup:
 ; ================
 
 	; YOUNGSTER (1)
-	db "TOM@"
+	db "KOJI@"
 	db 0 ; normal
 
 	; party
@@ -402,7 +402,7 @@ YoungsterGroup:
 ; ================
 
 	; YOUNGSTER (2)
-	db "SAWYER@"
+	db "TOUYA@"
 	db 0 ; normal
 
 	; party
@@ -414,7 +414,7 @@ YoungsterGroup:
 ; ================
 
 	; YOUNGSTER (3)
-	db "BOWIE@"
+	db "KOUTA@"
 	db 0 ; normal
 
 	; party
@@ -470,7 +470,7 @@ BugCatcherGroup:
 ; ================
 
 	; BUG_CATCHER (1)
-	db "EUGENE@"
+	db "KATTA@"
 	db 0 ; normal
 
 	; party
@@ -533,6 +533,15 @@ BugCatcherGroup:
 BugCatcherFGroup:
 ; ================================
 ; ================
+
+	; BUGCATCHERF (1)
+	db "ALIA@"
+	db 0
+	
+	db 26, BUTTERFREE
+	db 25, VENONAT
+	
+	db $ff ;end
 ; ================
 ; ================================
 
@@ -835,11 +844,20 @@ FisherGroup:
 
 	; party
 	db 23, QWILFISH
-	db 23, RELICANTH ; RELICANTH
+	db 23, RELICANTH
 	db 23, CHINCHOU
 
 	db $ff ; end
 
+; =================
+	
+	; FISHER (6)
+	db "YUUTA@"
+	db 0
+	
+	db 28, OCTILLERY
+	
+	db $ff
 ; ================
 ; ================================
 
@@ -988,6 +1006,41 @@ WaitressGroup:
 ; ================================
 
 
+CooltrainerMGroup:
+; ================================
+; ================
+
+	; COOLTRAINERM (1)
+	db "AKIRA@"
+	db 0
+	
+	db 25, SANDSLASH
+	db 25, FEAROW
+	db 25, FLAREON
+	
+	db $ff
+	
+; ================
+; ================================
+
+
+CooltrainerFGroup:
+; ================================
+; ================
+
+	; COOLTRAINERF (1)
+	db "MEGUMI@"
+	db 0
+	
+	db 26, SKIPLOOM
+	db 26, ESPEON
+	
+	db $ff
+	
+; ================
+; ================================
+
+
 ;SchoolboyGroup:
 ; ================================
 ; ================
@@ -996,20 +1049,6 @@ WaitressGroup:
 
 
 ;BirdKeeperGroup:
-; ================================
-; ================
-; ================
-; ================================
-
-
-;CooltrainerMGroup:
-; ================================
-; ================
-; ================
-; ================================
-
-
-;CooltrainerFGroup:
 ; ================================
 ; ================
 ; ================

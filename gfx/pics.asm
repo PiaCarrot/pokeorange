@@ -423,7 +423,7 @@ SwimmermPic:         INCBIN "gfx/trainers/swimmer_m.2bpp.lz"
 TentacruelBackpic:   INCBIN "gfx/pics/tentacruel/back.2bpp.lz"
 TyphlosionBackpic:   INCBIN "gfx/pics/typhlosion/back.2bpp.lz"
 ;BirdKeeperPic:       INCBIN "gfx/trainers/bird_keeper.2bpp.lz"
-;CooltrainerFPic:     INCBIN "gfx/trainers/cooltrainer_f.2bpp.lz"
+CooltrainerFPic:     INCBIN "gfx/trainers/cooltrainer_f.2bpp.lz"
 ;TeacherPic:          INCBIN "gfx/trainers/teacher.2bpp.lz"
 ; 153fe3
 
@@ -468,7 +468,7 @@ VenonatBackpic:      INCBIN "gfx/pics/venonat/back.2bpp.lz"
 VulpixBackpic:       INCBIN "gfx/pics/vulpix/back.2bpp.lz"
 WartortleBackpic:    INCBIN "gfx/pics/wartortle/back.2bpp.lz"
 WooperFrontpic:      INCBIN "gfx/pics/wooper/front.2bpp.lz"
-;CooltrainerMPic:     INCBIN "gfx/trainers/cooltrainer_m.2bpp.lz"
+CooltrainerMPic:     INCBIN "gfx/trainers/cooltrainer_m.2bpp.lz"
 ; 158000
 
 

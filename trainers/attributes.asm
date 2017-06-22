@@ -317,6 +317,18 @@ TrainerClassAttributes: ; 3959c
 	db 18 ; base reward
 	dw AI_BASIC + AI_TYPES + AI_OPPORTUNIST + AI_STATUS
 	dw CONTEXT_USE + SWITCH_SOMETIMES
+	
+; Cooltrainerm
+	db 0, 0 ; items
+	db 12 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+
+; Cooltrainerf
+	db 0, 0 ; items
+	db 12 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Schoolboy
 ;	db 0, 0 ; items
@@ -328,18 +340,6 @@ TrainerClassAttributes: ; 3959c
 ;	db 0, 0 ; items
 ;	db 6 ; base reward
 ;	dw AI_BASIC + AI_TYPES + AI_OFFENSIVE + AI_OPPORTUNIST + AI_STATUS
-;	dw CONTEXT_USE + SWITCH_SOMETIMES
-
-; Cooltrainerm
-;	db 0, 0 ; items
-;	db 12 ; base reward
-;	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
-;	dw CONTEXT_USE + SWITCH_SOMETIMES
-
-; Cooltrainerf
-;	db 0, 0 ; items
-;	db 12 ; base reward
-;	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
 ;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Gentleman

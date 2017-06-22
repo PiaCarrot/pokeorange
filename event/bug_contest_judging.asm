@@ -148,7 +148,7 @@ BugContestantPointers: ; 13783
 ; 13799
 
 BugContestant_BugCatcherDon:
-	db BUG_CATCHER, EUGENE
+	db BUG_CATCHER, KATTA
 	dbw KAKUNA,     300
 	dbw METAPOD,    285
 	dbw CATERPIE,   226
@@ -178,19 +178,19 @@ BugContestant_BugCatcherBenny:
 	dbw CATERPIE,   285
 
 BugContestant_CamperBarry:
-	db YOUNGSTER, TOM
+	db YOUNGSTER, KOJI
 	dbw PINSIR,     366
 	dbw VENONAT,    329
 	dbw KAKUNA,     314
 
 BugContestant_PicnickerCindy:
-	db YOUNGSTER, SAWYER
+	db YOUNGSTER, TOUYA
 	dbw BUTTERFREE, 341
 	dbw METAPOD,    301
 	dbw CATERPIE,   264
 
 BugContestant_BugCatcherJosh:
-	db YOUNGSTER, BOWIE
+	db YOUNGSTER, KOUTA
 	dbw SCYTHER,    326
 	dbw BUTTERFREE, 292
 	dbw METAPOD,    282
