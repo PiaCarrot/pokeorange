@@ -41,7 +41,6 @@ MAP_NONE EQU 0
 	mapgroup MT_NAVEL_2F, 12, 12
 	mapgroup MT_NAVEL_PEAK, 10, 10
 
-
 	newgroup ; 4
 
 	mapgroup CRYSTAL_CAVE_1F, 14, 17
