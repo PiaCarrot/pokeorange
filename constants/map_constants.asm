@@ -39,6 +39,7 @@ MAP_NONE EQU 0
 	mapgroup NAVEL_ISLAND, 18, 18
 	mapgroup MT_NAVEL_1F, 14, 14
 	mapgroup MT_NAVEL_2F, 12, 12
+	mapgroup MT_NAVEL_PEAK, 10, 10
 
 
 	newgroup ; 4

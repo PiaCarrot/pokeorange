@@ -14,7 +14,7 @@ MtNavel1F_MapEventHeader:: db 0, 0
 .Warps: db 4
 	warp_def 25, 5, 1, NAVEL_ISLAND
 	warp_def 7, 25, 2, NAVEL_ISLAND
-	warp_def 17, 17, 1, MT_NAVEL_2F
+	warp_def 17, 19, 1, MT_NAVEL_2F
 	warp_def 9, 19, 2, MT_NAVEL_2F
 
 .CoordEvents: db 0

@@ -49,6 +49,39 @@ CissyGroup:
 DannyGroup:
 ; ================================
 ; ================
+
+	; DANNY (1)
+	db "DANNY@"
+	db 1 ; moves
+
+	; party
+
+	db 30, NIDOQUEEN
+		db ICE_BEAM
+		db MEGA_PUNCH
+		db SLAM
+		db POISON_STING
+
+	db 32, MACHOKE
+		db SEISMIC_TOSS
+		db KARATE_CHOP
+		db THUNDERPUNCH
+		db FIRE_PUNCH
+
+	db 29, SCIZOR
+		db CUT
+		db QUICK_ATTACK
+		db METAL_CLAW
+		db AGILITY
+		
+	db 31, ELECTRODE
+		db THUNDERBOLT
+		db EXPLOSION
+		db 0
+		db 0
+
+	db $ff ; end
+	
 ; ================================
 
 

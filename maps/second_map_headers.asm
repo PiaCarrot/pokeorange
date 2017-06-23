@@ -116,6 +116,7 @@
 	map_header_2 UnnamedIsland1PokeCenter, UNNAMED_ISLAND_1_POKE_CENTER, 0, 0
 	map_header_2 MtNavel1F, MT_NAVEL_1F, 9, 0
 	map_header_2 MtNavel2F, MT_NAVEL_2F, 9, 0
+	map_header_2 MtNavelPeak, MT_NAVEL_PEAK, 0, 0
 	map_header_2 HallOfFame, HALL_OF_FAME, $0, 0
 
 	map_header_2 DayCare, DAYCARE, $0, 0
