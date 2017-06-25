@@ -59,8 +59,9 @@ DannyScript:
 WelcomeToPeakText:
 	text "Welcome, trainer."
 	
-	para "I'm a world famous"
-	line "rock climber."
+	para "I'm the world fam-"
+	line "ous rock climber,"
+	cont "DANNY."
 	
 	para "Not many can climb"
 	line "to this peak and"

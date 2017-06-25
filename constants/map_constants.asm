@@ -40,6 +40,7 @@ MAP_NONE EQU 0
 	mapgroup MT_NAVEL_1F, 14, 14
 	mapgroup MT_NAVEL_2F, 12, 12
 	mapgroup MT_NAVEL_PEAK, 10, 10
+	mapgroup MT_NAVEL_ICE_ROCK, 4, 4
 
 	newgroup ; 4
 
