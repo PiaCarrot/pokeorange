@@ -764,6 +764,7 @@ Group3Sprites: ; 146fd
 ; 7 Grapefruits
 ; Route 59
 ; Moro Island
+	db SPRITE_BIG_SNORLAX
 	db SPRITE_SIGHTSEER_F
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_COOLTRAINER_M

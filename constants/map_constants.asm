@@ -41,6 +41,7 @@ MAP_NONE EQU 0
 	mapgroup MT_NAVEL_2F, 12, 12
 	mapgroup MT_NAVEL_PEAK, 10, 10
 	mapgroup MT_NAVEL_ICE_ROCK, 4, 4
+	mapgroup SEVEN_GRAPEFRUITS, 22, 22
 
 	newgroup ; 4
 
