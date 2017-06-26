@@ -65,7 +65,6 @@ HealMachineAnim: ; 12324
 	dw .HOF_LoadBallsOntoMachine
 	dw .PlayHealMusic
 	dw .HOF_PlaySFX
-	dw .dummy_5 ; never encountered
 ; 12383
 
 .LoadGFX: ; 12383
@@ -117,10 +116,6 @@ HealMachineAnim: ; 12324
 	ld de, SFX_BOOT_PC
 	jp PlaySFX
 ; 123db
-
-.dummy_5 ; 123db
-	ret
-; 123dc
 
 .PC_ElmsLab_OAM: ; 123dc
 	dsprite   4, 0,   4, 2, $7c, $16

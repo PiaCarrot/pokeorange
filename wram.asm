@@ -2560,16 +2560,10 @@ wPokeAnimSpindaPattern:: ds 1
 wPokeAnimSpeciesOrSpindaPattern:: ds 1
 wPokeAnimGraphicStartTile:: ds 1
 wPokeAnimCoord:: ds 2
-	ds 1
 ; PokeAnim Data
-wPokeAnimExtraFlag:: ds 1
-wPokeAnimSpeed:: ds 1
-	ds 10
-wPokeAnimJumptableIndex:: ds 1
-	ds 2
-wPokeAnimWaitCounter:: ds 1
-	ds 15
 wPokeAnimStructEnd::
+
+	ds 32
 
 
 SECTION "GBC Video", WRAMX, BANK [5]

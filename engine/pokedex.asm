@@ -223,8 +223,7 @@ Pokedex_InitMainScreen: ; 4013c (10:413c)
 	ld a, 7
 	ld [wDexListingHeight], a
 	call Pokedex_PrintListing
-	call Pokedex_IncrementDexPointer
-	ret
+	jp Pokedex_IncrementDexPointer
 
 Pokedex_UpdateMainScreen: ; 401ae (10:41ae)
 	ld hl, hJoyPressed
@@ -294,8 +293,7 @@ Pokedex_InitDexEntryScreen: ; 40217 (10:4217)
 	call Pokedex_GetSGBLayout
 	ld a, [CurPartySpecies]
 	call PlayCry
-	call Pokedex_IncrementDexPointer
-	ret
+	jp Pokedex_IncrementDexPointer
 
 Pokedex_UpdateDexEntryScreen: ; 40258 (10:4258)
 	ld de, DexEntryScreen_ArrowCursorData
@@ -437,8 +435,7 @@ Pokedex_InitSearchScreen: ; 40443 (10:4443)
 	call WaitBGMap
 	ld a, SCGB_POKEDEX_SEARCH_OPTION
 	call Pokedex_GetSGBLayout
-	call Pokedex_IncrementDexPointer
-	ret
+	jp Pokedex_IncrementDexPointer
 
 Pokedex_UpdateSearchScreen: ; 40471 (10:4471)
 	ld de, .ArrowCursorData
@@ -481,8 +478,7 @@ Pokedex_UpdateSearchScreen: ; 40471 (10:4471)
 
 .MenuAction_MonSearchType: ; 404b0
 	call Pokedex_NextSearchMonType
-	call Pokedex_PlaceSearchScreenTypeStrings
-	ret
+	jp Pokedex_PlaceSearchScreenTypeStrings
 
 .MenuAction_BeginSearch: ; 404b7
 	call Pokedex_SearchForMons
@@ -499,8 +495,7 @@ Pokedex_UpdateSearchScreen: ; 40471 (10:4471)
 	call Pokedex_DrawSearchScreenBG
 	call Pokedex_InitArrowCursor
 	call Pokedex_PlaceSearchScreenTypeStrings
-	call WaitBGMap
-	ret
+	jp WaitBGMap
 
 .show_search_results
 	ld [wDexListingEnd], a
@@ -556,8 +551,7 @@ Pokedex_InitSearchResultsScreen: ; 4050a (10:450a)
 	ld [CurPartySpecies], a
 	ld a, SCGB_POKEDEX
 	call Pokedex_GetSGBLayout
-	call Pokedex_IncrementDexPointer
-	ret
+	jp Pokedex_IncrementDexPointer
 
 Pokedex_UpdateSearchResultsScreen: ; 40562 (10:4562)
 	ld hl, hJoyPressed
@@ -858,8 +852,7 @@ Pokedex_DrawDexEntryScreenBG: ; 407fd
 	hlcoord 0, 17
 	ld de, .MenuItems
 	call Pokedex_PlaceString
-	call Pokedex_PlaceFrontpicTopLeftCorner
-	ret
+	jp Pokedex_PlaceFrontpicTopLeftCorner
 
 .Height: ; 40852
 	db "HT  ?′??″", $ff ; HT  ?'??"
@@ -1468,8 +1461,7 @@ Pokedex_DisplayTypeNotFoundMessage: ; 41107
 Pokedex_UpdateCursorOAM: ; 41148 (10:5148)
 	ld hl, .CursorOAM
 	call Pokedex_LoadCursorOAM
-	call Pokedex_PutScrollbarOAM
-	ret
+	jp Pokedex_PutScrollbarOAM
 
 .CursorOAM: ; 41230
 	db $1b, $47, $30, $07
@@ -1741,8 +1733,7 @@ Pokedex_WhiteOutBG: ; 41401 (10:5401)
 	call DmgToCgbBGPals
 	xor a
 	call DmgToCgbObjPal0
-	call DelayFrame
-	ret
+	jp DelayFrame
 
 Pokedex_GetSGBLayout: ; 41423
 	ld b, a
@@ -1782,8 +1773,7 @@ Pokedex_LoadSelectedMonTiles: ; 4143b
 	ld a, [hROMBank]
 	ld b, a
 	call Get2bpp
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 
 Pokedex_LoadCurrentFootprint: ; 41478 (10:5478)
 	call Pokedex_GetSelectedMon
@@ -1844,8 +1834,7 @@ Pokedex_LoadGFX: ; 414b7
 	call Decompress
 	ld a, 6
 	call SkipMusic
-	call EnableLCD
-	ret
+	jp EnableLCD
 
 _NewPokedexEntry: ; 41a7f
 	xor a

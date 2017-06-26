@@ -62,7 +62,7 @@ CharmanderPokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
 	iftrue LookAtIvyPokeBallScript
 	spriteface IVYSLAB_IVY, DOWN
-	refreshscreen $0
+	refreshscreen
 	pokepic CHARMANDER
 	cry CHARMANDER
 	waitbutton
@@ -92,7 +92,7 @@ SquirtlePokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
 	iftrue LookAtIvyPokeBallScript
 	spriteface IVYSLAB_IVY, DOWN
-	refreshscreen $0
+	refreshscreen
 	pokepic SQUIRTLE
 	cry SQUIRTLE
 	waitbutton
@@ -120,7 +120,7 @@ BulbasaurPokeBallScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_IVY
 	iftrue LookAtIvyPokeBallScript
 	spriteface IVYSLAB_IVY, DOWN
-	refreshscreen $0
+	refreshscreen
 	pokepic BULBASAUR
 	cry BULBASAUR
 	waitbutton

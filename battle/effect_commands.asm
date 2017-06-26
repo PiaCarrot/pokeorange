@@ -1735,13 +1735,11 @@ BattleCommand_CheckHit: ; 34d32
 .skip_brightpowder
 	ld a, b
 	cp $ff
-	jr z, .Hit
+	ret z
 
 	call BattleRandom
 	cp b
 	jr nc, .Miss
-
-.Hit:
 	ret
 
 

@@ -217,6 +217,5 @@ ClearsScratch:: ; 270
 	ld bc, $20
 	xor a
 	call ByteFill
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 ; 283

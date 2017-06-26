@@ -12,6 +12,8 @@ endc
 	shift
 	endr
 
+	db (PokeAnim_Setup_ - PokeAnim_SetupCommands) / 2
+	db (PokeAnim_Play_ - PokeAnim_SetupCommands) / 2
 	db (PokeAnim_Finish_ - PokeAnim_SetupCommands) / 2
 ENDM
 
@@ -27,14 +29,14 @@ PokeAnims: ; d0042
 	dw .Egg1
 	dw .Egg2
 
-.Slow:   POKEANIM StereoCry, Setup2, Play
-.Normal: POKEANIM StereoCry, Setup, Play
-.Menu:   POKEANIM CryNoWait, Setup, Play
-.Trade:  POKEANIM Cry, Setup, Play
-.Evolve: POKEANIM CryNoWait, Setup, Play
-.Hatch:  POKEANIM CryNoWait, Setup, Play
-.Egg1:   POKEANIM Setup, Play
-.Egg2:   POKEANIM Extra, Play
+.Trade:  POKEANIM Cry
+.Normal:
+.Slow:   POKEANIM StereoCry
+.Menu:
+.Evolve:
+.Hatch:  POKEANIM CryNoWait
+.Egg1:
+.Egg2:   POKEANIM
 
 
 AnimateFrontpic: ; d008e
@@ -97,119 +99,33 @@ setup_command: macro
 endm
 	setup_command PokeAnim_Finish
 	setup_command PokeAnim_BasePic
-	setup_command PokeAnim_SetWait
-	setup_command PokeAnim_Wait
 	setup_command PokeAnim_Setup
-	setup_command PokeAnim_Setup2
-	setup_command PokeAnim_Extra
 	setup_command PokeAnim_Play
-	setup_command PokeAnim_Play2
 	setup_command PokeAnim_Cry
 	setup_command PokeAnim_CryNoWait
 	setup_command PokeAnim_StereoCry
 ; d00f2
 
-PokeAnim_SetWait: ; d00f2
-	ld a, 18
-	ld [wPokeAnimWaitCounter], a
-	ld a, [wPokeAnimSceneIndex]
-	inc a
-	ld [wPokeAnimSceneIndex], a
-
-PokeAnim_Wait: ; d00fe
-	ld hl, wPokeAnimWaitCounter
-	dec [hl]
-	ret nz
-	ld a, [wPokeAnimSceneIndex]
-	inc a
-	ld [wPokeAnimSceneIndex], a
-	ret
-; d010b
-
-PokeAnim_Setup: ; d010b
-	lb bc, 0, FALSE
-	call PokeAnim_InitAnim
-	call PokeAnim_SetVBank1
-	ld a, [wPokeAnimSceneIndex]
-	inc a
-	ld [wPokeAnimSceneIndex], a
-	ret
-; d011d
-
-PokeAnim_Setup2: ; d011d
-	lb bc, 4, FALSE
-	call PokeAnim_InitAnim
-	call PokeAnim_SetVBank1
-	ld a, [wPokeAnimSceneIndex]
-	inc a
-	ld [wPokeAnimSceneIndex], a
-	ret
-; d012f
-
-PokeAnim_Extra: ; d012f
-	lb bc, 0, TRUE
-	call PokeAnim_InitAnim
-	call PokeAnim_SetVBank1
-	ld a, [wPokeAnimSceneIndex]
-	inc a
-	ld [wPokeAnimSceneIndex], a
-	ret
-; d0141
-
-PokeAnim_Play: ; d0141
-	call PokeAnim_DoAnimScript
-	ld a, [wPokeAnimJumptableIndex]
-	bit 7, a
-	ret z
-	call PokeAnim_PlaceGraphic
-	ld a, [wPokeAnimSceneIndex]
-	inc a
-	ld [wPokeAnimSceneIndex], a
-	ret
-; d0155
-
-PokeAnim_Play2: ; d0155
-	call PokeAnim_DoAnimScript
-	ld a, [wPokeAnimJumptableIndex]
-	bit 7, a
-	ret z
-	ld a, [wPokeAnimSceneIndex]
-	inc a
-	ld [wPokeAnimSceneIndex], a
-	ret
-; d0166
-
 PokeAnim_BasePic: ; d0166
 	call PokeAnim_DeinitFrames
-	ld a, [wPokeAnimSceneIndex]
-	inc a
-	ld [wPokeAnimSceneIndex], a
-	ret
+	jr IncrementPokeAnimSceneIndex
 ; d0171
 
-PokeAnim_Finish: ; d0171
-	call PokeAnim_DeinitFrames
-	ld hl, wPokeAnimSceneIndex
-	set 7, [hl]
-	ret
-; d017a
+PokeAnim_Setup: ; d010b
+	call PokeAnim_SetVBank1
+	jr IncrementPokeAnimSceneIndex
+; d011d
 
 PokeAnim_Cry: ; d017a
 	ld a, [wPokeAnimSpecies]
 	call _PlayCry
-	ld a, [wPokeAnimSceneIndex]
-	inc a
-	ld [wPokeAnimSceneIndex], a
-	ret
+	jr IncrementPokeAnimSceneIndex
 ; d0188
 
 PokeAnim_CryNoWait: ; d0188
 	ld a, [wPokeAnimSpecies]
 	call PlayCry2
-	ld a, [wPokeAnimSceneIndex]
-	inc a
-	ld [wPokeAnimSceneIndex], a
-	ret
+	jr IncrementPokeAnimSceneIndex
 ; d0196
 
 PokeAnim_StereoCry: ; d0196
@@ -217,11 +133,26 @@ PokeAnim_StereoCry: ; d0196
 	ld [CryTracks], a
 	ld a, [wPokeAnimSpecies]
 	call PlayStereoCry2
+	jr IncrementPokeAnimSceneIndex
+; d01a9
+
+PokeAnim_Play: ; d0141
+	xor a
+	ld [hBGMapMode], a
+	call PokeAnim_PlaceGraphic
+IncrementPokeAnimSceneIndex:
 	ld a, [wPokeAnimSceneIndex]
 	inc a
 	ld [wPokeAnimSceneIndex], a
 	ret
-; d01a9
+; d0155
+
+PokeAnim_Finish: ; d0171
+	call PokeAnim_DeinitFrames
+	ld hl, wPokeAnimSceneIndex
+	set 7, [hl]
+	ret
+; d017a
 
 PokeAnim_DeinitFrames: ; d01a9
 	ld a, [rSVBK]
@@ -286,104 +217,23 @@ PokeAnim_InitPicAttributes: ; d01d6
 	ld hl, CurPartySpecies
 	call GetFarWRAMByte
 	ld [wPokeAnimSpecies], a
+	ld [wPokeAnimSpeciesOrSpindaPattern], a
 
 	ld a, $1
 	ld hl, SpindaPattern
 	call GetFarWRAMByte
 	ld [wPokeAnimSpindaPattern], a
 
-	call PokeAnim_GetSpeciesOrSpindaPattern
+	call PokeAnim_IsSpinda
+	jr nz, .not_spinda
+	ld a, [wPokeAnimSpindaPattern]
 	ld [wPokeAnimSpeciesOrSpindaPattern], a
+.not_spinda
 
 	pop af
 	ld [rSVBK], a
 	ret
 ; d0228
-
-PokeAnim_InitAnim: ; d0228
-	ld a, [rSVBK]
-	push af
-	ld a, $2
-	ld [rSVBK], a
-	push bc
-	ld hl, wPokeAnimExtraFlag
-	ld bc, wPokeAnimStructEnd - wPokeAnimExtraFlag
-	xor a
-	call ByteFill
-	pop bc
-
-	ld a, b
-	ld [wPokeAnimSpeed], a
-	ld a, c
-	ld [wPokeAnimExtraFlag], a
-
-	pop af
-	ld [rSVBK], a
-	ret
-; d0250
-
-PokeAnim_DoAnimScript: ; d0250
-	xor a
-	ld [hBGMapMode], a
-.loop
-	ld a, [wPokeAnimJumptableIndex]
-	and $7f
-	ld hl, .Jumptable
-	rst JumpTable
-	ret
-; d025d
-
-.Jumptable: ; d025d
-	dw .EndAnim
-	dw .WaitAnim
-; d0261
-
-.EndAnim: ; d02a8
-	ld hl, wPokeAnimJumptableIndex
-	set 7, [hl]
-	ret
-; d02ae
-
-.WaitAnim: ; d0282
-	ld a, [wPokeAnimWaitCounter]
-	dec a
-	ld [wPokeAnimWaitCounter], a
-	ret nz
-	jp PokeAnim_StopWaitAnim
-; d028e
-
-PokeAnim_GetDuration: ; d02ae
-; a * (1 + [wPokeAnimSpeed] / 16)
-	ld c, a
-	ld b, $0
-	ld hl, 0
-	ld a, [wPokeAnimSpeed]
-	call AddNTimes
-	ld a, h
-	swap a
-	and $f0
-	ld h, a
-	ld a, l
-	swap a
-	and $f
-	or h
-	add c
-	ret
-; d02c8
-
-PokeAnim_StartWaitAnim: ; d02dc
-	ld a, [wPokeAnimJumptableIndex]
-	inc a
-	ld [wPokeAnimJumptableIndex], a
-	ret
-; d02e4
-
-PokeAnim_StopWaitAnim: ; d02e4
-	ld a, [wPokeAnimJumptableIndex]
-	dec a
-	ld [wPokeAnimJumptableIndex], a
-	ret
-; d02ec
 
 PokeAnim_IsSpinda: ; d02ec
 	ld a, [wPokeAnimSpecies]
@@ -392,7 +242,13 @@ PokeAnim_IsSpinda: ; d02ec
 ; d02f2
 
 PokeAnim_PlaceGraphic: ; d04bd
-	call .ClearBox
+	ld hl, wPokeAnimCoord
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	lb bc, 7, 7
+	call ClearBox
+
 	ld a, [wBoxAlignment]
 	and a
 	jr nz, .flipped
@@ -431,15 +287,6 @@ PokeAnim_PlaceGraphic: ; d04bd
 	jr nz, .loop
 	ret
 ; d04f6
-
-.ClearBox: ; d04f6
-	ld hl, wPokeAnimCoord
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	lb bc, 7, 7
-	jp ClearBox
-; d0504
 
 PokeAnim_SetVBank1: ; d0504
 	ld a, [rSVBK]
@@ -508,17 +355,6 @@ PokeAnim_GetAttrMapCoord: ; d0551
 	add hl, de
 	ret
 ; d055c
-
-PokeAnim_GetSpeciesOrSpindaPattern: ; d065c
-	call PokeAnim_IsSpinda
-	jr z, .spinda
-	ld a, [wPokeAnimSpecies]
-	ret
-
-.spinda
-	ld a, [wPokeAnimSpindaPattern]
-	ret
-; d0669
 
 HOF_AnimateFrontpic: ; d066e Predef 49
 	call AnimateMon_CheckIfPokemon

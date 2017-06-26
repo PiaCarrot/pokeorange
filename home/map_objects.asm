@@ -305,13 +305,6 @@ CheckObjectTime:: ; 18f5
 	ret
 ; 194d
 
-; XXX
-	ld [hMapObjectIndexBuffer], a
-	call GetMapObject
-	call CopyObjectStruct
-	ret
-; 1956
-
 _CopyObjectStruct:: ; 1956
 	ld [hMapObjectIndexBuffer], a
 	call UnmaskObject
@@ -354,8 +347,7 @@ ApplyDeletionToMapObject:: ; 1967
 
 DeleteObjectStruct:: ; 199f
 	call ApplyDeletionToMapObject
-	call MaskObject
-	ret
+	jp MaskObject
 ; 19a6
 
 CopyPlayerObjectTemplate:: ; 19a6

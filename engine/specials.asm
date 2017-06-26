@@ -115,13 +115,8 @@ SpecialsPointers:: ; c029
 	add_special LoadMapPalettes
 	add_special Special_InitialSetDSTFlag
 	add_special Special_InitialClearDSTFlag
-	add_special SpecialNone
 	add_special ClockResetter
 ; c224
-
-SpecialNone: ; c224
-	ret
-; c225
 
 Special_SetPlayerPalette: ; c225
 	ld a, [ScriptVar]
@@ -307,8 +302,7 @@ Special_CheckCoins: ; c3ae
 
 Special_ClearBGPalettesBufferScreen: ; c3db
 	call ClearBGPalettes
-	call BufferScreen
-	ret
+	jp BufferScreen
 ; c3e2
 
 ScriptReturnCarry: ; c3e2

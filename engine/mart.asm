@@ -539,8 +539,7 @@ MartConfirmPurchase: ; 15d97
 	predef PartyMonItemName
 	ld a, MARTTEXT_COSTS_THIS_MUCH
 	call LoadBuyMenuText
-	call YesNoBox
-	ret
+	jp YesNoBox
 ; 15da5
 
 BargainShopAskPurchaseQuantity:

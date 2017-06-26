@@ -120,8 +120,7 @@ InitMapNameFrame: ; b80d3
 	hlcoord 0, 0
 	lb bc, 2, 18
 	call InitMapSignAttrMap
-	call PlaceMapNameFrame
-	ret
+	jp PlaceMapNameFrame
 ; b80e1
 
 

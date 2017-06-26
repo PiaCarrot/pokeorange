@@ -55,8 +55,7 @@ Pack: ; 10000
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .ItemsPocketMenu: ; 10067 (4:4067)
 	ld hl, ItemsPocketMenuDataHeader
@@ -81,8 +80,7 @@ Pack: ; 10000
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .KeyItemsPocketMenu: ; 100a6 (4:40a6)
 	ld hl, KeyItemsPocketMenuDataHeader
@@ -109,8 +107,7 @@ Pack: ; 10000
 	xor a
 	ld [hBGMapMode], a
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .TMHMPocketMenu: ; 100e8 (4:40e8)
 	farcall TMHMPocket
@@ -210,8 +207,7 @@ Pack: ; 10000
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .BallsPocketMenu: ; 10198 (4:4198)
 	ld hl, BallsPocketMenuDataHeader
@@ -674,8 +670,7 @@ BattlePack: ; 10493
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .ItemsPocketMenu: ; 104fa (4:44fa)
 	ld hl, ItemsPocketMenuDataHeader
@@ -700,8 +695,7 @@ BattlePack: ; 10493
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .KeyItemsPocketMenu: ; 10539 (4:4539)
 	ld hl, KeyItemsPocketMenuDataHeader
@@ -730,8 +724,7 @@ BattlePack: ; 10493
 	call WaitBGMap_DrawPackGFX
 	ld hl, Text_PackEmptyString
 	call Pack_PrintTextNoScroll
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .TMHMPocketMenu: ; 10581 (4:4581)
 	farcall TMHMPocket
@@ -747,8 +740,7 @@ BattlePack: ; 10493
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .BallsPocketMenu: ; 105a6 (4:45a6)
 	ld hl, BallsPocketMenuDataHeader
@@ -891,8 +883,6 @@ TMHMSubmenu: ; 105dc (4:45dc)
 .didnt_use_item ; 10684 (4:4684)
 	xor a
 	ld [wItemEffectSucceeded], a
-	ret
-; 10689 (4:4689)
 .Quit: ; 10689
 	ret
 ; 1068a
@@ -923,8 +913,7 @@ DepositSellInitPackBuffers: ; 106a5
 	ld [wcf66], a
 	ld [wSwitchItem], a
 	call Pack_InitGFX
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 ; 106be
 
 DepositSellPack: ; 106be
@@ -1332,8 +1321,7 @@ Pack_GetItemName: ; 10a1d
 	ld a, [CurItem]
 	ld [wNamedObjectIndexBuffer], a
 	call GetItemName
-	call CopyName1
-	ret
+	jp CopyName1
 ; 10a2a
 
 ClearPocketList: ; 10a36 (4:4a36)

@@ -96,8 +96,7 @@ GetMapTrigger:: ; 2147
 
 OverworldTextModeSwitch:: ; 2173
 	call LoadMapPart
-	call FarCallSwapTextboxPalettes
-	ret
+	jp FarCallSwapTextboxPalettes
 ; 217a
 
 LoadMapPart:: ; 217a
@@ -428,8 +427,7 @@ ReadMapScripts:: ; 234f
 	ld h, [hl]
 	ld l, a
 	call ReadMapTriggers
-	call ReadMapCallbacks
-	ret
+	jp ReadMapCallbacks
 ; 235c
 
 CopySecondMapHeader:: ; 235c
@@ -826,7 +824,7 @@ FillMapConnections:: ; 2524
 .East:
 	ld a, [EastConnectedMapGroup]
 	cp $ff
-	jr z, .Done
+	ret z
 	ld b, a
 	ld a, [EastConnectedMapNumber]
 	ld c, a
@@ -844,10 +842,7 @@ FillMapConnections:: ; 2524
 	ld b, a
 	ld a, [EastConnectedMapWidth]
 	ld [hConnectionStripLength], a
-	call FillEastConnectionStrip
-
-.Done:
-	ret
+	jp FillEastConnectionStrip
 ; 25d3
 
 FillNorthConnectionStrip::
@@ -1929,8 +1924,7 @@ FadeToMenu:: ; 2b29
 	call LoadStandardMenuDataHeader
 	farcall FadeOutPalettes
 	call ClearSprites
-	call DisableSpriteUpdates
-	ret
+	jp DisableSpriteUpdates
 ; 2b3c
 
 CloseSubmenu:: ; 2b3c

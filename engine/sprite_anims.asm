@@ -51,9 +51,6 @@ DoAnimFrame: ; 8d24b
 	dw .thirtyfour  ; intro suicune facing away from us
 
 
-.Null: ; 8d2a1 (23:52a1)
-	ret
-
 .one ; 8d2a2 (23:52a2)
 	ld a, [wMenuCursorY]
 
@@ -69,6 +66,7 @@ DoAnimFrame: ; 8d24b
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], $0
+.Null: ; 8d2a1 (23:52a1)
 	ret
 
 .two ; 8d2b9 (23:52b9)
@@ -397,8 +395,6 @@ DoAnimFrame: ; 8d24b
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
-	ret
-
 .thirteen ; 8d46e (23:546e)
 .fourteen ; 8d47c (23:547c)
 .fifteen ; 8d475 (23:5475)

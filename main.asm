@@ -128,8 +128,7 @@ LoadFonts_NoOAMUpdate:: ; 64bf
 	ld a, $90
 	ld [hWY], a
 	call SafeUpdateSprites
-	call LoadStandardFont
-	ret
+	jp LoadStandardFont
 
 HDMATransfer_FillBGMap0WithTile60: ; 64db
 	ld a, [rSVBK]
@@ -316,7 +315,7 @@ Script_AbortBugContest: ; 0x122c1
 	end
 
 Script_AlertToFullBox::
-	refreshscreen $0
+	refreshscreen
 	playsound SFX_CALL
 	waitsfx
 	opentext
@@ -1885,8 +1884,7 @@ EmptyAllSRAMBanks: ; 4cf1f
 	ld bc, SRAM_End - SRAM_Begin
 	xor a
 	call ByteFill
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 
 SaveMenu_LoadEDTile: ; 4cf45 (13:4f45)
 ; The following is a modified version of LoadEDTile.
@@ -2047,8 +2045,7 @@ LinkMonStatsScreen: ; 4d319
 
 Link_WaitBGMap: ; 4d354
 	call WaitBGMap
-	call WaitBGMap2
-	ret
+	jp WaitBGMap2
 
 LinkTextbox2: ; 4d35b
 	ld h, d
@@ -2689,8 +2686,7 @@ SetBoxMonCaughtData: ; 4db83
 	call GetSRAMBank
 	ld hl, sBoxMon1CaughtLevel
 	call SetBoxmonOrEggmonCaughtData
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 
 SetGiftBoxMonCaughtData: ; 4db92
 	push bc
@@ -2699,8 +2695,7 @@ SetGiftBoxMonCaughtData: ; 4db92
 	ld hl, sBoxMon1CaughtLevel
 	pop bc
 	call SetGiftMonCaughtData
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 
 SetGiftPartyMonCaughtData: ; 4dba3
 	ld a, [PartyCount]
@@ -2951,8 +2946,7 @@ GetPkmnSpecies: ; 508d5
 	call GetSRAMBank
 	ld hl, sBoxSpecies
 	call .done
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 
 .breedmon
 	ld a, [wBreedMon1Species]
@@ -3876,8 +3870,7 @@ ShowPlayerNamingChoices: ; 88297
 	ld a, [wMenuCursorY]
 	dec a
 	call CopyNameFromMenu
-	call CloseWindow
-	ret
+	jp CloseWindow
 
 ChrisNameMenuHeader: ; 882b5
 	db $40 ; flags
@@ -4214,8 +4207,7 @@ DisplayCaughtContestMonStats: ; cc000
 	call WaitBGMap
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
-	call SetPalettes
-	ret
+	jp SetPalettes
 
 .Health:
 	db "HEALTH@"
@@ -4355,8 +4347,7 @@ NewPokedexEntry: ; fb877
 	ld [TempMonDVs + 1], a
 	ld b, SCGB_TRAINER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
-	call SetPalettes
-	ret
+	jp SetPalettes
 ; fb8f1
 
 SECTION "bank3F", ROMX, BANK[$3F]

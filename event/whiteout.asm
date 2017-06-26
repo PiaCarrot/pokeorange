@@ -4,7 +4,7 @@ Script_BattleWhiteout:: ; 0x124c1
 ; 0x124c8
 
 Script_OverworldWhiteout:: ; 0x124c8
-	refreshscreen $0
+	refreshscreen
 	callasm OverworldBGMap
 
 Script_Whiteout: ; 0x124ce
@@ -43,8 +43,7 @@ OverworldBGMap: ; 124fa
 BattleBGMap: ; 1250a
 	ld b, SCGB_BATTLE_GRAYSCALE
 	call GetSGBLayout
-	call SetPalettes
-	ret
+	jp SetPalettes
 ; 12513
 
 HalveMoney: ; 12513

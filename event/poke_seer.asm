@@ -32,8 +32,7 @@ SpecialPokeSeer: ; 4f0bc
 	jr c, .no_mon
 
 	call ReadCaughtData
-	call SeerAction
-	ret
+	jp SeerAction
 
 .cancel
 	ld a, SEER_CANCEL
@@ -68,8 +67,7 @@ SeerAction0: ; 4f100
 	call PrintSeerText
 	ld a, SEER_TIME_LEVEL
 	call PrintSeerText
-	call SeerAdvice
-	ret
+	jp SeerAdvice
 ; 4f10e
 
 SeerAction1: ; 4f10e
@@ -78,8 +76,7 @@ SeerAction1: ; 4f10e
 	call PrintSeerText
 	ld a, SEER_TIME_LEVEL
 	call PrintSeerText
-	call SeerAdvice
-	ret
+	jp SeerAdvice
 ; 4f11f
 
 SeerAction2: ; 4f11f
@@ -95,8 +92,7 @@ SeerAction3: ; 4f125
 SeerAction4: ; 4f12b
 	ld a, SEER_LEVEL_ONLY
 	call PrintSeerText
-	call SeerAdvice
-	ret
+	jp SeerAdvice
 ; 4f134
 
 ReadCaughtData: ; 4f134

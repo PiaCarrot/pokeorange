@@ -136,12 +136,9 @@ PlaceGameFreakPresents: ; e4670
 PlaceGameFreakPresents_AdvanceIndex: ; e4687
 	ld hl, wJumptableIndex
 	inc [hl]
-	ret
-; e468c
-
 PlaceGameFreakPresents_0: ; e468c
 	ret
-; e468d
+; e468c
 
 PlaceGameFreakPresents_1: ; e468d
 	ld hl, wcf65
@@ -183,8 +180,7 @@ PlaceGameFreakPresents_2: ; e46ba
 	decoord 7,11
 	ld bc, .end - .presents
 	call CopyBytes
-	call PlaceGameFreakPresents_AdvanceIndex
-	ret
+	jp PlaceGameFreakPresents_AdvanceIndex
 ; e46d6
 
 .presents

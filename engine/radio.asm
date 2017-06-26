@@ -825,9 +825,6 @@ BenFernMusic6:
 	ld a, POKEMON_MUSIC_7
 	jp NextRadioLine
 
-BenFernMusic7:
-	ret
-
 StartPokemonMusicChannel:
 	call RadioTerminator
 	call PrintText
@@ -838,6 +835,7 @@ StartPokemonMusicChannel:
 	ld de, MUSIC_POKEMON_LULLABY
 .SunTueThurSun:
 	farcall RadioMusicRestartDE
+BenFernMusic7:
 	ret
 
 BenIntroText1:

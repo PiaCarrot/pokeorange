@@ -450,16 +450,14 @@ Script_loadmenudata: ; 96efa
 	ld de, LoadMenuDataHeader
 	ld a, [ScriptBank]
 	call Call_a_de
-	call UpdateSprites
-	ret
+	jp UpdateSprites
 ; 96f0f
 
 Script_closewindow: ; 96f0f
 ; script command 0x50
 
 	call CloseWindow
-	call UpdateSprites
-	ret
+	jp UpdateSprites
 ; 96f16
 
 Script_pokepic: ; 96f16
@@ -529,12 +527,7 @@ Script_verbosegiveitem: ; 96f60
 ; 96f76
 
 
-ret_96f76: ; 96f76
-	ret
-; 96f77
-
 GiveItemScript: ; 96f77
-	callasm ret_96f76
 	writetext ReceivedItemText
 	iffalse .Full
 	waitsfx
@@ -618,8 +611,7 @@ Script_specialsound: ; 96fe4
 	ld de, SFX_ITEM
 .play
 	call PlaySFX
-	call WaitSFX
-	ret
+	jp WaitSFX
 ; 96ffe
 
 
@@ -1449,8 +1441,7 @@ Script_reloadmap: ; 97491
 	ld [hMapEntryMethod], a
 	ld a, $1
 	call LoadMapStatus
-	call StopScript
-	ret
+	jp StopScript
 ; 974a2
 
 Script_scall: ; 974a2
@@ -1696,8 +1687,7 @@ StdScript: ; 9757b
 
 SkipTwoScriptBytes: ; 97596
 	call GetScriptByte
-	call GetScriptByte
-	ret
+	jp GetScriptByte
 ; 9759d
 
 ScriptJump: ; 9759d
@@ -1988,8 +1978,7 @@ CopyConvertedText: ; 976c8
 	ld hl, StringBuffer3
 	ld bc, StringBuffer4 - StringBuffer3
 	call AddNTimes
-	call CopyName2
-	ret
+	jp CopyName2
 ; 976d5
 
 Script_itemtotext: ; 976d5
@@ -2621,8 +2610,7 @@ Script_warp: ; 97a1d
 	ld [hMapEntryMethod], a
 	ld a, 1
 	call LoadMapStatus
-	call StopScript
-	ret
+	jp StopScript
 
 .not_ok
 	call GetScriptByte
@@ -2634,8 +2622,7 @@ Script_warp: ; 97a1d
 	ld [hMapEntryMethod], a
 	ld a, 1
 	call LoadMapStatus
-	call StopScript
-	ret
+	jp StopScript
 ; 97a65
 
 Script_warpmod: ; 97a65
@@ -2718,8 +2705,7 @@ Script_changemap: ; 97ab3
 	call GetScriptByte
 	ld [MapBlockDataPointer + 1], a
 	call ChangeMap
-	call BufferScreen
-	ret
+	jp BufferScreen
 ; 97acc
 
 Script_changeblock: ; 97acc
@@ -2770,8 +2756,7 @@ Script_newloadmap: ; 97b08
 	ld [hMapEntryMethod], a
 	ld a, 1
 	call LoadMapStatus
-	call StopScript
-	ret
+	jp StopScript
 ; 97b16
 
 Script_reloadandreturn: ; 97b16
@@ -2789,20 +2774,15 @@ Script_textbox: ; 97b1c
 
 Script_refreshscreen: ; 97b20
 ; script command 0x48
-; parameters:
-;     dummy (SingleByteParam)
 
-	call RefreshScreen
-	call GetScriptByte
-	ret
+	jp RefreshScreen
 ; 97b27
 
 Script_closetext: ; 97b2f
 ; script command 0x49
 
 	call _OpenAndCloseMenu_HDMATransferTileMapAndAttrMap
-	call CloseText
-	ret
+	jp CloseText
 ; 97b36
 
 
@@ -2884,8 +2864,6 @@ Script_return: ; 97b8c
 ; script command 0x90
 
 	call ExitScriptSubroutine
-	jr c, .dummy
-.dummy
 	ld hl, ScriptFlags
 	res 0, [hl]
 	jp StopScript
@@ -2954,8 +2932,7 @@ ReturnFromCredits:
 	call Script_end_all
 	ld a, $3
 	call LoadMapStatus
-	call StopScript
-	ret
+	jp StopScript
 ; 97c051
 
 Script_wait: ; 97c05
