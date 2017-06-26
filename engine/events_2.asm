@@ -423,12 +423,9 @@ CmdQueueAnonJT_Decrement: ; 97eb1
 	ld hl, CMDQUEUE_05
 	add hl, bc
 	dec [hl]
-	ret
-; 97eb7
-
 CmdQueue_Null: ; 97eb7
 	ret
-; 97eb8
+; 97eb7
 
 CmdQueue_Type4: ; 97ebc
 	call CmdQueueAnonymousJumptable

@@ -143,10 +143,6 @@ BuySellToss_UpdateQuantityDisplay: ; 25072
 	jp FarCall_de
 ; 25097
 
-ret_25097: ; 25097
-	ret
-; 25098
-
 DisplayPurchasePrice: ; 25098
 	call BuySell_MultiplyPrice
 	jp BuySell_DisplaySubtotal
@@ -170,6 +166,7 @@ BuySell_MultiplyPrice: ; 250a9
 	push hl
 	call Multiply
 	pop hl
+ret_25097: ; 25097
 	ret
 ; 250c1
 

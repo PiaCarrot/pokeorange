@@ -2269,11 +2269,6 @@ XSpecial: ; f4c5
 
 
 PokeFlute: ; f50c
-	ld a, [wBattleMode]
-	and a
-	jr nz, .dummy
-.dummy
-
 	xor a
 	ld [wd002], a
 
@@ -2305,10 +2300,6 @@ PokeFlute: ; f50c
 	ld hl, .PlayedTheFlute
 	call PrintText
 
-	ld a, [Danger]
-	and $80
-	jr nz, .dummy2
-.dummy2
 	ld hl, .AllSleepingMonWokeUp
 	jp PrintText
 

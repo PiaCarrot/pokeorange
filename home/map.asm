@@ -824,7 +824,7 @@ FillMapConnections:: ; 2524
 .East:
 	ld a, [EastConnectedMapGroup]
 	cp $ff
-	jr z, .Done
+	ret z
 	ld b, a
 	ld a, [EastConnectedMapNumber]
 	ld c, a
@@ -842,10 +842,7 @@ FillMapConnections:: ; 2524
 	ld b, a
 	ld a, [EastConnectedMapWidth]
 	ld [hConnectionStripLength], a
-	call FillEastConnectionStrip
-
-.Done:
-	ret
+	jp FillEastConnectionStrip
 ; 25d3
 
 FillNorthConnectionStrip::

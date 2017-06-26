@@ -527,12 +527,7 @@ Script_verbosegiveitem: ; 96f60
 ; 96f76
 
 
-ret_96f76: ; 96f76
-	ret
-; 96f77
-
 GiveItemScript: ; 96f77
-	callasm ret_96f76
 	writetext ReceivedItemText
 	iffalse .Full
 	waitsfx
@@ -2869,8 +2864,6 @@ Script_return: ; 97b8c
 ; script command 0x90
 
 	call ExitScriptSubroutine
-	jr c, .dummy
-.dummy
 	ld hl, ScriptFlags
 	res 0, [hl]
 	jp StopScript

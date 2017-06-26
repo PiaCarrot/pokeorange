@@ -136,12 +136,9 @@ PlaceGameFreakPresents: ; e4670
 PlaceGameFreakPresents_AdvanceIndex: ; e4687
 	ld hl, wJumptableIndex
 	inc [hl]
-	ret
-; e468c
-
 PlaceGameFreakPresents_0: ; e468c
 	ret
-; e468d
+; e468c
 
 PlaceGameFreakPresents_1: ; e468d
 	ld hl, wcf65

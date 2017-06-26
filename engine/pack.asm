@@ -883,8 +883,6 @@ TMHMSubmenu: ; 105dc (4:45dc)
 .didnt_use_item ; 10684 (4:4684)
 	xor a
 	ld [wItemEffectSucceeded], a
-	ret
-; 10689 (4:4689)
 .Quit: ; 10689
 	ret
 ; 1068a

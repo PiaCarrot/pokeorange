@@ -530,9 +530,6 @@ MapObjectMovementPattern: ; 47dd
 	dw .MovementBoulderDust ; 1a
 	dw .MovementShakingGrass ; 1b
 
-.Null_00:
-	ret
-
 .RandomWalkY:
 	call Random
 	ld a, [hRandomAdd]
@@ -586,6 +583,7 @@ MapObjectMovementPattern: ; 47dd
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
 	ld [hl], STEP_TYPE_05
+.Null_00:
 	ret
 
 .ObeyDPad:
