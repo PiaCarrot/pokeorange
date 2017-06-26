@@ -316,7 +316,7 @@ Script_AbortBugContest: ; 0x122c1
 	end
 
 Script_AlertToFullBox::
-	refreshscreen $0
+	refreshscreen
 	playsound SFX_CALL
 	waitsfx
 	opentext
