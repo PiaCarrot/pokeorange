@@ -135,6 +135,8 @@ INCLUDE "maps/NavelIsland.asm"
 INCLUDE "maps/MtNavel1F.asm"
 INCLUDE "maps/MtNavel2F.asm"
 INCLUDE "maps/MtNavelPeak.asm"
+INCLUDE "maps/MtNavelIceRock.asm"
+INCLUDE "maps/SevenGrapefruits.asm"
 
 SECTION "Map Scripts 10", ROMX, BANK[MAP_SCRIPTS_10]
 

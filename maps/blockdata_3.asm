@@ -56,3 +56,5 @@ MtNavel2F_BlockData:
 MtNavelPeak_BlockData: 
 	INCBIN "maps/MtNavelPeak.blk"
 
+MtNavelIceRock_BlockData:
+	INCBIN "maps/MtNavelIceRock.blk"

@@ -403,7 +403,8 @@ ItemfinderDesc:
 	next "items in the area.@"
 
 PokeFluteDesc:
-	db   "?@"
+	db   "A FLUTE used to"
+	next "play melodies.@"
 
 ExpShareDesc:
 	db   "Shares battle EXP."

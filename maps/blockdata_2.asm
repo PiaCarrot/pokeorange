@@ -46,3 +46,6 @@ UnnamedIsland1_BlockData:
 	
 NavelIsland_BlockData: 
 	INCBIN "maps/NavelIsland.blk"
+	
+SevenGrapefruits_BlockData: 
+	INCBIN "maps/SevenGrapefruits.blk"
