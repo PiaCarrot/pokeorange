@@ -2,8 +2,7 @@ PlayWhirlpoolSound: ; 8c7d4
 	call WaitSFX
 	ld de, SFX_SURF
 	call PlaySFX
-	call WaitSFX
-	ret
+	jp WaitSFX
 ; 8c7e1
 
 BlindingFlash: ; 8c7e1
@@ -70,8 +69,7 @@ ShakeHeadbuttTree: ; 8c80a
 	ld hl, VTiles1
 	lb bc, BANK(Font), 12
 	call Get1bpp
-	call ReplaceKrisSprite
-	ret
+	jp ReplaceKrisSprite
 ; 8c893
 
 HeadbuttTreeGFX: ; 8c893

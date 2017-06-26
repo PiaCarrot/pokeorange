@@ -1,8 +1,7 @@
 
 _Diploma: ; 1dd702
 	call PlaceDiplomaOnScreen
-	call WaitPressAorB_BlinkCursor
-	ret
+	jp WaitPressAorB_BlinkCursor
 ; 1dd709
 
 PlaceDiplomaOnScreen: ; 1dd709

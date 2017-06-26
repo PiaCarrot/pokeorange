@@ -43,8 +43,7 @@ OverworldBGMap: ; 124fa
 BattleBGMap: ; 1250a
 	ld b, SCGB_BATTLE_GRAYSCALE
 	call GetSGBLayout
-	call SetPalettes
-	ret
+	jp SetPalettes
 ; 12513
 
 HalveMoney: ; 12513

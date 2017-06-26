@@ -133,8 +133,7 @@ _CGB_FinishBattleScreenLayout: ; 8e23
 	ld bc, 6 palettes
 	ld a, $5
 	call FarCopyWRAM
-	call ApplyAttrMap
-	ret
+	jp ApplyAttrMap
 ; 8e85
 
 
@@ -743,8 +742,7 @@ _CGB_Pokepic: ; 9499
 	ld c, a
 	ld a, $0
 	call FillBoxCGB
-	call ApplyAttrMap
-	ret
+	jp ApplyAttrMap
 ; 94d0
 
 _CGB_GamefreakLogo: ; 94fa
@@ -760,8 +758,7 @@ _CGB_GamefreakLogo: ; 94fa
 	call LoadHLPaletteIntoDE
 	call WipeAttrMap
 	call ApplyAttrMap
-	call ApplyPals
-	ret
+	jp ApplyPals
 ; 9521
 
 .Palette: ; 9521

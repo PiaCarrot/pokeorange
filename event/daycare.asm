@@ -34,8 +34,7 @@ Special_DayCareMan: ; 166d6
 	ld hl, wDaycareMan
 	set 0, [hl]
 	call DayCare_DepositPokemonText
-	call DayCare_InitBreeding
-	ret
+	jp DayCare_InitBreeding
 
 .AskWithdrawMon:
 	farcall GetBreedMon1LevelGrowth
@@ -72,8 +71,7 @@ Special_DayCareLady: ; 1672a
 	ld hl, wDaycareLady
 	set 0, [hl]
 	call DayCare_DepositPokemonText
-	call DayCare_InitBreeding
-	ret
+	jp DayCare_InitBreeding
 
 .AskWithdrawMon:
 	farcall GetBreedMon2LevelGrowth
@@ -104,15 +102,13 @@ DayCareLadyIntroText: ; 16781
 	inc a
 .okay
 	call PrintDayCareText
-	call YesNoBox
-	ret
+	jp YesNoBox
 ; 1678f
 
 DayCareManIntroText: ; 1678f
 	set 7, [hl]
 	call PrintDayCareText
-	call YesNoBox
-	ret
+	jp YesNoBox
 ; 16798
 
 DayCareAskDepositPokemon: ; 16798

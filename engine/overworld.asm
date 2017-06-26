@@ -18,8 +18,7 @@ _ReplaceKrisSprite:: ; 14135
 
 RefreshSprites:: ; 14168
 	call .Refresh
-	call MapCallbackSprites_LoadUsedSpritesGFX
-	ret
+	jp MapCallbackSprites_LoadUsedSpritesGFX
 ; 1416f
 
 .Refresh: ; 1416f
@@ -29,8 +28,7 @@ RefreshSprites:: ; 14168
 	call ByteFill
 	call GetPlayerSprite
 	call AddMapSprites
-	call LoadAndSortSprites
-	ret
+	jp LoadAndSortSprites
 ; 14183
 
 GetPlayerSprite: ; 14183

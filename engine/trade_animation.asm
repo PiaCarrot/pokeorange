@@ -193,8 +193,7 @@ RunTradeAnimScript: ; 28fa1
 	ld a, [wOTTrademonSpecies]
 	ld de, wOTTrademonSpeciesName
 	call TradeAnim_GetNickname
-	call TradeAnim_NormalPals
-	ret
+	jp TradeAnim_NormalPals
 
 ; 29082
 
@@ -396,8 +395,7 @@ TradeAnim_TubeToOT2: ; 291af
 	ret nz
 	ld a, $1
 	call TradeAnim_TubeAnimJumptable
-	call TradeAnim_IncrementJumptableIndex
-	ret
+	jp TradeAnim_IncrementJumptableIndex
 
 ; 291c4
 
@@ -410,8 +408,7 @@ TradeAnim_TubeToOT3: ; 291c4
 	ret nz
 	ld a, $2
 	call TradeAnim_TubeAnimJumptable
-	call TradeAnim_IncrementJumptableIndex
-	ret
+	jp TradeAnim_IncrementJumptableIndex
 
 ; 291d9
 
@@ -435,8 +432,7 @@ TradeAnim_TubeToPlayer3: ; 291e8
 	ret nz
 	ld a, $1
 	call TradeAnim_TubeAnimJumptable
-	call TradeAnim_IncrementJumptableIndex
-	ret
+	jp TradeAnim_IncrementJumptableIndex
 
 ; 291fd
 
@@ -449,8 +445,7 @@ TradeAnim_TubeToPlayer4: ; 291fd
 	ret nz
 	xor a
 	call TradeAnim_TubeAnimJumptable
-	call TradeAnim_IncrementJumptableIndex
-	ret
+	jp TradeAnim_IncrementJumptableIndex
 
 ; 29211
 
@@ -665,8 +660,7 @@ TradeAnim_EnterLinkTube1: ; 29348
 	call DmgToCgbObjPals
 	ld de, SFX_POTION
 	call PlaySFX
-	call TradeAnim_IncrementJumptableIndex
-	ret
+	jp TradeAnim_IncrementJumptableIndex
 
 ; 2937e
 
@@ -681,8 +675,7 @@ TradeAnim_EnterLinkTube2: ; 2937e
 .done
 	ld c, 80
 	call DelayFrames
-	call TradeAnim_AdvanceScriptPointer
-	ret
+	jp TradeAnim_AdvanceScriptPointer
 
 ; 29391
 
@@ -765,8 +758,7 @@ TradeAnim_ScrollOutRight: ; 293ea
 	ld a, VBGMap0 / $100
 	ld [hBGMapAddress + 1], a
 	call ClearTileMap
-	call TradeAnim_IncrementJumptableIndex
-	ret
+	jp TradeAnim_IncrementJumptableIndex
 
 ; 2940c
 
@@ -891,24 +883,21 @@ TradeAnim_ShowFrontpic: ; 294c3
 TraideAnim_Wait80: ; 294e7
 	ld c, 80
 	call DelayFrames
-	call TradeAnim_AdvanceScriptPointer
-	ret
+	jp TradeAnim_AdvanceScriptPointer
 
 ; 294f0
 
 TraideAnim_Wait40: ; 294f0
 	ld c, 40
 	call DelayFrames
-	call TradeAnim_AdvanceScriptPointer
-	ret
+	jp TradeAnim_AdvanceScriptPointer
 
 ; 294f9
 
 TraideAnim_Wait96: ; 294f9
 	ld c, 96
 	call DelayFrames
-	call TradeAnim_AdvanceScriptPointer
-	ret
+	jp TradeAnim_AdvanceScriptPointer
 
 ; 29502
 
@@ -950,8 +939,7 @@ ShowPlayerTrademonStats: ; 2951f
 	call TrademonStats_PrintOTName
 	ld de, wPlayerTrademonID
 	call TrademonStats_PrintTrademonID
-	call TrademonStats_WaitBGMap
-	ret
+	jp TrademonStats_WaitBGMap
 
 ; 29549
 
@@ -970,8 +958,7 @@ ShowOTTrademonStats: ; 29549
 	call TrademonStats_PrintOTName
 	ld de, wOTTrademonID
 	call TrademonStats_PrintTrademonID
-	call TrademonStats_WaitBGMap
-	ret
+	jp TrademonStats_WaitBGMap
 
 ; 29573
 
@@ -1007,8 +994,7 @@ TrademonStats_Egg: ; 295a1
 	hlcoord 4, 2
 	ld de, .EggData
 	call PlaceString
-	call TrademonStats_WaitBGMap
-	ret
+	jp TrademonStats_WaitBGMap
 
 ; 295c2
 
@@ -1251,8 +1237,7 @@ TradeAnim_SentToOTText: ; 29701
 	call TradeAnim_Wait80Frames
 	ld c, 128
 	call DelayFrames
-	call TradeAnim_AdvanceScriptPointer
-	ret
+	jp TradeAnim_AdvanceScriptPointer
 
 ; 29732
 
@@ -1320,8 +1305,7 @@ TradeAnim_OTSendsText1: ; 2977f
 	call TradeAnim_Wait80Frames
 	ld c, 14
 	call DelayFrames
-	call TradeAnim_AdvanceScriptPointer
-	ret
+	jp TradeAnim_AdvanceScriptPointer
 
 ; 2979a
 
@@ -1346,8 +1330,7 @@ TradeAnim_OTSendsText2: ; 297a4
 	call TradeAnim_Wait80Frames
 	ld c, 14
 	call DelayFrames
-	call TradeAnim_AdvanceScriptPointer
-	ret
+	jp TradeAnim_AdvanceScriptPointer
 
 ; 297bf
 

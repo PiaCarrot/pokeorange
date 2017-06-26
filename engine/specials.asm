@@ -307,8 +307,7 @@ Special_CheckCoins: ; c3ae
 
 Special_ClearBGPalettesBufferScreen: ; c3db
 	call ClearBGPalettes
-	call BufferScreen
-	ret
+	jp BufferScreen
 ; c3e2
 
 ScriptReturnCarry: ; c3e2

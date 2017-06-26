@@ -1392,8 +1392,7 @@ PrintWinLossText:: ; 3718
 	call GetMapScriptHeaderBank
 	call FarPrintText
 	call WaitBGMap
-	call WaitPressAorB_BlinkCursor
-	ret
+	jp WaitPressAorB_BlinkCursor
 ; 3741
 
 IsAPokemon:: ; 3741

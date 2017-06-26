@@ -301,8 +301,7 @@ Slots_FlashIfWin: ; 92955 (24:6955)
 	cp -1
 	jr nz, .GotIt
 	call Slots_Next
-	call Slots_Next
-	ret
+	jp Slots_Next
 
 .GotIt:
 	call Slots_Next
@@ -325,8 +324,7 @@ Slots_FlashScreen: ; 9296b (24:696b)
 
 .done
 	call Slots_GetPals
-	call Slots_Next
-	ret
+	jp Slots_Next
 
 Slots_GiveEarnedCoins: ; 92987 (24:6987)
 	xor a
@@ -1001,8 +999,7 @@ ReelAction_WaitGolem: ; 92d4f
 
 .two
 	call Slots_CheckMatchedAllThreeReels
-	call Slots_StopReel
-	ret
+	jp Slots_StopReel
 
 .one
 	ld hl, wReel1ReelAction - wReel1
@@ -1125,8 +1122,7 @@ ReelAction_CheckDropReel: ; 92e10
 	and a
 	jr nz, .spin
 	call Slots_CheckMatchedAllThreeReels
-	call Slots_StopReel
-	ret
+	jp Slots_StopReel
 
 .spin
 	dec [hl]
@@ -1194,15 +1190,13 @@ ReelAction_WaitSlowAdvanceReel3: ; 92e64
 	and a
 	jr nz, .play_sfx
 	call Slots_StopReel
-	call WaitSFX
-	ret
+	jp WaitSFX
 
 .check2
 	call Slots_CheckMatchedAllThreeReels
 	jr c, .play_sfx
 	call Slots_StopReel
-	call WaitSFX
-	ret
+	jp WaitSFX
 
 ; 92e94
 
@@ -1842,16 +1836,14 @@ endr
 .LinedUpPokeballs: ; 9320b
 	ld a, SFX_3RD_PLACE
 	call Slots_PlaySFX
-	call WaitSFX
-	ret
+	jp WaitSFX
 
 ; 93214
 
 .LinedUpMonOrCherry: ; 93214
 	ld a, SFX_PRESENT
 	call Slots_PlaySFX
-	call WaitSFX
-	ret
+	jp WaitSFX
 
 ; 9321d
 

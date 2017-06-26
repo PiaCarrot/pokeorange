@@ -103,8 +103,7 @@ _CardFlip: ; e00ee (38:40ee)
 	call YesNoBox
 	jr c, .SaidNo
 	call CardFlip_ShuffleDeck
-	call .Increment
-	ret
+	jp .Increment
 
 .SaidNo:
 	ld a, 7
@@ -150,8 +149,7 @@ _CardFlip: ; e00ee (38:40ee)
 	ld a, $1
 	ld [hBGMapMode], a
 	call WaitSFX
-	call .Increment
-	ret
+	jp .Increment
 ; e0212
 
 .NotEnoughCoinsText: ; 0xe0212
@@ -287,8 +285,7 @@ _CardFlip: ; e00ee (38:40ee)
 	call GetCoordsOfChosenCard
 	call CardFlip_DisplayCardFaceUp
 	call WaitBGMap2
-	call .Increment
-	ret
+	jp .Increment
 ; e0314
 
 .TabulateTheResult: ; e0314
@@ -1111,8 +1108,7 @@ CardFlip_CheckWinCondition: ; e0637
 	call PlaySFX
 	ld hl, .Text_Darn
 	call CardFlip_UpdateCoinBalanceDisplay
-	call WaitSFX
-	ret
+	jp WaitSFX
 
 .Payout: ; e07eb
 	push bc

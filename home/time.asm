@@ -60,8 +60,7 @@ GetClock:: ; 5b7
 	ld [hRTCDayHi], a
 
 ; unlatch clock / disable clock r/w
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 ; 5e8
 
 
@@ -200,8 +199,7 @@ InitTime:: ; 677
 
 PanicResetClock:: ; 67e
 	call .ClearhRTC
-	call SetClock
-	ret
+	jp SetClock
 ; 685
 
 .ClearhRTC: ; 685
@@ -277,8 +275,7 @@ RecordRTCStatus:: ; 6d3
 	pop af
 	or [hl]
 	ld [hl], a
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 ; 6e3
 
 CheckRTCStatus:: ; 6e3
@@ -286,6 +283,5 @@ CheckRTCStatus:: ; 6e3
 	ld a, BANK(sRTCStatusFlags)
 	call GetSRAMBank
 	ld a, [sRTCStatusFlags]
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 ; 6ef

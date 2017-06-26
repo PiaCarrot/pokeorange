@@ -205,8 +205,7 @@ Function49ed0: ; 49ed0
 	call ClearTileMap
 	call LoadFontsExtra
 	call LoadStandardFont
-	call ClearWindowData
-	ret
+	jp ClearWindowData
 ; 49ee0
 
 

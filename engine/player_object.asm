@@ -161,8 +161,7 @@ CopyObjectStruct:: ; 80e7
 
 CopyMapObjectToObjectStruct: ; 8116
 	call .CopyMapObjectToTempObject
-	call CopyTempObjectToObjectStruct
-	ret
+	jp CopyTempObjectToObjectStruct
 
 .CopyMapObjectToTempObject: ; 811d
 	ld a, [hObjectStructIndexBuffer]

@@ -3813,8 +3813,7 @@ InitBattleMon: ; 3da0d
 	ld de, PlayerStats
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_ATK
 	call CopyBytes
-	call ApplyStatusEffectOnPlayerStats
-	ret
+	jp ApplyStatusEffectOnPlayerStats
 ; 3da74
 
 BattleCheckPlayerShininess: ; 3da74
@@ -7960,8 +7959,7 @@ InitEnemyWildmon: ; 3f607
 
 ExitBattle: ; 3f69e
 	call .HandleEndOfBattle
-	call CleanUpBattleRAM
-	ret
+	jp CleanUpBattleRAM
 ; 3f6a5
 
 .HandleEndOfBattle: ; 3f6a5
@@ -7971,8 +7969,7 @@ ExitBattle: ; 3f69e
 	call ShowLinkBattleParticipantsAfterEnd
 	ld c, 150
 	call DelayFrames
-	call ShowLinkBattleResult
-	ret
+	jp ShowLinkBattleResult
 
 .not_linked
 	ld a, [wBattleResult]
@@ -8093,8 +8090,7 @@ ShowLinkBattleResult: ; 3f77c
 	call CloseSRAM
 
 	call WaitPressAorB_BlinkCursor
-	call ClearTileMap
-	ret
+	jp ClearTileMap
 ; 3f7f7
 
 .Win:
@@ -8122,8 +8118,7 @@ DisplayLinkRecord: ; 3f836
 	call SetPalettes
 	ld c, 8
 	call DelayFrames
-	call WaitPressAorB_BlinkCursor
-	ret
+	jp WaitPressAorB_BlinkCursor
 ; 3f85f
 
 ReadAndPrintLinkBattleRecord: ; 3f85f
@@ -8421,8 +8416,7 @@ AddLastBattleToLinkRecord: ; 3fa42
 
 .done
 	call .StoreResult
-	call .FindOpponentAndAppendRecord
-	ret
+	jp .FindOpponentAndAppendRecord
 ; 3faa0
 .StoreResult: ; 3faa0
 	ld a, [wBattleResult]
@@ -8640,8 +8634,7 @@ InitBattleDisplay: ; 3fb6c
 
 .InitBackPic: ; 3fbf8
 	call GetTrainerBackpic
-	call CopyBackpic
-	ret
+	jp CopyBackpic
 ; 3fbff
 
 GetTrainerBackpic: ; 3fbff

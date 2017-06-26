@@ -292,15 +292,13 @@ DoTownMap: ; 91ae1
 	and a
 	jr nz, .kanto
 	call LoadTownMapGFX
-	call FillOrangeMap
-	ret
+	jp FillOrangeMap
 
 .kanto
 	call LoadTownMapGFX
-	call FillKantoMap
-	ret
-
+	jp FillKantoMap
 ; 91af3
+
 
 _FlyMap: ; 91af3
 	call ClearBGPalettes

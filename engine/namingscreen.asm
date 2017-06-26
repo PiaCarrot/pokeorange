@@ -120,8 +120,7 @@ NamingScreen: ; 116c1
 	hlcoord 5, 2
 	ld de, .PlayerNameString
 	call PlaceString
-	call .StoreSpriteIconParams
-	ret
+	jp .StoreSpriteIconParams
 
 ; 117a3 (4:57a3)
 
@@ -148,8 +147,7 @@ NamingScreen: ; 116c1
 	hlcoord 5, 2
 	ld de, .BoxNameString
 	call PlaceString
-	call .StoreBoxIconParams
-	ret
+	jp .StoreBoxIconParams
 
 ; 11822 (4:5822)
 

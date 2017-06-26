@@ -277,8 +277,7 @@ BattleAnimFunction_PokeBall: ; cd15c (33:515c)
 	dw .eleven
 .zero ; init
 	call GetBallAnimPal
-	call BattleAnim_IncAnonJumptableIndex
-	ret
+	jp BattleAnim_IncAnonJumptableIndex
 
 .one
 	call BattleAnimFunction_ThrowFromPlayerToEnemy
@@ -292,8 +291,7 @@ BattleAnimFunction_PokeBall: ; cd15c (33:515c)
 	ld [hl], a
 	ld a, BATTLEANIMFRAMESET_0B
 	call ReinitBattleAnimFrameset
-	call BattleAnim_IncAnonJumptableIndex
-	ret
+	jp BattleAnim_IncAnonJumptableIndex
 
 .three
 	call BattleAnim_IncAnonJumptableIndex
@@ -329,8 +327,7 @@ BattleAnimFunction_PokeBall: ; cd15c (33:515c)
 	ret nz
 	ld a, BATTLEANIMFRAMESET_0C
 	call ReinitBattleAnimFrameset
-	call BattleAnim_IncAnonJumptableIndex
-	ret
+	jp BattleAnim_IncAnonJumptableIndex
 
 .six
 	ld a, BATTLEANIMFRAMESET_0D
@@ -383,8 +380,7 @@ BattleAnimFunction_PokeBallBlocked: ; cd212 (33:5212)
 	dw .two
 .zero
 	call GetBallAnimPal
-	call BattleAnim_IncAnonJumptableIndex
-	ret
+	jp BattleAnim_IncAnonJumptableIndex
 
 .one
 	ld hl, BATTLEANIMSTRUCT_XCOORD
@@ -1798,8 +1794,7 @@ BattleAnimFunction_LeechSeed: ; cda4d (33:5a4d)
 	ld [hl], $40
 	ld a, BATTLEANIMFRAMESET_57
 	call ReinitBattleAnimFrameset
-	call BattleAnim_IncAnonJumptableIndex
-	ret
+	jp BattleAnim_IncAnonJumptableIndex
 
 .two: ; cda7a (33:5a7a)
 	ld hl, BATTLEANIMSTRUCT_10
@@ -2092,8 +2087,7 @@ Functioncdc1a: ; cdc1a (33:5c1a)
 Functioncdc1e: ; cdc1e (33:5c1e)
 	ld a, BATTLEANIMFRAMESET_4E
 	call ReinitBattleAnimFrameset
-	call BattleAnim_IncAnonJumptableIndex
-	ret
+	jp BattleAnim_IncAnonJumptableIndex
 
 Functioncdc27: ; cdc27 (33:5c27)
 	ld hl, BATTLEANIMSTRUCT_0F

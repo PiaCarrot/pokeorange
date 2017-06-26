@@ -1140,8 +1140,7 @@ DisappearWhirlpool: ; ce1d
 	ld e, a
 	farcall PlayWhirlpoolSound
 	call BufferScreen
-	call GetMovementPermissions
-	ret
+	jp GetMovementPermissions
 
 TryWhirlpoolOW:: ; ce3e
 	ld d, WHIRLPOOL
@@ -1559,8 +1558,7 @@ PutTheRodAway: ; d095
 	ld a, $1
 	ld [PlayerAction], a
 	call UpdateSprites
-	call ReplaceKrisSprite
-	ret
+	jp ReplaceKrisSprite
 
 UnknownText_0xd0a4: ; 0xd0a4
 	; Oh! A bite!

@@ -368,8 +368,7 @@ StatsScreen_InitUpperHalf: ; 4deea (13:5eea)
 	call SetHPPal
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
-	call DelayFrame
-	ret
+	jp DelayFrame
 
 .PlaceGenderChar: ; 4df66 (13:5f66)
 	push hl
@@ -735,13 +734,11 @@ StatsScreen_PlaceFrontpic: ; 4e226 (13:6226)
 
 .egg
 	call .AnimateEgg
-	call SetPalettes
-	ret
+	jp SetPalettes
 
 .no_cry
 	call .AnimateMon
-	call SetPalettes
-	ret
+	jp SetPalettes
 
 .cry
 	call SetPalettes
