@@ -87,8 +87,16 @@ if def(DEBUG)
 	setflag ENGINE_SEA_RUBY_BADGE
 	setflag ENGINE_SPIKE_SHELL_BADGE
 	setflag ENGINE_JADE_STAR_BADGE
+	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
 	giveitem MASTER_BALL
+	giveitem HM_CUT
+	giveitem HM_FLY
+	giveitem HM_SURF
+	giveitem HM_STRENGTH
+	giveitem HM_FLASH
+	giveitem HM_WHIRLPOOL
+	giveitem HM_WATERFALL
 	opentext
 	givepoke LAPRAS, 40
 	givepoke CHARIZARD, 40
