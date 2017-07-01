@@ -82,17 +82,20 @@ ValenciaIslandTeacherScript:
 
 ValenciaIslandFisherScript:
 if def(DEBUG)
+	setflag ENGINE_POKEDEX
 	setflag ENGINE_CORAL_EYE_BADGE
 	setflag ENGINE_SEA_RUBY_BADGE
 	setflag ENGINE_SPIKE_SHELL_BADGE
 	setflag ENGINE_JADE_STAR_BADGE
+	giveitem POKE_FLUTE
+	giveitem MASTER_BALL
 	opentext
-	givepoke LAPRAS, 30
-	givepoke CHARMELEON, 30
-	givepoke VICTREEBEL, 30
-	givepoke AMPHAROS, 30
+	givepoke LAPRAS, 40
+	givepoke CHARIZARD, 40
+	givepoke VICTREEBEL, 40
+	givepoke AMPHAROS, 40
 	closetext
-	warp KINNOW_ISLAND, 8, 4
+	warp SEVEN_GRAPEFRUITS, 20, 39
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

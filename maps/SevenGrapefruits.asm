@@ -1,7 +1,6 @@
 const_value set 2
 	const SEVENGRAPEFRUITS_BIG_SNORLAX
 
-
 SevenGrapefruits_MapScriptHeader::
 
 .Triggers: db 0
@@ -13,7 +12,6 @@ SevenGrapefruits_MapScriptHeader::
 GrapefruitsSnorlax:
 	opentext
 	checkitem POKE_FLUTE
-;	special SpecialSnorlaxAwake
 	iftrue SnorlaxBattleScript
 	writetext SnorlaxIsSleepingText
 	waitbutton
@@ -30,22 +28,14 @@ SnorlaxBattleScript:
 	special Special_FadeOutMusic
 	cry SNORLAX
 	closetext
-	writecode VAR_BATTLETYPE, BATTLETYPE_NORMAL
 	loadwildmon SNORLAX, 30
 	startbattle
 	disappear SEVENGRAPEFRUITS_BIG_SNORLAX
 	reloadmapafterbattle
 	playmapmusic
 	end
-	
+
 GrapefruitsCooltrainer:
-if def(DEBUG)
-	opentext
-	giveitem POKE_FLUTE
-	giveitem MASTER_BALL
-	closetext
-	end
-else
 	faceplayer
 	opentext
 	checkevent EVENT_SEVEN_GRAPEFRUITS_SNORLAX
@@ -54,8 +44,7 @@ else
 	waitbutton
 	closetext
 	end
-	endc
-	
+
 .SnorlaxGone:
 	writetext GrapefruitWorkerHappyText
 	waitbutton
@@ -64,26 +53,26 @@ else
 
 GrapefruitWorkerText:
 	text "Oh no!"
-	
+
 	para "This SNORLAX is"
 	line "eating all of our"
 	cont "GRAPEFRUITs!"
-	
+
 	para "Oh, whatever will"
 	line "we do?"
 	done
-	
+
 GrapefruitWorkerHappyText:
 	text "Thank you for get-"
 	line "ting rid of that"
 	cont "SNORLAX!"
 	done
-	
+
 SnorlaxIsSleepingText:
 	text "SNORLAX is snoring"
 	line "peacefully<...>"
 	done
-	
+
 PlayPokeFlute:
 	text "<PLAYER> used the"
 	line "#FLUTE!"
@@ -94,7 +83,7 @@ WakingUpSnorlax:
 
 	para "SNORLAX woke up!"
 	done
-	
+
 SevenGrapefruits_MapEventHeader:: db 0, 0
 
 .Warps: db 0
@@ -106,4 +95,3 @@ SevenGrapefruits_MapEventHeader:: db 0, 0
 .ObjectEvents: db 2
 	person_event SPRITE_BIG_SNORLAX, 38, 22, SPRITEMOVEDATA_SNORLAX, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GrapefruitsSnorlax, EVENT_SEVEN_GRAPEFRUITS_SNORLAX
 	person_event SPRITE_COOLTRAINER_F, 38, 20, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GrapefruitsCooltrainer, -1
-
