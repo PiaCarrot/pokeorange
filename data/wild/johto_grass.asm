@@ -356,7 +356,7 @@
 	;morn
 	db 18, PIDGEY
 	db 18, NIDORAN_F
-	db 18, NIDORAN_M
+	db 18, NIDORINA
 	db 18, SANDSHREW
 	db 19, PIDGEY
 	db 19, SPEAROW
@@ -364,7 +364,7 @@
 	;day
 	db 18, PIDGEY
 	db 18, NIDORAN_F
-	db 18, NIDORAN_M
+	db 18, NIDORINA
 	db 18, SANDSHREW
 	db 19, PIDGEY
 	db 19, SPEAROW
@@ -458,5 +458,32 @@
 	db 35, GOLDUCK
 	db 35, GOLBAT
 	db 35, JYNX ;CRYOGANAL
+	
+	map SEVEN_GRAPEFRUITS
+	db 6 percent, 6 percent, 6 percent
+	; morning
+	db 18, HOPPIP
+	db 18, FLAAFFY
+	db 19, SLOWPOKE
+	db 19, HOPPIP
+	db 19, MAREEP
+	db 20, FLAAFFY
+	db 20, SKIPLOOM
+	; day
+	db 18, HOPPIP
+	db 18, FLAAFFY
+	db 19, SLOWPOKE
+	db 19, HOPPIP
+	db 19, MAREEP
+	db 20, FLAAFFY
+	db 20, SKIPLOOM
+	; night
+	db 18, PARAS
+	db 18, ZUBAT
+	db 19, RATTATA
+	db 19, PARAS
+	db 19, ODDISH
+	db 20, ZUBAT
+	db 20, RATICATE
 	
 	db -1 ; end

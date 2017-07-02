@@ -113,6 +113,10 @@ INCLUDE "maps/Route52PokeCenter1F.asm"
 INCLUDE "maps/DayCare.asm"
 INCLUDE "maps/HallOfFame.asm"
 INCLUDE "maps/UnnamedIsland1PokeCenter.asm"
+INCLUDE "maps/MtNavel1F.asm"
+INCLUDE "maps/MtNavel2F.asm"
+INCLUDE "maps/MtNavelPeak.asm"
+INCLUDE "maps/MtNavelIceRock.asm"
 
 
 SECTION "Map Scripts 8", ROMX, BANK[MAP_SCRIPTS_8]
@@ -132,10 +136,6 @@ INCLUDE "maps/KinnowIslandRoute57Gate.asm"
 INCLUDE "maps/UnnamedIsland1.asm"
 INCLUDE "maps/Route58.asm"
 INCLUDE "maps/NavelIsland.asm"
-INCLUDE "maps/MtNavel1F.asm"
-INCLUDE "maps/MtNavel2F.asm"
-INCLUDE "maps/MtNavelPeak.asm"
-INCLUDE "maps/MtNavelIceRock.asm"
 INCLUDE "maps/SevenGrapefruits.asm"
 
 SECTION "Map Scripts 10", ROMX, BANK[MAP_SCRIPTS_10]

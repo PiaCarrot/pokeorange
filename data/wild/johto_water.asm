@@ -114,4 +114,10 @@
 	db 17, WINGULL
 	db 17, WAILMER
 	
+	map SEVEN_GRAPEFRUITS
+	db 3 percent
+	db 17, WAILMER
+	db 17, TENTACOOL
+	db 17, REMORAID
+	
 	db -1 ; end
