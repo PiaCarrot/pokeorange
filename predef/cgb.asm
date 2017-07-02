@@ -498,10 +498,11 @@ _CGB_TrainerCard: ; 9289
 	ld hl, .StarPalette
 	call LoadPalette_White_Col1_Col2_Black
 	; badges
+	ld hl, .BadgePalettes
 	ld de, UnknOBPals
-	ld a, $24
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
+	ld bc, 8 palettes
+	ld a, $5
+	call FarCopyWRAM
 	; background
 	hlcoord 0, 0, AttrMap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
@@ -565,6 +566,28 @@ _CGB_TrainerCard: ; 9289
 .StarPalette:
 	RGB 31, 16, 01
 	RGB 31, 16, 01
+
+.BadgePalettes:
+	; Coral-Eye Badge
+	RGB 31, 31, 31
+	RGB 31, 18, 21
+	RGB 30, 06, 09
+	RGB 00, 00, 00
+	; Sea Ruby Badge
+	RGB 31, 31, 31
+	RGB 30, 25, 24
+	RGB 31, 00, 10
+	RGB 00, 00, 00
+	; Spike Shell Badge
+	RGB 31, 31, 31
+	RGB 30, 27, 21
+	RGB 22, 14, 07
+	RGB 00, 00, 00
+	; Jade Star Badge
+	RGB 31, 31, 31
+	RGB 25, 23, 24
+	RGB 14, 11, 13
+	RGB 00, 00, 00
 ; 9373
 
 _CGB_MoveList: ; 9373

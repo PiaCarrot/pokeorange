@@ -374,22 +374,22 @@ TrainerCard_OAMUpdate: ; 25448 (9:5448)
 	; cycle 2: face tile, in1 tile, in2 tile, in3 tile
 
 	; Coral-Eye Badge
-	db $80, $18, 0
+	db $80, $18, $0
 	db $00, $10, $14, $10 | $80
 	db $00, $10, $14, $10 | $80
 
 	; Sea Ruby Badge
-	db $80, $38, 0
+	db $80, $38, $1
 	db $04, $10, $14, $10 | $80
 	db $04, $10, $14, $10 | $80
 
 	; Spike Shell Badge
-	db $80, $58, 0
+	db $80, $58, $2
 	db $08, $10, $14, $10 | $80
 	db $08, $10, $14, $10 | $80
 
 	; Jade Star Badge
-	db $80, $78, 0
+	db $80, $78, $3
 	db $0c, $10, $14, $10 | $80
 	db $0c, $10, $14, $10 | $80
 ; 25523
