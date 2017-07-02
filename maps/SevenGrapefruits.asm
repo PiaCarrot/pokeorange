@@ -5,7 +5,7 @@ const_value set 2
 	const SEVENGRAPEFRUITS_GUARD2
 	const SEVENGRAPEFRUITS_ITEM_ULTRABALL
 	const SEVENGRAPEFRUITS_ITEM_PROTEIN
-  
+
 SevenGrapefruits_MapScriptHeader::
 
 .Triggers: db 0
@@ -44,30 +44,37 @@ GrapefruitsCooltrainer:
 	faceplayer
 	opentext
 	checkevent EVENT_SEVEN_GRAPEFRUITS_SNORLAX
-	iftrue .SnorlaxGone
+	iftrue SnorlaxGoneScript
 	writetext GrapefruitWorkerText
 	waitbutton
 	closetext
 	end
 
-.SnorlaxGone:
+SnorlaxGoneScript:
 	writetext GrapefruitWorkerHappyText
 	waitbutton
 	closetext
 	end
-	
+
 GrapefruitGuardScript:
-	jumptextfaceplayer SearchingForSnorlaxText
-	
+	faceplayer
+	opentext
+	checkevent EVENT_SEVEN_GRAPEFRUITS_SNORLAX
+	iftrue SnorlaxGoneScript
+	writetext SearchingForSnorlaxText
+	waitbutton
+	closetext
+	end
+
 GrapefruitUltraBall:
 	itemball ULTRA_BALL
-	
+
 GrapefruitProtein:
 	itemball PROTEIN
-	
+
 GrapefruitHiddenRareCandy:
 	dwb EVENT_GRAPEFRUIT_RARE_CANDY, RARE_CANDY
-	
+
 GrapefruitWorkerText:
 	text "Oh no!"
 
@@ -100,22 +107,22 @@ WakingUpSnorlax:
 
 	para "SNORLAX woke up!"
 	done
-	
+
 SearchingForSnorlaxText:
 	text "Ah, kid!"
-	
+
 	para "You can't be here."
 	line "We're looking for"
 	cont "a fruit thief."
-	
+
 	para "Though, it doesn't"
 	line "seem like we're"
 	cont "getting anywhere."
-	
+
 	para "We might have to"
 	line "call it quits."
 	done
-	
+
 SevenGrapefruits_MapEventHeader:: db 0, 0
 
 .Warps: db 0
