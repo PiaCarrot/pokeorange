@@ -45,27 +45,20 @@ GrapefruitsCooltrainer:
 	faceplayer
 	opentext
 	checkevent EVENT_SEVEN_GRAPEFRUITS_SNORLAX
-	iftrue SnorlaxGoneScript
+	iftrue .SnorlaxGone
 	writetext GrapefruitWorkerText
 	waitbutton
 	closetext
 	end
 
-SnorlaxGoneScript:
+.SnorlaxGone:
 	writetext GrapefruitWorkerHappyText
 	waitbutton
 	closetext
 	end
 
 GrapefruitGuardScript:
-	faceplayer
-	opentext
-	checkevent EVENT_SEVEN_GRAPEFRUITS_SNORLAX
-	iftrue SnorlaxGoneScript
-	writetext SearchingForSnorlaxText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SearchingForSnorlaxText
 
 GrapefruitUltraBall:
 	itemball ULTRA_BALL
