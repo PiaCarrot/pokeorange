@@ -1633,17 +1633,8 @@ FullRestore: ; f128
 	jp z, StatusHealer_NoEffect
 
 	call IsMonAtFullHealth
-	jr c, .NotAtFullHealth
+	jp nc, FullyHealStatus
 
-	jp FullyHealStatus
-
-.NotAtFullHealth:
-	call .FullRestore
-	jp StatusHealer_Jumptable
-; f144
-
-
-.FullRestore: ; f144
 	xor a
 	ld [Danger], a
 	call ReviveFullHP
@@ -1660,8 +1651,8 @@ FullRestore: ; f128
 	call ItemActionTextWaitButton
 	call UseDisposableItem
 	ld a, 0
-	ret
-; f16a
+	jp StatusHealer_Jumptable
+; f144
 
 
 BitterBerry: ; f16a
