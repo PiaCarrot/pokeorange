@@ -500,7 +500,7 @@ _CGB_TrainerCard: ; 9289
 	; badges
 	ld hl, .BadgePalettes
 	ld de, UnknOBPals
-	ld bc, 8 palettes
+	ld bc, 4 palettes
 	ld a, $5
 	call FarCopyWRAM
 	; background
