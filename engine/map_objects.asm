@@ -1428,11 +1428,6 @@ GotBiteStep: ; 4d7e
 ; 4daf
 
 RockSmashStep: ; 4daf
-	call .Step
-	jp WaitStep_InPlace
-; 4db5
-
-.Step:
 	ld hl, OBJECT_STEP_DURATION
 	add hl, bc
 	ld a, [hl]
@@ -1444,8 +1439,8 @@ RockSmashStep: ; 4daf
 	ld hl, OBJECT_ACTION
 	add hl, bc
 	ld [hl], a
-	ret
-; 4dc8
+	jp WaitStep_InPlace
+; 4db5
 
 ReturnDigStep: ; 4dc8
 	ld hl, OBJECT_STEP_DURATION
@@ -2398,19 +2393,13 @@ Function56cd: ; 56cd
 ; 576a
 
 HandleNPCStep:: ; 576a
-	call .ResetStepVector
-	jp .DoStepsForAllObjects
-
-.ResetStepVector:
 	xor a
 	ld [wPlayerStepVectorX], a
 	ld [wPlayerStepVectorY], a
 	ld [wPlayerStepFlags], a
 	ld a, -1
 	ld [wPlayerStepDirection], a
-	ret
 
-.DoStepsForAllObjects:
 	ld bc, ObjectStructs
 	xor a
 .loop

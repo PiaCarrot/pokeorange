@@ -47,7 +47,6 @@ battle_struct: MACRO
 \1Species::   db
 \1Item::      db
 \1Moves::     ds NUM_MOVES
-\1MovesEnd::
 \1DVs::       ds 2
 \1PP::        ds NUM_MOVES
 \1Happiness:: db

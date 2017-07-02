@@ -849,7 +849,7 @@ wPokedexDataEnd::
 
 wMiscEnd::
 
-wc7e8:: ds 24 ; ????
+	ds 24
 
 SECTION "Overworld Map", WRAM0 [$c800]
 

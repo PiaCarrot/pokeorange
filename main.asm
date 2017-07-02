@@ -27,8 +27,7 @@ PlaceWaitingText:: ; 4000
 	db "Waiting...!@"
 
 LoadPushOAM:: ; 4031
-	ld b, PushOAMEnd - PushOAM
-	ld c, hPushOAM - $ff00
+	lb bc, (PushOAMEnd - PushOAM), (hPushOAM - $ff00)
 	ld hl, PushOAM
 .loop
 	ld a, [hli]
