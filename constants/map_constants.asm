@@ -28,6 +28,12 @@ MAP_NONE EQU 0
 	mapgroup TANGELO_JUNGLE, 27, 15
 	mapgroup NATIONAL_PARK, 27, 20
 	mapgroup NATIONAL_PARK_BUG_CONTEST, 27, 20
+	mapgroup MT_NAVEL_1F, 14, 14
+	mapgroup MT_NAVEL_2F, 12, 12
+	mapgroup MT_NAVEL_PEAK, 10, 10
+	mapgroup MT_NAVEL_ICE_ROCK, 4, 4
+	mapgroup CRYSTAL_CAVE_1F, 14, 17
+	mapgroup CRYSTAL_CAVE_B1, 14, 18
 
 	newgroup ; 3
 	
@@ -37,16 +43,10 @@ MAP_NONE EQU 0
 	mapgroup UNNAMED_ISLAND_1_POKE_CENTER, 4, 5
 	mapgroup ROUTE_58, 10, 18
 	mapgroup NAVEL_ISLAND, 18, 18
-	mapgroup MT_NAVEL_1F, 14, 14
-	mapgroup MT_NAVEL_2F, 12, 12
-	mapgroup MT_NAVEL_PEAK, 10, 10
-	mapgroup MT_NAVEL_ICE_ROCK, 4, 4
 	mapgroup SEVEN_GRAPEFRUITS, 22, 22
 
 	newgroup ; 4
 
-	mapgroup CRYSTAL_CAVE_1F, 14, 17
-	mapgroup CRYSTAL_CAVE_B1, 14, 18
 	mapgroup ROUTE_55, 25, 25
 	mapgroup PINKAN_ISLAND, 17, 21
 	mapgroup ROUTE_56_WEST, 17, 35

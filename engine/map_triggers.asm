@@ -21,6 +21,6 @@ ENDM
 	trigger_def TANGELO_PORT,               wTangeloPortTrigger
 	trigger_def MANDARIN_UNDERGROUND,       wMandarinUndergroundTrigger
 	trigger_def ROUTE_56_WEST,              wRoute56WestTrigger
-
+	trigger_def UNNAMED_ISLAND_1_POKE_CENTER, wUnnamedIsland1PokeCenterTrigger
 	db -1
 ; 4d15b

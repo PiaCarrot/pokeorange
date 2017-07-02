@@ -92,7 +92,7 @@ if def(DEBUG)
 	givepoke VICTREEBEL, 30
 	givepoke AMPHAROS, 30
 	closetext
-	warp KINNOW_ISLAND, 8, 4
+	warp SEVEN_GRAPEFRUITS, 8, 4
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon
