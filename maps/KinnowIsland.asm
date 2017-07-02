@@ -17,19 +17,19 @@ CafePiaSign:
 
 SkateShopSign:
 	jumptext SkateShopSignText
-	
+
 KinnowNugget:
 	itemball NUGGET
-	
+
 KinnowPokeFanMText:
 	text "Welcome to KINNOW"
 	line "ISLAND! Plenty to"
 	cont "do around here."
-	
+
 	para "If you're itching"
 	line "for a battle, head"
 	cont "to the CAFE."
-	
+
 	para "The waitresses th-"
 	line "ere love battles!"
 	done

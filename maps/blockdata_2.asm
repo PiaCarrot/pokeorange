@@ -40,12 +40,12 @@ CrystalCaveB1_BlockData:
 
 MandarinUnderground_BlockData:
 	INCBIN "maps/MandarinUnderground.blk"
-	
-UnnamedIsland1_BlockData: 
+
+UnnamedIsland1_BlockData:
 	INCBIN "maps/UnnamedIsland1.blk"
-	
-NavelIsland_BlockData: 
+
+NavelIsland_BlockData:
 	INCBIN "maps/NavelIsland.blk"
-	
-SevenGrapefruits_BlockData: 
+
+SevenGrapefruits_BlockData:
 	INCBIN "maps/SevenGrapefruits.blk"

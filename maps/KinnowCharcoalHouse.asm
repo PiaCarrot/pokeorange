@@ -8,7 +8,7 @@ KinnowCharcoalHouse_MapScriptHeader:
 
 .MapCallbacks:
 	db 0
-	
+
 KinnowCharcoalScript:
 	faceplayer
 	opentext
@@ -25,14 +25,14 @@ KinnowCharcoalScript:
 	waitbutton
 	closetext
 	end
-	
+
 GiveCharcoalText:
 	text "Yes!"
-	
+
 	para "I see you have a"
 	line "knack at being a"
 	cont "#MON Trainer!"
-	
+
 	para "Take this, it will"
 	line "help you."
 	done

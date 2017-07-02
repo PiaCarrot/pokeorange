@@ -91,8 +91,8 @@ Route56West_BlockData:
 Route56East_BlockData:
 	INCBIN "maps/Route56East.blk"
 
-Route57_BlockData: 
+Route57_BlockData:
 	INCBIN "maps/Route57.blk"
-	
-Route58_BlockData: 
+
+Route58_BlockData:
 	INCBIN "maps/Route58.blk"

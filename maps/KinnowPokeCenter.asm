@@ -2,7 +2,7 @@ const_value set 2
 	const KINNOW_NURSE
 	const KINNOW_GB_KID
 	const KINNOW_SLOUCH
-	
+
 KinnowPokeCenter_MapScriptHeader:
 .MapTriggers:
 	db 0
@@ -12,30 +12,30 @@ KinnowPokeCenter_MapScriptHeader:
 
 KinnowNurseScript:
 	jumpstd pokecenternurse
-	
+
 KinnowGameboyKidScript:
 	jumptextfaceplayer KinnowGBKidText
-	
+
 KinnowSlouchScript:
 	opentext
 	writetext KinnowSlouchText
 	waitbutton
 	closetext
 	end
-	
+
 KinnowSlouchText:
 	text "There are several"
 	line "uninhabited islan-"
 	cont "ds."
-	
+
 	para "You may find rare"
 	line "#MON there."
 	done
-	
+
 KinnowGBKidText:
 	text "Why are there no"
 	line "trade centers?"
-	
+
 	para "There is one, in"
 	line "TROVITOPOLIS."
 	done

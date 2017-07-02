@@ -14,7 +14,7 @@ KinnowOfficerScript:
 KinnowOfficerText:
 	text "Be careful out"
 	line "there, kid."
-	
+
 	para "If you're headed"
 	line "to NAVEL ISLAND,"
 	cont "stock up on FULL"

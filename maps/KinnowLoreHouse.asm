@@ -7,16 +7,16 @@ KinnowLoreHouse_MapScriptHeader:
 
 .MapCallbacks:
 	db 0
-	
+
 KinnowRockerLoreScript:
 	jumptextfaceplayer KinnowRockerLoreText
-	
+
 KinnowRockerLoreText:
 	text "Hey, kid!"
-	
+
 	para "Have you been to"
 	line "the SKATE SHOP?"
-	
+
 	para "Skateboarding is"
 	line "the way to go for"
 	cont "land travel!"

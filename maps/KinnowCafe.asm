@@ -12,7 +12,7 @@ KinnowCafe_MapScriptHeader::
 
 .MapCallbacks:
 	db 0
-	
+
 WaitressInfo:
 	opentext
 	faceplayer
@@ -20,11 +20,11 @@ WaitressInfo:
 	waitbutton
 	closetext
 	end
-	
+
 InfoTextCafe:
 	text "Welcome to PIA"
 	line "CARROT!"
-	
+
 	para "Please battle to"
 	line "your heart's cont-"
 	cont "ent!"
@@ -40,24 +40,24 @@ WaitressSatomi:
 	waitbutton
 	closetext
 	end
-	
+
 WaitressSatomiSeenText:
 	text "The OWNER went ov-"
 	line "erseas to search"
 	cont "for new #MON!"
 	done
-	
+
 WaitressSatomiBeatenText:
 	text "Wow! If only the"
 	line "OWNER was here!"
 	done
-	
+
 WaitressSatomiAfterText:
 	text "The OWNER is way"
 	line "stronger than any"
 	cont "of us!"
 	done
-	
+
 WaitressNaomi:
 	trainer EVENT_BEAT_WAITRESS_NAOMI, WAITRESS, NAOMI, WaitressNaomiSeenText, WaitressNaomiBeatenText, 0, .Script
 
@@ -68,21 +68,21 @@ WaitressNaomi:
 	waitbutton
 	closetext
 	end
-	
+
 WaitressNaomiSeenText:
 	text "Would you like fr-"
 	line "ies with that?"
 	done
-	
+
 WaitressNaomiBeatenText:
 	text "For here or TO GO?"
 	done
-	
+
 WaitressNaomiAfterText:
 	text "Fanservice costs"
 	line "extra."
 	done
-	
+
 WaitressSaori:
 	trainer EVENT_BEAT_WAITRESS_SAORI, WAITRESS, SAORI, WaitressSaoriSeenText, WaitressSaoriBeatenText, 0, .Script
 
@@ -93,7 +93,7 @@ WaitressSaori:
 	waitbutton
 	closetext
 	end
-	
+
 WaitressSaoriSeenText:
 	text "One special coming"
 	line "right up!"
@@ -102,13 +102,13 @@ WaitressSaoriSeenText:
 WaitressSaoriBeatenText:
 	text "No! I lost!"
 	done
-	
+
 WaitressSaoriAfterText:
 	text "It was supposed"
 	line "to be a special"
 	cont "for me<...>"
 	done
-	
+
 WaitressJun:
 	trainer EVENT_BEAT_WAITRESS_JUN, WAITRESS, JUN, WaitressJunSeenText, WaitressJunBeatenText, 0, .Script
 
@@ -119,26 +119,26 @@ WaitressJun:
 	waitbutton
 	closetext
 	end
-	
+
 WaitressJunSeenText:
 	text "You came to battle"
 	line "us?"
-	
+
 	para "Well, let's do it!"
 	done
 
 WaitressJunBeatenText:
 	text "Well done."
 	done
-	
+
 WaitressJunAfterText:
 	text "Good luck on your"
 	line "journey."
-	
+
 	para "You remind me of"
 	line "the OWNER."
 	done
-	
+
 KinnowCafe_MapEventHeader:: db 0, 0
 
 .Warps: db 2

@@ -1,10 +1,10 @@
 DayCare_BlockData:
 	INCBIN "maps/DayCare.blk"
-	
-KinnowCafe_BlockData: 
+
+KinnowCafe_BlockData:
 	INCBIN "maps/KinnowCafe.blk"
 
-KinnowSkateShop_BlockData: 
+KinnowSkateShop_BlockData:
 	INCBIN "maps/KinnowSkateShop.blk"
 
 HallOfFame_BlockData:
@@ -47,13 +47,13 @@ IcePathB2FBlackthornSide_BlockData:
 IcePathB3F_BlockData:
 	INCBIN "maps/IcePathB3F.blk"
 
-MtNavel1F_BlockData: 
+MtNavel1F_BlockData:
 	INCBIN "maps/MtNavel1F.blk"
-	
-MtNavel2F_BlockData: 
+
+MtNavel2F_BlockData:
 	INCBIN "maps/MtNavel2F.blk"
-	
-MtNavelPeak_BlockData: 
+
+MtNavelPeak_BlockData:
 	INCBIN "maps/MtNavelPeak.blk"
 
 MtNavelIceRock_BlockData:

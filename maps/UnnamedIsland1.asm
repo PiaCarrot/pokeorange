@@ -17,7 +17,7 @@ UnnamedIsland1_MapScriptHeader::
 
 UnnamedIsland1Rock:
 	jumpstd smashrock
-	
+
 TrainerFisherYuuta:
 	trainer EVENT_BEAT_FISHER_YUUTA, FISHER, YUUTA, FisherYuutaSeenText, FisherYuutaBeatenText, 0, .Script
 
@@ -28,25 +28,25 @@ TrainerFisherYuuta:
 	waitbutton
 	closetext
 	end
-	
+
 FisherYuutaSeenText:
 	text "Deep sea angling"
 	line "will net you big"
 	cont "catches!"
 	done
-	
+
 FisherYuutaBeatenText:
 	text "Wiped out!"
 	done
-	
+
 FisherYuutaAfterText:
 	text "Not bad."
-	
+
 	para "I sense a great"
 	line "FISHER spirit in"
 	cont "you."
 	done
-	
+
 CooltrainerKeikoScript:
 	trainer EVENT_BEAT_COOLTRAINERF_KEIKO, COOLTRAINERF, KEIKO, CooltrainerKeikoSeenText, CooltrainerKeikoBeatenText, 0, .Script
 
@@ -57,27 +57,27 @@ CooltrainerKeikoScript:
 	waitbutton
 	closetext
 	end
-	
+
 CooltrainerKeikoSeenText:
 	text "On your way to"
 	line "NAVEL ISLAND?"
-	
+
 	para "Sorry, but you"
 	line "won't be seeing"
 	cont "DANNY."
 	done
-	
+
 CooltrainerKeikoBeatenText:
 	text "Hmph."
 	done
-	
+
 CooltrainerKeikoAfterText:
 	text "DANNY doesn't let"
 	line "anyone on the is-"
 	cont "land unless they"
 	cont "are a challenger."
 	done
-	
+
 UnnamedIslandTM:
 	itemball TM_RETURN
 

@@ -73,7 +73,7 @@ DannyGroup:
 		db QUICK_ATTACK
 		db METAL_CLAW
 		db AGILITY
-		
+
 	db 31, ELECTRODE
 		db THUNDERBOLT
 		db EXPLOSION
@@ -81,7 +81,7 @@ DannyGroup:
 		db 0
 
 	db $ff ; end
-	
+
 ; ================================
 
 
@@ -570,10 +570,10 @@ BugCatcherFGroup:
 	; BUGCATCHERF (1)
 	db "ALIA@"
 	db 0
-	
+
 	db 26, BUTTERFREE
 	db 25, VENONAT
-	
+
 	db $ff ;end
 ; ================
 ; ================================
@@ -883,13 +883,13 @@ FisherGroup:
 	db $ff ; end
 
 ; =================
-	
+
 	; FISHER (6)
 	db "YUUTA@"
 	db 0
-	
+
 	db 28, OCTILLERY
-	
+
 	db $ff
 ; ================
 ; ================================
@@ -1046,12 +1046,12 @@ CooltrainerMGroup:
 	; COOLTRAINERM (1)
 	db "AKIRA@"
 	db 0
-	
+
 	db 26, JYNX
 	db 25, SEEL
-	
+
 	db $ff
-	
+
 ; ================
 ; ================================
 
@@ -1063,12 +1063,12 @@ CooltrainerFGroup:
 	; COOLTRAINERF (1)
 	db "KEIKO@"
 	db 0
-	
+
 	db 26, SKIPLOOM
 	db 26, ESPEON
-	
+
 	db $ff
-	
+
 ; ================
 ; ================================
 

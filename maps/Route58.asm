@@ -16,7 +16,7 @@ Route58SalesmanScript:
 	iftrue .SellStuff
 	closetext
 	end
-	
+
 .SellStuff:
 	pokemart MARTTYPE_STANDARD, MART_ROUTE_58
 	closetext
@@ -27,7 +27,7 @@ LastMinuteSuppliesText:
 	line "ute supplies for"
 	cont "NAVEL ISLAND?"
 	done
-	
+
 CooltrainerMAkira:
 	trainer EVENT_BEAT_COOLTRAINERM_AKIRA, COOLTRAINERM, AKIRA, CooltrainerAkiraSeenText, CooltrainerAkiraBeatenText, 0, .Script
 
@@ -38,32 +38,32 @@ CooltrainerMAkira:
 	waitbutton
 	closetext
 	end
-	
+
 CooltrainerAkiraSeenText:
 	text "NAVEL ISLAND is a"
 	line "large dormant vol-"
 	cont "cano."
-	
+
 	para "It's a perilous"
 	line "dungeon home to"
 	cont "many ICE-type"
 	cont "#MON now."
 	done
-	
+
 CooltrainerAkiraBeatenText:
 	text "Hey, you're cool."
 	done
-	
+
 CooltrainerAkiraAfterText:
 	text "After hundreds of"
 	line "years the peak of"
 	cont "the island became"
 	cont "cold and snowy."
 	done
-	
+
 Route58Sign:
 	jumptext Route58SignText
-	
+
 Route58SignText:
 	text "ROUTE 58"
 	line "EAST to NAVEL"

@@ -7,7 +7,7 @@ KinnowTradeHouse_MapScriptHeader:
 
 .MapCallbacks:
 	db 0
-	
+
 Armon:
 	faceplayer
 	opentext
@@ -15,7 +15,7 @@ Armon:
 	waitbutton
 	closetext
 	end
-	
+
 KinnowTradeHouse_MapEventHeader:: db 0, 0
 
 .Warps: db 2
