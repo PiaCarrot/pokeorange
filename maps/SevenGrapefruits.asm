@@ -33,6 +33,7 @@ SnorlaxBattleScript:
 	special Special_FadeOutMusic
 	cry SNORLAX
 	closetext
+	writecode VAR_BATTLETYPE, BATTLETYPE_SNORLAX
 	loadwildmon SNORLAX, 30
 	startbattle
 	disappear SEVENGRAPEFRUITS_BIG_SNORLAX

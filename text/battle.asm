@@ -30,14 +30,6 @@ PokemonFellFromTreeText: ; 0x80778
 	prompt
 ; 0x80793
 
-WildCelebiAppearedText: ; 0x80793
-	text "Wild @"
-	text_from_ram EnemyMonNick
-	text ""
-	line "appeared!"
-	prompt
-; 0x807a9
-
 WantsToBattleText:: ; 0x807a9
 	text "<ENEMY>"
 	line "wants to battle!"

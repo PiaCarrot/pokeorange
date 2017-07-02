@@ -6595,9 +6595,7 @@ BattleCommand_Teleport: ; 36778
 	jr z, .failed
 	cp BATTLETYPE_TRAP
 	jr z, .failed
-	cp BATTLETYPE_CELEBI
-	jr z, .failed
-	cp BATTLETYPE_TANGROWTH
+	cp BATTLETYPE_SNORLAX
 	jr z, .failed
 
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
@@ -6694,9 +6692,7 @@ BattleCommand_ForceSwitch: ; 3680f
 	jp z, .fail
 	cp BATTLETYPE_TRAP
 	jp z, .fail
-	cp BATTLETYPE_CELEBI
-	jp z, .fail
-	cp BATTLETYPE_TANGROWTH
+	cp BATTLETYPE_SNORLAX
 	jp z, .fail
 	ld a, [hBattleTurn]
 	and a
