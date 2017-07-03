@@ -16,5 +16,5 @@
 	dn FISH, AMORPHOUS ; egg groups
 
 	; tmhm
-	tmhm SURF
+	tmhm BUBBLEBEAM, SURF
 	; end
