@@ -14,15 +14,15 @@ KinnowClerkScript:
 	pokemart MARTTYPE_STANDARD, MART_KINNOW
 	closetext
 	end
-	
+
 KinnowMartLassScript:
 	jumptextfaceplayer KinnowMartLassText
-	
+
 KinnowMartLassText:
 	text "I heard there's an"
 	line "old lady who sells"
 	cont "bitter herbs."
-	
+
 	para "They work wonders,"
 	line "but they taste bad"
 	cont "to #MON."

@@ -8,7 +8,7 @@ MtNavelIceRock_MapScriptHeader::
 
 NavelIceRock:
 	jumptext NavelIceRockText
-	
+
 NavelIceRockText:
 	text "A strange aura"
 	line "emanates from the"

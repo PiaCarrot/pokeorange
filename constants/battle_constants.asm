@@ -60,9 +60,7 @@ const_value SET 1
 	const BATTLETYPE_SHINY
 	const BATTLETYPE_TREE
 	const BATTLETYPE_TRAP
-	const BATTLETYPE_FORCEITEM
-	const BATTLETYPE_CELEBI
-	const BATTLETYPE_TANGROWTH
+	const BATTLETYPE_SNORLAX
 
 ; battle variables
 	const_def

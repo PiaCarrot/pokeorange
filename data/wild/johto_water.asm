@@ -83,25 +83,25 @@
 	db 16, WAILMER
 	db 16, WAILMER
 	db 16, TENTACOOL
-	
+
 	map KINNOW_ISLAND
 	db 3 percent
 	db 16, WINGULL
 	db 16, TENTACOOL
 	db 16, TENTACOOL
-	
+
 	map ROUTE_57
 	db 3 percent
 	db 17, WINGULL
 	db 17, TENTACOOL
 	db 17, REMORAID
-	
+
 	map UNNAMED_ISLAND_1
 	db 3 percent
 	db 17, WINGULL
 	db 17, TENTACOOL
 	db 17, TENTACOOL
-	
+
 	map ROUTE_58
 	db 3 percent
 	db 17, WINGULL
@@ -113,11 +113,11 @@
 	db 17, REMORAID
 	db 17, WINGULL
 	db 17, WAILMER
-	
+
 	map SEVEN_GRAPEFRUITS
 	db 3 percent
 	db 17, WAILMER
 	db 17, TENTACOOL
 	db 17, REMORAID
-	
+
 	db -1 ; end

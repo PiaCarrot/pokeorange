@@ -14,15 +14,15 @@ Route57_MapScriptHeader::
 
 Route57SwimmerGirlScript:
 	jumptextfaceplayer R57SwimmerGirlText
-	
+
 R57SwimmerGirlText:
 	text "What? You thought"
 	line "I was a trainer?"
-	
+
 	para "Some people just"
 	line "like to swim!"
 	done
-	
+
 TrainerSightSeerAsami:
 	trainer EVENT_BEAT_SIGHTSEERF_ASAMI, SIGHTSEERF, ASAMI, SightSeerAsamiSeenText, SightSeerAsamiBeatenText, 0, .Script
 
@@ -37,7 +37,7 @@ TrainerSightSeerAsami:
 SightSeerAsamiSeenText:
 	text "The ORANGE ISLANDS"
 	line "are wonderful!"
-	
+
 	para "Beautiful beaches,"
 	line "cute boys, and of"
 	cont "course, weak trai-"
@@ -53,7 +53,7 @@ SightSeerAsamiAfterText:
 	line "you are strong"
 	cont "after all."
 	done
-	
+
 TrainerBugCatcherFAlia:
 	trainer EVENT_BEAT_BUG_CATCHERF_ALIA, BUG_CATCHER_F, ALIA, BugCatcherFAliaSeenText, BugCatcherFAliaBeatenText, 0, .Script
 
@@ -64,26 +64,26 @@ TrainerBugCatcherFAlia:
 	waitbutton
 	closetext
 	end
-	
+
 BugCatcherFAliaSeenText:
 	text "I don't see many"
 	line "other girls who"
 	cont "like BUG #MON."
-	
+
 	para "Is it really that"
 	line "strange?"
 	done
-	
+
 BugCatcherFAliaBeatenText:
 	text "My cute BUGs!"
 	done
-	
+
 BugCatcherFAliaAfterText:
 	text "I hope I can meet"
 	line "lots of BUG-type"
 	cont "#MON collectors."
     done
-	
+
 Route57HardStone:
 	itemball HARD_STONE
 

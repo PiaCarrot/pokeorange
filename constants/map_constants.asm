@@ -36,7 +36,7 @@ MAP_NONE EQU 0
 	mapgroup CRYSTAL_CAVE_B1, 14, 18
 
 	newgroup ; 3
-	
+
 	mapgroup ROUTE_57, 16, 10
 	mapgroup KINNOW_ISLAND_ROUTE_57_GATE, 4, 5
 	mapgroup UNNAMED_ISLAND_1, 12, 12

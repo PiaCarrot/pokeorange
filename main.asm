@@ -1155,9 +1155,7 @@ PlayBattleMusic: ; 2ee6c
 	call MaxVolume
 
 	ld a, [BattleType]
-	cp BATTLETYPE_TANGROWTH
 	ld de, MUSIC_SUICUNE_BATTLE
-	jp z, .done
 	cp BATTLETYPE_ROAMING
 	jp z, .done
 

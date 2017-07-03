@@ -2,7 +2,7 @@ const_value set 2
 	const UNNAMEDISLAND_NURSE
 	const UNNAMEDISLAND_SLOUCH
 	const UNNAMEDISLAND_MISTY
-	
+
 UnnamedIsland1PokeCenter_MapScriptHeader:
 .MapTriggers:
 	db 2
@@ -46,14 +46,14 @@ UnnamedIsland1PokeCenter_MapScriptHeader:
 
 UnnamedIslandNurseScript:
 	jumpstd pokecenternurse
-	
+
 UnnamedIslandSlouchScript:
 	opentext
 	writetext UnnamedIslandSlouchText
 	waitbutton
 	closetext
 	end
-	
+
 UnnamedIslandSlouchText:
 	text "This island is a"
 	line "part of the KINNOW"
@@ -74,41 +74,41 @@ UnnamedPokeCenter1FPlayerMovement1:
 	step UP
 	step UP
 	step_end
-	
+
 UnnamedMistyText1:
 	text "Oh, hello there."
-	
+
 	para "Was I in your way?"
 	line "I'm so sorry!"
-	
+
 	para  "<...> <...> <...>"
-	
+
 	para "Say, I can't put"
 	line "my finger on it,"
 	cont "but you remind me"
 	cont "of someone."
-	
+
 	para "The name's MISTY."
 	line "I'm a gym leader"
 	cont "from the KANTO"
 	cont "region."
-	
+
 	para "<...> <...> <...>"
-	
+
 	para "So, your name is"
 	line "<PLAYER>!"
-	
+
 	para "I have a feeling"
 	line "we'll meet again."
 	cont "Take this, a gift"
 	cont "from me to you."
 	done
-	
+
 UnnamedMistyText2:
 	text "Well, I must be"
 	line "off, now. It was"
 	cont "nice meeting you!"
-	done	
+	done
 
 UnnamedIsland1PokeCenter_MapEventHeader:: db 0, 0
 

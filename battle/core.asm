@@ -3614,11 +3614,9 @@ TryToRunAwayFromBattle: ; 3d8b3
 	jp z, .can_escape
 	cp BATTLETYPE_TRAP
 	jp z, .cant_escape
-	cp BATTLETYPE_CELEBI
-	jp z, .cant_escape
 	cp BATTLETYPE_SHINY
 	jp z, .cant_escape
-	cp BATTLETYPE_TANGROWTH
+	cp BATTLETYPE_SNORLAX
 	jp z, .cant_escape
 
 	ld a, [wLinkMode]
@@ -5893,9 +5891,9 @@ LoadEnemyMon: ; 3e8eb
 ; In a wild battle, we pull from the item slots in BaseData
 
 ; Force Item1
-; Used for Ho-Oh, Lugia and Snorlax encounters
+; Used for Snorlax encounter
 	ld a, [BattleType]
-	cp BATTLETYPE_FORCEITEM
+	cp BATTLETYPE_SNORLAX
 	ld a, [BaseItems]
 	jr z, .UpdateItem
 
@@ -8753,9 +8751,6 @@ BattleStartMessage: ; 3fc8b
 .NotFishing:
 	ld hl, PokemonFellFromTreeText
 	cp BATTLETYPE_TREE
-	jr z, .PlaceBattleStartText
-	ld hl, WildCelebiAppearedText
-	cp BATTLETYPE_CELEBI
 	jr z, .PlaceBattleStartText
 	ld hl, WildPokemonAppearedText
 

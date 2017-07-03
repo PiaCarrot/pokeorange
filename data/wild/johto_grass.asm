@@ -333,7 +333,7 @@
 	db 18, MANKEY
 	db 19, TANGELA
 	db 19, MANKEY
-	db 19, SPEAROW	
+	db 19, SPEAROW
 	;day
 	db 18, SPEAROW
 	db 18, TANGELA
@@ -350,7 +350,7 @@
 	db 19, TANGELA
 	db 19, SANDSHREW
 	db 19, RATTATA
-	
+
 	map UNNAMED_ISLAND_1
 	db 7 percent, 7 percent, 7 percent
 	;morn
@@ -360,7 +360,7 @@
 	db 18, SANDSHREW
 	db 19, PIDGEY
 	db 19, SPEAROW
-	db 19, JIGGLYPUFF	
+	db 19, JIGGLYPUFF
 	;day
 	db 18, PIDGEY
 	db 18, NIDORAN_F
@@ -377,7 +377,7 @@
 	db 19, TANGELA
 	db 19, SANDSHREW
 	db 19, PINSIR
-	
+
 	map MT_NAVEL_1F
 	db 5 percent, 5 percent, 5 percent ; encounter rates: morn/day/nite
 	; morn
@@ -404,7 +404,7 @@
 	db 19, PSYDUCK
 	db 20, ZUBAT
 	db 20, JYNX
-	
+
 	map MT_NAVEL_2F
 	db 5 percent, 5 percent, 5 percent ; encounter rates: morn/day/nite
 	; morn
@@ -431,7 +431,7 @@
 	db 19, PSYDUCK
 	db 20, ZUBAT
 	db 20, JYNX
-	
+
 	map MT_NAVEL_ICE_ROCK
 	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
 	; morn
@@ -458,7 +458,7 @@
 	db 35, GOLDUCK
 	db 35, GOLBAT
 	db 35, JYNX ;CRYOGANAL
-	
+
 	map SEVEN_GRAPEFRUITS
 	db 6 percent, 6 percent, 6 percent
 	; morning
@@ -485,5 +485,5 @@
 	db 19, ODDISH
 	db 20, ZUBAT
 	db 20, RATICATE
-	
+
 	db -1 ; end

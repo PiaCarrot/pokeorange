@@ -37,25 +37,25 @@ DontWantOne:
 
 DoYouWantOneText:
 	text "Hey there, kid!"
-	
+
 	para "Looking for some"
 	line "spare parts?"
 	cont "New wheels?"
-	
+
 	para "<...><...>"
-	
+
 	para "You don't have a"
 	line "SKATEBOARD? Well,"
 	cont "why didn't you say"
 	cont "so?"
-	
+
 	para "You want one? It's"
 	line "on me."
 	done
 
 HereYouGoText:
 	text "Rad!"
-	
+
 	para "Here you go, kid!"
 	done
 
@@ -66,14 +66,14 @@ PlayerGotSkateboardText:
 
 AlreadyHaveASkateboardText:
 	text "Looking rad, kid!"
-	
+
 	para "Now you can roll"
 	line "around in style!"
 	done
-	
+
 NoThankYouText:
 	text "No sweat, kid!"
-	
+
 	para "Come back if you"
 	line "change your mind!"
 	done

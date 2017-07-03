@@ -90,7 +90,7 @@ KinnowMart:
 	db FULL_HEAL
 	db REVIVE
 	db $ff
-	
+
 Route58Mart:
 	db 4
 	db SUPER_POTION

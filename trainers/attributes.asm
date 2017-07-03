@@ -317,7 +317,7 @@ TrainerClassAttributes: ; 3959c
 	db 18 ; base reward
 	dw AI_BASIC + AI_TYPES + AI_OPPORTUNIST + AI_STATUS
 	dw CONTEXT_USE + SWITCH_SOMETIMES
-	
+
 ; Cooltrainerm
 	db 0, 0 ; items
 	db 12 ; base reward

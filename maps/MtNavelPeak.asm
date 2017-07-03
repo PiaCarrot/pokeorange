@@ -1,7 +1,7 @@
 const_value set 2
 	const NAVELPEAK_DANNY
 	const NAVELPEAK_ITEMBALL
-	
+
 MtNavelPeak_MapScriptHeader::
 
 .Triggers: db 0
@@ -58,65 +58,65 @@ DannyScript:
 
 WelcomeToPeakText:
 	text "Welcome, trainer."
-	
+
 	para "I'm the world fam-"
 	line "ous rock climber,"
 	cont "DANNY."
-	
+
 	para "Not many can climb"
 	line "to this peak and"
 	cont "have the strength"
 	cont "to stand."
-	
+
 	para "You made it to the"
 	line "peak, which earns"
 	cont "you the right to"
 	cont "battle me."
-	
+
 	para "First, let me heal"
 	line "your #MON."
 	done
-	
+
 LetsBattleDanny:
 	text "Well, then."
 	line "Shall we get"
 	cont "started?"
 	done
-	
+
 DannyWinLossText:
 	text "Oh. Seems we have"
 	line "a rising star."
 	done
-	
+
 YouEarnedSeaRubyText:
 	text "<PLAYER> received"
 	line "SEA-RUBY BADGE."
 	done
-	
+
 ThatBadgeWillText:
 	text "You're one tough"
 	line "nut. You climbed"
 	cont "the brutal moun-"
 	cont "tain, and beat me."
-	
+
 	para "That SEA-RUBY"
 	line "badge will make"
 	cont "#MON up to lev-"
 	cont "el 50 obey you."
-	
+
 	para "Also, a gift from"
 	line "from me."
 	done
-	
+
 DannyBeatenText:
 	text "There is still a"
 	line "long road ahead."
-	
+
 	para "Your next battle"
 	line "is on TROVITA"
 	cont "ISLAND."
 	done
-	
+
 NavelPeakEscapeRope:
 	itemball ESCAPE_ROPE
 

@@ -8,10 +8,10 @@ NavelIsland_MapScriptHeader::
 
 NavelIslandSign:
 	jumptext NavelIslandSignText
-	
+
 NavelIslandSignText:
 	text "NAVEL ISLAND"
-	
+
 	para "GYM CHALLENGERS"
 	line "only! MT.NAVEL is"
 	cont "very dangerous!"
