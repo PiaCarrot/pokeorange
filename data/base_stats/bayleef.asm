@@ -1,4 +1,4 @@
-	db BAYLEEF ; 153
+	db BKECLEON ; 153
 
 	db  60,  62,  80,  60,  63,  80
 	;   hp  atk  def  spd  sat  sdf

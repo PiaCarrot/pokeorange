@@ -2084,7 +2084,7 @@ MewEvosAttacks:
 	db 0 ; no more level-up moves
 
 ChikoritaEvosAttacks:
-	db EVOLVE_LEVEL, 16, BAYLEEF
+	db EVOLVE_LEVEL, 16, BKECLEON
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
@@ -2099,7 +2099,7 @@ ChikoritaEvosAttacks:
 	db 0 ; no more level-up moves
 
 BayleefEvosAttacks:
-	db EVOLVE_LEVEL, 32, MEGANIUM
+	db EVOLVE_LEVEL, 32, CHATOT
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
@@ -2132,7 +2132,7 @@ MeganiumEvosAttacks:
 	db 0 ; no more level-up moves
 
 CyndaquilEvosAttacks:
-	db EVOLVE_LEVEL, 14, QUILAVA
+	db EVOLVE_LEVEL, 14, TRUMBEAK
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, HEADBUTT
@@ -2146,7 +2146,7 @@ CyndaquilEvosAttacks:
 	db 0 ; no more level-up moves
 
 QuilavaEvosAttacks:
-	db EVOLVE_LEVEL, 36, TYPHLOSION
+	db EVOLVE_LEVEL, 36, TOUCANNON
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, LEER
@@ -2174,7 +2174,7 @@ TyphlosionEvosAttacks:
 	db 0 ; no more level-up moves
 
 TotodileEvosAttacks:
-	db EVOLVE_LEVEL, 18, CROCONAW
+	db EVOLVE_LEVEL, 18, MINCINNO
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
@@ -2188,7 +2188,7 @@ TotodileEvosAttacks:
 	db 0 ; no more level-up moves
 
 CroconawEvosAttacks:
-	db EVOLVE_LEVEL, 30, FERALIGATR
+	db EVOLVE_LEVEL, 30, CINCINNO
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
