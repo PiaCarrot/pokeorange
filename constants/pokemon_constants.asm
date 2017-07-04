@@ -153,7 +153,7 @@ const_value set 1
 	const MEWTWO
 	const MEW
 	const CRYOGONAL
-	const BKECLEON
+	const KECLEON
 	const CHATOT
 	const PIKIPEK
 	const TRUMBEAK

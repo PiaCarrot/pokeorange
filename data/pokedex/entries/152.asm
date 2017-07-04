@@ -1,6 +1,6 @@
-; ChikoritaPokedexEntry: ; 0x1cc988
-	db "LEAF@" ; species name
-	dw 211, 140 ; height, width
+; CryogonalPokedexEntry: ; 0x1cc988
+	db "FREEZING@" ; species name
+	dw 211, 1480 ; height, width
 
 	db   "It loves to bask"
 	next "in the sunlight."

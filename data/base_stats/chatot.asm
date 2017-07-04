@@ -1,20 +1,20 @@
 	db CHATOT ; 154
 
-	db  80,  82, 100,  80,  83, 100
+	db  76,  65, 45,  91,  92, 42
 	;   hp  atk  def  spd  sat  sdf
 
-	db GRASS, GRASS
-	db 45 ; catch rate
-	db 208 ; base exp
+	db NORMAL, FLYING
+	db 30 ; catch rate
+	db 144 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
-	db 31 ; gender
+	db 128 ; gender
 	db 20 ; step cycles to hatch
-	dn 7, 7 ; frontpic dimensions
+	dn 5, 5 ; frontpic dimensions
 
 	db MEDIUM_SLOW ; growth rate
 	dn MONSTER, PLANT ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, CURSE, TOXIC, ROCK_SMASH, HIDDEN_POWER, SUNNY_DAY, SWEET_SCENT, SNORE, HYPER_BEAM, PROTECT, GIGA_DRAIN, ENDURE, FRUSTRATION, SOLARBEAM, IRON_TAIL, EARTHQUAKE, RETURN, MUD_SLAP, SWAGGER, SLEEP_TALK, DETECT, REST, ATTRACT, FURY_CUTTER, CUT, STRENGTH, FLASH
+	tmhm FLY
 	; end

@@ -1,20 +1,20 @@
-	db BKECLEON ; 153
+	db KECLEON ; 153
 
-	db  60,  62,  80,  60,  63,  80
+	db  60,  90,  70,  40,  60,  120
 	;   hp  atk  def  spd  sat  sdf
 
-	db GRASS, GRASS
-	db 45 ; catch rate
-	db 141 ; base exp
+	db NORMAL, NORMAL
+	db 200 ; catch rate
+	db 154 ; base exp
 	db NO_ITEM ; item 1
-	db NO_ITEM ; item 2
-	db 31 ; gender
+	db BITTER_BERRY ; item 2
+	db 128 ; gender
 	db 20 ; step cycles to hatch
-	dn 6, 6 ; frontpic dimensions
+	dn 7, 7 ; frontpic dimensions
 
 	db MEDIUM_SLOW ; growth rate
 	dn MONSTER, PLANT ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, CURSE, TOXIC, ROCK_SMASH, HIDDEN_POWER, SUNNY_DAY, SWEET_SCENT, SNORE, PROTECT, GIGA_DRAIN, ENDURE, FRUSTRATION, SOLARBEAM, IRON_TAIL, RETURN, MUD_SLAP, SWAGGER, SLEEP_TALK, DETECT, REST, ATTRACT, FURY_CUTTER, CUT, STRENGTH, FLASH
+	tmhm HEADBUTT, CURSE, TOXIC, ROCK_SMASH, HIDDEN_POWER, SUNNY_DAY, SNORE, PROTECT, ENDURE, FRUSTRATION, IRON_TAIL, RETURN, MUD_SLAP, SWAGGER, SLEEP_TALK, DETECT, REST, ATTRACT, FURY_CUTTER, CUT, STRENGTH, FLASH
 	; end

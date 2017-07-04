@@ -1,20 +1,20 @@
 	db CRYOGONAL ; 152
 
-	db  45,  49,  65,  45,  49,  65
+	db  70,  50,  30,  105,  95,  135
 	;   hp  atk  def  spd  sat  sdf
 
-	db GRASS, GRASS
-	db 45 ; catch rate
-	db 64 ; base exp
+	db ICE, ICE
+	db 25 ; catch rate
+	db 170 ; base exp
 	db NO_ITEM ; item 1
-	db NO_ITEM ; item 2
-	db 31 ; gender
+	db NEVERMELTICE ; item 2
+	db 255 ; gender
 	db 20 ; step cycles to hatch
-	dn 5, 5 ; frontpic dimensions
+	dn 7, 7 ; frontpic dimensions
 
 	db MEDIUM_SLOW ; growth rate
-	dn MONSTER, PLANT ; egg groups
+	dn INANIMATE, INANIMATE ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, CURSE, TOXIC, HIDDEN_POWER, SUNNY_DAY, SWEET_SCENT, SNORE, PROTECT, GIGA_DRAIN, ENDURE, FRUSTRATION, SOLARBEAM, IRON_TAIL, RETURN, MUD_SLAP, SWAGGER, SLEEP_TALK, DETECT, REST, ATTRACT, CUT, FLASH
+	tmhm ICY_WIND, FLASH
 	; end

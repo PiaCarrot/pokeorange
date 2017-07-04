@@ -2083,52 +2083,59 @@ MewEvosAttacks:
 	db 50, ANCIENTPOWER
 	db 0 ; no more level-up moves
 
-ChikoritaEvosAttacks:
-	db EVOLVE_LEVEL, 16, BKECLEON
+ChikoritaEvosAttacks: ;cryogonal
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, GROWL
-	db 8, RAZOR_LEAF
-	db 12, REFLECT
-	db 15, POISONPOWDER
-	db 22, SYNTHESIS
-	db 29, BODY_SLAM
-	db 36, LIGHT_SCREEN
-	db 43, SAFEGUARD
-	db 50, SOLARBEAM
+	db 1, BIND
+	db 5, POWDER_SNOW
+	db 9, DEFENSE_CURL
+	db 13, RAPID_SPIN
+	db 17, ICY_WIND
+	db 21, MIST
+	db 21, HAZE
+	db 25, AURORA_BEAM
+	db 29, ACID_ARMOR
+	db 33, ICE_BEAM
+	db 37, LIGHT_SCREEN
+	db 37, REFLECT
+	db 41, SLASH
+	db 45, CONFUSE_RAY
+	db 49, RECOVER
+	db 53, SOLARBEAM
+	db 61, BLIZZARD
 	db 0 ; no more level-up moves
 
-BayleefEvosAttacks:
-	db EVOLVE_LEVEL, 32, CHATOT
+BayleefEvosAttacks: ;kecleon
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, GROWL
-	db 1, RAZOR_LEAF
-	db 1, REFLECT
-	db 8, RAZOR_LEAF
-	db 12, REFLECT
-	db 15, POISONPOWDER
-	db 23, SYNTHESIS
-	db 31, BODY_SLAM
-	db 39, LIGHT_SCREEN
-	db 47, SAFEGUARD
-	db 55, SOLARBEAM
+	db 1, THIEF
+	db 1, TAIL_WHIP
+	db 1, LICK
+	db 1, SCRATCH
+	db 4, BIND
+	db 7, FAINT_ATTACK
+	db 10, FURY_SWIPES
+	db 14, MINIMIZE
+	db 18, PSYBEAM
+	db 22, DOUBLE_TEAM
+	db 27, SLASH
+	db 32, SCREECH
+	db 37, SUBSTITUTE
+	db 43, DOUBLE_KICK
+	db 55, ANCIENTPOWER
 	db 0 ; no more level-up moves
 
-MeganiumEvosAttacks:
+MeganiumEvosAttacks: ;chatot
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, GROWL
-	db 1, RAZOR_LEAF
-	db 1, REFLECT
-	db 8, RAZOR_LEAF
-	db 12, REFLECT
-	db 15, POISONPOWDER
-	db 23, SYNTHESIS
-	db 31, BODY_SLAM
-	db 41, LIGHT_SCREEN
-	db 51, SAFEGUARD
-	db 61, SOLARBEAM
+	db 1, PECK
+	db 5, GROWL
+	db 9, MIRROR_MOVE
+	db 13, SING
+	db 17, FURY_ATTACK
+	db 21, WING_ATTACK
+	db 25, SCREECH
+	db 33, STEEL_WING
+	db 37, DRILL_PECK
+	db 41, REST
+	db 55, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 CyndaquilEvosAttacks:

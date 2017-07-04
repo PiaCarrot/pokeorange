@@ -166,7 +166,7 @@ MonMenuIcons: ; 8eac4
 	db ICON_HUMANSHAPE   ; MEWTWO
 	db ICON_HUMANSHAPE   ; MEW
 	db ICON_ODDISH       ; CRYOGONAL
-	db ICON_ODDISH       ; BKECLEON
+	db ICON_ODDISH       ; KECLEON
 	db ICON_ODDISH       ; CHATOT
 	db ICON_FOX          ; PIKIPEK
 	db ICON_FOX          ; TRUMBEAK
