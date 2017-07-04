@@ -117,6 +117,8 @@ ENDM
 	engine_flag VisitedSpawns, 3 ; mikan
 	engine_flag VisitedSpawns, 4 ; mandarin north
 	engine_flag VisitedSpawns, 5 ; sunburst
+	engine_flag VisitedSpawns, 6 ; kinnow
+	engine_flag VisitedSpawns, 7 ; navel
 
 	; wDaycareMan, 7 ; daycare 1 on
 	engine_flag wDaycareMan, 6 ; egg is ready
