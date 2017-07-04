@@ -391,7 +391,7 @@ EnterMapMusic:: ; 3d03
 
 	xor a
 	ld [wDontPlayMapMusicOnReload], a
-	ld de, MUSIC_BICYCLE
+	ld de, MUSIC_SKATEBOARD
 	ld a, [PlayerState]
 	cp PLAYER_BIKE
 	jr z, .play
@@ -463,7 +463,7 @@ SpecialMapMusic:: ; 3d62
 	ret
 
 .bike
-	ld de, MUSIC_BICYCLE
+	ld de, MUSIC_SKATEBOARD
 	scf
 	ret
 

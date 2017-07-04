@@ -19,7 +19,7 @@
 	const MUSIC_MT_MOON                      ; 10
 	const MUSIC_SHOW_ME_AROUND               ; 11
 	const MUSIC_GAME_CORNER                  ; 12
-	const MUSIC_BICYCLE                      ; 13
+	const MUSIC_SKATEBOARD                      ; 13
 	const MUSIC_HALL_OF_FAME                 ; 14
 	const MUSIC_VIRIDIAN_CITY                ; 15
 	const MUSIC_CELADON_CITY                 ; 16

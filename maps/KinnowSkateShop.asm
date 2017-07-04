@@ -17,7 +17,7 @@ SkateShopClerkScript:
 	writetext HereYouGoText
 	buttonsound
 	waitsfx
-	giveitem BICYCLE
+	giveitem SKATEBOARD
 	writetext PlayerGotSkateboardText
 	playsound SFX_KEY_ITEM
 	waitsfx

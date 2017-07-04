@@ -4,7 +4,7 @@
 	db "GREAT BALL@"
 	db "# BALL@"
 	db "TOWN MAP@"
-	db "BICYCLE@"
+	db "SKATEBOARD@"
 	db "MOON STONE@"
 	db "ANTIDOTE@"
 	db "BURN HEAL@"
