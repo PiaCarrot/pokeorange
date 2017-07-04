@@ -450,8 +450,8 @@
 	dba RemoraidBackpic
 	dba OctilleryFrontpic
 	dba OctilleryBackpic
-	dba DelibirdFrontpic
-	dba DelibirdBackpic
+	dba MantykeFrontpic
+	dba MantykeBackpic
 	dba MantineFrontpic
 	dba MantineBackpic
 	dba SkarmoryFrontpic

@@ -2131,7 +2131,7 @@ MeganiumEvosAttacks: ;chatot
 	db 13, SING
 	db 17, FURY_ATTACK
 	db 21, WING_ATTACK
-	db 25, SCREECH
+	db 25, SUPERSONIC
 	db 33, STEEL_WING
 	db 37, DRILL_PECK
 	db 41, REST
@@ -2181,7 +2181,6 @@ TyphlosionEvosAttacks:
 	db 0 ; no more level-up moves
 
 TotodileEvosAttacks:
-	db EVOLVE_LEVEL, 18, MINCINNO
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
@@ -2194,34 +2193,37 @@ TotodileEvosAttacks:
 	db 52, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
-CroconawEvosAttacks:
-	db EVOLVE_LEVEL, 30, CINCINNO
+CroconawEvosAttacks: ;minccino
+	db EVOLVE_ITEM, SHINY_STONE, CINCCINO
 	db 0 ; no more evolutions
-	db 1, SCRATCH
-	db 1, LEER
-	db 1, RAGE
-	db 7, RAGE
-	db 13, WATER_GUN
-	db 21, BITE
-	db 28, SCARY_FACE
-	db 37, SLASH
-	db 45, SCREECH
-	db 55, HYDRO_PUMP
+	db 1, POUND
+	db 3, GROWL
+	db 7, TAIL_WHIP
+	db 9, FLAIL
+	db 13, DOUBLESLAP
+	db 15, ENCORE
+	db 22, SWIFT
+	db 24, SING
+	db 30, CHARM
+	db 34, IRON_TAIL
+	db 40, SLAM
+	db 46, PERISH_SONG
 	db 0 ; no more level-up moves
 
-FeraligatrEvosAttacks:
+FeraligatrEvosAttacks: ;cinccino
 	db 0 ; no more evolutions
-	db 1, SCRATCH
-	db 1, LEER
-	db 1, RAGE
-	db 1, WATER_GUN
-	db 7, RAGE
-	db 13, WATER_GUN
-	db 21, BITE
-	db 28, SCARY_FACE
-	db 38, SLASH
-	db 47, SCREECH
-	db 58, HYDRO_PUMP
+	db 1, POUND
+	db 3, GROWL
+	db 7, TAIL_WHIP
+	db 9, FLAIL
+	db 13, DOUBLESLAP
+	db 15, ENCORE
+	db 19, SWIFT
+	db 21, SING
+	db 27, CHARM
+	db 31, IRON_TAIL
+	db 37, SLAM
+	db 43, PERISH_SONG
 	db 0 ; no more level-up moves
 
 SentretEvosAttacks:
@@ -2251,7 +2253,7 @@ FurretEvosAttacks:
 	db 0 ; no more level-up moves
 
 HoothootEvosAttacks:
-	db EVOLVE_LEVEL, 20, CHIMECHO
+	db EVOLVE_LEVEL, 30, CHIMECHO
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, GROWL
@@ -2426,7 +2428,8 @@ TogepiEvosAttacks:
 	db 0 ; no more level-up moves
 
 TogeticEvosAttacks:
-	db EVOLVE_LEVEL, 40, TOGEKISS ; no more evolutions
+	db EVOLVE_ITEM, SHINY_STONE, TOGEKISS
+	db 0
 	db 1, GROWL
 	db 1, CHARM
 	db 7, METRONOME
@@ -3065,7 +3068,19 @@ OctilleryEvosAttacks:
 DelibirdEvosAttacks: ;MANTYKE
 	db EVOLVE_LEVEL, 30, MANTINE
 	db 0 ; no more evolutions
-	db 1, PRESENT
+	db 1, SPLASH
+	db 1, BUBBLE
+	db 3, SUPERSONIC
+	db 7, BUBBLEBEAM
+	db 11, CONFUSE_RAY
+	db 14, WING_ATTACK
+	db 16, HEADBUTT
+	db 19, WATER_GUN
+	db 23, DEFENSE_CURL
+	db 27, TAKE_DOWN
+	db 32, AGILITY
+	db 37, ROLLOUT
+	db 49, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 MantineEvosAttacks:
@@ -3078,6 +3093,7 @@ MantineEvosAttacks:
 	db 32, AGILITY
 	db 40, WING_ATTACK
 	db 49, CONFUSE_RAY
+	db 55, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 SkarmoryEvosAttacks:

@@ -1,18 +1,18 @@
-	db CINCINNO ; 160
+	db CINCCINO ; 160
 
-	db  85, 105, 100,  78,  79,  83
+	db  75, 95, 60,  115,  65,  60
 	;   hp  atk  def  spd  sat  sdf
 
-	db WATER, WATER
-	db 45 ; catch rate
-	db 210 ; base exp
+	db NORMAL, NORMAL
+	db 60 ; catch rate
+	db 165 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
-	db 31 ; gender
+	db 128 ; gender
 	db 20 ; step cycles to hatch
-	dn 7, 7 ; frontpic dimensions
+	dn 6, 6 ; frontpic dimensions
 
-	db MEDIUM_SLOW ; growth rate
+	db FAST ; growth rate
 	dn MONSTER, AMPHIBIAN ; egg groups
 
 	; tmhm

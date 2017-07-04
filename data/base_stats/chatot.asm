@@ -13,7 +13,7 @@
 	dn 5, 5 ; frontpic dimensions
 
 	db MEDIUM_SLOW ; growth rate
-	dn MONSTER, PLANT ; egg groups
+	dn AVIAN, AVIAN ; egg groups
 
 	; tmhm
 	tmhm FLY

@@ -172,8 +172,8 @@ MonMenuIcons: ; 8eac4
 	db ICON_FOX          ; TRUMBEAK
 	db ICON_FOX          ; TOUCANNON
 	db ICON_MONSTER      ; MUNCHLAX
-	db ICON_MONSTER      ; MINCINNO
-	db ICON_MONSTER      ; CINCINNO
+	db ICON_MONSTER      ; MINCCINO
+	db ICON_MONSTER      ; CINCCINO
 	db ICON_BIRD         ; WINGULL
 	db ICON_BIRD         ; PELIPPER
 	db ICON_BIRD         ; CHINGLING

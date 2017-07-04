@@ -167,7 +167,7 @@ ItemDescriptions:
 	dw SacredAshDesc
 	dw SilverWingDesc
 	dw RainbowWingDesc
-	dw TeruSamaDesc
+	dw ShinyStoneDesc
 	dw TeruSamaDesc
 	dw TeruSamaDesc
 	dw TeruSamaDesc
@@ -729,6 +729,10 @@ ParkBallDesc:
 RainbowWingDesc:
 	db   "A mystical feather"
 	next "of rainbow colors.@"
+	
+ShinyStoneDesc:
+	db   "Evolves certain"
+	next "kinds of #MON.@"
 
 TeruSamaDesc:
 	db   "?@"
