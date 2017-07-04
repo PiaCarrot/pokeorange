@@ -272,6 +272,8 @@ const_value = -1
 	const SPAWN_MANDARIN_NORTH
 	const SPAWN_SUNBURST
 	const SPAWN_KINNOW
+	const SPAWN_NAVEL
+	
 NUM_SPAWNS EQU const_value
 
 	const_def

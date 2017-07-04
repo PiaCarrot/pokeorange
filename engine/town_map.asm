@@ -543,6 +543,8 @@ ENDM
 	flypoint MIKAN,          MIKAN_ISLAND
 	flypoint MANDARIN_NORTH, MANDARIN_NORTH
 	flypoint SUNBURST,       SUNBURST_ISLAND
+	flypoint KINNOW,         KINNOW_ISLAND
+	flypoint NAVEL,          NAVEL_ISLAND
 ; Kanto
 
 KANTO_FLYPOINT EQU const_value

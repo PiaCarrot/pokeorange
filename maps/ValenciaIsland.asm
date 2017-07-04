@@ -104,7 +104,7 @@ if def(DEBUG)
 	givepoke CHARIZARD, 40
 	givepoke VICTREEBEL, 40
 	givepoke AMPHAROS, 40
-	givepoke MANTYKE, 40
+	givepoke PELIPPER, 40
 	closetext
 	warp SEVEN_GRAPEFRUITS, 20, 39
 	end
