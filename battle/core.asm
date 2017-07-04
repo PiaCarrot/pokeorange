@@ -6330,16 +6330,16 @@ CheckSleepingTreeMon: ; 3eb38
 
 .Day:
 	db VENONAT
-	db HOOTHOOT
-	db NOCTOWL
+	db CHINGLING
+	db CHIMECHO
 	db SPINARAK
 	db HERACROSS
 	db -1 ; end
 
 .Morn:
 	db VENONAT
-	db HOOTHOOT
-	db NOCTOWL
+	db CHINGLING
+	db CHIMECHO
 	db SPINARAK
 	db HERACROSS
 	db -1 ; end

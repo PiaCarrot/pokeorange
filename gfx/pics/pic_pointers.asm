@@ -323,10 +323,10 @@
 	dba WingullBackpic
 	dba PelipperFrontpic
 	dba PelipperBackpic
-	dba HoothootFrontpic
-	dba HoothootBackpic
-	dba NoctowlFrontpic
-	dba NoctowlBackpic
+	dba ChinglingFrontpic
+	dba ChinglingBackpic
+	dba ChimechoFrontpic
+	dba ChimechoBackpic
 	dba LedybaFrontpic
 	dba LedybaBackpic
 	dba LedianFrontpic

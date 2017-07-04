@@ -163,8 +163,8 @@ const_value set 1
 	const CINCINNO
 	const WINGULL
 	const PELIPPER
-	const HOOTHOOT
-	const NOCTOWL
+	const CHINGLING
+	const CHIMECHO
 	const LEDYBA
 	const LEDIAN
 	const SPINARAK

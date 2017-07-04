@@ -176,8 +176,8 @@ MonMenuIcons: ; 8eac4
 	db ICON_MONSTER      ; CINCINNO
 	db ICON_BIRD         ; WINGULL
 	db ICON_BIRD         ; PELIPPER
-	db ICON_BIRD         ; HOOTHOOT
-	db ICON_BIRD         ; NOCTOWL
+	db ICON_BIRD         ; CHINGLING
+	db ICON_BIRD         ; CHIMECHO
 	db ICON_BUG          ; LEDYBA
 	db ICON_BUG          ; LEDIAN
 	db ICON_BUG          ; SPINARAK

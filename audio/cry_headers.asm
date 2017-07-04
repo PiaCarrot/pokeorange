@@ -162,8 +162,8 @@ CroconawCryHeader:    cry_header CRY_MUNCHLAX,    $440,  $110
 FeraligatrCryHeader:  cry_header CRY_MUNCHLAX,    $3fc,  $180
 SentretCryHeader:     cry_header CRY_SENTRET,     $08a,  $0b8
 FurretCryHeader:      cry_header CRY_SENTRET,     $06b,  $102
-HoothootCryHeader:    cry_header CRY_HOOTHOOT,    $091,  $0d8
-NoctowlCryHeader:     cry_header CRY_HOOTHOOT,    $000,  $1a0
+HoothootCryHeader:    cry_header CRY_CHINGLING,    $091,  $0d8
+NoctowlCryHeader:     cry_header CRY_CHINGLING,    $000,  $1a0
 LedybaCryHeader:      cry_header CRY_LEDYBA,      $000,  $0de
 LedianCryHeader:      cry_header CRY_LEDYBA,     -$096,  $138
 SpinarakCryHeader:    cry_header CRY_SPINARAK,    $011,  $200
@@ -199,8 +199,8 @@ EspeonCryHeader:      cry_header CRY_STUNFISK,       $0a2,  $140
 UmbreonCryHeader:     cry_header CRY_VENONAT,    -$0e9,  $0f0
 MurkrowCryHeader:     cry_header CRY_MARILL,     -$01f,  $180
 SlowkingCryHeader:    cry_header CRY_SLOWKING,    $104,  $200
-MisdreavusCryHeader:  cry_header CRY_HOOTHOOT,    $130,  $0e8
-UnownCryHeader:       cry_header CRY_HOOTHOOT,    $162,  $100
+MisdreavusCryHeader:  cry_header CRY_CHINGLING,    $130,  $0e8
+UnownCryHeader:       cry_header CRY_CHINGLING,    $162,  $100
 WobbuffetCryHeader:   cry_header CRY_AMPHAROS,    $27b,  $144
 GirafarigCryHeader:   cry_header CRY_GIRAFARIG,   $041,  $200
 PinecoCryHeader:      cry_header CRY_SLOWKING,    $080,  $100

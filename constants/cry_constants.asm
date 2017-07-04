@@ -48,7 +48,7 @@
 	const CRY_RAIKOU
 	const CRY_MAREEP
 	const CRY_TOGETIC
-	const CRY_HOOTHOOT
+	const CRY_CHINGLING
 	const CRY_SENTRET
 	const CRY_SLOWKING
 	const CRY_PIKIPEK
