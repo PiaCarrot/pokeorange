@@ -211,8 +211,8 @@ TownMapDesc:
 	next "ORANGE ISLANDS.@"
 
 BicycleDesc:
-	db   "A collapsible bike"
-	next "for fast movement.@"
+	db   "A high-tech SKATE-"
+	next "BOARD for travel.@"
 
 MoonStoneDesc:
 	db   "Evolves certain"
