@@ -106,19 +106,17 @@ TownMap_InitCursor: ; 91098
 ; 910b4
 
 TownMap_UpdateLandmarkName: ; 910b4
-	push af
+	ld e, a
+TownMap_PrintLandmarkName:
 	hlcoord 0, 0
 	lb bc, 1, SCREEN_WIDTH
 	call ClearBox
-	pop af
-	ld e, a
-	push de
 	farcall GetLandmarkName
-	pop de
-	call TownMap_ConvertLineBreakCharacters
 	hlcoord 0, 0
-	ld [hl], "<UPDN>"
-	ret
+	ld a, "<UPDN>"
+	ld [hli], a
+	ld de, StringBuffer1
+	jp PlaceString
 
 ; 910d4
 
@@ -312,10 +310,6 @@ _FlyMap: ; 91af3
 	ld [hBGMapMode], a
 	farcall ClearSpriteAnims
 	call LoadTownMapGFX
-	ld de, FlyMapLabelBorderGFX
-	ld hl, VTiles2 tile $30
-	lb bc, BANK(FlyMapLabelBorderGFX), 6
-	call Request1bpp
 	call FlyMap
 	ld b, SCGB_TOWN_MAP_PALS
 	call GetSGBLayout
@@ -405,7 +399,7 @@ FlyMapScroll: ; 91b73
 	call CheckIfVisitedFlypoint
 	jr z, .ScrollPrev
 .Finally:
-	call TownMapBubble
+	call TownMap_UpdateFlypointName
 	call WaitBGMap
 	xor a
 	ld [hBGMapMode], a
@@ -413,55 +407,7 @@ FlyMapScroll: ; 91b73
 
 ; 91bb5
 
-TownMapBubble: ; 91bb5
-; Draw the bubble containing the location text in the town map HUD
-
-; Top-left corner
-	hlcoord 1, 0
-	ld a, $30
-	ld [hli], a
-; Top row
-	ld bc, 16
-	ld a, " "
-	call ByteFill
-; Top-right corner
-	ld a, $31
-	ld [hl], a
-	hlcoord 1, 1
-
-; Middle row
-	ld bc, 18
-	ld a, " "
-	call ByteFill
-
-; Bottom-left corner
-	hlcoord 1, 2
-	ld a, $32
-	ld [hli], a
-; Bottom row
-	ld bc, 16
-	ld a, " "
-	call ByteFill
-; Bottom-right corner
-	ld a, $33
-	ld [hl], a
-
-; Print "Where?"
-	hlcoord 2, 0
-	ld de, .Where
-	call PlaceString
-; Print the name of the default flypoint
-	call .Name
-; Up/down arrows
-	hlcoord 18, 1
-	ld [hl], "<UPDN>"
-	ret
-
-.Where:
-	db "Where?@"
-
-.Name:
-; We need the map location of the default flypoint
+TownMap_UpdateFlypointName: ; 91bb5
 	ld a, [wd002]
 	ld l, a
 	ld h, 0
@@ -469,10 +415,7 @@ TownMapBubble: ; 91bb5
 	ld de, Flypoints
 	add hl, de
 	ld e, [hl]
-	farcall GetLandmarkName
-	hlcoord 0, 0
-	ld de, StringBuffer1
-	jp PlaceString
+	jp TownMap_PrintLandmarkName
 
 ; 91c17
 
@@ -580,7 +523,7 @@ FlyMap: ; 91c90
 ; Flypoints begin at Valencia..
 	ld [StartFlypoint], a
 ; ..and end at ...
-	ld a, FLY_MIKAN
+	ld a, FLY_NAVEL
 	ld [EndFlypoint], a
 ; Fill out the map
 	call FillOrangeMap
@@ -612,7 +555,7 @@ FlyMap: ; 91c90
 	ld a, FLY_VALENCIA
 	ld [StartFlypoint], a
 ; ...and end at ...
-	ld a, FLY_MIKAN
+	ld a, FLY_NAVEL
 	ld [EndFlypoint], a
 ; Because Indigo Plateau is the first flypoint the player
 
@@ -633,12 +576,12 @@ FlyMap: ; 91c90
 ; Flypoints begin at Valencia...
 	ld [StartFlypoint], a
 ; ..and end at ...
-	ld a, FLY_MIKAN
+	ld a, FLY_NAVEL
 	ld [EndFlypoint], a
 	call FillOrangeMap
 	pop af
 .MapHud:
-	call TownMapBubble
+	call TownMap_UpdateFlypointName
 	call TownMapPals
 	hlbgcoord 0, 0 ; BG Map 0
 	call TownMapBGUpdate
@@ -1117,19 +1060,6 @@ LoadTownMapGFX: ; 91ff2
 
 ; 91fff
 
-TownMap_ConvertLineBreakCharacters: ; 1de2c5
-	ld hl, StringBuffer1
-.loop
-	ld a, [hl]
-	cp "@"
-	jr z, .end
-	inc hl
-	jr .loop
-.end
-	ld de, StringBuffer1
-	hlcoord 1, 0
-	jp PlaceString
-
 TownMapGFX: ; f8ba0
 INCBIN "gfx/town_map/town_map.w128.2bpp.lz"
 ; f8ea4
@@ -1151,5 +1081,3 @@ INCBIN "gfx/town_map/kanto.bin"
 
 DexMapNestIconGFX: ; 922d1
 INCBIN "gfx/town_map/dexmap_nest_icon.2bpp"
-FlyMapLabelBorderGFX: ; 922e1
-INCBIN "gfx/town_map/flymap_label_border.2bpp"
