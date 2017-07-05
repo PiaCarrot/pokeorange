@@ -1756,8 +1756,5 @@ InitNickname: ; e3de
 	pop hl
 	ld de, StringBuffer1
 	call InitName
-	ld a, $4 ; XXX could this be in bank 4 in pokered?
-	ld hl, ExitAllMenus
-	rst FarCall
-	ret
+	jp ExitAllMenus
 ; e3fd

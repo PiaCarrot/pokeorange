@@ -43,14 +43,9 @@ CheckWarpFacingDown: ; 149c6
 
 .blocks ; 149d3
 	db COLL_DOOR
-;	db $79
 	db COLL_STAIRCASE
-;	db $73
 	db COLL_CAVE
-;	db $74
 	db COLL_WARP_PANEL
-;	db $75
-;	db $7d
 	db -1
 ; 149dd
 
@@ -62,16 +57,9 @@ CheckGrassCollision:: ; 149dd
 ; 149ea
 
 .blocks ; 149ea
-;	db $08
 	db COLL_TALL_GRASS
 	db COLL_LONG_GRASS
-;	db $28
 	db COLL_WATER ; why?
-;	db $48
-;	db $49
-;	db $4a
-;	db $4b
-;	db $4c
 	db -1
 ; 149f5
 
@@ -84,11 +72,8 @@ CheckCutCollision: ; 149f5
 
 .blocks ; 14a00
 	db COLL_CUT_TREE
-;	db $1a
 	db COLL_TALL_GRASS
-;	db $10
 	db COLL_LONG_GRASS
-;	db $1c
 	db -1
 ; 14a07
 

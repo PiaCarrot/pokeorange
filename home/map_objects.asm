@@ -278,36 +278,6 @@ CopyPlayerObjectTemplate:: ; 19a6
 	jp CopyBytes
 ; 19b8
 
-; XXX
-	call GetMapObject
-	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
-	add hl, bc
-	ld a, [hl]
-	push af
-	ld [hl], -1
-	inc hl
-	ld bc, OBJECT_LENGTH - 1
-	xor a
-	call ByteFill
-	pop af
-	cp -1
-	ret z
-	cp $d
-	ret nc
-	ld b, a
-	ld a, [wObjectFollow_Leader]
-	cp b
-	jr nz, .ok
-	ld a, -1
-	ld [wObjectFollow_Leader], a
-
-.ok
-	ld a, b
-	call GetObjectStruct
-	farcall DeleteMapObject
-	ret
-; 19e9
-
 LoadMovementDataPointer:: ; 19e9
 ; Load the movement data pointer for person a.
 	ld [wMovementPerson], a
