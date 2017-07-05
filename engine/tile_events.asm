@@ -59,7 +59,7 @@ CheckGrassCollision:: ; 149dd
 .blocks ; 149ea
 	db COLL_TALL_GRASS
 	db COLL_LONG_GRASS
-	db COLL_WATER ; why?
+	db COLL_WATER
 	db -1
 ; 149f5
 
