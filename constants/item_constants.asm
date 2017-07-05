@@ -6,7 +6,7 @@
 	const GREAT_BALL   ; $04
 	const POKE_BALL    ; $05
 	const TOWN_MAP     ; $06
-	const BICYCLE      ; $07
+	const SKATEBOARD   ; $07
 	const MOON_STONE   ; $08
 	const ANTIDOTE     ; $09
 	const BURN_HEAL    ; $0a
@@ -135,7 +135,7 @@
 	const SACRED_ASH   ; $85
 	const SILVER_WING  ; $86
 	const RAINBOW_WING ; $87
-	const ITEM_88      ; $88
+	const SHINY_STONE  ; $88
 	const ITEM_89      ; $89
 	const ITEM_8A      ; $8a
 	const ITEM_8B      ; $8b

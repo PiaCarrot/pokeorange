@@ -165,19 +165,19 @@ MonMenuIcons: ; 8eac4
 	db ICON_BIGMON       ; DRAGONITE
 	db ICON_HUMANSHAPE   ; MEWTWO
 	db ICON_HUMANSHAPE   ; MEW
-	db ICON_ODDISH       ; CHIKORITA
-	db ICON_ODDISH       ; BAYLEEF
-	db ICON_ODDISH       ; MEGANIUM
-	db ICON_FOX          ; CYNDAQUIL
-	db ICON_FOX          ; QUILAVA
-	db ICON_FOX          ; TYPHLOSION
+	db ICON_ODDISH       ; CRYOGONAL
+	db ICON_ODDISH       ; KECLEON
+	db ICON_ODDISH       ; CHATOT
+	db ICON_FOX          ; PIKIPEK
+	db ICON_FOX          ; TRUMBEAK
+	db ICON_FOX          ; TOUCANNON
 	db ICON_MONSTER      ; MUNCHLAX
-	db ICON_MONSTER      ; CROCONAW
-	db ICON_MONSTER      ; FERALIGATR
+	db ICON_MONSTER      ; MINCCINO
+	db ICON_MONSTER      ; CINCCINO
 	db ICON_BIRD         ; WINGULL
 	db ICON_BIRD         ; PELIPPER
-	db ICON_BIRD         ; HOOTHOOT
-	db ICON_BIRD         ; NOCTOWL
+	db ICON_BIRD         ; CHINGLING
+	db ICON_BIRD         ; CHIMECHO
 	db ICON_BUG          ; LEDYBA
 	db ICON_BUG          ; LEDIAN
 	db ICON_BUG          ; SPINARAK

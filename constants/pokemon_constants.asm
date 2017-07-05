@@ -152,19 +152,19 @@ const_value set 1
 	const DRAGONITE
 	const MEWTWO
 	const MEW
-	const CHIKORITA
-	const BAYLEEF
-	const MEGANIUM
-	const CYNDAQUIL
-	const QUILAVA
-	const TYPHLOSION
+	const CRYOGONAL
+	const KECLEON
+	const CHATOT
+	const PIKIPEK
+	const TRUMBEAK
+	const TOUCANNON
 	const MUNCHLAX
-	const CROCONAW
-	const FERALIGATR
+	const MINCCINO
+	const CINCCINO
 	const WINGULL
 	const PELIPPER
-	const HOOTHOOT
-	const NOCTOWL
+	const CHINGLING
+	const CHIMECHO
 	const LEDYBA
 	const LEDIAN
 	const SPINARAK

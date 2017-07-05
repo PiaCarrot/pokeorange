@@ -16,5 +16,5 @@
 	dn FIELD, FIELD ; egg groups
 
 	; tmhm
-	tmhm BUBBLEBEAM, SURF
+	tmhm BUBBLEBEAM, FLY, SURF
 	; end

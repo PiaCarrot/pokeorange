@@ -149,7 +149,7 @@ ItemEffects: ; e73c
 	dw SacredAsh
 	dw SilverWing
 	dw RainbowWing
-	dw TeruSama
+	dw ShinyStone
 	dw TeruSama
 	dw TeruSama
 	dw TeruSama
@@ -1111,7 +1111,8 @@ FireStone:
 Thunderstone:
 WaterStone:
 LeafStone:
-SunStone: ; ee0f
+SunStone:
+ShinyStone: ; ee0f
 	ld b, PARTYMENUACTION_EVO_STONE
 	call UseItem_SelectMon
 

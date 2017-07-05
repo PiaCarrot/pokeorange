@@ -167,7 +167,7 @@ ItemDescriptions:
 	dw SacredAshDesc
 	dw SilverWingDesc
 	dw RainbowWingDesc
-	dw TeruSamaDesc
+	dw ShinyStoneDesc
 	dw TeruSamaDesc
 	dw TeruSamaDesc
 	dw TeruSamaDesc
@@ -211,8 +211,8 @@ TownMapDesc:
 	next "ORANGE ISLANDS.@"
 
 BicycleDesc:
-	db   "A collapsible bike"
-	next "for fast movement.@"
+	db   "A high-tech SKATE-"
+	next "BOARD for travel.@"
 
 MoonStoneDesc:
 	db   "Evolves certain"
@@ -729,6 +729,10 @@ ParkBallDesc:
 RainbowWingDesc:
 	db   "A mystical feather"
 	next "of rainbow colors.@"
+	
+ShinyStoneDesc:
+	db   "Evolves certain"
+	next "kinds of #MON.@"
 
 TeruSamaDesc:
 	db   "?@"

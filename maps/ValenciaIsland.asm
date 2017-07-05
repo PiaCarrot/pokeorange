@@ -97,11 +97,14 @@ if def(DEBUG)
 	giveitem HM_FLASH
 	giveitem HM_WHIRLPOOL
 	giveitem HM_WATERFALL
+	giveitem SHINY_STONE
+	giveitem RARE_CANDY, 99
 	opentext
 	givepoke LAPRAS, 40
 	givepoke CHARIZARD, 40
 	givepoke VICTREEBEL, 40
 	givepoke AMPHAROS, 40
+	givepoke PELIPPER, 40
 	closetext
 	warp SEVEN_GRAPEFRUITS, 20, 39
 	end

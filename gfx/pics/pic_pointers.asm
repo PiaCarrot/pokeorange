@@ -301,32 +301,32 @@
 	dba MewtwoBackpic
 	dba MewFrontpic
 	dba MewBackpic
-	dba ChikoritaFrontpic
-	dba ChikoritaBackpic
-	dba BayleefFrontpic
-	dba BayleefBackpic
-	dba MeganiumFrontpic
-	dba MeganiumBackpic
-	dba CyndaquilFrontpic
-	dba CyndaquilBackpic
-	dba QuilavaFrontpic
-	dba QuilavaBackpic
-	dba TyphlosionFrontpic
-	dba TyphlosionBackpic
-	dba TotodileFrontpic
-	dba TotodileBackpic
-	dba CroconawFrontpic
-	dba CroconawBackpic
-	dba FeraligatrFrontpic
-	dba FeraligatrBackpic
-	dba SentretFrontpic
-	dba SentretBackpic
-	dba FurretFrontpic
-	dba FurretBackpic
-	dba HoothootFrontpic
-	dba HoothootBackpic
-	dba NoctowlFrontpic
-	dba NoctowlBackpic
+	dba CryogonalFrontpic
+	dba CryogonalBackpic
+	dba KecleonFrontpic
+	dba KecleonBackpic
+	dba ChatotFrontpic
+	dba ChatotBackpic
+	dba PikipekFrontpic
+	dba PikipekBackpic
+	dba TrumbeakFrontpic
+	dba TrumbeakBackpic
+	dba ToucannonFrontpic
+	dba ToucannonBackpic
+	dba MunchlaxFrontpic
+	dba MunchlaxBackpic
+	dba MincinnoFrontpic
+	dba MincinnoBackpic
+	dba CincinnoFrontpic
+	dba CincinnoBackpic
+	dba WingullFrontpic
+	dba WingullBackpic
+	dba PelipperFrontpic
+	dba PelipperBackpic
+	dba ChinglingFrontpic
+	dba ChinglingBackpic
+	dba ChimechoFrontpic
+	dba ChimechoBackpic
 	dba LedybaFrontpic
 	dba LedybaBackpic
 	dba LedianFrontpic
@@ -450,8 +450,8 @@
 	dba RemoraidBackpic
 	dba OctilleryFrontpic
 	dba OctilleryBackpic
-	dba DelibirdFrontpic
-	dba DelibirdBackpic
+	dba MantykeFrontpic
+	dba MantykeBackpic
 	dba MantineFrontpic
 	dba MantineBackpic
 	dba SkarmoryFrontpic

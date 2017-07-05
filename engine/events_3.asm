@@ -519,7 +519,7 @@ TreeMons2: ; b8320
 	db -1
 
 TreeMons3: ; b8346
-	db 50, HOOTHOOT,   10
+	db 50, CHINGLING,   10
 	db 15, SPINARAK,   10
 	db 15, LEDYBA,     10
 	db 10, EXEGGCUTE,  10
@@ -527,7 +527,7 @@ TreeMons3: ; b8346
 	db  5, EXEGGCUTE,  10
 	db -1
 
-	db 50, HOOTHOOT,   10
+	db 50, CHINGLING,   10
 	db 15, PINECO,     10
 	db 15, PINECO,     10
 	db 10, EXEGGCUTE,  10
@@ -536,15 +536,15 @@ TreeMons3: ; b8346
 	db -1
 
 TreeMons4: ; b836c
-	db 50, HOOTHOOT,   10
+	db 50, CHINGLING,   10
 	db 15, EKANS,      10
-	db 15, HOOTHOOT,   10
+	db 15, CHINGLING,   10
 	db 10, EXEGGCUTE,  10
 	db  5, EXEGGCUTE,  10
 	db  5, EXEGGCUTE,  10
 	db -1
 
-	db 50, HOOTHOOT,   10
+	db 50, CHINGLING,   10
 	db 15, PINECO,     10
 	db 15, PINECO,     10
 	db 10, EXEGGCUTE,  10
@@ -553,15 +553,15 @@ TreeMons4: ; b836c
 	db -1
 
 TreeMons5: ; b8392
-	db 50, HOOTHOOT,   10
+	db 50, CHINGLING,   10
 	db 15, VENONAT,    10
-	db 15, HOOTHOOT,   10
+	db 15, CHINGLING,   10
 	db 10, EXEGGCUTE,  10
 	db  5, EXEGGCUTE,  10
 	db  5, EXEGGCUTE,  10
 	db -1
 
-	db 50, HOOTHOOT,   10
+	db 50, CHINGLING,   10
 	db 15, PINECO,     10
 	db 15, PINECO,     10
 	db 10, EXEGGCUTE,  10
@@ -570,18 +570,18 @@ TreeMons5: ; b8392
 	db -1
 
 TreeMons6: ; b83b8
-	db 50, HOOTHOOT,   10
+	db 50, CHINGLING,   10
 	db 15, PINECO,     10
 	db 15, PINECO,     10
-	db 10, NOCTOWL,    10
+	db 10, CHIMECHO,    10
 	db  5, BUTTERFREE, 10
 	db  5, BEEDRILL,   10
 	db -1
 
-	db 50, HOOTHOOT,   10
+	db 50, CHINGLING,   10
 	db 15, CATERPIE,   10
 	db 15, WEEDLE,     10
-	db 10, HOOTHOOT,   10
+	db 10, CHINGLING,   10
 	db  5, METAPOD,    10
 	db  5, KAKUNA,     10
 	db -1

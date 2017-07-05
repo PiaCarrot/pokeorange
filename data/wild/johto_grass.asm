@@ -20,9 +20,9 @@
 	db 10, WEEDLE
 	; nite
 	db 12, PSYDUCK
-	db 13, HOOTHOOT
+	db 13, CHINGLING
 	db 14, SPINARAK
-	db 15, HOOTHOOT
+	db 15, CHINGLING
 	db 10, VENONAT
 	db 12, VENONAT
 	db 12, VENONAT
@@ -303,7 +303,7 @@
 	db 17, MANKEY ; CHINGLING
 	db 17, PIDGEY
 	db 17, PHANPY
-	db 17, MAREEP ;MINCINNO
+	db 17, MINCCINO ;MINCCINO
 	db 18, PIDGEY
 	db 18, PHANPY
 	db 18, DROWZEE
@@ -311,7 +311,7 @@
 	db 17, MANKEY ; CHINGLING
 	db 17, PIDGEY
 	db 17, PHANPY
-	db 17, MAREEP ;MINCINNO
+	db 17, MINCCINO ;MINCCINO
 	db 18, PIDGEY
 	db 18, PHANPY
 	db 18, DROWZEE
@@ -328,18 +328,18 @@
 	db 7 percent, 7 percent, 7 percent
 	;morn
 	db 18, SPEAROW
-	db 18, TANGELA
+	db 18, MINCCINO
 	db 18, SPEAROW
 	db 18, MANKEY
-	db 19, TANGELA
+	db 19, MINCCINO
 	db 19, MANKEY
 	db 19, SPEAROW
 	;day
 	db 18, SPEAROW
-	db 18, TANGELA
+	db 18, MINCCINO
 	db 18, SPEAROW
 	db 18, MANKEY
-	db 19, TANGELA
+	db 19, MINCCINO
 	db 19, MANKEY
 	db 19, SPEAROW
 	;nite
@@ -464,7 +464,7 @@
 	; morning
 	db 18, HOPPIP
 	db 18, FLAAFFY
-	db 19, SLOWPOKE
+	db 19, MINCCINO
 	db 19, HOPPIP
 	db 19, MAREEP
 	db 20, FLAAFFY
@@ -472,7 +472,7 @@
 	; day
 	db 18, HOPPIP
 	db 18, FLAAFFY
-	db 19, SLOWPOKE
+	db 19, MINCCINO
 	db 19, HOPPIP
 	db 19, MAREEP
 	db 20, FLAAFFY
