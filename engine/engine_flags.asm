@@ -110,15 +110,17 @@ ENDM
 	engine_flag Badges, 2 ; spike shell badge
 	engine_flag Badges, 3 ; jade star badge
 
-	; fly
-	engine_flag VisitedSpawns, 0 ; your house
-	engine_flag VisitedSpawns, 1 ; valencia
-	engine_flag VisitedSpawns, 2 ; tangelo
-	engine_flag VisitedSpawns, 3 ; mikan
-	engine_flag VisitedSpawns, 4 ; mandarin north
-	engine_flag VisitedSpawns, 5 ; sunburst
-	engine_flag VisitedSpawns, 6 ; kinnow
-	engine_flag VisitedSpawns, 7 ; navel
+	; flypoints
+	engine_flag VisitedSpawns + 0, 0 ; your house
+	engine_flag VisitedSpawns + 0, 1 ; valencia
+	engine_flag VisitedSpawns + 0, 2 ; tangelo
+	engine_flag VisitedSpawns + 0, 3 ; mikan
+	                                 ; route 52
+	engine_flag VisitedSpawns + 0, 5 ; mandarin north
+	engine_flag VisitedSpawns + 0, 6 ; sunburst
+	                                 ; route 56 west
+	engine_flag VisitedSpawns + 1, 0 ; kinnow
+	engine_flag VisitedSpawns + 1, 1 ; navel
 
 	; wDaycareMan, 7 ; daycare 1 on
 	engine_flag wDaycareMan, 6 ; egg is ready
