@@ -76,15 +76,3 @@ CheckCutCollision: ; 149f5
 	db COLL_LONG_GRASS
 	db -1
 ; 14a07
-
-Function14a07:: ; 14a07
-	ld a, [PlayerStandingTile]
-	ld de, $1f
-	cp COLL_DOOR
-	ret z
-	ld de, $13
-	cp COLL_WARP_PANEL
-	ret z
-	ld de, $23
-	ret
-; 14a1a

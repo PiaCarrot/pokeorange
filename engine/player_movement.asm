@@ -436,7 +436,10 @@ DoPlayerMovement:: ; 80000
 	ret
 
 .EdgeWarps:
-	db $70, $78, $76, $7e
+	db COLL_WARP_CARPET_DOWN
+	db COLL_WARP_CARPET_UP
+	db COLL_WARP_CARPET_LEFT
+	db COLL_WARP_CARPET_RIGHT
 ; 8025f
 
 .DoStep:
