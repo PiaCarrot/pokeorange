@@ -7,7 +7,7 @@ INCBIN "tilesets/15_metatiles.bin"
 ; 0x308e0
 
 Tileset15Coll: ; 0x308e0
-INCBIN "tilesets/15_collision.bin"
+INCLUDE "tilesets/15_collision.asm"
 ; 0x309e0
 
 Tileset25GFX: ; 0x309e0
@@ -19,7 +19,7 @@ INCBIN "tilesets/25_metatiles.bin"
 ; 0x31280
 
 Tileset25Coll: ; 0x31280
-INCBIN "tilesets/25_collision.bin"
+INCLUDE "tilesets/25_collision.asm"
 ; 0x31380
 
 Tileset27GFX: ; 0x31380
@@ -31,7 +31,7 @@ INCBIN "tilesets/27_metatiles.bin"
 ; 0x31ce0
 
 Tileset27Coll: ; 0x31ce0
-INCBIN "tilesets/27_collision.bin"
+INCLUDE "tilesets/27_collision.asm"
 ; 0x31de0
 
 Tileset28GFX: ; 0x31de0
@@ -43,7 +43,7 @@ INCBIN "tilesets/28_metatiles.bin"
 ; 0x325b0
 
 Tileset28Coll: ; 0x325b0
-INCBIN "tilesets/28_collision.bin"
+INCLUDE "tilesets/28_collision.asm"
 ; 0x326b0
 
 Tileset30GFX: ; 0x326b0
