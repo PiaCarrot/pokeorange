@@ -30,6 +30,8 @@ COLL_RADIO             EQU $94
 COLL_TOWN_MAP          EQU $95
 COLL_MART_SHELF        EQU $96
 COLL_TV                EQU $97
+COLL_POKECENTER_SIGN   EQU $98
+COLL_MART_SIGN         EQU $99
 COLL_WINDOW            EQU $9d
 COLL_INCENSE           EQU $9f
 COLL_LEDGE_RIGHT       EQU $a0

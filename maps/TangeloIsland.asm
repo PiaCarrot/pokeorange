@@ -102,12 +102,6 @@ TangeloIslandSign:
 GuideGentsHouseSign:
 	jumptext GuideGentsHouseSignText
 
-TangeloIslandPokeCenterSign:
-	jumpstd pokecentersign
-
-TangeloIslandMartSign:
-	jumpstd martsign
-
 TraceyBattleText:
 	text "So you delivered"
 	line "it?"
@@ -249,11 +243,9 @@ TangeloIsland_MapEventHeader:: db 0, 0
 
 .CoordEvents: db 0
 
-.BGEvents: db 4
+.BGEvents: db 2
 	signpost 20, 24, SIGNPOST_READ, TangeloIslandSign
 	signpost 7, 25, SIGNPOST_READ, GuideGentsHouseSign
-	signpost 23, 8, SIGNPOST_READ, TangeloIslandMartSign
-	signpost 9, 20, SIGNPOST_READ, TangeloIslandPokeCenterSign
 
 .ObjectEvents: db 5
 	person_event SPRITE_SURF, 5, 24, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloIslandGuideGent, EVENT_TANGELO_ISLAND_LAPRAS

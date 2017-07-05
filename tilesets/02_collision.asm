@@ -25,7 +25,7 @@
 	tilecoll WALL, WALL, WALL, WALL
 	tilecoll WALL, WALL, WALL, WALL
 	tilecoll WALL, WALL, WALL, DOOR
-	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, POKECENTER_SIGN, WALL
 	tilecoll WALL, WALL, WALL, WALL
 	tilecoll WALL, WALL, DOOR, WALL
 	tilecoll WALL, WALL, WALL, WALL
@@ -49,7 +49,7 @@
 	tilecoll BUOY, BUOY, BUOY, WATER
 	tilecoll BUOY, BUOY, WATER, WATER
 	tilecoll BUOY, BUOY, WATER, BUOY
-	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, MART_SIGN, WALL
 	tilecoll BUOY, WATER, BUOY, WATER
 	tilecoll WATER, WATER, WATER, WATER
 	tilecoll WATER, BUOY, WATER, BUOY
@@ -93,7 +93,7 @@
 	tilecoll WALL, FLOOR, WALL, FLOOR
 	tilecoll WALL, FLOOR, FLOOR, FLOOR
 	tilecoll WALL, FLOOR, FLOOR, FLOOR
-	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, POKECENTER_SIGN, WALL
 	tilecoll WATER, WATER, WALL, WALL
 	tilecoll WATER, WATER, WALL, WALL
 	tilecoll WATER, WATER, WALL, WALL
@@ -113,7 +113,7 @@
 	tilecoll TOP_WALL, TOP_WALL, FLOOR, FLOOR
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR
 	tilecoll FLOOR, FLOOR, WALL, WALL
-	tilecoll FLOOR, FLOOR, WALL, CAVE
+	tilecoll FLOOR, BOTTOM_WALL, WALL, CAVE
 	tilecoll WALL, FLOOR, FLOOR, FLOOR
 	tilecoll WALL, WALL, FLOOR, FLOOR
 	tilecoll WATER, WATER, WATER, WATER
