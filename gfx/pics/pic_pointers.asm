@@ -315,10 +315,10 @@
 	dba ToucannonBackpic
 	dba MunchlaxFrontpic
 	dba MunchlaxBackpic
-	dba MincinnoFrontpic
-	dba MincinnoBackpic
-	dba CincinnoFrontpic
-	dba CincinnoBackpic
+	dba MinccinoFrontpic
+	dba MinccinoBackpic
+	dba CinccinoFrontpic
+	dba CinccinoBackpic
 	dba WingullFrontpic
 	dba WingullBackpic
 	dba PelipperFrontpic

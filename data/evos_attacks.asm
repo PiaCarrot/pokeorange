@@ -2442,13 +2442,14 @@ TogeticEvosAttacks:
 
 NatuEvosAttacks: ;TOGEKISS
 	db 0 ; no more evolutions
-	db 1, PECK
-	db 1, LEER
-	db 10, NIGHT_SHADE
-	db 20, TELEPORT
-	db 30, FUTURE_SIGHT
-	db 40, CONFUSE_RAY
-	db 50, PSYCHIC_M
+	db 1, GROWL
+	db 1, CHARM
+	db 7, METRONOME
+	db 18, SWEET_KISS
+	db 21, FAIRY_WIND
+	db 25, ENCORE
+	db 31, SAFEGUARD
+	db 38, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 XatuEvosAttacks: ;AZURILL
