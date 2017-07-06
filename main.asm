@@ -453,14 +453,16 @@ CheckFacingTileForStd:: ; 1365b
 	ret
 
 .table1
-	dbw $91, magazinebookshelf
-	dbw $93, pcscript
-	dbw $94, radio1
-	dbw $95, townmap
-	dbw $96, merchandiseshelf
-	dbw $97, tv
-	dbw $9d, window
-	dbw $9f, incenseburner
+	dbw COLL_BOOKSHELF,       magazinebookshelf
+	dbw COLL_PC,              pcscript
+	dbw COLL_RADIO,           radio1
+	dbw COLL_TOWN_MAP,        townmap
+	dbw COLL_MART_SHELF,      merchandiseshelf
+	dbw COLL_TV,              tv
+	dbw COLL_POKECENTER_SIGN, pokecentersign
+	dbw COLL_MART_SIGN,       martsign
+	dbw COLL_WINDOW,          window
+	dbw COLL_INCENSE,         incenseburner
 	db   -1 ; end
 
 Script_JumpStdFromRAM: ; 0x1369a

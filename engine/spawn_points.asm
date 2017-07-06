@@ -16,7 +16,7 @@ ENDM
 	spawn SUNBURST_ISLAND, 27, 28
 	spawn ROUTE_56_WEST,   35, 8
 	spawn KINNOW_ISLAND,   17, 10
-	spawn NAVEL_ISLAND,    22, 16
+	spawn NAVEL_ISLAND,    16, 22
 	spawn N_A,             -1, -1
 
 
