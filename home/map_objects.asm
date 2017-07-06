@@ -117,91 +117,6 @@ GetTileCollision:: ; 185d
 	ret
 ; 1875
 
-CheckGrassTile:: ; 1875
-	ld d, a
-	and $f0
-	cp $10
-	jr z, .ok_10
-	cp $20
-	jr z, .ok_20
-	scf
-	ret
-
-.ok_10
-	ld a, d
-	and 7
-	ret z
-	scf
-	ret
-; For some reason, the above code is duplicated down here.
-.ok_20
-	ld a, d
-	and 7
-	ret z
-	scf
-	ret
-; 188e
-
-CheckSuperTallGrassTile:: ; 188e
-	cp $14
-	ret z
-	cp $1c
-	ret
-; 1894
-
-CheckCutTreeTile:: ; 1894
-	cp $12
-	ret z
-	cp $1a
-	ret
-; 189a
-
-CheckHeadbuttTreeTile:: ; 189a
-	cp $15
-	ret z
-	cp $1d
-	ret
-; 18a0
-
-CheckCounterTile:: ; 18a0
-	cp $90
-	ret z
-	cp $98
-	ret
-; 18a6
-
-CheckPitTile:: ; 18a6
-	cp $60
-	ret z
-	cp $68
-	ret
-; 18ac
-
-CheckIceTile:: ; 18ac
-	cp $23
-	ret z
-	cp $2b
-	ret z
-	scf
-	ret
-; 18b4
-
-CheckWhirlpoolTile:: ; 18b4
-	cp $24
-	ret z
-	cp $2c
-	ret z
-	scf
-	ret
-; 18bd
-
-CheckWaterfallTile:: ; 18bd
-	cp $33
-	ret z
-	cp $3b
-	ret
-; 18c3
-
 GetMapObject:: ; 18d2
 ; Return the location of map object a in bc.
 	ld hl, MapObjects
@@ -362,36 +277,6 @@ CopyPlayerObjectTemplate:: ; 19a6
 	ld bc, OBJECT_LENGTH - 1
 	jp CopyBytes
 ; 19b8
-
-; XXX
-	call GetMapObject
-	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
-	add hl, bc
-	ld a, [hl]
-	push af
-	ld [hl], -1
-	inc hl
-	ld bc, OBJECT_LENGTH - 1
-	xor a
-	call ByteFill
-	pop af
-	cp -1
-	ret z
-	cp $d
-	ret nc
-	ld b, a
-	ld a, [wObjectFollow_Leader]
-	cp b
-	jr nz, .ok
-	ld a, -1
-	ld [wObjectFollow_Leader], a
-
-.ok
-	ld a, b
-	call GetObjectStruct
-	farcall DeleteMapObject
-	ret
-; 19e9
 
 LoadMovementDataPointer:: ; 19e9
 ; Load the movement data pointer for person a.

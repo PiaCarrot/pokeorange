@@ -259,21 +259,18 @@ EMOTE_MEM EQU -1
 
 ; I'm relocating spawn constants here, so that they can be used anywhere in the disassembly.
 
-
 const_value = -1
 	const SPAWN_N_A
-
 	const SPAWN_HOME
-	const SPAWN_DEBUG
-
 	const SPAWN_VALENCIA
 	const SPAWN_TANGELO
 	const SPAWN_MIKAN
+	const SPAWN_ROUTE_52
 	const SPAWN_MANDARIN_NORTH
 	const SPAWN_SUNBURST
+	const SPAWN_ROUTE_56_WEST
 	const SPAWN_KINNOW
 	const SPAWN_NAVEL
-	
 NUM_SPAWNS EQU const_value
 
 	const_def

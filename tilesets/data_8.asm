@@ -11,7 +11,7 @@ INCBIN "tilesets/16_metatiles.bin"
 ; 0xb7da8
 
 Tileset16Coll: ; 0xb7da8
-INCBIN "tilesets/16_collision.bin"
+INCLUDE "tilesets/16_collision.asm"
 ; 0xb7ea8
 
 Tileset04Meta: ; 0xdee90
@@ -19,7 +19,7 @@ INCBIN "tilesets/04_metatiles.bin"
 ; 0xdf690
 
 Tileset04Coll: ; 0xdf690
-INCBIN "tilesets/04_collision.bin"
+INCLUDE "tilesets/04_collision.asm"
 ; 0xdf890
 
 Tileset13GFX: ; 0x1de2c
@@ -31,5 +31,5 @@ INCBIN "tilesets/13_metatiles.bin"
 ; 0x1e98c
 
 Tileset13Coll: ; 0x1e98c
-INCBIN "tilesets/13_collision.bin"
+INCLUDE "tilesets/13_collision.asm"
 ; 0x1ea8c

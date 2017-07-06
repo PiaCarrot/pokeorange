@@ -283,7 +283,7 @@ TrainerCard_OAMUpdate: ; 25448 (9:5448)
 	ld a, [Badges]
 	ld c, a
 	ld de, Sprites
-	ld b, 8
+	ld b, NUM_BADGES
 .loop
 	srl c
 	push bc

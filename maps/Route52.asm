@@ -116,9 +116,6 @@ Route52Repel:
 Route52Sign:
 	jumptext Route52SignText
 
-Route52PokeCenterSign:
-	jumpstd pokecentersign
-
 Route52HiddenGreatBall:
 	dwb EVENT_ROUTE_52_HIDDEN_GREAT_BALL, GREAT_BALL
 
@@ -277,9 +274,8 @@ Route52_MapEventHeader:: db 0, 0
 
 .CoordEvents: db 0
 
-.BGEvents: db 4
+.BGEvents: db 3
 	signpost 80, 8, SIGNPOST_READ, Route52Sign
-	signpost 77, 14, SIGNPOST_READ, Route52PokeCenterSign
 	signpost 81, 4, SIGNPOST_ITEM, Route52HiddenGreatBall
 	signpost 49, 16, SIGNPOST_ITEM, Route52HiddenSuperPotion
 

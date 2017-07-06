@@ -120,8 +120,8 @@ DoPlayerMovement:: ; 80000
 
 	ld a, [PlayerStandingTile]
 	ld c, a
-	call CheckWhirlpoolTile
-	jr c, .not_whirlpool
+	cp COLL_WHIRLPOOL
+	jr nz, .not_whirlpool
 	ld a, 3
 	scf
 	ret
@@ -130,10 +130,6 @@ DoPlayerMovement:: ; 80000
 	and $f0
 	cp $30 ; moving water
 	jr z, .water
-	cp $40 ; moving land 1
-	jr z, .land1
-	cp $50 ; moving land 2
-	jr z, .land2
 	cp $70 ; warps
 	jr z, .warps
 	jr .no_walk
@@ -155,61 +151,15 @@ DoPlayerMovement:: ; 80000
 	db UP
 	db DOWN
 
-.land1
-	ld a, c
-	and 7
-	ld c, a
-	ld b, 0
-	ld hl, .land1_table
-	add hl, bc
-	ld a, [hl]
-	cp STANDING
-	jr z, .no_walk
-	ld [WalkingDirection], a
-	jr .continue_walk
-
-.land1_table
-	db STANDING
-	db RIGHT
-	db LEFT
-	db UP
-	db DOWN
-	db STANDING
-	db STANDING
-	db STANDING
-
-.land2
-	ld a, c
-	and 7
-	ld c, a
-	ld b, 0
-	ld hl, .land2_table
-	add hl, bc
-	ld a, [hl]
-	cp STANDING
-	jr z, .no_walk
-	ld [WalkingDirection], a
-	jr .continue_walk
-
-.land2_table
-	db RIGHT
-	db LEFT
-	db UP
-	db DOWN
-	db STANDING
-	db STANDING
-	db STANDING
-	db STANDING
-
 .warps
 	ld a, c
-	cp $71 ; door
+	cp COLL_DOOR
 	jr z, .down
-	cp $79
+;	cp $79
+;	jr z, .down
+	cp COLL_STAIRCASE
 	jr z, .down
-	cp $7a ; stairs
-	jr z, .down
-	cp $7b ; cave
+	cp COLL_CAVE
 	jr nz, .no_walk
 
 .down
@@ -278,8 +228,8 @@ DoPlayerMovement:: ; 80000
 	jr z, .bump
 
 	ld a, [PlayerStandingTile]
-	call CheckIceTile
-	jr nc, .ice
+	cp COLL_ICE
+	jr z, .ice
 
 ; Downhill riding is slower when not moving down.
 	call .BikeCheck
@@ -436,7 +386,10 @@ DoPlayerMovement:: ; 80000
 	ret
 
 .EdgeWarps:
-	db $70, $78, $76, $7e
+	db COLL_WARP_CARPET_DOWN
+	db COLL_WARP_CARPET_UP
+	db COLL_WARP_CARPET_LEFT
+	db COLL_WARP_CARPET_RIGHT
 ; 8025f
 
 .DoStep:
@@ -639,6 +592,7 @@ DoPlayerMovement:: ; 80000
 	add e
 	ld e, a
 ; Find an object struct with coordinates equal to d,e
+	ld bc, ObjectStructs ; redundant
 	farcall IsNPCAtCoord
 	jr nc, .is_npc
 	call .CheckStrengthBoulder
@@ -809,13 +763,13 @@ CheckStandingOnIce:: ; 80404
 	cp $f0
 	jr z, .not_ice
 	ld a, [PlayerStandingTile]
-	call CheckIceTile
-	jr nc, .yep
+	cp COLL_ICE
+	jr z, .ice
 	ld a, [PlayerState]
 	cp PLAYER_SLIP
 	jr nz, .not_ice
 
-.yep
+.ice
 	scf
 	ret
 

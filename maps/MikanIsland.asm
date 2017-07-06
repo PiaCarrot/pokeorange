@@ -39,12 +39,6 @@ MikanIslandSign:
 MikanGymSign:
 	jumptext MikanGymSignText
 
-MikanIslandPokeCenterSign:
-	jumpstd pokecentersign
-
-MikanIslandMartSign:
-	jumpstd martsign
-
 MikanIslandPPUp:
 	itemball PP_UP
 
@@ -122,11 +116,9 @@ MikanIsland_MapEventHeader:: db 0, 0
 
 .CoordEvents: db 0
 
-.BGEvents: db 5
+.BGEvents: db 3
 	signpost 19, 13, SIGNPOST_READ, MikanIslandSign
 	signpost 7, 17, SIGNPOST_READ, MikanGymSign
-	signpost 29, 12, SIGNPOST_READ, MikanIslandPokeCenterSign
-	signpost 15, 8, SIGNPOST_READ, MikanIslandMartSign
 	signpost 4, 28, SIGNPOST_ITEM, MikanIslandHiddenHyperPotion
 
 .ObjectEvents: db 7
