@@ -97,7 +97,7 @@ callasm: macro
 	enum special_command
 special: macro
 	db special_command
-	dw (\1Special - SpecialsPointers) / 3
+	db (\1Special - SpecialsPointers) / 3
 	endm
 
 add_special: MACRO
@@ -358,12 +358,6 @@ wildon: macro
 	enum wildoff_command
 wildoff: macro
 	db wildoff_command
-	endm
-
-	enum xycompare_command
-xycompare: macro
-	db xycompare_command
-	dw \1 ; pointer
 	endm
 
 	enum warpmod_command
@@ -768,7 +762,7 @@ delcmdqueue: macro
 	enum playmusic_command
 playmusic: macro
 	db playmusic_command
-	dw \1 ; music_pointer
+	db \1 ; music_id
 	endm
 
 	enum encountermusic_command
@@ -779,7 +773,7 @@ encountermusic: macro
 	enum musicfadeout_command
 musicfadeout: macro
 	db musicfadeout_command
-	dw \1 ; music
+	db \1 ; music
 	db \2 ; fadetime
 	endm
 
@@ -796,13 +790,13 @@ dontrestartmapmusic: macro
 	enum cry_command
 cry: macro
 	db cry_command
-	dw \1 ; cry_id
+	db \1 ; cry_id
 	endm
 
 	enum playsound_command
 playsound: macro
 	db playsound_command
-	dw \1 ; sound_pointer
+	db \1 ; sound_id
 	endm
 
 	enum waitsfx_command
@@ -886,7 +880,7 @@ end_all: macro
 pokemart: macro
 	db pokemart_command
 	db \1 ; dialog_id
-	dw \2 ; mart_id
+	db \2 ; mart_id
 	endm
 
 	enum elevator_command

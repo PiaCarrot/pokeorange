@@ -19,10 +19,10 @@ TangeloIsland_MapScriptHeader:
 	setflag ENGINE_FLYPOINT_TANGELO
 	return
 
-TangeloIslandGuideGent:
+TangeloIslandLaprasScript:
 	faceplayer
 	opentext
-	writetext GuideGentIntroText
+	writetext LaprasIntroText
 	yesorno
 	iftrue .Yes
 	waitbutton
@@ -99,8 +99,8 @@ TangeloIslandRareCandy:
 TangeloIslandSign:
 	jumptext TangeloIslandSignText
 
-GuideGentsHouseSign:
-	jumptext GuideGentsHouseSignText
+TangeloCenterSign:
+	jumptext TangeloCenterSignText
 
 TraceyBattleText:
 	text "So you delivered"
@@ -138,7 +138,7 @@ TraceyLeavingTangelo:
 	cont "around!"
 	done
 
-GuideGentIntroText:
+LaprasIntroText:
 	text "The LAPRAS seems"
 	line "eager to join you."
 
@@ -208,7 +208,7 @@ TangeloIslandSignText:
 	text "TANGELO ISLAND"
 	done
 
-GuideGentsHouseSignText:
+TangeloCenterSignText:
 	text "TANGELO CENTER"
 	done
 
@@ -245,12 +245,11 @@ TangeloIsland_MapEventHeader:: db 0, 0
 
 .BGEvents: db 2
 	signpost 20, 24, SIGNPOST_READ, TangeloIslandSign
-	signpost 7, 25, SIGNPOST_READ, GuideGentsHouseSign
+	signpost 7, 25, SIGNPOST_READ, TangeloCenterSign
 
 .ObjectEvents: db 5
-	person_event SPRITE_SURF, 5, 24, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloIslandGuideGent, EVENT_TANGELO_ISLAND_LAPRAS
+	person_event SPRITE_SURF, 5, 24, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloIslandLaprasScript, EVENT_TANGELO_ISLAND_LAPRAS
 	person_event SPRITE_TRACEY, 7, 24, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TangeloTraceyScript, EVENT_TANGELO_ISLAND_TRACEY
 	person_event SPRITE_TEACHER, 11, 26, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloTeacherScript, -1
 	person_event SPRITE_YOUNGSTER, 23, 13, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TangeloYoungsterScript, -1
 	person_event SPRITE_POKE_BALL, 23, 33, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloIslandRareCandy, EVENT_TANGELO_ISLAND_RARE_CANDY
-
