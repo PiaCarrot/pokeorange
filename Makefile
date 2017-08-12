@@ -15,19 +15,27 @@ RGBASM_FLAGS =
 RGBLINK_FLAGS = -n $(ROM_NAME).sym -m $(ROM_NAME).map -p $(FILLER)
 RGBFIX_FLAGS = -Cjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -p $(FILLER) -k 01 -l 0x33 -m 0x10 -r 3
 
+CFLAGS = -O3
+
 
 .SUFFIXES:
-.PHONY: all clean orange debug bankfree
+.PHONY: all clean orange debug bankfree freespace compare
 .SECONDEXPANSION:
 .PRECIOUS: %.2bpp %.1bpp
 
 
-PYTHON := python
-MD5 := md5sum -c
-RM := rm -f
+roms_md5      = roms.md5
+bank_ends_txt = bank_ends.txt
 
-gfx      := $(PYTHON) gfx.py
-includes := $(PYTHON) scan_includes.py
+PYTHON = python
+CC     = gcc
+RM     = rm -f
+GFX    = $(PYTHON) gfx.py
+LZ     = utils/lzcomp
+MD5    = md5sum
+
+includes  := $(PYTHON) scan_includes.py
+bank_ends := $(PYTHON) utils/bank-ends.py $(ROM_NAME)
 
 
 orange_obj := \
@@ -58,11 +66,23 @@ bankfree: FILLER = 0xff
 bankfree: ROM_NAME := $(ROM_NAME)-$(FILLER)
 bankfree: $(ROM_NAME)-0xff.gbc
 
+freespace: $(bank_ends_txt) $(roms_md5)
+
 clean:
 	$(RM) $(roms) $(orange_obj) $(roms:.gbc=.map) $(roms:.gbc=.sym)
 
-compare: $(ROM_NAME).gbc
-	@$(MD5) roms.md5
+compare: orange
+	$(MD5) -c $(roms_md5)
+
+
+$(LZ): $(LZ).c
+	$(CC) $(CFLAGS) -o $@ $<
+
+$(bank_ends_txt): orange bankfree ; $(bank_ends) > $@
+
+$(roms_md5): orange
+	$(MD5) $(ROM_NAME).gbc > $@
+
 
 %.asm: ;
 
@@ -75,9 +95,9 @@ compare: $(ROM_NAME).gbc
 	$(RGBDS_DIR)rgbfix $(RGBFIX_FLAGS) $@
 
 %.png: ;
-%.2bpp: %.png ; $(gfx) 2bpp $<
-%.1bpp: %.png ; $(gfx) 1bpp $<
-%.lz: % ; $(gfx) lz $<
+%.2bpp: %.png ; $(GFX) 2bpp $<
+%.1bpp: %.png ; $(GFX) 1bpp $<
+%.lz: % ; $(LZ) $<
 
 %.pal: %.2bpp ;
 gfx/pics/%/normal.pal gfx/pics/%/bitmask.asm gfx/pics/%/frames.asm: gfx/pics/%/front.2bpp ;
