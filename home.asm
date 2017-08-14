@@ -1204,8 +1204,8 @@ CheckTrainerBattle:: ; 360d
 	ld hl, MAPOBJECT_COLOR
 	add hl, de
 	ld a, [hl]
-	and $f
-	cp $2
+	and %00001111
+	cp PERSONTYPE_TRAINER
 	jr nz, .next
 
 ; Is visible on the map
