@@ -108,7 +108,6 @@ PlaceMapNameSign:: ; b8098 (2e:4098)
 	ld [hLCDCPointer], a
 	ret
 
-
 LoadMapNameSignGFX: ; b80c6
 	ld de, MapEntryFrameGFX
 	ld hl, VTiles2 tile $70
@@ -117,12 +116,98 @@ LoadMapNameSignGFX: ; b80c6
 ; b80d3
 
 InitMapNameFrame: ; b80d3
-	hlcoord 0, 0
-	lb bc, 2, 18
 	call InitMapSignAttrMap
-	jp PlaceMapNameFrame
+	jr PlaceMapNameFrame
 ; b80e1
 
+InitMapSignAttrMap: ; b8115
+	hlcoord 0, 0
+	ld de, AttrMap - TileMap
+	add hl, de
+	lb bc, 4, SCREEN_WIDTH
+	ld a, BEHIND_BG | PAL_BG_TEXT
+.loop
+	push bc
+	push hl
+.inner_loop
+	ld [hli], a
+	dec c
+	jr nz, .inner_loop
+	pop hl
+	ld de, SCREEN_WIDTH
+	add hl, de
+	pop bc
+	dec b
+	jr nz, .loop
+	ret
+; b812f
+
+PlaceMapNameFrame: ; b812f
+	hlcoord 0, 0
+	; top left
+	ld a, $71
+	ld [hli], a
+	; top row
+	inc a ; ld a, $72
+	call .FillTopBottom
+	; top right
+	ld a, $74
+	ld [hli], a
+	; left, first line
+	inc a ; ld a, $75
+	ld [hli], a
+	; first line
+	call .FillMiddle
+	; right, first line
+	ld a, $7b
+	ld [hli], a
+	; left, second line
+	ld a, $76
+	ld [hli], a
+	; second line
+	call .FillMiddle
+	; right, second line
+	ld a, $7c
+	ld [hli], a
+	; bottom left
+	ld a, $77
+	ld [hli], a
+	; bottom
+	inc a ; ld a, $78
+	call .FillTopBottom
+	; bottom right
+	ld a, $7a
+	ld [hl], a
+	ret
+; b815b
+
+.FillMiddle: ; b815b
+	ld a, $7d
+	ld c, SCREEN_WIDTH - 2
+.loop
+	ld [hli], a
+	dec c
+	jr nz, .loop
+	ret
+; b8164
+
+.FillTopBottom: ; b8164
+	ld c, 5
+	jr .enterloop
+
+.continueloop
+	ld [hli], a
+	ld [hli], a
+
+.enterloop
+	inc a
+	ld [hli], a
+	ld [hli], a
+	dec a
+	dec c
+	jr nz, .continueloop
+	ret
+; b8172
 
 PlaceMapNameCenterAlign: ; b80e1 (2e:40e1)
 	ld a, [wCurrentLandmark]
@@ -155,97 +240,6 @@ PlaceMapNameCenterAlign: ; b80e1 (2e:40e1)
 	pop hl
 	ret
 
-
-InitMapSignAttrMap: ; b8115
-	ld de, AttrMap - TileMap
-	add hl, de
-	inc b
-	inc b
-	inc c
-	inc c
-	ld a, $87
-.loop
-	push bc
-	push hl
-.inner_loop
-	ld [hli], a
-	dec c
-	jr nz, .inner_loop
-	pop hl
-	ld de, SCREEN_WIDTH
-	add hl, de
-	pop bc
-	dec b
-	jr nz, .loop
-	ret
-; b812f
-
-PlaceMapNameFrame: ; b812f
-	hlcoord 0, 0
-	; top left
-	ld a, $71
-	ld [hli], a
-	; top row
-	ld a, $72
-	call .FillTopBottom
-	; top right
-	ld a, $74
-	ld [hli], a
-	; left, first line
-	ld a, $75
-	ld [hli], a
-	; first line
-	call .FillMiddle
-	; right, first line
-	ld a, $7b
-	ld [hli], a
-	; left, second line
-	ld a, $76
-	ld [hli], a
-	; second line
-	call .FillMiddle
-	; right, second line
-	ld a, $7c
-	ld [hli], a
-	; bottom left
-	ld a, $77
-	ld [hli], a
-	; bottom
-	ld a, $78
-	call .FillTopBottom
-	; bottom right
-	ld a, $7a
-	ld [hl], a
-	ret
-; b815b
-
-.FillMiddle: ; b815b
-	ld c, 18
-	ld a, $7d
-.loop
-	ld [hli], a
-	dec c
-	jr nz, .loop
-	ret
-; b8164
-
-.FillTopBottom: ; b8164
-	ld c, 5
-	jr .enterloop
-
-.continueloop
-	ld [hli], a
-	ld [hli], a
-
-.enterloop
-	inc a
-	ld [hli], a
-	ld [hli], a
-	dec a
-	dec c
-	jr nz, .continueloop
-	ret
-; b8172
 
 CheckForHiddenItems: ; b8172
 ; Checks to see if there are hidden items on the screen that have not yet been found.  If it finds one, returns carry.
