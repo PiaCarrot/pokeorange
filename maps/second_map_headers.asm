@@ -53,11 +53,11 @@
 	connection south, ROUTE_56_EAST, Route56East, 0, 25, 12, KINNOW_ISLAND
 
 	map_header_2 Route57, ROUTE_57, 53, NORTH | EAST
-	connection north, UNNAMED_ISLAND_1, UnnamedIsland1, 0, 0, 10, ROUTE_57
+	connection north, UNNAMED_ISLAND_1, UnnamedIsland1, 0, 0, 12, ROUTE_57
 	connection east, SEVEN_GRAPEFRUITS, SevenGrapefruits, 0, 6, 16, ROUTE_57
 
 	map_header_2 UnnamedIsland1, UNNAMED_ISLAND_1, 53, SOUTH | EAST
-	connection south, ROUTE_57, Route57, 0, 0, 10, UNNAMED_ISLAND_1
+	connection south, ROUTE_57, Route57, 0, 0, 12, UNNAMED_ISLAND_1
 	connection east, ROUTE_58, Route58, 2, 0, 10, UNNAMED_ISLAND_1
 
 	map_header_2 Route58, ROUTE_58, 53, WEST | EAST | SOUTH
