@@ -124,6 +124,12 @@ BattleCommand_CheckTurn: ; 34084
 
 ; Repurposed as hardcoded turn handling. Useless as a command.
 
+	; NO_MOVE immediately ends the turn (used by Pursuit)
+	ld a, BATTLE_VARS_MOVE
+	call GetBattleVar
+	and a
+	jp z, EndTurn
+
 	xor a
 	ld [AttackMissed], a
 	ld [EffectFailed], a

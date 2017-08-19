@@ -120,7 +120,6 @@ ScriptCommandTable: ; 96cb1
 	dw Script_setflag
 	dw Script_wildon
 	dw Script_wildoff
-	dw Script_xycompare
 	dw Script_warpmod
 	dw Script_blackoutmod
 	dw Script_warp
@@ -244,10 +243,8 @@ StopScript: ; 96e11
 ; 96e17
 
 Script_callasm: ; 96e17
-; script command 0xe
 ; parameters:
 ;     asm (AsmPointerParam)
-
 	call GetScriptByte
 	ld b, a
 	call GetScriptByte
@@ -260,23 +257,18 @@ Script_callasm: ; 96e17
 ; 96e26
 
 Script_special: ; 96e26
-; script command 0xf
 ; parameters:
-;     predefined_script (MultiByteParam)
-
+;     predefined_script (SingleByteParam)
 	call GetScriptByte
 	ld e, a
-	call GetScriptByte
-	ld d, a
+	ld d, 0
 	farcall Special
 	ret
 ; 96e35
 
 Script_ptcallasm: ; 96e35
-; script command 0x10
 ; parameters:
 ;     asm (PointerToAsmPointerParam)
-
 	call GetScriptByte
 	ld l, a
 	call GetScriptByte
@@ -292,10 +284,8 @@ Script_ptcallasm: ; 96e35
 ; 96e45
 
 Script_jumptextfaceplayer: ; 96e45
-; script command 0x51
 ; parameters:
 ;     text_pointer (RawTextPointerLabelParam)
-
 	ld a, [ScriptBank]
 	ld [wScriptTextBank], a
 	call GetScriptByte
@@ -308,10 +298,8 @@ Script_jumptextfaceplayer: ; 96e45
 ; 96e5f
 
 Script_jumptext: ; 96e5f
-; script command 0x53
 ; parameters:
 ;     text_pointer (RawTextPointerLabelParam)
-
 	ld a, [ScriptBank]
 	ld [wScriptTextBank], a
 	call GetScriptByte
@@ -335,10 +323,8 @@ JumpTextScript: ; 96e7a
 
 
 Script_farjumptext: ; 96e81
-; script command 0x52
 ; parameters:
 ;     text_pointer (PointerLabelBeforeBank)
-
 	call GetScriptByte
 	ld [wScriptTextBank], a
 	call GetScriptByte
@@ -352,10 +338,8 @@ Script_farjumptext: ; 96e81
 
 
 Script_writetext: ; 96e9b
-; script command 0x4c
 ; parameters:
 ;     text_pointer (RawTextPointerLabelParam)
-
 	call GetScriptByte
 	ld l, a
 	call GetScriptByte
@@ -366,10 +350,8 @@ Script_writetext: ; 96e9b
 ; 96eab
 
 Script_farwritetext: ; 96eab
-; script command 0x4b
 ; parameters:
 ;     text_pointer (PointerLabelBeforeBank)
-
 	call GetScriptByte
 	ld b, a
 	call GetScriptByte
@@ -380,11 +362,9 @@ Script_farwritetext: ; 96eab
 ; 96ebb
 
 Script_repeattext: ; 96ebb
-; script command 0x4d
 ; parameters:
 ;     byte (SingleByteParam)
 ;     byte (SingleByteParam)
-
 	call GetScriptByte
 	ld l, a
 	call GetScriptByte
@@ -407,14 +387,10 @@ Script_repeattext: ; 96ebb
 ; 96ed9
 
 Script_waitbutton: ; 96ed9
-; script command 0x54
-
 	jp WaitButton
 ; 96edc
 
 Script_buttonsound: ; 96edc
-; script command 0x55
-
 	ld a, [hOAMUpdate]
 	push af
 	ld a, $1
@@ -427,8 +403,6 @@ Script_buttonsound: ; 96edc
 ; 96eed
 
 Script_yesorno: ; 96eed
-; script command 0x4e
-
 	call YesNoBox
 	ld a, FALSE
 	jr c, .no
@@ -439,10 +413,8 @@ Script_yesorno: ; 96eed
 ; 96efa
 
 Script_loadmenudata: ; 96efa
-; script command 0x4f
 ; parameters:
 ;     data (MenuDataPointerParam)
-
 	call GetScriptByte
 	ld l, a
 	call GetScriptByte
@@ -454,17 +426,13 @@ Script_loadmenudata: ; 96efa
 ; 96f0f
 
 Script_closewindow: ; 96f0f
-; script command 0x50
-
 	call CloseWindow
 	jp UpdateSprites
 ; 96f16
 
 Script_pokepic: ; 96f16
-; script command 0x56
 ; parameters:
 ;     pokemon (PokemonParam)
-
 	call GetScriptByte
 	and a
 	jr nz, .ok
@@ -476,15 +444,11 @@ Script_pokepic: ; 96f16
 ; 96f29
 
 Script_closepokepic: ; 96f29
-; script command 0x57
-
 	farcall ClosePokepic
 	ret
 ; 96f30
 
 Script_verticalmenu: ; 96f30
-; script command 0x59
-
 	ld a, [ScriptBank]
 	ld hl, VerticalMenu
 	rst FarCall
@@ -497,8 +461,6 @@ Script_verticalmenu: ; 96f30
 ; 96f41
 
 Script__2dmenu: ; 96f41
-; script command 0x58
-
 	ld a, [ScriptBank]
 	ld hl, _2DMenu
 	rst FarCall
@@ -511,11 +473,9 @@ Script__2dmenu: ; 96f41
 ; 96f52
 
 Script_verbosegiveitem: ; 96f60
-; script command 0x9e
 ; parameters:
 ;     item (ItemLabelByte)
 ;     quantity (DecimalParam)
-
 	call Script_giveitem
 	call CurItemName
 	ld de, StringBuffer1
@@ -549,11 +509,9 @@ ReceivedItemText: ; 96f89
 
 
 Script_verbosegiveitem2: ; 96f8e
-; script command 0x9f
 ; parameters:
 ;     item (ItemLabelByte)
 ;     var (SingleByteParam)
-
 	call GetScriptByte
 	cp -1
 	jr nz, .ok
@@ -581,8 +539,6 @@ Script_verbosegiveitem2: ; 96f8e
 ; 96fc6
 
 Script_itemnotify: ; 96fc6
-; script command 0x45
-
 	call GetPocketName
 	call CurItemName
 	ld b, BANK(PutItemInPocketText)
@@ -591,8 +547,6 @@ Script_itemnotify: ; 96fc6
 ; 96fd5
 
 Script_pocketisfull: ; 96fd5
-; script command 0x46
-
 	call GetPocketName
 	call CurItemName
 	ld b, BANK(PocketIsFullText)
@@ -601,8 +555,6 @@ Script_pocketisfull: ; 96fd5
 ; 96fe4
 
 Script_specialsound: ; 96fe4
-; script command 0x88
-
 	farcall CheckItemPocket
 	ld a, [wItemAttributeParamBuffer]
 	cp TM_HM
@@ -666,17 +618,14 @@ PocketIsFullText: ; 97060
 
 
 Script_pokemart: ; 97065
-; script command 0x94
 ; parameters:
 ;     dialog_id (SingleByteParam)
-;     mart_id (MultiByteParam)
-
+;     mart_id (SingleByteParam)
 	call GetScriptByte
 	ld c, a
 	call GetScriptByte
 	ld e, a
-	call GetScriptByte
-	ld d, a
+	ld d, 0
 	ld a, [ScriptBank]
 	ld b, a
 	farcall OpenMartDialog
@@ -684,10 +633,8 @@ Script_pokemart: ; 97065
 ; 9707c
 
 Script_elevator: ; 9707c
-; script command 0x95
 ; parameters:
 ;     floor_list_pointer (PointerLabelParam)
-
 	xor a
 	ld [ScriptVar], a
 	call GetScriptByte
@@ -704,10 +651,8 @@ Script_elevator: ; 9707c
 ; 97099
 
 Script_trade: ; 97099
-; script command 0x96
 ; parameters:
 ;     trade_id (SingleByteParam)
-
 	call GetScriptByte
 	ld e, a
 	farcall NPCTrade
@@ -715,10 +660,8 @@ Script_trade: ; 97099
 ; 970a4
 
 Script_fruittree: ; 970ee
-; script command 0x9b
 ; parameters:
 ;     tree_id (SingleByteParam)
-
 	call GetScriptByte
 	ld [CurFruitTree], a
 	ld b, BANK(FruitTreeScript)
@@ -727,12 +670,10 @@ Script_fruittree: ; 970ee
 ; 970fc
 
 Script_swarm: ; 970fc
-; script command 0xa0
 ; parameters:
 ;     flag (SingleByteParam)
 ;     map_group (MapGroupParam)
 ;     map_id (MapIdParam)
-
 	call GetScriptByte
 	ld c, a
 	call GetScriptByte
@@ -744,10 +685,8 @@ Script_swarm: ; 970fc
 ; 9710f
 
 Script_trainertext: ; 9710f
-; script command 0x62
 ; parameters:
 ;     which_text (SingleByteParam)
-
 	call GetScriptByte
 	ld c, a
 	ld b, 0
@@ -763,8 +702,6 @@ Script_trainertext: ; 9710f
 ; 97125
 
 Script_scripttalkafter: ; 97125
-; script command 0x65
-
 	ld hl, wScriptAfterPointer
 	ld a, [hli]
 	ld h, [hl]
@@ -775,10 +712,8 @@ Script_scripttalkafter: ; 97125
 ; 97132
 
 Script_trainerflagaction: ; 97132
-; script command 0x63
 ; parameters:
 ;     action (SingleByteParam)
-
 	xor a
 	ld [ScriptVar], a
 	ld hl, wd041
@@ -797,11 +732,9 @@ Script_trainerflagaction: ; 97132
 ; 9714c
 
 Script_winlosstext: ; 9714c
-; script command 0x64
 ; parameters:
 ;     win_text_pointer (TextPointerLabelParam)
 ;     loss_text_pointer (TextPointerLabelParam)
-
 	ld hl, wWinTextPointer ; d047
 	call GetScriptByte
 	ld [hli], a
@@ -816,8 +749,6 @@ Script_winlosstext: ; 9714c
 ; 97163
 
 Script_end_if_just_battled: ; 97163
-; script command 0x66
-
 	ld a, [wRunningTrainerBattleScript]
 	and a
 	ret z
@@ -825,8 +756,6 @@ Script_end_if_just_battled: ; 97163
 ; 9716b
 
 Script_check_just_battled: ; 9716b
-; script command 0x67
-
 	ld a, TRUE
 	ld [ScriptVar], a
 	ld a, [wRunningTrainerBattleScript]
@@ -838,8 +767,6 @@ Script_check_just_battled: ; 9716b
 ; 9717a
 
 Script_encountermusic: ; 9717a
-; script command 0x80
-
 	ld a, [OtherTrainerClass]
 	ld e, a
 	farcall PlayTrainerEncounterMusic
@@ -847,16 +774,12 @@ Script_encountermusic: ; 9717a
 ; 97185
 
 Script_playmapmusic: ; 97185
-; script command 0x82
-
 	jp PlayMapMusic
 ; 97189
 
 Script_playmusic: ; 97189
-; script command 0x7f
 ; parameters:
-;     music_pointer (MultiByteParam)
-
+;     music_pointer (SingleByteParam)
 	ld de, MUSIC_NONE
 	call PlayMusic
 	xor a
@@ -864,20 +787,17 @@ Script_playmusic: ; 97189
 	call MaxVolume
 	call GetScriptByte
 	ld e, a
-	call GetScriptByte
-	ld d, a
+	ld d, 0
 	jp PlayMusic
 ; 971a2
 
 Script_musicfadeout: ; 971a2
-; script command 0x81
 ; parameters:
-;     music (MultiByteParam)
+;     music (SingleByteParam)
 ;     fadetime (SingleByteParam)
-
 	call GetScriptByte
 	ld [MusicFadeID], a
-	call GetScriptByte
+	xor a
 	ld [MusicFadeID + 1], a
 	call GetScriptByte
 	and $7f
@@ -886,26 +806,19 @@ Script_musicfadeout: ; 971a2
 ; 971b7
 
 Script_playsound: ; 971b7
-; script command 0x85
 ; parameters:
-;     sound_pointer (MultiByteParam)
-
+;     sound_pointer (SingleByteParam)
 	call GetScriptByte
 	ld e, a
-	call GetScriptByte
-	ld d, a
+	ld d, 0
 	jp PlaySFX
 ; 971c3
 
 Script_waitsfx: ; 971c3
-; script command 0x86
-
 	jp WaitSFX
 ; 971c7
 
 Script_warpsound: ; 971c7
-; script command 0x87
-
 	ld a, [PlayerStandingTile]
 	ld de, SFX_ENTER_DOOR
 	cp COLL_DOOR
@@ -919,14 +832,9 @@ Script_warpsound: ; 971c7
 ; 971d1
 
 Script_cry: ; 971d1
-; script command 0x84
 ; parameters:
-;     cry_id (MultiByteParam)
-
+;     cry_id (SingleByteParam)
 	call GetScriptByte
-	push af
-	call GetScriptByte
-	pop af
 	and a
 	jr nz, .ok
 	ld a, [ScriptVar]
@@ -944,10 +852,8 @@ GetScriptPerson: ; 971e3
 ; 971ea
 
 Script_setlasttalked: ; 971ea
-; script command 0x68
 ; parameters:
 ;     person (SingleByteParam)
-
 	call GetScriptByte
 	call GetScriptPerson
 	ld [hLastTalked], a
@@ -955,11 +861,9 @@ Script_setlasttalked: ; 971ea
 ; 971f3
 
 Script_applymovement: ; 971f3
-; script command 0x69
 ; parameters:
 ;     person (SingleByteParam)
 ;     data (MovementPointerLabelParam)
-
 	call GetScriptByte
 	call GetScriptPerson
 	ld c, a
@@ -996,18 +900,14 @@ SetFlagsForMovement_2: ; 97221
 
 Script_applymovement2: ; 97228
 ; apply movement to last talked
-; script command 0x6a
 ; parameters:
 ;     data (MovementPointerLabelParam)
-
 	ld a, [hLastTalked]
 	ld c, a
 	jp ApplyMovement
 ; 9722e
 
 Script_faceplayer: ; 9722e
-; script command 0x6b
-
 	ld a, [hLastTalked]
 	and a
 	ret z
@@ -1025,11 +925,9 @@ Script_faceplayer: ; 9722e
 ; 97248
 
 Script_faceperson: ; 97248
-; script command 0x6c
 ; parameters:
 ;     person1 (SingleByteParam)
 ;     person2 (SingleByteParam)
-
 	call GetScriptByte
 	call GetScriptPerson
 	cp LAST_TALKED
@@ -1057,11 +955,9 @@ Script_faceperson: ; 97248
 ; 97274
 
 Script_spriteface: ; 97274
-; script command 0x76
 ; parameters:
 ;     person (SingleByteParam)
 ;     facing (SingleByteParam)
-
 	call GetScriptByte
 	call GetScriptPerson
 	cp LAST_TALKED
@@ -1123,11 +1019,9 @@ ApplyPersonFacing: ; 9728b
 ; 972ce
 
 Script_variablesprite: ; 972ce
-; script command 0x6d
 ; parameters:
 ;     byte (SingleByteParam)
 ;     sprite (SingleByteParam)
-
 	call GetScriptByte
 	ld e, a
 	ld d, $0
@@ -1139,10 +1033,8 @@ Script_variablesprite: ; 972ce
 ; 972dd
 
 Script_appear: ; 972dd
-; script command 0x6f
 ; parameters:
 ;     person (SingleByteParam)
-
 	call GetScriptByte
 	call GetScriptPerson
 	call _CopyObjectStruct
@@ -1152,10 +1044,8 @@ Script_appear: ; 972dd
 ; 972ee
 
 Script_disappear: ; 972ee
-; script command 0x6e
 ; parameters:
 ;     person (SingleByteParam)
-
 	call GetScriptByte
 	call GetScriptPerson
 	cp LAST_TALKED
@@ -1191,11 +1081,9 @@ ApplyEventActionAppearDisappear: ; 9730b
 ; 97325
 
 Script_follow: ; 97325
-; script command 0x70
 ; parameters:
 ;     person2 (SingleByteParam)
 ;     person1 (SingleByteParam)
-
 	call GetScriptByte
 	call GetScriptPerson
 	ld b, a
@@ -1207,19 +1095,15 @@ Script_follow: ; 97325
 ; 9733a
 
 Script_stopfollow: ; 9733a
-; script command 0x71
-
 	farcall StopFollow
 	ret
 ; 97341
 
 Script_moveperson: ; 97341
-; script command 0x72
 ; parameters:
 ;     person (SingleByteParam)
 ;     x (SingleByteParam)
 ;     y (SingleByteParam)
-
 	call GetScriptByte
 	call GetScriptPerson
 	ld b, a
@@ -1234,10 +1118,8 @@ Script_moveperson: ; 97341
 ; 9735b
 
 Script_writepersonxy: ; 9735b
-; script command 0x73
 ; parameters:
 ;     person (SingleByteParam)
-
 	call GetScriptByte
 	call GetScriptPerson
 	cp LAST_TALKED
@@ -1250,11 +1132,9 @@ Script_writepersonxy: ; 9735b
 ; 9736f
 
 Script_follownotexact: ; 9736f
-; script command 0x77
 ; parameters:
 ;     person2 (SingleByteParam)
 ;     person1 (SingleByteParam)
-
 	call GetScriptByte
 	call GetScriptPerson
 	ld b, a
@@ -1266,10 +1146,8 @@ Script_follownotexact: ; 9736f
 ; 97384
 
 Script_loademote: ; 97384
-; script command 0x74
 ; parameters:
 ;     bubble (SingleByteParam)
-
 	call GetScriptByte
 	cp -1
 	jr nz, .not_var_emote
@@ -1281,12 +1159,10 @@ Script_loademote: ; 97384
 ; 97396
 
 Script_showemote: ; 97396
-; script command 0x75
 ; parameters:
 ;     bubble (SingleByteParam)
 ;     person (SingleByteParam)
 ;     time (DecimalParam)
-
 	call GetScriptByte
 	ld [ScriptVar], a
 	call GetScriptByte
@@ -1322,10 +1198,8 @@ ShowEmoteScript: ; 973b6
 
 
 Script_earthquake: ; 973c7
-; script command 0x78
 ; parameters:
 ;     param (DecimalParam)
-
 	ld hl, EarthquakeMovement
 	ld de, wd002
 	ld bc, EarthquakeMovementEnd - EarthquakeMovement
@@ -1353,16 +1227,12 @@ EarthquakeMovementEnd
 
 
 Script_randomwildmon: ; 973fb
-; script command 0x5b
-
 	xor a
 	ld [wBattleScriptFlags], a
 	ret
 ; 97400
 
 Script_loadmemtrainer: ; 97400
-; script command 0x5c
-
 	ld a, (1 << 7) | 1
 	ld [wBattleScriptFlags], a
 	ld a, [wTempTrainerClass]
@@ -1373,11 +1243,9 @@ Script_loadmemtrainer: ; 97400
 ; 97412
 
 Script_loadwildmon: ; 97412
-; script command 0x5d
 ; parameters:
 ;     pokemon (PokemonParam)
 ;     level (DecimalParam)
-
 	ld a, (1 << 7)
 	ld [wBattleScriptFlags], a
 	call GetScriptByte
@@ -1388,11 +1256,9 @@ Script_loadwildmon: ; 97412
 ; 97424
 
 Script_loadtrainer: ; 97424
-; script command 0x5e
 ; parameters:
 ;     trainer_group (TrainerGroupParam)
 ;     trainer_id (TrainerIdParam)
-
 	ld a, (1 << 7) | 1
 	ld [wBattleScriptFlags], a
 	call GetScriptByte
@@ -1403,8 +1269,6 @@ Script_loadtrainer: ; 97424
 ; 97436
 
 Script_startbattle: ; 97436
-; script command 0x5f
-
 	call BufferScreen
 	predef StartBattle
 	ld a, [wBattleResult]
@@ -1414,8 +1278,6 @@ Script_startbattle: ; 97436
 ; 97447
 
 Script_reloadmapafterbattle: ; 97459
-; script command 0x60
-
 	ld hl, wBattleScriptFlags
 	ld d, [hl]
 	ld [hl], $0
@@ -1441,8 +1303,6 @@ Script_reloadmapafterbattle: ; 97459
 ; 97491
 
 Script_reloadmap: ; 97491
-; script command 0x7b
-
 	xor a
 	ld [wBattleScriptFlags], a
 	ld a, MAPSETUP_RELOADMAP
@@ -1453,10 +1313,8 @@ Script_reloadmap: ; 97491
 ; 974a2
 
 Script_scall: ; 974a2
-; script command 0x0
 ; parameters:
 ;     pointer (ScriptPointerLabelParam)
-
 	ld a, [ScriptBank]
 	ld b, a
 	call GetScriptByte
@@ -1467,10 +1325,8 @@ Script_scall: ; 974a2
 ; 974b0
 
 Script_farscall: ; 974b0
-; script command 0x1
 ; parameters:
 ;     pointer (ScriptPointerLabelBeforeBank)
-
 	call GetScriptByte
 	ld b, a
 	call GetScriptByte
@@ -1481,10 +1337,8 @@ Script_farscall: ; 974b0
 ; 974be
 
 Script_ptcall: ; 974be
-; script command 0x2
 ; parameters:
 ;     pointer (PointerLabelToScriptPointer)
-
 	call GetScriptByte
 	ld l, a
 	call GetScriptByte
@@ -1536,10 +1390,8 @@ CallCallback:: ; 974f3
 ; 974fe
 
 Script_jump: ; 974fe
-; script command 0x3
 ; parameters:
 ;     pointer (ScriptPointerLabelParam)
-
 	call GetScriptByte
 	ld l, a
 	call GetScriptByte
@@ -1550,10 +1402,8 @@ Script_jump: ; 974fe
 ; 9750d
 
 Script_farjump: ; 9750d
-; script command 0x4
 ; parameters:
 ;     pointer (ScriptPointerLabelBeforeBank)
-
 	call GetScriptByte
 	ld b, a
 	call GetScriptByte
@@ -1564,10 +1414,8 @@ Script_farjump: ; 9750d
 ; 9751c
 
 Script_ptjump: ; 9751c
-; script command 0x5
 ; parameters:
 ;     pointer (PointerLabelToScriptPointer)
-
 	call GetScriptByte
 	ld l, a
 	call GetScriptByte
@@ -1581,10 +1429,8 @@ Script_ptjump: ; 9751c
 ; 9752c
 
 Script_iffalse: ; 9752c
-; script command 0x8
 ; parameters:
 ;     pointer (ScriptPointerLabelParam)
-
 	ld a, [ScriptVar]
 	and a
 	jp nz, SkipTwoScriptBytes
@@ -1592,10 +1438,8 @@ Script_iffalse: ; 9752c
 ; 97536
 
 Script_iftrue: ; 97536
-; script command 0x9
 ; parameters:
 ;     pointer (ScriptPointerLabelParam)
-
 	ld a, [ScriptVar]
 	and a
 	jp nz, Script_jump
@@ -1603,11 +1447,9 @@ Script_iftrue: ; 97536
 ; 97540
 
 Script_if_equal: ; 97540
-; script command 0x6
 ; parameters:
 ;     byte (SingleByteParam)
 ;     pointer (ScriptPointerLabelParam)
-
 	call GetScriptByte
 	ld hl, ScriptVar
 	cp [hl]
@@ -1616,11 +1458,9 @@ Script_if_equal: ; 97540
 ; 9754b
 
 Script_if_not_equal: ; 9754b
-; script command 0x7
 ; parameters:
 ;     byte (SingleByteParam)
 ;     pointer (ScriptPointerLabelParam)
-
 	call GetScriptByte
 	ld hl, ScriptVar
 	cp [hl]
@@ -1629,11 +1469,9 @@ Script_if_not_equal: ; 9754b
 ; 97556
 
 Script_if_greater_than: ; 97556
-; script command 0xa
 ; parameters:
 ;     byte (SingleByteParam)
 ;     pointer (ScriptPointerLabelParam)
-
 	ld a, [ScriptVar]
 	ld b, a
 	call GetScriptByte
@@ -1643,11 +1481,9 @@ Script_if_greater_than: ; 97556
 ; 97562
 
 Script_if_less_than: ; 97562
-; script command 0xb
 ; parameters:
 ;     byte (SingleByteParam)
 ;     pointer (ScriptPointerLabelParam)
-
 	call GetScriptByte
 	ld b, a
 	ld a, [ScriptVar]
@@ -1657,19 +1493,15 @@ Script_if_less_than: ; 97562
 ; 9756e
 
 Script_jumpstd: ; 9756e
-; script command 0xc
 ; parameters:
-;     predefined_script (MultiByteParam)
-
+;     predefined_script (SingleByteParam)
 	call StdScript
 	jr ScriptJump
 ; 97573
 
 Script_callstd: ; 97573
-; script command 0xd
 ; parameters:
-;     predefined_script (MultiByteParam)
-
+;     predefined_script (SingleByteParam)
 	call StdScript
 	ld d, h
 	ld e, l
@@ -1679,8 +1511,7 @@ Script_callstd: ; 97573
 StdScript: ; 9757b
 	call GetScriptByte
 	ld e, a
-	call GetScriptByte
-	ld d, a
+	ld d, 0
 	ld hl, StdScripts
 	add hl, de
 	add hl, de
@@ -1709,10 +1540,8 @@ ScriptJump: ; 9759d
 ; 975aa
 
 Script_priorityjump: ; 975aa
-; script command 0x8d
 ; parameters:
 ;     pointer (ScriptPointerLabelParam)
-
 	ld a, [ScriptBank]
 	ld [wPriorityScriptBank], a
 	call GetScriptByte
@@ -1725,8 +1554,6 @@ Script_priorityjump: ; 975aa
 ; 975c2
 
 Script_checktriggers: ; 975c2
-; script command 0x13
-
 	call CheckTriggers
 	jr z, .no_triggers
 	ld [ScriptVar], a
@@ -1739,11 +1566,9 @@ Script_checktriggers: ; 975c2
 ; 975d1
 
 Script_checkmaptriggers: ; 975d1
-; script command 0x11
 ; parameters:
 ;     map_group (SingleByteParam)
 ;     map_id (SingleByteParam)
-
 	call GetScriptByte
 	ld b, a
 	call GetScriptByte
@@ -1763,10 +1588,8 @@ Script_checkmaptriggers: ; 975d1
 ; 975eb
 
 Script_dotrigger: ; 975eb
-; script command 0x14
 ; parameters:
 ;     trigger_id (SingleByteParam)
-
 	ld a, [MapGroup]
 	ld b, a
 	ld a, [MapNumber]
@@ -1775,12 +1598,10 @@ Script_dotrigger: ; 975eb
 ; 975f5
 
 Script_domaptrigger: ; 975f5
-; script command 0x12
 ; parameters:
 ;     map_group (MapGroupParam)
 ;     map_id (MapIdParam)
 ;     trigger_id (SingleByteParam)
-
 	call GetScriptByte
 	ld b, a
 	call GetScriptByte
@@ -1797,10 +1618,8 @@ DoTrigger: ; 975fd
 ; 97609
 
 Script_copybytetovar: ; 97609
-; script command 0x19
 ; parameters:
 ;     address (RAMAddressParam)
-
 	call GetScriptByte
 	ld l, a
 	call GetScriptByte
@@ -1811,10 +1630,8 @@ Script_copybytetovar: ; 97609
 ; 97616
 
 Script_copyvartobyte: ; 97616
-; script command 0x1a
 ; parameters:
 ;     address (RAMAddressParam)
-
 	call GetScriptByte
 	ld l, a
 	call GetScriptByte
@@ -1825,11 +1642,9 @@ Script_copyvartobyte: ; 97616
 ; 97623
 
 Script_loadvar: ; 97623
-; script command 0x1b
 ; parameters:
 ;     address (RAMAddressParam)
 ;     value (SingleByteParam)
-
 	call GetScriptByte
 	ld l, a
 	call GetScriptByte
@@ -1840,20 +1655,16 @@ Script_loadvar: ; 97623
 ; 97630
 
 Script_writebyte: ; 97630
-; script command 0x15
 ; parameters:
 ;     value (SingleByteParam)
-
 	call GetScriptByte
 	ld [ScriptVar], a
 	ret
 ; 97637
 
 Script_addvar: ; 97637
-; script command 0x16
 ; parameters:
 ;     value (SingleByteParam)
-
 	call GetScriptByte
 	ld hl, ScriptVar
 	add [hl]
@@ -1862,10 +1673,8 @@ Script_addvar: ; 97637
 ; 97640
 
 Script_random: ; 97640
-; script command 0x17
 ; parameters:
 ;     input (SingleByteParam)
-
 	call GetScriptByte
 	ld [ScriptVar], a
 	and a
@@ -1918,10 +1727,8 @@ Script_random: ; 97640
 ; 9767d
 
 Script_checkcode: ; 9767d
-; script command 0x1c
 ; parameters:
 ;     variable_id (SingleByteParam)
-
 	call GetScriptByte
 	call GetVarAction
 	ld a, [de]
@@ -1930,10 +1737,8 @@ Script_checkcode: ; 9767d
 ; 97688
 
 Script_writevarcode: ; 97688
-; script command 0x1d
 ; parameters:
 ;     variable_id (SingleByteParam)
-
 	call GetScriptByte
 	call GetVarAction
 	ld a, [ScriptVar]
@@ -1942,11 +1747,9 @@ Script_writevarcode: ; 97688
 ; 97693
 
 Script_writecode: ; 97693
-; script command 0x1e
 ; parameters:
 ;     variable_id (SingleByteParam)
 ;     value (SingleByteParam)
-
 	call GetScriptByte
 	call GetVarAction
 	call GetScriptByte
@@ -1961,11 +1764,9 @@ GetVarAction: ; 9769e
 ; 976a6
 
 Script_pokenamemem: ; 976ae
-; script command 0x40
 ; parameters:
 ;     pokemon (PokemonParam); leave $0 to draw from script var
 ;     memory (SingleByteParam)
-
 	call GetScriptByte
 	and a
 	jr nz, .gotit
@@ -1990,11 +1791,9 @@ CopyConvertedText: ; 976c8
 ; 976d5
 
 Script_itemtotext: ; 976d5
-; script command 0x41
 ; parameters:
 ;     item (ItemLabelByte); use 0 to draw from ScriptVar
 ;     memory (SingleByteParam)
-
 	call GetScriptByte
 	and a
 	jr nz, .ok
@@ -2007,10 +1806,8 @@ Script_itemtotext: ; 976d5
 ; 976e9
 
 Script_mapnametotext: ; 976e9
-; script command 0x42
 ; parameters:
 ;     memory (SingleByteParam)
-
 	ld a, [MapGroup]
 	ld b, a
 	ld a, [MapNumber]
@@ -2025,22 +1822,18 @@ ConvertLandmarkToText: ; 976f4
 ; 97701
 
 Script_landmarktotext: ; 97701
-; script command 0xa5
 ; parameters:
 ;     id (SingleByteParam)
 ;     memory (SingleByteParam)
-
 	call GetScriptByte
 	jr ConvertLandmarkToText
 ; 97706
 
 Script_trainertotext: ; 97706
-; script command 0x43
 ; parameters:
 ;     trainer_id (TrainerGroupParam)
 ;     trainer_group (TrainerIdParam)
 ;     memory (SingleByteParam)
-
 	call GetScriptByte
 	ld c, a
 	call GetScriptByte
@@ -2050,12 +1843,10 @@ Script_trainertotext: ; 97706
 ; 97716
 
 Script_name: ; 97716
-; script command 0xa7
 ; parameters:
 ;     type (SingleByteParam)
 ;     id (SingleByteParam)
 ;     memory (SingleByteParam)
-
 	call GetScriptByte
 	ld [wNamedObjectTypeBuffer], a
 
@@ -2068,22 +1859,18 @@ ContinueToGetName: ; 9771c
 ; 9772b
 
 Script_trainerclassname: ; 9772b
-; script command 0xa6
 ; parameters:
 ;     id (SingleByteParam)
 ;     memory (SingleByteParam)
-
 	ld a, TRAINER_NAME
 	ld [wNamedObjectTypeBuffer], a
 	jr ContinueToGetName
 ; 97732
 
 Script_readmoney: ; 97732
-; script command 0x3d
 ; parameters:
 ;     account (SingleByteParam)
 ;     memory (SingleByteParam)
-
 	call ResetStringBuffer1
 	call GetMoneyAccount
 	ld hl, StringBuffer1
@@ -2094,10 +1881,8 @@ Script_readmoney: ; 97732
 ; 97747
 
 Script_readcoins: ; 97747
-; script command 0x3e
 ; parameters:
 ;     memory (SingleByteParam)
-
 	call ResetStringBuffer1
 	ld hl, StringBuffer1
 	ld de, Coins
@@ -2108,10 +1893,8 @@ Script_readcoins: ; 97747
 ; 9775c
 
 Script_RAM2MEM: ; 9775c
-; script command 0x3f
 ; parameters:
 ;     memory (SingleByteParam)
-
 	call ResetStringBuffer1
 	ld de, ScriptVar
 	ld hl, StringBuffer1
@@ -2129,11 +1912,9 @@ ResetStringBuffer1: ; 97771
 ; 9777d
 
 Script_stringtotext: ; 9777d
-; script command 0x44
 ; parameters:
 ;     text_pointer (EncodedTextLabelParam)
 ;     memory (SingleByteParam)
-
 	call GetScriptByte
 	ld e, a
 	call GetScriptByte
@@ -2146,10 +1927,8 @@ Script_stringtotext: ; 9777d
 ; 97792
 
 Script_givepokeitem: ; 97792
-; script command 0x2f
 ; parameters:
 ;     pointer (PointerParamToItemAndLetter)
-
 	call GetScriptByte
 	ld l, a
 	call GetScriptByte
@@ -2169,10 +1948,8 @@ Script_givepokeitem: ; 97792
 ; 977b7
 
 Script_checkpokeitem: ; 977b7
-; script command 0x30
 ; parameters:
 ;     pointer (PointerParamToItemAndLetter)
-
 	call GetScriptByte
 	ld e, a
 	call GetScriptByte
@@ -2184,11 +1961,9 @@ Script_checkpokeitem: ; 977b7
 ; 977ca
 
 Script_giveitem: ; 977ca
-; script command 0x1f
 ; parameters:
 ;     item (ItemLabelByte)
 ;     quantity (SingleByteParam)
-
 	call GetScriptByte
 	cp ITEM_FROM_MEM
 	jr nz, .ok
@@ -2210,11 +1985,9 @@ Script_giveitem: ; 977ca
 ; 977f0
 
 Script_takeitem: ; 977f0
-; script command 0x20
 ; parameters:
 ;     item (ItemLabelByte)
 ;     quantity (DecimalParam)
-
 	xor a
 	ld [ScriptVar], a
 	call GetScriptByte
@@ -2232,10 +2005,8 @@ Script_takeitem: ; 977f0
 ; 97812
 
 Script_checkitem: ; 97812
-; script command 0x21
 ; parameters:
 ;     item (ItemLabelByte)
-
 	xor a
 	ld [ScriptVar], a
 	call GetScriptByte
@@ -2249,11 +2020,9 @@ Script_checkitem: ; 97812
 ; 97829
 
 Script_givemoney: ; 97829
-; script command 0x22
 ; parameters:
 ;     account (SingleByteParam)
 ;     money (MoneyByteParam)
-
 	call GetMoneyAccount
 	call LoadMoneyAmountToMem
 	farcall GiveMoney
@@ -2261,11 +2030,9 @@ Script_givemoney: ; 97829
 ; 97836
 
 Script_takemoney: ; 97836
-; script command 0x23
 ; parameters:
 ;     account (SingleByteParam)
 ;     money (MoneyByteParam)
-
 	call GetMoneyAccount
 	call LoadMoneyAmountToMem
 	farcall TakeMoney
@@ -2273,11 +2040,9 @@ Script_takemoney: ; 97836
 ; 97843
 
 Script_checkmoney: ; 97843
-; script command 0x24
 ; parameters:
 ;     account (SingleByteParam)
 ;     money (MoneyByteParam)
-
 	call GetMoneyAccount
 	call LoadMoneyAmountToMem
 	farcall CompareMoney
@@ -2323,30 +2088,24 @@ LoadMoneyAmountToMem: ; 9786d
 ; 97881
 
 Script_givecoins: ; 97881
-; script command 0x25
 ; parameters:
 ;     coins (CoinByteParam)
-
 	call LoadCoinAmountToMem
 	farcall GiveCoins
 	ret
 ; 9788b
 
 Script_takecoins: ; 9788b
-; script command 0x26
 ; parameters:
 ;     coins (CoinByteParam)
-
 	call LoadCoinAmountToMem
 	farcall TakeCoins
 	ret
 ; 97895
 
 Script_checkcoins: ; 97895
-; script command 0x27
 ; parameters:
 ;     coins (CoinByteParam)
-
 	call LoadCoinAmountToMem
 	farcall CheckCoins
 	jr CompareMoneyAction
@@ -2362,10 +2121,8 @@ LoadCoinAmountToMem: ; 978a0
 ; 978ae
 
 Script_checktime: ; 978ae
-; script command 0x2b
 ; parameters:
 ;     time (SingleByteParam)
-
 	xor a
 	ld [ScriptVar], a
 	farcall CheckTime
@@ -2378,10 +2135,8 @@ Script_checktime: ; 978ae
 ; 978c3
 
 Script_checkpoke: ; 978c3
-; script command 0x2c
 ; parameters:
 ;     pkmn (PokemonParam)
-
 	xor a
 	ld [ScriptVar], a
 	call GetScriptByte
@@ -2395,7 +2150,6 @@ Script_checkpoke: ; 978c3
 ; 978da
 
 Script_givepoke: ; 97932
-; script command 0x2d
 ; parameters:
 ;     pokemon (PokemonParam)
 ;     level (DecimalParam)
@@ -2403,7 +2157,6 @@ Script_givepoke: ; 97932
 ;     trainer (DecimalParam)
 ;     trainer_name_pointer (MultiByteParam)
 ;     pkmn_nickname (MultiByteParam)
-
 	call GetScriptByte
 	ld [CurPartySpecies], a
 	call GetScriptByte
@@ -2430,12 +2183,10 @@ Script_givepoke: ; 97932
 ; 97968
 
 Script_giveegg: ; 97968
-; script command 0x2e
 ; parameters:
 ;     pkmn (PokemonParam)
 ;     level (DecimalParam)
 ; if no room in the party, return 0 in ScriptVar; else, return 2
-
 	xor a ; PARTYMON
 	ld [ScriptVar], a
 	ld [MonType], a
@@ -2451,10 +2202,8 @@ Script_giveegg: ; 97968
 ; 97988
 
 Script_setevent: ; 97988
-; script command 0x33
 ; parameters:
 ;     bit_number (MultiByteParam)
-
 	call GetScriptByte
 	ld e, a
 	call GetScriptByte
@@ -2464,10 +2213,8 @@ Script_setevent: ; 97988
 ; 97996
 
 Script_clearevent: ; 97996
-; script command 0x32
 ; parameters:
 ;     bit_number (MultiByteParam)
-
 	call GetScriptByte
 	ld e, a
 	call GetScriptByte
@@ -2477,10 +2224,8 @@ Script_clearevent: ; 97996
 ; 979a4
 
 Script_checkevent: ; 979a4
-; script command 0x31
 ; parameters:
 ;     bit_number (MultiByteParam)
-
 	call GetScriptByte
 	ld e, a
 	call GetScriptByte
@@ -2497,10 +2242,8 @@ Script_checkevent: ; 979a4
 ; 979bb
 
 Script_setflag: ; 979bb
-; script command 0x36
 ; parameters:
 ;     bit_number (MultiByteParam)
-
 	call GetScriptByte
 	ld e, a
 	call GetScriptByte
@@ -2510,10 +2253,8 @@ Script_setflag: ; 979bb
 ; 979c9
 
 Script_clearflag: ; 979c9
-; script command 0x35
 ; parameters:
 ;     bit_number (MultiByteParam)
-
 	call GetScriptByte
 	ld e, a
 	call GetScriptByte
@@ -2523,10 +2264,8 @@ Script_clearflag: ; 979c9
 ; 979d7
 
 Script_checkflag: ; 979d7
-; script command 0x34
 ; parameters:
 ;     bit_number (MultiByteParam)
-
 	call GetScriptByte
 	ld e, a
 	call GetScriptByte
@@ -2548,42 +2287,24 @@ _EngineFlagAction: ; 979ee
 ; 979f5
 
 Script_wildoff: ; 979f5
-; script command 0x38
-
 	ld hl, StatusFlags
 	set 5, [hl]
 	ret
 ; 979fb
 
 Script_wildon: ; 979fb
-; script command 0x37
-
 	ld hl, StatusFlags
 	res 5, [hl]
 	ret
 ; 97a01
 
-Script_xycompare: ; 97a01
-; script command 0x39
-; parameters:
-;     pointer (MultiByteParam)
-
-	call GetScriptByte
-	ld [wXYComparePointer], a
-	call GetScriptByte
-	ld [wXYComparePointer + 1], a
-	ret
-; 97a0e
-
 Script_warpfacing: ; 97a0e
-; script command 0xa3
 ; parameters:
 ;     facing (SingleByteParam)
 ;     map_group (MapGroupParam)
 ;     map_id (MapIdParam)
 ;     x (SingleByteParam)
 ;     y (SingleByteParam)
-
 	call GetScriptByte
 	and $3
 	ld c, a
@@ -2594,13 +2315,11 @@ Script_warpfacing: ; 97a0e
 ; fall through
 
 Script_warp: ; 97a1d
-; script command 0x3c
 ; parameters:
 ;     map_group (MapGroupParam)
 ;     map_id (MapIdParam)
 ;     x (SingleByteParam)
 ;     y (SingleByteParam)
-
 ; This seems to be some sort of error handling case.
 	call GetScriptByte
 	and a
@@ -2634,12 +2353,10 @@ Script_warp: ; 97a1d
 ; 97a65
 
 Script_warpmod: ; 97a65
-; script command 0x3a
 ; parameters:
 ;     warp_id (SingleByteParam)
 ;     map_group (MapGroupParam)
 ;     map_id (MapIdParam)
-
 	call GetScriptByte
 	ld [BackupWarpNumber], a
 	call GetScriptByte
@@ -2650,11 +2367,9 @@ Script_warpmod: ; 97a65
 ; 97a78
 
 Script_blackoutmod: ; 97a78
-; script command 0x3b
 ; parameters:
 ;     map_group (MapGroupParam)
 ;     map_id (MapIdParam)
-
 	call GetScriptByte
 	ld [wLastSpawnMapGroup], a
 	call GetScriptByte
@@ -2663,18 +2378,14 @@ Script_blackoutmod: ; 97a78
 ; 97a85
 
 Script_dontrestartmapmusic: ; 97a85
-; script command 0x83
-
 	ld a, 1
 	ld [wDontPlayMapMusicOnReload], a
 	ret
 ; 97a8b
 
 Script_writecmdqueue: ; 97a8b
-; script command 0x7d
 ; parameters:
 ;     queue_pointer (MultiByteParam)
-
 	call GetScriptByte
 	ld e, a
 	call GetScriptByte
@@ -2686,10 +2397,8 @@ Script_writecmdqueue: ; 97a8b
 ; 97a9e
 
 Script_delcmdqueue: ; 97a9e
-; script command 0x7e
 ; parameters:
 ;     byte (SingleByteParam)
-
 	xor a
 	ld [ScriptVar], a
 	call GetScriptByte
@@ -2702,10 +2411,8 @@ Script_delcmdqueue: ; 97a9e
 ; 97ab3
 
 Script_changemap: ; 97ab3
-; script command 0x79
 ; parameters:
 ;     map_data_pointer (MapDataPointerParam)
-
 	call GetScriptByte
 	ld [MapBlockDataBank], a
 	call GetScriptByte
@@ -2717,12 +2424,10 @@ Script_changemap: ; 97ab3
 ; 97acc
 
 Script_changeblock: ; 97acc
-; script command 0x7a
 ; parameters:
 ;     x (SingleByteParam)
 ;     y (SingleByteParam)
 ;     block (SingleByteParam)
-
 	call GetScriptByte
 	add 4
 	ld d, a
@@ -2736,8 +2441,6 @@ Script_changeblock: ; 97acc
 ; 97ae3
 
 Script_reloadmappart:: ; 97ae3
-; script command 0x7c
-
 	xor a
 	ld [hBGMapMode], a
 	call OverworldTextModeSwitch
@@ -2747,8 +2450,6 @@ Script_reloadmappart:: ; 97ae3
 ; 97af6
 
 Script_warpcheck: ; 97af6
-; script command 0x8e
-
 	call WarpCheck
 	ret nc
 	farcall EnableEvents
@@ -2756,10 +2457,8 @@ Script_warpcheck: ; 97af6
 ; 97b01
 
 Script_newloadmap: ; 97b08
-; script command 0x8a
 ; parameters:
 ;     which_method (SingleByteParam)
-
 	call GetScriptByte
 	ld [hMapEntryMethod], a
 	ld a, 1
@@ -2768,37 +2467,27 @@ Script_newloadmap: ; 97b08
 ; 97b16
 
 Script_reloadandreturn: ; 97b16
-; script command 0x92
-
 	call Script_newloadmap
 	jp Script_end
 ; 97b1c
 
 Script_textbox: ; 97b1c
-; script command 0x47
-
 	jp OpenText
 ; 97b20
 
 Script_refreshscreen: ; 97b20
-; script command 0x48
-
 	jp RefreshScreen
 ; 97b27
 
 Script_closetext: ; 97b2f
-; script command 0x49
-
 	call _OpenAndCloseMenu_HDMATransferTileMapAndAttrMap
 	jp CloseText
 ; 97b36
 
 
 Script_passtoengine: ; 97b36
-; script command 0x89
 ; parameters:
 ;     data_pointer (PointerLabelBeforeBank)
-
 	call GetScriptByte
 	push af
 	call GetScriptByte
@@ -2810,10 +2499,8 @@ Script_passtoengine: ; 97b36
 ; 97b47
 
 Script_pause: ; 97b47
-; script command 0x8b
 ; parameters:
 ;     length (DecimalParam)
-
 	call GetScriptByte
 	and a
 	jr z, .loop
@@ -2828,10 +2515,8 @@ Script_pause: ; 97b47
 ; 97b5c
 
 Script_deactivatefacing: ; 97b5c
-; script command 0x8c
 ; parameters:
 ;     time (SingleByteParam)
-
 	call GetScriptByte
 	and a
 	jr z, .no_time
@@ -2843,17 +2528,13 @@ Script_deactivatefacing: ; 97b5c
 ; 97b6e
 
 Script_ptpriorityjump: ; 97b6e
-; script command 0x8f
 ; parameters:
 ;     pointer (ScriptPointerLabelParam)
-
 	call StopScript
 	jp Script_jump
 ; 97b74
 
 Script_end: ; 97b74
-; script command 0x91
-
 	call ExitScriptSubroutine
 	jr c, .resume
 	ret
@@ -2869,8 +2550,6 @@ Script_end: ; 97b74
 ; 97b8c
 
 Script_return: ; 97b8c
-; script command 0x90
-
 	call ExitScriptSubroutine
 	ld hl, ScriptFlags
 	res 0, [hl]
@@ -2909,8 +2588,6 @@ ExitScriptSubroutine: ; 97b9a
 ; 97bc0
 
 Script_end_all: ; 97bc0
-; script command 0x93
-
 	xor a
 	ld [wScriptStackSize], a
 	ld [ScriptRunning], a
@@ -2922,8 +2599,6 @@ Script_end_all: ; 97bc0
 ; 97bd5
 
 Script_halloffame: ; 97bd5
-; script command 0xa1
-
 	ld hl, GameTimerPause
 	res 0, [hl]
 	farcall HallOfFame
@@ -2933,8 +2608,6 @@ Script_halloffame: ; 97bd5
 ; 97bf3
 
 Script_credits: ; 97bf3
-; script command 0xa2
-
 	farcall RedCredits
 ReturnFromCredits:
 	call Script_end_all
@@ -2944,10 +2617,8 @@ ReturnFromCredits:
 ; 97c051
 
 Script_wait: ; 97c05
-; script command 0xa8
 ; parameters:
 ;     unknown (SingleByteParam)
-
 	push bc
 	call GetScriptByte
 .loop
@@ -2962,8 +2633,6 @@ Script_wait: ; 97c05
 ; 97c15
 
 Script_check_save: ; 97c15
-; script command 0xa9
-
 	farcall CheckSave
 	ld a, c
 	ld [ScriptVar], a

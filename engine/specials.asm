@@ -119,7 +119,6 @@ SpecialsPointers:: ; c029
 
 Special_SetPlayerPalette: ; c225
 	ld a, [ScriptVar]
-	ld d, a
 	farcall SetPlayerPalette
 	ret
 ; c230
