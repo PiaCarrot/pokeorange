@@ -16,13 +16,6 @@ endm
 	sprite_movement_data SPRITEMOVEFN_STANDING,              RIGHT,  PERSON_ACTION_STAND,    $00,    $00,    %0000 ; 09
 	sprite_movement_data SPRITEMOVEFN_FAST_RANDOM_SPIN,      DOWN,   PERSON_ACTION_STAND,    $00,    $00,    %0000 ; 0a
 	sprite_movement_data SPRITEMOVEFN_OBEY_DPAD,             DOWN,   PERSON_ACTION_STAND,    $02,    $00,    %0000 ; 0b
-	sprite_movement_data SPRITEMOVEFN_08,                    DOWN,   PERSON_ACTION_STAND,    $00,    $00,    %0000 ; 0c
-	sprite_movement_data SPRITEMOVEFN_09,                    DOWN,   PERSON_ACTION_STAND,    $00,    $00,    %0000 ; 0d
-	sprite_movement_data SPRITEMOVEFN_0A,                    DOWN,   PERSON_ACTION_STAND,    $00,    $00,    %0000 ; 0e
-	sprite_movement_data SPRITEMOVEFN_0B,                    DOWN,   PERSON_ACTION_STAND,    $00,    $00,    %0000 ; 0f
-	sprite_movement_data SPRITEMOVEFN_0C,                    DOWN,   PERSON_ACTION_STAND,    $00,    $00,    %0000 ; 10
-	sprite_movement_data SPRITEMOVEFN_0D,                    DOWN,   PERSON_ACTION_STAND,    $00,    $00,    %0000 ; 11
-	sprite_movement_data SPRITEMOVEFN_0E,                    DOWN,   PERSON_ACTION_STAND,    $00,    $00,    %0000 ; 12
 	sprite_movement_data SPRITEMOVEFN_FOLLOW,                DOWN,   PERSON_ACTION_STAND,    $02,    $00,    %0000 ; 13
 	sprite_movement_data SPRITEMOVEFN_SCRIPTED,              DOWN,   PERSON_ACTION_STAND,    $02,    $00,    %0000 ; 14
 	sprite_movement_data SPRITEMOVEFN_BIG_SNORLAX,           DOWN,   PERSON_ACTION_09,       $2e,    $01,    %1100 ; 15

@@ -509,13 +509,6 @@ MapObjectMovementPattern: ; 47dd
 	dw .RandomSpin2 ; 05
 	dw .Standing ; 06
 	dw .ObeyDPad ; 07
-	dw .Movement08 ; 08
-	dw .Movement09 ; 09
-	dw .Movement0a ; 0a
-	dw .Movement0b ; 0b
-	dw .Movement0c ; 0c
-	dw .Movement0d ; 0d
-	dw .Movement0e ; 0e
 	dw .Follow ; 0f
 	dw .Script ; 10
 	dw .Strength ; 11
@@ -589,30 +582,6 @@ MapObjectMovementPattern: ; 47dd
 .ObeyDPad:
 	ld hl, Function5000
 	jp HandleMovementData
-
-.Movement08:
-	ld hl, Function5015
-	jp HandleMovementData
-
-.Movement09:
-	ld hl, Function5026
-	jp HandleMovementData
-
-.Movement0a:
-	jp _GetMovementPerson
-
-.Movement0b:
-	jp _GetMovementPerson
-
-.Movement0c:
-	jp _GetMovementPerson
-
-.Movement0d:
-	ld hl, Function5000
-	jp HandleMovementData
-
-.Movement0e:
-	jp _GetMovementPerson
 
 .Follow:
 	ld hl, GetFollowerNextMovementByte
@@ -973,7 +942,7 @@ MapObjectMovementPattern: ; 47dd
 	ld [hl], a
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
-	ld [hl], STEP_TYPE_15
+	ld [hl], STEP_TYPE_14
 	ret
 
 ._MovementScreenShake:
@@ -1069,11 +1038,7 @@ StepTypesJumptable: ; 4b45
 	dw ReturnDigStep ; 12
 	dw StepTypeTrackingObject ; 13
 	dw StepType14 ; 14
-	dw StepType15 ; 15
-	dw StepType16 ; 16
-	dw StepType17 ; 17
-	dw StepType18 ; 18
-	dw SkyfallTop ; 19
+	dw SkyfallTop ; 15
 ; 4b79
 
 WaitStep_InPlace: ; 4b79
@@ -1471,17 +1436,6 @@ StepType03: ; 4ddd
 	ret
 ; 4df0
 
-StepType18: ; 4df0
-	ld hl, OBJECT_DIRECTION_WALKING
-	add hl, bc
-	ld [hl], STANDING
-	ld hl, OBJECT_STEP_DURATION
-	add hl, bc
-	dec [hl]
-	ret nz
-	jp DeleteMapObject
-; 4dff
-
 StepTypeBump: ; 4dff
 	ld hl, OBJECT_STEP_DURATION
 	add hl, bc
@@ -1683,7 +1637,6 @@ StepTypeTrackingObject: ; 4f04
 ; 4f33
 
 StepType14: ; 4f33
-StepType15: ; 4f33
 	call Object28AnonymousJumptable
 ; anonymous dw
 	dw .Init
@@ -1730,18 +1683,6 @@ StepType15: ; 4f33
 	inc a
 	ret
 ; 4f77
-
-StepType16: ; 4f77
-	call Object28AnonymousJumptable ; ????
-; 4f7a
-StepType17: ; 4f7a
-	call Object28AnonymousJumptable
-; anonymous dw
-	dw .null
-	dw .null
-	dw .null
-.null
-; 4f83
 
 SkyfallTop: ; 4f83
 	call Object28AnonymousJumptable
@@ -1814,36 +1755,6 @@ GetMovementByte:
 	ld hl, wMovementDataPointer
 	jp _GetMovementByte
 ; 5015
-
-Function5015: ; 5015
-	ld hl, OBJECT_MOVEMENT_BYTE_INDEX
-	add hl, bc
-	ld e, [hl]
-	inc [hl]
-	ld d, 0
-	ld hl, wc2e2
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	add hl, de
-	ld a, [hl]
-	ret
-; 5026
-
-Function5026: ; 5026
-	ld hl, OBJECT_MOVEMENT_BYTE_INDEX
-	add hl, bc
-	ld e, [hl]
-	inc [hl]
-	ld d, 0
-	ld hl, wc2e6
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	add hl, de
-	ld a, [hl]
-	ret
-; 5037
 
 _GetMovementPerson: ; 5037
 	ld hl, GetMovementPerson
