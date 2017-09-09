@@ -709,7 +709,7 @@ MapObjectMovementPattern: ; 47dd
 	ld [hl], STANDING
 	ld hl, OBJECT_ACTION
 	add hl, bc
-	ld [hl], PERSON_ACTION_09
+	ld [hl], PERSON_ACTION_BIG_SNORLAX
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
 	ld [hl], STEP_TYPE_04
@@ -722,7 +722,7 @@ MapObjectMovementPattern: ; 47dd
 	ld [hl], STANDING
 	ld hl, OBJECT_ACTION
 	add hl, bc
-	ld [hl], PERSON_ACTION_0A
+	ld [hl], PERSON_ACTION_BOUNCE
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
 	ld [hl], STEP_TYPE_04
@@ -795,7 +795,7 @@ MapObjectMovementPattern: ; 47dd
 	call ._MovementShadow_Grass_Emote_BoulderDust
 	ld hl, OBJECT_ACTION
 	add hl, bc
-	ld [hl], PERSON_ACTION_07
+	ld [hl], PERSON_ACTION_SHADOW
 	ld hl, OBJECT_STEP_DURATION
 	add hl, de
 	ld a, [hl]
@@ -852,7 +852,7 @@ MapObjectMovementPattern: ; 47dd
 	call ._MovementShadow_Grass_Emote_BoulderDust
 	ld hl, OBJECT_ACTION
 	add hl, bc
-	ld [hl], PERSON_ACTION_0E
+	ld [hl], PERSON_ACTION_BOULDER_DUST
 	ld hl, OBJECT_STEP_DURATION
 	add hl, de
 	ld a, [hl]
@@ -896,7 +896,7 @@ MapObjectMovementPattern: ; 47dd
 	call ._MovementShadow_Grass_Emote_BoulderDust
 	ld hl, OBJECT_ACTION
 	add hl, bc
-	ld [hl], PERSON_ACTION_0F
+	ld [hl], PERSON_ACTION_GRASS_SHAKE
 	ld hl, OBJECT_STEP_DURATION
 	add hl, de
 	ld a, [hl]
@@ -1693,7 +1693,7 @@ SkyfallTop: ; 4f83
 .Init:
 	ld hl, OBJECT_ACTION
 	add hl, bc
-	ld [hl], PERSON_ACTION_10
+	ld [hl], PERSON_ACTION_SKYFALL
 	ld hl, OBJECT_STEP_DURATION
 	add hl, bc
 	ld [hl], 16

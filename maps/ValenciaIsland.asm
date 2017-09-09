@@ -104,8 +104,9 @@ if def(DEBUG)
 	giveitem HM_FLASH
 	giveitem HM_WHIRLPOOL
 	giveitem HM_WATERFALL
-	giveitem SHINY_STONE
+	giveitem MAX_REPEL, 99
 	giveitem RARE_CANDY, 99
+	giveitem SHINY_STONE
 	opentext
 	givepoke LAPRAS, 40
 	givepoke CHARIZARD, 40
