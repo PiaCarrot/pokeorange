@@ -773,7 +773,7 @@ SwimmerFGroup:
 	db 0 ; normal
 
 	; party
-	db 9, SHELLDER
+	db 9, WAILMER
 	db 9, PSYDUCK
 
 	db $ff ; end

@@ -2857,28 +2857,28 @@ SteelixEvosAttacks:
 SnubbullEvosAttacks: ;WAILMER
 	db EVOLVE_LEVEL, 40, WAILORD
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, SCARY_FACE
-	db 4, TAIL_WHIP
-	db 8, CHARM
-	db 13, BITE
-	db 19, LICK
-	db 26, ROAR
-	db 34, RAGE
+	db 1, SPLASH
+	db 4, GROWL
+	db 7, WATER_GUN
+	db 11, ROLLOUT
+	db 17, DEFENSE_CURL
+	db 24, MIST
+	db 27, REST
+	db 32, SLAM
 	db 43, TAKE_DOWN
 	db 0 ; no more level-up moves
 
 GranbullEvosAttacks: ;WAILORD
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, SCARY_FACE
-	db 4, TAIL_WHIP
-	db 8, CHARM
-	db 13, BITE
-	db 19, LICK
-	db 28, ROAR
-	db 38, RAGE
-	db 51, TAKE_DOWN
+	db 1, SPLASH
+	db 4, GROWL
+	db 7, WATER_GUN
+	db 11, ROLLOUT
+	db 17, DEFENSE_CURL
+	db 24, MIST
+	db 27, REST
+	db 32, SLAM
+	db 43, TAKE_DOWN
 	db 0 ; no more level-up moves
 
 QwilfishEvosAttacks:
