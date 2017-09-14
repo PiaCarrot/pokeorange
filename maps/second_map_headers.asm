@@ -128,6 +128,7 @@
 	map_header_2 MtNavel2F, MT_NAVEL_2F, 9, 0
 	map_header_2 MtNavelPeak, MT_NAVEL_PEAK, 0, 0
 	map_header_2 MtNavelIceRock, MT_NAVEL_ICE_ROCK, 9, 0
+	map_header_2 GrapefruitStore, GRAPEFRUIT_STORE, 0, 0
 	map_header_2 HallOfFame, HALL_OF_FAME, $0, 0
 
 	map_header_2 DayCare, DAYCARE, $0, 0

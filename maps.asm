@@ -138,6 +138,7 @@ INCLUDE "maps/Route58.asm"
 INCLUDE "maps/NavelIsland.asm"
 INCLUDE "maps/SevenGrapefruits.asm"
 INCLUDE "maps/Route59.asm"
+INCLUDE "Maps/GrapefruitStore.asm"
 
 SECTION "Map Scripts 10", ROMX, BANK[MAP_SCRIPTS_10]
 

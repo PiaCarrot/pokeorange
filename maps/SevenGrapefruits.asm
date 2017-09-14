@@ -14,6 +14,9 @@ SevenGrapefruits_MapScriptHeader::
 
 .Scripts:
 
+GrapefruitWarehouseSign:
+	jumptext GrapefruitWarehouseSignText
+
 GrapefruitsSnorlax:
 	opentext
 	checkitem POKE_FLUTE
@@ -116,15 +119,26 @@ SearchingForSnorlaxText:
 	para "We might have to"
 	line "call it quits."
 	done
+	
+GrapefruitWarehouseSignText:
+	text "GRAPEFRUIT for"
+	line "sale!"
+	
+	para "Welcome to the"
+	line "7 GRAPEFRUIT"
+	cont "ISLANDS!"
+	done
 
 SevenGrapefruits_MapEventHeader:: db 0, 0
 
-.Warps: db 0
+.Warps: db 1
+	warp_def 27, 35, 1, GRAPEFRUIT_STORE
 
 .CoordEvents: db 0
 
-.BGEvents: db 1
+.BGEvents: db 2
 	signpost 22, 7, SIGNPOST_ITEM, GrapefruitHiddenRareCandy
+	signpost 28, 32, SIGNPOST_READ, GrapefruitWarehouseSign
 
 .ObjectEvents: db 6
 	person_event SPRITE_BIG_SNORLAX, 38, 20, SPRITEMOVEDATA_SNORLAX, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GrapefruitsSnorlax, EVENT_SEVEN_GRAPEFRUITS_SNORLAX

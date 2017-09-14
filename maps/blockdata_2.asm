@@ -29,6 +29,7 @@ TangeloJungle_BlockData:
 MikanGym_BlockData:
 	INCBIN "maps/MikanGym.blk"
 
+GrapefruitStore_BlockData:
 SunburstCrystalShop_BlockData:
 	INCBIN "maps/SunburstCrystalShop.blk"
 

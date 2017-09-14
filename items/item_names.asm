@@ -93,7 +93,7 @@
 	db "BIG PEARL@"
 	db "EVERSTONE@"
 	db "SPELL TAG@"
-	db "SWEET ORANGE@"
+	db "GRAPEFRUIT@"
 	db "GS BALL@"
 	db "MIRACLE SEED@"
 	db "THICK CLUB@"
