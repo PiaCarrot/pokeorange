@@ -686,7 +686,26 @@ SwimmerMGroup:
 	db 10, STARYU
 
 	db $ff
+	
+; ===========
 
+	; SWIMMERM (10)
+	db "KAZUMA@"
+	db 1
+
+	db 27, NIDOKING
+		db SURF
+		db STOMP
+		db DOUBLE_KICK
+		db POISON_STING
+		
+	db 27, STARMIE
+		db BUBBLE
+		db AGILITY
+		db WATER_GUN
+		db RAPID_SPIN
+		
+	db $ff
 ; =================
 ; ================================
 

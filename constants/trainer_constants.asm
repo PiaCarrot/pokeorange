@@ -114,6 +114,7 @@ KRIS EQU __enum__
 	const NAOYA
 	const ATECAIN
 	const THEO
+	const KAZUMA
 
 	trainerclass SWIMMERF
 	const MARIA

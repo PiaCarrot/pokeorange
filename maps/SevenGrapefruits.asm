@@ -101,7 +101,22 @@ PlayPokeFlute:
 
 WakingUpSnorlax:
 	text "<...>"
-
+	
+	para "SNORLAX scratches"
+	line "its behind<...>"
+	
+	para "<...>"
+	
+	para "SNORLAX groans."
+	line "Five more minutes."
+	
+	para "<...>"
+	
+	para "SNORLAX stops sno-"
+	line "ring<...>"
+	
+	para "<...>"
+	
 	para "SNORLAX woke up!"
 	done
 

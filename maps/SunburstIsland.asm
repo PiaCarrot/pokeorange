@@ -6,6 +6,7 @@ const_value set 2
 	const SUNBURST_COOLTRAINERF
 	const SUNBURST_FISHER
 	const SUNBURST_FISHER2
+	const SUNBURST_SWIFT
 
 SunburstIsland_MapScriptHeader::
 

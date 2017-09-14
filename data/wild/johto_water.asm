@@ -120,4 +120,10 @@
 	db 17, TENTACOOL
 	db 17, REMORAID
 
+	map ROUTE_59
+	db 3 percent
+	db 18, WINGULL
+	db 18, WAILMER
+	db 18, TENTACOOL
+	
 	db -1 ; end
