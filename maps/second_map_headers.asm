@@ -68,9 +68,13 @@
 	map_header_2 NavelIsland, NAVEL_ISLAND, 53, WEST
 	connection west, ROUTE_58, Route58, 8, 0, 10, NAVEL_ISLAND
 
-	map_header_2 SevenGrapefruits, SEVEN_GRAPEFRUITS, 53, WEST | NORTH
+	map_header_2 SevenGrapefruits, SEVEN_GRAPEFRUITS, 53, WEST | NORTH | SOUTH
 	connection north, ROUTE_58, Route58, 0, 0, 18, SEVEN_GRAPEFRUITS
+	connection south, ROUTE_59, Route59, 5, 0, 12, SEVEN_GRAPEFRUITS
 	connection west, ROUTE_57, Route57, 6, 0, 16, SEVEN_GRAPEFRUITS
+	
+	map_header_2 Route59, ROUTE_59, 53, NORTH | SOUTH
+	connection north, SEVEN_GRAPEFRUITS, SevenGrapefruits, -2, 3, 16, ROUTE_59
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, $0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0

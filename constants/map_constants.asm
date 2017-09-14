@@ -44,6 +44,7 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_58, 10, 18
 	mapgroup NAVEL_ISLAND, 18, 18
 	mapgroup SEVEN_GRAPEFRUITS, 22, 22
+	mapgroup ROUTE_59, 18, 12
 
 	newgroup ; 4
 
