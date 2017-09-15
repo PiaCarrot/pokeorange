@@ -61,12 +61,13 @@ SunburstMart1: ; 16111
 ; 16118
 
 SunburstMart2: ; 16118
-	db 6 ; # items
+	db 7 ; # items
 	db THUNDERSTONE
 	db WATER_STONE
 	db FIRE_STONE
 	db LEAF_STONE
 	db SUN_STONE
+	db SHINY_STONE
 	db MOON_STONE
 	db $ff
 ; 16121
