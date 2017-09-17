@@ -50,3 +50,6 @@ NavelIsland_BlockData:
 
 SevenGrapefruits_BlockData:
 	INCBIN "maps/SevenGrapefruits.blk"
+
+MoroIsland_BlockData: 
+	INCBIN "maps/MoroIsland.blk"

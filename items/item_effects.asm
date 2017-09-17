@@ -150,7 +150,7 @@ ItemEffects: ; e73c
 	dw SilverWing
 	dw RainbowWing
 	dw ShinyStone
-	dw TeruSama
+	dw TradeStone
 	dw TeruSama
 	dw TeruSama
 	dw TeruSama
@@ -1112,7 +1112,8 @@ Thunderstone:
 WaterStone:
 LeafStone:
 SunStone:
-ShinyStone: ; ee0f
+ShinyStone:
+TradeStone: ; ee0f
 	ld b, PARTYMENUACTION_EVO_STONE
 	call UseItem_SelectMon
 

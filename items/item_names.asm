@@ -134,7 +134,7 @@
 	db "SILVER WING@"
 	db "RAINBOW WING@"
 	db "SHINY STONE@"
-	db "?@"
+	db "TRADE STONE@"
 	db "?@"
 	db "?@"
 	db "?@"

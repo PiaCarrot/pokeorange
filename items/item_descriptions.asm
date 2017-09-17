@@ -168,7 +168,7 @@ ItemDescriptions:
 	dw SilverWingDesc
 	dw RainbowWingDesc
 	dw ShinyStoneDesc
-	dw TeruSamaDesc
+	dw TradeStoneDesc
 	dw TeruSamaDesc
 	dw TeruSamaDesc
 	dw TeruSamaDesc
@@ -731,6 +731,10 @@ RainbowWingDesc:
 	next "of rainbow colors.@"
 	
 ShinyStoneDesc:
+	db   "Evolves certain"
+	next "kinds of #MON.@"
+	
+TradeStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
 

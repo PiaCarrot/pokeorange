@@ -136,7 +136,7 @@
 	const SILVER_WING  ; $86
 	const RAINBOW_WING ; $87
 	const SHINY_STONE  ; $88
-	const ITEM_89      ; $89
+	const TRADE_STONE  ; $89
 	const ITEM_8A      ; $8a
 	const ITEM_8B      ; $8b
 	const ITEM_8C      ; $8c

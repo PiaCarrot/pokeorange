@@ -20,7 +20,7 @@ MapGroupRoofs: ; 1c021i
 	db -1 ; dummy group
 	db  4 ; group 1 (Sunburst Island, Mandarin North)
 	db  2 ; group 2
-	db -1 ; group 3
+	db  0 ; group 3
 	db  3 ; group 4 (Pinkan Island, Kinnow Island)
 	db  4 ; group 5 (Mikan Island)
 	db -1 ; group 6
@@ -29,7 +29,7 @@ MapGroupRoofs: ; 1c021i
 	db  2 ; group 9
 	db  1 ; group 10
 	db  0 ; group 11 (Valencia Island)
-	db  0 ; group 12 (Tangelo Island)
+	db  3 ; group 12 (Tangelo Island)
 ; 1c03c
 
 Roofs: ; 1c03c

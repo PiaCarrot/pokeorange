@@ -123,4 +123,6 @@
 	dba Music_SlateportCity
 	dba Music_SootopolisCity
 	dba Music_CaveOfOrigin
+	dba Music_HoennDewfordTown
+	dba Music_EverGrandeCity
 ; e91a3
