@@ -89,6 +89,7 @@ class PaletteMap(object):
 		'YELLOW': [(56,56,56), (248,128,8), (248,248,56), (240,224,208)],
 		'BROWN': [(56,56,56), (128,104,24), (168,136,56), (208,192,136)],
 		'ROOF': [(56,56,56), (120,40,168), (120,112,224), (240,224,208)],
+		'TEXT': [(0,0,0), (112,72,0), (248,248,128), (248,248,128)],
 	}
 
 	def __init__(self, filename):
@@ -116,7 +117,7 @@ class Metatiles(object):
 				tile_indexes = [ord(c) for c in file.read(Metatiles.t_per_m**2)]
 				if not len(tile_indexes):
 					break
-				metatile = [tileset.tile(ti if ti < 0x70 else ti - 0x10) for ti in tile_indexes]
+				metatile = [tileset.tile(ti) for ti in tile_indexes]
 				self.data.append(metatile)
 				i += 1
 

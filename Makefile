@@ -27,14 +27,14 @@ CFLAGS = -O3
 roms_md5      = roms.md5
 bank_ends_txt = bank_ends.txt
 
-PYTHON = python
-CC     = gcc
-RM     = rm -f
-GFX    = $(PYTHON) gfx.py
-LZ     = utils/lzcomp
-MD5    = md5sum
+PYTHON   = python
+CC       = gcc
+RM       = rm -f
+GFX      = $(PYTHON) gfx.py
+LZ       = tools/lzcomp
+INCLUDES = tools/scan_includes
+MD5      = md5sum
 
-includes  := $(PYTHON) scan_includes.py
 bank_ends := $(PYTHON) utils/bank-ends.py $(ROM_NAME)
 
 
@@ -68,6 +68,21 @@ bankfree: $(ROM_NAME)-0xff.gbc
 
 freespace: $(bank_ends_txt) $(roms_md5)
 
+
+# Build tools when building the rom
+ifeq ($(filter clean tools,$(MAKECMDGOALS)),)
+Makefile: tools ;
+endif
+
+tools: $(LZ) $(INCLUDES)
+
+$(LZ): $(LZ).c
+	$(CC) $(CFLAGS) -o $@ $<
+
+$(INCLUDES): $(INCLUDES).c
+	$(CC) $(CFLAGS) -o $@ $<
+
+
 clean:
 	$(RM) $(roms) $(orange_obj) $(roms:.gbc=.map) $(roms:.gbc=.sym)
 
@@ -75,16 +90,13 @@ compare: orange
 	$(MD5) -c $(roms_md5)
 
 
-$(LZ): $(LZ).c
-	$(CC) $(CFLAGS) -o $@ $<
-
 $(bank_ends_txt): orange bankfree ; $(bank_ends) > $@
 
 $(roms_md5): orange
 	$(MD5) $(ROM_NAME).gbc > $@
 
 
-%.o: dep = $(shell $(includes) $(@D)/$*.asm)
+%.o: dep = $(shell $(INCLUDES) $(@D)/$*.asm)
 %.o: %.asm $$(dep)
 	$(RGBDS_DIR)rgbasm $(RGBASM_FLAGS) -o $@ $<
 

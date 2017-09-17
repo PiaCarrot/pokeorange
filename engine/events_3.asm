@@ -110,7 +110,7 @@ PlaceMapNameSign:: ; b8098 (2e:4098)
 
 LoadMapNameSignGFX: ; b80c6
 	ld de, MapEntryFrameGFX
-	ld hl, VTiles2 tile $70
+	ld hl, VTiles1 tile $70
 	lb bc, BANK(MapEntryFrameGFX), $e
 	jp Get2bpp
 ; b80d3
@@ -145,44 +145,44 @@ InitMapSignAttrMap: ; b8115
 PlaceMapNameFrame: ; b812f
 	hlcoord 0, 0
 	; top left
-	ld a, $71
+	ld a, $f1
 	ld [hli], a
 	; top row
-	inc a ; ld a, $72
+	inc a ; ld a, $f2
 	call .FillTopBottom
 	; top right
-	ld a, $74
+	ld a, $f4
 	ld [hli], a
 	; left, first line
-	inc a ; ld a, $75
+	inc a ; ld a, $f5
 	ld [hli], a
 	; first line
 	call .FillMiddle
 	; right, first line
-	ld a, $7b
+	ld a, $fb
 	ld [hli], a
 	; left, second line
-	ld a, $76
+	ld a, $f6
 	ld [hli], a
 	; second line
 	call .FillMiddle
 	; right, second line
-	ld a, $7c
+	ld a, $fc
 	ld [hli], a
 	; bottom left
-	ld a, $77
+	ld a, $f7
 	ld [hli], a
 	; bottom
-	inc a ; ld a, $78
+	inc a ; ld a, $f8
 	call .FillTopBottom
 	; bottom right
-	ld a, $7a
+	ld a, $fa
 	ld [hl], a
 	ret
 ; b815b
 
 .FillMiddle: ; b815b
-	ld a, $7d
+	ld a, $fd
 	ld c, SCREEN_WIDTH - 2
 .loop
 	ld [hli], a

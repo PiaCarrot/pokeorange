@@ -2287,7 +2287,7 @@ Function56cd: ; 56cd
 	call Coord2Tile
 	pop bc
 	ld a, [hl]
-	cp $70
+	cp $7f
 	jr nc, .nope
 .ok8
 	dec d
