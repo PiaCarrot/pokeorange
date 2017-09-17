@@ -56,14 +56,14 @@ INCBIN "gfx/pokedex/footprints.w128.1bpp"
 _LoadStandardFont:: ; fb449
 	ld de, Font
 	ld hl, VTiles1
-	lb bc, BANK(Font), $80
+	lb bc, BANK(Font), $70
 	ld a, [rLCDC]
 	bit 7, a
 	jp z, Copy1bpp
 
 	ld de, Font
 	ld hl, VTiles1
-	lb bc, BANK(Font), $80
+	lb bc, BANK(Font), $70
 	jp Get1bpp_2
 ; fb48a
 
@@ -79,7 +79,7 @@ LoadFrame:: ; fb4cc
 	call AddNTimes
 	ld d, h
 	ld e, l
-	ld hl, VTiles2 tile $79
+	ld hl, VTiles1 tile $7a
 	lb bc, BANK(Frames), TILES_PER_FRAME
 	call Get1bpp_2
 	ld hl, VTiles2 tile $7f

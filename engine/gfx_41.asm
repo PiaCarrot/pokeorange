@@ -443,9 +443,9 @@ HDMATransfer_OnlyTopFourRows: ; 104303
 LoadOverworldFont:: ; 106594
 	ld de, .bgfont
 	ld hl, VTiles1
-	lb bc, BANK(.bgfont), $80
+	lb bc, BANK(.bgfont), $70
 	call Get2bpp
-	ld de, .bgfont + $80 tiles
+	ld de, .bgfont + $70 tiles
 	ld hl, VTiles2 tile $7f
 	lb bc, BANK(.bgfont), 1
 	jp Get2bpp
