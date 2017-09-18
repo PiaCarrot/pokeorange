@@ -127,6 +127,7 @@
 	map_header_2 KinnowCafe, KINNOW_CAFE, 0, 0
 	map_header_2 KinnowSkateShop, KINNOW_SKATE_SHOP, 0, 0
 	map_header_2 KinnowIslandRoute57Gate, KINNOW_ISLAND_ROUTE_57_GATE, 0, 0
+	map_header_2 Route57GateUpstairs, ROUTE_57_GATE_UPSTAIRS, 0, 0
 	map_header_2 UnnamedIsland1PokeCenter, UNNAMED_ISLAND_1_POKE_CENTER, 0, 0
 	map_header_2 MtNavel1F, MT_NAVEL_1F, 9, 0
 	map_header_2 MtNavel2F, MT_NAVEL_2F, 9, 0

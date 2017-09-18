@@ -39,6 +39,7 @@ MAP_NONE EQU 0
 
 	mapgroup ROUTE_57, 16, 12
 	mapgroup KINNOW_ISLAND_ROUTE_57_GATE, 4, 5
+	mapgroup ROUTE_57_GATE_UPSTAIRS, 4, 5
 	mapgroup UNNAMED_ISLAND_1, 12, 12
 	mapgroup UNNAMED_ISLAND_1_POKE_CENTER, 4, 5
 	mapgroup ROUTE_58, 10, 18

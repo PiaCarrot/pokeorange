@@ -51,6 +51,9 @@ MikanIslandRoute53Gate_BlockData:
 Route51TangeloJungleGate_BlockData:
 KinnowIslandRoute57Gate_BlockData:
 	INCBIN "maps/EastWestGate.blk"
+	
+Route57GateUpstairs_BlockData:
+	INCBIN "maps/GateUpstairs.blk"
 
 KrissHouse1F_BlockData:
 	INCBIN "maps/KrissHouse1F.blk"

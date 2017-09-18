@@ -23,11 +23,12 @@ KinnowOfficerText:
 
 KinnowIslandRoute57Gate_MapEventHeader:: db 0, 0
 
-.Warps: db 4
+.Warps: db 5
 	warp_def 4, 0, 8, KINNOW_ISLAND
 	warp_def 5, 0, 9, KINNOW_ISLAND
 	warp_def 4, 9, 1, ROUTE_57
 	warp_def 5, 9, 2, ROUTE_57
+	warp_def 2, 1, 1, ROUTE_57_GATE_UPSTAIRS
 
 .CoordEvents: db 0
 
@@ -35,3 +36,4 @@ KinnowIslandRoute57Gate_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 1
 	person_event SPRITE_OFFICER, 2, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, KinnowOfficerScript, -1
+
