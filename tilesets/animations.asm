@@ -69,6 +69,8 @@ Tileset25Anim: ; 0xfc047
 Tileset01Anim: ; 0xfc0a3
 	dw RSEWaterFrames1, AnimateRSEWaterTile
     dw RSEWaterFrames2, AnimateRSEWaterTile
+   	dw DiveWaterFrames1, AnimateDiveWaterTile
+    dw DiveWaterFrames2, AnimateDiveWaterTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -405,6 +407,7 @@ WaterTileFrames: ; fc41c
 ; fc45c
 
 AnimateRSEWaterTile:
+AnimateDiveWaterTile:
 ; Draw a RSE water tile for the current frame in VRAM tile at de.
 ; based on AnimateWhirlpoolTile, but with 8 frames
 
@@ -455,6 +458,13 @@ RSEWaterFrames2: dw VTiles2 tile $15, RSEWaterTiles2
 ; each file is just the 8 frames in a row
 RSEWaterTiles1: INCBIN "gfx/tilesets/rse-water/1.2bpp"
 RSEWaterTiles2: INCBIN "gfx/tilesets/rse-water/2.2bpp"
+
+DiveWaterFrames1: dw VTiles2 tile $24, DiveWaterTiles1
+DiveWaterFrames2: dw VTiles2 tile $25, DiveWaterTiles2
+
+; each file is just the 8 frames in a row
+DiveWaterTiles1: INCBIN "gfx/tilesets/dive-water/1.2bpp"
+DiveWaterTiles2: INCBIN "gfx/tilesets/dive-water/2.2bpp"
 
 
 AnimateFlowerTile: ; fc56d
