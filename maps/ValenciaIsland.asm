@@ -115,7 +115,7 @@ if def(DEBUG)
 	givepoke AMPHAROS, 40
 	givepoke PELIPPER, 40
 	closetext
-	warp SEVEN_GRAPEFRUITS, 20, 39
+	warp SEVEN_GRAPEFRUITS, 19, 39
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

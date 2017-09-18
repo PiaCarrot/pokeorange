@@ -450,7 +450,7 @@ AnimateRSEWaterTile:
     jp WriteTile
 
 RSEWaterFrames1: dw VTiles2 tile $14, RSEWaterTiles1
-RSEWaterFrames2: dw VTiles2 tile $59, RSEWaterTiles2
+RSEWaterFrames2: dw VTiles2 tile $15, RSEWaterTiles2
 
 ; each file is just the 8 frames in a row
 RSEWaterTiles1: INCBIN "gfx/tilesets/rse-water/1.2bpp"
