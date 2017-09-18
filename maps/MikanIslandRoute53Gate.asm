@@ -74,11 +74,12 @@ Movement_Go_Away:
 
 MikanIslandRoute53Gate_MapEventHeader:: db 0, 0
 
-.Warps: db 4
+.Warps: db 5
 	warp_def 4, 0, 6, MIKAN_ISLAND
 	warp_def 5, 0, 7, MIKAN_ISLAND
 	warp_def 4, 9, 1, ROUTE_53
 	warp_def 5, 9, 2, ROUTE_53
+	warp_def 2, 1, 1, ROUTE_53_GATE_UPSTAIRS
 
 .CoordEvents: db 2
 	xy_trigger 0, 4, 5, 0, Guard_Stop1, 0, 0

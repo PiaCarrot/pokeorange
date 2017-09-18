@@ -94,7 +94,7 @@
 	map_header_2 TangeloPokeCenter1F, TANGELO_POKECENTER_1F, 0, 0
 	map_header_2 TangeloGymSpeechHouse, TANGELO_GYM_SPEECH_HOUSE, $0, 0
 	map_header_2 TangeloEvolutionSpeechHouse, TANGELO_EVOLUTION_SPEECH_HOUSE, 0, 0
-	map_header_2 Route51TangeloJungleGate, ROUTE_51_TANGELO_JUNGLE_GATE, $0, 0
+	map_header_2 Route51TangeloJungleGate, ROUTE_51_TANGELO_JUNGLE_GATE, 0, 0
 	map_header_2 TangeloJungle, TANGELO_JUNGLE, 5, 0
 	map_header_2 Route52TangeloJungleGate, ROUTE_52_TANGELO_JUNGLE_GATE, $0, 0
 	map_header_2 Route52PokeCenter1F, ROUTE_52_POKECENTER_1F, 0, 0
@@ -128,6 +128,8 @@
 	map_header_2 KinnowSkateShop, KINNOW_SKATE_SHOP, 0, 0
 	map_header_2 KinnowIslandRoute57Gate, KINNOW_ISLAND_ROUTE_57_GATE, 0, 0
 	map_header_2 Route57GateUpstairs, ROUTE_57_GATE_UPSTAIRS, 0, 0
+	map_header_2 Route51GateUpstairs, ROUTE_51_GATE_UPSTAIRS, 0, 0
+	map_header_2 Route53GateUpstairs, ROUTE_53_GATE_UPSTAIRS, 0, 0
 	map_header_2 UnnamedIsland1PokeCenter, UNNAMED_ISLAND_1_POKE_CENTER, 0, 0
 	map_header_2 MtNavel1F, MT_NAVEL_1F, 9, 0
 	map_header_2 MtNavel2F, MT_NAVEL_2F, 9, 0

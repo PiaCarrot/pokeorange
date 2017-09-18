@@ -53,6 +53,8 @@ KinnowIslandRoute57Gate_BlockData:
 	INCBIN "maps/EastWestGate.blk"
 	
 Route57GateUpstairs_BlockData:
+Route51GateUpstairs_BlockData:
+Route53GateUpstairs_BlockData:
 	INCBIN "maps/GateUpstairs.blk"
 
 KrissHouse1F_BlockData:

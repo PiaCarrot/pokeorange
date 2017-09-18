@@ -51,6 +51,7 @@ INCLUDE "maps/Route51.asm"
 INCLUDE "maps/Route52.asm"
 INCLUDE "maps/Route51TangeloJungleGate.asm"
 INCLUDE "maps/Route52TangeloJungleGate.asm"
+INCLUDE "maps/Route51GateUpstairs.asm"
 
 
 SECTION "Map Scripts 3", ROMX, BANK[MAP_SCRIPTS_3]
@@ -64,6 +65,7 @@ INCLUDE "maps/MikanOnixTradeHouse.asm"
 INCLUDE "maps/MikanIslandRoute53Gate.asm"
 INCLUDE "maps/Route53.asm"
 INCLUDE "maps/Route54.asm"
+INCLUDE "maps/Route53GateUpstairs.asm"
 
 
 SECTION "Map Scripts 4", ROMX, BANK[MAP_SCRIPTS_4]

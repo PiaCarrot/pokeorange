@@ -69,6 +69,7 @@ MAP_NONE EQU 0
 	newgroup ; 5
 
 	mapgroup ROUTE_52_TANGELO_JUNGLE_GATE, 4, 5
+	mapgroup ROUTE_51_GATE_UPSTAIRS, 4, 5
 	mapgroup ROUTE_52, 45, 11
 	mapgroup MIKAN_ISLAND, 18, 17
 	mapgroup MIKAN_MART, 4, 6
@@ -77,6 +78,7 @@ MAP_NONE EQU 0
 	mapgroup MIKAN_POKECENTER_1F, 4, 5
 	mapgroup MIKAN_ONIX_TRADE_HOUSE, 4, 4
 	mapgroup MIKAN_ISLAND_ROUTE_53_GATE, 4, 5
+	mapgroup ROUTE_53_GATE_UPSTAIRS, 4, 5
 	mapgroup ROUTE_52_POKECENTER_1F, 4, 5
 
 	newgroup ; 6
