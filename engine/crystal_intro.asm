@@ -160,8 +160,8 @@ PlaceGameFreakPresents_1: ; e468d
 ; e46af
 
 .GAME_FREAK:
-	;  G  A  M  E   _  F  R  E  A  K
-	db 0, 1, 2, 3, 13, 4, 5, 3, 1, 6
+	;  P  I  A  _    C  A  R  R  O  T
+	db 0, 1, 2, 13,  3, 2, 4, 4, 5, 6
 .end
 	db "@"
 ; e46ba
