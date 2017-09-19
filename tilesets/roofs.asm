@@ -1,7 +1,6 @@
 
 LoadMapGroupRoof:: ; 1c000
 	ld a, [MapGroup]
-	inc a
 	ld e, a
 	ld d, 0
 	ld hl, MapGroupRoofs
@@ -18,6 +17,7 @@ LoadMapGroupRoof:: ; 1c000
 ; 1c021
 
 MapGroupRoofs: ; 1c021i
+	db -1 ; dummy group
 	db  4 ; group 1 (Sunburst Island, Mandarin North)
 	db -1 ; group 2
 	db  0 ; group 3 (Moro Island)
