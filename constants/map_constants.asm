@@ -48,6 +48,7 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_59, 18, 12
 	mapgroup GRAPEFRUIT_STORE, 3, 4
 	mapgroup MORO_ISLAND, 18, 18
+	mapgroup MORO_ISLAND_MUSEUM, 8, 7
 
 	newgroup ; 4
 
