@@ -8,7 +8,7 @@ If you run into trouble, ask for help on [**Aizawa's Discord server**](https://d
 
 To build on Windows, install [**Cygwin**](http://cygwin.com/install.html) with the default settings.
 
-In the installer, select the following packages: `make`, `gcc`, `python`, `git`, `gettext`.
+In the installer, select the following packages: `make`, `gcc-core`, `python`, `git`, `gettext`.
 If `gettext` no longer exists, get `libsasl2-3` and `ca-certificates`.
 
 Then get [**rgbds 0.2.5**](https://github.com/rednex/rgbds/releases/). Versions 0.3.0 and later are not compatible.

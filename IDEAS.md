@@ -1,58 +1,6 @@
-**Route 54**
-
-Similar to route 52, but shorter. No grass patches, just a bridge to Mandarin
-North.
-
-**Mandarin North**
-
-Goldenrod-esque. Big City with an underground system, full of mechanical
-pokemon like Voltorb and Magnemite. Alolan Grimer also appear here.
-
-Team Rocket's Cassidy and Butch will be setting operations here, the first
-time you find them here it's an easy battle against their Raticate, but they
-will return on Fukuhara No.4 later on
-
-**Sunburst Island**
-
-Town is set up like Slateport City. Large Bazaar with several small stores,
-many only sell one item like the RAGECANDYBAR man in Mahogany Town.
-
-**Route 55**
-
-Crystal Cave is here, with Crystal Onix. Brock is here looking for it and will
-contest it with you, but in his trip to the OI only has a few of his Pokemon:
-Onix, Geodude and a Vulpix.
-
-Land part of the route is short and quickly becomes sea.
-
-Sea part becomes interesting because it is open. Several small sandbars and
-trainers everywhere.
-
-**Crystal Cave**
-
-2 floor dungeon, is not dark. Many rock types and zubats appear here, along
-with a rare chance of Marill in the water. Crystal Onix, a shiny variant of
-Onix, is at the end of B1.
-
 **Pinkan Island**
 
-Small Island with a Rhyhorn event. No NPCs live here but there are several
-berry trees with Pinkan Berries. Some patches of grass with Pokemon from the
-anime episode
-
-Cut is found here
-
-**Route 56 + Fukuhara No.4**
-
-Fukuhara is part of Route 56, this map is split into two to make it longer.
-Fukuhara itself is a cave dungeon that is blocked off due to Rock Smash
-boulders.
-
-Several swimmers on this route but not much else. First route where Wailmer
-will appear.
-
-Second half has an eastern connection to the Grapefruit Islands but is blocked
-by a snorlax. Northern leads to Kinnow Island.
+Small Island with a Rhyhorn event.
 
 **Fukuhara No.4**
 
@@ -64,50 +12,7 @@ fossil is also here, not reviveable until Seyda Island is visited in Kanto.
 
 **Kinnow Island**
 
-Small Island with a City where pretty much nothing happens. Misty is first met
-here on her way to Navel Island. A wild Golduck will appear here on Tuesdays
-on the beach.
-
-Tracey Battle 2 here
-
-**Route 57**
-
-Northbound water route to unnamed island 1
-
-**Unnamed Island 1**
-
-A Joy is here who will heal your pokemon, and also battle you. Afterwards she
-will move on to Navel island where her center is.
-
-Some grass patches, but otherwise serves as a simple connection to Route 58.
-The north path to Cleopatra island is blocked by Rocks requiring Rock Smash to
-pass.
-
-**Route 58**
-
-Short water route to Navel Island.
-
-**Navel Island**
-
-This island has a tall mountain with ice types and a single Pokemon Center.
-Danny the gym leader is at the top at his gym. The Center is at the summit
-outside of it.
-
-**Navel Mountain**
-
-3 Floor Ice dungeon. First floor is a standard cave, with the other two like
-Ice Path. Jynx, Seel, and Golbat here.
-
-**Grapefruit Islands**
-
-Very very tiny string of islands, none of them have anything interesting but
-berry trees except for the last one, which has a Snorlax. A girl will give you
-a PokeFlute
-to wake it up and in turn battle it.
-
-**Route 59**
-
-another water route that serves as a connection to Moro Island
+A wild Golduck will appear here on Tuesdays on the beach.
 
 **Moro Island**
 
