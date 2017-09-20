@@ -11,7 +11,8 @@ MoroIsland_MapScriptHeader::
 
 MoroIsland_MapEventHeader:: db 0, 0
 
-.Warps: db 0
+.Warps: db 1
+	warp_def 19, 16, 1, MORO_ISLAND_MUSEUM
 
 .CoordEvents: db 0
 

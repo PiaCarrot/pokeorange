@@ -431,6 +431,7 @@ BugContestResults_CopyContestantsToResults ; 0xbc380
 	end
 
 InitializeEventsScript:
+	setevent EVENT_MORO_TROPHY_FOUND
 	setevent EVENT_GOLDENROD_SALE_OFF
 	setevent EVENT_WAREHOUSE_BLOCKED_OFF
 	setevent EVENT_WAREHOUSE_LAYOUT_1

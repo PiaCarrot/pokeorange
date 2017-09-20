@@ -143,6 +143,7 @@ INCLUDE "maps/SevenGrapefruits.asm"
 INCLUDE "maps/Route59.asm"
 INCLUDE "Maps/GrapefruitStore.asm"
 INCLUDE "maps/MoroIsland.asm"
+INCLUDE "maps/MoroIslandMuseum.asm"
 
 SECTION "Map Scripts 10", ROMX, BANK[MAP_SCRIPTS_10]
 
