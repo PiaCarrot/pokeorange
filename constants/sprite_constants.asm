@@ -104,17 +104,16 @@
 	const SPRITE_ENTEI ; 64
 	const SPRITE_RAIKOU ; 65
 	const SPRITE_STANDING_YOUNGSTER ; 66
-	const SPRITE_SIGHTSEER_F
-	const SPRITE_BUG_BOY
-	const SPRITE_PC_SLOUCH
+	const SPRITE_SIGHTSEER_F ; 67
+	const SPRITE_BUG_BOY ; 68
+	const SPRITE_PC_SLOUCH ; 69
 
-const_value SET $80
-
+const_value SET $90
 SPRITE_POKEMON EQU const_value
-	const SPRITE_SHELLDER ; 84
-	const SPRITE_PIKACHU ; 85
-	const SPRITE_ONIX ; 86
-	const SPRITE_MACHOP ; 87
+	const SPRITE_SHELLDER ; 90
+	const SPRITE_PIKACHU ; 91
+	const SPRITE_ONIX ; 92
+	const SPRITE_MACHOP ; 93
 
 const_value SET $e0
 	const SPRITE_DAYCARE_MON_1 ; e0
@@ -129,6 +128,7 @@ const_value SET 1
 	const WALKING_SPRITE
 	const STANDING_SPRITE
 	const STILL_SPRITE
+	const MON_SPRITE
 
 ; sprite header fields
 	const_def
