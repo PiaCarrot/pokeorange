@@ -154,7 +154,7 @@ GetBattlemonBackpicPalettePointer:
 	ld c, l
 	ld b, h
 	ld a, [TempBattleMonSpecies]
-	call GetMonNormalOrShinyPalettePointer
+	call GetMonNormalOrShinyPalettePointer_NoPinkCheck
 	pop de
 	ret
 
@@ -183,7 +183,7 @@ GetEnemyFrontpicPalettePointer:
 	ld c, l
 	ld b, h
 	ld a, [TempEnemyMonSpecies]
-	call GetFrontpicPalettePointer
+	call GetFrontpicPalettePointer_NoMonPinkCheck
 	pop de
 	ret
 
@@ -202,8 +202,9 @@ GetMonPalettePointer:
 GetMonNormalOrShinyPalettePointer:
 	push af
 	call CheckPink
-	jr c, .pink
+	jr c, GetMonNormalOrShinyPalettePointer_Pink
 	pop af
+GetMonNormalOrShinyPalettePointer_NoPinkCheck:
 	push bc
 	call GetMonPalettePointer
 	pop bc
@@ -216,7 +217,7 @@ rept 4
 endr
 	ret
 
-.pink:
+GetMonNormalOrShinyPalettePointer_Pink:
 	pop af
 	ld hl, PinkanPalette
 	ret
@@ -615,11 +616,16 @@ GetPlayerPalettePointer:
 	ld hl, PlayerPalette
 	ret
 
+GetFrontpicPalettePointer_NoMonPinkCheck:
+	and a
+	jr z, GetFrontpicPalettePointer_Trainer
+	jp GetMonNormalOrShinyPalettePointer_NoPinkCheck
+
 GetFrontpicPalettePointer:
 	and a
 	jp nz, GetMonNormalOrShinyPalettePointer
+GetFrontpicPalettePointer_Trainer:
 	ld a, [TrainerClass]
-
 GetTrainerPalettePointer:
 	ld l, a
 	ld h, 0
