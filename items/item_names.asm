@@ -135,7 +135,7 @@
 	db "RAINBOW WING@"
 	db "SHINY STONE@"
 	db "TRADE STONE@"
-	db "?@"
+	db "MORO TROPHY@"
 	db "?@"
 	db "?@"
 	db "?@"

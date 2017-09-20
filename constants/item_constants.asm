@@ -137,7 +137,7 @@
 	const RAINBOW_WING ; $87
 	const SHINY_STONE  ; $88
 	const TRADE_STONE  ; $89
-	const ITEM_8A      ; $8a
+	const MORO_TROPHY  ; $8a
 	const ITEM_8B      ; $8b
 	const ITEM_8C      ; $8c
 	const ITEM_8D      ; $8d

@@ -151,7 +151,7 @@ ItemEffects: ; e73c
 	dw RainbowWing
 	dw ShinyStone
 	dw TradeStone
-	dw TeruSama
+	dw MoroTrophy
 	dw TeruSama
 	dw TeruSama
 	dw TeruSama
@@ -2780,6 +2780,7 @@ LightBall:
 PolkadotBow:
 UpGrade:
 RainbowWing:
+MoroTrophy:
 TeruSama: ; f77d
 	jp IsntTheTimeMessage
 ; f780

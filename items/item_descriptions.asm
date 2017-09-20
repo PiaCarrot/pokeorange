@@ -169,7 +169,7 @@ ItemDescriptions:
 	dw RainbowWingDesc
 	dw ShinyStoneDesc
 	dw TradeStoneDesc
-	dw TeruSamaDesc
+	dw MoroTrophyDesc
 	dw TeruSamaDesc
 	dw TeruSamaDesc
 	dw TeruSamaDesc
@@ -737,6 +737,10 @@ ShinyStoneDesc:
 TradeStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
+	
+MoroTrophyDesc:
+	db   "A stolen trophy."
+	next "300 years old.@"
 
 TeruSamaDesc:
 	db   "?@"
