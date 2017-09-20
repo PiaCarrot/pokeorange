@@ -234,7 +234,7 @@ GetMonSprite: ; 14259
 
 	farcall LoadOverworldMonIcon
 
-	lb hl, 0, 1
+	lb hl, 0, MON_SPRITE
 	scf
 	ret
 
@@ -250,7 +250,7 @@ GetMonSprite: ; 14259
 
 .NoBreedmon:
 	ld a, 1
-	lb hl, 0, 1
+	lb hl, 0, MON_SPRITE
 	and a
 	ret
 ; 142a7
@@ -463,9 +463,9 @@ ArrangeUsedSprites: ; 14355
 	ld a, [hl]
 	call GetSpriteLength
 
-; Spill over into the second table after $80 tiles.
+; Spill over into the second table after $78 tiles.
 	add b
-	cp $80
+	cp $78
 	jr z, .loop
 	jr nc, .SecondTable
 

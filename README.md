@@ -1,8 +1,8 @@
 # Pokémon Orange
 
-This is a rom hack of Crystal.
+This is a ROM hack of Pokémon Crystal.
 
-It patches on the following rom:
+It patches on the following ROM:
 
 Pokemon Crystal (USA)
 
