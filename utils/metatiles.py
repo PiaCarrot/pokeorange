@@ -92,6 +92,8 @@ class PaletteMap(object):
 		'TEXT': [(0,0,0), (112,72,0), (248,248,128), (248,248,128)],
 	}
 
+	default_color = [default_rgb] * 4
+
 	def __init__(self, filename):
 		self.data = []
 		with open(filename, 'r') as file:
@@ -103,7 +105,7 @@ class PaletteMap(object):
 					self.data.extend([PaletteMap.colors[c.strip()] for c in eight])
 
 	def color4(self, i):
-		return self.data[i]
+		return self.data[i] if 0 <= i < len(self.data) else PaletteMap.default_color
 
 class Metatiles(object):
 	t_per_m = 4

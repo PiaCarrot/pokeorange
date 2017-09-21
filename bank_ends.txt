@@ -6,7 +6,7 @@ Bank $04: $7b7b ($0485)
 Bank $05: $67b2 ($184e)
 Bank $06: $7446 ($0bba)
 Bank $07: $6fb4 ($104c)
-Bank $08: $7149 ($0eb7)
+Bank $08: $7045 ($0fbb)
 Bank $09: $658e ($1a72)
 Bank $0a: $63ba ($1c46)
 Bank $0b: $65a1 ($1a5f)
@@ -17,7 +17,7 @@ Bank $0f: $79bb ($0645)
 Bank $10: $731f ($0ce1)
 Bank $11: $7c8c ($0374)
 Bank $12: $46d3 ($392d)
-Bank $13: $61b4 ($1e4c)
+Bank $13: $6184 ($1e7c)
 Bank $14: $74e4 ($0b1c)
 Bank $15: $5b1d ($24e3)
 Bank $16: $5785 ($287b)
@@ -118,7 +118,7 @@ Bank $74: $593d ($26c3)
 Bank $75: $4000 ($4000)
 Bank $76: $4000 ($4000)
 Bank $77: $4ecc ($3134)
-Bank $78: $612a ($1ed6)
+Bank $78: $5d52 ($22ae)
 Bank $79: $4000 ($4000)
 Bank $7a: $4000 ($4000)
 Bank $7b: $4000 ($4000)
@@ -197,12 +197,12 @@ Bank $60 has $24f3 bytes of free space
 Bank $15 has $24e3 bytes of free space
 Bank $73 has $24d8 bytes of free space
 Bank $0e has $2438 bytes of free space
+Bank $78 has $22ae bytes of free space
 Bank $2e has $21de bytes of free space
 Bank $25 has $2008 bytes of free space
 Bank $50 has $1f66 bytes of free space
 Bank $49 has $1f4e bytes of free space
-Bank $78 has $1ed6 bytes of free space
-Bank $13 has $1e4c bytes of free space
+Bank $13 has $1e7c bytes of free space
 Bank $42 has $1e3b bytes of free space
 Bank $4a has $1db2 bytes of free space
 Bank $4b has $1d7d bytes of free space
@@ -228,9 +228,9 @@ Bank $57 has $10a4 bytes of free space
 Bank $2d has $1073 bytes of free space
 Bank $3e has $1070 bytes of free space
 Bank $07 has $104c bytes of free space
+Bank $08 has $0fbb bytes of free space
 Bank $55 has $0f1c bytes of free space
 Bank $58 has $0ef1 bytes of free space
-Bank $08 has $0eb7 bytes of free space
 Bank $54 has $0d1d bytes of free space
 Bank $10 has $0ce1 bytes of free space
 Bank $06 has $0bba bytes of free space
@@ -256,4 +256,4 @@ Bank $3d has $0117 bytes of free space
 Bank $31 has $0080 bytes of free space
 Bank $30 has $0040 bytes of free space
 
-Free space: 1260158/2097152 (60.09%)
+Free space: 1261450/2097152 (60.15%)
