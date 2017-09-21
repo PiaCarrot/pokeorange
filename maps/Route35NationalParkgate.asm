@@ -3,19 +3,13 @@ const_value set 2
 	const ROUTE35NATIONALPARKGATE_OFFICER2
 
 Route35NationalParkgate_MapScriptHeader:
-.MapTriggers:
-	db 3
 
-	; triggers
+.MapTriggers: db 3
 	maptrigger .Trigger0
 	maptrigger .Trigger1
 	maptrigger .Trigger2
 
-.MapCallbacks:
-	db 2
-
-	; callbacks
-
+.MapCallbacks: db 2
 	dbw MAPCALLBACK_NEWMAP, Route35NationalParkgate_CheckIfStillInContest
 	dbw MAPCALLBACK_OBJECTS, Route35NationalParkgate_CheckIfContestDay
 
@@ -429,22 +423,16 @@ UnknownText_0x6a90e:
 	done
 
 Route35NationalParkgate_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 2
+.Warps: db 2
 	warp_def $0, $3, 3, NATIONAL_PARK
 	warp_def $0, $4, 4, NATIONAL_PARK
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 1
+.Signposts: db 1
 	signpost 0, 5, SIGNPOST_READ, MapRoute36NationalParkgateSignpost0Script
 
-.PersonEvents:
-	db 2
+.PersonEvents: db 2
 	person_event SPRITE_OFFICER, 1, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, OfficerScript_0x6a204, EVENT_ROUTE_35_NATIONAL_PARK_GATE_OFFICER_CONTEST_DAY
 	person_event SPRITE_OFFICER, 3, 0, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, OfficerScript_0x6a2ca, EVENT_ROUTE_35_NATIONAL_PARK_GATE_OFFICER_NOT_CONTEST_DAY

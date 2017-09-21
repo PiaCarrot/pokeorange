@@ -1,11 +1,10 @@
 const_value set 2
 
 SunburstSmallHouse_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 SunburstCooltrainerScript:
 	jumptextfaceplayer SunburstCooltrainerText
@@ -18,7 +17,7 @@ SunburstCooltrainerText:
 	cont "ocean amazing?"
 	done
 
-SunburstSmallHouse_MapEventHeader:: db 0, 0
+SunburstSmallHouse_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 2, 4, SUNBURST_ISLAND

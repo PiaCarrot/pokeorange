@@ -106,7 +106,7 @@ Route56EastTMAttract:
 Route56Rock:
 	jumpstd smashrock
 
-Route56East_MapEventHeader:: db 0, 0
+Route56East_MapEventHeader::
 
 .Warps: db 1
 	warp_def 21, 12, 3, CRYSTAL_CAVE_1F
@@ -123,4 +123,3 @@ Route56East_MapEventHeader:: db 0, 0
 	person_event SPRITE_SWIMMER_GIRL, 20, 34, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerYaeko, -1
 	person_event SPRITE_POKEFAN_M, 24, 8, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 0, TrainerHikerTeppei, -1
 	person_event SPRITE_POKE_BALL, 13, 44, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56EastTMAttract, EVENT_ROUTE_56_EAST_TM_ATTRACT
-

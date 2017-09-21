@@ -6,15 +6,11 @@ const_value set 2
 
 MandarinUnderground_MapScriptHeader::
 
-.MapTriggers:
-	db 2
-
-	; triggers
+.MapTriggers: db 2
 	maptrigger .Trigger0
 	maptrigger .Trigger1
 
-.MapCallbacks:
-	db 0
+.MapCallbacks: db 0
 
 .Trigger0:
 	end
@@ -279,7 +275,7 @@ MandarinUndergroundStatueText:
 	para "Oh no!"
 	done
 
-MandarinUnderground_MapEventHeader:: db 0, 0
+MandarinUnderground_MapEventHeader::
 
 .Warps: db 4
 	warp_def 6, 2, 5, MANDARIN_NORTH

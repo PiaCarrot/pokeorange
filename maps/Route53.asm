@@ -6,11 +6,10 @@ const_value set 2
 	const ROUTE53_SWIMMER2
 
 Route53_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 Route53LassScript:
 	jumptextfaceplayer Route53LassText
@@ -155,7 +154,7 @@ Route53TrainerTipsText:
 	line "#MON!"
 	done
 
-Route53_MapEventHeader:: db 0, 0
+Route53_MapEventHeader::
 
 .Warps: db 2
 	warp_def 8, 4, 3, MIKAN_ISLAND_ROUTE_53_GATE

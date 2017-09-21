@@ -7,11 +7,10 @@ const_value set 2
 	const ROUTE49_POKE_BALL
 
 Route49_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 Route49YoungsterScript:
 	jumptextfaceplayer Route49YoungsterText
@@ -98,7 +97,7 @@ Route49SignText:
 	line "VALENCIA ISLAND"
 	done
 
-Route49_MapEventHeader:: db 0, 0
+Route49_MapEventHeader::
 
 .Warps: db 1
 	warp_def 5, 7, 2, VALENCIA_PORT

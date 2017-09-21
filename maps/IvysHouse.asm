@@ -3,11 +3,10 @@ const_value set 2
 	const IVYSHOUSE_TRIPLET_2
 
 IvysHouse_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 Faith:
 	faceplayer
@@ -77,7 +76,7 @@ CharityWinLoss:
 	text "Good battle!"
 	done
 
-IvysHouse_MapEventHeader:: db 0, 0
+IvysHouse_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 2, 4, VALENCIA_ISLAND

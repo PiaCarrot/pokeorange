@@ -175,7 +175,7 @@ NicoSignText:
 	para "Nico nico nii!"
 	done
 
-Route54_MapEventHeader:: db 0, 0
+Route54_MapEventHeader::
 
 .Warps: db 0
 
@@ -191,4 +191,3 @@ Route54_MapEventHeader:: db 0, 0
 	person_event SPRITE_SWIMMER_GUY, 26, 4, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmermJunpei, -1
 	person_event SPRITE_SWIMMER_GIRL, 13, 7, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmerfUmiko, -1
 	person_event SPRITE_SWIMMER_GIRL, 41, 16, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmerfReina, -1
-

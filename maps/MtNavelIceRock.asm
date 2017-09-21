@@ -15,7 +15,7 @@ NavelIceRockText:
 	cont "the rock<...>"
 	done
 
-MtNavelIceRock_MapEventHeader:: db 0, 0
+MtNavelIceRock_MapEventHeader::
 
 .Warps: db 1
 	warp_def 5, 3, 6, MT_NAVEL_2F
@@ -26,4 +26,3 @@ MtNavelIceRock_MapEventHeader:: db 0, 0
 	signpost 3, 4, SIGNPOST_READ, NavelIceRock
 
 .ObjectEvents: db 0
-

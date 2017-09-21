@@ -4,11 +4,10 @@ const_value set 2
 	const TANGELOPOKECENTER1F_GENTLEMAN
 
 TangeloPokeCenter1F_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 NurseScript_0x19696d:
 	jumpstd pokecenternurse
@@ -36,7 +35,7 @@ UnknownText_0x1969c8:
 	cont "hometown."
 	done
 
-TangeloPokeCenter1F_MapEventHeader:: db 0, 0
+TangeloPokeCenter1F_MapEventHeader::
 
 .Warps: db 3
 	warp_def 7, 4, 2, TANGELO_ISLAND
@@ -51,4 +50,3 @@ TangeloPokeCenter1F_MapEventHeader:: db 0, 0
 	person_event SPRITE_NURSE, 1, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, NurseScript_0x19696d, -1
 	person_event SPRITE_FISHER, 3, 3, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, FisherScript_0x196970, -1
 	person_event SPRITE_SIGHTSEER_F, 5, 8, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GentlemanScript_0x196973, -1
-

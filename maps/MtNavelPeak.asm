@@ -120,7 +120,7 @@ DannyBeatenText:
 NavelPeakEscapeRope:
 	itemball ESCAPE_ROPE
 
-MtNavelPeak_MapEventHeader:: db 0, 0
+MtNavelPeak_MapEventHeader::
 
 .Warps: db 1
 	warp_def 13, 11, 5, MT_NAVEL_2F
@@ -132,4 +132,3 @@ MtNavelPeak_MapEventHeader:: db 0, 0
 .ObjectEvents: db 2
 	person_event SPRITE_DANNY, 8, 10, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, DannyScript, -1
 	person_event SPRITE_POKE_BALL, 12, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, NavelPeakEscapeRope, EVENT_NAVEL_PEAK_ESCAPE_ROPE
-

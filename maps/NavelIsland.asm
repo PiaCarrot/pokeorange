@@ -17,7 +17,7 @@ NavelIslandSignText:
 	cont "very dangerous!"
 	done
 
-NavelIsland_MapEventHeader:: db 0, 0
+NavelIsland_MapEventHeader::
 
 .Warps: db 4
 	warp_def 21, 16, 1, MT_NAVEL_1F
@@ -31,4 +31,3 @@ NavelIsland_MapEventHeader:: db 0, 0
 	signpost 24, 16, SIGNPOST_READ, NavelIslandSign
 
 .ObjectEvents: db 0
-

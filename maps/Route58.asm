@@ -71,7 +71,7 @@ Route58SignText:
 	cont "FRUIT ISLANDS"
 	done
 
-Route58_MapEventHeader:: db 0, 0
+Route58_MapEventHeader::
 
 .Warps: db 0
 
@@ -83,4 +83,3 @@ Route58_MapEventHeader:: db 0, 0
 .ObjectEvents: db 2
 	person_event SPRITE_FISHER, 7, 19, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route58SalesmanScript, -1
 	person_event SPRITE_COOLTRAINER_M, 14, 17, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, CooltrainerMAkira, -1
-

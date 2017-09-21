@@ -87,7 +87,7 @@ BugCatcherFAliaAfterText:
 Route57HardStone:
 	itemball HARD_STONE
 
-Route57_MapEventHeader:: db 0, 0
+Route57_MapEventHeader::
 
 .Warps: db 2
 	warp_def 22, 4, 3, KINNOW_ISLAND_ROUTE_57_GATE
@@ -102,4 +102,3 @@ Route57_MapEventHeader:: db 0, 0
 	person_event SPRITE_SWIMMER_GIRL, 16, 15, SPRITEMOVEDATA_SWIM_LEFT_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route57SwimmerGirlScript, -1
 	person_event SPRITE_SIGHTSEER_F, 26, 5, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, TrainerSightSeerAsami, -1
 	person_event SPRITE_SIGHTSEER_F, 9, 13, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 3, TrainerBugCatcherFAlia, -1
-

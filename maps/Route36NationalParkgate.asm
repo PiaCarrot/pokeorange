@@ -13,19 +13,12 @@ const_value set 2
 	const ROUTE36NATIONALPARKGATE_YOUNGSTER7
 
 Route36NationalParkgate_MapScriptHeader:
-.MapTriggers:
-	db 3
-
-	; triggers
+.MapTriggers: db 3
 	maptrigger .Trigger0
 	maptrigger .Trigger1
 	maptrigger .Trigger2
 
-.MapCallbacks:
-	db 2
-
-	; callbacks
-
+.MapCallbacks: db 2
 	dbw MAPCALLBACK_NEWMAP, .CheckIfContestRunning
 	dbw MAPCALLBACK_OBJECTS, .CheckIfContestAvailable
 
@@ -815,23 +808,17 @@ UnknownText_0x6b97f:
 	done
 
 Route36NationalParkgate_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 2
+.Warps: db 2
 	warp_def $4, $0, 1, NATIONAL_PARK
 	warp_def $5, $0, 2, NATIONAL_PARK
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 1
+.Signposts: db 1
 	signpost 0, 6, SIGNPOST_READ, MapRoute36NationalParkgateSignpost0Script
 
-.PersonEvents:
-	db 12
+.PersonEvents: db 12
 	person_event SPRITE_OFFICER, 3, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, Route36OfficerScriptContest, EVENT_ROUTE_36_NATIONAL_PARK_GATE_OFFICER_CONTEST_DAY
 	person_event SPRITE_OFFICER, 2, 3, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, OfficerScript_0x6acf4, EVENT_ROUTE_36_NATIONAL_PARK_GATE_OFFICER_NOT_CONTEST_DAY
 	person_event SPRITE_YOUNGSTER, 5, 2, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, YoungsterScript_0x6ad06, EVENT_BUG_CATCHING_CONTESTANT_1B

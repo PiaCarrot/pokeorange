@@ -6,13 +6,10 @@ const_value set 2
 	const TANGELOISLAND_POKE_BALL
 
 TangeloIsland_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 1
+.MapTriggers: db 0
 
-	; callbacks
+.MapCallbacks: db 1
 	dbw MAPCALLBACK_NEWMAP, .FlyPoint
 
 .FlyPoint:
@@ -232,7 +229,7 @@ Tracey_Movement:
 	step DOWN
 	step_end
 
-TangeloIsland_MapEventHeader:: db 0, 0
+TangeloIsland_MapEventHeader::
 
 .Warps: db 5
 	warp_def 23, 7, 2, TANGELO_MART
@@ -253,4 +250,3 @@ TangeloIsland_MapEventHeader:: db 0, 0
 	person_event SPRITE_TEACHER, 11, 26, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloTeacherScript, -1
 	person_event SPRITE_YOUNGSTER, 23, 13, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TangeloYoungsterScript, -1
 	person_event SPRITE_POKE_BALL, 23, 33, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloIslandRareCandy, EVENT_TANGELO_ISLAND_RARE_CANDY
-

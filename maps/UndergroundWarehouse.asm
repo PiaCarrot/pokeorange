@@ -1,14 +1,9 @@
 const_value set 2
 
 UndergroundWarehouse_MapScriptHeader:
-.MapTriggers:
-	db 0
+.MapTriggers: db 0
 
-.MapCallbacks:
-	db 1
-
-	; callbacks
-
+.MapCallbacks: db 1
 	dbw MAPCALLBACK_NEWMAP, .ResetSwitches
 
 .ResetSwitches:
@@ -32,20 +27,14 @@ UndergroundWarehouse_MapScriptHeader:
 	return
 
 UndergroundWarehouse_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 3
+.Warps: db 3
 	warp_def $c, $2, 2, UNDERGROUND_PATH_SWITCH_ROOM_ENTRANCES
 	warp_def $c, $3, 3, UNDERGROUND_PATH_SWITCH_ROOM_ENTRANCES
 	warp_def $2, $11, 1, GOLDENROD_DEPT_STORE_B1F
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 0
+.Signposts: db 0
 
-.PersonEvents:
-	db 0
+.PersonEvents: db 0

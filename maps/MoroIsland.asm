@@ -8,57 +8,57 @@ MoroIsland_MapScriptHeader::
 
 MoroFattyScript:
 	jumptextfaceplayer MoroFattyText
-	
+
 MoroFattyText:
 	text "Technology is just"
 	line "amazing!"
-	
+
 	para "Hm? You're asking"
 	line "if I'm from VALEN-"
 	cont "CIA ISLAND?"
-	
+
 	para "I'm not, why?"
 	done
-	
+
 MoroCooltrainerMScript:
 	jumptextfaceplayer MoroCooltrainerMText
-	
+
 MoroCooltrainerMText:
 	text "Ever been to GOL-"
 	line "DEN ISLAND?"
-	
+
 	para "There are a bunch"
 	line "of crazy MEOWTH"
 	cont "lovers there!"
 	done
-	
+
 MoroCooltrainerFScript:
 	jumptextfaceplayer MoroCooltrainerFText
-	
+
 MoroCooltrainerFText:
 	text "I found the cutest"
 	line "#MON on ROUTE"
 	cont "60!"
 	done
-	
+
 MoroIslandSign:
 	jumptext MoroIslandSignText
-	
+
 MoroIslandSignText:
 	text "MORO ISLAND"
-	
+
 	para "The lilac of the"
 	line "east"
 	done
-	
+
 MoroIslandMuseumSign:
 	jumptext MoroIslandMuseumSignText
-	
+
 MoroIslandMuseumSignText:
 	text "MORO ISLAND MUSEUM"
 	done
 
-MoroIsland_MapEventHeader:: db 0, 0
+MoroIsland_MapEventHeader::
 
 .Warps: db 7
 	warp_def 19, 16, 1, MORO_ISLAND_MUSEUM
@@ -79,4 +79,3 @@ MoroIsland_MapEventHeader:: db 0, 0
 	person_event SPRITE_COOLTRAINER_M, 22, 22, SPRITEMOVEDATA_WANDER, 0, 1, -1, -2, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MoroCooltrainerMScript, -1
 	person_event SPRITE_COOLTRAINER_F, 19, 9, SPRITEMOVEDATA_WANDER, 0, 1, -1, -2, PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, MoroCooltrainerFScript, -1
 	person_event SPRITE_FISHER, 18, 30, SPRITEMOVEDATA_WANDER, 0, 1, -1, -2, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, MoroFattyScript, -1
-

@@ -13,11 +13,10 @@ const_value set 2
 	const GOLDENRODGAMECORNER_POKEFAN_M3
 
 GoldenrodGameCorner_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 GoldenrodGameCornerPokefanM3Script:
 	faceplayer
@@ -423,17 +422,12 @@ GoldenrodGameCornerLeftTheirDrinkText:
 	done
 
 GoldenrodGameCorner_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 0
+.Warps: db 0
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 31
+.Signposts: db 31
 	signpost 6, 6, SIGNPOST_READ, GoldenrodGameCornerSlotsMachineScript
 	signpost 7, 6, SIGNPOST_READ, GoldenrodGameCornerSlotsMachineScript
 	signpost 8, 6, SIGNPOST_READ, GoldenrodGameCornerSlotsMachineScript
@@ -466,8 +460,7 @@ GoldenrodGameCorner_MapEventHeader:
 	signpost 11, 18, SIGNPOST_RIGHT, GoldenrodGameCornerCardFlipMachineScript
 	signpost 1, 12, SIGNPOST_LEFT, GoldenrodGameCornerLeftTheirDrinkScript
 
-.PersonEvents:
-	db 12
+.PersonEvents: db 12
 	person_event SPRITE_CLERK, 2, 3, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, GoldenrodGmeCornerCoinVendorScript, -1
 	person_event SPRITE_RECEPTIONIST, 2, 16, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, GoldenrodGmeCornerTMVendorScript, -1
 	person_event SPRITE_RECEPTIONIST, 2, 18, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, GoldenrodGameCornerPrizeMonVendorScript, -1

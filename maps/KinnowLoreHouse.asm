@@ -2,11 +2,10 @@ const_value set 2
 	const KINNOWLOREHOUSE_ROCKER
 
 KinnowLoreHouse_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 KinnowRockerLoreScript:
 	jumptextfaceplayer KinnowRockerLoreText
@@ -22,7 +21,7 @@ KinnowRockerLoreText:
 	cont "land travel!"
 	done
 
-KinnowLoreHouse_MapEventHeader:: db 0, 0
+KinnowLoreHouse_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 2, 2, KINNOW_ISLAND
@@ -34,4 +33,3 @@ KinnowLoreHouse_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 1
 	person_event SPRITE_ROCKER, 4, 2, SPRITEMOVEDATA_STANDING_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, KinnowRockerLoreScript, -1
-

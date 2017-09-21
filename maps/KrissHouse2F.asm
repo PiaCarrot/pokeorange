@@ -1,14 +1,10 @@
 const_value set 2
 
 KrissHouse2F_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 1
+.MapTriggers: db 0
 
-	; callbacks
-
+.MapCallbacks: db 1
 	dbw MAPCALLBACK_NEWMAP, .InitializeRoom
 
 .InitializeRoom:
@@ -90,22 +86,16 @@ BigDollText:
 	done
 
 KrissHouse2F_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 1
+.Warps: db 1
 	warp_def $0, $7, 3, KRISS_HOUSE_1F
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 3
+.Signposts: db 3
 	signpost 1, 2, SIGNPOST_UP, KrissHousePC
 	signpost 1, 3, SIGNPOST_READ, KrissHouseRadio
 	signpost 1, 5, SIGNPOST_READ, KrissHouseBookshelf
 
-.PersonEvents:
-	db 1
+.PersonEvents: db 1
 	person_event SPRITE_BIG_LAPRAS, 1, 0, SPRITEMOVEDATA_SNORLAX, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, BigDoll, -1

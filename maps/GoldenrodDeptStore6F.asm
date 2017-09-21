@@ -1,11 +1,10 @@
 const_value set 2
 
 GoldenrodDeptStore6F_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 GoldenrodVendingMachine:
 	opentext
@@ -118,20 +117,15 @@ GoldenrodDeptStore6FDirectoryText:
 	done
 
 GoldenrodDeptStore6F_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 3
+.Warps: db 3
 	warp_def $0, $f, 2, GOLDENROD_DEPT_STORE_5F
 	warp_def $0, $2, 1, GOLDENROD_DEPT_STORE_ELEVATOR
 	warp_def $0, $d, 1, GOLDENROD_DEPT_STORE_ROOF
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 6
+.Signposts: db 6
 	signpost 0, 14, SIGNPOST_READ, GoldenrodDeptStore6FDirectory
 	signpost 0, 3, SIGNPOST_READ, GoldenrodDeptStore6FElevatorButton
 	signpost 1, 8, SIGNPOST_UP, GoldenrodVendingMachine
@@ -139,5 +133,4 @@ GoldenrodDeptStore6F_MapEventHeader:
 	signpost 1, 10, SIGNPOST_UP, GoldenrodVendingMachine
 	signpost 1, 11, SIGNPOST_UP, GoldenrodVendingMachine
 
-.PersonEvents:
-	db 0
+.PersonEvents: db 0

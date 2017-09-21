@@ -9,11 +9,9 @@ const_value set 2
 
 Route56West_MapScriptHeader::
 
-.Triggers:
-	db 0
+.Triggers: db 0
 
-.Callbacks:
-	db 0
+.Callbacks: db 0
 
 .Scripts:
 
@@ -266,7 +264,7 @@ Route56WestHPUp:
 Route56WestUltraBall:
 	itemball ULTRA_BALL
 
-Route56West_MapEventHeader:: db 0, 0
+Route56West_MapEventHeader::
 
 .Warps: db 1
 	warp_def 7, 35, 1, ROUTE_56_POKE_CENTER
@@ -286,4 +284,3 @@ Route56West_MapEventHeader:: db 0, 0
 	person_event SPRITE_TRACEY, 20, 55, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_56_TRACEY
 	person_event SPRITE_POKE_BALL, 9, 51, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56WestHPUp, EVENT_ROUTE_56_WEST_HP_UP
 	person_event SPRITE_POKE_BALL, 27, 52, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56WestUltraBall, EVENT_ROUTE_56_WEST_ULTRA_BALL
-

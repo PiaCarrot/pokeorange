@@ -1,13 +1,11 @@
 const_value set 2
 
 MoroSouthHouse_MapScriptHeader:
-.MapTriggers:
-	db 0
+.MapTriggers: db 0
 
-.MapCallbacks:
-	db 0
-	
-MoroSouthHouse_MapEventHeader:: db 0, 0
+.MapCallbacks: db 0
+
+MoroSouthHouse_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 2, 4, MORO_ISLAND

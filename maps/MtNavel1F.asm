@@ -9,7 +9,7 @@ MtNavel1F_MapScriptHeader::
 MtNavel1FBoulder:
 	jumpstd strengthboulder
 
-MtNavel1F_MapEventHeader:: db 0, 0
+MtNavel1F_MapEventHeader::
 
 .Warps: db 4
 	warp_def 25, 5, 1, NAVEL_ISLAND
@@ -23,4 +23,3 @@ MtNavel1F_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 1
 	person_event SPRITE_BOULDER, 6, 21, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MtNavel1FBoulder, -1
-

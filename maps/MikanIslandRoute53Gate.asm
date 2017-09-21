@@ -3,11 +3,10 @@ const_value set 2
 	const MIKANISLANDROUTE53GATE_YOUNGSTER
 
 MikanIslandRoute53Gate_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 OfficerScript_0x69a2d:
 	jumptextfaceplayer UnknownText_0x69a36
@@ -72,7 +71,7 @@ Movement_Go_Away:
 	step LEFT
 	step_end
 
-MikanIslandRoute53Gate_MapEventHeader:: db 0, 0
+MikanIslandRoute53Gate_MapEventHeader::
 
 .Warps: db 5
 	warp_def 4, 0, 6, MIKAN_ISLAND

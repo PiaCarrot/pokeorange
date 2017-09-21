@@ -6,11 +6,10 @@ const_value set 2
 	const ROUTE51_POKE_BALL2
 
 Route51_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 TrainerBug_catcherSam:
 	trainer EVENT_BEAT_BUG_CATCHER_SAM, BUG_CATCHER, SAM, Bug_catcherSamSeenText, Bug_catcherSamBeatenText, 2, .Script
@@ -68,7 +67,7 @@ Route51SignText:
 	para "TANGELO JUNGLE"
 	done
 
-Route51_MapEventHeader:: db 0, 0
+Route51_MapEventHeader::
 
 .Warps: db 2
 	warp_def 2, 12, 3, ROUTE_51_TANGELO_JUNGLE_GATE
@@ -85,4 +84,3 @@ Route51_MapEventHeader:: db 0, 0
 	person_event SPRITE_FRUIT_TREE, 25, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route51FruitTree, -1
 	person_event SPRITE_POKE_BALL, 20, 25, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route51Potion, EVENT_ROUTE_51_POTION
 	person_event SPRITE_POKE_BALL, 6, 21, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route51PokeBall, EVENT_ROUTE_51_POKE_BALL
-

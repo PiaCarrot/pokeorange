@@ -11,11 +11,10 @@ const_value set 2
 	const NATIONALPARKBUGCONTEST_YOUNGSTER7
 
 NationalParkBugContest_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 YoungsterScript_0x5c8ec:
 	faceplayer
@@ -177,20 +176,14 @@ UnknownText_0x5cb64:
 	done
 
 NationalParkBugContest_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 0
+.Warps: db 0
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 0
+.Signposts: db 0
 
-.PersonEvents:
-	db 10
+.PersonEvents: db 10
 	person_event SPRITE_YOUNGSTER, 29, 19, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, YoungsterScript_0x5c8ec, EVENT_BUG_CATCHING_CONTESTANT_1A
 	person_event SPRITE_YOUNGSTER, 22, 28, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, YoungsterScript_0x5c8f4, EVENT_BUG_CATCHING_CONTESTANT_2A
 	person_event SPRITE_ROCKER, 18, 9, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, RockerScript_0x5c8fc, EVENT_BUG_CATCHING_CONTESTANT_3A

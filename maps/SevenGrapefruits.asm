@@ -144,7 +144,7 @@ GrapefruitWarehouseSignText:
 	cont "ISLANDS!"
 	done
 
-SevenGrapefruits_MapEventHeader:: db 0, 0
+SevenGrapefruits_MapEventHeader::
 
 .Warps: db 1
 	warp_def 27, 35, 1, GRAPEFRUIT_STORE
@@ -162,4 +162,3 @@ SevenGrapefruits_MapEventHeader:: db 0, 0
 	person_event SPRITE_OFFICER, 33, 20, SPRITEMOVEDATA_STANDING_UP, 0, 0, -2, -2, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, GrapefruitGuardScript, EVENT_BEAT_DANNY
 	person_event SPRITE_POKE_BALL, 25, 33, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, GrapefruitUltraBall, EVENT_GRAPEFRUIT_ULTRA_BALL
 	person_event SPRITE_POKE_BALL, 15, 20, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, GrapefruitProtein, EVENT_GRAPEFRUIT_PROTEIN
-

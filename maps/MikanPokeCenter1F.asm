@@ -5,11 +5,10 @@ const_value set 2
 	const MIKANPOKECENTER1F_YOUNGSTER
 
 MikanPokeCenter1F_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 MikanPokeCenterNurse:
 	jumpstd pokecenternurse
@@ -61,7 +60,7 @@ UnknownText_0x698b8:
 	line "they please."
 	done
 
-MikanPokeCenter1F_MapEventHeader:: db 0, 0
+MikanPokeCenter1F_MapEventHeader::
 
 .Warps: db 3
 	warp_def 7, 4, 4, MIKAN_ISLAND
@@ -77,4 +76,3 @@ MikanPokeCenter1F_MapEventHeader:: db 0, 0
 	person_event SPRITE_GAMEBOY_KID, 5, 8, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, GameboyKidScript_0x69540, -1
 	person_event SPRITE_POKEFAN_M, 4, 2, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GentlemanScript_0x69543, -1
 	person_event SPRITE_BUG_BOY, 1, 9, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, YoungsterScript_0x69546, -1
-

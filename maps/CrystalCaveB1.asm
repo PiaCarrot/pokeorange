@@ -141,7 +141,7 @@ EarnTheRightText:
 	cont "CRYSTAL ONIX."
 	done
 
-CrystalCaveB1_MapEventHeader:: db 0, 0
+CrystalCaveB1_MapEventHeader::
 
 .Warps: db 1
 	warp_def 17, 7, 2, CRYSTAL_CAVE_1F

@@ -2,11 +2,10 @@ const_value set 2
 	const MOROMART_CLERK
 
 MoroMart_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 MoroClerkScript:
 	opentext
@@ -14,7 +13,7 @@ MoroClerkScript:
 	closetext
 	end
 
-MoroMart_MapEventHeader:: db 0, 0
+MoroMart_MapEventHeader:
 
 .Warps: db 2
 	warp_def 7, 2, 7, MORO_ISLAND

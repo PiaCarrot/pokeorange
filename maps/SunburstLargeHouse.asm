@@ -1,11 +1,10 @@
 const_value set 2
 
 SunburstLargeHouse_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 SunburstGrannyScript:
 	jumptextfaceplayer SunburstGrannyText
@@ -19,7 +18,7 @@ SunburstGrannyText:
 	cont "to KINNOW ISLAND."
 	done
 
-SunburstLargeHouse_MapEventHeader:: db 0, 0
+SunburstLargeHouse_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 2, 5, SUNBURST_ISLAND

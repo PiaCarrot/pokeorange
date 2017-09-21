@@ -3,11 +3,10 @@ const_value set 2
 	const MANDARINNORTHMART_GRANNY
 
 MandarinNorthMart_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 MandarinNorthClerkScript:
 	opentext
@@ -28,7 +27,7 @@ MandarinNorthGrannyText:
 	line "Kekekekeke<...>"
 	done
 
-MandarinNorthMart_MapEventHeader:: db 0, 0
+MandarinNorthMart_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 2, 6, MANDARIN_NORTH
@@ -41,4 +40,3 @@ MandarinNorthMart_MapEventHeader:: db 0, 0
 .ObjectEvents: db 2
 	person_event SPRITE_CLERK, 3, 1, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MandarinNorthClerkScript, -1
 	person_event SPRITE_GRANNY, 2, 7, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MandarinNorthGrannyScript, -1
-
