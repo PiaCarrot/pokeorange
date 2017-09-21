@@ -3,11 +3,10 @@ const_value set 2
 	const VALENCIAPORT_FISHING_GURU
 
 ValenciaPort_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 SailorScript:
 	faceplayer
@@ -71,7 +70,7 @@ UnknownText_0x74bf4:
 	cont "them."
 	done
 
-ValenciaPort_MapEventHeader:: db 0, 0
+ValenciaPort_MapEventHeader::
 
 .Warps: db 2
 	warp_def 19, 10, 1, ROUTE_49
@@ -85,4 +84,3 @@ ValenciaPort_MapEventHeader:: db 0, 0
 .ObjectEvents: db 2
 	person_event SPRITE_SAILOR, 6, 11, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SailorScript, -1
 	person_event SPRITE_FISHING_GURU, 9, 14, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, FishingGuruScript_0x74a01, -1
-

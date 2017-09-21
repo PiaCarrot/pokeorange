@@ -1,12 +1,10 @@
 const_value set 2
 
 Route19_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
-	closetext
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 Route19Sign:
 	jumptext Route19SignText
@@ -31,20 +29,14 @@ CarefulSwimmingSignText:
 	done
 
 Route19_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 1
+.Warps: db 1
 	warp_def $3, $7, 1, ROUTE_19___FUCHSIA_GATE
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 2
+.Signposts: db 2
 	signpost 13, 11, SIGNPOST_READ, Route19Sign
 	signpost 1, 11, SIGNPOST_READ, CarefulSwimmingSign
 
-.PersonEvents:
-	db 0
+.PersonEvents: db 0

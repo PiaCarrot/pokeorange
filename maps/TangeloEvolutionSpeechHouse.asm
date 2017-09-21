@@ -3,11 +3,10 @@ const_value set 2
 	const TANGELOEVOLUTIONSPEECHHOUSE_YOUNGSTER
 
 TangeloEvolutionSpeechHouse_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 YoungsterScript_0x196cb2:
 	faceplayer
@@ -53,8 +52,6 @@ UnknownText_0x196cfc:
 	done
 
 TangeloEvolutionSpeechHouse_MapEventHeader::
-	; filler
-	db 0, 0
 
 .Warps: db 2
 	warp_def 7, 2, 4, TANGELO_ISLAND

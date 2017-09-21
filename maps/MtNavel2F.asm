@@ -4,12 +4,7 @@ MtNavel2F_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
-.Text:
-
-
-MtNavel2F_MapEventHeader:: db 0, 0
+MtNavel2F_MapEventHeader::
 
 .Warps: db 6
 	warp_def 13, 11, 3, MT_NAVEL_1F
@@ -24,4 +19,3 @@ MtNavel2F_MapEventHeader:: db 0, 0
 .BGEvents: db 0
 
 .ObjectEvents: db 0
-

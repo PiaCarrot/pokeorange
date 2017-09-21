@@ -2,11 +2,10 @@ const_value set 2
 	const MANDARINNORTH_NAME_RATER
 
 MandarinNorthNameRater_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 GoldenrodNameRater:
 	faceplayer
@@ -19,7 +18,7 @@ GoldenrodNameRater:
 MandarinNorthNameRaterBookshelf:
 	jumpstd difficultbookshelf
 
-MandarinNorthNameRater_MapEventHeader:: db 0, 0
+MandarinNorthNameRater_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 2, 2, MANDARIN_NORTH

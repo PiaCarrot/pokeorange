@@ -12,11 +12,10 @@ const_value set 2
 	const ROUTE52_POKE_BALL2
 
 Route52_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 TrainerCamperSamm:
 	trainer EVENT_BEAT_CAMPER_SAMM, CAMPER, SAMM, CamperSammSeenText, CamperSammBeatenText, 0, .Script
@@ -265,7 +264,7 @@ Route52SignText:
 	line "MIKAN"
 	done
 
-Route52_MapEventHeader:: db 0, 0
+Route52_MapEventHeader::
 
 .Warps: db 3
 	warp_def 77, 13, 1, ROUTE_52_POKECENTER_1F
@@ -290,4 +289,3 @@ Route52_MapEventHeader:: db 0, 0
 	person_event SPRITE_SWIMMER_GUY, 43, 18, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmermAtecain, -1
 	person_event SPRITE_POKE_BALL, 15, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route52GreatBall, EVENT_ROUTE_52_GREAT_BALL
 	person_event SPRITE_POKE_BALL, 54, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route52Repel, EVENT_ROUTE_52_REPEL
-

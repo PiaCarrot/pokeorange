@@ -2,11 +2,10 @@ const_value set 2
 	const REDSHOUSE1F_REDS_MOM
 
 RedsHouse1F_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 RedsMom:
 	faceplayer
@@ -65,22 +64,16 @@ RedsHouse1FTVText:
 	done
 
 RedsHouse1F_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 1
+.Warps: db 1
 	warp_def $0, $7, 1, REDS_HOUSE_2F
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 3
+.Signposts: db 3
 	signpost 1, 0, SIGNPOST_READ, RedsHouse1FBookshelf
 	signpost 1, 1, SIGNPOST_READ, RedsHouse1FBookshelf
 	signpost 1, 2, SIGNPOST_READ, RedsHouse1FTV
 
-.PersonEvents:
-	db 1
+.PersonEvents: db 1
 	person_event SPRITE_REDS_MOM, 3, 5, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, RedsMom, -1

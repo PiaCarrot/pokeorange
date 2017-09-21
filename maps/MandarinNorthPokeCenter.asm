@@ -3,11 +3,10 @@ const_value set 2
 	const MANDARINNORTH_TRAINER
 
 MandarinNorthPokeCenter_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 MandarinNoNurseScript:
 	jumpstd pokecenternurse
@@ -26,7 +25,7 @@ MandarinNorthCooltrainerMText:
 	cont "to capture."
 	done
 
-MandarinNorthPokeCenter_MapEventHeader:: db 0, 0
+MandarinNorthPokeCenter_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 4, 1, MANDARIN_NORTH
@@ -39,4 +38,3 @@ MandarinNorthPokeCenter_MapEventHeader:: db 0, 0
 .ObjectEvents: db 2
 	person_event SPRITE_NURSE, 1, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MandarinNoNurseScript, -1
 	person_event SPRITE_COOLTRAINER_M, 4, 6, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, MandarinNorthCooltrainerMScript, -1
-

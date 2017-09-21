@@ -5,14 +5,10 @@ const_value set 2
 	const ICEPATHB1F_BOULDER4
 
 IcePathB1F_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 1
+.MapTriggers: db 0
 
-	; callbacks
-
+.MapCallbacks: db 1
 	dbw MAPCALLBACK_CMDQUEUE, .SetUpStoneTable
 
 .SetUpStoneTable:
@@ -21,14 +17,13 @@ IcePathB1F_MapScriptHeader:
 
 .CommandQueue:
 	dbw CMDQUEUE_STONETABLE, .StoneTable ; check if any stones are sitting on a warp
-	dw 0 ; filler
 
 .StoneTable:
 	stonetable 3, ICEPATHB1F_BOULDER1, .Boulder1
 	stonetable 4, ICEPATHB1F_BOULDER2, .Boulder2
 	stonetable 5, ICEPATHB1F_BOULDER3, .Boulder3
 	stonetable 6, ICEPATHB1F_BOULDER4, .Boulder4
-	db -1
+	db -1 ; end
 
 .Boulder1:
 	disappear ICEPATHB1F_BOULDER1
@@ -73,11 +68,8 @@ IcePathBoulderFellThroughText:
 	done
 
 IcePathB1F_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 8
+.Warps: db 8
 	warp_def $f, $3, 3, ICE_PATH_1F
 	warp_def $3, $11, 1, ICE_PATH_B2F_MAHOGANY_SIDE
 	warp_def $2, $b, 3, ICE_PATH_B2F_MAHOGANY_SIDE ; hole
@@ -87,14 +79,11 @@ IcePathB1F_MapEventHeader:
 	warp_def $19, $5, 4, ICE_PATH_1F
 	warp_def $1b, $b, 1, ICE_PATH_B2F_BLACKTHORN_SIDE
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 0
+.Signposts: db 0
 
-.PersonEvents:
-	db 4
+.PersonEvents: db 4
 	person_event SPRITE_BOULDER, 7, 11, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, IcePathB1FBoulder, EVENT_BOULDER_IN_ICE_PATH_1
 	person_event SPRITE_BOULDER, 8, 7, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, IcePathB1FBoulder, EVENT_BOULDER_IN_ICE_PATH_2
 	person_event SPRITE_BOULDER, 9, 8, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, IcePathB1FBoulder, EVENT_BOULDER_IN_ICE_PATH_3

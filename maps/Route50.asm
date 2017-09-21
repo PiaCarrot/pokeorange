@@ -8,11 +8,10 @@ const_value set 2
 	const ROUTE50_POKE_BALL
 
 Route50_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 TrainerYoungsterJoey:
 	trainer EVENT_BEAT_YOUNGSTER_KOJI, YOUNGSTER, KOJI, YoungsterKojiSeenText, YoungsterKojiBeatenText, 0, .Script
@@ -144,7 +143,7 @@ Route50TrainerTipsText:
 	cont "wild #MON!"
 	done
 
-Route50_MapEventHeader:: db 0, 0
+Route50_MapEventHeader::
 
 .Warps: db 0
 
@@ -163,4 +162,3 @@ Route50_MapEventHeader:: db 0, 0
 	person_event SPRITE_FRUIT_TREE, 33, 0, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50FruitTree2, -1
 	person_event SPRITE_COOLTRAINER_F, 39, 14, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50CooltrainerFScript, -1
 	person_event SPRITE_POKE_BALL, 19, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route50Antidote, EVENT_ROUTE_50_ANTIDOTE
-

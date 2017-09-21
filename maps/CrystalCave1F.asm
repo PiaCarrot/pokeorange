@@ -77,7 +77,7 @@ Brock_Movement:
 	step UP
 	step_end
 
-CrystalCave1F_MapEventHeader:: db 0, 0
+CrystalCave1F_MapEventHeader::
 
 .Warps: db 3
 	warp_def 23, 5, 1, SUNBURST_ISLAND

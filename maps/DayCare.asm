@@ -3,14 +3,10 @@ const_value set 2
 	const DAYCARE_GRANNY
 
 DayCare_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 1
+.MapTriggers: db 0
 
-	; callbacks
-
+.MapCallbacks: db 1
 	dbw MAPCALLBACK_OBJECTS, .EggCheckCallback
 
 .EggCheckCallback:
@@ -58,21 +54,15 @@ Text_GrampsLookingForYou:
 	done
 
 DayCare_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 0
+.Warps: db 0
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 2
+.Signposts: db 2
 	signpost 1, 0, SIGNPOST_READ, DayCareBookshelf
 	signpost 1, 1, SIGNPOST_READ, DayCareBookshelf
 
-.PersonEvents:
-	db 2
+.PersonEvents: db 2
 	person_event SPRITE_GRAMPS, 3, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DayCareManScript_Inside, EVENT_DAYCARE_MAN_IN_DAYCARE
 	person_event SPRITE_GRANNY, 3, 5, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, DayCareLadyScript, -1

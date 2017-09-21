@@ -3,11 +3,10 @@ const_value set 2
 	const KINNOWMART_LASS
 
 KinnowMart_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 KinnowClerkScript:
 	opentext
@@ -28,7 +27,7 @@ KinnowMartLassText:
 	cont "to #MON."
 	done
 
-KinnowMart_MapEventHeader:: db 0, 0
+KinnowMart_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 2, 5, KINNOW_ISLAND

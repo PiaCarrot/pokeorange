@@ -2,11 +2,10 @@ const_value set 2
 	const KRISSHOUSE1F_MOM1
 
 KrissHouse1F_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 MotherScript:
 	jumptextfaceplayer MotherText
@@ -72,8 +71,6 @@ TVText:
 	done
 
 KrissHouse1F_MapEventHeader::
-	; filler
-	db 0, 0
 
 .Warps: db 3
 	warp_def 7, 6, 2, VALENCIA_ISLAND

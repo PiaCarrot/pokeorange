@@ -2,11 +2,10 @@ const_value set 2
 	const TANGELOPORT_SAILOR
 
 TangeloPort_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 TangeloPortSailorScript:
 	faceplayer
@@ -49,7 +48,7 @@ TangeloPortSailorAhoyText:
 	line "go!"
 	done
 
-TangeloPort_MapEventHeader:: db 0, 0
+TangeloPort_MapEventHeader::
 
 .Warps: db 2
 	warp_def 19, 10, 5, TANGELO_ISLAND
@@ -61,4 +60,3 @@ TangeloPort_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 1
 	person_event SPRITE_SAILOR, 6, 11, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloPortSailorScript, -1
-

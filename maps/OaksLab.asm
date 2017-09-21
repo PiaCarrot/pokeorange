@@ -5,11 +5,10 @@ const_value set 2
 	const OAKSLAB_SCIENTIST3
 
 OaksLab_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 Oak:
 	faceplayer
@@ -132,17 +131,12 @@ OaksLabPCText:
 	done
 
 OaksLab_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 0
+.Warps: db 0
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 16
+.Signposts: db 16
 	signpost 1, 6, SIGNPOST_READ, OaksLabBookshelf
 	signpost 1, 7, SIGNPOST_READ, OaksLabBookshelf
 	signpost 1, 8, SIGNPOST_READ, OaksLabBookshelf
@@ -160,8 +154,7 @@ OaksLab_MapEventHeader:
 	signpost 3, 9, SIGNPOST_READ, OaksLabTrashcan
 	signpost 1, 0, SIGNPOST_READ, OaksLabPC
 
-.PersonEvents:
-	db 4
+.PersonEvents: db 4
 	person_event SPRITE_OAK, 2, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Oak, -1
 	person_event SPRITE_SCIENTIST, 8, 1, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, OaksAssistant1Script, -1
 	person_event SPRITE_SCIENTIST, 9, 8, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, OaksAssistant2Script, -1

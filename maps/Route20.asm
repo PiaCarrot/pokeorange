@@ -1,11 +1,10 @@
 const_value set 2
 
 Route20_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 CinnabarGymSign:
 	jumptext CinnabarGymSignText
@@ -18,7 +17,7 @@ CinnabarGymSignText:
 	line "LEADER: BLAINE"
 	done
 
-Route20_MapEventHeader:: db 0, 0
+Route20_MapEventHeader::
 
 .Warps: db 1
 	warp_def 7, 38, 1, SEAFOAM_GYM

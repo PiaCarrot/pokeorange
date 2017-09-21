@@ -2,11 +2,10 @@ const_value set 2
 	const BLUESHOUSE_DAISY
 
 BluesHouse_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 DaisyScript_0x19b0d0:
 	faceplayer
@@ -145,18 +144,12 @@ UnknownText_0x19b377:
 	done
 
 BluesHouse_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 0
+.Warps: db 0
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 0
+.Signposts: db 0
 
-.PersonEvents:
-	db 1
+.PersonEvents: db 1
 	person_event SPRITE_DAISY, 3, 2, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DaisyScript_0x19b0d0, -1

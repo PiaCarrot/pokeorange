@@ -4,11 +4,10 @@ const_value set 2
 	const ROUTE52POKECENTER1F_COOLTRAINER_F
 
 Route52PokeCenter1F_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 NurseScript_0x69b52:
 	jumpstd pokecenternurse
@@ -42,7 +41,7 @@ UnknownText_0x69cac:
 	cont "TYPE #MON."
 	done
 
-Route52PokeCenter1F_MapEventHeader:: db 0, 0
+Route52PokeCenter1F_MapEventHeader::
 
 .Warps: db 3
 	warp_def 7, 4, 1, ROUTE_52
@@ -57,4 +56,3 @@ Route52PokeCenter1F_MapEventHeader:: db 0, 0
 	person_event SPRITE_NURSE, 1, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, NurseScript_0x69b52, -1
 	person_event SPRITE_COOLTRAINER_M, 4, 2, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, FishingGuruScript_0x69b55, -1
 	person_event SPRITE_COOLTRAINER_F, 5, 8, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, CooltrainerFScript_0x69b80, -1
-

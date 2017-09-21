@@ -1,9 +1,8 @@
 GoldenrodDeptStoreElevator_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 MapGoldenrodDeptStoreElevatorSignpost0Script:
 	opentext
@@ -57,20 +56,14 @@ Elevator_0x566e0:
 
 
 GoldenrodDeptStoreElevator_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 2
+.Warps: db 2
 	warp_def $3, $1, 255, GOLDENROD_DEPT_STORE_1F
 	warp_def $3, $2, 255, GOLDENROD_DEPT_STORE_1F
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 1
+.Signposts: db 1
 	signpost 0, 3, SIGNPOST_READ, MapGoldenrodDeptStoreElevatorSignpost0Script
 
-.PersonEvents:
-	db 0
+.PersonEvents: db 0

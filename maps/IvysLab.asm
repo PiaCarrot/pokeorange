@@ -6,17 +6,11 @@ const_value set 2
 	const IVYSLAB_POKE_BALL3
 
 IvysLab_MapScriptHeader:
-.MapTriggers:
-	db 1
 
-	; triggers
+.MapTriggers: db 1
 	maptrigger .Trigger0
 
-.MapCallbacks:
-	db 1
-
-	; callbacks
-
+.MapCallbacks: db 1
 	dbw MAPCALLBACK_OBJECTS, .Callback_MoveIvy
 
 .Trigger0:
@@ -632,7 +626,7 @@ IvysLabPCText:
 	line "screen<...>"
 	done
 
-IvysLab_MapEventHeader:: db 0, 0
+IvysLab_MapEventHeader::
 
 .Warps: db 2
 	warp_def 11, 4, 1, VALENCIA_ISLAND

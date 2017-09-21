@@ -1,14 +1,10 @@
 const_value set 2
 
 GoldenrodDeptStoreB1F_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 2
+.MapTriggers: db 0
 
-	; callbacks
-
+.MapCallbacks: db 2
 	dbw MAPCALLBACK_TILES, UnknownScript_0x7d781
 	dbw MAPCALLBACK_NEWMAP, UnknownScript_0x7d7ac
 
@@ -42,20 +38,14 @@ UnknownScript_0x7d7ac:
 	return
 
 GoldenrodDeptStoreB1F_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 3
+.Warps: db 3
 	warp_def $2, $11, 3, UNDERGROUND_WAREHOUSE
 	warp_def $4, $9, 1, GOLDENROD_DEPT_STORE_ELEVATOR
 	warp_def $4, $a, 2, GOLDENROD_DEPT_STORE_ELEVATOR
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 0
+.Signposts: db 0
 
-.PersonEvents:
-	db 0
+.PersonEvents: db 0

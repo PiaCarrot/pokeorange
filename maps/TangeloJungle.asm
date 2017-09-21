@@ -10,11 +10,10 @@ const_value set 2
 	const TANGELO_JUNGLE_NESS
 
 TangeloJungle_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 TrainerBug_catcherWayne:
 	trainer EVENT_BEAT_BUG_CATCHER_MIKE, BUG_CATCHER, MIKE, Bug_catcherWayneSeenText, Bug_catcherWayneBeatenText, 0, Bug_catcherWayneScript
@@ -179,7 +178,7 @@ YoungsterNessAfterText:
 	para "What a loser."
 	done
 
-TangeloJungle_MapEventHeader:: db 0, 0
+TangeloJungle_MapEventHeader::
 
 .Warps: db 3
 	warp_def 5, 25, 3, ROUTE_52_TANGELO_JUNGLE_GATE

@@ -4,13 +4,10 @@ const_value set 2
 	const VALENCIAISLAND_SILVER
 
 ValenciaIsland_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 1
+.MapTriggers: db 0
 
-	; callbacks
+.MapCallbacks: db 1
 	dbw MAPCALLBACK_NEWMAP, .FlyPoint
 
 .FlyPoint:
@@ -222,7 +219,7 @@ IvysLabSignText:
 	line "№.2 BAYVIEW"
 	done
 
-ValenciaIsland_MapEventHeader:: db 0, 0
+ValenciaIsland_MapEventHeader::
 
 .Warps: db 4
 	warp_def 19, 18, 1, IVYS_LAB
@@ -242,4 +239,3 @@ ValenciaIsland_MapEventHeader:: db 0, 0
 .ObjectEvents: db 2
 	person_event SPRITE_COOLTRAINER_M, 8, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 1, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ValenciaIslandTeacherScript, -1
 	person_event SPRITE_YOUNGSTER, 18, 10, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, ValenciaIslandFisherScript, -1
-

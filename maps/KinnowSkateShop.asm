@@ -78,7 +78,7 @@ NoThankYouText:
 	line "change your mind!"
 	done
 
-KinnowSkateShop_MapEventHeader:: db 0, 0
+KinnowSkateShop_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 6, 7, KINNOW_ISLAND
@@ -90,4 +90,3 @@ KinnowSkateShop_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 1
 	person_event SPRITE_CLERK, 2, 9, SPRITEMOVEDATA_STANDING_LEFT, 1, 1, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SkateShopClerkScript, -1
-

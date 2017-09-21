@@ -2,14 +2,11 @@ const_value set 2
 	const HALLOFFAME_LANCE
 
 HallOfFame_MapScriptHeader:
-.MapTriggers:
-	db 1
 
-	; triggers
+.MapTriggers: db 1
 	maptrigger .Trigger0
 
-.MapCallbacks:
-	db 0
+.MapCallbacks: db 0
 
 .Trigger0:
 	priorityjump HallOfFameScript
@@ -99,18 +96,12 @@ HallOfFame_LanceText:
 	done
 
 HallOfFame_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 0
+.Warps: db 0
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 0
+.Signposts: db 0
 
-.PersonEvents:
-	db 1
+.PersonEvents: db 1
 	person_event SPRITE_LANCE, 12, 4, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ObjectEvent, -1

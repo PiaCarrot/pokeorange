@@ -9,8 +9,6 @@ MandarinNorth_MapScriptHeader::
 .Triggers: db 0
 
 .Callbacks: db 1
-
-	; callbacks
 	dbw MAPCALLBACK_NEWMAP, .FlyPoint
 
 .FlyPoint:
@@ -91,7 +89,7 @@ NameRaterSignText:
 	text "NAME RATER"
 	done
 
-MandarinNorth_MapEventHeader:: db 0, 0
+MandarinNorth_MapEventHeader::
 
 .Warps: db 6
 	warp_def 15, 7, 1, MANDARIN_NORTH_POKECENTER
@@ -115,4 +113,3 @@ MandarinNorth_MapEventHeader:: db 0, 0
 	person_event SPRITE_POKE_BALL, 29, 29, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MandarinNorthRareCandy, EVENT_MANDARIN_NORTH_RARE_CANDY
 	person_event SPRITE_PIKACHU, 10, 21, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_RED, 0, 0, MandarinNorthPikachuScript, -1
 	person_event SPRITE_PIKACHU, 13, 4, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_RED, 0, 0, MandarinNorthPikachuScript, -1
-

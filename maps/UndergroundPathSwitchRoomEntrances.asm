@@ -44,14 +44,10 @@ const_value set 2
 	const UNDERGROUNDPATHSWITCHROOMENTRANCES_SILVER
 
 UndergroundPathSwitchRoomEntrances_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 1
+.MapTriggers: db 0
 
-	; callbacks
-
+.MapCallbacks: db 1
 	dbw MAPCALLBACK_TILES, .UpdateDoorPositions
 
 .UpdateDoorPositions:
@@ -489,21 +485,15 @@ SwitchRoomText_Emergency:
 	done
 
 UndergroundPathSwitchRoomEntrances_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 0
+.Warps: db 0
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 4
+.Signposts: db 4
 	signpost 1, 16, SIGNPOST_READ, Switch1Script
 	signpost 1, 10, SIGNPOST_READ, Switch2Script
 	signpost 1, 2, SIGNPOST_READ, Switch3Script
 	signpost 11, 20, SIGNPOST_READ, EmergencySwitchScript
 
-.PersonEvents:
-	db 0
+.PersonEvents: db 0

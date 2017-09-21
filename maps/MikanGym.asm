@@ -5,11 +5,10 @@ const_value set 2
 	const MIKANGYM_GYM_GUY
 
 MikanGym_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 FalknerScript_0x683c2:
 	faceplayer
@@ -234,7 +233,7 @@ MikanGymGuyWinText:
 	line "time at all!"
 	done
 
-MikanGym_MapEventHeader:: db 0, 0
+MikanGym_MapEventHeader::
 
 .Warps: db 2
 	warp_def 17, 4, 2, MIKAN_ISLAND

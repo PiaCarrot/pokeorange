@@ -2,16 +2,15 @@ const_value set 2
 	const MANDARINNORTHSMALLHOUSE_POKE_BALL
 
 MandarinNorthSmallHouse_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 MandarinNorthHMCut:
 	itemball HM_CUT
 
-MandarinNorthSmallHouse_MapEventHeader:: db 0, 0
+MandarinNorthSmallHouse_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 2, 3, MANDARIN_NORTH
@@ -23,4 +22,3 @@ MandarinNorthSmallHouse_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 1
 	person_event SPRITE_POKE_BALL, 3, 3, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MandarinNorthHMCut, EVENT_MANDARIN_NORTH_HM_CUT
-

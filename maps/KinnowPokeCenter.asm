@@ -4,11 +4,10 @@ const_value set 2
 	const KINNOW_SLOUCH
 
 KinnowPokeCenter_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 KinnowNurseScript:
 	jumpstd pokecenternurse
@@ -40,7 +39,7 @@ KinnowGBKidText:
 	line "TROVITOPOLIS."
 	done
 
-KinnowPokeCenter_MapEventHeader:: db 0, 0
+KinnowPokeCenter_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 4, 4, KINNOW_ISLAND
@@ -54,4 +53,3 @@ KinnowPokeCenter_MapEventHeader:: db 0, 0
 	person_event SPRITE_NURSE, 1, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, KinnowNurseScript, -1
 	person_event SPRITE_GAMEBOY_KID, 5, 8, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, KinnowGameboyKidScript, -1
 	person_event SPRITE_PC_SLOUCH, 4, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, KinnowSlouchScript, -1
-

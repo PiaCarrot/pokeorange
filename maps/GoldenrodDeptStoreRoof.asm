@@ -9,14 +9,10 @@ const_value set 2
 	const GOLDENRODDEPTSTOREROOF_BUG_CATCHER
 
 GoldenrodDeptStoreRoof_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 2
+.MapTriggers: db 0
 
-	; callbacks
-
+.MapCallbacks: db 2
 	dbw MAPCALLBACK_TILES, .CheckSaleChangeBlock
 	dbw MAPCALLBACK_OBJECTS, .CheckSaleChangeClerk
 
@@ -215,25 +211,19 @@ PokeDollVendingMachineText:
 	done
 
 GoldenrodDeptStoreRoof_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 1
+.Warps: db 1
 	warp_def $1, $d, 3, GOLDENROD_DEPT_STORE_6F
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 4
+.Signposts: db 4
 	signpost 3, 15, SIGNPOST_RIGHT, Binoculars1
 	signpost 5, 15, SIGNPOST_RIGHT, Binoculars2
 	signpost 6, 15, SIGNPOST_RIGHT, Binoculars3
 	signpost 0, 3, SIGNPOST_UP, PokeDollVendingMachine
 
-.PersonEvents:
-	db 8
+.PersonEvents: db 8
 	person_event SPRITE_CLERK, 4, 1, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ClerkScript_0x5673f, EVENT_GOLDENROD_SALE_OFF
 	person_event SPRITE_POKEFAN_F, 3, 10, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, PokefanFScript_0x56746, -1
 	person_event SPRITE_FISHER, 1, 2, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, FisherScript_0x56749, -1

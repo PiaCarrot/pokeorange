@@ -3,17 +3,11 @@ const_value set 2
 	const COLOSSEUM_CHRIS2
 
 Colosseum_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-	; triggers
+.MapTriggers: db 1
 	maptrigger .Trigger0
 
-.MapCallbacks:
-	db 2
-
-	; callbacks
-
+.MapCallbacks: db 2
 	dbw MAPCALLBACK_OBJECTS, ColosseumScript_SetWhichChris
 	dbw MAPCALLBACK_NEWMAP, ColosseumScript_InitializeCB
 
@@ -60,23 +54,17 @@ ChrisScript_0x193499:
 	done
 
 Colosseum_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 2
+.Warps: db 2
 	warp_def $7, $4, 3, POKECENTER_2F
 	warp_def $7, $5, 3, POKECENTER_2F
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 2
+.Signposts: db 2
 	signpost 4, 4, SIGNPOST_RIGHT, MapColosseumSignpost1Script
 	signpost 4, 5, SIGNPOST_LEFT, MapColosseumSignpost1Script
 
-.PersonEvents:
-	db 2
+.PersonEvents: db 2
 	person_event SPRITE_CHRIS, 4, 3, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ChrisScript_0x193499, EVENT_TEMPORARY_1
 	person_event SPRITE_CHRIS, 4, 6, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ChrisScript_0x193499, EVENT_TEMPORARY_2

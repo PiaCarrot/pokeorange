@@ -2,11 +2,10 @@ const_value set 2
 	const ROUTE51TANGELOJUNGLEGATE_OFFICER
 
 Route51TangeloJungleGate_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 OfficerScript_0x197634:
 	jumptextfaceplayer UnknownText_0x19763a
@@ -17,7 +16,7 @@ UnknownText_0x19763a:
 	cont "TANGELO JUNGLE."
 	done
 
-Route51TangeloJungleGate_MapEventHeader:: db 0, 0
+Route51TangeloJungleGate_MapEventHeader::
 
 .Warps: db 5
 	warp_def 4, 0, 2, TANGELO_JUNGLE
@@ -32,4 +31,3 @@ Route51TangeloJungleGate_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 1
 	person_event SPRITE_OFFICER, 2, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, OfficerScript_0x197634, -1
-

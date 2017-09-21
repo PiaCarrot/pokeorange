@@ -101,7 +101,7 @@ PinkanIslandFruitTree3:
 PinkanIslandFruitTree4:
 	fruittree FRUITTREE_PINKAN_ISLAND_4
 
-PinkanIsland_MapEventHeader:: db 0, 0
+PinkanIsland_MapEventHeader::
 
 .Warps: db 0
 
@@ -121,4 +121,3 @@ PinkanIsland_MapEventHeader:: db 0, 0
 	person_event SPRITE_POKE_BALL, 19, 12, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PinkanIslandSweetScent, EVENT_PINKAN_ISLAND_TM_SWEET_SCENT
 	person_event SPRITE_POKE_BALL, 13, 30, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PinkanIslandRevive, EVENT_PINKAN_ISLAND_REVIVE
 	person_event SPRITE_SUPER_NERD, 19, 21, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 5, TrainerManiacShawn, -1
-

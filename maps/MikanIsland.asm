@@ -8,13 +8,10 @@ const_value set 2
 	const MIKANISLAND_POKE_BALL2
 
 MikanIsland_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 1
+.MapTriggers: db 0
 
-	; callbacks
+.MapCallbacks: db 1
 	dbw MAPCALLBACK_NEWMAP, .FlyPoint
 
 .FlyPoint:
@@ -103,7 +100,7 @@ MikanGymSignText:
 	cont "the ORANGE CREW"
 	done
 
-MikanIsland_MapEventHeader:: db 0, 0
+MikanIsland_MapEventHeader::
 
 .Warps: db 7
 	warp_def 15, 7, 2, MIKAN_MART
@@ -129,4 +126,3 @@ MikanIsland_MapEventHeader:: db 0, 0
 	person_event SPRITE_FRUIT_TREE, 29, 26, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MikanIslandFruitTreeScript, -1
 	person_event SPRITE_POKE_BALL, 6, 11, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MikanIslandPPUp, EVENT_MIKAN_ISLAND_PP_UP
 	person_event SPRITE_POKE_BALL, 12, 28, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MikanIslandRareCandy, EVENT_MIKAN_ISLAND_RARE_CANDY
-

@@ -2,16 +2,15 @@ const_value set 2
 	const SUNBURST_ITEM
 
 SunburstCrystalShop_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 SunburstCrystalShop:
 	itemball ODD_CRYSTAL
 
-SunburstCrystalShop_MapEventHeader:: db 0, 0
+SunburstCrystalShop_MapEventHeader::
 
 .Warps: db 2
 	warp_def 5, 1, 3, SUNBURST_ISLAND

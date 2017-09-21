@@ -81,7 +81,7 @@ CooltrainerKeikoAfterText:
 UnnamedIslandTM:
 	itemball TM_RETURN
 
-UnnamedIsland1_MapEventHeader:: db 0, 0
+UnnamedIsland1_MapEventHeader::
 
 .Warps: db 1
 	warp_def 13, 13, 1, UNNAMED_ISLAND_1_POKE_CENTER
@@ -98,4 +98,3 @@ UnnamedIsland1_MapEventHeader:: db 0, 0
 	person_event SPRITE_FISHER, 17, 8, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 0, TrainerFisherYuuta, -1
 	person_event SPRITE_COOLTRAINER_F, 10, 18, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 3, CooltrainerKeikoScript, -1
 	person_event SPRITE_POKE_BALL, 10, 5, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, UnnamedIslandTM, EVENT_UNNAMED_ISLAND_1_TM_RETURN
-

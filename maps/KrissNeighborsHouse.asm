@@ -3,11 +3,10 @@ const_value set 2
 	const KRISSNEIGHBORSHOUSE_POKEDEX
 
 KrissNeighborsHouse_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 KrissNeighborsDaughter:
 	faceplayer
@@ -104,24 +103,18 @@ KrissNeighborsTownMapText:
 	done
 
 KrissNeighborsHouse_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 2
+.Warps: db 2
 	warp_def $7, $2, 3, VALENCIA_ISLAND
 	warp_def $7, $3, 3, VALENCIA_ISLAND
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 3
+.Signposts: db 3
 	signpost 1, 0, SIGNPOST_READ, KrissNeighborsHouseBookshelf
 	signpost 1, 1, SIGNPOST_READ, KrissNeighborsHouseBookshelf
 	signpost 1, 7, SIGNPOST_READ, KrissNeighborsHouseRadio
 
-.PersonEvents:
-	db 2
+.PersonEvents: db 2
 	person_event SPRITE_LASS, 3, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, KrissNeighborsDaughter, -1
 	person_event SPRITE_POKEDEX, 3, 3, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, KrissNeighborsTownMap, EVENT_TOWN_MAP_OBTAINED

@@ -2,11 +2,10 @@ const_value set 2
 	const MANDARINNORTHLARGEHOUSE_OLDMAN
 
 MandarinNorthLargeHouse_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 MandarinNorthOldManScript:
 	jumptextfaceplayer MandarinNorthOldManText
@@ -24,7 +23,7 @@ MandarinNorthOldManText:
 	line "and the #MON."
 	done
 
-MandarinNorthLargeHouse_MapEventHeader:: db 0, 0
+MandarinNorthLargeHouse_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 2, 4, MANDARIN_NORTH
@@ -36,4 +35,3 @@ MandarinNorthLargeHouse_MapEventHeader:: db 0, 0
 
 .ObjectEvents: db 1
 	person_event SPRITE_GRAMPS, 4, 2, SPRITEMOVEDATA_STANDING_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MandarinNorthOldManScript, -1
-

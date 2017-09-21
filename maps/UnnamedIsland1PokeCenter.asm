@@ -4,15 +4,12 @@ const_value set 2
 	const UNNAMEDISLAND_MISTY
 
 UnnamedIsland1PokeCenter_MapScriptHeader:
-.MapTriggers:
-	db 2
 
-	; triggers
+.MapTriggers: db 2
 	maptrigger .Trigger0
 	maptrigger .Trigger1
 
-.MapCallbacks:
-	db 0
+.MapCallbacks: db 0
 
 .Trigger0:
 	priorityjump .UnnamedIslandMistyScript
@@ -110,7 +107,7 @@ UnnamedMistyText2:
 	cont "nice meeting you!"
 	done
 
-UnnamedIsland1PokeCenter_MapEventHeader:: db 0, 0
+UnnamedIsland1PokeCenter_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 4, 1, UNNAMED_ISLAND_1
@@ -124,4 +121,3 @@ UnnamedIsland1PokeCenter_MapEventHeader:: db 0, 0
 	person_event SPRITE_NURSE, 1, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, UnnamedIslandNurseScript, -1
 	person_event SPRITE_PC_SLOUCH, 4, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, UnnamedIslandSlouchScript, -1
 	person_event SPRITE_MISTY, 3, 4, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1,  (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_UNNAMED_POKE_CENTER_MISTY
-

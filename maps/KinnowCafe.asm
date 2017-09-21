@@ -7,11 +7,9 @@ const_value set 2
 
 KinnowCafe_MapScriptHeader::
 
-.MapTriggers:
-	db 0
+.MapTriggers: db 0
 
-.MapCallbacks:
-	db 0
+.MapCallbacks: db 0
 
 WaitressInfo:
 	opentext
@@ -139,7 +137,7 @@ WaitressJunAfterText:
 	line "the OWNER."
 	done
 
-KinnowCafe_MapEventHeader:: db 0, 0
+KinnowCafe_MapEventHeader::
 
 .Warps: db 2
 	warp_def 9, 2, 6, KINNOW_ISLAND
@@ -155,4 +153,3 @@ KinnowCafe_MapEventHeader:: db 0, 0
 	person_event SPRITE_COOLTRAINER_F, 3, 7, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 0, WaitressNaomi, -1
 	person_event SPRITE_COOLTRAINER_F, 5, 2, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 0, WaitressSaori, -1
 	person_event SPRITE_COOLTRAINER_F, 7, 6, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 0, WaitressJun, -1
-

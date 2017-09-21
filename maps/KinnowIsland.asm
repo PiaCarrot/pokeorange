@@ -51,7 +51,7 @@ SkateShopSignText:
 	cont "style!"
 	done
 
-KinnowIsland_MapEventHeader:: db 0, 0
+KinnowIsland_MapEventHeader::
 
 .Warps: db 9
 	warp_def 15, 23, 1, KINNOW_TRADE_HOUSE
@@ -74,4 +74,3 @@ KinnowIsland_MapEventHeader:: db 0, 0
 .ObjectEvents: db 2
 	person_event SPRITE_POKEFAN_M, 22, 16, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, KinnowPokeFanMScript, -1
 	person_event SPRITE_POKE_BALL, 22, 4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, KinnowNugget, EVENT_KINNOW_NUGGET
-

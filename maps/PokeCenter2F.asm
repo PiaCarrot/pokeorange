@@ -4,16 +4,13 @@ const_value set 2
 	const POKECENTER2F_TIME_CAPSULE_RECEPTIONIST
 
 PokeCenter2F_MapScriptHeader:
-.MapTriggers:
-	db 3
 
-	; triggers
+.MapTriggers: db 3
 	maptrigger .Trigger0
 	maptrigger .Trigger1
 	maptrigger .Trigger2
 
-.MapCallbacks:
-	db 0
+.MapCallbacks: db 0
 
 .Trigger1:
 	priorityjump Script_LeftCableTradeCenter
@@ -414,24 +411,18 @@ Text_LikeTheLook:
 	done
 
 PokeCenter2F_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 3
+.Warps: db 3
 	warp_def $7, $0, -1, POKECENTER_2F
 	warp_def $0, $5, 1, TRADE_CENTER
 	warp_def $0, $9, 1, COLOSSEUM
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 1
+.Signposts: db 1
 	signpost 3, 7, SIGNPOST_READ, MapPokeCenter2FSignpost0Script
 
-.PersonEvents:
-	db 4
+.PersonEvents: db 4
 	person_event SPRITE_LINK_RECEPTIONIST, 2, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LinkReceptionistScript_Trade, -1
 	person_event SPRITE_LINK_RECEPTIONIST, 2, 9, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LinkReceptionistScript_Battle, -1
 	person_event SPRITE_LINK_RECEPTIONIST, 3, 13, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LinkReceptionistScript_TimeCapsule, -1

@@ -1,11 +1,10 @@
 const_value set 2
 
 Route11_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 Route11Sign:
 	jumptext Route11SignText
@@ -15,18 +14,12 @@ Route11SignText:
 	done
 
 Route11_MapEventHeader:
-	; filler
-	db 0, 0
 
-.Warps:
-	db 0
+.Warps: db 0
 
-.XYTriggers:
-	db 0
+.XYTriggers: db 0
 
-.Signposts:
-	db 1
+.Signposts: db 1
 	signpost 7, 3, SIGNPOST_READ, Route11Sign
 
-.PersonEvents:
-	db 0
+.PersonEvents: db 0

@@ -3,11 +3,10 @@ const_value set 2
 	const SUNBURST_TRAINER
 
 SunburstPokeCenter_MapScriptHeader:
-.MapTriggers:
-	db 0
 
-.MapCallbacks:
-	db 0
+.MapTriggers: db 0
+
+.MapCallbacks: db 0
 
 SunburstNurseScript:
 	jumpstd pokecenternurse
@@ -32,7 +31,7 @@ SunburstLassText:
 	cont "coming."
 	done
 
-SunburstPokeCenter_MapEventHeader:: db 0, 0
+SunburstPokeCenter_MapEventHeader::
 
 .Warps: db 2
 	warp_def 7, 4, 2, SUNBURST_ISLAND
@@ -45,4 +44,3 @@ SunburstPokeCenter_MapEventHeader:: db 0, 0
 .ObjectEvents: db 2
 	person_event SPRITE_NURSE, 1, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, SunburstNurseScript, -1
 	person_event SPRITE_LASS, 4, 6, SPRITEMOVEDATA_SPINRANDOM_SLOW, 2, 2, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, SunburstLassScript, -1
-
