@@ -7,6 +7,7 @@ Marts: ; 160a9
 	dw SunburstMart3
 	dw KinnowMart
 	dw Route58Mart
+	dw MoroMart
 MartsEnd
 ; 160ed
 
@@ -98,6 +99,17 @@ Route58Mart:
 	db FULL_HEAL
 	db ICE_HEAL
 	db ESCAPE_ROPE
+	db $ff
+	
+MoroMart:
+	db 7
+	db GREAT_BALL
+	db SUPER_POTION
+	db ESCAPE_ROPE
+	db PARLYZ_HEAL
+	db AWAKENING
+	db FULL_HEAL
+	db LURE_BALL
 	db $ff
 
 DefaultMart: ; 16214

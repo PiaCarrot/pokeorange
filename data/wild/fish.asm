@@ -14,10 +14,10 @@ FishGroups: ; 92488
 	db  35 percent,     TENTACOOL,  20
 	db  70 percent,     KRABBY,     20
 	db  90 percent + 1, KRABBY,     20
-	db 100 percent,     USE_TIME,    0
+	db 100 percent,     USE_TIME,    4
 .Shore_Super: ; 924f8
 	db  40 percent,     KRABBY,     40
-	db  70 percent,     USE_TIME,    1
+	db  70 percent,     USE_TIME,    5
 	db  90 percent + 1, KRABBY,     40
 	db 100 percent,     KINGLER,    40
 .Shore_Master: ; 924f8
@@ -76,15 +76,15 @@ FishGroups: ; 92488
 	db  90 percent + 1, POLIWAG,    20
 	db 100 percent,     USE_TIME,    6
 .Pond_Super: ; 9255b
-	db  40 percent,     POLIWAG,    40
+	db  40 percent,     POLIWHIRL,    40
 	db  70 percent,     USE_TIME,    7
-	db  90 percent + 1, GOLDEEN,    40
-	db 100 percent,     POLIWAG,    40
+	db  90 percent + 1, SEAKING,    40
+	db 100 percent,     POLIWHIRL,    40
 .Pond_Master: ; 9255b
-	db  40 percent,     POLIWAG,    40
+	db  40 percent,     POLIWHIRL,    40
 	db  70 percent,     USE_TIME,    7
-	db  90 percent + 1, GOLDEEN,    40
-	db 100 percent,     POLIWAG,    40
+	db  90 percent + 1, SEAKING,    40
+	db 100 percent,     POLIWHIRL,    40
 
 .Qwilfish_Old: ; 9262d
 	db  70 percent + 1, KRABBY,     10
@@ -133,8 +133,8 @@ TimeFishGroups: ; 9266f
 	db CORSOLA,    40,  STARYU,     40
 	db SHELLDER,   20,  SHELLDER,   20
 	db SHELLDER,   40,  SHELLDER,   40
-	db GOLDEEN,    20,  GOLDEEN,    20
-	db GOLDEEN,    40,  GOLDEEN,    40
+	db RELICANTH,  20,  RELICANTH,  20
+	db RELICANTH,  40,  RELICANTH,  40
 	db POLIWAG,    20,  POLIWAG,    20
 	db POLIWAG,    40,  POLIWAG,    40
 	db QWILFISH,   20,  QWILFISH,   20
