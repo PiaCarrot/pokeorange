@@ -16,11 +16,11 @@
 	RGB 06, 09, 07
 	RGB 04, 05, 06
 
-; group 3
-	RGB 28, 04, 03
-	RGB 22, 00, 00
-	RGB 14, 02, 02
-	RGB 11, 00, 00
+; group 3 (Navel, Moro Island)
+	RGB 23, 15, 31
+	RGB 16, 05, 31
+	RGB 12, 07, 17
+	RGB 08, 06, 10
 
 ; group 4 (Pinkan Island, Kinnow Island)
 	RGB 00, 15, 31

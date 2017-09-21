@@ -142,7 +142,7 @@ MoroMuseumCuratorScript:
 CuratorTrophyMissingText:
 	text "CURATOR: Hello."
 	line "I'm sorry to say"
-	cont "this but someone"
+	cont "this, but someone"
 	cont "stole the ORANGE"
 	cont "LEAGUE trophy we"
 	cont "had on display."

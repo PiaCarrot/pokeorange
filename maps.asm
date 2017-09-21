@@ -144,6 +144,12 @@ INCLUDE "maps/Route59.asm"
 INCLUDE "Maps/GrapefruitStore.asm"
 INCLUDE "maps/MoroIsland.asm"
 INCLUDE "maps/MoroIslandMuseum.asm"
+INCLUDE "maps/MoroFishingHouse.asm"
+INCLUDE "maps/MoroSouthHouse.asm"
+INCLUDE "maps/MoroHouse1.asm"
+INCLUDE "maps/MoroHouse2.asm"
+INCLUDE "maps/MoroPokeCenter.asm"
+INCLUDE "maps/MoroMart.asm"
 
 SECTION "Map Scripts 10", ROMX, BANK[MAP_SCRIPTS_10]
 

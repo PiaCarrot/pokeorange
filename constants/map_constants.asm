@@ -49,6 +49,12 @@ MAP_NONE EQU 0
 	mapgroup GRAPEFRUIT_STORE, 3, 4
 	mapgroup MORO_ISLAND, 18, 18
 	mapgroup MORO_ISLAND_MUSEUM, 8, 7
+	mapgroup MORO_FISHING_HOUSE, 4, 4
+	mapgroup MORO_SOUTH_HOUSE, 4, 4
+	mapgroup MORO_HOUSE_1, 4, 4
+	mapgroup MORO_HOUSE_2, 4, 4
+	mapgroup MORO_POKE_CENTER, 4, 5
+	mapgroup MORO_MART, 4, 6
 
 	newgroup ; 4
 

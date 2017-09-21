@@ -137,6 +137,12 @@
 	map_header_2 MtNavelIceRock, MT_NAVEL_ICE_ROCK, 9, 0
 	map_header_2 GrapefruitStore, GRAPEFRUIT_STORE, 0, 0
 	map_header_2 MoroIslandMuseum, MORO_ISLAND_MUSEUM, 0, 0
+	map_header_2 MoroFishingHouse, MORO_FISHING_HOUSE, 0, 0
+	map_header_2 MoroSouthHouse, MORO_SOUTH_HOUSE, 0, 0
+	map_header_2 MoroHouse1, MORO_HOUSE_1, 0, 0
+	map_header_2 MoroHouse2, MORO_HOUSE_2, 0, 0
+	map_header_2 MoroPokeCenter, MORO_POKE_CENTER, 0, 0
+	map_header_2 MoroMart, MORO_MART, 0, 0
 	map_header_2 HallOfFame, HALL_OF_FAME, $0, 0
 
 	map_header_2 DayCare, DAYCARE, $0, 0
