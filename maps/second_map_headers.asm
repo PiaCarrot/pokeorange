@@ -8,7 +8,7 @@
 	connection north, ROUTE_50, Route50, 5, 0, 10, TANGELO_ISLAND
 
 	map_header_2 Route50, ROUTE_50, 32, EAST | SOUTH
-	connection south, TANGELO_ISLAND, TangeloIsland, -3, 2, 16, ROUTE_50
+	connection south, TANGELO_ISLAND, TangeloIsland, -3, 2, 10, ROUTE_50
 	connection east, ROUTE_51, Route51, 8, 0, 14, ROUTE_50
 
 	map_header_2 Route51, ROUTE_51, 32, WEST

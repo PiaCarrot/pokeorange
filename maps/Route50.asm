@@ -7,11 +7,13 @@ const_value set 2
 	const ROUTE50_COOLTRAINER_F
 	const ROUTE50_POKE_BALL
 
-Route50_MapScriptHeader:
+Route50_MapScriptHeader::
 
-.MapTriggers: db 0
+.Triggers: db 0
 
-.MapCallbacks: db 0
+.Callbacks: db 0
+
+.Scripts:
 
 TrainerYoungsterJoey:
 	trainer EVENT_BEAT_YOUNGSTER_KOJI, YOUNGSTER, KOJI, YoungsterKojiSeenText, YoungsterKojiBeatenText, 0, .Script
@@ -143,7 +145,7 @@ Route50TrainerTipsText:
 	cont "wild #MON!"
 	done
 
-Route50_MapEventHeader::
+Route50_MapEventHeader:: db 0, 0
 
 .Warps: db 0
 
@@ -156,9 +158,10 @@ Route50_MapEventHeader::
 
 .ObjectEvents: db 7
 	person_event SPRITE_YOUNGSTER, 29, 0, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerYoungsterJoey, -1
-	person_event SPRITE_YOUNGSTER, 14, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerYoungsterTouya, -1
-	person_event SPRITE_BUG_BOY, 50, 12, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerBug_catcherKatta, -1
-	person_event SPRITE_FRUIT_TREE, 11, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50FruitTree1, -1
+	person_event SPRITE_YOUNGSTER, 18, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerYoungsterTouya, -1
+	person_event SPRITE_BUG_BOY, 10, 17, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerBug_catcherKatta, -1
+	person_event SPRITE_FRUIT_TREE, 10, 16, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50FruitTree1, -1
 	person_event SPRITE_FRUIT_TREE, 33, 0, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50FruitTree2, -1
 	person_event SPRITE_COOLTRAINER_F, 39, 14, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route50CooltrainerFScript, -1
-	person_event SPRITE_POKE_BALL, 19, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route50Antidote, EVENT_ROUTE_50_ANTIDOTE
+	person_event SPRITE_POKE_BALL, 5, 12, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route50Antidote, EVENT_ROUTE_50_ANTIDOTE
+
