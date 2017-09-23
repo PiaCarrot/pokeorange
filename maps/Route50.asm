@@ -145,7 +145,7 @@ Route50TrainerTipsText:
 	cont "wild #MON!"
 	done
 
-Route50_MapEventHeader:: db 0, 0
+Route50_MapEventHeader::
 
 .Warps: db 0
 
