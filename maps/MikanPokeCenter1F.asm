@@ -30,7 +30,7 @@ UnknownText_0x69809:
 	cont "Game 2!"
 
 	para "GAH! Why do I al-"
-	line "get TAILS?!"
+	line "ways get TAILS?!"
 	done
 
 UnknownText_0x6983c:
