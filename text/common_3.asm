@@ -122,10 +122,10 @@ UnknownText_0x1c08ac::
 
 UnknownText_0x1c08bc::
 	text "A #MON could be"
-	line "in this tree."
+	line "in these vines."
 
 	para "Want to HEADBUTT"
-	line "it?"
+	line "them?"
 	done
 
 UnknownText_0x1c08f0::

@@ -5,6 +5,20 @@ MoroSouthHouse_MapScriptHeader:
 
 .MapCallbacks: db 0
 
+MoroFarfetchdFan:
+	jumptextfaceplayer MoroFarfetchdFanText
+	
+MoroFarfetchdFanText:
+	text "I'll let you in on"
+	line "a secret."
+	
+	para "On ROUTE 61, if"
+	line "you keep going"
+	cont "south, there's an"
+	cont "island where FAR-"
+	cont "FETCH'D gather."
+	done
+
 MoroSouthHouse_MapEventHeader::
 
 .Warps: db 2
@@ -15,4 +29,5 @@ MoroSouthHouse_MapEventHeader::
 
 .BGEvents: db 0
 
-.ObjectEvents: db 0
+.ObjectEvents: db 1
+	person_event SPRITE_COOLTRAINER_M, 4, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MoroFarfetchdFan, -1
