@@ -24,8 +24,8 @@ MoroOfficerText:
 MoroRoute60Gate_MapEventHeader::
 
 .Warps: db 5
-	warp_def 4, 0, 1, GOLDEN_ISLAND
-	warp_def 5, 0, 2, GOLDEN_ISLAND
+	warp_def 4, 0, 1, ROUTE_60
+	warp_def 5, 0, 2, ROUTE_60
 	warp_def 4, 9, 8, MORO_ISLAND
 	warp_def 5, 9, 9, MORO_ISLAND
 	warp_def 2, 1, 1, ROUTE_60_GATE_UPSTAIRS

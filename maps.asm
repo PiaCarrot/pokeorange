@@ -156,6 +156,7 @@ SECTION "Map Scripts 10", ROMX, BANK[MAP_SCRIPTS_10]
 INCLUDE "maps/MoroRoute60Gate.asm"
 INCLUDE "maps/Route60GateUpstairs.asm"
 INCLUDE "maps/GoldenIsland.asm"
+INCLUDE "maps/Route60.asm"
 
 SECTION "Map Scripts 11", ROMX, BANK[MAP_SCRIPTS_11]
 

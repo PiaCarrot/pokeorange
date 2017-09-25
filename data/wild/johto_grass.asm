@@ -485,5 +485,32 @@
 	db 19, ODDISH
 	db 20, ZUBAT
 	db 20, RATICATE
+	
+	map ROUTE_60
+	db 6 percent, 6 percent, 6 percent
+	; morning
+	db 20, JIGGLYPUFF
+	db 20, SPEAROW
+	db 21, JIGGLYPUFF
+	db 21, EKANS
+	db 21, SPEAROW
+	db 22, EKANS
+	db 22, FEAROW
+	; day
+	db 20, JIGGLYPUFF
+	db 20, SPEAROW
+	db 21, JIGGLYPUFF
+	db 21, EKANS
+	db 21, SPEAROW
+	db 22, EKANS
+	db 22, FEAROW
+	; night
+	db 20, ZUBAT
+	db 20, GASTLY
+	db 21, ODDISH
+	db 21, JIGGLYPUFF
+	db 21, GASTLY
+	db 22, ODDISH
+	db 22, GASTLY
 
 	db -1 ; end

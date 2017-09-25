@@ -254,7 +254,7 @@ MandarinCassidyWonText:
 	done
 
 MandarinUndergroundPCText:
-	text "Jessie and James"
+	text "JESSIE and JAMES"
 
 	para "We have set up"
 	line "operations on a"
@@ -264,7 +264,7 @@ MandarinUndergroundPCText:
 	line "round up all the"
 	cont "#MON here soon."
 
-	para "Butch and Cassidy"
+	para "BUTCH and CASSIDY"
 	done
 
 MandarinUndergroundStatueText:

@@ -92,6 +92,7 @@ MAP_NONE EQU 0
 	mapgroup MORO_ROUTE_60_GATE, 4, 5
 	mapgroup ROUTE_60_GATE_UPSTAIRS, 4, 5
 	mapgroup GOLDEN_ISLAND, 16, 14
+	mapgroup ROUTE_60, 12, 28
 	
 	newgroup ; 7
 
@@ -287,6 +288,7 @@ const_value = -1
 	const SPAWN_ROUTE_56_WEST
 	const SPAWN_KINNOW
 	const SPAWN_NAVEL
+	const SPAWN_MORO
 NUM_SPAWNS EQU const_value
 
 	const_def
@@ -322,6 +324,7 @@ const_value SET 1
 	const FRUITTREE_PINKAN_ISLAND_2
 	const FRUITTREE_PINKAN_ISLAND_3
 	const FRUITTREE_PINKAN_ISLAND_4
+	const FRUITTREE_ROUTE_60
 
 NUM_FRUIT_TREES EQU const_value +- 1
 

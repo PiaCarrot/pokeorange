@@ -2327,6 +2327,8 @@ wTangeloPortTrigger::            ds 1
 wMandarinUndergroundTrigger::    ds 1
 wRoute56WestTrigger::            ds 1
 wUnnamedIsland1PokeCenterTrigger:: ds 1
+wRoute60Trigger::				 ds 1
+wGoldenIslandTrigger::			 ds 1
 
 	ds 24
 

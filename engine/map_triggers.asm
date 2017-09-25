@@ -22,5 +22,7 @@ ENDM
 	trigger_def MANDARIN_UNDERGROUND,       wMandarinUndergroundTrigger
 	trigger_def ROUTE_56_WEST,              wRoute56WestTrigger
 	trigger_def UNNAMED_ISLAND_1_POKE_CENTER, wUnnamedIsland1PokeCenterTrigger
+	trigger_def ROUTE_60,					wRoute60Trigger
+	trigger_def GOLDEN_ISLAND,				wGoldenIslandTrigger
 	db -1
 ; 4d15b

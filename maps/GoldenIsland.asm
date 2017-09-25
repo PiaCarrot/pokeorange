@@ -4,6 +4,15 @@ GoldenIsland_MapScriptHeader::
 
 .Callbacks: db 0
 
+GoldenIslandSign:
+	jumptext GoldenIslandSignText
+	
+GoldenIslandSignText:
+	text "GOLDEN ISLAND"
+	
+	para "MEOWTH are welcome"
+	done
+
 GoldenIsland_MapEventHeader::
 
 .Warps: db 1
@@ -11,7 +20,8 @@ GoldenIsland_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 1
+	signpost 8, 14, SIGNPOST_READ, GoldenIslandSign
 
 .ObjectEvents: db 0
 

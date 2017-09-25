@@ -488,6 +488,7 @@ ENDM
 	flypoint SUNBURST,       SUNBURST_ISLAND
 	flypoint KINNOW,         KINNOW_ISLAND
 	flypoint NAVEL,          NAVEL_ISLAND
+	flypoint MORO,			 MORO_ISLAND
 ; Kanto
 
 KANTO_FLYPOINT EQU const_value
@@ -523,7 +524,7 @@ FlyMap: ; 91c90
 ; Flypoints begin at Valencia..
 	ld [StartFlypoint], a
 ; ..and end at ...
-	ld a, FLY_NAVEL
+	ld a, FLY_MORO
 	ld [EndFlypoint], a
 ; Fill out the map
 	call FillOrangeMap
@@ -555,7 +556,7 @@ FlyMap: ; 91c90
 	ld a, FLY_VALENCIA
 	ld [StartFlypoint], a
 ; ...and end at ...
-	ld a, FLY_NAVEL
+	ld a, FLY_MORO
 	ld [EndFlypoint], a
 ; Because Indigo Plateau is the first flypoint the player
 
@@ -576,7 +577,7 @@ FlyMap: ; 91c90
 ; Flypoints begin at Valencia...
 	ld [StartFlypoint], a
 ; ..and end at ...
-	ld a, FLY_NAVEL
+	ld a, FLY_MORO
 	ld [EndFlypoint], a
 	call FillOrangeMap
 	pop af

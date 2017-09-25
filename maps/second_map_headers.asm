@@ -147,6 +147,7 @@
 	map_header_2 Route60GateUpstairs, ROUTE_60_GATE_UPSTAIRS, 0, 0
 	map_header_2 HallOfFame, HALL_OF_FAME, $0, 0
 	map_header_2 GoldenIsland, GOLDEN_ISLAND, 6, 0
+	map_header_2 Route60, ROUTE_60, 53, 0
 
 	map_header_2 DayCare, DAYCARE, $0, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

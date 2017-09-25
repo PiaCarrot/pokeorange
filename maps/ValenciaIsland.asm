@@ -91,6 +91,7 @@ if def(DEBUG)
 	setflag ENGINE_FLYPOINT_SUNBURST
 	setflag ENGINE_FLYPOINT_KINNOW
 	setflag ENGINE_FLYPOINT_NAVEL
+	setflag ENGINE_FLYPOINT_MORO
 	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
 	giveitem MASTER_BALL
@@ -112,7 +113,7 @@ if def(DEBUG)
 	givepoke AMPHAROS, 40
 	givepoke PELIPPER, 40
 	closetext
-	warp SEVEN_GRAPEFRUITS, 19, 39
+	warp MORO_ISLAND, 7, 12
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon
