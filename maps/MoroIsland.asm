@@ -68,8 +68,8 @@ MoroIsland_MapEventHeader::
 	warp_def 11, 15, 1, MORO_HOUSE_1
 	warp_def 19, 21, 1, MORO_HOUSE_2
 	warp_def 15, 29, 1, MORO_MART
-	warp_def 17, 4, 3, MORO_ROUTE_60_GATE
-	warp_def 16, 4, 4, MORO_ROUTE_60_GATE
+	warp_def 16, 4, 3, MORO_ROUTE_60_GATE
+	warp_def 17, 4, 4, MORO_ROUTE_60_GATE
 
 .CoordEvents: db 0
 

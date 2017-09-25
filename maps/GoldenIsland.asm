@@ -4,9 +4,10 @@ GoldenIsland_MapScriptHeader::
 
 .Callbacks: db 0
 
-GoldenIsland_MapEventHeader:: db 0, 0
+GoldenIsland_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 1
+	warp_def 9, 5, 1, MORO_ROUTE_60_GATE
 
 .CoordEvents: db 0
 
