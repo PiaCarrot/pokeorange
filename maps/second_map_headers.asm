@@ -143,7 +143,10 @@
 	map_header_2 MoroHouse2, MORO_HOUSE_2, 0, 0
 	map_header_2 MoroPokeCenter, MORO_POKE_CENTER, 0, 0
 	map_header_2 MoroMart, MORO_MART, 0, 0
+	map_header_2 MoroRoute60Gate, MORO_ROUTE_60_GATE, 0, 0
+	map_header_2 Route60GateUpstairs, ROUTE_60_GATE_UPSTAIRS, 0, 0
 	map_header_2 HallOfFame, HALL_OF_FAME, $0, 0
+	map_header_2 GoldenIsland, GOLDEN_ISLAND, 6, 0
 
 	map_header_2 DayCare, DAYCARE, $0, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

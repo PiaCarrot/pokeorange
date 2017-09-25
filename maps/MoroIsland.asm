@@ -60,7 +60,7 @@ MoroIslandMuseumSignText:
 
 MoroIsland_MapEventHeader::
 
-.Warps: db 7
+.Warps: db 9
 	warp_def 19, 16, 1, MORO_ISLAND_MUSEUM
 	warp_def 11, 7, 1, MORO_POKE_CENTER
 	warp_def 9, 27, 1, MORO_FISHING_HOUSE
@@ -68,6 +68,8 @@ MoroIsland_MapEventHeader::
 	warp_def 11, 15, 1, MORO_HOUSE_1
 	warp_def 19, 21, 1, MORO_HOUSE_2
 	warp_def 15, 29, 1, MORO_MART
+	warp_def 17, 4, 3, MORO_ROUTE_60_GATE
+	warp_def 16, 4, 4, MORO_ROUTE_60_GATE
 
 .CoordEvents: db 0
 

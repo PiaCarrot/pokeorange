@@ -245,7 +245,7 @@ CutTreeBlockPointers: ; c862
 	dbw TILESET_JOHTO_1, .johto1
 	dbw TILESET_JOHTO_2, .johto2
 	dbw TILESET_KANTO, .kanto
-	dbw TILESET_PARK, .park
+	dbw TILESET_GOLDEN_ISLAND, .park
 	dbw TILESET_ILEX_FOREST, .ilex
 	db -1
 

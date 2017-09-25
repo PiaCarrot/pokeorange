@@ -61,3 +61,6 @@ MtNavelIceRock_BlockData:
 	
 MoroIslandMuseum_BlockData: 
 	INCBIN "maps/MoroIslandMuseum.blk"
+	
+GoldenIsland_BlockData: 
+	INCBIN "maps/GoldenIsland.blk"

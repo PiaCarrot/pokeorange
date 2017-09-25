@@ -89,8 +89,10 @@ MAP_NONE EQU 0
 
 	newgroup ; 6
 
-	mapgroup DAYCARE, 4, 4
-
+	mapgroup MORO_ROUTE_60_GATE, 4, 5
+	mapgroup ROUTE_60_GATE_UPSTAIRS, 4, 5
+	mapgroup GOLDEN_ISLAND, 16, 14
+	
 	newgroup ; 7
 
 	mapgroup REDS_HOUSE_1F, 4, 4
@@ -102,6 +104,7 @@ MAP_NONE EQU 0
 
 	mapgroup VALENCIA_PORT, 12, 12
 	mapgroup TANGELO_PORT, 12, 12
+	mapgroup DAYCARE, 4, 4
 
 	newgroup ; 9
 

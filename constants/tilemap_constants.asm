@@ -29,8 +29,8 @@ const_value SET 1
 	const TILESET_BATTLE_TOWER         ; 16
 	const TILESET_SPROUT_TOWER         ; 17
 	const TILESET_CAVE                 ; 18
-	const TILESET_PARK                 ; 19
-	const TILESET_RUINS_OF_ALPH        ; 1a
+	const TILESET_GOLDEN_ISLAND                ; 19
+	const TILESET_MUSEUM       ; 1a
 	const TILESET_RADIO_TOWER          ; 1b
 	const TILESET_UNDERGROUND          ; 1c
 	const TILESET_ICE_PATH             ; 1d

@@ -52,18 +52,7 @@ Tileset31Anim: ; 0xfc073
 	dw NULL,  DoneTileAnimation
 ; 0xfc047
 
-Tileset25Anim: ; 0xfc047
-	dw VTiles2 tile $14, AnimateWaterTile
-	dw NULL,  WaitTileAnimation
-	dw VTiles2 tile $5f, AnimateFountain
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  AnimateFlowerTile
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  StandingTileFrame8
-	dw NULL,  DoneTileAnimation
+
 ; 0xfc073
 
 Tileset01Anim: ; 0xfc0a3
@@ -194,6 +183,7 @@ Tileset22Anim: ; 0xfc2e7
 Tileset26Anim: ; 0xfc2e7
 Tileset27Anim: ; 0xfc2e7
 Tileset28Anim: ; 0xfc2e7
+Tileset25Anim:
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
