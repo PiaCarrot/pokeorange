@@ -47,8 +47,8 @@ Route51GateUpstairs_MapEventHeader::
 .CoordEvents: db 0
 
 .BGEvents: db 2
-	signpost 4, 4, SIGNPOST_READ, TangeloBinoculars1
-	signpost 4, 6, SIGNPOST_READ, TangeloBinoculars2
+	signpost 4, 4, SIGNPOST_UP, TangeloBinoculars1
+	signpost 4, 6, SIGNPOST_UP, TangeloBinoculars2
 
 .ObjectEvents: db 1
 	person_event SPRITE_SIGHTSEER_F, 2, 5, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, CooltrainerFScript_0x197637, -1

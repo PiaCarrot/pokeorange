@@ -51,8 +51,8 @@ Route60GateUpstairs_MapEventHeader::
 .CoordEvents: db 0
 
 .BGEvents: db 2
-	signpost 4, 4, SIGNPOST_READ, MoroBinoculars1
-	signpost 4, 6, SIGNPOST_READ, MoroBinoculars2
+	signpost 4, 4, SIGNPOST_UP, MoroBinoculars1
+	signpost 4, 6, SIGNPOST_UP, MoroBinoculars2
 
 .ObjectEvents: db 1
 	person_event SPRITE_COOLTRAINER_F, 2, 7, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, Route60GateCooltrainer, -1

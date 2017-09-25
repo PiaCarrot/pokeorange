@@ -33,7 +33,7 @@ Route53GateUpstairs_MapEventHeader::
 .CoordEvents: db 0
 
 .BGEvents: db 2
-	signpost 4, 4, SIGNPOST_READ, MikanBinoculars1
-	signpost 4, 6, SIGNPOST_READ, MikanBinoculars2
+	signpost 4, 4, SIGNPOST_UP, MikanBinoculars1
+	signpost 4, 6, SIGNPOST_UP, MikanBinoculars2
 
 .ObjectEvents: db 0

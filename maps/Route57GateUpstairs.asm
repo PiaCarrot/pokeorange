@@ -50,8 +50,8 @@ Route57GateUpstairs_MapEventHeader::
 .CoordEvents: db 0
 
 .BGEvents: db 2
-	signpost 4, 4, SIGNPOST_READ, KinnowBinoculars1
-	signpost 4, 6, SIGNPOST_READ, KinnowBinoculars2
+	signpost 4, 4, SIGNPOST_UP, KinnowBinoculars1
+	signpost 4, 6, SIGNPOST_UP, KinnowBinoculars2
 
 .ObjectEvents: db 1
 	person_event SPRITE_BUG_CATCHER, 2, 7, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route57GateBugBoy, -1

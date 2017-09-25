@@ -100,7 +100,7 @@ Text_TangeloJungleSignpost4:
 	line "Warning!"
 
 	para "Wild #MON are"
-	line "very dangeous!"
+	line "very dangerous!"
 	cont "Be careful."
 	done
 
