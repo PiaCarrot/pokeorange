@@ -158,13 +158,6 @@ SpeechTextBox:: ; 103e
 	jp TextBox
 ; 1048
 
-RadioTerminator:: ; 1052
-	ld hl, .stop
-	ret
-.stop	db "@"
-; 1057
-
-
 PrintText:: ; 1057
 	call SetUpTextBox
 	push hl

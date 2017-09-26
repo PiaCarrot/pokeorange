@@ -764,13 +764,6 @@ wNamingScreenLastCharacter:: ds 1 ; c6d7
 wNamingScreenStringEntryCoord:: ds 2 ; c6d8
 	ds wc6d0 - @
 
-; radio
-	ds 9
-wRadioChannelBank:: ds 1 ; c6d9
-wRadioChannelAddr:: ds 2 ; c6da
-wRadioMusicPlaying:: ds 1 ; c6dc
-	ds wc6d0 - @
-
 wSlots::
 ; Slot Machine
 ; c6d0
@@ -1399,22 +1392,18 @@ wBugContestWinnerName:: ds NAME_LENGTH
 wd002::
 wTempDayOfWeek::
 LuckyNumberFourDigitBuffer::
-wCurrentRadioLine::
 wMovementBufferCount::
 wMartItem1BCD::
 	ds 1
 wd003::
-wNextRadioLine::
 wMovementBufferPerson::
 wPlaceBallsDirection::
 	ds 1
 wd004::
-wRadioTextDelay::
 wTrainerHUDTiles::
 	ds 1
 wd005::
 StartFlypoint:: ; d005
-wNumRadioLinesPrinted::
 wMartItem2BCD::
 	ds 1
 wd006::
@@ -1432,11 +1421,6 @@ wd008:: ds 2
 wd00a:: ds 1
 wMartItem4BCD::
 wd00b:: ds 1
-
-wRadioText:: ds 2 * SCREEN_WIDTH
-wRadioTextEnd::
-	ds wRadioText - @
-
 wd00c:: ds 1
 wd00d:: ds 1
 wMartItem5BCD::

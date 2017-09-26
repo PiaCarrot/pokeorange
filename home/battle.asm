@@ -232,31 +232,6 @@ GetBattleVarAddr:: ; 39e7
 ; 3a90
 
 
-FarCopyRadioText:: ; 3a90
-	inc hl
-	ld a, [hROMBank]
-	push af
-	ld a, [hli]
-	ld e, a
-	ld a, [hli]
-	ld d, a
-	ld a, [hli]
-	ld [hROMBank], a
-	ld [MBC3RomBank], a
-	ld a, e
-	ld l, a
-	ld a, d
-	ld h, a
-	ld de, wRadioText
-	ld bc, 2 * SCREEN_WIDTH
-	call CopyBytes
-	pop af
-	ld [hROMBank], a
-	ld [MBC3RomBank], a
-	ret
-; 3ab2
-
-
 BattleTextBox:: ; 3ac3
 ; Open a textbox and print text at hl.
 	push hl

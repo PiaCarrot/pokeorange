@@ -50,7 +50,6 @@ SpecialsPointers:: ; c029
 	add_special Special_MagnetTrain
 	add_special Special_TownMap
 	add_special Special_TownMapItem
-	add_special MapRadio
 	add_special Special_SlotMachine
 	add_special Special_CardFlip
 	add_special Special_ClearBGPalettesBufferScreen
@@ -222,13 +221,6 @@ BugContestJudging: ; c34a
 	ld [ScriptVar], a
 	ret
 ; c355
-
-MapRadio: ; c355
-	ld a, [ScriptVar]
-	ld e, a
-	farcall PlayRadio
-	ret
-; c360
 
 Special_SlotMachine: ; c373
 	call Special_CheckCoins

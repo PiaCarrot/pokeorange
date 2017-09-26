@@ -22,14 +22,14 @@
 	tilecoll WALL, WALL, FLOOR, WALL
 	tilecoll FLOOR, WALL, FLOOR, WALL
 	tilecoll FLOOR, WALL, FLOOR, FLOOR
-	tilecoll WALL, WALL, RADIO, PC
+	tilecoll WALL, WALL, WALL, PC
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR
-	tilecoll WALL, WALL, RADIO, FLOOR
+	tilecoll WALL, WALL, WALL, FLOOR
 	tilecoll WALL, WALL, BOOKSHELF, BOOKSHELF
 	tilecoll WALL, FLOOR, WALL, FLOOR
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR
 	tilecoll WALL, WALL, WALL, FLOOR
-	tilecoll WALL, WALL, PC, RADIO
+	tilecoll WALL, WALL, PC, WALL
 	tilecoll WALL, WALL, WALL, WALL
 	tilecoll WALL, WALL, TV, BOOKSHELF
 	tilecoll WALL, FLOOR, WALL, FLOOR

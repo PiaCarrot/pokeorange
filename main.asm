@@ -455,7 +455,6 @@ CheckFacingTileForStd:: ; 1365b
 .table1
 	dbw COLL_BOOKSHELF,       magazinebookshelf
 	dbw COLL_PC,              pcscript
-	dbw COLL_RADIO,           radio1
 	dbw COLL_TOWN_MAP,        townmap
 	dbw COLL_MART_SHELF,      merchandiseshelf
 	dbw COLL_TV,              tv
@@ -4031,7 +4030,6 @@ SECTION "bank24", ROMX, BANK[$24]
 
 INCLUDE "engine/timeset.asm"
 INCLUDE "engine/town_map.asm"
-INCLUDE "engine/radio2.asm"
 
 INCLUDE "engine/fish.asm"
 INCLUDE "engine/slot_machine.asm"
@@ -4043,8 +4041,6 @@ INCLUDE "tilesets/data_5.asm"
 SECTION "bank2E", ROMX, BANK[$2E]
 
 INCLUDE "engine/events_3.asm"
-
-INCLUDE "engine/radio.asm"
 
 INCLUDE "gfx/mail.asm"
 
