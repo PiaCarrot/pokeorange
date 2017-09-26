@@ -58,7 +58,7 @@ Route51TangeloJungleGate_BlockData:
 KinnowIslandRoute57Gate_BlockData:
 MoroRoute60Gate_BlockData:
 	INCBIN "maps/EastWestGate.blk"
-	
+
 Route57GateUpstairs_BlockData:
 Route51GateUpstairs_BlockData:
 Route53GateUpstairs_BlockData:
@@ -112,6 +112,6 @@ Route58_BlockData:
 
 Route59_BlockData:
 	INCBIN "maps/Route59.blk"
-	
-Route60_BlockData: 
+
+Route60_BlockData:
 	INCBIN "maps/Route60.blk"

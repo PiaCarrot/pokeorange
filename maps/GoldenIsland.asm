@@ -6,11 +6,12 @@ GoldenIsland_MapScriptHeader::
 
 GoldenIslandSign:
 	jumptext GoldenIslandSignText
-	
+
 GoldenIslandSignText:
 	text "GOLDEN ISLAND"
-	
-	para "MEOWTH are welcome"
+
+	para "MEOWTH are"
+	line "welcome!"
 	done
 
 GoldenIsland_MapEventHeader::
@@ -24,4 +25,3 @@ GoldenIsland_MapEventHeader::
 	signpost 8, 14, SIGNPOST_READ, GoldenIslandSign
 
 .ObjectEvents: db 0
-

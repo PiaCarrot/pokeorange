@@ -8,8 +8,6 @@ StdScripts::
 	dba TownMapScript
 	dba WindowScript
 	dba TVScript
-	dba Radio1Script
-	dba Radio2Script
 	dba TrashCanScript
 	dba StrengthBoulderScript
 	dba SmashRockScript
@@ -162,21 +160,6 @@ TVScript:
 	opentext
 	farwritetext TVText
 	waitbutton
-	closetext
-	end
-
-Radio1Script:
-	opentext
-	writebyte MAPRADIO_POKEMON_CHANNEL
-	special MapRadio
-	closetext
-	end
-
-Radio2Script:
-; Lucky Channel
-	opentext
-	writebyte MAPRADIO_LUCKY_CHANNEL
-	special MapRadio
 	closetext
 	end
 
