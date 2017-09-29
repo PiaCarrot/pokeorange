@@ -120,6 +120,13 @@ ROUTE_60_JAMES_MOVEMENT:
 	step LEFT
 	step_end
 	
+Route60Sign:
+	jumptext Route60SignText
+	
+Route60SignText:
+	text "ROUTE 60"
+	done
+	
 Route60_MapEventHeader::
 
 .Warps: db 4
@@ -132,7 +139,8 @@ Route60_MapEventHeader::
 	xy_trigger 0, 12, 39, 0, RocketRoute60Event, 0, 0
 	xy_trigger 0, 13, 39, 0, RocketRoute60Event, 0, 0
 
-.BGEvents: db 0
+.BGEvents: db 1
+	signpost 6, 16, SIGNPOST_READ, Route60Sign
 
 .ObjectEvents: db 2
 	person_event SPRITE_JESSIE, 13, 36, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_60_ROCKET
