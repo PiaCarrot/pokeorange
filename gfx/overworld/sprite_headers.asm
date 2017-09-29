@@ -424,5 +424,11 @@ SightSeerSprite:
 BugBoySprite:
 	sprite_header BugBoySpriteGFX, 3, WALKING_SPRITE, PAL_OW_GREEN
 
-PcSlouchSprite
+PcSlouchSprite:
 	sprite_header PcSlouchGFX, 3, WALKING_SPRITE, PAL_OW_GREEN
+	
+JessieSprite:
+	sprite_header JessieSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED
+	
+JamesSprite:
+	sprite_header JamesSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BLUE
