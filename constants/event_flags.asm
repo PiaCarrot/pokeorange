@@ -256,6 +256,7 @@
 	const EVENT_PINKAN_ISLAND_HIDDEN_LOVE_BALL
 	const EVENT_PINKAN_ISLAND_HIDDEN_PINKAN_BERRY
 	const EVENT_GRAPEFRUIT_RARE_CANDY
+	const EVENT_MORO_ISLAND_HIDDEN_NUGGET
 
 ; Sprite visibility: When these events are cleared, the sprite becomes visible; when set, the sprite is hidden.
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.
@@ -296,6 +297,8 @@
 	const EVENT_GRAPEFRUIT_ULTRA_BALL
 	const EVENT_GRAPEFRUIT_PROTEIN
 	const EVENT_ROUTE_53_LIGHT_BALL
+	const EVENT_MORO_TM_PSYCH_UP
+	const EVENT_ROUTE_60_ULTRA_BALL
 
 ; People
 	const EVENT_BULBASAUR_POKEBALL_IN_IVYS_LAB

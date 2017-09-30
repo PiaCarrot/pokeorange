@@ -1,10 +1,14 @@
+const_value set 2
+	const MORO_COOLTRAINER_M
+	const MORO_COOLTRAINER_F
+	const MORO_FATTY
+	const MORO_ITEMBALL_PSYCH_UP
+
 MoroIsland_MapScriptHeader::
 
 .Triggers: db 0
 
 .Callbacks: db 0
-
-.Scripts:
 
 MoroFattyScript:
 	jumptextfaceplayer MoroFattyText
@@ -57,6 +61,12 @@ MoroIslandMuseumSign:
 MoroIslandMuseumSignText:
 	text "MORO ISLAND MUSEUM"
 	done
+	
+MoroIslandTmPsychUp:
+	itemball TM_PSYCH_UP
+	
+MoroIslandHiddenNugget:
+	dwb EVENT_MORO_ISLAND_HIDDEN_NUGGET, NUGGET
 
 MoroIsland_MapEventHeader::
 
@@ -73,11 +83,13 @@ MoroIsland_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 2
+.BGEvents: db 3
 	signpost 9, 11, SIGNPOST_READ, MoroIslandSign
 	signpost 19, 13, SIGNPOST_READ, MoroIslandMuseumSign
-
-.ObjectEvents: db 3
+	signpost 4, 8, SIGNPOST_ITEM, MoroIslandHiddenNugget
+	
+.ObjectEvents: db 4
 	person_event SPRITE_COOLTRAINER_M, 22, 22, SPRITEMOVEDATA_WANDER, 0, 1, -1, -2, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MoroCooltrainerMScript, -1
 	person_event SPRITE_COOLTRAINER_F, 19, 9, SPRITEMOVEDATA_WANDER, 0, 1, -1, -2, PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, MoroCooltrainerFScript, -1
 	person_event SPRITE_FISHER, 18, 30, SPRITEMOVEDATA_WANDER, 0, 1, -1, -2, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, MoroFattyScript, -1
+	person_event SPRITE_POKE_BALL, 29, 28, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MoroIslandTmPsychUp, EVENT_MORO_TM_PSYCH_UP

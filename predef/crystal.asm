@@ -24,6 +24,10 @@ LoadSpecialMapPalette: ; 494ac
 	ld hl, MansionPalette
 	cp TILESET_CELADON_MANSION
 	jr z, LoadEightBGPalettes
+	
+	ld hl, GoldenIslandPalette
+	cp TILESET_GOLDEN_ISLAND
+	jr z, LoadEightTimeOfDayBGPalettes
 
 .do_nothing
 	and a
@@ -75,7 +79,8 @@ MansionPalette: ; 496fe
 INCLUDE "tilesets/mansion.pal"
 ; 49706
 
-
+GoldenIslandPalette:
+INCLUDE "tilesets/golden_island.pal"
 
 LoadOW_BGPal7:: ; 49409
 	ld hl, Palette_TextBG7

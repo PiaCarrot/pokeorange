@@ -815,6 +815,8 @@ Group6Sprites: ; 146e6
 ;MandarinSouth
 	db SPRITE_JESSIE
 	db SPRITE_JAMES
+	db SPRITE_SWIMMER_GIRL
+	db SPRITE_POKE_BALL
 	db 0 ; end
 
 Group7Sprites: ; 14503
