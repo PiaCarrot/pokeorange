@@ -107,6 +107,9 @@
 	const SPRITE_SIGHTSEER_F ; 67
 	const SPRITE_BUG_BOY ; 68
 	const SPRITE_PC_SLOUCH ; 69
+	const SPRITE_JESSIE ;70
+	const SPRITE_JAMES ;71
+	const SPRITE_CAT_MAN ;72
 
 const_value SET $90
 SPRITE_POKEMON EQU const_value

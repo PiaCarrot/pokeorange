@@ -38,7 +38,10 @@
 	const EVENT_GOT_TM_ICY_WIND
 	const EVENT_SEVEN_GRAPEFRUITS_SNORLAX
 	const EVENT_HEADBUTT_GUY
-
+	const EVENT_ROUTE_60_ROCKET
+	const EVENT_BOUNTY_HARVEST
+	const EVENT_TEAM_ROCKET_GOLDEN_ISLAND
+	
 ; Not yet used
 	const EVENT_WELCOMED_TO_POKECOM_CENTER
 	const EVENT_GOLDENROD_SALE_OFF
@@ -255,6 +258,7 @@
 	const EVENT_PINKAN_ISLAND_HIDDEN_LOVE_BALL
 	const EVENT_PINKAN_ISLAND_HIDDEN_PINKAN_BERRY
 	const EVENT_GRAPEFRUIT_RARE_CANDY
+	const EVENT_MORO_ISLAND_HIDDEN_NUGGET
 
 ; Sprite visibility: When these events are cleared, the sprite becomes visible; when set, the sprite is hidden.
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.
@@ -295,6 +299,9 @@
 	const EVENT_GRAPEFRUIT_ULTRA_BALL
 	const EVENT_GRAPEFRUIT_PROTEIN
 	const EVENT_ROUTE_53_LIGHT_BALL
+	const EVENT_MORO_TM_PSYCH_UP
+	const EVENT_ROUTE_60_ULTRA_BALL
+	const EVENT_GOLDEN_ISLAND_AMULET_COIN
 
 ; People
 	const EVENT_BULBASAUR_POKEBALL_IN_IVYS_LAB
@@ -313,6 +320,5 @@
 	const EVENT_UNNAMED_POKE_CENTER_MISTY
 	const EVENT_MORO_TROPHY_FOUND
 	const EVENT_MORO_TROPHY_MISSING
-	const EVENT_TEAM_ROCKET_BLOCKING_WRECKED_SHIP
-
+	
 NUM_EVENTS EQU const_value

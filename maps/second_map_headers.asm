@@ -148,6 +148,10 @@
 	map_header_2 HallOfFame, HALL_OF_FAME, $0, 0
 	map_header_2 GoldenIsland, GOLDEN_ISLAND, 6, 0
 	map_header_2 Route60, ROUTE_60, 53, 0
+	map_header_2 GoldenIslandHouse1, GOLDEN_ISLAND_HOUSE_1, 0, 0
+	map_header_2 GoldenIslandHouse2, GOLDEN_ISLAND_HOUSE_2, 0, 0
+	map_header_2 GoldenIslandHouse3, GOLDEN_ISLAND_HOUSE_3, 0, 0
+	map_header_2 GoldenIslandElderHouse, GOLDEN_ISLAND_ELDER_HOUSE, 0, 0
 
 	map_header_2 DayCare, DAYCARE, $0, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

@@ -48,6 +48,10 @@ MikanNicknameSpeechHouse_BlockData:
 MikanOnixTradeHouse_BlockData:
 Route55QuestHouse_BlockData:
 KinnowCharcoalHouse_BlockData:
+GoldenIslandHouse1_BlockData:
+GoldenIslandHouse2_BlockData:
+GoldenIslandHouse3_BlockData:
+GoldenIslandElderHouse_BlockData:
 	INCBIN "maps/House2.blk"
 
 Route52TangeloJungleGate_BlockData:

@@ -157,6 +157,10 @@ INCLUDE "maps/MoroRoute60Gate.asm"
 INCLUDE "maps/Route60GateUpstairs.asm"
 INCLUDE "maps/GoldenIsland.asm"
 INCLUDE "maps/Route60.asm"
+INCLUDE "maps/GoldenIslandHouse1.asm"
+INCLUDE "maps/GoldenIslandHouse2.asm"
+INCLUDE "maps/GoldenIslandHouse3.asm"
+INCLUDE "maps/GoldenIslandElderHouse.asm"
 
 SECTION "Map Scripts 11", ROMX, BANK[MAP_SCRIPTS_11]
 
