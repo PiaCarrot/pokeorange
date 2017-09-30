@@ -94,6 +94,9 @@ GoldenIslandSmallStatueText:
 GoldenIslandFruitTree:
 	fruittree FRUITTREE_GOLDEN_ISLAND
 	
+GoldenIslandRocketEvent:
+	end
+	
 GoldenIsland_MapEventHeader::
 
 .Warps: db 4
