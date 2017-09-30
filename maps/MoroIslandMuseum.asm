@@ -172,7 +172,6 @@ MoroMuseumPoliceScript:
 	opentext
 	writetext PoliceTrophyMissingText
 	waitbutton
-	setevent EVENT_TEAM_ROCKET_BLOCKING_WRECKED_SHIP
 	closetext
 	end
 

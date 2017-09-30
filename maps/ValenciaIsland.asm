@@ -113,7 +113,7 @@ if def(DEBUG)
 	givepoke AMPHAROS, 40
 	givepoke PELIPPER, 40
 	closetext
-	warp MORO_ISLAND, 7, 12
+	warp GOLDEN_ISLAND, 24, 24
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

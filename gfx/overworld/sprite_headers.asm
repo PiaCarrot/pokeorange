@@ -432,3 +432,6 @@ JessieSprite:
 	
 JamesSprite:
 	sprite_header JamesSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BLUE
+	
+CatManSprite:
+	sprite_header CatManSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BLUE

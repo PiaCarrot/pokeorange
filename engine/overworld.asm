@@ -817,6 +817,8 @@ Group6Sprites: ; 146e6
 	db SPRITE_JAMES
 	db SPRITE_SWIMMER_GIRL
 	db SPRITE_POKE_BALL
+	db SPRITE_CAT_MAN
+	db SPRITE_FRUIT_TREE
 	db 0 ; end
 
 Group7Sprites: ; 14503
