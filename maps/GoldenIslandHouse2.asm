@@ -1,4 +1,5 @@
 const_value set 2
+	const BROWN_CAT_MAN
 
 GoldenIslandHouse2_MapScriptHeader:
 
@@ -6,14 +7,26 @@ GoldenIslandHouse2_MapScriptHeader:
 
 .MapCallbacks: db 0
 
-GoldenIslandHouse2_MapEventHeader:
+CatManBrownScript:
+	jumptextfaceplayer BrownCatManText
+	
+BrownCatManText:
+	text "Meow! MEOWTH!"
+	
+	para "How was my MEOWTH"
+	line "impression?"
+	done
+
+GoldenIslandHouse2_MapEventHeader::
 
 .Warps: db 2
-	warp_def $7, $3, 2, GOLDEN_ISLAND
-	warp_def $7, $4, 2, GOLDEN_ISLAND
+	warp_def 7, 3, 2, GOLDEN_ISLAND
+	warp_def 7, 4, 2, GOLDEN_ISLAND
 
-.XYTriggers: db 0
+.CoordEvents: db 0
 
-.Signposts: db 0
+.BGEvents: db 0
 
-.PersonEvents: db 0
+.ObjectEvents: db 1
+	person_event SPRITE_CAT_MAN, 3, 2, SPRITEMOVEDATA_STANDING_RIGHT, 2, 2, -1, -1, PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, CatManBrownScript, -1
+

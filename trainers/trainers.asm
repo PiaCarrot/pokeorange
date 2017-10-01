@@ -343,6 +343,37 @@ JessieGroup:
 
 JessieJamesGroup:
 ; ================================
+	; J&J (1)
+	db "AND JAMES@"
+	db 1 ; moves
+
+	; party
+
+	db 32, WEEZING
+		db POISON_GAS
+		db BODY_SLAM
+		db TOXIC
+		db SLUDGE_BOMB
+
+	db 32, ARBOK
+		db POISON_STING
+		db WRAP
+		db CRUNCH
+		db SWAGGER
+
+	db 33, MEOWTH
+		db FURY_SWIPES
+		db AGILITY
+		db TAIL_WHIP
+		db SLASH
+
+	db 31, VICTREEBEL
+		db VINE_WHIP
+		db RAZOR_LEAF
+		db SLEEP_POWDER
+		db ACID
+
+	db $ff ; end
 ; ================
 ; ================================
 
@@ -1092,9 +1123,57 @@ CooltrainerFGroup:
 ; ================================
 
 
-;SchoolboyGroup:
+CatmanGroup:
 ; ================================
 ; ================
+	
+	; CATMAN (1)
+	db "DAIKON@"
+	db 0
+
+	db 28, ONIX
+	db 28, NIDOKING
+
+	db $ff
+	
+	; CATMAN (2)
+	db "KUNIO@"
+	db 0
+
+	db 27, SCYTHER
+	db 27, HAUNTER
+	db 27, LICKITUNG
+
+	db $ff
+	
+	; CATMAN (3)
+	db "YOSHIKAWA@"
+	db 0
+
+	db 26, GOLBAT
+	db 26, GOLDUCK
+	db 26, SANDSHREW
+	db 26, FEAROW
+
+	db $ff
+	
+	; CATMAN (4)
+	db "REN@"
+	db 0
+
+	db 28, KINGLER
+	db 27, GRAVELER
+	db 26, SPINDA
+
+	db $ff
+	
+	; CATMAN (5)
+	db "MIMI@"
+	db 0
+
+	db 30, KECLEON
+
+	db $ff
 ; ================
 ; ================================
 

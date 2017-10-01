@@ -109,9 +109,10 @@ if def(DEBUG)
 	opentext
 	givepoke LAPRAS, 40
 	givepoke CHARIZARD, 40
-	givepoke VICTREEBEL, 40
-	givepoke AMPHAROS, 40
+	givepoke PIKACHU, 40
+	givepoke PHANPY, 40
 	givepoke PELIPPER, 40
+	givepoke MEOWTH, 40
 	closetext
 	warp GOLDEN_ISLAND, 24, 24
 	end

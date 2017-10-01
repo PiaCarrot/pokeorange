@@ -279,21 +279,22 @@ UnknownText_0x1bd445::
 	db "@@"
 
 UnknownText_0x1bd449::
-	text "I collect #MON."
-	line "Do you have"
+	text "Ah, hello again."
+	line "Do you have a"
 	cont "@"
 	text_from_ram StringBuffer1
 	text "?"
 
 	para "Want to trade it"
-	line "for my @"
+	line "for this @"
 	text_from_ram StringBuffer2
 	text "?"
 	done
 
 UnknownText_0x1bd48c::
-	text "You don't want to"
-	line "trade? Aww<...>"
+	text "That is a shame."
+	line "We really need"
+	cont "one."
 	done
 
 UnknownText_0x1bd4aa::
@@ -305,18 +306,16 @@ UnknownText_0x1bd4aa::
 	done
 
 UnknownText_0x1bd4d2::
-	text "Yay! I got myself"
-	line "@"
+	text "Oh! We finally"
+	line "have @"
 	text_from_ram StringBuffer1
 	text "!"
-	cont "Thanks!"
+	cont "I thank you!"
 	done
 
 UnknownText_0x1bd4f4::
-	text "Hi, how's my old"
-	line "@"
-	text_from_ram StringBuffer2
-	text " doing?"
+	text "The BOUNTY HARVEST"
+	line "will be wondrous!"
 	done
 
 UnknownText_0x1bd512::
