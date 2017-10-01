@@ -25,7 +25,7 @@ CatGateHouseGuardText2:
 	line "leads to ROUTE 61."
 	
 	para "Go WEST to MANDAR-"
-	line "IN NORTH, EAST to"
+	line "IN SOUTH, EAST to"
 	cont "MURCOTT ISLAND."
 	done
 
