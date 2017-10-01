@@ -347,11 +347,15 @@ CatManBattleHouseText11:
 	
 GoldenIsland_MapEventHeader::
 
-.Warps: db 4
+.Warps: db 8
 	warp_def 5, 13, 1, GOLDEN_ISLAND_HOUSE_1
 	warp_def 9, 5, 1, GOLDEN_ISLAND_HOUSE_2
 	warp_def 19, 3, 1, GOLDEN_ISLAND_HOUSE_3
 	warp_def 13, 25, 1, GOLDEN_ISLAND_ELDER_HOUSE
+	warp_def 4, 21, 1, GOLDEN_ISLAND_GATE_HOUSE
+	warp_def 5, 21, 2, GOLDEN_ISLAND_GATE_HOUSE
+	warp_def 27, 11, 5, GOLDEN_ISLAND_GATE_HOUSE
+	warp_def 27, 12, 6, GOLDEN_ISLAND_GATE_HOUSE
 
 .CoordEvents: db 2
 	xy_trigger 0, 16, 22, 0, GoldenIslandRocketEvent, 0, 0

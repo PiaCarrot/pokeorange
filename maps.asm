@@ -161,6 +161,7 @@ INCLUDE "maps/GoldenIslandHouse1.asm"
 INCLUDE "maps/GoldenIslandHouse2.asm"
 INCLUDE "maps/GoldenIslandHouse3.asm"
 INCLUDE "maps/GoldenIslandElderHouse.asm"
+INCLUDE "maps/GoldenIslandGateHouse.asm"
 
 SECTION "Map Scripts 11", ROMX, BANK[MAP_SCRIPTS_11]
 

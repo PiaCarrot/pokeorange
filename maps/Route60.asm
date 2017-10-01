@@ -150,8 +150,8 @@ Route60_MapEventHeader::
 .Warps: db 4
 	warp_def 10, 49, 1, MORO_ROUTE_60_GATE
 	warp_def 11, 49, 2, MORO_ROUTE_60_GATE
-	warp_def 10, 4, 1, GOLDEN_ISLAND
-	warp_def 11, 4, 1, GOLDEN_ISLAND
+	warp_def 10, 4, 3, GOLDEN_ISLAND_GATE_HOUSE
+	warp_def 11, 4, 4, GOLDEN_ISLAND_GATE_HOUSE
 
 .CoordEvents: db 2
 	xy_trigger 0, 12, 39, 0, RocketRoute60Event, 0, 0

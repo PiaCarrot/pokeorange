@@ -161,3 +161,4 @@
 
 	map_header_2 NationalPark, NATIONAL_PARK, $0, 0
 	map_header_2 NationalParkBugContest, NATIONAL_PARK_BUG_CONTEST, $0, 0
+	map_header_2 GoldenIslandGateHouse, GOLDEN_ISLAND_GATE_HOUSE, 0, 0
