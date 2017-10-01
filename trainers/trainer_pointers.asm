@@ -56,7 +56,7 @@ TrainerGroups: ; 0x39999
 	dw WaitressGroup
 	dw CooltrainerMGroup
 	dw CooltrainerFGroup
-;	dw SchoolboyGroup
+	dw CatmanGroup
 ;	dw BirdKeeperGroup
 ;	dw GentlemanGroup
 ;	dw TeacherGroup

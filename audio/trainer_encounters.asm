@@ -77,7 +77,7 @@ TrainerEncounterMusic: ; e9027
 	db MUSIC_BEAUTY_ENCOUNTER		; waitress
 	db MUSIC_HIKER_ENCOUNTER		; cooltrainerm
 	db MUSIC_BEAUTY_ENCOUNTER		; cooltrainerf
-;	db MUSIC_YOUNGSTER_ENCOUNTER	; schoolboy
+	db MUSIC_POKEMANIAC_ENCOUNTER	; catman
 ;	db MUSIC_YOUNGSTER_ENCOUNTER	; bird_keeper
 ;	db MUSIC_HIKER_ENCOUNTER		; gentleman
 ;	db MUSIC_BEAUTY_ENCOUNTER		; teacher

@@ -61,6 +61,7 @@ KRIS EQU __enum__
 	trainerclass JESSIE
 
 	trainerclass JESSIE_JAMES
+	const JESSIE_AND_JAMES
 
 	trainerclass MOM
 
@@ -164,7 +165,12 @@ KRIS EQU __enum__
 	trainerclass COOLTRAINERF
 	const KEIKO
 
-;	trainerclass SCHOOLBOY
+	trainerclass CATMAN
+	const DAIKON
+	const KUNIO
+	const YOSHIKAWA
+	const REN
+	const MIMI
 
 ;	trainerclass BIRD_KEEPER
 

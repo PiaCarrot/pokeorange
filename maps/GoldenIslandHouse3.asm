@@ -1,10 +1,14 @@
 const_value set 2
-
+	const GOLDEN_ISLAND_ITEMBALL_QUICK_CLAW
+	
 GoldenIslandHouse3_MapScriptHeader:
 
 .MapTriggers: db 0
 
 .MapCallbacks: db 0
+
+GoldenIslandQuickClaw:
+	itemball QUICK_CLAW
 
 GoldenIslandHouse3_MapEventHeader:
 
@@ -16,4 +20,5 @@ GoldenIslandHouse3_MapEventHeader:
 
 .Signposts: db 0
 
-.PersonEvents: db 0
+.PersonEvents: db 1
+	person_event SPRITE_POKE_BALL, 3, 3, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, GoldenIslandQuickClaw, EVENT_GOLDEN_ISLAND_QUICK_CLAW
