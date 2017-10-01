@@ -164,7 +164,7 @@ CatManBattleHouseScript:
 	writetext CatManBattleHouseText2
 	waitbutton
 	winlosstext CatmanDaikonWinLoss, 0
-	loadtrainer CATMAN, 1
+	loadtrainer CATMAN, DAIKON
 	startbattle
 	playmapmusic
 	reloadmapafterbattle
@@ -172,13 +172,66 @@ CatManBattleHouseScript:
 	writetext CatManBattleHouseText3
 	waitbutton
 	closetext
+	playsound SFX_EXIT_BUILDING
+	special Special_FadeInQuickly
+	opentext
+	writetext CatManBattleHouseText4
+	waitbutton
+	winlosstext CatmanKunioWinLoss, 0
+	loadtrainer CATMAN, KUNIO
+	startbattle
+	playmapmusic
+	reloadmapafterbattle
+	opentext
+	writetext CatManBattleHouseText5
+	waitbutton
+	closetext
+	playsound SFX_EXIT_BUILDING
+	special Special_FadeInQuickly
+	opentext
+	writetext CatManBattleHouseText6
+	waitbutton
+	winlosstext CatmanYoshikawaWinLoss, 0
+	loadtrainer CATMAN, YOSHIKAWA
+	startbattle
+	playmapmusic
+	reloadmapafterbattle
+	opentext
+	writetext CatManBattleHouseText7
+	waitbutton
+	closetext
+	playsound SFX_EXIT_BUILDING
+	special Special_FadeInQuickly
+	opentext
+	writetext CatManBattleHouseText8
+	waitbutton
+	winlosstext CatmanRenWinLoss, 0
+	loadtrainer CATMAN, REN
+	startbattle
+	playmapmusic
+	reloadmapafterbattle
+	opentext
+	writetext CatManBattleHouseText9
+	waitbutton
+	closetext
+	playsound SFX_EXIT_BUILDING
+	special Special_FadeInQuickly
+	opentext
+	writetext CatManBattleHouseText10
+	waitbutton
+	winlosstext CatmanMimiWinLoss, 0
+	loadtrainer CATMAN, MIMI
+	startbattle
+	playmapmusic
+	reloadmapafterbattle
+	opentext
+	writetext CatManBattleHouseText11
+	waitbutton
+	closetext
 	applymovement GOLDEN_ISLAND_BATTLE_CAT, BATTLE_HOUSE_MOVEMENT1
 	disappear GOLDEN_ISLAND_BATTLE_CAT
 	playsound SFX_ENTER_DOOR
-	pause 20
-	playsound SFX_EXIT_BUILDING
-	appear GOLDEN_ISLAND_BATTLE_CAT
-	special Special_FadeInQuickly
+	setevent EVENT_CAT_BATTLE_HOUSE_CLEARED
 	end
 	
 BATTLE_HOUSE_MOVEMENT1:
@@ -188,6 +241,23 @@ BATTLE_HOUSE_MOVEMENT1:
 CatmanDaikonWinLoss:
 	text "I gave it my best"
 	line "shot!"
+	done
+	
+CatmanKunioWinLoss:
+	text "Wow, not bad at"
+	line "all!"
+	done
+	
+CatmanYoshikawaWinLoss:
+	text "Hmph."
+	done
+	
+CatmanRenWinLoss:
+	text "Can you do it?"
+	done
+	
+CatmanMimiWinLoss:
+	text "We have a winner!"
 	done
 	
 CatManBattleHouseText1:
@@ -224,6 +294,55 @@ CatManBattleHouseText3:
 	text "I have lost."
 	line "Allow me to get"
 	cont "the next battler."
+	done
+	
+CatManBattleHouseText4:
+	text "Hey, there!"
+	line "I'm way stronger"
+	cont "than my friend,"
+	cont "so let's go!"
+	done
+	
+CatManBattleHouseText5:
+	text "That worked up a"
+	line "sweat! Let me get"
+	cont "the next guy."
+	done
+	
+CatManBattleHouseText6:
+	text "Getting tired yet?"
+	done
+	
+CatManBattleHouseText7:
+	text "Hmph. I'll get"
+	line "REN to beat you."
+	done
+	
+CatManBattleHouseText8:
+	text "You've made it"
+	line "pretty far, but"
+	cont "this is where it"
+	cont "ends!"
+	done
+	
+CatManBattleHouseText9:
+	text "MIMI is the stron-"
+	line "gest of us all."
+	
+	para "Prepare yourself."
+	done
+	
+CatManBattleHouseText10:
+	text "Good job making"
+	line "it this far. I've"
+	cont "been itching for a"
+	cont "good challenge!"
+	done
+	
+CatManBattleHouseText11:
+	text "Congratulations."
+	line "Come inside for"
+	cont "your prize."
 	done
 	
 GoldenIsland_MapEventHeader::
