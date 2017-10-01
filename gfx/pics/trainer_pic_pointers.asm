@@ -54,7 +54,7 @@
 	dba WaitressPic
 	dba CooltrainerMPic
 	dba CooltrainerFPic
-;	dba SchoolboyPic
+	dba CatmanPic
 ;	dba BirdKeeperPic
 ;	dba GentlemanPic
 ;	dba TeacherPic
