@@ -31,13 +31,15 @@ CatGateHouseGuardText2:
 
 GoldenIslandGateHouse_MapEventHeader::
 
-.Warps: db 6
+.Warps: db 8
 	warp_def 4, 0, 5, GOLDEN_ISLAND
 	warp_def 5, 0, 6, GOLDEN_ISLAND
 	warp_def 4, 7, 3, ROUTE_60
 	warp_def 5, 7, 4, ROUTE_60
 	warp_def 12, 2, 7, GOLDEN_ISLAND
 	warp_def 12, 3, 8, GOLDEN_ISLAND
+	warp_def 19, 2, 1, ROUTE_61
+	warp_def 19, 3, 1, ROUTE_61
 
 .CoordEvents: db 0
 

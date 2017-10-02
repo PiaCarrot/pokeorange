@@ -79,6 +79,8 @@
 	
 	map_header_2 MoroIsland, MORO_ISLAND, 53, NORTH
 	connection north, ROUTE_59, Route59, 6, 0, 12, MORO_ISLAND
+	
+	map_header_2 Route61, ROUTE_61, 53, 0
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, $0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
