@@ -1,4 +1,9 @@
 const_value set 2
+	const CATMAN_DAIKON
+	const CATMAN_KUNIO
+	const CATMAN_YOSHIKAWA
+	const CATMAN_REN
+	const CATMAN_MIMI
 
 GoldenIslandHouse1_MapScriptHeader:
 
@@ -24,6 +29,7 @@ Mimi:
 	faceplayer
 	opentext
 	writetext GiveExpShareText
+	waitbutton
 	verbosegiveitem EXP_SHARE
 	iffalse .ExpShareFullBackpack
 	setevent EVENT_GOT_EXP_SHARE

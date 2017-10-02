@@ -121,6 +121,7 @@ ENDM
 	                                 ; route 56 west
 	engine_flag VisitedSpawns + 1, 0 ; kinnow
 	engine_flag VisitedSpawns + 1, 1 ; navel
+	engine_flag VisitedSpawns + 1, 2 ; moro
 
 	; wDaycareMan, 7 ; daycare 1 on
 	engine_flag wDaycareMan, 6 ; egg is ready
