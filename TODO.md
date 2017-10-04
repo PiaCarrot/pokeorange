@@ -21,6 +21,7 @@ For Moro Island:
 
 For moves:
 
+- ***???*** -> Aerial Ace: EFFECT_ALWAYS_HIT
 - Beat Up -> Psystrike: ***EFFECT_PSYSTRIKE*** (use Defense instead of Sp.Def)
 - Bide -> Rock Blast: EFFECT_MULTI_HIT
 - Bone Club -> Shadow Bone: EFFECT_DEFENSE_DOWN_HIT
