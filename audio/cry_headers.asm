@@ -158,7 +158,7 @@ CyndaquilCryHeader:   cry_header CRY_PIKIPEK,   $347,  $080
 QuilavaCryHeader:     cry_header CRY_PIKIPEK,   $321,  $120
 TyphlosionCryHeader:  cry_header CRY_TOUCANNON,  $f00,  $0d4
 TotodileCryHeader:    cry_header CRY_MUNCHLAX,    $46c,  $0e8
-CroconawCryHeader:    cry_header CRY_MUNCHLAX,    $440,  $110
+CroconawCryHeader:    cry_header CRY_CLEFAIRY,    $08a,  $081
 FeraligatrCryHeader:  cry_header CRY_MUNCHLAX,    $3fc,  $180
 SentretCryHeader:     cry_header CRY_SENTRET,     $08a,  $0b8
 FurretCryHeader:      cry_header CRY_SENTRET,     $06b,  $102

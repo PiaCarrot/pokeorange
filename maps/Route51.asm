@@ -63,8 +63,6 @@ Route51YoungsterText:
 
 Route51SignText:
 	text "ROUTE 51"
-
-	para "TANGELO JUNGLE"
 	done
 
 Route51_MapEventHeader::
@@ -76,11 +74,11 @@ Route51_MapEventHeader::
 .CoordEvents: db 0
 
 .BGEvents: db 1
-	signpost 6, 10, SIGNPOST_READ, Route51Sign
+	signpost 12, 20, SIGNPOST_READ, Route51Sign
 
 .ObjectEvents: db 5
 	person_event SPRITE_YOUNGSTER, 19, 14, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route51YoungsterScript, -1
-	person_event SPRITE_BUG_BOY, 4, 6, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 1, TrainerBug_catcherSam, -1
+	person_event SPRITE_BUG_BOY, 5, 12, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 1, TrainerBug_catcherSam, -1
 	person_event SPRITE_FRUIT_TREE, 25, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route51FruitTree, -1
 	person_event SPRITE_POKE_BALL, 20, 25, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route51Potion, EVENT_ROUTE_51_POTION
 	person_event SPRITE_POKE_BALL, 8, 23, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route51PokeBall, EVENT_ROUTE_51_POKE_BALL

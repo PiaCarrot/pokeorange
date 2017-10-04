@@ -84,18 +84,18 @@
 	map ROUTE_50
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 7, GEODUDE
+	db 7, MINCCINO
 	db 7, WINGULL
 	db 8, HOPPIP
-	db 8, GEODUDE
+	db 8, MINCCINO
 	db 7, HOPPIP
 	db 7, VULPIX
 	db 8, VULPIX
 	; day
-	db 7, GEODUDE
+	db 7, MINCCINO
 	db 7, WINGULL
 	db 8, HOPPIP
-	db 8, GEODUDE
+	db 8, MINCCINO
 	db 7, HOPPIP
 	db 7, VULPIX
 	db 8, VULPIX
@@ -103,8 +103,8 @@
 	db 7, ODDISH
 	db 8, ODDISH
 	db 7, WINGULL
-	db 7, GEODUDE
-	db 8, GEODUDE
+	db 7, RATTATA
+	db 8, RATTATA
 	db 7, VULPIX
 	db 8, VULPIX
 
@@ -114,16 +114,16 @@
 	db 8, HOPPIP
 	db 7, WINGULL
 	db 8, WINGULL
-	db 7, WEEDLE
-	db 8, WEEDLE
+	db 7, GEODUDE
+	db 8, GEODUDE
 	db 7, EKANS
 	db 8, EKANS
 	; day
 	db 8, HOPPIP
 	db 7, WINGULL
 	db 8, WINGULL
-	db 7, WEEDLE
-	db 8, WEEDLE
+	db 7, GEODUDE
+	db 8, GEODUDE
 	db 7, EKANS
 	db 8, EKANS
 	; nite
