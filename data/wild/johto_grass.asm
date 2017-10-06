@@ -485,7 +485,7 @@
 	db 19, ODDISH
 	db 20, ZUBAT
 	db 20, RATICATE
-	
+
 	map ROUTE_60
 	db 6 percent, 6 percent, 6 percent
 	; morning
@@ -512,7 +512,7 @@
 	db 21, GASTLY
 	db 22, ODDISH
 	db 22, GASTLY
-	
+
 	map ROUTE_61
 	db 6 percent, 6 percent, 6 percent
 	; morning

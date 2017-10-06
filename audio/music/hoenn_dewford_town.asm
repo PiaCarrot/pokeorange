@@ -853,7 +853,7 @@ Music_HoennDewfordTown_Ch4_b1:
 	note 1, 1
 	note 1, 1
 	note 8, 1
-	note 1, 1 
+	note 1, 1
 	note 8, 2
 	note 8, 2
 	note 1, 1

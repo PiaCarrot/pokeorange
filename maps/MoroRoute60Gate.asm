@@ -12,10 +12,10 @@ MoroOfficerScript:
 
 MoroOfficerText:
 	text "Hey there."
-	
+
 	para "From here, go west"
 	line "to GOLDEN ISLAND."
-	
+
 	para "After that, you"
 	line "can go south to"
 	cont "various islands."

@@ -53,7 +53,7 @@ GoldenIslandElderScript:
 	waitbutton
 	closetext
 	end
-	
+
 .ElderTradeScript:
 	faceplayer
 	opentext
@@ -61,118 +61,118 @@ GoldenIslandElderScript:
 	waitbutton
 	closetext
 	end
-	
+
 ElderPleaseSaveMeText:
 	text "Please help me!"
 	done
-	
+
 ElderHouseJessieText1:
 	text "JESSIE: Hey, kid!"
 	line "Who do you think"
 	cont "you are?"
 	done
-	
+
 ElderHouseJessieText2:
 	text "JESSIE: Come here"
 	line "to stop us, huh?"
-	
+
 	para "How about we take"
 	line "your #MON too!"
-	
+
 	para "JAMES: Ooh! That"
 	line "sounds diabolical,"
 	cont "JESSIE!"
-	
+
 	para "MEOWTH: Yeah, that"
 	line "sounds right up my"
 	cont "alley!"
-	
+
 	para "JAMES: But first<...>"
-	
+
 	para "Prepare the world"
 	line "for devastation!"
-	
+
 	para "To unite all"
 	line "peoples within our"
 	cont "nation!"
-	
+
 	para "<...> <...> <...>"
-	
+
 	para "JAMES: You say you"
 	line "heard our motto,"
 	cont "already?"
-	
+
 	para "JESSIE: That's im-"
 	line "possible! Unless<...>"
 	cont "BUTCH and CASSIDY"
 	cont "stole our motto!"
-	
+
 	para "JAMES: But they"
 	line "wouldn't!"
-	
+
 	para "MEOWTH: HEY! Cut"
 	line "the talking and"
 	cont "steal this kid's"
 	cont "#MON already!"
-	
+
 	para "JESSIE: Ahahahaha!"
 	line "Very well."
 	done
-	
+
 JessieJamesWinLoss:
 	text "TEAM ROCKET's blas-"
 	line "ting off again!"
 	done
-	
+
 ElderHouseRocketScript:
 	opentext
 	writetext ElderRocketText
 	waitbutton
 	closetext
 	end
-	
+
 ElderRocketText:
 	text "ROCKETS: Give us"
 	line "all of the #MON"
 	cont "you own!"
 	done
-	
+
 SavedElderText:
 	text "Thank you for sav-"
 	line "ing me."
-	
+
 	para "I was nearly burg-"
 	line "led by those foul"
 	cont "TEAM ROCKETs!"
-	
+
 	para "The talking MEOWTH"
 	line "had me convinced"
 	cont "it was here to br-"
 	cont "ing good fortune."
-	
+
 	para "I guess the search"
 	line "for the MEOWTH of"
 	cont "BOUNTY continues."
-	
+
 	para "If you happen to"
 	line "find one, bring it"
 	cont "to me, please!"
-	
+
 	para "Ah, it seems they"
 	line "dropped this."
 	cont "You can have it."
 	done
-	
+
 ElderFarewellText:
 	text "Farewell, young"
 	line "trainer!"
 	done
-	
+
 ELDER_HOUSE_ROCKET_MOVEMENT1:
 	step UP
 	turn_head LEFT
 	step_end
-	
+
 ELDER_HOUSE_ROCKET_MOVEMENT2:
 	step DOWN
 	step RIGHT

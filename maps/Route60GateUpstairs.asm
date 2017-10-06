@@ -8,8 +8,8 @@ Route60GateUpstairs_MapScriptHeader:
 .MapCallbacks: db 0
 
 Route60GateCooltrainer:
-	faceplayer 
-	opentext 
+	faceplayer
+	opentext
 	writetext Route60GateCooltrainerText
 	showemote EMOTE_HEART, ROUTE_60_GATE_COOLTRAINER_F, 15
 	closetext
@@ -18,7 +18,7 @@ Route60GateCooltrainer:
 Route60GateCooltrainerText:
 	text "That's a lot of"
 	line "badges you have!"
-	
+
 	para "Maybe you have a"
 	line "shot at the champ-"
 	cont "ionship."
@@ -29,7 +29,7 @@ MoroBinoculars1:
 
 MoroBinoculars1Text:
 	text "Hmm<...>"
-	
+
 	para "A flock of WINGULL"
 	line "heading east!"
 	done

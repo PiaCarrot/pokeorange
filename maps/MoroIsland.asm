@@ -61,10 +61,10 @@ MoroIslandMuseumSign:
 MoroIslandMuseumSignText:
 	text "MORO ISLAND MUSEUM"
 	done
-	
+
 MoroIslandTMWhirlpool:
 	itemball TM_WHIRLPOOL
-	
+
 MoroIslandHiddenNugget:
 	dwb EVENT_MORO_ISLAND_HIDDEN_NUGGET, NUGGET
 
@@ -87,7 +87,7 @@ MoroIsland_MapEventHeader::
 	signpost 9, 11, SIGNPOST_READ, MoroIslandSign
 	signpost 19, 13, SIGNPOST_READ, MoroIslandMuseumSign
 	signpost 4, 8, SIGNPOST_ITEM, MoroIslandHiddenNugget
-	
+
 .ObjectEvents: db 4
 	person_event SPRITE_COOLTRAINER_M, 22, 22, SPRITEMOVEDATA_WANDER, 0, 1, -1, -2, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MoroCooltrainerMScript, -1
 	person_event SPRITE_COOLTRAINER_F, 19, 9, SPRITEMOVEDATA_WANDER, 0, 1, -1, -2, PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, MoroCooltrainerFScript, -1

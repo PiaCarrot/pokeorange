@@ -1,6 +1,6 @@
 const_value set 2
 	const GOLDEN_ISLAND_ITEMBALL_QUICK_CLAW
-	
+
 GoldenIslandHouse3_MapScriptHeader:
 
 .MapTriggers: db 0

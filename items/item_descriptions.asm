@@ -729,15 +729,15 @@ ParkBallDesc:
 RainbowWingDesc:
 	db   "A mystical feather"
 	next "of rainbow colors.@"
-	
+
 ShinyStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
-	
+
 TradeStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
-	
+
 MoroTrophyDesc:
 	db   "A stolen trophy."
 	next "300 years old.@"

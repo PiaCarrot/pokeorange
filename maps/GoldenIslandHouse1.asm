@@ -13,13 +13,13 @@ GoldenIslandHouse1_MapScriptHeader:
 
 Daikon:
 	jumptextfaceplayer DaikonText
-	
+
 Kunio:
 	jumptextfaceplayer KunioText
-	
+
 Yoshikawa:
 	jumptextfaceplayer YoshikawaText
-	
+
 Ren:
 	jumptextfaceplayer RenText
 
@@ -35,38 +35,38 @@ Mimi:
 	setevent EVENT_GOT_EXP_SHARE
 	closetext
 	end
-	
+
 .AlreadyGotEXPShare
 	jumptextfaceplayer MimiText
-	
+
 .ExpShareFullBackpack:
 	closetext
 	end
-	
+
 DaikonText:
 	text "You are so strong!"
 	done
-	
+
 KunioText:
 	text "You are worthy of"
 	line "the GOLDEN ISLAND"
 	cont "BATTLE HOUSE."
 	done
-	
+
 YoshikawaText:
 	text "Well done."
 	done
-	
+
 RenText:
 	text "We haven't had"
 	line "anyone beat us for"
 	cont "a long time!"
 	done
-	
+
 MimiText:
 	text "See you around!"
 	done
-	
+
 GiveExpShareText:
 	text "Here's your prize"
 	line "for beating us,"

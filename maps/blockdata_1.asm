@@ -119,7 +119,7 @@ Route59_BlockData:
 
 Route60_BlockData:
 	INCBIN "maps/Route60.blk"
-	
-Route61_BlockData: 
+
+Route61_BlockData:
 	INCBIN "maps/Route61.blk"
 

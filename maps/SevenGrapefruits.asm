@@ -104,22 +104,22 @@ PlayPokeFlute:
 
 WakingUpSnorlax:
 	text "<...>"
-	
+
 	para "SNORLAX scratches"
 	line "its behind<...>"
-	
+
 	para "<...>"
-	
+
 	para "SNORLAX groans."
 	line "Five more minutes."
-	
+
 	para "<...>"
-	
+
 	para "SNORLAX stops sno-"
 	line "ring<...>"
-	
+
 	para "<...>"
-	
+
 	para "SNORLAX woke up!"
 	done
 
@@ -137,11 +137,11 @@ SearchingForSnorlaxText:
 	para "We might have to"
 	line "call it quits."
 	done
-	
+
 GrapefruitWarehouseSignText:
 	text "GRAPEFRUIT for"
 	line "sale!"
-	
+
 	para "Welcome to the"
 	line "7 GRAPEFRUIT"
 	cont "ISLANDS!"

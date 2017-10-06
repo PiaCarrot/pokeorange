@@ -28,7 +28,7 @@ LoadSpecialMapPalette: ; 494ac
 	ld hl, MansionPalette
 	cp TILESET_CELADON_MANSION
 	jr z, LoadEightBGPalettes
-	
+
 	ld hl, GoldenIslandPalette
 	cp TILESET_GOLDEN_ISLAND
 	jr z, LoadEightTimeOfDayBGPalettes

@@ -24,7 +24,7 @@ SunburstGreenLassScript:
 	closetext
 	end
 
-SunburstGreenLassDoneScript:	
+SunburstGreenLassDoneScript:
 	closetext
 	end
 

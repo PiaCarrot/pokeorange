@@ -125,17 +125,17 @@
 	db 18, WINGULL
 	db 18, WAILMER
 	db 18, TENTACOOL
-	
+
 	map ROUTE_60
 	db 3 percent
 	db 19, WAILMER
 	db 19, REMORAID
 	db 19, TENTACOOL
-	
+
 	map ROUTE_61
 	db 3 percent
 	db 20, WINGULL
 	db 20, WAILMER
 	db 20, TENTACOOL
-	
+
 	db -1 ; end

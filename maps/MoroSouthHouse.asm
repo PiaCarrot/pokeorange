@@ -7,11 +7,11 @@ MoroSouthHouse_MapScriptHeader:
 
 MoroFarfetchdFan:
 	jumptextfaceplayer MoroFarfetchdFanText
-	
+
 MoroFarfetchdFanText:
 	text "I'll let you in on"
 	line "a secret."
-	
+
 	para "On ROUTE 61, if"
 	line "you keep going"
 	cont "south, there's an"

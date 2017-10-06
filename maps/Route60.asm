@@ -37,114 +37,114 @@ RocketRoute60Event:
 	domaptrigger ROUTE_60, $1
 	playmusic MUSIC_ROUTE_29
 	end
-	
-	
+
+
 Route60RocketText1:
 	text "???: Ooh, look at"
 	line "it, JESSIE!"
-	
+
 	para "JESSIE: You're far"
 	line "too loud, JAMES."
 	cont "What if some cop"
 	cont "hears us?"
-	
+
 	para "JAMES: That's when"
 	line "we give them our"
 	cont "motto, like we"
 	cont "practiced."
-	
+
 	para "Then we give them"
 	line "a little taste of"
 	cont "ARBOK and WEEZING!"
-	
+
 	para "<...> <...> <...>"
 	done
-	
+
 Route60RocketMottoText:
 	text "Prepare the world"
 	line "for devastation!"
-	
+
 	para "To unite all"
 	line "peoples within our"
 	cont "nation!"
-	
+
 	para "To denounce the"
 	line "evils of truth and"
 	cont "love!"
-	
+
 	para "To extend our"
 	line "reach to the stars"
 	cont "above!"
-	
+
 	para "JESSIE!"
-	
+
 	para "JAMES!"
-	
+
 	para "TEAM ROCKET, blast"
 	line "off at the speed"
 	cont "of light!"
-	
+
 	para "Surrender now or"
 	line "prepare to fight!"
 	done
-	
+
 WhereIsMeowthText:
 	text "<...> <...> <...>"
-	
+
 	para "JAMES: MEOWTH?"
-	
+
 	para "<...>"
-	
+
 	para "JAMES: JESSIE, do"
 	line "you know where"
 	cont "MEOWTH went to?"
-	
+
 	para "JESSIE: No idea."
-	
+
 	para "JAMES: Maybe he"
 	line "went to the next"
 	cont "ISLAND?"
-	
+
 	para "JESSIE: Well, why"
 	line "don't we find out?"
 	done
-	
+
 ROUTE_60_JESSIE_MOVEMENT:
 	step LEFT
 	step LEFT
 	step LEFT
 	step_end
-	
+
 ROUTE_60_JAMES_MOVEMENT:
 	step LEFT
 	step LEFT
 	step_end
-	
+
 Route60Sign:
 	jumptext Route60SignText
-	
+
 Route60SignText:
 	text "ROUTE 60"
 	done
-	
+
 Route60UltraBall:
 	itemball ULTRA_BALL
-	
+
 Route60SwimmerGirlScript:
 	jumptextfaceplayer Route60SwimmerText
-	
+
 Route60SwimmerText:
 	text "See this deep part"
 	line "of the water?"
-	
+
 	para "There's a WRECKED"
 	line "SHIP underneath!"
-	
+
 	para "GHOST-type #MON"
 	line "appear around here"
 	cont "because of it."
 	done
-	
+
 Route60_MapEventHeader::
 
 .Warps: db 4

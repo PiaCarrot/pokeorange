@@ -72,14 +72,14 @@
 	connection north, ROUTE_58, Route58, 0, 0, 18, SEVEN_GRAPEFRUITS
 	connection south, ROUTE_59, Route59, 5, 0, 12, SEVEN_GRAPEFRUITS
 	connection west, ROUTE_57, Route57, 6, 0, 16, SEVEN_GRAPEFRUITS
-	
+
 	map_header_2 Route59, ROUTE_59, 53, NORTH | SOUTH
 	connection north, SEVEN_GRAPEFRUITS, SevenGrapefruits, -2, 3, 16, ROUTE_59
 	connection south, MORO_ISLAND, MoroIsland, 0, 6, 12, ROUTE_59
-	
+
 	map_header_2 MoroIsland, MORO_ISLAND, 53, NORTH
 	connection north, ROUTE_59, Route59, 6, 0, 12, MORO_ISLAND
-	
+
 	map_header_2 Route61, ROUTE_61, 53, 0
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, $0, 0

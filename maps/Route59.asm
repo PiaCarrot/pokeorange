@@ -10,14 +10,14 @@ Route59_MapScriptHeader::
 
 Route59Sign:
 	jumptext Route59SignText
-	
+
 Route59SignText:
 	text "ROUTE 59"
-	
+
 	para "South to MORO"
 	line "ISLAND."
 	done
-	
+
 TrainerSwimmermKazuma:
 	trainer EVENT_BEAT_SWIMMERM_KAZUMA, SWIMMERM, KAZUMA, SwimmermKazumaSeenText, SwimmermKazumaBeatenText, 0, .Script
 
@@ -28,17 +28,17 @@ TrainerSwimmermKazuma:
 	waitbutton
 	closetext
 	end
-	
+
 SwimmermKazumaSeenText:
 	text "It's not only"
 	line "WATER-types that"
 	cont "can swim!"
 	done
-	
+
 SwimmermKazumaBeatenText:
 	text "Nicely done!"
 	done
-	
+
 SwimmermKazumaAfterText:
 	text "#MON like SNOR-"
 	line "LAX and RHYDON"

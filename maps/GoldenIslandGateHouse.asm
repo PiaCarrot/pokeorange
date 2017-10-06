@@ -10,20 +10,20 @@ GoldenIslandGateHouse_MapScriptHeader::
 
 CatManGatehouseScript1:
 	jumptextfaceplayer CatGateHouseGuardText1
-	
+
 CatManGatehouseScript2:
 	jumptextfaceplayer CatGateHouseGuardText2
-	
+
 CatGateHouseGuardText1:
 	text "This is GOLDEN IS-"
 	line "LAND. Please enjoy"
 	cont "our unique town."
 	done
-	
+
 CatGateHouseGuardText2:
 	text "Nyaa! This gate"
 	line "leads to ROUTE 61."
-	
+
 	para "Go WEST to MANDAR-"
 	line "IN SOUTH, EAST to"
 	cont "MURCOTT ISLAND."

@@ -17,7 +17,7 @@ MoroHeadbuttScript:
 	closetext
 	setevent EVENT_HEADBUTT_GUY
 	end
-	
+
 .AlreadyHaveHeadbutt:
 	opentext
 	faceplayer
@@ -25,11 +25,11 @@ MoroHeadbuttScript:
 	waitbutton
 	closetext
 	end
-	
+
 GivePlayerHeadbuttText:
 	text "Hey, have you seen"
 	line "those thick vines?"
-	
+
 	para "Sometimes, #MON"
 	line "live inside them."
 	cont "You can use this"

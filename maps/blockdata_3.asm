@@ -65,5 +65,5 @@ MoroIslandMuseum_BlockData:
 GoldenIsland_BlockData:
 	INCBIN "maps/GoldenIsland.blk"
 
-GoldenIslandGateHouse_BlockData: 
+GoldenIslandGateHouse_BlockData:
 	INCBIN "maps/GoldenIslandGateHouse.blk"
