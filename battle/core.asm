@@ -1397,13 +1397,8 @@ HandleMysteryberry: ; 3c93c
 	ret
 
 .restore
-	; lousy hack
 	ld a, [hl]
-	cp SKETCH
-	ld b, 1
-	jr z, .sketch
 	ld b, 5
-.sketch
 	ld a, [de]
 	add b
 	ld [de], a

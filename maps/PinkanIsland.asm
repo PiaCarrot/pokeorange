@@ -32,8 +32,8 @@ PinkanIslandSign:
 PinkanTrainerTipsSign:
 	jumptext PinkanTrainerTipsSignText
 
-PinkanIslandSweetScent:
-	itemball TM_SWEET_SCENT
+PinkanIslandFairyWind:
+	itemball TM_FAIRY_WIND
 
 PinkanIslandRevive:
 	itemball REVIVE
@@ -118,6 +118,6 @@ PinkanIsland_MapEventHeader::
 	person_event SPRITE_FRUIT_TREE, 17, 18, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PinkanIslandFruitTree2, -1
 	person_event SPRITE_FRUIT_TREE, 8, 20, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PinkanIslandFruitTree3, -1
 	person_event SPRITE_FRUIT_TREE, 9, 29, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PinkanIslandFruitTree4, -1
-	person_event SPRITE_POKE_BALL, 19, 12, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PinkanIslandSweetScent, EVENT_PINKAN_ISLAND_TM_SWEET_SCENT
+	person_event SPRITE_POKE_BALL, 19, 12, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PinkanIslandFairyWind, EVENT_PINKAN_ISLAND_TM_FAIRY_WIND
 	person_event SPRITE_POKE_BALL, 13, 30, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PinkanIslandRevive, EVENT_PINKAN_ISLAND_REVIVE
 	person_event SPRITE_SUPER_NERD, 19, 21, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 5, TrainerManiacShawn, -1

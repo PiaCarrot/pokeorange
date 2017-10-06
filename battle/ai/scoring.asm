@@ -326,13 +326,11 @@ AI_Smart: ; 386be
 	dbw EFFECT_ALWAYS_HIT,       AI_Smart_AlwaysHit
 	dbw EFFECT_ACCURACY_DOWN,    AI_Smart_AccuracyDown
 	dbw EFFECT_HAZE,             AI_Smart_Haze
-	dbw EFFECT_BIDE,             AI_Smart_Bide
 	dbw EFFECT_WHIRLWIND,        AI_Smart_Whirlwind
 	dbw EFFECT_HEAL,             AI_Smart_Heal
 	dbw EFFECT_TOXIC,            AI_Smart_Toxic
 	dbw EFFECT_LIGHT_SCREEN,     AI_Smart_LightScreen
 	dbw EFFECT_OHKO,             AI_Smart_Ohko
-	dbw EFFECT_RAZOR_WIND,       AI_Smart_RazorWind
 	dbw EFFECT_SUPER_FANG,       AI_Smart_SuperFang
 	dbw EFFECT_BIND,             AI_Smart_Bind
 	dbw EFFECT_CONFUSE,          AI_Smart_Confuse
@@ -356,7 +354,6 @@ AI_Smart: ; 386be
 	dbw EFFECT_SLEEP_TALK,       AI_Smart_SleepTalk
 	dbw EFFECT_DESTINY_BOND,     AI_Smart_DestinyBond
 	dbw EFFECT_REVERSAL,         AI_Smart_Reversal
-	dbw EFFECT_SPITE,            AI_Smart_Spite
 	dbw EFFECT_HEAL_BELL,        AI_Smart_HealBell
 	dbw EFFECT_PRIORITY_HIT,     AI_Smart_PriorityHit
 	dbw EFFECT_THIEF,            AI_Smart_Thief
@@ -387,7 +384,6 @@ AI_Smart: ; 386be
 	dbw EFFECT_BELLY_DRUM,       AI_Smart_BellyDrum
 	dbw EFFECT_PSYCH_UP,         AI_Smart_PsychUp
 	dbw EFFECT_MIRROR_COAT,      AI_Smart_MirrorCoat
-	dbw EFFECT_SKULL_BASH,       AI_Smart_SkullBash
 	dbw EFFECT_TWISTER,          AI_Smart_Twister
 	dbw EFFECT_EARTHQUAKE,       AI_Smart_Earthquake
 	dbw EFFECT_FUTURE_SIGHT,     AI_Smart_FutureSight
@@ -945,17 +941,17 @@ AI_Smart_Haze: ; 389f5
 ; 38a1e
 
 
-AI_Smart_Bide: ; 38a1e
-; 90% chance to discourage this move unless enemy's HP is full.
-
-	call AICheckEnemyMaxHP
-	ret c
-	call Random
-	cp $19
-	ret c
-	inc [hl]
-	ret
-; 38a2a
+;AI_Smart_Bide: ; 38a1e
+;; 90% chance to discourage this move unless enemy's HP is full.
+;
+;	call AICheckEnemyMaxHP
+;	ret c
+;	call Random
+;	cp $19
+;	ret c
+;	inc [hl]
+;	ret
+;; 38a2a
 
 
 AI_Smart_Whirlwind: ; 38a2a
@@ -1083,58 +1079,58 @@ AI_Smart_Bind: ; 38a71
 ; 38a9c
 
 
-AI_Smart_RazorWind: ; 38a9c
-	ld a, [EnemySubStatus1]
-	bit SUBSTATUS_PERISH, a
-	jr z, .asm_38aaa
-
-	ld a, [EnemyPerishCount]
-	cp 3
-	jr c, .asm_38ad3
-
-.asm_38aaa
-	push hl
-	ld hl, PlayerUsedMoves
-	ld c, 4
-
-.asm_38ab0
-	ld a, [hli]
-	and a
-	jr z, .asm_38ac1
-
-	call AIGetEnemyMove
-
-	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	cp EFFECT_PROTECT
-	jr z, .asm_38ad5
-	dec c
-	jr nz, .asm_38ab0
-
-.asm_38ac1
-	pop hl
-	ld a, [EnemySubStatus3]
-	bit SUBSTATUS_CONFUSED, a
-	jr nz, .asm_38acd
-
-	call AICheckEnemyHalfHP
-	ret c
-
-.asm_38acd
-	call Random
-	cp $c8
-	ret c
-
-.asm_38ad3
-	inc [hl]
-	ret
-
-.asm_38ad5
-	pop hl
-	ld a, [hl]
-	add 6
-	ld [hl], a
-	ret
-; 38adb
+;AI_Smart_RazorWind: ; 38a9c
+;	ld a, [EnemySubStatus1]
+;	bit SUBSTATUS_PERISH, a
+;	jr z, .asm_38aaa
+;
+;	ld a, [EnemyPerishCount]
+;	cp 3
+;	jr c, .asm_38ad3
+;
+;.asm_38aaa
+;	push hl
+;	ld hl, PlayerUsedMoves
+;	ld c, 4
+;
+;.asm_38ab0
+;	ld a, [hli]
+;	and a
+;	jr z, .asm_38ac1
+;
+;	call AIGetEnemyMove
+;
+;	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
+;	cp EFFECT_PROTECT
+;	jr z, .asm_38ad5
+;	dec c
+;	jr nz, .asm_38ab0
+;
+;.asm_38ac1
+;	pop hl
+;	ld a, [EnemySubStatus3]
+;	bit SUBSTATUS_CONFUSED, a
+;	jr nz, .asm_38acd
+;
+;	call AICheckEnemyHalfHP
+;	ret c
+;
+;.asm_38acd
+;	call Random
+;	cp $c8
+;	ret c
+;
+;.asm_38ad3
+;	inc [hl]
+;	ret
+;
+;.asm_38ad5
+;	pop hl
+;	ld a, [hl]
+;	add 6
+;	ld [hl], a
+;	ret
+;; 38adb
 
 
 AI_Smart_Confuse: ; 38adb
@@ -1542,7 +1538,6 @@ AI_Smart_Encore: ; 38c3b
 	db SUBSTITUTE
 	db TRIPLE_KICK
 	db SPIDER_WEB
-	db MIND_READER
 	db FLAME_WHEEL
 	db AEROBLAST
 	db COTTON_SPORE
@@ -1610,72 +1605,13 @@ AI_Smart_DefrostOpponent: ; 38ccb
 ; 38cd5
 
 
-AI_Smart_Spite: ; 38cd5
-	ld a, [LastEnemyCounterMove]
-	and a
-	jr nz, .asm_38ce7
-
-	call AICompareSpeed
-	jp c, AIDiscourageMove
-
-	call AI_50_50
-	ret c
-	inc [hl]
-	ret
-
-.asm_38ce7
-	push hl
-	ld b, a
-	ld c, 4
-	ld hl, BattleMonMoves
-	ld de, BattleMonPP
-
-.asm_38cf1
-	ld a, [hli]
-	cp b
-	jr z, .asm_38cfb
-
-	inc de
-	dec c
-	jr nz, .asm_38cf1
-
-	pop hl
-	ret
-
-.asm_38cfb
-	pop hl
-	ld a, [de]
-	cp $6
-	jr c, .asm_38d0d
-	cp $f
-	jr nc, .asm_38d0b
-
-	call Random
-	cp $64
-	ret nc
-
-.asm_38d0b
-	inc [hl]
-	ret
-
-.asm_38d0d
-	call Random
-	cp $64
-	ret c
-	dec [hl]
-	dec [hl]
-	ret
-; 38d16
-
-
 Function_0x38d16; 38d16
 	jp AIDiscourageMove
 ; 38d19
 
 
 AI_Smart_DestinyBond:
-AI_Smart_Reversal:
-AI_Smart_SkullBash: ; 38d19
+AI_Smart_Reversal: ; 38d19
 ; Discourage this move if enemy's HP is above 25%.
 
 	call AICheckEnemyQuarterHP
@@ -2526,6 +2462,8 @@ RainDanceMoves: ; 390e7
 	db CRABHAMMER
 	db OCTAZOOKA
 	db WHIRLPOOL
+	db DIVE
+	db WATER_PULSE
 	db $ff
 ; 390f3
 
@@ -3116,6 +3054,8 @@ UsefulMoves: ; 39301
 	db FIRE_BLAST
 	db SOFTBOILED
 	db SUPER_FANG
+	db POWERUPPUNCH
+	db AERIAL_ACE
 	db $ff
 ; 39315
 
@@ -3191,7 +3131,6 @@ AI_Opportunist: ; 39315
 	db HAZE
 	db REFLECT
 	db FOCUS_ENERGY
-	db BIDE
 	db AMNESIA
 	db TRANSFORM
 	db SPLASH
@@ -3200,6 +3139,7 @@ AI_Opportunist: ; 39315
 	db CONVERSION
 	db SUBSTITUTE
 	db FLAME_WHEEL
+	db NASTY_PLOT
 	db $ff
 ; 39369
 
@@ -3391,7 +3331,6 @@ AI_Cautious: ; 39418
 	db STUN_SPORE
 	db THUNDER_WAVE
 	db FOCUS_ENERGY
-	db BIDE
 	db POISON_GAS
 	db TRANSFORM
 	db CONVERSION

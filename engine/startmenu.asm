@@ -626,15 +626,17 @@ PokemonActionSubmenu: ; 12a88
 	dbw MONMENU_FLY,        MonMenu_Fly ; Fly
 	dbw MONMENU_SURF,       MonMenu_Surf ; Surf
 	dbw MONMENU_STRENGTH,   MonMenu_Strength ; Strength
+	dbw MONMENU_ROCKSMASH,  MonMenu_RockSmash ; RockSmash
+	dbw MONMENU_DIVE,       CancelPokemonAction ; TODO: Dive
+	dbw MONMENU_WATERFALL,  MonMenu_Waterfall ; Waterfall
+	dbw MONMENU_ROCK_CLIMB, CancelPokemonAction ; TODO: Rock Climb
+
 	dbw MONMENU_FLASH,      MonMenu_Flash ; Flash
 	dbw MONMENU_WHIRLPOOL,  MonMenu_Whirlpool ; Whirlpool
 	dbw MONMENU_DIG,        MonMenu_Dig ; Dig
 	dbw MONMENU_TELEPORT,   MonMenu_Teleport ; Teleport
-	dbw MONMENU_SOFTBOILED, MonMenu_Softboiled_MilkDrink ; Softboiled
-	dbw MONMENU_MILKDRINK,  MonMenu_Softboiled_MilkDrink ; MilkDrink
+	dbw MONMENU_SOFTBOILED, MonMenu_Softboiled ; Softboiled
 	dbw MONMENU_HEADBUTT,   MonMenu_Headbutt ; Headbutt
-	dbw MONMENU_WATERFALL,  MonMenu_Waterfall ; Waterfall
-	dbw MONMENU_ROCKSMASH,  MonMenu_RockSmash ; RockSmash
 	dbw MONMENU_SWEETSCENT, MonMenu_SweetScent ; SweetScent
 	dbw MONMENU_STATS,      OpenPartyStats
 	dbw MONMENU_SWITCH,     SwitchPartyMons
@@ -1272,7 +1274,7 @@ MonMenu_Dig: ; 12ed1
 	ret
 ; 12ee6
 
-MonMenu_Softboiled_MilkDrink: ; 12ee6
+MonMenu_Softboiled: ; 12ee6
 	call .CheckMonHasEnoughHP
 	jr nc, .NotEnoughHP
 	farcall Softboiled_MilkDrinkFunction

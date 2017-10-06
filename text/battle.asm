@@ -488,18 +488,6 @@ ClampedByText: ; 0x80e59
 	prompt
 ; 0x80e6e
 
-StoringEnergyText: ; 0x80e6e
-	text "<USER>"
-	line "is storing energy!"
-	prompt
-; 0x80e84
-
-UnleashedEnergyText: ; 0x80e84
-	text "<USER>"
-	line "unleashed energy!"
-	prompt
-; 0x80e99
-
 HungOnText: ; 0x80e99
 	text "<TARGET>"
 	line "hung on with"
@@ -697,15 +685,6 @@ TookAimText: ; 0x81136
 	line "took aim!"
 	prompt
 ; 0x81143
-
-SketchedText: ; 0x81143
-	text "<USER>"
-	line "SKETCHED"
-	cont "@"
-	text_from_ram StringBuffer1
-	text "!"
-	prompt
-; 0x81156
 
 DestinyBondEffectText: ; 0x81156
 	text "<USER>'s"

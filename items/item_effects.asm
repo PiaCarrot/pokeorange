@@ -2444,17 +2444,12 @@ Mysteryberry: ; f5bf
 	cp PP_UP
 	jp nz, Not_PP_Up
 
-	ld a, [hl]
-	cp SKETCH
-	jr z, .CantUsePPUpOnSketch
-
 	ld bc, $0015
 	add hl, bc
 	ld a, [hl]
 	cp 3 << 6 ; have 3 PP Ups already been used?
 	jr c, .do_ppup
 
-.CantUsePPUpOnSketch:
 .pp_is_maxed_out
 	ld hl, TextJump_PPIsMaxedOut
 	call PrintText

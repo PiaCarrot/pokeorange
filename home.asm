@@ -933,9 +933,10 @@ IsHMMove:: ; 34e7
 	db FLY
 	db SURF
 	db STRENGTH
-	db FLASH
+	db ROCK_SMASH
+	db DIVE
 	db WATERFALL
-	db WHIRLPOOL
+	db ROCK_CLIMB
 	db -1
 ; 34f8
 

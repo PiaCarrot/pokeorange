@@ -99,9 +99,12 @@ if def(DEBUG)
 	giveitem HM_FLY
 	giveitem HM_SURF
 	giveitem HM_STRENGTH
-	giveitem HM_FLASH
-	giveitem HM_WHIRLPOOL
+	giveitem HM_ROCK_SMASH
+	giveitem HM_DIVE
 	giveitem HM_WATERFALL
+	giveitem HM_ROCK_CLIMB
+	giveitem TM_FLASH
+	giveitem TM_WHIRLPOOL
 	giveitem MAX_REPEL, 99
 	giveitem RARE_CANDY, 99
 	giveitem SHINY_STONE

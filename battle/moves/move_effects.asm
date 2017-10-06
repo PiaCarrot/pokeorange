@@ -1,8 +1,17 @@
+; removed effects
+Bide:
+Present:
+PsychUp:
+RazorWind:
+Sketch:
+SkullBash:
+Spite:
+	endmove
+
 Pound:
 KarateChop:
 MegaPunch:
 Scratch:
-Vicegrip:
 Cut:
 WingAttack:
 Slam:
@@ -33,9 +42,11 @@ HiJumpKick:
 QuickAttack:
 MachPunch:
 Extremespeed:
+AerialAce:
+DragonPulse:
 FairyWind:
 Dazzlingleam:
-SmartStrike:
+ShadowSneak:
 NormalHit:
 	checkobedience
 	usedmovetext
@@ -380,6 +391,7 @@ SpeedUp2:
 	statupfailtext
 	endmove
 
+NastyPlot:
 SpecialAttackUp2:
 	checkobedience
 	usedmovetext
@@ -500,7 +512,6 @@ SpecialDefenseDown:
 
 SandAttack:
 Smokescreen:
-Kinesis:
 Flash:
 AccuracyDown:
 	checkobedience
@@ -650,6 +661,7 @@ AttackDownHit:
 Acid:
 IronTail:
 RockSmash:
+ShadowBone:
 DefenseDownHit:
 	checkobedience
 	usedmovetext
@@ -725,6 +737,7 @@ Moonblast:
 PsychicM:
 Crunch:
 ShadowBall:
+LusterPurge:
 SpecialDefenseDownHit:
 	checkobedience
 	usedmovetext
@@ -817,6 +830,7 @@ DefenseUpHit:
 	endmove
 
 MetalClaw:
+PowerUpPunch:
 AttackUpHit:
 	checkobedience
 	usedmovetext
@@ -896,22 +910,6 @@ Haze:
 	resetstats
 	endmove
 
-Bide:
-	storeenergy
-	checkobedience
-	doturn
-	usedmovetext
-	unleashenergy
-	resettypematchup
-	checkhit
-	hittarget
-	effect0xa5
-	checkfaint
-	checkdestinybond
-	buildopponentrage
-	kingsrock
-	endmove
-
 Thrash:
 PetalDance:
 Outrage:
@@ -957,6 +955,8 @@ FurySwipes:
 BoneRush:
 DoubleKick:
 Bonemerang:
+RockBlast:
+BulletSeed:
 MultiHit:
 	checkobedience
 	usedmovetext
@@ -1016,9 +1016,9 @@ RollingKick:
 Headbutt:
 Bite:
 LowKick:
-BoneClub:
 RockSlide:
 HyperFang:
+Astonish:
 FlinchHit:
 	checkobedience
 	usedmovetext
@@ -1114,6 +1114,9 @@ Psybeam:
 Confusion:
 DizzyPunch:
 Dynamicpunch:
+WaterPulse:
+RockClimb:
+SignalBeam:
 ConfuseHit:
 	checkobedience
 	usedmovetext
@@ -1138,7 +1141,6 @@ ConfuseHit:
 Recover:
 Softboiled:
 Rest:
-MilkDrink:
 Heal:
 	checkobedience
 	usedmovetext
@@ -1319,30 +1321,9 @@ Disable:
 	disable
 	endmove
 
-RazorWind:
-	checkcharge
-	checkobedience
-	doturn
-	charge
-	usedmovetext
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	hittarget
-	failuretext
-	checkfaint
-	criticaltext
-	supereffectivetext
-	checkdestinybond
-	buildopponentrage
-	kingsrock
-	endmove
-
 Fly:
 Dig:
+Dive:
 	checkcharge
 	checkobedience
 	doturn
@@ -1489,20 +1470,12 @@ Conversion2:
 	conversion2
 	endmove
 
-MindReader:
 LockOn:
 	checkobedience
 	usedmovetext
 	doturn
 	checkhit
 	lockon
-	endmove
-
-Sketch:
-	checkobedience
-	usedmovetext
-	doturn
-	sketch
 	endmove
 
 DefrostOpponent:
@@ -1524,14 +1497,6 @@ DestinyBond:
 	usedmovetext
 	doturn
 	destinybond
-	endmove
-
-Spite:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	spite
 	endmove
 
 FalseSwipe:
@@ -1657,7 +1622,6 @@ Curse:
 	endmove
 
 Protect:
-Detect:
 	checkobedience
 	usedmovetext
 	doturn
@@ -1781,27 +1745,6 @@ Return:
 	damagevariation
 	checkhit
 	hittarget
-	failuretext
-	checkfaint
-	criticaltext
-	supereffectivetext
-	checkdestinybond
-	buildopponentrage
-	kingsrock
-	endmove
-
-Present:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	critical
-	damagestats
-	present
-	damagecalc
-	stab
-	damagevariation
-	clearmissdamage
 	failuretext
 	checkfaint
 	criticaltext
@@ -2004,13 +1947,6 @@ BellyDrum:
 	bellydrum
 	endmove
 
-PsychUp:
-	checkobedience
-	usedmovetext
-	doturn
-	psychup
-	endmove
-
 MirrorCoat:
 	checkobedience
 	usedmovetext
@@ -2022,31 +1958,6 @@ MirrorCoat:
 	checkdestinybond
 	buildopponentrage
 	kingsrock
-	endmove
-
-SkullBash:
-	checkcharge
-	checkobedience
-	doturn
-	charge
-	usedmovetext
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	hittarget
-	failuretext
-	checkfaint
-	criticaltext
-	supereffectivetext
-	checkdestinybond
-	buildopponentrage
-	kingsrock
-	endturn
-	defenseup
-	statupmessage
 	endmove
 
 Twister:

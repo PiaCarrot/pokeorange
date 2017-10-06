@@ -9,9 +9,9 @@
 	dw IcePunchDescription
 	dw ThunderpunchDescription
 	dw ScratchDescription
-	dw VicegripDescription
+	dw BulletSeedDescription
 	dw GuillotineDescription
-	dw RazorWindDescription
+	dw DragonPulseDescription
 	dw SwordsDanceDescription
 	dw CutDescription
 	dw GustDescription
@@ -115,7 +115,7 @@
 	dw HazeDescription
 	dw ReflectDescription
 	dw FocusEnergyDescription
-	dw BideDescription
+	dw RockBlastDescription
 	dw MetronomeDescription
 	dw MirrorMoveDescription
 	dw SelfdestructDescription
@@ -123,16 +123,16 @@
 	dw LickDescription
 	dw SmogDescription
 	dw SludgeDescription
-	dw BoneClubDescription
+	dw ShadowBoneDescription
 	dw FireBlastDescription
 	dw WaterfallDescription
 	dw ClampDescription
 	dw SwiftDescription
-	dw SkullBashDescription
+	dw SignalBeamDescription
 	dw SpikeCannonDescription
 	dw ConstrictDescription
 	dw AmnesiaDescription
-	dw KinesisDescription
+	dw DiveDescription
 	dw SoftboiledDescription
 	dw HiJumpKickDescription
 	dw GlareDescription
@@ -164,11 +164,11 @@
 	dw SlashDescription
 	dw SubstituteDescription
 	dw StruggleDescription
-	dw SketchDescription
+	dw RockClimbDescription
 	dw TripleKickDescription
 	dw ThiefDescription
 	dw SpiderWebDescription
-	dw MindReaderDescription
+	dw LusterPurgeDescription
 	dw NightmareDescription
 	dw FlameWheelDescription
 	dw SnoreDescription
@@ -178,7 +178,7 @@
 	dw AeroblastDescription
 	dw CottonSporeDescription
 	dw ReversalDescription
-	dw SpiteDescription
+	dw NastyPlotDescription
 	dw PowderSnowDescription
 	dw ProtectDescription
 	dw MachPunchDescription
@@ -195,7 +195,7 @@
 	dw DestinyBondDescription
 	dw PerishSongDescription
 	dw IcyWindDescription
-	dw DetectDescription
+	dw PowerUpPunchDescription
 	dw BoneRushDescription
 	dw LockOnDescription
 	dw OutrageDescription
@@ -206,7 +206,7 @@
 	dw RolloutDescription
 	dw FalseSwipeDescription
 	dw SwaggerDescription
-	dw MilkDrinkDescription
+	dw WaterPulseDescription
 	dw SparkDescription
 	dw FuryCutterDescription
 	dw SteelWingDescription
@@ -215,7 +215,7 @@
 	dw SleepTalkDescription
 	dw HealBellDescription
 	dw ReturnDescription
-	dw PresentDescription
+	dw AstonishDescription
 	dw FrustrationDescription
 	dw SafeguardDescription
 	dw PainSplitDescription
@@ -242,7 +242,7 @@
 	dw SunnyDayDescription
 	dw CrunchDescription
 	dw MirrorCoatDescription
-	dw PsychUpDescription
+	dw AerialAceDescription
 	dw ExtremespeedDescription
 	dw AncientpowerDescription
 	dw ShadowBallDescription
@@ -253,7 +253,7 @@
 	dw MoonblastDescription
 	dw FairyWindDescription
 	dw DazzlingleamDescription
-	dw SmartStrikeDescription
+	dw ShadowSneakDescription
 	dw Move00Description
 ; 2cd52
 
@@ -305,17 +305,15 @@ ScratchDescription:
 	db   "Scratches with"
 	next "sharp claws.@"
 
-VicegripDescription:
-	db   "Grips with power-"
-	next "ful pincers.@"
+BulletSeedDescription:
+	db   "Shoots seeds that"
+	next "strike 2-5 times.@"
 
 GuillotineDescription:
 	db   "A one-hit KO,"
 	next "pincer attack.@"
 
-RazorWindDescription:
 SolarbeamDescription:
-SkullBashDescription:
 SkyAttackDescription:
 	db   "1st turn: Prepare"
 	next "2nd turn: Attack@"
@@ -344,6 +342,10 @@ FlyDescription:
 	db   "1st turn: Fly"
 	next "2nd turn: Attack@"
 
+DiveDescription:
+	db   "1st turn: Dive"
+	next "2nd turn: Attack@"
+
 BindDescription:
 	db   "Binds the target"
 	next "for 2-5 turns.@"
@@ -359,10 +361,10 @@ VineWhipDescription:
 StompDescription:
 BiteDescription:
 LowKickDescription:
-BoneClubDescription:
 RockSlideDescription:
 HyperFangDescription:
 HeadbuttDescription:
+AstonishDescription:
 	db   "An attack that may"
 	next "cause flinching.@"
 
@@ -475,6 +477,7 @@ DisableDescription:
 AcidDescription:
 IronTailDescription:
 RockSmashDescription:
+ShadowBoneDescription:
 	db   "An attack that may"
 	next "lower DEFENSE.@"
 
@@ -511,6 +514,9 @@ PowderSnowDescription:
 PsybeamDescription:
 ConfusionDescription:
 DizzyPunchDescription:
+WaterPulseDescription:
+RockClimbDescription:
+SignalBeamDescription:
 	db   "An attack that may"
 	next "confuse the foe.@"
 
@@ -620,6 +626,7 @@ ToxicDescription:
 PsychicMDescription:
 CrunchDescription:
 ShadowBallDescription:
+LusterPurgeDescription:
 	db   "An attack that may"
 	next "lower SPCL.DEF.@"
 
@@ -633,6 +640,7 @@ AgilityDescription:
 	next "the user's SPEED.@"
 
 QuickAttackDescription:
+ShadowSneakDescription:
 	db   "Lets the user get"
 	next "in the first hit.@"
 
@@ -658,12 +666,10 @@ MinimizeDescription:
 	next "ness.@"
 
 RecoverDescription:
-MilkDrinkDescription:
 	db   "Restores HP by 1/2"
 	next "the max HP.@"
 
 SmokescreenDescription:
-KinesisDescription:
 MudSlapDescription:
 	db   "Lowers the foe's"
 	next "accuracy.@"
@@ -700,9 +706,9 @@ FocusEnergyDescription:
 	db   "Raises the criti-"
 	next "cal hit ratio.@"
 
-BideDescription:
-	db   "Waits 2-3 turns &"
-	next "hits back double.@"
+RockBlastDescription:
+	db   "Hurls boulders to"
+	next "hit 2-5 times.@"
 
 MetronomeDescription:
 	db   "Randomly uses any"
@@ -731,7 +737,7 @@ WhirlpoolDescription:
 
 SwiftDescription:
 FaintAttackDescription:
-SmartStrikeDescription:
+AerialAceDescription:
 	db   "An attack that"
 	next "never misses.@"
 
@@ -815,10 +821,6 @@ StruggleDescription:
 	db   "Used only if all"
 	next "PP are exhausted.@"
 
-SketchDescription:
-	db   "Copies the foe's"
-	next "move permanently.@"
-
 TripleKickDescription:
 	db   "Hits three times"
 	next "with rising power.@"
@@ -832,7 +834,6 @@ MeanLookDescription:
 	db   "Prevents fleeing"
 	next "or switching.@"
 
-MindReaderDescription:
 LockOnDescription:
 	db   "Ensures the next"
 	next "attack will hit.@"
@@ -863,9 +864,9 @@ ScaryFaceDescription:
 	db   "Sharply reduces"
 	next "the foe's SPEED.@"
 
-SpiteDescription:
-	db   "Cuts the PP of the"
-	next "foe's last move.@"
+NastyPlotDescription:
+	db   "Sharply raises the"
+	next "user's SPCL.ATK.@"
 
 ProtectDescription:
 	db   "Foils attack that"
@@ -906,10 +907,6 @@ PerishSongDescription:
 IcyWindDescription:
 	db   "An icy attack that"
 	next "lowers SPEED.@"
-
-DetectDescription:
-	db   "Evades attack that"
-	next "turn. It may fail.@"
 
 BoneRushDescription:
 	db   "An attack that"
@@ -967,10 +964,6 @@ ReturnDescription:
 	db   "An attack that is"
 	next "based on loyalty.@"
 
-PresentDescription:
-	db   "A bomb that may"
-	next "restore HP.@"
-
 FrustrationDescription:
 	db   "An attack based on"
 	next "lack of loyalty.@"
@@ -1020,6 +1013,7 @@ SweetScentDescription:
 	next "evasiveness.@"
 
 MetalClawDescription:
+PowerUpPunchDescription:
 	db   "An attack that may"
 	next "up user's ATTACK.@"
 
@@ -1053,10 +1047,6 @@ MirrorCoatDescription:
 	db   "Counters a SPCL."
 	next "ATK move double.@"
 
-PsychUpDescription:
-	db   "Copies the foe's"
-	next "stat changes.@"
-
 ExtremespeedDescription:
 	db   "A powerful first-"
 	next "strike move.@"
@@ -1072,6 +1062,10 @@ FutureSightDescription:
 BeatUpDescription:
 	db   "Party #MON join"
 	next "in the attack.@"
+
+DragonPulseDescription:
+	db   "Attacks foe with"
+	next "a shock wave.@"
 
 MoonblastDescription:
 	db   "An attack that may"

@@ -16,5 +16,5 @@
 	dn INANIMATE, INANIMATE ; egg groups
 
 	; tmhm
-	tmhm ICY_WIND, FLASH
+	tmhm ICY_WIND
 	; end
