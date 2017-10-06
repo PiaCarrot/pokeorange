@@ -205,7 +205,7 @@ _CantRockClimbText::
 	text "The wall is very"
 	line "rocky<...>"
 
-	para "Will a #mon's"
+	para "Will a #MON's"
 	line "move scale it?"
 	done
 

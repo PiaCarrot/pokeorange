@@ -147,7 +147,7 @@
 	dw DizzyPunchDescription
 	dw SporeDescription
 	dw FlashDescription
-	dw PsywaveDescription
+	dw MistBallDescription
 	dw SplashDescription
 	dw AcidArmorDescription
 	dw CrabhammerDescription
@@ -776,10 +776,6 @@ FlashDescription:
 	db   "Blinds the foe to"
 	next "reduce accuracy.@"
 
-PsywaveDescription:
-	db   "An attack with"
-	next "variable power.@"
-
 SplashDescription:
 	db   "Has no effect"
 	next "whatsoever.@"
@@ -1071,6 +1067,7 @@ ShellTrapDescription:
 	next "physical moves.@"
 
 MoonblastDescription:
+MistBallDescription:
 	db   "An attack that may"
 	next "lower SPCL.ATK.@"
 

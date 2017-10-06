@@ -148,7 +148,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_DizzyPunch
 	dw BattleAnim_Spore
 	dw BattleAnim_Flash
-	dw BattleAnim_Psywave
+	dw BattleAnim_MistBall
 	dw BattleAnim_Splash
 	dw BattleAnim_AcidArmor
 	dw BattleAnim_Crabhammer
@@ -2846,26 +2846,6 @@ BattleAnim_Harden: ; ca85e
 	anim_ret
 ; ca86c
 
-BattleAnim_Psywave: ; ca86c
-	anim_1gfx ANIM_GFX_PSYCHIC
-	anim_bgeffect ANIM_BG_PSYCHIC, $0, $0, $0
-.loop
-	anim_sound 6, 2, SFX_PSYCHIC
-	anim_obj ANIM_OBJ_4C,   8, 0,  10, 0, $2
-	anim_wait 8
-	anim_sound 6, 2, SFX_PSYCHIC
-	anim_obj ANIM_OBJ_4C,   8, 0,  11, 0, $3
-	anim_wait 8
-	anim_sound 6, 2, SFX_PSYCHIC
-	anim_obj ANIM_OBJ_4C,   8, 0,  12, 0, $4
-	anim_wait 8
-	anim_loop 3, .loop
-	anim_wait 32
-	anim_incbgeffect ANIM_BG_PSYCHIC
-	anim_wait 4
-	anim_ret
-; ca897
-
 BattleAnim_Glare: ; ca897
 	anim_1gfx ANIM_GFX_BEAM
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $20
@@ -3647,6 +3627,7 @@ BattleAnim_MudSlap: ; cb067
 	anim_ret
 ; cb06f
 
+BattleAnim_MistBall: ; TODO: new Mist Ball animation
 BattleAnim_Octazooka: ; cb06f
 	anim_3gfx ANIM_GFX_HAZE, ANIM_GFX_EGG, ANIM_GFX_SMOKE
 	anim_sound 6, 2, SFX_SLUDGE_BOMB
@@ -5270,3 +5251,23 @@ BattleAnim_SignalBeam: ; from Prism
 ;	anim_wait 64
 ;	anim_ret
 ;; cacfb
+
+;BattleAnim_Psywave: ; ca86c
+;	anim_1gfx ANIM_GFX_PSYCHIC
+;	anim_bgeffect ANIM_BG_PSYCHIC, $0, $0, $0
+;.loop
+;	anim_sound 6, 2, SFX_PSYCHIC
+;	anim_obj ANIM_OBJ_4C,   8, 0,  10, 0, $2
+;	anim_wait 8
+;	anim_sound 6, 2, SFX_PSYCHIC
+;	anim_obj ANIM_OBJ_4C,   8, 0,  11, 0, $3
+;	anim_wait 8
+;	anim_sound 6, 2, SFX_PSYCHIC
+;	anim_obj ANIM_OBJ_4C,   8, 0,  12, 0, $4
+;	anim_wait 8
+;	anim_loop 3, .loop
+;	anim_wait 32
+;	anim_incbgeffect ANIM_BG_PSYCHIC
+;	anim_wait 4
+;	anim_ret
+;; ca897

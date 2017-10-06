@@ -3,6 +3,7 @@
 - Revise learnsets and TM sets after replacing moves
 - Add clouds to title screen
 - Wrecked Ship tileset
+- Dive overworld effect
 
 
 ## Pokemon
@@ -31,13 +32,11 @@
 
 ## Moves
 
-- PSYWAVE -> MIST_BALL (uses EFFECT_SP_ATK_DOWN_HIT) (*maybe*)
-- NIGHTMARE -> *???* (*maybe*)
 - EFFECT_ASTONISH for ASTONISH (similar to EFFECT_FAKE_OUT)
 - EFFECT_SPECTRAL_THIEF for SPECTRATHIEF (similar to EFFECT_PSYCH_UP)
 - EFFECT_HAIL for HAIL (similar to EFFECT_SANDSTORM; uses WEATHER_HAIL)
 - EFFECT_SHELL_TRAP for SHELL_TRAP (similar to EFFECT_COUNTER)
-- DIVE overworld effect
+- Replace NIGHTMARE with something better (maybe?)
 
 
 ## Animations
@@ -47,6 +46,7 @@
 - Dive
 - Hail
 - Luster Purge
+- Mist Ball
 - Nasty Plot
 - PowerUpPunch
 - Rock Blast

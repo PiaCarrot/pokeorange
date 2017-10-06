@@ -716,6 +716,7 @@ SpeedDownHit:
 
 SpecialAttackDownHit:
 Moonblast:
+MistBall:
 	checkobedience
 	usedmovetext
 	doturn
@@ -1380,7 +1381,6 @@ Sonicboom:
 DragonRage:
 SeismicToss:
 NightShade:
-Psywave:
 StaticDamage:
 	checkobedience
 	usedmovetext

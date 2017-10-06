@@ -1416,7 +1416,7 @@ ExeggutorEvosAttacks:
 	db 1, HYPNOSIS
 	db 1, CONFUSION
 	db 1, LEECH_SEED
-	db 17, PSYWAVE
+	db 17, STRUGGLE ; PSYWAVE
 	db 29, DRAGON_RAGE
 	db 31, EGG_BOMB
 	db 40, DRAGONBREATH
@@ -2752,7 +2752,7 @@ SlowkingEvosAttacks:
 MisdreavusEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, GROWL
-	db 1, PSYWAVE
+	db 1, STRUGGLE ; PSYWAVE
 	db 6, STRUGGLE ; SPITE
 	db 12, CONFUSE_RAY
 	db 19, MEAN_LOOK
