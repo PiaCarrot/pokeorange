@@ -8,9 +8,13 @@ SkullBash:
 Spite:
 BeatUp:
 PainSplit:
+Nightmare:
+FuryCutter:
 	endmove
 
 SpectralThief: ; TODO: implement EFFECT_SPECTRAL_THIEF
+Venoshock: ; TODO: implement EFFECT_VENOSHOCK
+BugBite: ; TODO: implement EFFECT_BUG_BITE
 Pound:
 KarateChop:
 MegaPunch:
@@ -1580,13 +1584,6 @@ MeanLook:
 	arenatrap
 	endmove
 
-Nightmare:
-	checkobedience
-	usedmovetext
-	doturn
-	nightmare
-	endmove
-
 FlameWheel:
 	checkobedience
 	usedmovetext
@@ -1698,27 +1695,6 @@ Swagger:
 	statupmessage
 	switchturn
 	confusetarget
-	endmove
-
-FuryCutter:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	checkhit
-	furycutter
-	damagevariation
-	hittarget
-	failuretext
-	checkfaint
-	criticaltext
-	supereffectivetext
-	checkdestinybond
-	buildopponentrage
-	kingsrock
 	endmove
 
 Attract:

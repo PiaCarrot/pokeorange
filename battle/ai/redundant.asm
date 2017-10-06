@@ -29,11 +29,11 @@ AI_Redundant: ; 2c41a
 	dbw EFFECT_SNORE,        .Snore
 	dbw EFFECT_SLEEP_TALK,   .SleepTalk
 	dbw EFFECT_MEAN_LOOK,    .MeanLook
-	dbw EFFECT_NIGHTMARE,    .Nightmare
 	dbw EFFECT_SPIKES,       .Spikes
 	dbw EFFECT_FORESIGHT,    .Foresight
 	dbw EFFECT_PERISH_SONG,  .PerishSong
 	dbw EFFECT_SANDSTORM,    .Sandstorm
+	dbw EFFECT_HAIL,         .Hail
 	dbw EFFECT_ATTRACT,      .Attract
 	dbw EFFECT_SAFEGUARD,    .Safeguard
 	dbw EFFECT_RAIN_DANCE,   .RainDance
@@ -111,14 +111,6 @@ AI_Redundant: ; 2c41a
 	bit SUBSTATUS_CANT_RUN, a
 	ret
 
-.Nightmare: ; 2c4d7
-	ld a, [BattleMonStatus]
-	and a
-	jr z, .Redundant
-	ld a, [PlayerSubStatus1]
-	bit SUBSTATUS_NIGHTMARE, a
-	ret
-
 .Spikes: ; 2c4e3
 	ld a, [PlayerScreens]
 	bit SCREENS_SPIKES, a
@@ -137,6 +129,12 @@ AI_Redundant: ; 2c41a
 .Sandstorm: ; 2c4f5
 	ld a, [Weather]
 	cp WEATHER_SANDSTORM
+	jr z, .Redundant
+	jr .NotRedundant
+
+.Hail:
+	ld a, [Weather]
+	cp WEATHER_HAIL
 	jr z, .Redundant
 	jr .NotRedundant
 

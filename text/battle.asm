@@ -70,12 +70,6 @@ LeechSeedSapsText: ; 0x8080e
 	prompt
 ; 0x80822
 
-HasANightmareText: ; 0x80822
-	text "<USER>"
-	line "has a NIGHTMARE!"
-	prompt
-; 0x80836
-
 HurtByCurseText: ; 0x80836
 	text "<USER>'s"
 	line "hurt by the CURSE!"
@@ -1040,13 +1034,6 @@ CantEscapeNowText: ; 0x815f7
 	line "can't escape now!"
 	prompt
 ; 0x8160b
-
-StartedNightmareText: ; 0x8160b
-	text "<TARGET>"
-	line "started to have a"
-	cont "NIGHTMARE!"
-	prompt
-; 0x8162b
 
 WasDefrostedText: ; 0x8162b
 	text "<USER>"

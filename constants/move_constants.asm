@@ -171,7 +171,7 @@
 	const THIEF        ; $a8
 	const SHELL_TRAP   ; $a9
 	const LUSTER_PURGE ; $aa
-	const NIGHTMARE    ; $ab
+	const VENOSHOCK    ; $ab
 	const FLAME_WHEEL  ; $ac
 	const SNORE        ; $ad
 	const CURSE        ; $ae
@@ -210,7 +210,7 @@
 	const SWAGGER      ; $cf
 	const WATER_PULSE  ; $d0
 	const SPARK        ; $d1
-	const FURY_CUTTER  ; $d2
+	const BUG_BITE     ; $d2
 	const STEEL_WING   ; $d3
 	const MEAN_LOOK    ; $d4
 	const ATTRACT      ; $d5

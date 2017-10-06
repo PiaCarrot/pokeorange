@@ -327,6 +327,8 @@ SUBSTATUS_CURLED       EQU 0
 	const EFFECT_SPECTRAL_THIEF
 	const EFFECT_HAIL
 	const EFFECT_SHELL_TRAP
+	const EFFECT_VENOSHOCK
+	const EFFECT_BUG_BITE
 
 ; Battle vars used in home/battle.asm
 	const_def

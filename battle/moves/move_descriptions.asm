@@ -169,7 +169,7 @@
 	dw ThiefDescription
 	dw ShellTrapDescription
 	dw LusterPurgeDescription
-	dw NightmareDescription
+	dw VenoshockDescription
 	dw FlameWheelDescription
 	dw SnoreDescription
 	dw CurseDescription
@@ -208,7 +208,7 @@
 	dw SwaggerDescription
 	dw WaterPulseDescription
 	dw SparkDescription
-	dw FuryCutterDescription
+	dw BugBiteDescription
 	dw SteelWingDescription
 	dw MeanLookDescription
 	dw AttractDescription
@@ -832,9 +832,9 @@ LockOnDescription:
 	db   "Ensures the next"
 	next "attack will hit.@"
 
-NightmareDescription:
-	db   "A sleeper loses"
-	next "1/4 HP every turn.@"
+VenoshockDescription:
+	db   "Damage doubles if"
+	next "foe is poisoned.@"
 
 SnoreDescription:
 	db   "An attack useable"
@@ -935,9 +935,9 @@ SwaggerDescription:
 	db   "Causes confusion"
 	next "and raises ATTACK.@"
 
-FuryCutterDescription:
-	db   "Successive hits"
-	next "raise power.@"
+BugBiteDescription:
+	db   "Bites the foe and"
+	next "eats a held BERRY.@"
 
 SteelWingDescription:
 	db   "Stiff wings strike"

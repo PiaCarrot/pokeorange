@@ -170,7 +170,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_Thief
 	dw BattleAnim_ShellTrap
 	dw BattleAnim_LusterPurge
-	dw BattleAnim_Nightmare
+	dw BattleAnim_Venoshock
 	dw BattleAnim_FlameWheel
 	dw BattleAnim_Snore
 	dw BattleAnim_Curse
@@ -209,7 +209,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_Swagger
 	dw BattleAnim_WaterPulse
 	dw BattleAnim_Spark
-	dw BattleAnim_FuryCutter
+	dw BattleAnim_BugBite
 	dw BattleAnim_SteelWing
 	dw BattleAnim_MeanLook
 	dw BattleAnim_Attract
@@ -1646,6 +1646,7 @@ BattleAnim_Clamp: ; c9e0d
 	anim_ret
 ; c9e2e
 
+BattleAnim_BugBite: ; TODO: new Bug Bite animation
 BattleAnim_Bite: ; c9e2e
 	anim_2gfx ANIM_GFX_CUT, ANIM_GFX_HIT
 	anim_obj ANIM_OBJ_36, -15, 0,   7, 0, $98
@@ -3136,6 +3137,7 @@ BattleAnim_Sludge: ; cab3b
 	anim_ret
 ; cab42
 
+BattleAnim_Venoshock: ; TODO: new Venoshock animation
 BattleAnim_Toxic: ; cab42
 	anim_1gfx ANIM_GFX_POISON
 	anim_bgeffect ANIM_BG_BLACK_HUES, $0, $8, $0
@@ -3305,17 +3307,6 @@ BattleAnim_Thief: ; cacb5
 	anim_wait 64
 	anim_ret
 ; cacd9
-
-BattleAnim_Nightmare: ; cad1b
-	anim_1gfx ANIM_GFX_ANGELS
-	anim_bgp $1b
-	anim_obp0 $f
-	anim_obj ANIM_OBJ_94, -16, 4,   5, 0, $0
-	anim_obj ANIM_OBJ_94, -16, 4,   5, 0, $a0
-	anim_sound 0, 1, SFX_NIGHTMARE
-	anim_wait 96
-	anim_ret
-; cad30
 
 BattleAnim_FlameWheel: ; cad30
 	anim_1gfx ANIM_GFX_FIRE
@@ -3950,22 +3941,6 @@ BattleAnim_Spark: ; cb34d
 	anim_wait 32
 	anim_ret
 ; cb386
-
-BattleAnim_FuryCutter: ; cb386
-	anim_1gfx ANIM_GFX_CUT
-.loop
-	anim_sound 0, 1, SFX_CUT
-	anim_if_param_and %00000001, .obj1
-	anim_obj ANIM_OBJ_3A, -13, 0,   5, 0, $0
-	anim_jump .okay
-
-.obj1
-	anim_obj ANIM_OBJ_3B,  14, 0,   5, 0, $0
-.okay
-	anim_wait 16
-	anim_jumpuntil .loop
-	anim_ret
-; cb3a1
 
 BattleAnim_SteelWing: ; cb3a1
 	anim_1gfx ANIM_GFX_REFLECT
@@ -5271,3 +5246,30 @@ BattleAnim_SignalBeam: ; from Prism
 ;	anim_wait 4
 ;	anim_ret
 ;; ca897
+
+;BattleAnim_Nightmare: ; cad1b
+;	anim_1gfx ANIM_GFX_ANGELS
+;	anim_bgp $1b
+;	anim_obp0 $f
+;	anim_obj ANIM_OBJ_94, -16, 4,   5, 0, $0
+;	anim_obj ANIM_OBJ_94, -16, 4,   5, 0, $a0
+;	anim_sound 0, 1, SFX_NIGHTMARE
+;	anim_wait 96
+;	anim_ret
+;; cad30
+
+;BattleAnim_FuryCutter: ; cb386
+;	anim_1gfx ANIM_GFX_CUT
+;.loop
+;	anim_sound 0, 1, SFX_CUT
+;	anim_if_param_and %00000001, .obj1
+;	anim_obj ANIM_OBJ_3A, -13, 0,   5, 0, $0
+;	anim_jump .okay
+;
+;.obj1
+;	anim_obj ANIM_OBJ_3B,  14, 0,   5, 0, $0
+;.okay
+;	anim_wait 16
+;	anim_jumpuntil .loop
+;	anim_ret
+;; cb3a1

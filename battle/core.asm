@@ -603,13 +603,7 @@ ParsePlayerAction: ; 3c434
 	farcall UpdateMoveData
 	xor a
 	ld [wPlayerCharging], a
-	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
-	cp EFFECT_FURY_CUTTER
-	jr z, .continue_fury_cutter
-	xor a
-	ld [PlayerFuryCutterCount], a
 
-.continue_fury_cutter
 	ld a, [wPlayerMoveStruct + MOVE_EFFECT]
 	cp EFFECT_RAGE
 	jr z, .continue_rage
@@ -634,7 +628,6 @@ ParsePlayerAction: ; 3c434
 
 .locked_in
 	xor a
-	ld [PlayerFuryCutterCount], a
 	ld [PlayerProtectCount], a
 	ld [wPlayerRageCounter], a
 	ld hl, PlayerSubStatus4
@@ -647,7 +640,6 @@ ParsePlayerAction: ; 3c434
 
 .reset_rage
 	xor a
-	ld [PlayerFuryCutterCount], a
 	ld [PlayerProtectCount], a
 	ld [wPlayerRageCounter], a
 	ld hl, PlayerSubStatus4
@@ -1092,23 +1084,6 @@ ResidualDamage: ; 3c716
 	ld hl, LeechSeedSapsText
 	call StdBattleTextBox
 .not_seeded
-
-	call HasUserFainted
-	jr z, .fainted
-
-	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
-	bit SUBSTATUS_NIGHTMARE, [hl]
-	jr z, .not_nightmare
-	xor a
-	ld [wNumHits], a
-	ld de, ANIM_IN_NIGHTMARE
-	call Call_PlayBattleAnim_OnlyIfVisible
-	call GetQuarterMaxHP
-	call SubtractHPFromUser
-	ld hl, HasANightmareText
-	call StdBattleTextBox
-.not_nightmare
 
 	call HasUserFainted
 	jr z, .fainted
@@ -3536,7 +3511,6 @@ rept 4
 endr
 	ld [hl], a
 	ld [EnemyDisableCount], a
-	ld [EnemyFuryCutterCount], a
 	ld [EnemyProtectCount], a
 	ld [wEnemyRageCounter], a
 	ld [EnemyDisabledMove], a
@@ -4009,7 +3983,6 @@ endr
 	ld [hli], a
 	ld [hl], a
 	ld [PlayerDisableCount], a
-	ld [PlayerFuryCutterCount], a
 	ld [PlayerProtectCount], a
 	ld [wPlayerRageCounter], a
 	ld [DisabledMove], a
@@ -4326,10 +4299,6 @@ UseHeldStatusHealingItem: ; 3dde9
 	call GetBattleVarAddr
 	and [hl]
 	res SUBSTATUS_TOXIC, [hl]
-	ld a, BATTLE_VARS_SUBSTATUS1_OPP
-	call GetBattleVarAddr
-	and [hl]
-	res SUBSTATUS_NIGHTMARE, [hl]
 	ld a, b
 	cp ALL_STATUS
 	jr nz, .skip_confuse
@@ -5789,13 +5758,6 @@ ParseEnemyAction: ; 3e7c1
 
 .raging
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	cp EFFECT_FURY_CUTTER
-	jr z, .fury_cutter
-	xor a
-	ld [EnemyFuryCutterCount], a
-
-.fury_cutter
-	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_RAGE
 	jr z, .no_rage
 	ld hl, EnemySubStatus4
@@ -5820,7 +5782,6 @@ ParseEnemyAction: ; 3e7c1
 
 ResetVarsForSubstatusRage: ; 3e8c1
 	xor a
-	ld [EnemyFuryCutterCount], a
 	ld [EnemyProtectCount], a
 	ld [wEnemyRageCounter], a
 	ld hl, EnemySubStatus4
@@ -8001,7 +7962,7 @@ CleanUpBattleRAM: ; 3f6d0
 	ld [wItemsPocketScrollPosition], a
 	ld [wBallsPocketScrollPosition], a
 	ld hl, PlayerSubStatus1
-	ld b, EnemyFuryCutterCount - PlayerSubStatus1
+	ld b, EnemyProtectCount - PlayerSubStatus1
 .loop
 	ld [hli], a
 	dec b

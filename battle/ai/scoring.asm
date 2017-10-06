@@ -357,7 +357,6 @@ AI_Smart: ; 386be
 	dbw EFFECT_PRIORITY_HIT,     AI_Smart_PriorityHit
 	dbw EFFECT_THIEF,            AI_Smart_Thief
 	dbw EFFECT_MEAN_LOOK,        AI_Smart_MeanLook
-	dbw EFFECT_NIGHTMARE,        AI_Smart_Nightmare
 	dbw EFFECT_FLAME_WHEEL,      AI_Smart_FlameWheel
 	dbw EFFECT_CURSE,            AI_Smart_Curse
 	dbw EFFECT_PROTECT,          AI_Smart_Protect
@@ -368,7 +367,6 @@ AI_Smart: ; 386be
 	dbw EFFECT_ENDURE,           AI_Smart_Endure
 	dbw EFFECT_ROLLOUT,          AI_Smart_Rollout
 	dbw EFFECT_SWAGGER,          AI_Smart_Swagger
-	dbw EFFECT_FURY_CUTTER,      AI_Smart_FuryCutter
 	dbw EFFECT_ATTRACT,          AI_Smart_Attract
 	dbw EFFECT_SAFEGUARD,        AI_Smart_Safeguard
 	dbw EFFECT_MAGNITUDE,        AI_Smart_Magnitude
@@ -397,18 +395,13 @@ AI_Smart: ; 386be
 
 
 AI_Smart_Sleep: ; 387e3
-; Greatly encourage sleep inducing moves if the enemy has either Dream Eater or Nightmare.
+; Greatly encourage sleep inducing moves if the enemy has Dream Eater.
 ; 50% chance to greatly encourage sleep inducing moves otherwise.
 
 	ld b, EFFECT_DREAM_EATER
 	call AIHasMoveEffect
-	jr c, .asm_387f0
-
-	ld b, EFFECT_NIGHTMARE
-	call AIHasMoveEffect
 	ret nc
 
-.asm_387f0
 	call AI_50_50
 	ret c
 	dec [hl]
@@ -687,11 +680,7 @@ AI_Smart_EvasionUp: ; 388d4
 	cp b
 	jr c, .asm_38936
 
-; Greatly encourage this move if the player is in the middle of Fury Cutter or Rollout.
-	ld a, [PlayerFuryCutterCount]
-	and a
-	jr nz, .asm_388ef
-
+; Greatly encourage this move if the player is in the middle of Rollout.
 	ld a, [PlayerSubStatus1]
 	bit SUBSTATUS_ROLLOUT, a
 	jr nz, .asm_388ef
@@ -862,11 +851,7 @@ AI_Smart_AccuracyDown: ; 38985
 	cp b
 	jr c, .asm_389e4
 
-; Greatly encourage this move if the player is in the middle of Fury Cutter or Rollout.
-	ld a, [PlayerFuryCutterCount]
-	and a
-	jr nz, .asm_3899d
-
+; Greatly encourage this move if the player is in the middle of Rollout.
 	ld a, [PlayerSubStatus1]
 	bit SUBSTATUS_ROLLOUT, a
 	jr nz, .asm_3899d
@@ -1047,13 +1032,13 @@ AI_Smart_Bind: ; 38a71
 	jr nz, .asm_38a8b
 
 ; 50% chance to greatly encourage this move if player is either
-; badly poisoned, in love, identified, stuck in Rollout, or has a Nightmare.
+; badly poisoned, in love, identified, or stuck in Rollout.
 	ld a, [PlayerSubStatus5]
 	bit SUBSTATUS_TOXIC, a
 	jr nz, .asm_38a91
 
 	ld a, [PlayerSubStatus1]
-	and 1<<SUBSTATUS_IN_LOVE | 1<<SUBSTATUS_ROLLOUT | 1<<SUBSTATUS_IDENTIFIED | 1<<SUBSTATUS_NIGHTMARE
+	and 1<<SUBSTATUS_IN_LOVE | 1<<SUBSTATUS_ROLLOUT | 1<<SUBSTATUS_IDENTIFIED
 	jr nz, .asm_38a91
 
 ; Else, 50% chance to greatly encourage this move if it's the player's Pokemon first turn.
@@ -1810,9 +1795,9 @@ AI_Smart_MeanLook: ; 38dfb
 	jr nz, .asm_38e26
 
 ; 80% chance to greatly encourage this move if the player is either
-; in love, identified, stuck in Rollout, or has a Nightmare.
+; in love, identified, or stuck in Rollout.
 	ld a, [PlayerSubStatus1]
-	and 1<<SUBSTATUS_IN_LOVE | 1<<SUBSTATUS_ROLLOUT | 1<<SUBSTATUS_IDENTIFIED | 1<<SUBSTATUS_NIGHTMARE
+	and 1<<SUBSTATUS_IN_LOVE | 1<<SUBSTATUS_ROLLOUT | 1<<SUBSTATUS_IDENTIFIED
 	jr nz, .asm_38e26
 
 ; Otherwise, discourage this move unless the player only has not very effective moves against the enemy.
@@ -1862,18 +1847,6 @@ AICheckLastPlayerMon: ; 38e2e
 
 	ret
 ; 38e4a
-
-
-AI_Smart_Nightmare: ; 38e4a
-; 50% chance to encourage this move.
-; The AI_Basic layer will make sure that
-; Dream Eater is only used against sleeping targets.
-
-	call AI_50_50
-	ret c
-	dec [hl]
-	ret
-; 38e50
 
 
 AI_Smart_FlameWheel: ; 38e50
@@ -1986,10 +1959,6 @@ AI_Smart_Protect: ; 38ed2
 	ld a, [PlayerSubStatus5]
 	bit SUBSTATUS_LOCK_ON, a
 	jr nz, .asm_38f14
-
-	ld a, [PlayerFuryCutterCount]
-	cp 3
-	jr nc, .asm_38f0d
 
 	ld a, [PlayerSubStatus3]
 	bit SUBSTATUS_CHARGED, a
@@ -2219,33 +2188,8 @@ AI_Smart_Endure: ; 38fac
 ; 38fdb
 
 
-AI_Smart_FuryCutter: ; 38fdb
-; Encourage this move based on Fury Cutter's count.
-
-	ld a, [EnemyFuryCutterCount]
-	and a
-	jr z, .end
-	dec [hl]
-
-	cp 2
-	jr c, .end
-	dec [hl]
-	dec [hl]
-
-	cp 3
-	jr c, .end
-	dec [hl]
-	dec [hl]
-	dec [hl]
-
-.end
-
-	; fallthrough
-; 38fef
-
-
 AI_Smart_Rollout: ; 38fef
-; Rollout, Fury Cutter
+; Rollout
 
 ; 80% chance to discourage this move if the enemy is in love, confused, or paralyzed.
 	ld a, [EnemySubStatus1]

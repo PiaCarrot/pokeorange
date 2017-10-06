@@ -185,8 +185,6 @@ BattleCommand_CheckTurn: ; 34084
 	call CallBattleCore
 	ld a, $1
 	ld [hBGMapMode], a
-	ld hl, PlayerSubStatus1
-	res SUBSTATUS_NIGHTMARE, [hl]
 	jr .not_asleep
 
 .fast_asleep
@@ -366,8 +364,6 @@ CantMove: ; 341f0
 	and $ff ^ (1<<SUBSTATUS_BIDE + 1<<SUBSTATUS_RAMPAGE + 1<<SUBSTATUS_CHARGED)
 	ld [hl], a
 
-	call ResetFuryCutterCount
-
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	cp FLY
@@ -436,8 +432,6 @@ CheckEnemyTurn: ; 3421f
 	call CallBattleCore
 	ld a, $1
 	ld [hBGMapMode], a
-	ld hl, EnemySubStatus1
-	res SUBSTATUS_NIGHTMARE, [hl]
 	jr .not_asleep
 
 .fast_asleep
@@ -691,6 +685,10 @@ BattleCommand_Sketch: ; 35a74
 ; sketch
 BattleCommand_PainSplit: ; 35926
 ; painsplit
+BattleCommand_Nightmare: ; 37536
+; nightmare
+BattleCommand_FuryCutter: ; 37792
+; furycutter
 	ret
 
 
@@ -4457,9 +4455,6 @@ BattleCommand_FalseSwipe: ; 35c94
 BattleCommand_HealBell: ; 35cc9
 ; healbell
 
-	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
-	res SUBSTATUS_NIGHTMARE, [hl]
 	ld de, PartyMon1Status
 	ld a, [hBattleTurn]
 	and a
@@ -8343,9 +8338,6 @@ BattleCommand_ArenaTrap: ; 37517
 ; 37536
 
 
-INCLUDE "battle/effects/nightmare.asm"
-
-
 BattleCommand_Defrost: ; 37563
 ; defrost
 
@@ -8395,70 +8387,6 @@ INCLUDE "battle/effects/perish_song.asm"
 INCLUDE "battle/effects/sandstorm.asm"
 
 INCLUDE "battle/effects/rollout.asm"
-
-
-BattleCommand_FuryCutter: ; 37792
-; furycutter
-
-	ld hl, PlayerFuryCutterCount
-	ld a, [hBattleTurn]
-	and a
-	jr z, .go
-	ld hl, EnemyFuryCutterCount
-
-.go
-	ld a, [AttackMissed]
-	and a
-	jp nz, ResetFuryCutterCount
-
-	inc [hl]
-
-; Damage capped at 5 turns' worth (16x).
-	ld a, [hl]
-	ld b, a
-	cp 6
-	jr c, .checkdouble
-	ld b, 5
-
-.checkdouble
-	dec b
-	ret z
-
-; Double the damage
-	ld hl, CurDamage + 1
-	sla [hl]
-	dec hl
-	rl [hl]
-	jr nc, .checkdouble
-
-; No overflow
-	ld a, $ff
-	ld [hli], a
-	ld [hl], a
-	ret
-
-; 377be
-
-
-ResetFuryCutterCount: ; 377be
-
-	push hl
-
-	ld hl, PlayerFuryCutterCount
-	ld a, [hBattleTurn]
-	and a
-	jr z, .reset
-	ld hl, EnemyFuryCutterCount
-
-.reset
-	xor a
-	ld [hl], a
-
-	pop hl
-	ret
-
-; 377ce
-
 
 INCLUDE "battle/effects/attract.asm"
 
@@ -8759,17 +8687,6 @@ FailedBatonPass: ; 37aab
 
 ResetBatonPassStatus: ; 37ab1
 ; Reset status changes that aren't passed by Baton Pass.
-
-	; Nightmare isn't passed.
-	ld a, BATTLE_VARS_STATUS
-	call GetBattleVar
-	and SLP
-	jr nz, .ok
-
-	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVarAddr
-	res SUBSTATUS_NIGHTMARE, [hl]
-.ok
 
 	; Disable isn't passed.
 	call ResetActorDisable
