@@ -15,8 +15,6 @@ MandarinNorth_MapScriptHeader::
 	setflag ENGINE_FLYPOINT_MANDARIN_NORTH
 	return
 
-.Scripts:
-
 MandarinNorthLassScript:
 	jumptextfaceplayer MandarinNorthLassText
 

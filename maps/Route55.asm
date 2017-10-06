@@ -10,8 +10,6 @@ Route55_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 TrainerSwimmerMayumi:
 	trainer EVENT_BEAT_SWIMMERF_MAYUMI, SWIMMERF, MAYUMI, SwimmerMayumiSeenText, SwimmerMayumiBeatenText, 0, .Script
 

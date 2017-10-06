@@ -60,6 +60,7 @@ CheckGrassCollision:: ; 149dd
 	db COLL_TALL_GRASS
 	db COLL_LONG_GRASS
 	db COLL_WATER
+	db COLL_DIVE_DOWN
 	db -1
 ; 149f5
 

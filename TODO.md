@@ -1,40 +1,56 @@
-# todo
+# To Do
 
-For Beta 1:
-
-- Add Ice Rock functionality
-- Add Clouds to TitleScreen
-- Add Grapefruit Islands
-- Make sure TM Bubblebeam can be learned by Pokemon (Look at Gen 1 list)
-- Add Pokeflute Misty Event NPC in the Unnamed Island Center
-- Script Grapefruit Islands/Snorlax Event
-- Route 59, but not scripted and blocked off for release
+- Revise learnsets and TM sets after replacing moves
+- Add clouds to title screen
+- Wrecked Ship tileset
+- Player state and sprite for Diving
 
 
-For Moro Island:
+## Pokemon
 
-- Moro Island
-- Museum Tileset
-- Route 60
-- Wrecked Ship Tileset
+- 193. Yanma -> Leafeon
+- 194. Wooper -> Glaceon
+- 195. Quagsire -> Sylveon
+- 200. Misdreavus -> Mimikyu
+- 202. Wobbuffet -> Skrelp
+- 203. Girafarig -> Dragalge
+- 204. Pineco -> Trapinch
+- 205. Forretress -> Vibrava
+- 206. Dunsparce -> Flygon
+- 207. Gligar -> Turtonator
+- 214. Heracross -> Mareanie
+- 215. Sneasel -> Toxapex
+- 216. Teddiursa -> Sandygast
+- 217. Ursaring -> Palossand
+- 220. Swinub -> Carvanha
+- 221. Piloswine -> Sharpedo
+- 243. Raikou -> Cutiefly
+- 244. Entei -> Ribombee
+- 252. Latias
+- 253. Latios
 
 
-For moves:
+## Moves
 
-- ***???*** -> Aerial Ace (TM?): EFFECT_ALWAYS_HIT
-- Beat Up -> Psystrike: ***EFFECT_PSYSTRIKE*** (use Defense instead of Sp.Def)
-- Bide -> Rock Blast: EFFECT_MULTI_HIT
-- Bone Club -> Shadow Bone: EFFECT_DEFENSE_DOWN_HIT
-- Kinesis -> Dive (HM): EFFECT_FLY
-- Milk Drink -> Water Pulse (TM?): EFFECT_CONFUSE_HIT
-- Mind Reader -> Luster Purge: EFFECT_SP_DEF_DOWN_HIT
-- Pain Split -> Spectral Thief: ***EFFECT_SPECTRAL_THIEF*** (similar to EFFECT_PSYCH_UP)
-- Powder Snow -> Hail (TM?): EFFECT_HAIL (similar to EFFECT_SANDSTORM, requires new weather)
-- Present -> Astonish: EFFECT_FLINCH_HIT
-- Razor Wind -> Dragon Pulse (TM?): EFFECT_NORMAL_HIT
-- Sketch -> Rock Climb (HM): EFFECT_CONFUSE_HIT
-- Skull Bash -> Signal Beam (TM?): EFFECT_CONFUSE_HIT
-- Smart Strike -> Shadow Sneak: EFFECT_PRIORITY_HIT
-- Spider Web -> Shell Trap: ***EFFECT_SHELL_TRAP*** (similar to EFFECT_COUNTER)
-- Spite -> Nasty Plot: EFFECT_SP_ATK_UP_2
-- Vice Grip -> Bullet Seed (TM?): EFFECT_MULTI_HIT
+- EFFECT_ASTONISH for ASTONISH (similar to EFFECT_FAKE_OUT)
+- EFFECT_SPECTRAL_THIEF for SPECTRATHIEF (similar to EFFECT_PSYCH_UP)
+- EFFECT_HAIL for HAIL (similar to EFFECT_SANDSTORM; uses WEATHER_HAIL)
+- EFFECT_SHELL_TRAP for SHELL_TRAP (similar to EFFECT_COUNTER)
+- Replace NIGHTMARE with something better (maybe?)
+
+
+## Animations
+
+- Aerial Ace
+- Bullet Seed
+- Dive
+- Hail
+- Luster Purge
+- Mist Ball
+- Nasty Plot
+- PowerUpPunch
+- Rock Blast
+- Rock Climb
+- Shadow Sneak
+- Shell Trap
+- Water Pulse

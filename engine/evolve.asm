@@ -81,11 +81,12 @@ EvolveAfterBattle_MasterLoop
 	jp nz, .dont_evolve_2
 
 	ld a, b
+	cp EVOLVE_LOCATION
+	jp z, .location
 	cp EVOLVE_LEVEL
 	jp z, .level
-
 	cp EVOLVE_HAPPINESS
-	jr z, .happiness
+	jp z, .happiness
 
 
 ; EVOLVE_STAT
@@ -114,12 +115,12 @@ EvolveAfterBattle_MasterLoop
 	jp nz, .dont_evolve_2
 
 	inc hl
-	jr .proceed
+	jp .proceed
 
 
 .happiness
 	ld a, [TempMonHappiness]
-	cp 220
+	cp HAPPINESS_TO_EVOLVE
 	jp c, .dont_evolve_2
 
 	call IsMonHoldingEverstone
@@ -178,6 +179,21 @@ EvolveAfterBattle_MasterLoop
 	jp z, .dont_evolve_3
 	ld a, [wLinkMode]
 	and a
+	jp nz, .dont_evolve_3
+	jr .proceed
+
+
+.location
+	ld a, [MapGroup]
+	ld b, a
+	ld a, [MapNumber]
+	ld c, a
+	push hl
+	call GetWorldMapLocation
+	pop hl
+	ld b, a
+	ld a, [hli]
+	cp b
 	jp nz, .dont_evolve_3
 	jr .proceed
 

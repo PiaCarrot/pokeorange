@@ -8,8 +8,6 @@ MtNavelPeak_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 DannyScript:
 	faceplayer
 	opentext

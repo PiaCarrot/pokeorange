@@ -19,6 +19,35 @@ _AskSurfText::
 	line "Want to SURF?"
 	done
 
+_UsedDiveText::
+	text_from_ram StringBuffer2
+	text " used"
+	line "DIVE!"
+	done
+
+_CantDiveText::
+	text "You can't DIVE"
+	line "here."
+	prompt
+
+_AskDiveDownText::
+	text "The sea is deep."
+	line "Want to DIVE?"
+	done
+
+_AskDiveUpText::
+	text "Light is filter-"
+	line "ing from above."
+	cont "Want to DIVE?"
+	done
+
+_CanDiveText::
+	text "The sea is deep."
+
+	para "A #MON can"
+	line "DIVE here."
+	done
+
 UnknownText_0x1c068e::
 	text_from_ram StringBuffer2
 	text " used"
@@ -187,6 +216,28 @@ UnknownText_0x1c0a05::
 	line "CUT!"
 	done
 
+_AskRockClimbText::
+	text "The wall is very"
+	line "rocky<...>"
+
+	para "Want to use"
+	line "ROCK CLIMB?"
+	done
+
+_UsedRockClimbText::
+	text_from_ram StringBuffer2
+	text " used"
+	line "ROCK CLIMB!"
+	prompt
+
+_CantRockClimbText::
+	text "The wall is very"
+	line "rocky<...>"
+
+	para "Will a #MON's"
+	line "move scale it?"
+	done
+
 UnknownText_0x1c0a1c::
 	text "<PLAYER> found"
 	line "@"
@@ -345,19 +396,9 @@ UnknownText_0x1c0d06::
 UnknownText_0x1c0d0e::
 	text "<USER>@@"
 
-UnknownText_0x1c0d12::
-	text ""
-	line "made a whirlwind!"
-	prompt
-
 UnknownText_0x1c0d26::
 	text ""
 	line "took in sunlight!"
-	prompt
-
-UnknownText_0x1c0d3a::
-	text ""
-	line "lowered its head!"
 	prompt
 
 UnknownText_0x1c0d4e::

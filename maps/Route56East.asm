@@ -13,8 +13,6 @@ Route56East_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 TrainerSightSeerMichio:
 	trainer EVENT_BEAT_SIGHTSEERM_MICHIO, SIGHTSEERM, MICHIO, SightSeerMichioSeenText, SightSeerMichioBeatenText, 0, .Script
 

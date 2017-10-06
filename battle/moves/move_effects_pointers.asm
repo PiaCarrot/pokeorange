@@ -155,3 +155,8 @@
 	dw BeatUp
 	dw Fly
 	dw DefenseCurl
+	dw Astonish
+	dw Psystrike
+	dw SpectralThief
+	dw Hail
+	dw ShellTrap

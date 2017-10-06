@@ -531,6 +531,139 @@ AskSurfText: ; ca36
 	text_jump _AskSurfText ; The water is calm.
 	db "@"              ; Want to SURF?
 
+DiveFunction:
+	call FieldMoveJumptableReset
+.loop
+	ld hl, .Jumptable
+	call FieldMoveJumptable
+	jr nc, .loop
+	and $7f
+	ld [wFieldMoveSucceeded], a
+	ret
+
+.Jumptable:
+	dw .TryDive
+	dw .DoDive
+	dw .FailDive
+
+.TryDive:
+	call CheckMapCanDive
+	jr c, .cannotdive
+	ld a, $1
+	ret
+.cannotdive
+	ld a, $2
+	ret
+
+.DoDive:
+	call GetPartyNick
+	ld hl, DiveFromMenuScript
+	call QueueScript
+	ld a, $81
+	ret
+
+.FailDive:
+	ld hl, CantDiveText
+	call MenuTextBoxBackup
+	ld a, $80
+	ret
+
+UsedDiveText:
+	text_jump _UsedDiveText
+	db "@"
+
+CantDiveText:
+	text_jump _CantDiveText
+	db "@"
+
+CheckMapCanDive:
+	ld a, [DiveMapGroup]
+	and a
+	jr z, .failed
+	ld a, [DiveMapNumber]
+	and a
+	jr z, .failed
+	ld a, [PlayerStandingTile]
+	cp COLL_DIVE_UP
+	jr z, .ok
+	cp COLL_DIVE_DOWN
+	jr nz, .failed
+.ok
+	xor a
+	ret
+
+.failed
+	scf
+	ret
+
+TryDiveOW::
+	call CheckMapCanDive
+	jr c, .failed
+
+	ld d, DIVE
+	call CheckPartyMove
+	jr c, .cant
+
+	call GetPartyNick
+	ld a, BANK(AskDiveScript)
+	ld hl, AskDiveScript
+	call CallScript
+	scf
+	ret
+
+.failed
+	xor a
+	ret
+
+.cant
+	ld a, BANK(Script_CantDive)
+	ld hl, Script_CantDive
+	call CallScript
+	scf
+	ret
+
+Script_CantDive:
+	jumptext .Text_CantDive
+
+.Text_CantDive:
+	text_jump _CanDiveText
+	db "@"
+
+AskDiveScript:
+	opentext
+	copybytetovar PlayerStandingTile
+	if_equal COLL_DIVE_UP, .up
+	writetext AskDiveDownText
+	jump .continue
+.up
+	writetext AskDiveUpText
+.continue
+	yesorno
+	iftrue UsedDiveScript
+	closetext
+	end
+
+AskDiveDownText:
+	text_jump _AskDiveDownText
+	db "@"
+
+AskDiveUpText:
+	text_jump _AskDiveUpText
+	db "@"
+
+DiveFromMenuScript:
+	reloadmappart
+	special UpdateTimePals
+
+UsedDiveScript:
+	writetext UsedDiveText
+	waitbutton
+	closetext
+	special FadeOutPalettes
+	waitsfx
+	divewarp
+	end
+
 FlyFunction: ; ca3b
 	call FieldMoveJumptableReset
 .loop
@@ -548,6 +681,10 @@ FlyFunction: ; ca3b
 
 .TryFly: ; ca52
 ; Fly
+	ld a, [wTileset]
+	cp TILESET_UNDERWATER
+	jr z, .indoors
+
 	call GetMapPermission
 	call CheckOutdoorMap
 	jr z, .outdoors
@@ -721,6 +858,124 @@ Script_AskWaterfall: ; 0xcb86
 .AskUseWaterfall: ; 0xcb90
 	; Do you want to use WATERFALL?
 	text_jump UnknownText_0x1c06bf
+	db "@"
+
+RockClimbFunction:
+	call FieldMoveJumptableReset
+.loop
+	ld hl, .Jumptable
+	call FieldMoveJumptable
+	jr nc, .loop
+	and $7f
+	ld [wFieldMoveSucceeded], a
+	ret
+
+.Jumptable:
+	dw .TryRockClimb
+	dw .DoRockClimb
+	dw .FailRockClimb
+
+.TryRockClimb:
+	call TryRockClimbMenu
+	jr c, .failed
+	ld a, $1
+	ret
+
+.failed
+	ld a, $2
+	ret
+
+.DoRockClimb:
+	ld hl, Script_RockClimbFromMenu
+	call QueueScript
+	ld a, $81
+	ret
+
+.FailRockClimb:
+	call FieldMoveFailed
+	ld a, $80
+	ret
+
+TryRockClimbMenu:
+	call GetFacingTileCoord
+	ld c, a
+	cp COLL_ROCK_CLIMB
+	jr nz, .failed
+	xor a
+	ret
+
+.failed
+	scf
+	ret
+
+TryRockClimbOW::
+	ld d, ROCK_CLIMB
+	call CheckPartyMove
+	jr c, .cant_climb
+
+	ld a, BANK(AskRockClimbScript)
+	ld hl, AskRockClimbScript
+	call CallScript
+	scf
+	ret
+
+.cant_climb
+	ld a, BANK(CantRockClimbScript)
+	ld hl, CantRockClimbScript
+	call CallScript
+	scf
+	ret
+
+AskRockClimbScript:
+	opentext
+	writetext AskRockClimbText
+	yesorno
+	iftrue Script_UsedRockClimb
+	closetext
+	end
+
+Script_RockClimbFromMenu:
+	reloadmappart
+	special UpdateTimePals
+
+Script_UsedRockClimb:
+	callasm GetPartyNick
+	writetext Text_UsedRockClimb
+	closetext
+	waitsfx
+	playsound SFX_STRENGTH
+	checkcode VAR_FACING
+	if_equal DOWN, .Down
+	applymovement PLAYER, RockClimbUpMovementData
+	end
+
+.Down:
+	applymovement PLAYER, RockClimbDownMovementData
+	end
+
+Text_UsedRockClimb:
+	text_jump _UsedRockClimbText
+	db "@"
+
+RockClimbUpMovementData:
+	step UP
+	step UP
+	step_end
+
+RockClimbDownMovementData:
+	step DOWN
+	step DOWN
+	step_end
+
+AskRockClimbText:
+	text_jump _AskRockClimbText
+	db "@"
+
+CantRockClimbScript:
+	jumptext CantRockClimbText
+
+CantRockClimbText:
+	text_jump _CantRockClimbText
 	db "@"
 
 EscapeRopeFunction: ; cb95
@@ -1315,7 +1570,7 @@ RockSmashScript: ; cf32
 	callasm GetPartyNick
 	writetext UnknownText_0xcf58
 	closetext
-	special WaitSFX
+	waitsfx
 	playsound SFX_STRENGTH
 	earthquake 84
 	applymovement2 MovementData_0xcf55
@@ -1645,7 +1900,7 @@ BikeFunction: ; d0b3
 
 .ok
 	call GetPlayerStandingTile
-	and $f ; can't use our bike in a wall or on water
+	and $f ; cp LANDTILE ; can't use our bike in a wall or on water
 	jr nz, .nope
 	xor a
 	ret

@@ -4,6 +4,7 @@ HandleNewMap: ; 1045b0
 	call ResetFlashIfOutOfCave
 	call GetCurrentMapTrigger
 	call ResetBikeFlags
+	call ResetDiveMap
 	ld a, MAPCALLBACK_NEWMAP
 	call RunMapCallback
 InitCommandQueue: ; 1045c4

@@ -75,6 +75,7 @@ const_value SET 1
 	const EVOLVE_TRADE
 	const EVOLVE_HAPPINESS
 	const EVOLVE_STAT
+	const EVOLVE_LOCATION
 
 
 BASE_HAPPINESS        EQU 70

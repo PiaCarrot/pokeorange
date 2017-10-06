@@ -825,7 +825,7 @@ GetMovePriority: ; 3c5c5
 
 	ld b, a
 
-	; Vital throw goes last.
+	; Vital Throw goes last.
 	cp VITAL_THROW
 	ld a, 0
 	ret z
@@ -840,7 +840,7 @@ GetMovePriority: ; 3c5c5
 	cp -1
 	jr nz, .loop
 
-	ld a, 1
+	ld a, STANDARD_PRIORITY
 	ret
 
 .done
@@ -848,13 +848,18 @@ GetMovePriority: ; 3c5c5
 	ret
 ; 3c5df
 
+effectpriority: MACRO
+	db \1, STANDARD_PRIORITY + \2
+ENDM
+
 MoveEffectPriorities: ; 3c5df
-	db EFFECT_PROTECT,      3
-	db EFFECT_ENDURE,       3
-	db EFFECT_PRIORITY_HIT, 2
-	db EFFECT_WHIRLWIND,    0
-	db EFFECT_COUNTER,      0
-	db EFFECT_MIRROR_COAT,  0
+	effectpriority EFFECT_PROTECT,       4
+	effectpriority EFFECT_ENDURE,        4
+	effectpriority EFFECT_PRIORITY_HIT,  1
+	effectpriority EFFECT_SHELL_TRAP,   -3
+	effectpriority EFFECT_COUNTER,      -5
+	effectpriority EFFECT_MIRROR_COAT,  -5
+	effectpriority EFFECT_WHIRLWIND,    -6
 	db -1
 ; 3c5ec
 
@@ -1397,13 +1402,8 @@ HandleMysteryberry: ; 3c93c
 	ret
 
 .restore
-	; lousy hack
 	ld a, [hl]
-	cp SKETCH
-	ld b, 1
-	jr z, .sketch
 	ld b, 5
-.sketch
 	ld a, [de]
 	add b
 	ld [de], a
@@ -1792,10 +1792,12 @@ HandleWeather: ; 3cb9e
 	dw BattleText_RainContinuesToFall
 	dw BattleText_TheSunlightIsStrong
 	dw BattleText_TheSandstormRages
+	dw BattleText_TheHailContinuesToFall
 .WeatherEndedMessages:
 	dw BattleText_TheRainStopped
 	dw BattleText_TheSunlightFaded
 	dw BattleText_TheSandstormSubsided
+	dw BattleText_TheHailStopped
 ; 3cc39
 
 SubtractHPFromTarget: ; 3cc39
@@ -5751,7 +5753,7 @@ ParseEnemyAction: ; 3e7c1
 .loop2
 	ld hl, EnemyMonMoves
 	call BattleRandom
-	and 3 ; TODO factor in NUM_MOVES
+	and 3 ; NUM_MOVES - 1 mask
 	ld c, a
 	ld b, 0
 	add hl, bc

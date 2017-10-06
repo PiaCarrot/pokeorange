@@ -8,6 +8,7 @@
 	enum townmap
 	enum window
 	enum tv
+	enum radio
 	enum trashcan
 	enum strengthboulder
 	enum smashrock

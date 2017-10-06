@@ -159,6 +159,11 @@ BattleText_TheSandstormRages: ; 0x80951
 	prompt
 ; 0x80967
 
+BattleText_TheHailContinuesToFall:
+	text "The HAIL continues"
+	line "to fall."
+	prompt
+
 BattleText_TheRainStopped: ; 0x80967
 	text "The rain stopped."
 	prompt
@@ -173,6 +178,11 @@ BattleText_TheSunlightFaded: ; 0x8097a
 BattleText_TheSandstormSubsided: ; 0x8098f
 	text "The SANDSTORM"
 	line "subsided."
+	prompt
+; 0x809a8
+
+BattleText_TheHailStopped:
+	text "The HAIL stopped."
 	prompt
 ; 0x809a8
 
@@ -488,18 +498,6 @@ ClampedByText: ; 0x80e59
 	prompt
 ; 0x80e6e
 
-StoringEnergyText: ; 0x80e6e
-	text "<USER>"
-	line "is storing energy!"
-	prompt
-; 0x80e84
-
-UnleashedEnergyText: ; 0x80e84
-	text "<USER>"
-	line "unleashed energy!"
-	prompt
-; 0x80e99
-
 HungOnText: ; 0x80e99
 	text "<TARGET>"
 	line "hung on with"
@@ -686,26 +684,11 @@ GotAnEncoreText: ; 0x81109
 	prompt
 ; 0x8111b
 
-SharedPainText: ; 0x8111b
-	text "The battlers"
-	line "shared pain!"
-	prompt
-; 0x81136
-
 TookAimText: ; 0x81136
 	text "<USER>"
 	line "took aim!"
 	prompt
 ; 0x81143
-
-SketchedText: ; 0x81143
-	text "<USER>"
-	line "SKETCHED"
-	cont "@"
-	text_from_ram StringBuffer1
-	text "!"
-	prompt
-; 0x81156
 
 DestinyBondEffectText: ; 0x81156
 	text "<USER>'s"
