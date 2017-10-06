@@ -38,13 +38,13 @@
 	tilecoll WALL, WALL, WALL, WALL
 	tilecoll WALL, WALL, WALL, WALL
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR
-	tilecoll WATER, WATER, WATER, WATER
-	tilecoll WATER, WATER, WATER, WATER
-	tilecoll WATER, WATER, WATER, WATER
+	tilecoll DIVE, DIVE, DIVE, DIVE
+	tilecoll DIVE, DIVE, DIVE, DIVE
+	tilecoll DIVE, DIVE, DIVE, DIVE
 	tilecoll WALL, WALL, WALL, WALL
-	tilecoll WATER, WATER, WATER, WATER
-	tilecoll WATER, WATER, WATER, WATER
-	tilecoll WATER, WATER, WATER, WATER
+	tilecoll DIVE, DIVE, DIVE, DIVE
+	tilecoll DIVE, DIVE, DIVE, DIVE
+	tilecoll DIVE, DIVE, DIVE, DIVE
 	tilecoll WALL, WALL, WALL, WALL
 	tilecoll BUOY, BUOY, BUOY, WATER
 	tilecoll BUOY, BUOY, WATER, WATER
