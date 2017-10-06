@@ -68,33 +68,33 @@
 
 	map ROUTE_55
 	db 3 percent
-	db 15, WAILMER
-	db 15, WINGULL
-	db 15, TENTACOOL
+	db 13, WAILMER
+	db 13, WINGULL
+	db 13, TENTACOOL
 
 	map ROUTE_56_WEST
 	db 3 percent
-	db 16, WAILMER
-	db 16, WAILMER
-	db 16, TENTACOOL
+	db 14, WAILMER
+	db 14, WAILMER
+	db 14, TENTACOOL
 
 	map ROUTE_56_EAST
 	db 3 percent
-	db 16, WAILMER
-	db 16, WAILMER
-	db 16, TENTACOOL
+	db 14, WAILMER
+	db 14, WAILMER
+	db 14, TENTACOOL
 
 	map KINNOW_ISLAND
 	db 3 percent
-	db 16, WINGULL
-	db 16, TENTACOOL
-	db 16, TENTACOOL
+	db 15, WINGULL
+	db 15, TENTACOOL
+	db 15, TENTACOOL
 
 	map ROUTE_57
 	db 3 percent
-	db 17, WINGULL
-	db 17, TENTACOOL
-	db 17, REMORAID
+	db 16, WINGULL
+	db 16, TENTACOOL
+	db 16, REMORAID
 
 	map UNNAMED_ISLAND_1
 	db 3 percent
@@ -131,5 +131,11 @@
 	db 19, WAILMER
 	db 19, REMORAID
 	db 19, TENTACOOL
+
+	map ROUTE_61
+	db 3 percent
+	db 20, WINGULL
+	db 20, WAILMER
+	db 20, TENTACOOL
 
 	db -1 ; end

@@ -7,7 +7,7 @@ Route61_MapScriptHeader::
 Route61_MapEventHeader::
 
 .Warps: db 1
-	warp_def 5, 25, 7, GOLDEN_ISLAND_GATE_HOUSE
+	warp_def 5, 31, 7, GOLDEN_ISLAND_GATE_HOUSE
 
 .CoordEvents: db 0
 
