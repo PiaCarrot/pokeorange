@@ -15,7 +15,8 @@ COLL_ICE               EQU $23
 COLL_WHIRLPOOL         EQU $24
 COLL_BUOY              EQU $27
 COLL_WATER             EQU $29
-COLL_DIVE              EQU $2a
+COLL_DIVE_DOWN         EQU $2a
+COLL_DIVE_UP           EQU $2b
 COLL_WATERFALL         EQU $33
 COLL_CURRENT_RIGHT     EQU $38
 COLL_CURRENT_LEFT      EQU $39

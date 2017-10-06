@@ -627,7 +627,7 @@ PokemonActionSubmenu: ; 12a88
 	dbw MONMENU_SURF,       MonMenu_Surf ; Surf
 	dbw MONMENU_STRENGTH,   MonMenu_Strength ; Strength
 	dbw MONMENU_ROCKSMASH,  MonMenu_RockSmash ; Rock Smash
-	dbw MONMENU_DIVE,       CancelPokemonAction ; TODO: Dive
+	dbw MONMENU_DIVE,       MonMenu_Dive ; Dive
 	dbw MONMENU_WATERFALL,  MonMenu_Waterfall ; Waterfall
 	dbw MONMENU_ROCK_CLIMB, MonMenu_RockClimb ; Rock Climb
 
@@ -1228,6 +1228,10 @@ MonMenu_Surf: ; 12ebd
 	farcall SurfFunction
 	jr _MonMenu_AlternateCheck
 ; 12ed1
+
+MonMenu_Dive:
+	farcall DiveFunction
+	jr _MonMenu_AlternateCheck
 
 MonMenu_Softboiled: ; 12ee6
 	call .CheckMonHasEnoughHP

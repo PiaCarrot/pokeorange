@@ -3,7 +3,7 @@
 - Revise learnsets and TM sets after replacing moves
 - Add clouds to title screen
 - Wrecked Ship tileset
-- Dive overworld effect
+- Dive map transition
 
 
 ## Pokemon

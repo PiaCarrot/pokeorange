@@ -56,6 +56,7 @@ CheckFacingTileEvent:: ; 97c5f
 	farcall CheckFacingTileForStd
 	jr c, .done
 
+	ld a, [EngineBuffer1]
 	cp COLL_CUT_TREE
 	jr z, .cut
 	cp COLL_WHIRLPOOL
@@ -66,7 +67,15 @@ CheckFacingTileEvent:: ; 97c5f
 	jr z, .rock_climb
 	cp COLL_HEADBUTT_TREE
 	jr z, .headbutt
-	jr .surf
+	farcall TrySurfOW
+	jr c, .done
+	farcall TryDiveOW
+	jr nc, .noevent
+.done
+	call PlayClickSFX
+	ld a, $ff
+	scf
+	ret
 
 .cut
 	farcall TryCutOW
@@ -87,21 +96,8 @@ CheckFacingTileEvent:: ; 97c5f
 .headbutt
 	farcall TryHeadbuttOW
 	jr c, .done
-	jr .noevent
-
-.surf
-	farcall TrySurfOW
-	jr nc, .noevent
-	jr .done
-
 .noevent
 	xor a
-	ret
-
-.done
-	call PlayClickSFX
-	ld a, $ff
-	scf
 	ret
 ; 97cc0
 

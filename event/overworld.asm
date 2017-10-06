@@ -531,6 +531,124 @@ AskSurfText: ; ca36
 	text_jump _AskSurfText ; The water is calm.
 	db "@"              ; Want to SURF?
 
+DiveFunction:
+	call FieldMoveJumptableReset
+.loop
+	ld hl, .Jumptable
+	call FieldMoveJumptable
+	jr nc, .loop
+	and $7f
+	ld [wFieldMoveSucceeded], a
+	ret
+
+.Jumptable:
+	dw .TryDive
+	dw .DoDive
+	dw .FailDive
+
+.TryDive:
+	call CheckMapCanDive
+	jr nz, .cannotdive
+	ld a, $1
+	ret
+.cannotdive
+	ld a, $2
+	ret
+
+.DoDive:
+	call GetPartyNick
+	ld hl, DiveFromMenuScript
+	call QueueScript
+	ld a, $81
+	ret
+
+.FailDive:
+	ld hl, CantDiveText
+	call MenuTextBoxBackup
+	ld a, $80
+	ret
+
+UsedDiveText:
+	text_jump _UsedDiveText
+	db "@"
+
+CantDiveText:
+	text_jump _CantDiveText
+	db "@"
+
+CheckMapCanDive:
+	ld a, [PlayerStandingTile]
+	cp COLL_DIVE_UP
+	ret z
+	cp COLL_DIVE_DOWN
+	ret
+
+TryDiveOW::
+	call CheckMapCanDive
+	jr nz, .failed
+
+	ld d, DIVE
+	call CheckPartyMove
+	jr c, .cant
+
+	call GetPartyNick
+	ld a, BANK(AskDiveScript)
+	ld hl, AskDiveScript
+	call CallScript
+	scf
+	ret
+
+.failed
+	xor a
+	ret
+
+.cant
+	ld a, BANK(Script_CantDive)
+	ld hl, Script_CantDive
+	call CallScript
+	scf
+	ret
+
+Script_CantDive:
+	jumptext .Text_CantDive
+
+.Text_CantDive:
+	text_jump _CanDiveText
+	db "@"
+
+AskDiveScript:
+	opentext
+	copybytetovar PlayerStandingTile
+	if_equal COLL_DIVE_UP, .up
+	writetext AskDiveDownText
+	jump .continue
+.up
+	writetext AskDiveUpText
+.continue
+	yesorno
+	iftrue UsedDiveScript
+	closetext
+	end
+
+AskDiveDownText:
+	text_jump _AskDiveDownText
+	db "@"
+
+AskDiveUpText:
+	text_jump _AskDiveUpText
+	db "@"
+
+DiveFromMenuScript:
+	reloadmappart
+	special UpdateTimePals
+
+UsedDiveScript:
+	writetext UsedDiveText
+	waitbutton
+	closetext
+	; TODO: Dive to a spot on a different map
+	end
+
 FlyFunction: ; ca3b
 	call FieldMoveJumptableReset
 .loop
@@ -726,14 +844,14 @@ Script_AskWaterfall: ; 0xcb86
 RockClimbFunction:
 	call FieldMoveJumptableReset
 .loop
-	ld hl, .jumptable
+	ld hl, .Jumptable
 	call FieldMoveJumptable
 	jr nc, .loop
 	and $7f
 	ld [wFieldMoveSucceeded], a
 	ret
 
-.jumptable:
+.Jumptable:
 	dw .TryRockClimb
 	dw .DoRockClimb
 	dw .FailRockClimb

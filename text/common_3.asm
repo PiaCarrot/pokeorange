@@ -19,6 +19,34 @@ _AskSurfText::
 	line "Want to SURF?"
 	done
 
+_UsedDiveText::
+	text_from_ram StringBuffer2
+	text " used"
+	line "DIVE!"
+	done
+
+_CantDiveText::
+	text "You can't DIVE"
+	line "here."
+	prompt
+
+_AskDiveDownText::
+	text "The sea is deep."
+	line "Want to DIVE?"
+	done
+
+_AskDiveUpText::
+	text "Light is above."
+	line "Want to DIVE?"
+	done
+
+_CanDiveText::
+	text "The sea is deep."
+
+	para "A #MON can"
+	line "DIVE here."
+	done
+
 UnknownText_0x1c068e::
 	text_from_ram StringBuffer2
 	text " used"
