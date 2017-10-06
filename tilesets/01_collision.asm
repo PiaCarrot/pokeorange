@@ -41,11 +41,11 @@
 	tilecoll DIVE, DIVE, DIVE, DIVE
 	tilecoll DIVE, DIVE, DIVE, DIVE
 	tilecoll DIVE, DIVE, DIVE, DIVE
-	tilecoll WALL, WALL, WALL, WALL
+	tilecoll FLOOR, FLOOR, WALL, ROCK_CLIMB
 	tilecoll DIVE, DIVE, DIVE, DIVE
 	tilecoll DIVE, DIVE, DIVE, DIVE
 	tilecoll DIVE, DIVE, DIVE, DIVE
-	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, FLOOR, WALL, WALL
 	tilecoll BUOY, BUOY, BUOY, WATER
 	tilecoll BUOY, BUOY, WATER, WATER
 	tilecoll BUOY, BUOY, WATER, BUOY

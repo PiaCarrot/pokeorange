@@ -1,9 +1,3 @@
-LANDTILE EQU  0
-WALLTILE EQU  1
-WATRTILE EQU 15
-
-TALK     EQU  1 << 4
-
 const_value SET 1
 	const TILESET_JOHTO_1              ; 01
 	const TILESET_JOHTO_2              ; 02
@@ -29,8 +23,8 @@ const_value SET 1
 	const TILESET_BATTLE_TOWER         ; 16
 	const TILESET_SPROUT_TOWER         ; 17
 	const TILESET_CAVE                 ; 18
-	const TILESET_GOLDEN_ISLAND                ; 19
-	const TILESET_MUSEUM       ; 1a
+	const TILESET_GOLDEN_ISLAND        ; 19
+	const TILESET_MUSEUM               ; 1a
 	const TILESET_RADIO_TOWER          ; 1b
 	const TILESET_UNDERGROUND          ; 1c
 	const TILESET_ICE_PATH             ; 1d
