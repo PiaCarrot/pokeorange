@@ -27,6 +27,7 @@ COLL_WARP_CARPET_RIGHT EQU $7e
 COLL_COUNTER           EQU $90
 COLL_BOOKSHELF         EQU $91
 COLL_PC                EQU $93
+COLL_RADIO             EQU $94
 COLL_TOWN_MAP          EQU $95
 COLL_MART_SHELF        EQU $96
 COLL_TV                EQU $97

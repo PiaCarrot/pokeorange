@@ -1,5 +1,5 @@
 	tilecoll WALL, WALL, WALL, WALL
-	tilecoll WALL, WALL, WALL, FLOOR
+	tilecoll WALL, WALL, RADIO, FLOOR
 	tilecoll WALL, WALL, MART_SHELF, MART_SHELF
 	tilecoll WALL, WALL, FLOOR, FLOOR
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR

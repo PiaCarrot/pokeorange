@@ -153,6 +153,15 @@ TVText:
 	text "It's a TV."
 	done
 
+WrongSideText:
+	text "Oops, wrong side."
+	done
+
+RadioText:
+	text "The radio is just"
+	line "playing static<...>"
+	done
+
 TrashCanText:
 	text "There's nothing in"
 	line "here<...>"
