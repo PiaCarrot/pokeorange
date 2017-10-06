@@ -28,7 +28,7 @@ const_value SET 1
 	const TILESET_RADIO_TOWER          ; 1b
 	const TILESET_UNDERGROUND          ; 1c
 	const TILESET_ICE_PATH             ; 1d
-	const TILESET_WHIRL_ISLANDS        ; 1e
+	const TILESET_UNDERWATER           ; 1e
 	const TILESET_ILEX_FOREST          ; 1f
 
 	const_def

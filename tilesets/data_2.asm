@@ -39,11 +39,9 @@ INCBIN "gfx/tilesets/24.2bpp.lz"
 ; 0x1ee1c
 
 Tileset24Meta: ; 0x1ee1c
-Tileset30Meta: ; 0x1ee1c
 INCBIN "tilesets/24_metatiles.bin"
 ; 0x1f21c
 
 Tileset24Coll: ; 0x1f21c
-Tileset30Coll: ; 0x1f21c
 INCLUDE "tilesets/24_collision.asm"
 ; 0x1f31c

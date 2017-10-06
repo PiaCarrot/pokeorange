@@ -13,6 +13,10 @@ LoadSpecialMapPalette: ; 494ac
 	cp TILESET_ICE_PATH
 	jr z, .ice_path
 
+	ld hl, UnderwaterPalette
+	cp TILESET_UNDERWATER
+	jr z, LoadEightBGPalettes
+
 	ld hl, HousePalette
 	cp TILESET_HOUSE_1
 	jr z, LoadEightBGPalettes
@@ -78,6 +82,9 @@ INCLUDE "tilesets/radio_tower.pal"
 MansionPalette: ; 496fe
 INCLUDE "tilesets/mansion.pal"
 ; 49706
+
+UnderwaterPalette:
+INCLUDE "tilesets/underwater.pal"
 
 GoldenIslandPalette:
 INCLUDE "tilesets/golden_island.pal"

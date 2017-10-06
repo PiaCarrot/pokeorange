@@ -100,7 +100,6 @@ Tileset15Anim: ; 0xfc15f
 ; 0xfc17f
 
 Tileset24Anim: ; 0xfc1e7
-Tileset30Anim: ; 0xfc1e7
 	dw VTiles2 tile $14, WriteTileToBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw wTileAnimBuffer, ScrollTileRightLeft
@@ -180,10 +179,11 @@ Tileset19Anim: ; 0xfc2e7
 Tileset20Anim: ; 0xfc2e7
 Tileset21Anim: ; 0xfc2e7
 Tileset22Anim: ; 0xfc2e7
+Tileset25Anim: ; 0xfc047
 Tileset26Anim: ; 0xfc2e7
 Tileset27Anim: ; 0xfc2e7
 Tileset28Anim: ; 0xfc2e7
-Tileset25Anim:
+Tileset30Anim: ; 0xfc1e7
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation

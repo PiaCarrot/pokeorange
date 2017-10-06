@@ -3,7 +3,7 @@
 - Revise learnsets and TM sets after replacing moves
 - Add clouds to title screen
 - Wrecked Ship tileset
-- Dive map transition
+- Player state and sprite for Diving
 
 
 ## Pokemon

@@ -36,8 +36,9 @@ _AskDiveDownText::
 	done
 
 _AskDiveUpText::
-	text "Light is above."
-	line "Want to DIVE?"
+	text "Light is filter-"
+	line "ing from above."
+	cont "Want to DIVE?"
 	done
 
 _CanDiveText::

@@ -548,7 +548,7 @@ DiveFunction:
 
 .TryDive:
 	call CheckMapCanDive
-	jr nz, .cannotdive
+	jr c, .cannotdive
 	ld a, $1
 	ret
 .cannotdive
@@ -577,15 +577,28 @@ CantDiveText:
 	db "@"
 
 CheckMapCanDive:
+	ld a, [DiveMapGroup]
+	and a
+	jr z, .failed
+	ld a, [DiveMapNumber]
+	and a
+	jr z, .failed
 	ld a, [PlayerStandingTile]
 	cp COLL_DIVE_UP
-	ret z
+	jr z, .ok
 	cp COLL_DIVE_DOWN
+	jr nz, .failed
+.ok
+	xor a
+	ret
+
+.failed
+	scf
 	ret
 
 TryDiveOW::
 	call CheckMapCanDive
-	jr nz, .failed
+	jr c, .failed
 
 	ld d, DIVE
 	call CheckPartyMove
@@ -646,7 +659,9 @@ UsedDiveScript:
 	writetext UsedDiveText
 	waitbutton
 	closetext
-	; TODO: Dive to a spot on a different map
+	special FadeOutPalettes
+	waitsfx
+	divewarp
 	end
 
 FlyFunction: ; ca3b
@@ -666,6 +681,10 @@ FlyFunction: ; ca3b
 
 .TryFly: ; ca52
 ; Fly
+	ld a, [wTileset]
+	cp TILESET_UNDERWATER
+	jr z, .indoors
+
 	call GetMapPermission
 	call CheckOutdoorMap
 	jr z, .outdoors

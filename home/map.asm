@@ -87,6 +87,12 @@ GetMapTrigger:: ; 2147
 	ret
 ; 2173
 
+ResetDiveMap::
+	xor a
+	ld [DiveMapGroup], a
+	ld [DiveMapNumber], a
+	ret
+
 OverworldTextModeSwitch:: ; 2173
 	call LoadMapPart
 	jp FarCallSwapTextboxPalettes
