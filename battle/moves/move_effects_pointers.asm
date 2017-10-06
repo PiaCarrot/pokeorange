@@ -161,3 +161,4 @@
 	dw Hail
 	dw ShellTrap
 	dw Venoshock
+	dw BugBite

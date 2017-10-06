@@ -367,7 +367,6 @@ AI_Smart: ; 386be
 	dbw EFFECT_ENDURE,           AI_Smart_Endure
 	dbw EFFECT_ROLLOUT,          AI_Smart_Rollout
 	dbw EFFECT_SWAGGER,          AI_Smart_Swagger
-	dbw EFFECT_FURY_CUTTER,      AI_Smart_FuryCutter
 	dbw EFFECT_ATTRACT,          AI_Smart_Attract
 	dbw EFFECT_SAFEGUARD,        AI_Smart_Safeguard
 	dbw EFFECT_MAGNITUDE,        AI_Smart_Magnitude
@@ -681,11 +680,7 @@ AI_Smart_EvasionUp: ; 388d4
 	cp b
 	jr c, .asm_38936
 
-; Greatly encourage this move if the player is in the middle of Fury Cutter or Rollout.
-	ld a, [PlayerFuryCutterCount]
-	and a
-	jr nz, .asm_388ef
-
+; Greatly encourage this move if the player is in the middle of Rollout.
 	ld a, [PlayerSubStatus1]
 	bit SUBSTATUS_ROLLOUT, a
 	jr nz, .asm_388ef
@@ -856,11 +851,7 @@ AI_Smart_AccuracyDown: ; 38985
 	cp b
 	jr c, .asm_389e4
 
-; Greatly encourage this move if the player is in the middle of Fury Cutter or Rollout.
-	ld a, [PlayerFuryCutterCount]
-	and a
-	jr nz, .asm_3899d
-
+; Greatly encourage this move if the player is in the middle of Rollout.
 	ld a, [PlayerSubStatus1]
 	bit SUBSTATUS_ROLLOUT, a
 	jr nz, .asm_3899d
@@ -1969,10 +1960,6 @@ AI_Smart_Protect: ; 38ed2
 	bit SUBSTATUS_LOCK_ON, a
 	jr nz, .asm_38f14
 
-	ld a, [PlayerFuryCutterCount]
-	cp 3
-	jr nc, .asm_38f0d
-
 	ld a, [PlayerSubStatus3]
 	bit SUBSTATUS_CHARGED, a
 	jr nz, .asm_38f0d
@@ -2201,33 +2188,8 @@ AI_Smart_Endure: ; 38fac
 ; 38fdb
 
 
-AI_Smart_FuryCutter: ; 38fdb
-; Encourage this move based on Fury Cutter's count.
-
-	ld a, [EnemyFuryCutterCount]
-	and a
-	jr z, .end
-	dec [hl]
-
-	cp 2
-	jr c, .end
-	dec [hl]
-	dec [hl]
-
-	cp 3
-	jr c, .end
-	dec [hl]
-	dec [hl]
-	dec [hl]
-
-.end
-
-	; fallthrough
-; 38fef
-
-
 AI_Smart_Rollout: ; 38fef
-; Rollout, Fury Cutter
+; Rollout
 
 ; 80% chance to discourage this move if the enemy is in love, confused, or paralyzed.
 	ld a, [EnemySubStatus1]

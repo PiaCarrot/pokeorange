@@ -208,7 +208,7 @@
 	dw SwaggerDescription
 	dw WaterPulseDescription
 	dw SparkDescription
-	dw FuryCutterDescription
+	dw BugBiteDescription
 	dw SteelWingDescription
 	dw MeanLookDescription
 	dw AttractDescription
@@ -935,9 +935,9 @@ SwaggerDescription:
 	db   "Causes confusion"
 	next "and raises ATTACK.@"
 
-FuryCutterDescription:
-	db   "Successive hits"
-	next "raise power.@"
+BugBiteDescription:
+	db   "Bites the foe and"
+	next "eats a held BERRY.@"
 
 SteelWingDescription:
 	db   "Stiff wings strike"

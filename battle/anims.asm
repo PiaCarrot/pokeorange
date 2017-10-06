@@ -209,7 +209,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_Swagger
 	dw BattleAnim_WaterPulse
 	dw BattleAnim_Spark
-	dw BattleAnim_FuryCutter
+	dw BattleAnim_BugBite
 	dw BattleAnim_SteelWing
 	dw BattleAnim_MeanLook
 	dw BattleAnim_Attract
@@ -1646,6 +1646,7 @@ BattleAnim_Clamp: ; c9e0d
 	anim_ret
 ; c9e2e
 
+BattleAnim_BugBite: ; TODO: new Bug Bite animation
 BattleAnim_Bite: ; c9e2e
 	anim_2gfx ANIM_GFX_CUT, ANIM_GFX_HIT
 	anim_obj ANIM_OBJ_36, -15, 0,   7, 0, $98
@@ -3941,22 +3942,6 @@ BattleAnim_Spark: ; cb34d
 	anim_ret
 ; cb386
 
-BattleAnim_FuryCutter: ; cb386
-	anim_1gfx ANIM_GFX_CUT
-.loop
-	anim_sound 0, 1, SFX_CUT
-	anim_if_param_and %00000001, .obj1
-	anim_obj ANIM_OBJ_3A, -13, 0,   5, 0, $0
-	anim_jump .okay
-
-.obj1
-	anim_obj ANIM_OBJ_3B,  14, 0,   5, 0, $0
-.okay
-	anim_wait 16
-	anim_jumpuntil .loop
-	anim_ret
-; cb3a1
-
 BattleAnim_SteelWing: ; cb3a1
 	anim_1gfx ANIM_GFX_REFLECT
 	anim_obp0 $0
@@ -5272,3 +5257,19 @@ BattleAnim_SignalBeam: ; from Prism
 ;	anim_wait 96
 ;	anim_ret
 ;; cad30
+
+;BattleAnim_FuryCutter: ; cb386
+;	anim_1gfx ANIM_GFX_CUT
+;.loop
+;	anim_sound 0, 1, SFX_CUT
+;	anim_if_param_and %00000001, .obj1
+;	anim_obj ANIM_OBJ_3A, -13, 0,   5, 0, $0
+;	anim_jump .okay
+;
+;.obj1
+;	anim_obj ANIM_OBJ_3B,  14, 0,   5, 0, $0
+;.okay
+;	anim_wait 16
+;	anim_jumpuntil .loop
+;	anim_ret
+;; cb3a1

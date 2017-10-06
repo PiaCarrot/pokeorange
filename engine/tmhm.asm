@@ -109,6 +109,7 @@ TMHMMoves: ; 1167a
 	db COMET_PUNCH
 	db DOUBLE_TEAM
 	db MACH_PUNCH
+	db BUG_BITE
 
 	db 0 ; end
 ; 116b7

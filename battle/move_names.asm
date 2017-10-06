@@ -207,7 +207,7 @@
 	db "SWAGGER@"
 	db "WATER PULSE@"
 	db "SPARK@"
-	db "FURY CUTTER@"
+	db "BUG BITE@"
 	db "STEEL WING@"
 	db "MEAN LOOK@"
 	db "ATTRACT@"

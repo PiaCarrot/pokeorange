@@ -151,7 +151,7 @@ ENDM
 	move DREAM_EATER,  EFFECT_DREAM_EATER,       100, PSYCHIC,  100, 15,   0
 	move POISON_GAS,   EFFECT_POISON,              0, POISON,    55, 40,   0
 	move BARRAGE,      EFFECT_MULTI_HIT,          15, NORMAL,    85, 20,   0
-	move LEECH_LIFE,   EFFECT_LEECH_HIT,          20, BUG,      100, 15,   0
+	move LEECH_LIFE,   EFFECT_LEECH_HIT,          80, BUG,      100, 15,   0
 	move LOVELY_KISS,  EFFECT_SLEEP,               0, NORMAL,    75, 10,   0
 	move SKY_ATTACK,   EFFECT_SKY_ATTACK,        140, FLYING,    90,  5,   0
 	move TRANSFORM,    EFFECT_TRANSFORM,           0, NORMAL,   100, 10,   0
@@ -220,7 +220,7 @@ ENDM
 	move SWAGGER,      EFFECT_SWAGGER,             0, NORMAL,    90, 15, 100
 	move WATER_PULSE,  EFFECT_CONFUSE_HIT,        60, WATER,    100, 20,  20
 	move SPARK,        EFFECT_PARALYZE_HIT,       65, ELECTRIC, 100, 20,  30
-	move FURY_CUTTER,  EFFECT_FURY_CUTTER,        10, BUG,       95, 20,   0
+	move BUG_BITE,     EFFECT_BUG_BITE,           60, BUG,      100, 20,   0
 	move STEEL_WING,   EFFECT_STEEL_WING,         70, STEEL,     90, 25,  10
 	move MEAN_LOOK,    EFFECT_MEAN_LOOK,           0, NORMAL,   100,  5,   0
 	move ATTRACT,      EFFECT_ATTRACT,             0, NORMAL,   100, 15,   0
