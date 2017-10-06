@@ -5753,7 +5753,7 @@ ParseEnemyAction: ; 3e7c1
 .loop2
 	ld hl, EnemyMonMoves
 	call BattleRandom
-	and 3 ; TODO factor in NUM_MOVES
+	and 3 ; NUM_MOVES - 1 mask
 	ld c, a
 	ld b, 0
 	add hl, bc
