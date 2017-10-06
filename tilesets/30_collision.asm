@@ -18,10 +18,10 @@
 	tilecoll FLOOR, FLOOR, WALL, FLOOR
 	tilecoll FLOOR, FLOOR, WALL, FLOOR
 	tilecoll FLOOR, BOTTOM_WALL, WALL, CAVE
-	tilecoll WALL, WALL, WALL, WALL
-	tilecoll WALL, WALL, WALL, WALL
-	tilecoll WALL, WALL, WALL, WALL
-	tilecoll WALL, WALL, WALL, WALL
+	tilecoll FLOOR, DIVE_UP, DIVE_UP, DIVE_UP
+	tilecoll DIVE_UP, FLOOR, DIVE_UP, DIVE_UP
+	tilecoll DIVE_UP, DIVE_UP, FLOOR, DIVE_UP
+	tilecoll DIVE_UP, DIVE_UP, DIVE_UP, FLOOR
 	tilecoll WALL, WALL, WALL, FLOOR
 	tilecoll WALL, WALL, FLOOR, FLOOR
 	tilecoll WALL, WALL, FLOOR, WALL
