@@ -169,7 +169,7 @@
 	const ROCK_CLIMB   ; $a6
 	const TRIPLE_KICK  ; $a7
 	const THIEF        ; $a8
-	const SPIDER_WEB   ; $a9
+	const SHELL_TRAP   ; $a9
 	const LUSTER_PURGE ; $aa
 	const NIGHTMARE    ; $ab
 	const FLAME_WHEEL  ; $ac
@@ -181,7 +181,7 @@
 	const COTTON_SPORE ; $b2
 	const REVERSAL     ; $b3
 	const NASTY_PLOT   ; $b4
-	const POWDER_SNOW  ; $b5
+	const HAIL         ; $b5
 	const PROTECT      ; $b6
 	const MACH_PUNCH   ; $b7
 	const SCARY_FACE   ; $b8
@@ -220,7 +220,7 @@
 	const ASTONISH     ; $d9
 	const FRUSTRATION  ; $da
 	const SAFEGUARD    ; $db
-	const PAIN_SPLIT   ; $dc
+	const SPECTRATHIEF ; $dc
 	const SACRED_FIRE  ; $dd
 	const MAGNITUDE    ; $de
 	const DYNAMICPUNCH ; $df
@@ -283,6 +283,7 @@
 	const ANIM_WOBBLE            ; $114
 	const ANIM_SHAKE             ; $115
 	const ANIM_HIT_CONFUSION     ; $116
+	const ANIM_IN_HAIL           ; $117
 
 ; wNumHits uses offsets from ANIM_MISS
 	const_def

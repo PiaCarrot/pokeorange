@@ -1,23 +1,8 @@
 # To Do
 
-
-## Beta 1
-
 - Revise learnsets and TM sets after replacing moves
-- Add Clouds to TitleScreen
-- ~~Add Ice Rock functionality~~
-- ~~Add Grapefruit Islands~~
-- ~~Add Pokeflute Misty Event NPC in the Unnamed Island Center~~
-- ~~Script Grapefruit Islands/Snorlax Event~~
-- ~~Route 59, but not scripted and blocked off for release~~
-
-
-## Moro Island
-
-- ~~Moro Island~~
-- ~~Museum Tileset~~
-- ~~Route 60~~
-- Wrecked Ship Tileset
+- Add clouds to title screen
+- Wrecked Ship tileset
 
 
 ## Pokemon
@@ -46,62 +31,25 @@
 
 ## Moves
 
-- Astonish: *EFFECT_ASTONISH* (similar to EFFECT_FAKE_OUT)
-- ~~Beat Up -> Psystrike~~
-- ~~Bide -> Rock Blast~~
-- ~~Bone Club -> Shadow Bone~~
-- ~~Detect -> PowerUpPunch~~
-- ~~Kinesis -> Dive~~
-- ~~Milk Drink -> Water Pulse~~
-- ~~Mind Reader -> Luster Purge~~
-- Pain Split -> SpectraThief: *EFFECT_SPECTRAL_THIEF* (similar to EFFECT_PSYCH_UP)
-- Powder Snow -> Hail: *EFFECT_HAIL* (similar to EFFECT_SANDSTORM; requires new weather)
-- ~~Present -> Astonish~~
-- ~~Psych Up -> Aerial Ace~~
-- ~~Razor Wind -> Dragon Pulse~~
-- ~~Sketch -> Rock Climb~~
-- ~~Skull Bash -> Signal Beam~~
-- ~~Smart Strike -> Shadow Sneak~~
-- Spider Web -> Shell Trap: *EFFECT_SHELL_TRAP* (similar to EFFECT_COUNTER)
-- ~~Spite -> Nasty Plot~~
-- ~~Vice Grip -> Bullet Seed~~
-- {Psywave, Nightmare} -> {Mist Ball, ???} (?)
-
-
-## TMs/HMs/tutors
-
-- ~~TM01: DynamicPunch -> Fissure~~
-- TM03: Curse -> *Hail*
-- ~~TM04: Rollout -> Bullet Seed~~
-- ~~TM05: Roar -> Fairy Wind~~
-- ~~TM08: Rock Smash -> Flash~~
-- ~~TM09: Psych Up -> Water Gun~~
-- ~~TM10: Hidden Power -> DazzlinGleam~~
-- ~~TM12: Sweet Scent -> Water Pulse~~
-- ~~TM13: Snore -> Whirlpool~~
-- ~~TM31: Mud-Slap -> Flamethrower~~
-- ~~TM40: Defense Curl -> Ice Beam~~
-- ~~TM42: Dream Eater -> Dragon Pulse~~
-- ~~TM43: Detect -> PowerUpPunch~~
-- ~~TM49: Fury Cutter -> Aerial Ace~~
-- ~~TM50: Nightmare -> Signal Beam~~
-- ~~HM05: Flash -> Rock Smash~~
-- ~~HM06: Whirlpool -> Dive~~
-- ~~HM08: Rock Climb~~
-- ~~MT01: Flamethrower -> Comet Punch~~
-- ~~MT02: Thunderbolt -> Double Team~~
-- ~~MT03: Ice Beam -> Mach Punch~~
+- PSYWAVE -> MIST_BALL (uses EFFECT_SP_ATK_DOWN_HIT) (*maybe*)
+- NIGHTMARE -> *???* (*maybe*)
+- EFFECT_ASTONISH for ASTONISH (similar to EFFECT_FAKE_OUT)
+- EFFECT_SPECTRAL_THIEF for SPECTRATHIEF (similar to EFFECT_PSYCH_UP)
+- EFFECT_HAIL for HAIL (similar to EFFECT_SANDSTORM; uses WEATHER_HAIL)
+- EFFECT_SHELL_TRAP for SHELL_TRAP (similar to EFFECT_COUNTER)
 
 
 ## Animations
 
-- Rock Blast
-- Water Pulse
-- Nasty Plot
-- Dive
-- Bullet Seed
-- Rock Climb
-- Luster Purge
-- Shadow Sneak
-- PowerUpPunch
 - Aerial Ace
+- Bullet Seed
+- Dive
+- Hail
+- Luster Purge
+- Nasty Plot
+- PowerUpPunch
+- Rock Blast
+- Rock Climb
+- Shadow Sneak
+- Shell Trap
+- Water Pulse

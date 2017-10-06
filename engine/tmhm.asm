@@ -48,7 +48,7 @@ GetTMHMMove: ; 1166a
 TMHMMoves: ; 1167a
 	db FISSURE
 	db HEADBUTT
-	db CURSE
+	db HAIL
 	db BULLET_SEED
 	db FAIRY_WIND
 	db TOXIC

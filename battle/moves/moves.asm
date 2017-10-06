@@ -179,7 +179,7 @@ ENDM
 	move ROCK_CLIMB,   EFFECT_CONFUSE_HIT,        90, NORMAL,    85, 20,  20
 	move TRIPLE_KICK,  EFFECT_TRIPLE_KICK,        10, FIGHTING,  90, 10,   0
 	move THIEF,        EFFECT_THIEF,              40, DARK,     100, 10, 100
-	move SPIDER_WEB,   EFFECT_MEAN_LOOK,           0, BUG,      100, 10,   0
+	move SHELL_TRAP,   EFFECT_SHELL_TRAP,        150, FIRE,     100,  5,   0
 	move LUSTER_PURGE, EFFECT_SP_DEF_DOWN_HIT,    70, PSYCHIC,  100,  5,  50
 	move NIGHTMARE,    EFFECT_NIGHTMARE,           0, GHOST,    100, 15,   0
 	move FLAME_WHEEL,  EFFECT_FLAME_WHEEL,        60, FIRE,     100, 25,  10
@@ -191,7 +191,7 @@ ENDM
 	move COTTON_SPORE, EFFECT_SPEED_DOWN_2,        0, GRASS,     85, 40,   0
 	move REVERSAL,     EFFECT_REVERSAL,            1, FIGHTING, 100, 15,   0
 	move NASTY_PLOT,   EFFECT_SP_ATK_UP_2,         0, DARK,     100, 20,   0
-	move POWDER_SNOW,  EFFECT_FREEZE_HIT,         40, ICE,      100, 25,  10
+	move HAIL,         EFFECT_HAIL,                0, ICE,      100, 10,   0
 	move PROTECT,      EFFECT_PROTECT,             0, NORMAL,   100, 10,   0
 	move MACH_PUNCH,   EFFECT_PRIORITY_HIT,       40, FIGHTING, 100, 30,   0
 	move SCARY_FACE,   EFFECT_SPEED_DOWN_2,        0, NORMAL,    90, 10,   0
@@ -227,10 +227,10 @@ ENDM
 	move SLEEP_TALK,   EFFECT_SLEEP_TALK,          0, NORMAL,   100, 10,   0
 	move HEAL_BELL,    EFFECT_HEAL_BELL,           0, NORMAL,   100,  5,   0
 	move RETURN,       EFFECT_RETURN,              1, NORMAL,   100, 20,   0
-	move ASTONISH,     EFFECT_FLINCH_HIT,         30, GHOST,    100, 15,  30
+	move ASTONISH,     EFFECT_ASTONISH,           30, GHOST,    100, 15,  30
 	move FRUSTRATION,  EFFECT_FRUSTRATION,         1, NORMAL,   100, 20,   0
 	move SAFEGUARD,    EFFECT_SAFEGUARD,           0, NORMAL,   100, 25,   0
-	move PAIN_SPLIT,   EFFECT_PAIN_SPLIT,          0, NORMAL,   100, 20,   0
+	move SPECTRATHIEF, EFFECT_SPECTRAL_THIEF,     90, GHOST,    100, 10,   0
 	move SACRED_FIRE,  EFFECT_SACRED_FIRE,       100, FIRE,      95,  5,  50
 	move MAGNITUDE,    EFFECT_MAGNITUDE,           1, GROUND,   100, 30,   0
 	move DYNAMICPUNCH, EFFECT_CONFUSE_HIT,       100, FIGHTING,  50,  5, 100

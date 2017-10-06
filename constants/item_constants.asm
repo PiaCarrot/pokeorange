@@ -156,7 +156,7 @@
 
 	add_tm FISSURE      ; $9a
 	add_tm HEADBUTT     ; $9b
-	add_tm CURSE        ; $9c
+	add_tm HAIL         ; $9c
 	add_tm BULLET_SEED  ; $9d
 	add_tm FAIRY_WIND   ; $9e
 	add_tm TOXIC        ; $9f

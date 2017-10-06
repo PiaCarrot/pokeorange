@@ -168,7 +168,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_RockClimb
 	dw BattleAnim_TripleKick
 	dw BattleAnim_Thief
-	dw BattleAnim_SpiderWeb
+	dw BattleAnim_ShellTrap
 	dw BattleAnim_LusterPurge
 	dw BattleAnim_Nightmare
 	dw BattleAnim_FlameWheel
@@ -180,7 +180,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_CottonSpore
 	dw BattleAnim_Reversal
 	dw BattleAnim_NastyPlot
-	dw BattleAnim_PowderSnow
+	dw BattleAnim_Hail
 	dw BattleAnim_Protect
 	dw BattleAnim_MachPunch
 	dw BattleAnim_ScaryFace
@@ -219,7 +219,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_Astonish
 	dw BattleAnim_Frustration
 	dw BattleAnim_Safeguard
-	dw BattleAnim_PainSplit
+	dw BattleAnim_SpectraThief
 	dw BattleAnim_SacredFire
 	dw BattleAnim_Magnitude
 	dw BattleAnim_Dynamicpunch
@@ -279,6 +279,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_Wobble
 	dw BattleAnim_Shake
 	dw BattleAnim_HitConfusion
+	dw BattleAnim_InHail
 ; c929b
 
 BattleAnim_0: ; c929b
@@ -607,6 +608,7 @@ BattleAnim_InLove: ; c951e
 	anim_ret
 ; c9533
 
+BattleAnim_InHail: ; TODO: new InHail animation
 BattleAnim_InSandstorm: ; c9533
 	anim_1gfx ANIM_GFX_POWDER
 	anim_obj ANIM_OBJ_A2,  11, 0,   0, 0, $0
@@ -3176,6 +3178,7 @@ BattleAnim_Metronome: ; cab52
 	anim_ret
 ; cab69
 
+BattleAnim_ShellTrap: ; TODO: new Shell Trap animation
 BattleAnim_Counter: ; cab69
 	anim_1gfx ANIM_GFX_HIT
 .loop
@@ -3322,20 +3325,6 @@ BattleAnim_Thief: ; cacb5
 	anim_wait 64
 	anim_ret
 ; cacd9
-
-BattleAnim_SpiderWeb: ; cacd9
-	anim_1gfx ANIM_GFX_WEB
-	anim_bgeffect ANIM_BG_07, $0, $2, $0
-	anim_obj ANIM_OBJ_92, -16, 4,   6, 0, $0
-	anim_sound 6, 2, SFX_SPIDER_WEB
-	anim_obj ANIM_OBJ_5A,   8, 0,  10, 0, $0
-	anim_wait 4
-	anim_obj ANIM_OBJ_5A,   8, 0,  11, 0, $0
-	anim_wait 4
-	anim_obj ANIM_OBJ_5A,   8, 0,  10, 4, $0
-	anim_wait 64
-	anim_ret
-; cacfb
 
 BattleAnim_Nightmare: ; cad1b
 	anim_1gfx ANIM_GFX_ANGELS
@@ -3521,26 +3510,6 @@ BattleAnim_Reversal: ; cae97
 	anim_wait 24
 	anim_ret
 ; caed6
-
-BattleAnim_PowderSnow: ; caee2
-	anim_1gfx ANIM_GFX_ICE
-.loop ; caee4
-	anim_sound 6, 2, SFX_SHINE
-	anim_obj ANIM_OBJ_8F,   8, 0,  11, 0, $23
-	anim_wait 2
-	anim_sound 6, 2, SFX_SHINE
-	anim_obj ANIM_OBJ_8F,   8, 0,  10, 0, $24
-	anim_wait 2
-	anim_sound 6, 2, SFX_SHINE
-	anim_obj ANIM_OBJ_8F,   8, 0,  12, 0, $23
-	anim_wait 2
-	anim_loop 2, .loop
-	anim_bgeffect ANIM_BG_WHITE_HUES, $0, $8, $0
-	anim_wait 40
-	anim_call BattleAnim_PowderSnow_branch_cbbdf
-	anim_wait 32
-	anim_ret
-; caf0e
 
 BattleAnim_Protect: ; caf0e
 	anim_1gfx ANIM_GFX_OBJECTS
@@ -3852,6 +3821,7 @@ BattleAnim_Outrage: ; cb1dc
 	anim_ret
 ; cb210
 
+BattleAnim_Hail: ; TODO: new Hail animation
 BattleAnim_Sandstorm: ; cb210
 	anim_1gfx ANIM_GFX_POWDER
 	anim_obj ANIM_OBJ_A2,  11, 0,   0, 0, $0
@@ -4159,7 +4129,8 @@ BattleAnim_Safeguard: ; cb4f9
 	anim_ret
 ; cb51e
 
-BattleAnim_PainSplit: ; cb51e
+;BattleAnim_PainSplit: ; cb51e
+BattleAnim_SpectraThief:
 	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_OBJECTS
 	anim_call BattleAnim_FollowPlayerHead_0
 	anim_bgeffect ANIM_BG_25, $0, $1, $0
@@ -5265,3 +5236,37 @@ BattleAnim_SignalBeam: ; from Prism
 ;	anim_call BattleAnim_ShowMon_0
 ;	anim_ret
 ;; cbab3
+
+;BattleAnim_PowderSnow: ; caee2
+;	anim_1gfx ANIM_GFX_ICE
+;.loop ; caee4
+;	anim_sound 6, 2, SFX_SHINE
+;	anim_obj ANIM_OBJ_8F,   8, 0,  11, 0, $23
+;	anim_wait 2
+;	anim_sound 6, 2, SFX_SHINE
+;	anim_obj ANIM_OBJ_8F,   8, 0,  10, 0, $24
+;	anim_wait 2
+;	anim_sound 6, 2, SFX_SHINE
+;	anim_obj ANIM_OBJ_8F,   8, 0,  12, 0, $23
+;	anim_wait 2
+;	anim_loop 2, .loop
+;	anim_bgeffect ANIM_BG_WHITE_HUES, $0, $8, $0
+;	anim_wait 40
+;	anim_call BattleAnim_PowderSnow_branch_cbbdf
+;	anim_wait 32
+;	anim_ret
+;; caf0e
+
+;BattleAnim_SpiderWeb: ; cacd9
+;	anim_1gfx ANIM_GFX_WEB
+;	anim_bgeffect ANIM_BG_07, $0, $2, $0
+;	anim_obj ANIM_OBJ_92, -16, 4,   6, 0, $0
+;	anim_sound 6, 2, SFX_SPIDER_WEB
+;	anim_obj ANIM_OBJ_5A,   8, 0,  10, 0, $0
+;	anim_wait 4
+;	anim_obj ANIM_OBJ_5A,   8, 0,  11, 0, $0
+;	anim_wait 4
+;	anim_obj ANIM_OBJ_5A,   8, 0,  10, 4, $0
+;	anim_wait 64
+;	anim_ret
+;; cacfb

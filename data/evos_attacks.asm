@@ -1715,9 +1715,9 @@ JynxEvosAttacks:
 	db 1, POUND
 	db 1, LICK
 	db 1, LOVELY_KISS
-	db 1, POWDER_SNOW
+	db 1, ICY_WIND ; POWDER_SNOW
 	db 9, LOVELY_KISS
-	db 13, POWDER_SNOW
+	db 13, ICY_WIND ; POWDER_SNOW
 	db 21, DOUBLESLAP
 	db 25, ICE_PUNCH
 	db 35, MEAN_LOOK
@@ -1980,7 +1980,7 @@ SnorlaxEvosAttacks:
 ArticunoEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, GUST
-	db 1, POWDER_SNOW
+	db 1, ICY_WIND ; POWDER_SNOW
 	db 13, MIST
 	db 25, AGILITY
 	db 37, LOCK_ON ; MIND_READER
@@ -2090,7 +2090,7 @@ MewEvosAttacks:
 ChikoritaEvosAttacks: ;cryogonal
 	db 0 ; no more evolutions
 	db 1, BIND
-	db 5, POWDER_SNOW
+	db 5, STRUGGLE ; POWDER_SNOW
 	db 9, DEFENSE_CURL
 	db 13, RAPID_SPIN
 	db 17, ICY_WIND
@@ -2327,7 +2327,7 @@ SpinarakEvosAttacks:
 	db 17, NIGHT_SHADE
 	db 23, LEECH_LIFE
 	db 30, FURY_SWIPES
-	db 37, SPIDER_WEB
+	db 37, MEAN_LOOK ; SPIDER_WEB
 	db 45, AGILITY
 	db 53, PSYCHIC_M
 	db 0 ; no more level-up moves
@@ -2343,7 +2343,7 @@ AriadosEvosAttacks:
 	db 17, NIGHT_SHADE
 	db 25, LEECH_LIFE
 	db 34, FURY_SWIPES
-	db 43, SPIDER_WEB
+	db 43, MEAN_LOOK ; SPIDER_WEB
 	db 53, AGILITY
 	db 63, PSYCHIC_M
 	db 0 ; no more level-up moves
@@ -2757,7 +2757,7 @@ MisdreavusEvosAttacks:
 	db 12, CONFUSE_RAY
 	db 19, MEAN_LOOK
 	db 27, PSYBEAM
-	db 36, PAIN_SPLIT
+	db 36, STRUGGLE ; PAIN_SPLIT
 	db 46, PERISH_SONG
 	db 0 ; no more level-up moves
 
@@ -3016,7 +3016,7 @@ SwinubEvosAttacks:
 	db EVOLVE_LEVEL, 33, PILOSWINE
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 10, POWDER_SNOW
+	db 10, ICY_WIND ; POWDER_SNOW
 	db 19, ENDURE
 	db 28, TAKE_DOWN
 	db 37, MIST
@@ -3027,9 +3027,9 @@ SwinubEvosAttacks:
 PiloswineEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, HORN_ATTACK
-	db 1, POWDER_SNOW
+	db 1, ICY_WIND ; POWDER_SNOW
 	db 1, ENDURE
-	db 10, POWDER_SNOW
+	db 10, ICY_WIND ; POWDER_SNOW
 	db 19, ENDURE
 	db 28, TAKE_DOWN
 	db 33, FURY_ATTACK
@@ -3238,7 +3238,7 @@ SmoochumEvosAttacks:
 	db 1, POUND
 	db 1, LICK
 	db 9, SWEET_KISS
-	db 13, POWDER_SNOW
+	db 13, STRUGGLE ; POWDER_SNOW
 	db 21, CONFUSION
 	db 25, SING
 	db 33, MEAN_LOOK

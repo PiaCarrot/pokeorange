@@ -320,7 +320,6 @@ KoffingEggMoves:
 	db PSYWAVE
 	db PSYBEAM
 	db DESTINY_BOND
-	db PAIN_SPLIT
 	db $ff
 
 RhyhornEggMoves:

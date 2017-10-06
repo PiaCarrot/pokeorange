@@ -346,7 +346,6 @@ AI_Smart: ; 386be
 	dbw EFFECT_DISABLE,          AI_Smart_Disable
 	dbw EFFECT_COUNTER,          AI_Smart_Counter
 	dbw EFFECT_ENCORE,           AI_Smart_Encore
-	dbw EFFECT_PAIN_SPLIT,       AI_Smart_PainSplit
 	dbw EFFECT_SNORE,            AI_Smart_Snore
 	dbw EFFECT_CONVERSION2,      AI_Smart_Conversion2
 	dbw EFFECT_LOCK_ON,          AI_Smart_LockOn
@@ -365,6 +364,7 @@ AI_Smart: ; 386be
 	dbw EFFECT_FORESIGHT,        AI_Smart_Foresight
 	dbw EFFECT_PERISH_SONG,      AI_Smart_PerishSong
 	dbw EFFECT_SANDSTORM,        AI_Smart_Sandstorm
+	dbw EFFECT_HAIL,             AI_Smart_Hail
 	dbw EFFECT_ENDURE,           AI_Smart_Endure
 	dbw EFFECT_ROLLOUT,          AI_Smart_Rollout
 	dbw EFFECT_SWAGGER,          AI_Smart_Swagger
@@ -1537,35 +1537,33 @@ AI_Smart_Encore: ; 38c3b
 	db SUPER_FANG
 	db SUBSTITUTE
 	db TRIPLE_KICK
-	db SPIDER_WEB
 	db FLAME_WHEEL
 	db AEROBLAST
 	db COTTON_SPORE
-	db POWDER_SNOW
 	db $ff
 ; 38ca4
 
 
-AI_Smart_PainSplit: ; 38ca4
-; Discourage this move if [enemy's current HP * 2 > player's current HP].
-
-	push hl
-	ld hl, EnemyMonHP
-	ld b, [hl]
-	inc hl
-	ld c, [hl]
-	sla c
-	rl b
-	ld hl, BattleMonHP + 1
-	ld a, [hld]
-	cp c
-	ld a, [hl]
-	sbc b
-	pop hl
-	ret nc
-	inc [hl]
-	ret
-; 38cba
+;AI_Smart_PainSplit: ; 38ca4
+;; Discourage this move if [enemy's current HP * 2 > player's current HP].
+;
+;	push hl
+;	ld hl, EnemyMonHP
+;	ld b, [hl]
+;	inc hl
+;	ld c, [hl]
+;	sla c
+;	rl b
+;	ld hl, BattleMonHP + 1
+;	ld a, [hld]
+;	cp c
+;	ld a, [hl]
+;	sbc b
+;	pop hl
+;	ret nc
+;	inc [hl]
+;	ret
+;; 38cba
 
 
 AI_Smart_Snore:
@@ -2145,6 +2143,36 @@ AI_Smart_Sandstorm: ; 38f7a
 	db STEEL
 	db $ff
 ; 38fac
+
+
+AI_Smart_Hail:
+
+; Greatly discourage this move if the player is immune to Hail damage.
+	ld a, [BattleMonType1]
+	cp ICE
+	jr z, .asm_38fa5
+
+	ld a, [BattleMonType2]
+	cp ICE
+	jr z, .asm_38fa5
+
+; Discourage this move if player's HP is below 50%.
+	call AICheckPlayerHalfHP
+	jr nc, .asm_38fa6
+
+; 50% chance to encourage this move otherwise.
+	call AI_50_50
+	ret c
+
+	dec [hl]
+	ret
+
+.asm_38fa5
+	inc [hl]
+
+.asm_38fa6
+	inc [hl]
+	ret
 
 
 AI_Smart_Endure: ; 38fac

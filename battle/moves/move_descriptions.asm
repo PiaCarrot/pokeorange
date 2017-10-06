@@ -167,7 +167,7 @@
 	dw RockClimbDescription
 	dw TripleKickDescription
 	dw ThiefDescription
-	dw SpiderWebDescription
+	dw ShellTrapDescription
 	dw LusterPurgeDescription
 	dw NightmareDescription
 	dw FlameWheelDescription
@@ -179,7 +179,7 @@
 	dw CottonSporeDescription
 	dw ReversalDescription
 	dw NastyPlotDescription
-	dw PowderSnowDescription
+	dw HailDescription
 	dw ProtectDescription
 	dw MachPunchDescription
 	dw ScaryFaceDescription
@@ -218,7 +218,7 @@
 	dw AstonishDescription
 	dw FrustrationDescription
 	dw SafeguardDescription
-	dw PainSplitDescription
+	dw SpectraThiefDescription
 	dw SacredFireDescription
 	dw MagnitudeDescription
 	dw DynamicpunchDescription
@@ -507,7 +507,6 @@ SurfDescription:
 
 IceBeamDescription:
 BlizzardDescription:
-PowderSnowDescription:
 	db   "An attack that may"
 	next "freeze the foe.@"
 
@@ -829,7 +828,6 @@ ThiefDescription:
 	db   "An attack that may"
 	next "steal a held item.@"
 
-SpiderWebDescription:
 MeanLookDescription:
 	db   "Prevents fleeing"
 	next "or switching.@"
@@ -917,6 +915,7 @@ OutrageDescription:
 	next "and confuses user.@"
 
 SandstormDescription:
+HailDescription:
 	db   "Inflicts damage"
 	next "every turn.@"
 
@@ -972,9 +971,9 @@ SafeguardDescription:
 	db   "Prevents all"
 	next "status problems.@"
 
-PainSplitDescription:
-	db   "Adds user & foe's"
-	next "HPs. Shares total.@"
+SpectraThiefDescription:
+	db   "Steals foe's stat"
+	next "changes, and hits.@"
 
 MagnitudeDescription:
 	db   "A ground attack"
@@ -1066,6 +1065,10 @@ PsystrikeDescription:
 DragonPulseDescription:
 	db   "Attacks foe with"
 	next "a shock wave.@"
+
+ShellTrapDescription:
+	db   "Sets a trap for"
+	next "physical moves.@"
 
 MoonblastDescription:
 	db   "An attack that may"

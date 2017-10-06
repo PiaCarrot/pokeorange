@@ -7,8 +7,10 @@ Sketch:
 SkullBash:
 Spite:
 BeatUp:
+PainSplit:
 	endmove
 
+SpectralThief: ; TODO: implement EFFECT_SPECTRAL_THIEF
 Pound:
 KarateChop:
 MegaPunch:
@@ -161,7 +163,6 @@ BurnHit:
 IcePunch:
 IceBeam:
 Blizzard:
-PowderSnow:
 FreezeHit:
 	checkobedience
 	usedmovetext
@@ -1014,13 +1015,13 @@ PoisonMultiHit:
 	poisontarget
 	endmove
 
+Astonish: ; TODO: implement EFFECT_ASTONISH
 RollingKick:
 Headbutt:
 Bite:
 LowKick:
 RockSlide:
 HyperFang:
-Astonish:
 FlinchHit:
 	checkobedience
 	usedmovetext
@@ -1412,6 +1413,7 @@ Reversal:
 	kingsrock
 	endmove
 
+ShellTrap: ; TODO: implement EFFECT_SHELL_TRAP
 Counter:
 	checkobedience
 	usedmovetext
@@ -1431,14 +1433,6 @@ Encore:
 	doturn
 	checkhit
 	encore
-	endmove
-
-PainSplit:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	painsplit
 	endmove
 
 Snore:
@@ -1579,7 +1573,6 @@ Thief:
 	kingsrock
 	endmove
 
-SpiderWeb:
 MeanLook:
 	checkobedience
 	usedmovetext
@@ -1652,6 +1645,7 @@ PerishSong:
 	perishsong
 	endmove
 
+Hail: ; TODO: implement EFFECT_HAIL
 Sandstorm:
 	checkobedience
 	usedmovetext
