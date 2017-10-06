@@ -46,9 +46,9 @@
 195. *Sylveon*
 196. Espeon
 197. Umbreon
-198. *Mimikyu*
+198. *Relicanth*
 199. Slowking
-200. *Relicanth*
+200. *Mimikyu*
 201. *Spinda*
 202. *Skrelp*
 203. *Dragalge*
@@ -96,9 +96,9 @@
 245. *Tangrowth*
 246. *Rhyperior*
 247. *Magnezone*
-248. Lugia
-249. Ho-oh
-250. Latios
-251. Latias
-252. Celebi
-243. *Marshadow*
+248. *Marshadow*
+249. Lugia
+250. Ho-oh
+251. Celebi
+252. *Latias*
+253. *Latios*
