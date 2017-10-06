@@ -249,7 +249,7 @@
 	dw FutureSightDescription
 	dw RockSmashDescription
 	dw WhirlpoolDescription
-	dw BeatUpDescription
+	dw PsystrikeDescription
 	dw MoonblastDescription
 	dw FairyWindDescription
 	dw DazzlingleamDescription
@@ -1059,9 +1059,9 @@ FutureSightDescription:
 	db   "An attack that"
 	next "hits on 3rd turn.@"
 
-BeatUpDescription:
-	db   "Party #MON join"
-	next "in the attack.@"
+PsystrikeDescription:
+	db   "A wave that does"
+	next "physical damage.@"
 
 DragonPulseDescription:
 	db   "Attacks foe with"

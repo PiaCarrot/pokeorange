@@ -2068,13 +2068,13 @@ MewtwoEvosAttacks:
 	db 1, DISABLE
 	db 11, BARRIER
 	db 22, SWIFT
-	db 33, STRUGGLE ; PSYCH_UP
+	db 33, SAFEGUARD ; PSYCH_UP
 	db 44, FUTURE_SIGHT
 	db 55, MIST
 	db 66, PSYCHIC_M
 	db 77, AMNESIA
 	db 88, RECOVER
-	db 99, SAFEGUARD
+	db 99, PSYSTRIKE ; SAFEGUARD
 	db 0 ; no more level-up moves
 
 MewEvosAttacks:
@@ -2952,7 +2952,7 @@ SneaselEvosAttacks:
 	db 33, FURY_SWIPES
 	db 41, AGILITY
 	db 49, SLASH
-	db 57, BEAT_UP
+	db 57, STRUGGLE ; BEAT_UP
 	db 65, METAL_CLAW
 	db 0 ; no more level-up moves
 

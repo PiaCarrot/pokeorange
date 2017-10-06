@@ -2820,17 +2820,23 @@ PlayerAttackDamage: ; 352e2
 .physicalcrit
 	ld hl, BattleMonAttack
 	call GetDamageStatsCritical
-	jr c, .thickclub
+	jr c, .thickcluborlightball
 
 	ld hl, EnemyDefense
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
 	ld hl, PlayerAttack
-	jr .thickclub
+	jr .thickcluborlightball
 
 .special
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_PSYSTRIKE
+	ld hl, EnemyMonDefense
+	jr z, .psystrike
 	ld hl, EnemyMonSpclDef
+.psystrike
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
@@ -2857,9 +2863,9 @@ PlayerAttackDamage: ; 352e2
 	call LightBallBoost
 	jr .done
 
-.thickclub
+.thickcluborlightball
 ; Note: Returns player attack at hl in hl.
-	call ThickClubBoost
+	call ThickClubOrLightBallBoost
 
 .done
 	call TruncateHL_BC
@@ -2978,15 +2984,31 @@ GetDamageStats: ; 3537e
 ; 353b5
 
 
-ThickClubBoost: ; 353b5
+ThickClubOrLightBallBoost: ; 353b5
 ; Return in hl the stat value at hl.
 
 ; If the attacking monster is Cubone or Marowak and
-; it's holding a Thick Club, double it.
+; it's holding a Thick Club, or if it's Pikachu and
+; it's holding a Light Ball, double it.
 	push bc
 	push de
+	push hl
+	ld a, MON_SPECIES
+	call BattlePartyAttr
+	ld a, [hBattleTurn]
+	and a
+	ld a, [hl]
+	jr z, .checkpikachu
+	ld a, [TempEnemyMonSpecies]
+.checkpikachu:
+	pop hl
+	cp PIKACHU
+	lb bc, PIKACHU, PIKACHU
+	ld d, LIGHT_BALL
+	jr z, .ok
 	lb bc, CUBONE, MAROWAK
 	ld d, THICK_CLUB
+.ok
 	call SpeciesItemBoost
 	pop de
 	pop bc
@@ -3084,17 +3106,23 @@ EnemyAttackDamage: ; 353f6
 .physicalcrit
 	ld hl, EnemyMonAttack
 	call GetDamageStatsCritical
-	jr c, .thickclub
+	jr c, .thickcluborlightball
 
 	ld hl, PlayerDefense
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
 	ld hl, EnemyAttack
-	jr .thickclub
+	jr .thickcluborlightball
 
 .Special:
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_PSYSTRIKE
+	ld hl, BattleMonDefense
+	jr z, .psystrike
 	ld hl, BattleMonSpclDef
+.psystrike
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
@@ -3119,8 +3147,8 @@ EnemyAttackDamage: ; 353f6
 	call LightBallBoost
 	jr .done
 
-.thickclub
-	call ThickClubBoost
+.thickcluborlightball
+	call ThickClubOrLightBallBoost
 
 .done
 	call TruncateHL_BC

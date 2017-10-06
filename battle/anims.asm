@@ -250,7 +250,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_FutureSight
 	dw BattleAnim_RockSmash
 	dw BattleAnim_Whirlpool
-	dw BattleAnim_BeatUp
+	dw BattleAnim_Psystrike
 	dw BattleAnim_Moonblast
 	dw BattleAnim_FairyWind
 	dw BattleAnim_Dazzlingleam
@@ -2587,8 +2587,8 @@ BattleAnim_Crabhammer: ; ca624
 	anim_ret
 ; ca63f
 
-;BattleAnim_Kinesis: ; ca66a
 BattleAnim_Psystrike:
+BattleAnim_Kinesis: ; ca66a
 	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_NOISE
 	anim_bgeffect ANIM_BG_06, $0, $2, $0
 	anim_obj ANIM_OBJ_6B,  10, 0,   9, 4, $0
@@ -4755,27 +4755,6 @@ BattleAnim_Whirlpool: ; cba6a
 	anim_ret
 ; cba84
 
-BattleAnim_BeatUp: ; cba84
-	anim_if_param_equal $0, .current_mon
-	anim_sound 0, 0, SFX_BALL_POOF
-	anim_bgeffect ANIM_BG_RETURN_MON, $0, $1, $0
-	anim_wait 16
-	anim_beatup
-	anim_sound 0, 0, SFX_BALL_POOF
-	anim_bgeffect ANIM_BG_ENTER_MON, $0, $1, $0
-	anim_wait 16
-.current_mon
-	anim_1gfx ANIM_GFX_HIT
-	anim_call BattleAnim_FollowEnemyFeet_0
-	anim_bgeffect ANIM_BG_TACKLE, $0, $1, $0
-	anim_wait 4
-	anim_sound 0, 1, SFX_BEAT_UP
-	anim_obj ANIM_OBJ_00, -15, 0,   6, 0, $0
-	anim_wait 8
-	anim_call BattleAnim_ShowMon_0
-	anim_ret
-; cbab3
-
 BattleAnim_DreamEater_branch_cbab3: ; cbab3
 BattleAnim_GigaDrain_branch_cbab3: ; cbab3
 BattleAnim_LeechLife_branch_cbab3: ; cbab3
@@ -5265,3 +5244,24 @@ BattleAnim_SignalBeam: ; from Prism
 ;	anim_wait 32
 ;	anim_ret
 ;; c9da6
+
+;BattleAnim_BeatUp: ; cba84
+;	anim_if_param_equal $0, .current_mon
+;	anim_sound 0, 0, SFX_BALL_POOF
+;	anim_bgeffect ANIM_BG_RETURN_MON, $0, $1, $0
+;	anim_wait 16
+;	anim_beatup
+;	anim_sound 0, 0, SFX_BALL_POOF
+;	anim_bgeffect ANIM_BG_ENTER_MON, $0, $1, $0
+;	anim_wait 16
+;.current_mon
+;	anim_1gfx ANIM_GFX_HIT
+;	anim_call BattleAnim_FollowEnemyFeet_0
+;	anim_bgeffect ANIM_BG_TACKLE, $0, $1, $0
+;	anim_wait 4
+;	anim_sound 0, 1, SFX_BEAT_UP
+;	anim_obj ANIM_OBJ_00, -15, 0,   6, 0, $0
+;	anim_wait 8
+;	anim_call BattleAnim_ShowMon_0
+;	anim_ret
+;; cbab3

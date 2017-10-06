@@ -251,7 +251,7 @@
 	const FUTURE_SIGHT ; $f8
 	const ROCK_SMASH   ; $f9
 	const WHIRLPOOL    ; $fa
-	const BEAT_UP      ; $fb
+	const PSYSTRIKE    ; $fb
 	const MOONBLAST    ; $fc
 	const FAIRY_WIND   ; $fd
 	const DAZZLINGLEAM ; $fe

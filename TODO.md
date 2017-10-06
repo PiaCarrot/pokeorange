@@ -47,14 +47,14 @@
 ## Moves
 
 - Astonish: *EFFECT_ASTONISH* (similar to EFFECT_FAKE_OUT)
-- Beat Up -> Psystrike: *EFFECT_PSYSTRIKE* (use Defense instead of Sp.Def)
+- ~~Beat Up -> Psystrike~~
 - ~~Bide -> Rock Blast~~
 - ~~Bone Club -> Shadow Bone~~
 - ~~Detect -> PowerUpPunch~~
 - ~~Kinesis -> Dive~~
 - ~~Milk Drink -> Water Pulse~~
 - ~~Mind Reader -> Luster Purge~~
-- Pain Split -> SpectrlThief: *EFFECT_SPECTRAL_THIEF* (similar to EFFECT_PSYCH_UP)
+- Pain Split -> SpectraThief: *EFFECT_SPECTRAL_THIEF* (similar to EFFECT_PSYCH_UP)
 - Powder Snow -> Hail: *EFFECT_HAIL* (similar to EFFECT_SANDSTORM; requires new weather)
 - ~~Present -> Astonish~~
 - ~~Psych Up -> Aerial Ace~~
@@ -72,7 +72,7 @@
 
 - ~~TM01: DynamicPunch -> Fissure~~
 - TM03: Curse -> *Hail*
-- TM04: Rollout -> *Bullet Seed*
+- ~~TM04: Rollout -> Bullet Seed~~
 - ~~TM05: Roar -> Fairy Wind~~
 - ~~TM08: Rock Smash -> Flash~~
 - ~~TM09: Psych Up -> Water Gun~~

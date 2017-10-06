@@ -27,7 +27,6 @@ CharmanderEggMoves:
 	db ROCK_SLIDE
 	db BITE
 	db OUTRAGE
-	db BEAT_UP
 	db $ff
 
 SquirtleEggMoves:
@@ -65,7 +64,6 @@ SpearowEggMoves:
 EkansEggMoves:
 	db PURSUIT
 	db SLAM
-	db BEAT_UP
 	db CRUNCH
 	db $ff
 
@@ -84,7 +82,6 @@ NidoranFEggMoves:
 	db FOCUS_ENERGY
 	db CHARM
 	db COUNTER
-	db BEAT_UP
 	db $ff
 
 NidoranMEggMoves:
@@ -94,7 +91,6 @@ NidoranMEggMoves:
 	db CONFUSION
 	db AMNESIA
 	db COUNTER
-	db BEAT_UP
 	db $ff
 
 VulpixEggMoves:
@@ -140,7 +136,6 @@ DiglettEggMoves:
 	db SCREECH
 	db ANCIENTPOWER
 	db PURSUIT
-	db BEAT_UP
 	db $ff
 
 MeowthEggMoves:
@@ -166,7 +161,6 @@ MankeyEggMoves:
 	db MEDITATE
 	db COUNTER
 	db REVERSAL
-	db BEAT_UP
 	db $ff
 
 GrowlitheEggMoves:
@@ -573,7 +567,6 @@ AipomEggMoves:
 	db AGILITY
 	db SLAM
 	db DOUBLESLAP
-	db BEAT_UP
 	db $ff
 
 YanmaEggMoves:
@@ -607,7 +600,6 @@ GirafarigEggMoves:
 	db AMNESIA
 	db FORESIGHT
 	db FUTURE_SIGHT
-	db BEAT_UP
 	db $ff
 
 PinecoEggMoves:
@@ -728,7 +720,6 @@ HoundourEggMoves:
 	db PURSUIT
 	db COUNTER
 	db REVERSAL
-	db BEAT_UP
 	db $ff
 
 PhanpyEggMoves:

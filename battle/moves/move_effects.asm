@@ -6,6 +6,7 @@ RazorWind:
 Sketch:
 SkullBash:
 Spite:
+BeatUp:
 	endmove
 
 Pound:
@@ -47,6 +48,7 @@ DragonPulse:
 FairyWind:
 Dazzlingleam:
 ShadowSneak:
+Psystrike:
 NormalHit:
 	checkobedience
 	usedmovetext
@@ -2112,33 +2114,6 @@ Teleport:
 	usedmovetext
 	doturn
 	teleport
-	endmove
-
-BeatUp:
-	checkobedience
-	usedmovetext
-	movedelay
-	doturn
-	startloop
-	lowersub
-	checkhit
-	critical
-	beatup
-	damagecalc
-	damagevariation
-	clearmissdamage
-	hittargetnosub
-	failuretext
-	checkfaint
-	criticaltext
-	cleartext
-	supereffectivetext
-	checkdestinybond
-	buildopponentrage
-	endloop
-	effect0xa8
-	raisesub
-	kingsrock
 	endmove
 
 DefenseCurl:

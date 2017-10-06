@@ -252,8 +252,8 @@ InitBattleAnimBuffer: ; ccaaa
 	or a
 	jr nz, .no_sub
 	ld a, [FXAnimIDLo]
-;	cp PSYSTRIKE ; TODO: Psystrike
-;	jr z, .sub_8
+	cp PSYSTRIKE
+	jr z, .sub_8
 	cp SOFTBOILED
 	jr nz, .no_sub
 .sub_8

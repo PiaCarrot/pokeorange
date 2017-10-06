@@ -248,7 +248,7 @@
 	db "FUTURE SIGHT@"
 	db "ROCK SMASH@"
 	db "WHIRLPOOL@"
-	db "BEAT UP@"
+	db "PSYSTRIKE@"
 	db "MOONBLAST@"
 	db "FAIRY WIND@"
 	db "DAZZLINGLEAM@"
