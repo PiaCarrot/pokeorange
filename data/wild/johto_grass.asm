@@ -512,5 +512,32 @@
 	db 21, GASTLY
 	db 22, ODDISH
 	db 22, GASTLY
+	
+	map ROUTE_61
+	db 6 percent, 6 percent, 6 percent
+	; morning
+	db 21, TANGELA
+	db 21, PIDGEY
+	db 22, TANGELA
+	db 22, SPINDA
+	db 22, PIDGEY
+	db 23, SPINDA
+	db 23, PIDGEOTTO
+	; day
+	db 21, TANGELA
+	db 21, PIDGEY
+	db 22, TANGELA
+	db 22, SPINDA
+	db 22, PIDGEY
+	db 23, SPINDA
+	db 23, PIDGEOTTO
+	; night
+	db 21, TANGELA
+	db 21, RATTATA
+	db 22, TANGELA
+	db 22, SPINDA
+	db 22, RATTATA
+	db 23, SPINDA
+	db 23, RATICATE
 
 	db -1 ; end
