@@ -496,7 +496,7 @@ Music_CaveOfOrigin_Ch2:
 	note D#, 6
 	note D_, 6
 	loopchannel 0, Music_CaveOfOrigin_Ch2
-	
+
 Music_CaveOfOrigin_Ch3:
 	vibrato $16, $15
 	notetype $c, $14

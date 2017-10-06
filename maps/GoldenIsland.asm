@@ -25,76 +25,76 @@ GoldenIslandSignText:
 	para "MEOWTH are"
 	line "welcome!"
 	done
-	
+
 CatManGuardingExitScript:
 	jumptextfaceplayer CatManGuardText
-	
+
 CatManGuardText:
 	text "The BOUNTY HARVEST"
 	line "is underway."
-	
+
 	para "None may pass at"
 	line "this time."
 	done
-	
+
 GoldenIslandAmuletCoin:
 	itemball AMULET_COIN
-	
+
 CatManOutside1Script:
 	jumptextfaceplayer CatManOutside1Text
-	
+
 CatManOutside1Text:
 	text "Welcome to GOLDEN"
 	line "ISLAND!"
-	
+
 	para "If you have a"
 	line "MEOWTH, our elder"
 	cont "would love to"
 	cont "speak with you."
 	done
-	
+
 CatManOutside2Script:
 	jumptextfaceplayer CatManOutside2Text
-	
+
 CatManOutside2Text:
 	text "Our livelihood de-"
 	line "pends on a MEOWTH"
 	cont "with the move PAY"
 	cont "DAY!"
 	done
-	
+
 CatManOutside3Script:
 	jumptextfaceplayer CatManOutside3Text
-	
+
 CatManOutside3Text:
 	text "If I had a MEOWTH,"
 	line "I think I'd name"
 	cont "it NYARTH."
-	
+
 	para "Sounds cool to me."
 	done
 
 GoldenIslandLargeStatue:
 	jumptext GoldenIslandLargeStatueText
-	
+
 GoldenIslandLargeStatueText:
 	text "A huge MEOWTH"
 	line "statue made out of"
 	cont "solid gold!"
 	done
-	
+
 GoldenIslandSmallStatue:
 	jumptext GoldenIslandSmallStatueText
-	
+
 GoldenIslandSmallStatueText:
 	text "A small, golden"
 	line "statue depicting"
 	cont "a MEOWTH."
 	done
-	
+
 GoldenIslandFruitTree:
 	fruittree FRUITTREE_GOLDEN_ISLAND
-	
+
 GoldenIslandRocketEvent:
 	showemote EMOTE_SHOCK, PLAYER, 15
 	opentext
@@ -110,12 +110,12 @@ GoldenIslandRocketEvent:
 	setevent EVENT_TEAM_ROCKET_GOLDEN_ISLAND
 	domaptrigger GOLDEN_ISLAND, $1
 	end
-	
+
 GoldenIslandRocketText:
 	text "JESSIE: It seems"
 	line "they're holing"
 	cont "MEOWTH up in here."
-	
+
 	para "What should we do,"
 	line "JAMES?"
 
@@ -123,33 +123,33 @@ GoldenIslandRocketText:
 	line "doesn't look like"
 	cont "the locals noticed"
 	cont "us."
-	
+
 	para "We should just go"
 	line "in and beat the"
 	cont "crazy cat people."
-	
+
 	para "JESSIE: Ah haha."
 	line "Then all of their"
 	cont "#MON are as"
 	cont "good as ours!"
-	
+
 	para "JAMES: Ooh!"
 	line "I like the way you"
 	cont "think, JESSIE!"
-	
+
 	para "JESSIE and JAMES:"
 	line "Ahahahahahaha!"
 	done
-	
+
 GOLDEN_ISLAND_JESSIE_MOVEMENT:
 	step UP
 	step_end
-	
+
 GOLDEN_ISLAND_JAMES_MOVEMENT:
 	step UP
 	step UP
 	step_end
-	
+
 CatManBattleHouseScript:
 	opentext
 	writetext CatManBattleHouseText1
@@ -159,7 +159,7 @@ CatManBattleHouseScript:
 	waitbutton
 	closetext
 	end
-	
+
 .BattleHouseBegin:
 	writetext CatManBattleHouseText2
 	waitbutton
@@ -233,33 +233,33 @@ CatManBattleHouseScript:
 	playsound SFX_ENTER_DOOR
 	setevent EVENT_CAT_BATTLE_HOUSE_CLEARED
 	end
-	
+
 BATTLE_HOUSE_MOVEMENT1:
 	step UP
 	step_end
-	
+
 CatmanDaikonWinLoss:
 	text "I gave it my best"
 	line "shot!"
 	done
-	
+
 CatmanKunioWinLoss:
 	text "Wow, not bad at"
 	line "all!"
 	done
-	
+
 CatmanYoshikawaWinLoss:
 	text "Hmph."
 	done
-	
+
 CatmanRenWinLoss:
 	text "Can you do it?"
 	done
-	
+
 CatmanMimiWinLoss:
 	text "We have a winner!"
 	done
-	
+
 CatManBattleHouseText1:
 	text "Welcome to the"
 	line "GOLDEN ISLAND BAT-"
@@ -268,83 +268,83 @@ CatManBattleHouseText1:
 	para "To enter, you"
 	line "must win 5 consec-"
 	cont "utive battles!"
-	
+
 	para "You will then be"
 	line "be given a great"
 	cont "prize!"
-	
+
 	para "Want to try?"
 	done
-	
+
 DeclineBattleHouseText:
 	text "Very well."
 	line "The BATTLE HOUSE"
 	cont "is always open!"
 	done
-	
+
 CatManBattleHouseText2:
 	text "A challenger!"
-	
+
 	para "Well, then. I will"
 	line "be your first opp-"
 	cont "onent!"
 	done
-	
+
 CatManBattleHouseText3:
 	text "I have lost."
 	line "Allow me to get"
 	cont "the next battler."
 	done
-	
+
 CatManBattleHouseText4:
 	text "Hey, there!"
 	line "I'm way stronger"
 	cont "than my friend,"
 	cont "so let's go!"
 	done
-	
+
 CatManBattleHouseText5:
 	text "That worked up a"
 	line "sweat! Let me get"
 	cont "the next guy."
 	done
-	
+
 CatManBattleHouseText6:
 	text "Getting tired yet?"
 	done
-	
+
 CatManBattleHouseText7:
 	text "Hmph. I'll get"
 	line "REN to beat you."
 	done
-	
+
 CatManBattleHouseText8:
 	text "You've made it"
 	line "pretty far, but"
 	cont "this is where it"
 	cont "ends!"
 	done
-	
+
 CatManBattleHouseText9:
 	text "MIMI is the stron-"
 	line "gest of us all."
-	
+
 	para "Prepare yourself."
 	done
-	
+
 CatManBattleHouseText10:
 	text "Good job making"
 	line "it this far. I've"
 	cont "been itching for a"
 	cont "good challenge!"
 	done
-	
+
 CatManBattleHouseText11:
 	text "Congratulations."
 	line "Come inside for"
 	cont "your prize."
 	done
-	
+
 GoldenIsland_MapEventHeader::
 
 .Warps: db 8

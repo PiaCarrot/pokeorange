@@ -35,7 +35,7 @@ Music_RidingLapras_Ch1_loop:
 	intensity $57
 	note D#, 12
 	loopchannel 0, Music_RidingLapras_Ch1_loop
-	
+
 Music_RidingLapras_Ch2:
 	dutycycle 0
 	vibrato $12, $15
@@ -80,7 +80,7 @@ Music_RidingLapras_Ch2_loop_1:
 	intensity $c7
 	note F_, 6
 	loopchannel 0, Music_RidingLapras_Ch2
-	
+
 Music_RidingLapras_Ch3:
 	notetype $c, $13
 	octave 3
@@ -127,7 +127,7 @@ Music_RidingLapras_Ch3:
 	note C_, 1
 	note A_, 6
 	loopchannel 0, Music_RidingLapras_Ch3
-	
+
 Music_RidingLapras_Ch4:
 	togglenoise $1
 	notetype $c

@@ -787,7 +787,7 @@ Music_SootopolisCity_Ch2_loop_8:
 	intensity $a4
 	note A#, 3
 	loopchannel 0, Music_SootopolisCity_Ch2
-	
+
 Music_SootopolisCity_Ch3:
 	vibrato $14, $12
 	notetype $8, $10
@@ -1135,7 +1135,7 @@ Music_SootopolisCity_Ch3:
 	note E_, 1
 	note F#, 1
 	loopchannel 0, Music_SootopolisCity_Ch3
-	
+
 Music_SootopolisCity_Ch4:
 	togglenoise $3
 	notetype $8

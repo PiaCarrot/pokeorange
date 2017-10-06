@@ -717,7 +717,7 @@ SwimmerMGroup:
 	db 10, STARYU
 
 	db $ff
-	
+
 ; ===========
 
 	; SWIMMERM (10)
@@ -729,13 +729,13 @@ SwimmerMGroup:
 		db STOMP
 		db DOUBLE_KICK
 		db POISON_STING
-		
+
 	db 27, STARMIE
 		db BUBBLE
 		db AGILITY
 		db WATER_GUN
 		db RAPID_SPIN
-		
+
 	db $ff
 ; =================
 ; ================================
@@ -1126,7 +1126,7 @@ CooltrainerFGroup:
 CatmanGroup:
 ; ================================
 ; ================
-	
+
 	; CATMAN (1)
 	db "DAIKON@"
 	db 0
@@ -1135,7 +1135,7 @@ CatmanGroup:
 	db 28, NIDOKING
 
 	db $ff
-	
+
 	; CATMAN (2)
 	db "KUNIO@"
 	db 0
@@ -1145,7 +1145,7 @@ CatmanGroup:
 	db 27, LICKITUNG
 
 	db $ff
-	
+
 	; CATMAN (3)
 	db "YOSHIKAWA@"
 	db 0
@@ -1156,7 +1156,7 @@ CatmanGroup:
 	db 26, FEAROW
 
 	db $ff
-	
+
 	; CATMAN (4)
 	db "REN@"
 	db 0
@@ -1166,7 +1166,7 @@ CatmanGroup:
 	db 26, SPINDA
 
 	db $ff
-	
+
 	; CATMAN (5)
 	db "MIMI@"
 	db 0

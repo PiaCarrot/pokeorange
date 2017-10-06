@@ -100,7 +100,7 @@ Route58Mart:
 	db ICE_HEAL
 	db ESCAPE_ROPE
 	db $ff
-	
+
 MoroMart:
 	db 7
 	db GREAT_BALL

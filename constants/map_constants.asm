@@ -100,7 +100,7 @@ MAP_NONE EQU 0
 	mapgroup GOLDEN_ISLAND_ELDER_HOUSE, 4, 4
 	mapgroup GOLDEN_ISLAND_GATE_HOUSE, 10, 4
 	mapgroup ROUTE_61, 30, 25
-	
+
 	newgroup ; 7
 
 	mapgroup REDS_HOUSE_1F, 4, 4

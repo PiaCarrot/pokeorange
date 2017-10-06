@@ -9,10 +9,10 @@ GoldenIslandHouse2_MapScriptHeader:
 
 CatManBrownScript:
 	jumptextfaceplayer BrownCatManText
-	
+
 BrownCatManText:
 	text "Meow! MEOWTH!"
-	
+
 	para "How was my MEOWTH"
 	line "impression?"
 	done

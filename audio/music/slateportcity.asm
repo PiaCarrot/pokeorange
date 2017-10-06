@@ -423,7 +423,7 @@ Music_SlateportCity_Ch1_section_4:
 	octave 3
 	note C#, 4
 	loopchannel 0, Music_SlateportCity_Ch1_loop
-	
+
 Music_SlateportCity_Ch1_branch_1:
 	octave 3
 	note A_, 1
@@ -808,7 +808,7 @@ Music_SlateportCity_Ch2_section_1:
 	note D_, 4
 	note E_, 4
 	loopchannel 0, Music_SlateportCity_Ch2_loop
-	
+
 Music_SlateportCity_Ch3:
 	notetype $6, $26
 	note __, 16
@@ -975,7 +975,7 @@ Music_SlateportCity_Ch3_section_2:
 	note __, 1
 	note F_, 4
 Music_SlateportCity_Ch3_section_3:
-	note __, 16 
+	note __, 16
 	intensity $10
 	octave 6
 	note G_, 4
@@ -1319,7 +1319,7 @@ Music_SlateportCity_Ch3_section_6:
 	note G_, 8
 	note A_, 8
 	loopchannel 0, Music_SlateportCity_Ch3_loop
-	
+
 Music_SlateportCity_Ch4:
 	togglenoise $3
 	notetype $6
@@ -1461,7 +1461,7 @@ Music_SlateportCity_Ch4_loop_8:
 	callchannel Music_SlateportCity_Ch4_branch_3
 	loopchannel 2, Music_SlateportCity_Ch4_loop_8
 	loopchannel 0, Music_SlateportCity_Ch4_loop_main
-	
+
 Music_SlateportCity_Ch4_branch_1:
 	note D_, 4
 	note F#, 2
@@ -1476,7 +1476,7 @@ Music_SlateportCity_Ch4_branch_1:
 	note F#, 2
 	note F#, 2
 	endchannel
-	
+
 Music_SlateportCity_Ch4_branch_2:
 	note D_, 4
 	note F#, 2
@@ -1493,7 +1493,7 @@ Music_SlateportCity_Ch4_branch_2:
 	note F#, 2
 	note F#, 2
 	endchannel
-	
+
 Music_SlateportCity_Ch4_branch_3:
 	note C_, 4
 	note F#, 4

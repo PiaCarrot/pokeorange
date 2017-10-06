@@ -8,7 +8,7 @@ MoroHouse2_MapScriptHeader:
 
 MoroSuperNerd:
 	jumptextfaceplayer MoroSuperNerdText
-	
+
 MoroSuperNerdText:
 	text "Whether you're a"
 	line "tourist or a"

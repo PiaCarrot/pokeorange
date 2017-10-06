@@ -464,7 +464,7 @@ Music_KalosTitleScreen_Ch2_b3:
 	note __, 1
 	note C_, 1
 	note __, 1
-	octave 4 
+	octave 4
 	note B_, 1
 	note __, 1
 	notetype $c, $C7 ; measure 32

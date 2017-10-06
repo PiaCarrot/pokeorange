@@ -426,15 +426,15 @@ BugBoySprite:
 
 PcSlouchSprite:
 	sprite_header PcSlouchGFX, 3, WALKING_SPRITE, PAL_OW_GREEN
-	
+
 JessieSprite:
 	sprite_header JessieSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED
-	
+
 JamesSprite:
 	sprite_header JamesSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BLUE
-	
+
 CatManSprite:
 	sprite_header CatManSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BLUE
-	
+
 RocketMeowthSprite: ; 147d2
 	sprite_header RocketMeowthSpriteGFX, 3, STANDING_SPRITE, PAL_OW_BROWN

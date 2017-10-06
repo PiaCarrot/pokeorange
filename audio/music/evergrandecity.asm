@@ -1037,7 +1037,7 @@ Music_EverGrandeCity_branch_ef4e3: ; ef4e3
 	octave 2
 	note F#, 2
 	note B_, 2
-	
+
 	note F#, 2
 	note __, 2
 	note F#, 2
@@ -1106,7 +1106,7 @@ Music_EverGrandeCity_branch_ef4e3: ; ef4e3
 	note D#, 2
 	note F_, 2
 	note F#, 2
-	
+
 	note B_, 2
 	note __, 2
 	note B_, 2
@@ -1121,7 +1121,7 @@ Music_EverGrandeCity_branch_ef4e3: ; ef4e3
 	note F_, 2
 	note F#, 2
 	note G_, 2
-	
+
 	note G#, 2
 	note __, 2
 	note G#, 2
