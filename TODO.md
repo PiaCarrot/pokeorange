@@ -36,7 +36,7 @@
 - EFFECT_SPECTRAL_THIEF for SPECTRATHIEF (similar to EFFECT_PSYCH_UP)
 - EFFECT_HAIL for HAIL (similar to EFFECT_SANDSTORM; uses WEATHER_HAIL)
 - EFFECT_SHELL_TRAP for SHELL_TRAP (similar to EFFECT_COUNTER)
-- Replace NIGHTMARE with something better (maybe?)
+- EFFECT_VENOSHOCK for VENOSHOCK
 
 
 ## Animations
@@ -53,4 +53,5 @@
 - Rock Climb
 - Shadow Sneak
 - Shell Trap
+- Venoshock
 - Water Pulse

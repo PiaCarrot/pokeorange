@@ -171,7 +171,7 @@
 	const THIEF        ; $a8
 	const SHELL_TRAP   ; $a9
 	const LUSTER_PURGE ; $aa
-	const NIGHTMARE    ; $ab
+	const VENOSHOCK    ; $ab
 	const FLAME_WHEEL  ; $ac
 	const SNORE        ; $ad
 	const CURSE        ; $ae

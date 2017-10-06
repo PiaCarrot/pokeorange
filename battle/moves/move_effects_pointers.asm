@@ -160,3 +160,4 @@
 	dw SpectralThief
 	dw Hail
 	dw ShellTrap
+	dw Venoshock

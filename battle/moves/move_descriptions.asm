@@ -169,7 +169,7 @@
 	dw ThiefDescription
 	dw ShellTrapDescription
 	dw LusterPurgeDescription
-	dw NightmareDescription
+	dw VenoshockDescription
 	dw FlameWheelDescription
 	dw SnoreDescription
 	dw CurseDescription
@@ -832,9 +832,9 @@ LockOnDescription:
 	db   "Ensures the next"
 	next "attack will hit.@"
 
-NightmareDescription:
-	db   "A sleeper loses"
-	next "1/4 HP every turn.@"
+VenoshockDescription:
+	db   "Damage doubles if"
+	next "foe is poisoned.@"
 
 SnoreDescription:
 	db   "An attack useable"

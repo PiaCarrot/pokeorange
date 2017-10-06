@@ -8,9 +8,11 @@ SkullBash:
 Spite:
 BeatUp:
 PainSplit:
+Nightmare:
 	endmove
 
 SpectralThief: ; TODO: implement EFFECT_SPECTRAL_THIEF
+Venoshock: ; TODO: implement EFFECT_VENOSHOCK
 Pound:
 KarateChop:
 MegaPunch:
@@ -1578,13 +1580,6 @@ MeanLook:
 	usedmovetext
 	doturn
 	arenatrap
-	endmove
-
-Nightmare:
-	checkobedience
-	usedmovetext
-	doturn
-	nightmare
 	endmove
 
 FlameWheel:

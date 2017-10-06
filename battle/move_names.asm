@@ -168,7 +168,7 @@
 	db "THIEF@"
 	db "SPIDER WEB@"
 	db "LUSTER PURGE@"
-	db "NIGHTMARE@"
+	db "VENOSHOCK@"
 	db "FLAME WHEEL@"
 	db "SNORE@"
 	db "CURSE@"

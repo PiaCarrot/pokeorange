@@ -170,7 +170,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_Thief
 	dw BattleAnim_ShellTrap
 	dw BattleAnim_LusterPurge
-	dw BattleAnim_Nightmare
+	dw BattleAnim_Venoshock
 	dw BattleAnim_FlameWheel
 	dw BattleAnim_Snore
 	dw BattleAnim_Curse
@@ -3136,6 +3136,7 @@ BattleAnim_Sludge: ; cab3b
 	anim_ret
 ; cab42
 
+BattleAnim_Venoshock: ; TODO: new Venoshock animation
 BattleAnim_Toxic: ; cab42
 	anim_1gfx ANIM_GFX_POISON
 	anim_bgeffect ANIM_BG_BLACK_HUES, $0, $8, $0
@@ -3305,17 +3306,6 @@ BattleAnim_Thief: ; cacb5
 	anim_wait 64
 	anim_ret
 ; cacd9
-
-BattleAnim_Nightmare: ; cad1b
-	anim_1gfx ANIM_GFX_ANGELS
-	anim_bgp $1b
-	anim_obp0 $f
-	anim_obj ANIM_OBJ_94, -16, 4,   5, 0, $0
-	anim_obj ANIM_OBJ_94, -16, 4,   5, 0, $a0
-	anim_sound 0, 1, SFX_NIGHTMARE
-	anim_wait 96
-	anim_ret
-; cad30
 
 BattleAnim_FlameWheel: ; cad30
 	anim_1gfx ANIM_GFX_FIRE
@@ -5271,3 +5261,14 @@ BattleAnim_SignalBeam: ; from Prism
 ;	anim_wait 4
 ;	anim_ret
 ;; ca897
+
+;BattleAnim_Nightmare: ; cad1b
+;	anim_1gfx ANIM_GFX_ANGELS
+;	anim_bgp $1b
+;	anim_obp0 $f
+;	anim_obj ANIM_OBJ_94, -16, 4,   5, 0, $0
+;	anim_obj ANIM_OBJ_94, -16, 4,   5, 0, $a0
+;	anim_sound 0, 1, SFX_NIGHTMARE
+;	anim_wait 96
+;	anim_ret
+;; cad30
