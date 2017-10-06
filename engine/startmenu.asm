@@ -626,10 +626,10 @@ PokemonActionSubmenu: ; 12a88
 	dbw MONMENU_FLY,        MonMenu_Fly ; Fly
 	dbw MONMENU_SURF,       MonMenu_Surf ; Surf
 	dbw MONMENU_STRENGTH,   MonMenu_Strength ; Strength
-	dbw MONMENU_ROCKSMASH,  MonMenu_RockSmash ; RockSmash
+	dbw MONMENU_ROCKSMASH,  MonMenu_RockSmash ; Rock Smash
 	dbw MONMENU_DIVE,       CancelPokemonAction ; TODO: Dive
 	dbw MONMENU_WATERFALL,  MonMenu_Waterfall ; Waterfall
-	dbw MONMENU_ROCK_CLIMB, CancelPokemonAction ; TODO: Rock Climb
+	dbw MONMENU_ROCK_CLIMB, MonMenu_RockClimb ; Rock Climb
 
 	dbw MONMENU_FLASH,      MonMenu_Flash ; Flash
 	dbw MONMENU_WHIRLPOOL,  MonMenu_Whirlpool ; Whirlpool
@@ -637,7 +637,7 @@ PokemonActionSubmenu: ; 12a88
 	dbw MONMENU_TELEPORT,   MonMenu_Teleport ; Teleport
 	dbw MONMENU_SOFTBOILED, MonMenu_Softboiled ; Softboiled
 	dbw MONMENU_HEADBUTT,   MonMenu_Headbutt ; Headbutt
-	dbw MONMENU_SWEETSCENT, MonMenu_SweetScent ; SweetScent
+	dbw MONMENU_SWEETSCENT, MonMenu_SweetScent ; Sweet Scent
 	dbw MONMENU_STATS,      OpenPartyStats
 	dbw MONMENU_SWITCH,     SwitchPartyMons
 	dbw MONMENU_ITEM,       GiveTakePartyMonItem
@@ -1142,137 +1142,92 @@ OpenPartyStats: ; 12e00
 ; 12e1b
 
 
-MonMenu_Cut: ; 12e1b
-	farcall CutFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
-; 12e30
-
-
 MonMenu_Fly: ; 12e30
 	farcall FlyFunction
 	ld a, [wFieldMoveSucceeded]
-	cp $2
-	jr z, .Fail
 	cp $0
 	jr z, .Error
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+	cp $2
+	jr z, _MonMenu_StandardFail
+	jr _MonMenu_StandardSuccess
 
 .Error:
 	ld a, $0
 	ret
 
-MonMenu_Flash: ; 12e55
-	farcall OWFlash
+MonMenu_Cut: ; 12e1b
+	farcall CutFunction
+_MonMenu_StandardCheck:
 	ld a, [wFieldMoveSucceeded]
 	cp $1
-	jr nz, .Fail
+	jr nz, _MonMenu_StandardFail
+_MonMenu_StandardSuccess:
 	ld b, $4
 	ld a, $2
 	ret
 
-.Fail:
+_MonMenu_StandardFail:
 	ld a, $3
 	ret
+; 12e30
+
+MonMenu_Flash: ; 12e55
+	farcall OWFlash
+	jr _MonMenu_StandardCheck
 ; 12e6a
 
 MonMenu_Strength: ; 12e6a
 	farcall StrengthFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+	jr _MonMenu_StandardCheck
 ; 12e7f
 
 MonMenu_Whirlpool: ; 12e7f
 	farcall WhirlpoolFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+	jr _MonMenu_StandardCheck
 ; 12e94
 
 MonMenu_Waterfall: ; 12e94
 	farcall WaterfallFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+	jr _MonMenu_StandardCheck
 ; 12ea9
+
+MonMenu_RockClimb:
+	farcall RockClimbFunction
+	jr _MonMenu_StandardCheck
+
+MonMenu_Dig: ; 12ed1
+	farcall DigFunction
+	jr _MonMenu_StandardCheck
+; 12ee6
+
+MonMenu_Headbutt: ; 12f26
+	farcall HeadbuttFunction
+	jr _MonMenu_StandardCheck
+; 12f3b
+
+MonMenu_RockSmash: ; 12f3b
+	farcall RockSmashFunction
+	jr _MonMenu_StandardCheck
+; 12f50
+
+MonMenu_SweetScent: ; 12f50
+	farcall SweetScentFromMenu
+	jr _MonMenu_StandardSuccess
+; 12f5b
 
 MonMenu_Teleport: ; 12ea9
 	farcall TeleportFunction
+_MonMenu_AlternateCheck:
 	ld a, [wFieldMoveSucceeded]
 	and a
-	jr z, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+	jr z, _MonMenu_StandardFail
+	jr _MonMenu_StandardSuccess
 ; 12ebd
 
 MonMenu_Surf: ; 12ebd
 	farcall SurfFunction
-	ld a, [wFieldMoveSucceeded]
-	and a
-	jr z, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
+	jr _MonMenu_AlternateCheck
 ; 12ed1
-
-MonMenu_Dig: ; 12ed1
-	farcall DigFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
-; 12ee6
 
 MonMenu_Softboiled: ; 12ee6
 	call .CheckMonHasEnoughHP
@@ -1318,41 +1273,6 @@ MonMenu_Softboiled: ; 12ee6
 	sbc [hl]
 	ret
 ; 12f26
-
-MonMenu_Headbutt: ; 12f26
-	farcall HeadbuttFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
-; 12f3b
-
-MonMenu_RockSmash: ; 12f3b
-	farcall RockSmashFunction
-	ld a, [wFieldMoveSucceeded]
-	cp $1
-	jr nz, .Fail
-	ld b, $4
-	ld a, $2
-	ret
-
-.Fail:
-	ld a, $3
-	ret
-; 12f50
-
-MonMenu_SweetScent: ; 12f50
-	farcall SweetScentFromMenu
-	ld b, $4
-	ld a, $2
-	ret
-; 12f5b
 
 ChooseMoveToDelete: ; 12f5b
 	ld hl, Options

@@ -187,6 +187,28 @@ UnknownText_0x1c0a05::
 	line "CUT!"
 	done
 
+_AskRockClimbText::
+	text "The wall is very"
+	line "rocky<...>"
+
+	para "Want to use"
+	line "ROCK CLIMB?"
+	done
+
+_UsedRockClimbText::
+	text_from_ram StringBuffer2
+	text " used"
+	line "ROCK CLIMB!"
+	prompt
+
+_CantRockClimbText::
+	text "The wall is very"
+	line "rocky<...>"
+
+	para "Will a #mon's"
+	line "move scale it?"
+	done
+
 UnknownText_0x1c0a1c::
 	text "<PLAYER> found"
 	line "@"

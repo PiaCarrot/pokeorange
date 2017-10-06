@@ -57,28 +57,34 @@ CheckFacingTileEvent:: ; 97c5f
 	jr c, .done
 
 	cp COLL_CUT_TREE
-	jr nz, .whirlpool
+	jr z, .cut
+	cp COLL_WHIRLPOOL
+	jr z, .whirlpool
+	cp COLL_WATERFALL
+	jr z, .waterfall
+	cp COLL_ROCK_CLIMB
+	jr z, .rock_climb
+	cp COLL_HEADBUTT_TREE
+	jr z, .headbutt
+	jr .surf
+
+.cut
 	farcall TryCutOW
 	jr .done
 
 .whirlpool
-	ld a, [EngineBuffer1]
-	cp COLL_WHIRLPOOL
-	jr nz, .waterfall
 	farcall TryWhirlpoolOW
 	jr .done
 
 .waterfall
-	ld a, [EngineBuffer1]
-	cp COLL_WATERFALL
-	jr nz, .headbutt
 	farcall TryWaterfallOW
 	jr .done
 
+.rock_climb
+	farcall TryRockClimbOW
+	jr .done
+
 .headbutt
-	ld a, [EngineBuffer1]
-	cp COLL_HEADBUTT_TREE
-	jr nz, .surf
 	farcall TryHeadbuttOW
 	jr c, .done
 	jr .noevent

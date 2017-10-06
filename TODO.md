@@ -38,7 +38,6 @@
 - EFFECT_HAIL for HAIL (similar to EFFECT_SANDSTORM; uses WEATHER_HAIL)
 - EFFECT_SHELL_TRAP for SHELL_TRAP (similar to EFFECT_COUNTER)
 - DIVE overworld effect
-- ROCK_CLIMB overworld effect
 
 
 ## Animations

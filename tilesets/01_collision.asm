@@ -41,7 +41,7 @@
 	tilecoll DIVE, DIVE, DIVE, DIVE
 	tilecoll DIVE, DIVE, DIVE, DIVE
 	tilecoll DIVE, DIVE, DIVE, DIVE
-	tilecoll FLOOR, FLOOR, WALL, ROCK_CLIMB
+	tilecoll FLOOR, FLOOR, ROCK_CLIMB, WALL
 	tilecoll DIVE, DIVE, DIVE, DIVE
 	tilecoll DIVE, DIVE, DIVE, DIVE
 	tilecoll DIVE, DIVE, DIVE, DIVE
