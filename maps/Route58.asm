@@ -7,8 +7,6 @@ Route58_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 Route58SalesmanScript:
 	opentext
 	writetext LastMinuteSuppliesText

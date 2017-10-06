@@ -8,6 +8,7 @@ StdScripts::
 	dba TownMapScript
 	dba WindowScript
 	dba TVScript
+	dba RadioScript
 	dba TrashCanScript
 	dba StrengthBoulderScript
 	dba SmashRockScript
@@ -157,16 +158,22 @@ WindowScript:
 	farjumptext WindowText
 
 TVScript:
-	opentext
-	farwritetext TVText
-	waitbutton
-	closetext
-	end
+	checkcode VAR_FACING
+	if_not_equal UP, WrongSideScript
+	farjumptext TVText
+
+WrongSideScript:
+	farjumptext WrongSideText
+
+RadioScript:
+	farjumptext RadioText
 
 TrashCanScript: ; 0xbc1a5
 	farjumptext TrashCanText
 
 PCScript:
+	checkcode VAR_FACING
+	if_not_equal UP, WrongSideScript
 	opentext
 	special PokemonCenterPC
 	closetext

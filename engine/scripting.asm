@@ -222,6 +222,8 @@ ScriptCommandTable: ; 96cb1
 	dw Script_name
 	dw Script_wait
 	dw Script_check_save
+	dw Script_divemap
+	dw Script_divewarp
 ; 96e05
 
 StartScript: ; 96e05
@@ -2638,3 +2640,27 @@ Script_check_save: ; 97c15
 	ld [ScriptVar], a
 	ret
 ; 97c20
+
+Script_divemap:
+; parameters:
+;     map_group (MapGroupParam)
+;     map_id (MapIdParam)
+	call GetScriptByte
+	ld [DiveMapGroup], a
+	call GetScriptByte
+	ld [DiveMapNumber], a
+	ret
+
+Script_divewarp:
+	ld a, [DiveMapGroup]
+	ld [MapGroup], a
+	ld a, [DiveMapNumber]
+	ld [MapNumber], a
+	; do not modify XCoord and YCoord
+	ld a, -1
+	ld [wd001], a
+	ld a, MAPSETUP_WARP
+	ld [hMapEntryMethod], a
+	ld a, 1
+	call LoadMapStatus
+	jp StopScript

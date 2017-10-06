@@ -9,3 +9,9 @@ INCBIN "tilesets/26_metatiles.bin"
 Tileset26Coll: ; 0x1dd5a9
 INCLUDE "tilesets/26_collision.asm"
 ; 0x1dd6a9
+
+Tileset30Meta: ; 0x1ee1c
+INCBIN "tilesets/30_metatiles.bin"
+
+Tileset30Coll: ; 0x1f21c
+INCLUDE "tilesets/30_collision.asm"

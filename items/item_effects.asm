@@ -2444,17 +2444,12 @@ Mysteryberry: ; f5bf
 	cp PP_UP
 	jp nz, Not_PP_Up
 
-	ld a, [hl]
-	cp SKETCH
-	jr z, .CantUsePPUpOnSketch
-
 	ld bc, $0015
 	add hl, bc
 	ld a, [hl]
 	cp 3 << 6 ; have 3 PP Ups already been used?
 	jr c, .do_ppup
 
-.CantUsePPUpOnSketch:
 .pp_is_maxed_out
 	ld hl, TextJump_PPIsMaxedOut
 	call PrintText
@@ -2673,28 +2668,27 @@ SacredAsh: ; f753
 
 
 PinkanBerry:
-
-    ; Choose a Pokémon to use it on
-    ld b, PARTYMENUACTION_HEALING_ITEM
-    call UseItem_SelectMon
-    ; Exit early if the player canceled
-    jp c, PinkanBerry_ExitMenu
+; Choose a Pokémon to use it on
+	ld b, PARTYMENUACTION_HEALING_ITEM
+	call UseItem_SelectMon
+; Exit early if the player canceled
+	jr c, PinkanBerry_ExitMenu
 
 ; Pinkan Berry has no effect on native mons
-    ld a, MON_CAUGHTLOCATION
-    call GetPartyParamLocation
-    ld a, [hl]
-    and %01111111
-    cp PINKAN_ISLAND
-    jp z, NoEffectMessage
+	ld a, MON_CAUGHTLOCATION
+	call GetPartyParamLocation
+	ld a, [hl]
+	and %01111111
+	cp PINKAN_ISLAND
+	jp z, NoEffectMessage
 
-    ; Get the chosen Pokémon's current status
-    ld a, MON_STATUS
-    call GetPartyParamLocation
-    ; If it's already pink, no effect
-    ld a, [hl]
-    and (1 << PNK)
-    jp nz, NoEffectMessage
+; Get the chosen Pokémon's current status
+	ld a, MON_STATUS
+	call GetPartyParamLocation
+; If it's already pink, no effect
+	ld a, [hl]
+	and (1 << PNK)
+	jp nz, NoEffectMessage
 
 ; Make it pink
 	ld a, (1 << PNK)
@@ -2710,25 +2704,20 @@ PinkanBerry:
 ; Play a sound effect
 	call Play_SFX_FULL_HEAL
 
-    ; Describe the effect
-    ; TODO:
-    ; • add PARTYMENUTEXT_MAKE_PINK after the other PARTYMENUTEXT consts in constants/item_constants.asm
-    ; • add your text to .MenuActionTexts in engine.party_menu.asm
-    ld a, PARTYMENUTEXT_MAKE_PINK
-    ld [PartyMenuActionText], a
-    call ItemActionTextWaitButton
-    ; Use up the Pinkan Berry
-    call UseDisposableItem
-    call ClearPalettes
-    ret
+; Describe the effect
+	ld a, PARTYMENUTEXT_MAKE_PINK
+	ld [PartyMenuActionText], a
+	call ItemActionTextWaitButton
+; Use up the Pinkan Berry
+	call UseDisposableItem
+	jp ClearPalettes
 
 PinkanBerry_ExitMenu:
-    ; wItemEffectSucceeded of 0 means it was canceled
-    ; it's set to 1 by default before calling PinkanBerry
-    xor a
-    ld [wItemEffectSucceeded], a
-    call ClearPalettes
-    ret
+; wItemEffectSucceeded of 0 means it was canceled
+; it's set to 1 by default before calling PinkanBerry
+	xor a
+	ld [wItemEffectSucceeded], a
+	jp ClearPalettes
 
 Brightpowder:
 LuckyPunch:

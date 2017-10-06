@@ -4,8 +4,6 @@ MoroIslandMuseum_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 MoroTrophyScript:
 	jumptext MoroTrophyText
 

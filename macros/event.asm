@@ -977,3 +977,14 @@ wait: macro
 check_save: macro
 	db check_save_command
 	endm
+
+	enum divemap_command
+divemap: macro
+	db divemap_command
+	map \1 ; map
+	endm
+
+	enum divewarp_command
+divewarp: macro
+	db divewarp_command
+	endm

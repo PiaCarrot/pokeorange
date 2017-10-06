@@ -2420,7 +2420,12 @@ BackupMapGroup:: ; dcae
 BackupMapNumber:: ; dcaf
 	ds 1
 
-	ds 3
+DiveMapGroup::
+	ds 1
+DiveMapNumber::
+	ds 1
+
+	ds 1
 
 wLastSpawnMapGroup:: ds 1
 wLastSpawnMapNumber:: ds 1

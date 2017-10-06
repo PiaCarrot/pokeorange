@@ -1,0 +1,63 @@
+- TM01 *Fissure*
+- TM02 Headbutt
+- TM03 *Hail*
+- TM04 *Bullet Seed*
+- TM05 *Fairy Wind*
+- TM06 Toxic
+- TM07 Zap Cannon
+- TM08 *Flash*
+- TM09 *Water Gun*
+- TM10 *DazzlinGleam*
+- TM11 Sunny Day
+- TM12 *Water Pulse*
+- TM13 *Whirlpool*
+- TM14 Blizzard
+- TM15 Hyper Beam
+- TM16 Icy Wind
+- TM17 Protect
+- TM18 Rain Dance
+- TM19 Giga Drain
+- TM20 Endure
+- TM21 Frustration
+- TM22 Solarbeam
+- TM23 Iron Tail
+- TM24 Dragonbreath
+- TM25 Thunder
+- TM26 Earthquake
+- TM27 Return
+- TM28 Dig
+- TM29 Psychic
+- TM30 Shadow Ball
+- TM31 *Flamethrower*
+- TM32 *BubbleBeam*
+- TM33 Ice Punch
+- TM34 Swagger
+- TM35 Sleep Talk
+- TM36 Sludge Bomb
+- TM37 Sandstorm
+- TM38 Fire Blast
+- TM39 Swift
+- TM40 *Ice Beam*
+- TM41 ThunderPunch
+- TM42 *Dragon Pulse*
+- TM43 *PowerUpPunch*
+- TM44 Rest
+- TM45 Attract
+- TM46 Thief
+- TM47 Steel Wing
+- TM48 Fire Punch
+- TM49 *Aerial Ace*
+- TM50 *Signal Beam*
+
+- HM01 Cut
+- HM02 Fly
+- HM03 Surf
+- HM04 Strength
+- HM05 *Rock Smash*
+- HM06 *Dive*
+- HM07 Waterfall
+- HM08 *Rock Climb*
+
+- MT01 *Comet Punch*
+- MT02 *Double Team*
+- MT03 *Mach Punch*

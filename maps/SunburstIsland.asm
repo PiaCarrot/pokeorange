@@ -19,8 +19,6 @@ SunburstIsland_MapScriptHeader::
 	setflag ENGINE_FLYPOINT_SUNBURST
 	return
 
-.Scripts:
-
 SunburstSleepingManScript:
 	opentext
 	writetext SunburstSleepingManText
