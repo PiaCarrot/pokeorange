@@ -779,6 +779,8 @@ LoadMapPals:
 	ld a, $5 ; BANK(UnknOBPals)
 	call FarCopyWRAM
 
+	farcall LoadSpecialMapOBPalette
+
 	ld a, [wPermission]
 	cp TOWN
 	jr z, .outside

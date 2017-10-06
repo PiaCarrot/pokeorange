@@ -89,6 +89,30 @@ INCLUDE "tilesets/underwater.pal"
 GoldenIslandPalette:
 INCLUDE "tilesets/golden_island.pal"
 
+
+LoadSpecialMapOBPalette:
+	ld a, [wTileset]
+
+	ld hl, UnderwaterOBPalette
+	cp TILESET_UNDERWATER
+	jr z, LoadEightOBPalettes
+
+.do_nothing
+	and a
+	ret
+
+LoadEightOBPalettes:
+	ld a, $5
+	ld de, UnknOBPals
+	ld bc, 8 palettes
+	call FarCopyWRAM
+	scf
+	ret
+
+UnderwaterOBPalette:
+INCLUDE "tilesets/ob_underwater.pal"
+
+
 LoadOW_BGPal7:: ; 49409
 	ld hl, Palette_TextBG7
 	ld de, UnknBGPals + 8 * 7
@@ -103,7 +127,6 @@ Palette_TextBG7: ; 49418
 	RGB 05, 05, 16
 	RGB 00, 00, 00
 ; 49420
-
 
 
 LoadTradeRoomBGPals: ; 49811
