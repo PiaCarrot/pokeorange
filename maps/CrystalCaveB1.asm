@@ -9,8 +9,6 @@ CrystalCaveB1_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 CrystalCaveB1BrockScript:
 	faceplayer
 	opentext

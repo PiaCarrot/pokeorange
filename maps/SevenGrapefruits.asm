@@ -17,8 +17,6 @@ SevenGrapefruits_MapScriptHeader::
 	divemap SEVEN_GRAPEFRUITS_UNDERWATER
 	return
 
-.Scripts:
-
 GrapefruitWarehouseSign:
 	jumptext GrapefruitWarehouseSignText
 

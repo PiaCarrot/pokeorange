@@ -13,8 +13,6 @@ UnnamedIsland1_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 UnnamedIsland1Rock:
 	jumpstd smashrock
 

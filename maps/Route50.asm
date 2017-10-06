@@ -13,8 +13,6 @@ Route50_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 TrainerYoungsterJoey:
 	trainer EVENT_BEAT_YOUNGSTER_KOJI, YOUNGSTER, KOJI, YoungsterKojiSeenText, YoungsterKojiBeatenText, 0, .Script
 

@@ -4,8 +4,6 @@ KinnowSkateShop_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 SkateShopClerkScript:
 	faceplayer
 	opentext

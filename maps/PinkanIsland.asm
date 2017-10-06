@@ -13,8 +13,6 @@ PinkanIsland_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 TrainerManiacShawn:
 	trainer EVENT_BEAT_POKEMANIAC_SHAWN, POKEMANIAC, SHAWN, ManiacShawnSeenText, ManiacShawnBeatenText, 0, .Script
 

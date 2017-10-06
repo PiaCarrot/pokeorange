@@ -13,8 +13,6 @@ Route56West_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 Route56Sign:
 	jumptext Route56SignText
 

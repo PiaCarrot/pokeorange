@@ -4,8 +4,6 @@ MtNavelIceRock_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 NavelIceRock:
 	jumptext NavelIceRockText
 

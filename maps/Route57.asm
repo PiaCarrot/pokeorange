@@ -10,8 +10,6 @@ Route57_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 Route57SwimmerGirlScript:
 	jumptextfaceplayer R57SwimmerGirlText
 

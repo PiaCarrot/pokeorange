@@ -4,8 +4,6 @@ MtNavel1F_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 MtNavel1FBoulder:
 	jumpstd strengthboulder
 

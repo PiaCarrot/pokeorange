@@ -8,8 +8,6 @@ Route59_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 Route59Sign:
 	jumptext Route59SignText
 	

@@ -4,8 +4,6 @@ KinnowIsland_MapScriptHeader::
 
 .Callbacks: db 0
 
-.Scripts:
-
 KinnowPokeFanMScript:
 	jumptextfaceplayer KinnowPokeFanMText
 
