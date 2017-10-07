@@ -227,7 +227,7 @@ ENDM
 	move SLEEP_TALK,   EFFECT_SLEEP_TALK,          0, NORMAL,   100, 10,   0
 	move HEAL_BELL,    EFFECT_HEAL_BELL,           0, NORMAL,   100,  5,   0
 	move RETURN,       EFFECT_RETURN,              1, NORMAL,   100, 20,   0
-	move ASTONISH,     EFFECT_ASTONISH,           30, GHOST,    100, 15,  30
+	move ASTONISH,     EFFECT_FLINCH_HIT,         30, GHOST,    100, 15,  30
 	move FRUSTRATION,  EFFECT_FRUSTRATION,         1, NORMAL,   100, 20,   0
 	move SAFEGUARD,    EFFECT_SAFEGUARD,           0, NORMAL,   100, 25,   0
 	move SPECTRATHIEF, EFFECT_SPECTRAL_THIEF,     90, GHOST,    100, 10,   0

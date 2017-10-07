@@ -1019,13 +1019,13 @@ PoisonMultiHit:
 	poisontarget
 	endmove
 
-Astonish: ; TODO: implement EFFECT_ASTONISH
 RollingKick:
 Headbutt:
 Bite:
 LowKick:
 RockSlide:
 HyperFang:
+Astonish:
 FlinchHit:
 	checkobedience
 	usedmovetext
