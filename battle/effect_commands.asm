@@ -7015,6 +7015,10 @@ BattleCommand_Charge: ; 36b4d
 
 	cp DIG
 	ld hl, .Dig
+	jr z, .done
+
+	cp DIVE
+	ld hl, .Dive
 
 .done
 	ret
@@ -7037,6 +7041,11 @@ BattleCommand_Charge: ; 36b4d
 .Dig:
 ; 'dug a hole!'
 	text_jump UnknownText_0x1c0d6c
+	db "@"
+
+.Dive:
+; 'hid underwater!'
+	text_jump HidUnderwaterText
 	db "@"
 ; 36c2c
 
