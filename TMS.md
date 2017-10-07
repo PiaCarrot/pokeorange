@@ -62,3 +62,4 @@
 - MT02 *Double Team*
 - MT03 *Mach Punch*
 - MT04 *Bug Bite*
+- MT05 *Venoshock*

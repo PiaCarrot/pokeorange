@@ -220,6 +220,7 @@ NUM_HMS = const_value - HM01
 	add_mt DOUBLE_TEAM
 	add_mt MACH_PUNCH
 	add_mt BUG_BITE
+	add_mt VENOSHOCK
 
 ITEM_FROM_MEM EQU $ff
 
