@@ -32,8 +32,8 @@
 
 ## Moves
 
-- EFFECT_BUG_BITE
-- EFFECT_SPECTRAL_THIEF (similar to EFFECT_PSYCH_UP)
+- `BattleCommand_StealBoostedStats` command for Spectral Thief
+- `BugBite` effect for Bug Bite
 
 
 ## Animations
@@ -51,5 +51,7 @@
 - Rock Climb
 - Shadow Sneak
 - Shell Trap
+- Spectral Thief (steal boosted stats)
+- Spectral Thief (attack)
 - Venoshock
 - Water Pulse

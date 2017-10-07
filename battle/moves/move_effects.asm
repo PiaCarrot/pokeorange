@@ -1,19 +1,3 @@
-; removed effects
-Bide:
-Present:
-PsychUp:
-RazorWind:
-Sketch:
-SkullBash:
-Spite:
-BeatUp:
-PainSplit:
-Nightmare:
-FuryCutter:
-	endmove
-
-SpectralThief: ; TODO: implement EFFECT_SPECTRAL_THIEF
-BugBite: ; TODO: implement EFFECT_BUG_BITE
 Pound:
 KarateChop:
 MegaPunch:
@@ -54,6 +38,7 @@ Dazzlingleam:
 ShadowSneak:
 Psystrike:
 ShellTrap:
+BugBite: ; TODO: implement EFFECT_BUG_BITE
 NormalHit:
 	checkobedience
 	usedmovetext
@@ -2164,4 +2149,25 @@ DefenseCurl:
 	raisesub
 	statupmessage
 	statupfailtext
+	endmove
+
+SpectralThief:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	critical
+	stealboostedstats
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	hittarget
+	failuretext
+	checkfaint
+	criticaltext
+	supereffectivetext
+	checkdestinybond
+	buildopponentrage
+	kingsrock
 	endmove

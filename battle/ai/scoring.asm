@@ -380,7 +380,6 @@ AI_Smart: ; 386be
 	dbw EFFECT_RAIN_DANCE,       AI_Smart_RainDance
 	dbw EFFECT_SUNNY_DAY,        AI_Smart_SunnyDay
 	dbw EFFECT_BELLY_DRUM,       AI_Smart_BellyDrum
-	dbw EFFECT_PSYCH_UP,         AI_Smart_PsychUp
 	dbw EFFECT_MIRROR_COAT,      AI_Smart_MirrorCoat
 	dbw EFFECT_TWISTER,          AI_Smart_Twister
 	dbw EFFECT_EARTHQUAKE,       AI_Smart_Earthquake
@@ -2572,64 +2571,6 @@ AI_Smart_BellyDrum: ; 3913d
 	ld [hl], a
 	ret
 ; 39152
-
-
-AI_Smart_PsychUp: ; 39152
-	push hl
-	ld hl, EnemyAtkLevel
-	lb bc, $8, 100
-
-; Calculate the sum of all enemy's stat level modifiers. Add 100 first to prevent underflow.
-; Put the result in c. c will range between 58 and 142.
-.asm_3915a
-	ld a, [hli]
-	sub $7
-	add c
-	ld c, a
-	dec b
-	jr nz, .asm_3915a
-
-; Calculate the sum of all player's stat level modifiers. Add 100 first to prevent underflow.
-; Put the result in d. d will range between 58 and 142.
-	ld hl, PlayerAtkLevel
-	ld b, $8
-	ld d, 100
-
-.asm_39169
-	ld a, [hli]
-	sub $7
-	add d
-	ld d, a
-	dec b
-	jr nz, .asm_39169
-
-; Greatly discourage this move if enemy's stat levels are higher than player's (if c>=d).
-	ld a, c
-	sub d
-	pop hl
-	jr nc, .asm_39188
-
-; Else, 80% chance to encourage this move unless player's accuracy level is lower than -1...
-	ld a, [PlayerAccLevel]
-	cp $6
-	ret c
-
-; ...or enemy's evasion level is higher than +0.
-	ld a, [EnemyEvaLevel]
-	cp $8
-	ret nc
-
-	call AI_80_20
-	ret c
-
-	dec [hl]
-	ret
-
-.asm_39188
-	inc [hl]
-	inc [hl]
-	ret
-; 3918b
 
 
 AI_Smart_MirrorCoat: ; 3918b

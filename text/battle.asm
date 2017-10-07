@@ -1223,9 +1223,15 @@ PkmnSetAShellTrapText:
 	line "set a shell trap!"
 	prompt
 
-EnemySetAShellTrapText
+EnemySetAShellTrapText:
 	text "Enemy @"
 	text_from_ram EnemyMonNick
 	text ""
 	line "set a shell trap!"
+	prompt
+
+StoleBoostedStatsText:
+	text "<USER> stole"
+	line "<TARGET>'s"
+	cont "boosted stats!"
 	prompt

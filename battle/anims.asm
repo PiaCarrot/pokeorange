@@ -280,6 +280,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_Shake
 	dw BattleAnim_HitConfusion
 	dw BattleAnim_InHail
+	dw BattleAnim_StealBoostedStats
 ; c929b
 
 BattleAnim_0: ; c929b
@@ -3525,6 +3526,7 @@ BattleAnim_ScaryFace: ; caf73
 ; caf84
 
 BattleAnim_ShadowSneak: ; TODO: new Shadow Sneak animation
+BattleAnim_SpectraThief: ; TODO: new Spectral Thief animation
 BattleAnim_FaintAttack: ; caf84
 	anim_1gfx ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_CURSE
@@ -4084,7 +4086,7 @@ BattleAnim_Safeguard: ; cb4f9
 ; cb51e
 
 ;BattleAnim_PainSplit: ; cb51e
-BattleAnim_SpectraThief:
+BattleAnim_StealBoostedStats: ; TODO: new Spectral Thief steal animation
 	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_OBJECTS
 	anim_call BattleAnim_FollowPlayerHead_0
 	anim_bgeffect ANIM_BG_25, $0, $1, $0

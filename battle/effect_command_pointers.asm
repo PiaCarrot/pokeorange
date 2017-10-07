@@ -168,7 +168,7 @@ BattleCommandPointers: ; 3fd28
 	dw BattleCommand_DoublePoisonDamage ; 35165
 	dw BattleCommand_RaiseSubNoAnim ; 365af
 	dw BattleCommand_LowerSubNoAnim ; 365c3
-	dw BattleCommanda8 ; 355b5
+	dw BattleCommand_StealBoostedStats ; 355b5
 	dw BattleCommand_ClearMissDamage ; 355d5 - a9
 	dw BattleCommand_MoveDelay ; 37e80
 	dw BattleCommand_HitTarget ; 34f57
