@@ -54,6 +54,7 @@ FairyWind:
 Dazzlingleam:
 ShadowSneak:
 Psystrike:
+ShellTrap:
 NormalHit:
 	checkobedience
 	usedmovetext
@@ -1437,7 +1438,6 @@ Reversal:
 	kingsrock
 	endmove
 
-ShellTrap: ; TODO: implement EFFECT_SHELL_TRAP
 Counter:
 	checkobedience
 	usedmovetext

@@ -1705,6 +1705,9 @@ BattleCommand_CheckHit: ; 34d32
 	call .DrainSub
 	jp z, .Miss
 
+	call .ShellTrap
+	jp z, .Miss
+
 	call .LockOn
 	ret nz
 
@@ -1928,6 +1931,41 @@ BattleCommand_CheckHit: ; 34d32
 	ld a, BATTLE_VARS_SUBSTATUS4
 	call GetBattleVar
 	bit SUBSTATUS_X_ACCURACY, a
+	ret
+
+
+.ShellTrap:
+; Return z if the current move is Shell Trap and the user was not first hit
+; by a physical move.
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_SHELL_TRAP
+	ret nz
+
+	call CheckOpponentWentFirst
+	jr z, .shell_trap_fail
+
+	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
+	call GetBattleVar
+	dec a
+	ld de, StringBuffer1
+	call GetMoveData
+
+	ld a, [StringBuffer1 + 2]
+	and a
+	jr z, .shell_trap_fail
+
+	ld a, [StringBuffer1 + 3]
+	cp SPECIAL
+	jr nc, .shell_trap_fail
+
+	ld a, 1
+	and a
+	ret
+
+.shell_trap_fail
+	xor a
+	and a
 	ret
 
 
@@ -2445,6 +2483,8 @@ GetFailureResultText: ; 350e4
 	cp EFFECT_FUTURE_SIGHT
 	ld hl, ButItFailedText
 	ld de, ItFailedText
+	jr z, .got_text
+	cp EFFECT_SHELL_TRAP
 	jr z, .got_text
 	ld hl, AttackMissedText
 	ld de, AttackMissed2Text

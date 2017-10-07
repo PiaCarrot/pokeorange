@@ -568,7 +568,7 @@ IgnoredOrdersText: ; 0x80f66
 IgnoredSleepingText: ; 0x80f7b
 	text_from_ram BattleMonNick
 	text " ignored"
-	line "orders<...>sleeping!"
+	line "orders<...> sleeping!"
 	prompt
 ; 0x80f99
 
