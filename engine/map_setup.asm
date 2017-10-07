@@ -328,6 +328,8 @@ CheckReplaceKrisSprite: ; 154f7
 	jr c, .ok
 	call .CheckSurfing
 	jr c, .ok
+	call .CheckDiving
+	jr c, .ok
 	call .CheckSurfing2
 	jr c, .ok
 	ret
@@ -392,6 +394,18 @@ CheckReplaceKrisSprite: ; 154f7
 	ret
 .ret_nc
 	and a
+	ret
+
+.CheckDiving:
+	ld a, [wTileset]
+	cp TILESET_UNDERWATER
+	jr z, ._diving
+	and a
+	ret
+._diving
+	ld a, PLAYER_DIVE
+	ld [PlayerState], a
+	scf
 	ret
 ; 15567
 

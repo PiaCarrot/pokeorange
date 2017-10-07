@@ -67,7 +67,7 @@ ENDM
 	move MIST,         EFFECT_MIST,                0, ICE,      100, 30,   0
 	move WATER_GUN,    EFFECT_NORMAL_HIT,         40, WATER,    100, 25,   0
 	move HYDRO_PUMP,   EFFECT_NORMAL_HIT,        120, WATER,     80,  5,   0
-	move SURF,         EFFECT_NORMAL_HIT,         65, WATER,    100, 15,   0
+	move SURF,         EFFECT_SURF,               65, WATER,    100, 15,   0
 	move ICE_BEAM,     EFFECT_FREEZE_HIT,         95, ICE,      100, 10,  10
 	move BLIZZARD,     EFFECT_FREEZE_HIT,        120, ICE,       70,  5,  10
 	move PSYBEAM,      EFFECT_CONFUSE_HIT,        65, PSYCHIC,  100, 20,  10
@@ -260,7 +260,7 @@ ENDM
 	move SHADOW_BALL,  EFFECT_SP_DEF_DOWN_HIT,    80, GHOST,    100, 15,  20
 	move FUTURE_SIGHT, EFFECT_FUTURE_SIGHT,       80, PSYCHIC,   90, 15,   0
 	move ROCK_SMASH,   EFFECT_DEFENSE_DOWN_HIT,   20, FIGHTING, 100, 15,  50
-	move WHIRLPOOL,    EFFECT_BIND,               15, WATER,     70, 15,   0
+	move WHIRLPOOL,    EFFECT_WHIRLPOOL,          15, WATER,     70, 15,   0
 	move PSYSTRIKE,    EFFECT_PSYSTRIKE,         100, PSYCHIC,  100, 10,   0
 	move MOONBLAST,    EFFECT_SP_ATK_DOWN_HIT,    95, FAIRY,    100, 15,  30
 	move FAIRY_WIND,   EFFECT_NORMAL_HIT,         40, FAIRY,    100, 30,   0

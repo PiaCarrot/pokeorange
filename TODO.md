@@ -1,9 +1,9 @@
 # To Do
 
 - Revise learnsets and TM sets after replacing moves
-- Add clouds to title screen
+- Diving sprites
 - Wrecked Ship tileset
-- Player state and sprite for Diving
+- Add clouds to title screen
 
 
 ## Pokemon

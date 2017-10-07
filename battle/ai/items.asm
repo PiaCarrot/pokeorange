@@ -218,9 +218,6 @@ AI_TryItem: ; 38105
 	inc a
 	ld [wEnemyGoesFirst], a
 
-	ld hl, EnemySubStatus3
-	res SUBSTATUS_BIDE, [hl]
-
 	xor a
 	ld [EnemyProtectCount], a
 	ld [wEnemyRageCounter], a

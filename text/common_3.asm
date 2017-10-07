@@ -416,6 +416,11 @@ UnknownText_0x1c0d6c::
 	line "dug a hole!"
 	prompt
 
+HidUnderwaterText::
+	text ""
+	line "hid underwater!"
+	prompt
+
 UnknownText_0x1c0db0::
 	text "Huh?"
 	para "@@"

@@ -405,7 +405,7 @@ AttackMissed:: ; c667
 PlayerSubStatus1:: ; c668
 ; bit
 ; 7 attract
-; 6 encore
+; 6 rollout
 ; 5 endure
 ; 4 perish song
 ; 3 identified
@@ -431,9 +431,9 @@ PlayerSubStatus3:: ; c66a
 ; 5 underground
 ; 4 charged
 ; 3 flinch
-; 2
+; 2 in command loop
 ; 1 rollout
-; 0 bide
+; 0 underwater
 	ds 1
 PlayerSubStatus4:: ; c66b
 ; bit
@@ -444,7 +444,7 @@ PlayerSubStatus4:: ; c66b
 ; 3
 ; 2 focus energy
 ; 1 mist
-; 0 bide: unleashed energy
+; 0 x accuracy
 	ds 1
 PlayerSubStatus5:: ; c66c
 ; bit
