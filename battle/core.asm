@@ -175,9 +175,13 @@ BattleTurn: ; 3c12f
 
 	call DetermineMoveOrder
 	jr c, .false
+	call EnemySetAShellTrap
+	call PlayerSetAShellTrap
 	call Battle_EnemyFirst
 	jr .proceed
 .false
+	call PlayerSetAShellTrap
+	call EnemySetAShellTrap
 	call Battle_PlayerFirst
 .proceed
 	ld a, [wForcedSwitch]
@@ -2332,6 +2336,7 @@ EnemyPartyMonEntrance: ; 3cf78
 	call SetEnemyTurn
 	call SpikesDamage
 	xor a
+	ld [CurEnemyMove], a
 	ld [wEnemyMoveStruct + MOVE_ANIM], a
 	ld [wPlayerAction], a
 	inc a
@@ -8726,3 +8731,20 @@ BattleStartMessage: ; 3fc8b
 	pop hl
 	jp StdBattleTextBox
 ; 3fd26
+
+PlayerSetAShellTrap:
+	ld a, [wPlayerAction]
+	and a
+	ret nz
+	ld a, [CurPlayerMove]
+	cp SHELL_TRAP
+	ret nz
+	ld hl, PkmnSetAShellTrapText
+	jp StdBattleTextBox
+
+EnemySetAShellTrap:
+	ld a, [CurEnemyMove]
+	cp SHELL_TRAP
+	ret nz
+	ld hl, EnemySetAShellTrapText
+	jp StdBattleTextBox

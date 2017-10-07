@@ -1216,3 +1216,16 @@ UsedMoveInsteadText:
 	text ""
 	cont "instead!"
 	done
+
+PkmnSetAShellTrapText:
+	text_from_ram BattleMonNick
+	text ""
+	line "set a shell trap!"
+	prompt
+
+EnemySetAShellTrapText
+	text "Enemy @"
+	text_from_ram EnemyMonNick
+	text ""
+	line "set a shell trap!"
+	prompt
