@@ -2545,19 +2545,6 @@ FailText_CheckOpponentProtect: ; 35157
 ; 35165
 
 
-BattleCommanda5: ; 35165
-	ld a, [AttackMissed]
-	and a
-	ret z
-
-	ld a, [TypeModifier]
-	and $7f
-	jp z, PrintDoesntAffect
-	jp PrintButItFailed
-
-; 35175
-
-
 BattleCommand_CriticalText: ; 35175
 ; criticaltext
 ; Prints the message for critical hits or one-hit KOs.
@@ -7634,6 +7621,17 @@ BattleCommand_Rage: ; 36f1d
 	ret
 
 ; 36f25
+
+
+BattleCommand_DoublePoisonDamage: ; 35165
+; doublepoisondamage
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVar
+	bit PSN, a
+	ret z
+	jr DoubleDamage
+
+; 35175
 
 
 BattleCommand_DoubleFlyingDamage: ; 36f25

@@ -13,7 +13,6 @@ FuryCutter:
 	endmove
 
 SpectralThief: ; TODO: implement EFFECT_SPECTRAL_THIEF
-Venoshock: ; TODO: implement EFFECT_VENOSHOCK
 BugBite: ; TODO: implement EFFECT_BUG_BITE
 Pound:
 KarateChop:
@@ -2020,6 +2019,27 @@ Surf:
 	supereffectivetext
 	checkdestinybond
 	buildopponentrage
+	endmove
+
+Venoshock:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	doublepoisondamage
+	checkhit
+	hittarget
+	failuretext
+	checkfaint
+	criticaltext
+	supereffectivetext
+	checkdestinybond
+	buildopponentrage
+	kingsrock
 	endmove
 
 FutureSight:
