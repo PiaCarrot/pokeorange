@@ -1662,12 +1662,18 @@ PerishSong:
 	perishsong
 	endmove
 
-Hail: ; TODO: implement EFFECT_HAIL
 Sandstorm:
 	checkobedience
 	usedmovetext
 	doturn
 	startsandstorm
+	endmove
+
+Hail:
+	checkobedience
+	usedmovetext
+	doturn
+	starthail
 	endmove
 
 Endure:

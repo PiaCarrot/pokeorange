@@ -64,8 +64,7 @@ INCLUDE "tilesets/23_palette_map.asm"
 ; 0x4c775
 
 Tileset24PalMap: ; 0x4c775
-Tileset30PalMap: ; 0x4c775
-INCLUDE "tilesets/30_palette_map.asm"
+INCLUDE "tilesets/24_palette_map.asm"
 ; 0x4c7e5
 
 Tileset25PalMap: ; 0x4c7e5
@@ -119,3 +118,6 @@ INCLUDE "tilesets/22_palette_map.asm"
 Tileset04PalMap: ; 0x4cd95
 INCLUDE "tilesets/04_palette_map.asm"
 ; 0x4ce05
+
+Tileset30PalMap: ; 0x4c775
+INCLUDE "tilesets/30_palette_map.asm"

@@ -93,7 +93,7 @@ BattleCommandPointers: ; 3fd28
 	dw BattleCommand_Endure ; 3766f
 	dw BattleCommand_CheckCurl ; 37718
 	dw BattleCommand_RolloutPower ; 37734
-	dw BattleCommand5d ; 37791
+	dw BattleCommand_StartHail ; 37791
 	dw BattleCommand_FuryCutter ; 37792
 	dw BattleCommand_Attract ; 377ce
 	dw BattleCommand_HappinessPower ; 3784b

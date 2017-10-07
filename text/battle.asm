@@ -82,6 +82,11 @@ SandstormHitsText: ; 0x8084d
 	prompt
 ; 0x80864
 
+HailHitsText:
+	text "The HAIL hits"
+	line "<USER>!"
+	prompt
+
 PerishCountText: ; 0x80864
 	text "<USER>'s"
 	line "PERISH count is @"
@@ -1087,6 +1092,11 @@ SandstormBrewedText: ; 0x816e4
 	line "brewed!"
 	prompt
 ; 0x816f9
+
+ItStartedToHailText:
+	text "It started to"
+	line "HAIL!"
+	prompt
 
 BracedItselfText: ; 0x816f9
 	text "<USER>"

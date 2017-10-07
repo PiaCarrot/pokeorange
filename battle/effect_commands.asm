@@ -7123,13 +7123,6 @@ BattleCommand_Charge: ; 36b4d
 ; 36c2c
 
 
-BattleCommand5d: ; 37791
-; unused
-	ret
-
-; 36c2d
-
-
 BattleCommand_TrapTarget: ; 36c2d
 ; traptarget
 
