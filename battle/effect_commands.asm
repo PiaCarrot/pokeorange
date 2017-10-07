@@ -8999,7 +8999,7 @@ BattleCommand_TimeBasedHealContinue: ; 37b7e
 	jr z, .Heal
 
 ; x2 in sun
-; /2 in rain/sandstorm
+; /2 in rain/sandstorm/hail
 	inc c
 	cp WEATHER_SUN
 	jr z, .Heal
