@@ -136,7 +136,7 @@
 	db "SHINY STONE@"
 	db "TRADE STONE@"
 	db "MORO TROPHY@"
-	db "?@"
+	db "DUBIOUS DISC@"
 	db "?@"
 	db "?@"
 	db "?@"
