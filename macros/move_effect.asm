@@ -97,7 +97,7 @@ endm
 	command endure                  ; 5a
 	command checkcurl               ; 5b
 	command rolloutpower            ; 5c
-	command effect0x5d              ; 5d
+	command starthail               ; 5d
 	command furycutter              ; 5e
 	command attract                 ; 5f
 	command happinesspower          ; 60
@@ -169,7 +169,7 @@ endm
 	command ragedamage              ; a2
 	command resettypematchup        ; a3
 	command allstatsup              ; a4
-	command effect0xa5              ; a5
+	command doublepoisondamage      ; a5
 	command raisesubnoanim          ; a6
 	command lowersubnoanim          ; a7
 	command effect0xa8              ; a8

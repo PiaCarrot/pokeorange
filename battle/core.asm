@@ -175,9 +175,13 @@ BattleTurn: ; 3c12f
 
 	call DetermineMoveOrder
 	jr c, .false
+	call EnemySetAShellTrap
+	call PlayerSetAShellTrap
 	call Battle_EnemyFirst
 	jr .proceed
 .false
+	call PlayerSetAShellTrap
+	call EnemySetAShellTrap
 	call Battle_PlayerFirst
 .proceed
 	ld a, [wForcedSwitch]
@@ -755,36 +759,12 @@ TryEnemyFlee: ; 3c543
 FleeMons:
 
 SometimesFleeMons: ; 3c59a
-	db MAGNEMITE
-	db GRIMER
-	db TANGELA
-	db MR__MIME
-	db EEVEE
-	db PORYGON
-	db DRATINI
-	db DRAGONAIR
-	db TOGETIC
-	db UMBREON
-	db SPINDA
-	db WAILMER
-	db HERACROSS
 	db -1
 
 OftenFleeMons: ; 3c5a8
-	db CUBONE
-	db ARTICUNO
-	db ZAPDOS
-	db MOLTRES
-	db QUAGSIRE
-	db MANTYKE
-	db PHANPY
-	db TEDDIURSA
 	db -1
 
 AlwaysFleeMons: ; 3c5b1
-	db RAIKOU
-	db ENTEI
-;	db TANGROWTH
 	db -1
 ; 3c5b4
 
@@ -1670,37 +1650,44 @@ HandleWeather: ; 3cb9e
 
 	ld hl, WeatherCount
 	dec [hl]
-	jr z, .ended
+	jp z, .ended
 
 	ld hl, .WeatherMessages
 	call .PrintWeatherMessage
 
 	ld a, [Weather]
 	cp WEATHER_SANDSTORM
+	jr z, .continue
+	cp WEATHER_HAIL
 	ret nz
 
+.continue
 	ld a, [hLinkPlayerNumber]
 	cp 1
 	jr z, .enemy_first
 
 .player_first
 	call SetPlayerTurn
-	call .SandstormDamage
+	call .WeatherDamage
 	call SetEnemyTurn
-	jr .SandstormDamage
+	jr .WeatherDamage
 
 .enemy_first
 	call SetEnemyTurn
-	call .SandstormDamage
+	call .WeatherDamage
 	call SetPlayerTurn
 
-.SandstormDamage:
+.WeatherDamage:
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVar
 	bit SUBSTATUS_UNDERGROUND, a
 	ret nz
 	bit SUBSTATUS_UNDERWATER, a
 	ret nz
+
+	ld a, [Weather]
+	cp WEATHER_HAIL
+	jr z, .HailDamage
 
 	ld hl, BattleMonType1
 	ld a, [hBattleTurn]
@@ -1734,6 +1721,33 @@ HandleWeather: ; 3cb9e
 	call SubtractHPFromUser
 
 	ld hl, SandstormHitsText
+	jp StdBattleTextBox
+
+.HailDamage:
+	ld hl, BattleMonType1
+	ld a, [hBattleTurn]
+	and a
+	jr z, .ok2
+	ld hl, EnemyMonType1
+.ok2
+	ld a, [hli]
+	cp ICE
+	ret z
+
+	ld a, [hl]
+	cp ICE
+	ret z
+
+	call SwitchTurnCore
+	xor a
+	ld [wNumHits], a
+	ld de, ANIM_IN_HAIL
+	call Call_PlayBattleAnim
+	call SwitchTurnCore
+	call GetEighthMaxHP
+	call SubtractHPFromUser
+
+	ld hl, HailHitsText
 	jp StdBattleTextBox
 
 .ended
@@ -2322,6 +2336,7 @@ EnemyPartyMonEntrance: ; 3cf78
 	call SetEnemyTurn
 	call SpikesDamage
 	xor a
+	ld [CurEnemyMove], a
 	ld [wEnemyMoveStruct + MOVE_ANIM], a
 	ld [wPlayerAction], a
 	inc a
@@ -8716,3 +8731,20 @@ BattleStartMessage: ; 3fc8b
 	pop hl
 	jp StdBattleTextBox
 ; 3fd26
+
+PlayerSetAShellTrap:
+	ld a, [wPlayerAction]
+	and a
+	ret nz
+	ld a, [CurPlayerMove]
+	cp SHELL_TRAP
+	ret nz
+	ld hl, PkmnSetAShellTrapText
+	jp StdBattleTextBox
+
+EnemySetAShellTrap:
+	ld a, [CurEnemyMove]
+	cp SHELL_TRAP
+	ret nz
+	ld hl, EnemySetAShellTrapText
+	jp StdBattleTextBox

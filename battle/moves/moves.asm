@@ -69,7 +69,7 @@ ENDM
 	move HYDRO_PUMP,   EFFECT_NORMAL_HIT,        120, WATER,     80,  5,   0
 	move SURF,         EFFECT_SURF,               65, WATER,    100, 15,   0
 	move ICE_BEAM,     EFFECT_FREEZE_HIT,         95, ICE,      100, 10,  10
-	move BLIZZARD,     EFFECT_FREEZE_HIT,        120, ICE,       70,  5,  10
+	move BLIZZARD,     EFFECT_BLIZZARD,          120, ICE,       70,  5,  10
 	move PSYBEAM,      EFFECT_CONFUSE_HIT,        65, PSYCHIC,  100, 20,  10
 	move BUBBLEBEAM,   EFFECT_SPEED_DOWN_HIT,     65, WATER,    100, 20,  10
 	move AURORA_BEAM,  EFFECT_ATTACK_DOWN_HIT,    65, ICE,      100, 20,  10
@@ -227,7 +227,7 @@ ENDM
 	move SLEEP_TALK,   EFFECT_SLEEP_TALK,          0, NORMAL,   100, 10,   0
 	move HEAL_BELL,    EFFECT_HEAL_BELL,           0, NORMAL,   100,  5,   0
 	move RETURN,       EFFECT_RETURN,              1, NORMAL,   100, 20,   0
-	move ASTONISH,     EFFECT_ASTONISH,           30, GHOST,    100, 15,  30
+	move ASTONISH,     EFFECT_FLINCH_HIT,         30, GHOST,    100, 15,  30
 	move FRUSTRATION,  EFFECT_FRUSTRATION,         1, NORMAL,   100, 20,   0
 	move SAFEGUARD,    EFFECT_SAFEGUARD,           0, NORMAL,   100, 25,   0
 	move SPECTRATHIEF, EFFECT_SPECTRAL_THIEF,     90, GHOST,    100, 10,   0

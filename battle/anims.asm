@@ -608,7 +608,6 @@ BattleAnim_InLove: ; c951e
 	anim_ret
 ; c9533
 
-BattleAnim_InHail: ; TODO: new InHail animation
 BattleAnim_InSandstorm: ; c9533
 	anim_1gfx ANIM_GFX_POWDER
 	anim_obj ANIM_OBJ_A2,  11, 0,   0, 0, $0
@@ -3793,7 +3792,6 @@ BattleAnim_Outrage: ; cb1dc
 	anim_ret
 ; cb210
 
-BattleAnim_Hail: ; TODO: new Hail animation
 BattleAnim_Sandstorm: ; cb210
 	anim_1gfx ANIM_GFX_POWDER
 	anim_obj ANIM_OBJ_A2,  11, 0,   0, 0, $0
@@ -5013,6 +5011,42 @@ BattleAnim_SignalBeam: ; from Prism
 	anim_wait 32
 	anim_call BattleAnim_ShowMon_1
 	anim_wait 1
+	anim_ret
+
+BattleAnim_Hail: ; from Prism
+	anim_1gfx ANIM_GFX_POWDER
+	anim_bgeffect ANIM_BG_06, $0, $2, $0
+	anim_bgeffect ANIM_BG_WHITE_HUES, $0, $8, $0
+	anim_obj ANIM_OBJ_HAIL, 11, 0,  0, 0, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_HAIL,  9, 0,  0, 0, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_HAIL,  7, 0,  0, 0, $2
+.loop
+	anim_sound 0, 1, SFX_SHINE
+	anim_wait 4
+	anim_sound 0, 0, SFX_SHINE
+	anim_wait 4
+	anim_loop 16, .loop
+	anim_wait 8
+	anim_ret
+
+BattleAnim_InHail: ; from Prism
+	anim_1gfx ANIM_GFX_POWDER
+	anim_bgeffect ANIM_BG_06, $0, $2, $0
+	anim_bgeffect ANIM_BG_WHITE_HUES, $0, $8, $0
+	anim_obj ANIM_OBJ_HAIL, 11, 0,  0, 0, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_HAIL,  9, 0,  0, 0, $1
+	anim_wait 8
+	anim_obj ANIM_OBJ_HAIL,  7, 0,  0, 0, $2
+.loop
+	anim_sound 0, 1, SFX_SHINE
+	anim_wait 4
+	anim_sound 0, 0, SFX_SHINE
+	anim_wait 4
+	anim_loop 8, .loop
+	anim_wait 8
 	anim_ret
 
 ; unused effects:

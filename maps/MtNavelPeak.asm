@@ -37,20 +37,20 @@ DannyScript:
 	setflag ENGINE_SEA_RUBY_BADGE
 	checkcode VAR_BADGES
 .FightDone:
-	checkevent EVENT_GOT_TM_ICY_WIND
+	checkevent EVENT_GOT_TM_HAIL
 	iftrue .SpeechAfterTM
 	writetext ThatBadgeWillText
 	buttonsound
-	verbosegiveitem TM_ICY_WIND
-	iffalse .NoRoomForIcyWInd
-	setevent EVENT_GOT_TM_ICY_WIND
+	verbosegiveitem TM_HAIL
+	iffalse .NoRoomForHail
+	setevent EVENT_GOT_TM_HAIL
 	closetext
 	end
 
 .SpeechAfterTM:
 	writetext DannyBeatenText
 	waitbutton
-.NoRoomForIcyWInd:
+.NoRoomForHail:
 	closetext
 	end
 

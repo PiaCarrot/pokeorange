@@ -82,6 +82,11 @@ SandstormHitsText: ; 0x8084d
 	prompt
 ; 0x80864
 
+HailHitsText:
+	text "The HAIL hits"
+	line "<USER>!"
+	prompt
+
 PerishCountText: ; 0x80864
 	text "<USER>'s"
 	line "PERISH count is @"
@@ -568,7 +573,7 @@ IgnoredOrdersText: ; 0x80f66
 IgnoredSleepingText: ; 0x80f7b
 	text_from_ram BattleMonNick
 	text " ignored"
-	line "orders<...>sleeping!"
+	line "orders<...> sleeping!"
 	prompt
 ; 0x80f99
 
@@ -1088,6 +1093,11 @@ SandstormBrewedText: ; 0x816e4
 	prompt
 ; 0x816f9
 
+ItStartedToHailText:
+	text "It started to"
+	line "HAIL!"
+	prompt
+
 BracedItselfText: ; 0x816f9
 	text "<USER>"
 	line "braced itself!"
@@ -1206,3 +1216,16 @@ UsedMoveInsteadText:
 	text ""
 	cont "instead!"
 	done
+
+PkmnSetAShellTrapText:
+	text_from_ram BattleMonNick
+	text ""
+	line "set a shell trap!"
+	prompt
+
+EnemySetAShellTrapText
+	text "Enemy @"
+	text_from_ram EnemyMonNick
+	text ""
+	line "set a shell trap!"
+	prompt
