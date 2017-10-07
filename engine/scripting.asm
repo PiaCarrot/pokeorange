@@ -2645,10 +2645,16 @@ Script_divemap:
 ; parameters:
 ;     map_group (MapGroupParam)
 ;     map_id (MapIdParam)
+;     delta_x (SingleByteParam)
+;     delta_y (SingleByteParam)
 	call GetScriptByte
 	ld [DiveMapGroup], a
 	call GetScriptByte
 	ld [DiveMapNumber], a
+	call GetScriptByte
+	ld [DiveDeltaX], a
+	call GetScriptByte
+	ld [DiveDeltaY], a
 	ret
 
 Script_divewarp:
@@ -2656,7 +2662,16 @@ Script_divewarp:
 	ld [MapGroup], a
 	ld a, [DiveMapNumber]
 	ld [MapNumber], a
-	; do not modify XCoord and YCoord
+	ld a, [XCoord]
+	ld b, a
+	ld a, [DiveDeltaX]
+	add b
+	ld [XCoord], a
+	ld a, [YCoord]
+	ld b, a
+	ld a, [DiveDeltaY]
+	add b
+	ld [YCoord], a
 	ld a, -1
 	ld [wd001], a
 	ld a, MAPSETUP_WARP

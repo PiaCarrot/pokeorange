@@ -14,7 +14,7 @@ SevenGrapefruits_MapScriptHeader::
 	dbw MAPCALLBACK_NEWMAP, .InitializeDiveMap
 
 .InitializeDiveMap:
-	divemap SEVEN_GRAPEFRUITS_UNDERWATER
+	divemap SEVEN_GRAPEFRUITS_UNDERWATER, -2, 0
 	return
 
 GrapefruitWarehouseSign:

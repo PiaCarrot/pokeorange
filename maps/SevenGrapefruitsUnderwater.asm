@@ -8,7 +8,7 @@ SevenGrapefruitsUnderwater_MapScriptHeader::
 	dbw MAPCALLBACK_NEWMAP, .InitializeDiveMap
 
 .InitializeDiveMap:
-	divemap SEVEN_GRAPEFRUITS
+	divemap SEVEN_GRAPEFRUITS, 2, 0
 	return
 
 SevenGrapefruitsUnderwater_MapEventHeader::

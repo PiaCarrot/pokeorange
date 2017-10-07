@@ -981,7 +981,13 @@ check_save: macro
 	enum divemap_command
 divemap: macro
 	db divemap_command
+if _NARG == 1
 	map \1 ; map
+else
+	map \1 ; map
+	db \2 ; delta x
+	db \3 ; delta y
+endc
 	endm
 
 	enum divewarp_command
