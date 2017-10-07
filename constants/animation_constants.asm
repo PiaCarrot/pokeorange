@@ -215,6 +215,7 @@ BATTLEANIMSTRUCT_LENGTH EQU const_value
 	const ANIM_OBJ_BA
 	const ANIM_OBJ_BB
 	const ANIM_OBJ_SIGNAL_BEAM
+	const ANIM_OBJ_HAIL
 
 	const_def
 	const BATTLEANIMFUNC_00

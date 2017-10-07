@@ -30,7 +30,7 @@ FalknerScript_0x683c2:
 	setflag ENGINE_CORAL_EYE_BADGE
 	checkcode VAR_BADGES
 .FightDone:
-	checkevent EVENT_GOT_TM32_BUBBLEBEAM
+	checkevent EVENT_GOT_TM_BUBBLEBEAM
 	iftrue .SpeechAfterTM
 	setevent EVENT_BEAT_SWIMMERF_MARIA
 	setevent EVENT_BEAT_LASS_NICOLE
@@ -39,7 +39,7 @@ FalknerScript_0x683c2:
 	buttonsound
 	verbosegiveitem TM_BUBBLEBEAM
 	iffalse .NoRoomForBubblebeam
-	setevent EVENT_GOT_TM32_BUBBLEBEAM
+	setevent EVENT_GOT_TM_BUBBLEBEAM
 	writetext UnknownText_0x68648
 	waitbutton
 	closetext

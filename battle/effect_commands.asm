@@ -1705,6 +1705,9 @@ BattleCommand_CheckHit: ; 34d32
 	call .DrainSub
 	jp z, .Miss
 
+	call .ShellTrap
+	jp z, .Miss
+
 	call .LockOn
 	ret nz
 
@@ -1712,6 +1715,9 @@ BattleCommand_CheckHit: ; 34d32
 	jp nz, .Miss
 
 	call .ThunderRain
+	ret z
+
+	call .BlizzardHail
 	ret z
 
 	call .XAccuracy
@@ -1912,6 +1918,7 @@ BattleCommand_CheckHit: ; 34d32
 	cp WHIRLPOOL
 	ret
 
+
 .ThunderRain:
 ; Return z if the current move always hits in rain, and it is raining.
 	ld a, BATTLE_VARS_MOVE_EFFECT
@@ -1924,10 +1931,57 @@ BattleCommand_CheckHit: ; 34d32
 	ret
 
 
+.BlizzardHail:
+; Return z if the current move always hits in hail, and it is hailing.
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_BLIZZARD
+	ret nz
+
+	ld a, [Weather]
+	cp WEATHER_HAIL
+	ret
+
+
 .XAccuracy:
 	ld a, BATTLE_VARS_SUBSTATUS4
 	call GetBattleVar
 	bit SUBSTATUS_X_ACCURACY, a
+	ret
+
+
+.ShellTrap:
+; Return z if the current move is Shell Trap and the user was not first hit
+; by a physical move.
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_SHELL_TRAP
+	ret nz
+
+	call CheckOpponentWentFirst
+	jr z, .shell_trap_fail
+
+	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
+	call GetBattleVar
+	dec a
+	ld de, StringBuffer1
+	call GetMoveData
+
+	ld a, [StringBuffer1 + 2]
+	and a
+	jr z, .shell_trap_fail
+
+	ld a, [StringBuffer1 + 3]
+	cp SPECIAL
+	jr nc, .shell_trap_fail
+
+	ld a, 1
+	and a
+	ret
+
+.shell_trap_fail
+	xor a
+	and a
 	ret
 
 
@@ -2446,6 +2500,8 @@ GetFailureResultText: ; 350e4
 	ld hl, ButItFailedText
 	ld de, ItFailedText
 	jr z, .got_text
+	cp EFFECT_SHELL_TRAP
+	jr z, .got_text
 	ld hl, AttackMissedText
 	ld de, AttackMissed2Text
 	ld a, [CriticalHit]
@@ -2503,19 +2559,6 @@ FailText_CheckOpponentProtect: ; 35157
 	jp StdBattleTextBox
 
 ; 35165
-
-
-BattleCommanda5: ; 35165
-	ld a, [AttackMissed]
-	and a
-	ret z
-
-	ld a, [TypeModifier]
-	and $7f
-	jp z, PrintDoesntAffect
-	jp PrintButItFailed
-
-; 35175
 
 
 BattleCommand_CriticalText: ; 35175
@@ -7083,13 +7126,6 @@ BattleCommand_Charge: ; 36b4d
 ; 36c2c
 
 
-BattleCommand5d: ; 37791
-; unused
-	ret
-
-; 36c2d
-
-
 BattleCommand_TrapTarget: ; 36c2d
 ; traptarget
 
@@ -7601,6 +7637,17 @@ BattleCommand_Rage: ; 36f1d
 	ret
 
 ; 36f25
+
+
+BattleCommand_DoublePoisonDamage: ; 35165
+; doublepoisondamage
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVar
+	bit PSN, a
+	ret z
+	jr DoubleDamage
+
+; 35175
 
 
 BattleCommand_DoubleFlyingDamage: ; 36f25
@@ -8952,7 +8999,7 @@ BattleCommand_TimeBasedHealContinue: ; 37b7e
 	jr z, .Heal
 
 ; x2 in sun
-; /2 in rain/sandstorm
+; /2 in rain/sandstorm/hail
 	inc c
 	cp WEATHER_SUN
 	jr z, .Heal

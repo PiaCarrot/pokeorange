@@ -155,7 +155,6 @@
 	dw BeatUp
 	dw Fly
 	dw DefenseCurl
-	dw Astonish
 	dw Psystrike
 	dw SpectralThief
 	dw Hail
@@ -164,3 +163,4 @@
 	dw BugBite
 	dw Surf
 	dw Whirlpool
+	dw Blizzard

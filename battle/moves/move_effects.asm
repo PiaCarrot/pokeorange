@@ -13,7 +13,6 @@ FuryCutter:
 	endmove
 
 SpectralThief: ; TODO: implement EFFECT_SPECTRAL_THIEF
-Venoshock: ; TODO: implement EFFECT_VENOSHOCK
 BugBite: ; TODO: implement EFFECT_BUG_BITE
 Pound:
 KarateChop:
@@ -54,6 +53,7 @@ FairyWind:
 Dazzlingleam:
 ShadowSneak:
 Psystrike:
+ShellTrap:
 NormalHit:
 	checkobedience
 	usedmovetext
@@ -1019,13 +1019,13 @@ PoisonMultiHit:
 	poisontarget
 	endmove
 
-Astonish: ; TODO: implement EFFECT_ASTONISH
 RollingKick:
 Headbutt:
 Bite:
 LowKick:
 RockSlide:
 HyperFang:
+Astonish:
 FlinchHit:
 	checkobedience
 	usedmovetext
@@ -1437,7 +1437,6 @@ Reversal:
 	kingsrock
 	endmove
 
-ShellTrap: ; TODO: implement EFFECT_SHELL_TRAP
 Counter:
 	checkobedience
 	usedmovetext
@@ -1662,12 +1661,18 @@ PerishSong:
 	perishsong
 	endmove
 
-Hail: ; TODO: implement EFFECT_HAIL
 Sandstorm:
 	checkobedience
 	usedmovetext
 	doturn
 	startsandstorm
+	endmove
+
+Hail:
+	checkobedience
+	usedmovetext
+	doturn
+	starthail
 	endmove
 
 Endure:
@@ -2014,6 +2019,27 @@ Surf:
 	supereffectivetext
 	checkdestinybond
 	buildopponentrage
+	endmove
+
+Venoshock:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	doublepoisondamage
+	checkhit
+	hittarget
+	failuretext
+	checkfaint
+	criticaltext
+	supereffectivetext
+	checkdestinybond
+	buildopponentrage
+	kingsrock
 	endmove
 
 FutureSight:
