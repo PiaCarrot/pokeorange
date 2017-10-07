@@ -163,3 +163,4 @@
 	dw BugBite
 	dw Surf
 	dw Whirlpool
+	dw Blizzard

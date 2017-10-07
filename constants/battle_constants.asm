@@ -330,6 +330,7 @@ SUBSTATUS_CURLED       EQU 0
 	const EFFECT_BUG_BITE
 	const EFFECT_SURF
 	const EFFECT_WHIRLPOOL
+	const EFFECT_BLIZZARD
 
 ; Battle vars used in home/battle.asm
 	const_def

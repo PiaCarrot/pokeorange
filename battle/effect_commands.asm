@@ -1717,6 +1717,9 @@ BattleCommand_CheckHit: ; 34d32
 	call .ThunderRain
 	ret z
 
+	call .BlizzardHail
+	ret z
+
 	call .XAccuracy
 	ret nz
 
@@ -1915,6 +1918,7 @@ BattleCommand_CheckHit: ; 34d32
 	cp WHIRLPOOL
 	ret
 
+
 .ThunderRain:
 ; Return z if the current move always hits in rain, and it is raining.
 	ld a, BATTLE_VARS_MOVE_EFFECT
@@ -1924,6 +1928,18 @@ BattleCommand_CheckHit: ; 34d32
 
 	ld a, [Weather]
 	cp WEATHER_RAIN
+	ret
+
+
+.BlizzardHail:
+; Return z if the current move always hits in hail, and it is hailing.
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_BLIZZARD
+	ret nz
+
+	ld a, [Weather]
+	cp WEATHER_HAIL
 	ret
 
 
