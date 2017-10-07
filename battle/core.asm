@@ -574,11 +574,6 @@ ParsePlayerAction: ; 3c434
 	ld a, [wPlayerAction]
 	cp $2
 	jr z, .reset_rage
-	and a
-	jr nz, .reset_bide
-	ld a, [PlayerSubStatus3]
-	and 1 << SUBSTATUS_BIDE
-	jr nz, .locked_in
 	xor a
 	ld [wMoveSelectionMenuType], a
 	inc a ; POUND
@@ -621,10 +616,6 @@ ParsePlayerAction: ; 3c434
 	xor a
 	ld [PlayerProtectCount], a
 	jr .continue_protect
-
-.reset_bide
-	ld hl, PlayerSubStatus3
-	res SUBSTATUS_BIDE, [hl]
 
 .locked_in
 	xor a
@@ -1072,7 +1063,7 @@ ResidualDamage: ; 3c716
 	ld de, ANIM_SAP
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND | 1 << SUBSTATUS_UNDERWATER
 	call z, Call_PlayBattleAnim_OnlyIfVisible
 	call SwitchTurnCore
 
@@ -1233,7 +1224,7 @@ HandleWrap: ; 3c874
 
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND | 1 << SUBSTATUS_UNDERWATER
 	jr nz, .skip_anim
 
 	call SwitchTurnCore
@@ -1707,6 +1698,8 @@ HandleWeather: ; 3cb9e
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVar
 	bit SUBSTATUS_UNDERGROUND, a
+	ret nz
+	bit SUBSTATUS_UNDERWATER, a
 	ret nz
 
 	ld hl, BattleMonType1
@@ -5663,7 +5656,7 @@ ParseEnemyAction: ; 3e7c1
 	bit SUBSTATUS_ROLLOUT, a
 	jp nz, .skip_load
 	ld a, [EnemySubStatus3]
-	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_BIDE
+	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
 	jp nz, .skip_load
 
 	ld hl, EnemySubStatus5
@@ -5796,7 +5789,7 @@ CheckEnemyLockedIn: ; 3e8d1
 
 	ld hl, EnemySubStatus3
 	ld a, [hl]
-	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE | 1 << SUBSTATUS_BIDE
+	and 1 << SUBSTATUS_CHARGED | 1 << SUBSTATUS_RAMPAGE
 	ret nz
 
 	ld hl, EnemySubStatus1
@@ -6677,7 +6670,7 @@ _BattleRandom:: ; 3edd8
 Call_PlayBattleAnim_OnlyIfVisible: ; 3ee0f
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND | 1 << SUBSTATUS_UNDERWATER
 	ret nz
 ; 3ee17
 

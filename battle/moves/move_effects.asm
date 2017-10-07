@@ -28,7 +28,6 @@ HornAttack:
 Tackle:
 WaterGun:
 HydroPump:
-Surf:
 Peck:
 DrillPeck:
 Strength:
@@ -1358,7 +1357,6 @@ Bind:
 Wrap:
 FireSpin:
 Clamp:
-Whirlpool:
 Trap:
 	checkobedience
 	usedmovetext
@@ -1369,6 +1367,28 @@ Trap:
 	damagecalc
 	stab
 	damagevariation
+	clearmissdamage
+	hittarget
+	failuretext
+	checkfaint
+	criticaltext
+	supereffectivetext
+	checkdestinybond
+	buildopponentrage
+	traptarget
+	endmove
+
+Whirlpool:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	doubleunderwaterdamage
 	clearmissdamage
 	hittarget
 	failuretext
@@ -1964,6 +1984,27 @@ Earthquake:
 	stab
 	damagevariation
 	doubleundergrounddamage
+	checkhit
+	effectchance
+	hittarget
+	failuretext
+	checkfaint
+	criticaltext
+	supereffectivetext
+	checkdestinybond
+	buildopponentrage
+	endmove
+
+Surf:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	doubleunderwaterdamage
 	checkhit
 	effectchance
 	hittarget

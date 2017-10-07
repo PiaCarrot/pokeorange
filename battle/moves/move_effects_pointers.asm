@@ -162,3 +162,5 @@
 	dw ShellTrap
 	dw Venoshock
 	dw BugBite
+	dw Surf
+	dw Whirlpool

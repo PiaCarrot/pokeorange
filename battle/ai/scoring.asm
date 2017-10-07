@@ -384,6 +384,8 @@ AI_Smart: ; 386be
 	dbw EFFECT_MIRROR_COAT,      AI_Smart_MirrorCoat
 	dbw EFFECT_TWISTER,          AI_Smart_Twister
 	dbw EFFECT_EARTHQUAKE,       AI_Smart_Earthquake
+	dbw EFFECT_SURF,             AI_Smart_Surf
+	dbw EFFECT_WHIRLPOOL,        AI_Smart_Whirlpool
 	dbw EFFECT_FUTURE_SIGHT,     AI_Smart_FutureSight
 	dbw EFFECT_GUST,             AI_Smart_Gust
 	dbw EFFECT_STOMP,            AI_Smart_Stomp
@@ -926,19 +928,6 @@ AI_Smart_Haze: ; 389f5
 ; 38a1e
 
 
-;AI_Smart_Bide: ; 38a1e
-;; 90% chance to discourage this move unless enemy's HP is full.
-;
-;	call AICheckEnemyMaxHP
-;	ret c
-;	call Random
-;	cp $19
-;	ret c
-;	inc [hl]
-;	ret
-;; 38a2a
-
-
 AI_Smart_Whirlwind: ; 38a2a
 ; Whirlwind, Roar.
 
@@ -1176,11 +1165,11 @@ AI_Smart_SpDefenseUp2: ; 38aed
 AI_Smart_Fly: ; 38b12
 ; Fly, Dig
 
-; Greatly encourage this move if the player is
-; flying or underground, and slower than the enemy.
+; Greatly encourage this move if the player is flying,
+; underground, or underwater, and slower than the enemy.
 
 	ld a, [PlayerSubStatus3]
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND || 1 << SUBSTATUS_UNDERWATER
 	ret z
 
 	call AICompareSpeed
@@ -1667,9 +1656,9 @@ AI_Smart_PriorityHit: ; 38d5a
 	call AICompareSpeed
 	ret c
 
-; Dismiss this move if the player is flying or underground.
+; Dismiss this move if the player is flying, underground, or underwater.
 	ld a, [PlayerSubStatus3]
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND | 1 << SUBSTATUS_UNDERWATER
 	jp nz, AIDiscourageMove
 
 ; Greatly encourage this move if it will KO the player.
@@ -2300,6 +2289,38 @@ AI_Smart_Earthquake: ; 39044
 ; 39062
 
 
+AI_Smart_Surf:
+AI_Smart_Whirlpool:
+
+; Greatly encourage this move if the player is underwater and the enemy is faster.
+	ld a, [LastEnemyCounterMove]
+	cp DIVE
+	ret nz
+
+	ld a, [PlayerSubStatus3]
+	bit SUBSTATUS_UNDERWATER, a
+	jr z, .could_dive
+
+	call AICompareSpeed
+	ret nc
+	dec [hl]
+	dec [hl]
+	ret
+
+.could_dive
+	; Try to predict if the player will use Dive this turn.
+
+	; 50% chance to encourage this move if the enemy is slower than the player.
+	call AICompareSpeed
+	ret c
+
+	call AI_50_50
+	ret c
+
+	dec [hl]
+	ret
+
+
 AI_Smart_BatonPass: ; 39062
 ; Discourage this move if the player hasn't shown super-effective moves against the enemy.
 ; Consider player's type(s) if its moves are unknown.
@@ -2708,14 +2729,14 @@ AI_Smart_Gust: ; 391d5
 
 
 AI_Smart_FutureSight: ; 391f3
-; Greatly encourage this move if the player is
-; flying or underground, and slower than the enemy.
+; Greatly encourage this move if the player is flying,
+; underground, or underwater, and slower than the enemy.
 
 	call AICompareSpeed
 	ret nc
 
 	ld a, [PlayerSubStatus3]
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND | 1 << SUBSTATUS_UNDERWATER
 	ret z
 
 	dec [hl]

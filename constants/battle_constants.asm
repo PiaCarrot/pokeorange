@@ -120,7 +120,7 @@ SUBSTATUS_CURLED       EQU 0
 	enum SUBSTATUS_FLINCHED
 	enum SUBSTATUS_IN_LOOP
 	enum SUBSTATUS_RAMPAGE
-	enum SUBSTATUS_BIDE
+	enum SUBSTATUS_UNDERWATER
 
 	enum_start 7, -1
 	enum SUBSTATUS_LEECH_SEED
@@ -329,6 +329,8 @@ SUBSTATUS_CURLED       EQU 0
 	const EFFECT_SHELL_TRAP
 	const EFFECT_VENOSHOCK
 	const EFFECT_BUG_BITE
+	const EFFECT_SURF
+	const EFFECT_WHIRLPOOL
 
 ; Battle vars used in home/battle.asm
 	const_def

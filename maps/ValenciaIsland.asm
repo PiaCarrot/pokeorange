@@ -110,6 +110,7 @@ if def(DEBUG)
 	giveitem SHINY_STONE
 	giveitem SKATEBOARD
 	opentext
+	givepoke MEWTWO, 40
 	givepoke LAPRAS, 40
 	givepoke CHARIZARD, 40
 	givepoke PIKACHU, 40
