@@ -154,22 +154,22 @@
 	const MUSIC_MAIL   ; $98
 	const MIRAGE_MAIL  ; $99
 
-	add_tm FISSURE      ; $9a
-	add_tm HEADBUTT     ; $9b
-	add_tm HAIL         ; $9c
-	add_tm BULLET_SEED  ; $9d
-	add_tm FAIRY_WIND   ; $9e
+	add_tm POWERUPPUNCH ; $9a
+	add_tm DRAGON_PULSE ; $9b
+	add_tm WATER_PULSE  ; $9c
+	add_tm ICY_WIND     ; $9d
+	add_tm SLEEP_TALK   ; $9e
 	add_tm TOXIC        ; $9f
-	add_tm ZAP_CANNON   ; $a0
-	add_tm FLASH        ; $a1
-	add_tm WATER_GUN    ; $a2
-	add_tm DAZZLINGLEAM ; $a3
+	add_tm HAIL         ; $a0
+	add_tm WHIRLPOOL    ; $a1
+	add_tm BULLET_SEED  ; $a2
+	add_tm FISSURE      ; $a3
 	add_tm SUNNY_DAY    ; $a4
-	add_tm WATER_PULSE  ; $a5
-	add_tm WHIRLPOOL    ; $a6
+	add_tm WATER_GUN    ; $a5
+	add_tm ICE_BEAM     ; $a6
 	add_tm BLIZZARD     ; $a7
 	add_tm HYPER_BEAM   ; $a8
-	add_tm ICY_WIND     ; $a9
+	add_tm DRAGONBREATH ; $a9
 	add_tm PROTECT      ; $aa
 	add_tm RAIN_DANCE   ; $ab
 	add_tm GIGA_DRAIN   ; $ac
@@ -177,33 +177,33 @@
 	add_tm FRUSTRATION  ; $ae
 	add_tm SOLARBEAM    ; $af
 	add_tm IRON_TAIL    ; $b0
-	add_tm DRAGONBREATH ; $b1
+	add_tm THUNDERBOLT  ; $b1
 	add_tm THUNDER      ; $b2
 	add_tm EARTHQUAKE   ; $b3
 	add_tm RETURN       ; $b4
 	add_tm DIG          ; $b5
 	add_tm PSYCHIC      ; $b6
 	add_tm SHADOW_BALL  ; $b7
-	add_tm FLAMETHROWER ; $b8
-	add_tm BUBBLEBEAM   ; $b9
+	add_tm BUBBLEBEAM   ; $b8
+	add_tm DOUBLE_TEAM  ; $b9
 	add_tm ICE_PUNCH    ; $ba
 	add_tm SWAGGER      ; $bb
-	add_tm SLEEP_TALK   ; $bc
+	add_tm FLAMETHROWER ; $bc
 	add_tm SLUDGE_BOMB  ; $bd
 	add_tm SANDSTORM    ; $be
 	add_tm FIRE_BLAST   ; $bf
 	add_tm SWIFT        ; $c0
-	add_tm ICE_BEAM     ; $c1
+	add_tm AERIAL_ACE   ; $c1
 	add_tm THUNDERPUNCH ; $c2
-	add_tm DRAGON_PULSE ; $c3
-	add_tm POWERUPPUNCH ; $c4
+	add_tm HEADBUTT     ; $c3
+	add_tm ZAP_CANNON   ; $c4
 	add_tm REST         ; $c5
 	add_tm ATTRACT      ; $c6
 	add_tm THIEF        ; $c7
 	add_tm STEEL_WING   ; $c8
 	add_tm FIRE_PUNCH   ; $c9
-	add_tm AERIAL_ACE   ; $ca
-	add_tm SIGNAL_BEAM  ; $cb
+	add_tm DAZZLINGLEAM ; $ca
+	add_tm FLASH        ; $cb
 NUM_TMS = const_value - TM01
 
 	add_hm CUT          ; $cc
@@ -217,9 +217,9 @@ NUM_TMS = const_value - TM01
 NUM_HMS = const_value - HM01
 
 	add_mt COMET_PUNCH
-	add_mt DOUBLE_TEAM
 	add_mt MACH_PUNCH
 	add_mt BUG_BITE
+	add_mt SIGNAL_BEAM
 	add_mt VENOSHOCK
 
 ITEM_FROM_MEM EQU $ff
