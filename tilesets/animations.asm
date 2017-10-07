@@ -162,6 +162,20 @@ Tileset23Anim: ; 0xfc27f
 	dw NULL,  DoneTileAnimation
 ; 0xfc2bf
 
+Tileset30Anim: ; 0xfc1e7
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  AnimateRSEBubbleTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  AnimateSeaweedTile1
+	dw NULL,  AnimateSeaweedTile2
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+
 Tileset04Anim: ; 0xfc2e7
 Tileset05Anim: ; 0xfc2e7
 Tileset06Anim: ; 0xfc2e7
@@ -183,7 +197,6 @@ Tileset25Anim: ; 0xfc047
 Tileset26Anim: ; 0xfc2e7
 Tileset27Anim: ; 0xfc2e7
 Tileset28Anim: ; 0xfc2e7
-Tileset30Anim: ; 0xfc1e7
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -476,7 +489,7 @@ AnimateFlowerTile: ; fc56d
 	add hl, de
 	ld sp, hl
 
-	ld hl, VTiles2 + $30 ; tile 4
+	ld hl, VTiles2 tile $03
 
 	jp WriteTile
 ; fc58c
@@ -578,7 +591,7 @@ AnimateSproutPillarTile: ; fc645
 	ld sp, hl
 	ld l, e
 	ld h, d
-	jr WriteTile
+	jp WriteTile
 
 .frames
 	db $00, $10, $20, $30, $40, $30, $20, $10
@@ -634,8 +647,99 @@ AnimateWhirlpoolTile: ; fc678
 	ld l, e
 	ld h, d
 
-	jr WriteTile
+	jp WriteTile
 ; fc696
+
+
+AnimateSeaweedTile1:
+; No parameters.
+
+; Save sp in bc (see WriteTile).
+	ld hl, sp+$0
+	ld b, h
+	ld c, l
+
+; Alternate tile graphic every other frame
+	ld a, [TileAnimationTimer]
+	and %100
+	srl a
+	srl a
+	swap a ; << 4 (16 bytes)
+	ld e, a
+	ld d, 0
+	ld hl, SeaweedTile1Frames
+	add hl, de
+	ld sp, hl
+
+	ld hl, VTiles2 tile $04
+
+	jp WriteTile
+
+SeaweedTile1Frames:
+	INCBIN "gfx/tilesets/seaweed/1.2bpp"
+	INCBIN "gfx/tilesets/seaweed/2.2bpp"
+
+
+AnimateSeaweedTile2:
+; No parameters.
+
+; Save sp in bc (see WriteTile).
+	ld hl, sp+$0
+	ld b, h
+	ld c, l
+
+; Alternate tile graphic every other frame
+	ld a, [TileAnimationTimer]
+	and %100
+	srl a
+	srl a
+	swap a ; << 4 (16 bytes)
+	ld e, a
+	ld d, 0
+	ld hl, SeaweedTile2Frames
+	add hl, de
+	ld sp, hl
+
+	ld hl, VTiles2 tile $14
+
+	jp WriteTile
+
+SeaweedTile2Frames:
+	INCBIN "gfx/tilesets/seaweed/2.2bpp"
+	INCBIN "gfx/tilesets/seaweed/1.2bpp"
+
+
+AnimateRSEBubbleTile:
+; No parameters.
+
+; Save sp in bc (see WriteTile).
+	ld hl, sp+$0
+	ld b, h
+	ld c, l
+
+; Alternate tile graphic every frame
+	ld a, [TileAnimationTimer]
+	and %111
+	swap a ; << 4 (16 bytes)
+	ld e, a
+	ld d, 0
+	ld hl, RSEBubbleTileFrames
+	add hl, de
+	ld sp, hl
+
+	ld hl, VTiles2 tile $03
+
+	jp WriteTile
+
+RSEBubbleTileFrames:
+	INCBIN "gfx/tilesets/rse-bubble/1.2bpp"
+	INCBIN "gfx/tilesets/rse-bubble/2.2bpp"
+	INCBIN "gfx/tilesets/rse-bubble/3.2bpp"
+	INCBIN "gfx/tilesets/rse-bubble/4.2bpp"
+	INCBIN "gfx/tilesets/rse-bubble/5.2bpp"
+	INCBIN "gfx/tilesets/rse-bubble/5.2bpp"
+	INCBIN "gfx/tilesets/rse-bubble/5.2bpp"
+	INCBIN "gfx/tilesets/rse-bubble/5.2bpp"
 
 
 WriteTileFromBuffer: ; fc696
