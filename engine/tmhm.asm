@@ -108,6 +108,7 @@ TMHMMoves: ; 1167a
 ; Move tutor
 	db COMET_PUNCH
 	db MACH_PUNCH
+	db DYNAMICPUNCH
 	db BUG_BITE
 	db SIGNAL_BEAM
 	db VENOSHOCK

@@ -218,6 +218,7 @@ NUM_HMS = const_value - HM01
 
 	add_mt COMET_PUNCH
 	add_mt MACH_PUNCH
+	add_mt DYNAMICPUNCH
 	add_mt BUG_BITE
 	add_mt SIGNAL_BEAM
 	add_mt VENOSHOCK

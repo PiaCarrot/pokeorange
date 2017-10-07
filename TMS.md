@@ -60,6 +60,7 @@
 
 - MT01 Comet Punch
 - MT02 Mach Punch
-- MT03 *Bug Bite*
-- MT04 *Signal Beam*
-- MT05 *Venoshock*
+- MT03 Dynamicpunch
+- MT04 *Bug Bite*
+- MT05 *Signal Beam*
+- MT06 *Venoshock*
