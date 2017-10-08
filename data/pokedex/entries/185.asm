@@ -1,10 +1,10 @@
 ; SudowoodoPokedexEntry: ; 0x1cd7d9
-	db "IMITATION@" ; species name
-	dw 311, 840 ; height, width
+	db "MIME@" ; species name
+	dw 200, 287 ; height, width
 
-	db   "If a tree branch"
-	next "shakes when there"
-	next "is no wind, it's a"
-	page "MIME__JR, not a"
-	next "tree. It hides"
-	next "from the rain.@"
+	db   "It habitually"
+	next "mimics foes. Once"
+	next "mimicked, the foe"
+	page "cannot take its"
+	next "eyes off of this"
+	next "#MON.@"

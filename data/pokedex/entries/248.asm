@@ -1,5 +1,5 @@
 ; TyranitarPokedexEntry: ; 0x1d177b
-	db "GLOOMDWELLER@" ; species name
+	db "GLOOMDWELL@" ; species name
 	dw 204, 489 ; height, width
 
 	db   "It conceals itself"

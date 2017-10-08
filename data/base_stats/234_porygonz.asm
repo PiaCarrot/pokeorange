@@ -1,20 +1,20 @@
 	db PORYGONZ ; 234
 
-	db  73,  95,  62,  85,  85,  65
+	db  85,  80,  70,  90,  135,  75
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL
-	db 45 ; catch rate
-	db 165 ; base exp
+	db 30 ; catch rate
+	db 241 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
-	db 127 ; gender
+	db 255 ; gender
 	db 20 ; step cycles to hatch
 	dn 7, 7 ; frontpic dimensions
 
-	db SLOW ; growth rate
-	dn FIELD, FIELD ; egg groups
+	db MEDIUM_FAST ; growth rate
+	dn INANIMATE, INANIMATE ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, TOXIC, SUNNY_DAY, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, EARTHQUAKE, RETURN, PSYCHIC, SWAGGER, SLEEP_TALK, SWIFT, REST, ATTRACT, THIEF
+	tmhm TOXIC, HAIL, SUNNY_DAY, ICE_BEAM, BLIZZARD, HYPER_BEAM, DRAGONBREATH, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, SOLARBEAM, THUNDERBOLT, THUNDER, RETURN, PSYCHIC, SHADOW_BALL, BUBBLEBEAM, DOUBLE_TEAM, SWAGGER, SANDSTORM, SWIFT, AERIAL_ACE, HEADBUTT, ZAP_CANNON, REST, THIEF, STEEL_WING, FLASH, ROCK_SMASH, SIGNAL_BEAM, VENOSHOCK
 	; end

@@ -55,3 +55,9 @@
 - Venoshock
 - Volt Tackle
 - Water Pulse
+
+## Evolution Methods
+
+- EVOLVE_LOCATION (Leafeon, Glaceon, Magnezone)
+- EVOLVE_MOVE (Mime Jr -> Mr Mime)
+- EVOLVE_GENDER (Salandit -> Salazzle)
