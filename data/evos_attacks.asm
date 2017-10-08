@@ -2547,7 +2547,7 @@ MimeJrEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BARRIER
 	db 1, CONFUSION
-	db 4, COPYCAT
+	db 4, MIRROR_MOVE
 	db 8, NASTY_PLOT
 	db 11, DOUBLESLAP
 	db 15, MIMIC
