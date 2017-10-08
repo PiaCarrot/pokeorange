@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const ROUTE49_YOUNGSTER
 	const ROUTE49_FRUIT_TREE
 	const ROUTE49_FISHER

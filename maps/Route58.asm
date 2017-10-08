@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const ROUTE58_SALESMAN
 
 Route58_MapScriptHeader::

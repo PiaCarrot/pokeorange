@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const SUNBURST_VENDOR1
 	const SUNBURST_VENDOR2
 	const SUNBURST_VENDOR3

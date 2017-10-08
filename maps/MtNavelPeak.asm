@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const NAVELPEAK_DANNY
 	const NAVELPEAK_ITEMBALL
 

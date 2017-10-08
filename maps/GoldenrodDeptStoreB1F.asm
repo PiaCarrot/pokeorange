@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 
 GoldenrodDeptStoreB1F_MapScriptHeader:
 

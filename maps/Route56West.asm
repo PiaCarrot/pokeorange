@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const ROUTE_56_FISHER_ISAO
 	const ROUTE_56_RUNNER_KAITO
 	const ROUTE_56_SWIMMERF_SAKAKO

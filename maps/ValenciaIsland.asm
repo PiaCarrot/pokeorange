@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const VALENCIAISLAND_TEACHER
 	const VALENCIAISLAND_FISHER
 	const VALENCIAISLAND_SILVER

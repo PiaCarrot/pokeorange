@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const ROUTE50_YOUNGSTER1
 	const ROUTE50_YOUNGSTER2
 	const ROUTE50_BUG_CATCHER

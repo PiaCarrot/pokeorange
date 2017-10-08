@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const CAT_GUARD_GATEHOUSE1
 	const CAT_GUARD_GATEHOUSE2
 

@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const PINKAN_ISLAND_FRUIT_TREE_1
 	const PINKAN_ISLAND_FRUIT_TREE_2
 	const PINKAN_ISLAND_FRUIT_TREE_3

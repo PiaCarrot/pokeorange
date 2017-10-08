@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const ROUTE53_POKEFAN_M
 	const ROUTE53_LASS
 	const ROUTE53_FRUIT_TREE

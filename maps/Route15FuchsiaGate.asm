@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const ROUTE15FUCHSIAGATE_OFFICER
 
 Route15FuchsiaGate_MapScriptHeader:

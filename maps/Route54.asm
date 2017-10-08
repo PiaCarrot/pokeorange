@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const ROUTE54_SWIMMERM1
 	const ROUTE54_SWIMMERM2
 	const ROUTE54_SWIMMERM3

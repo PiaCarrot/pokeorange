@@ -2173,7 +2173,6 @@ ObjectStructs:: ; d4d6
 ObjectStructsEnd:: ; d6de
 
 wCmdQueue:: ds CMDQUEUE_CAPACITY * CMDQUEUE_ENTRY_SIZE
-	ds $28
 
 MapObjects:: ; d71e
 	map_object Player
@@ -2192,6 +2191,7 @@ MapObjects:: ; d71e
 	map_object Map13
 	map_object Map14
 	map_object Map15
+	map_object Map16
 MapObjectsEnd::
 
 wObjectMasks:: ds NUM_OBJECTS ; d81e

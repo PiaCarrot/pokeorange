@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const ROUTE_56_ROCK1
 	const ROUTE_56_ROCK2
 	const ROUTE_56_ROCK3
