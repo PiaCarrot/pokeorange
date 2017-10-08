@@ -1066,7 +1066,7 @@ ResidualDamage: ; 3c716
 
 	xor a
 	ld [wNumHits], a
-	ld de, ANIM_IN_NIGHTMARE
+	ld de, ANIM_HURT_BY_CURSE
 	call Call_PlayBattleAnim_OnlyIfVisible
 	call GetQuarterMaxHP
 	call SubtractHPFromUser

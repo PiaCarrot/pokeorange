@@ -2424,7 +2424,9 @@ DiveMapGroup::
 	ds 1
 DiveMapNumber::
 	ds 1
-
+DiveDeltaX::
+	ds 1
+DiveDeltaY::
 	ds 1
 
 wLastSpawnMapGroup:: ds 1

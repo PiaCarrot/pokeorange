@@ -4258,8 +4258,6 @@ INCLUDE "gfx/font.asm"
 INCLUDE "event/name_rater.asm"
 INCLUDE "event/magikarp.asm"
 
-INCLUDE "battle/hidden_power.asm"
-
 INCLUDE "battle/misc.asm"
 
 PlaySlowCry: ; fb841

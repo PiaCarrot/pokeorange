@@ -237,7 +237,7 @@
 	const MORNING_SUN  ; $ea
 	const SYNTHESIS    ; $eb
 	const MOONLIGHT    ; $ec
-	const HIDDEN_POWER ; $ed
+	const VOLT_TACKLE  ; $ed
 	const CROSS_CHOP   ; $ee
 	const TWISTER      ; $ef
 	const RAIN_DANCE   ; $f0
@@ -272,7 +272,7 @@
 	const ANIM_PAR               ; $10a
 	const ANIM_IN_LOVE           ; $10b
 	const ANIM_IN_SANDSTORM      ; $10c
-	const ANIM_IN_NIGHTMARE      ; $10d
+	const ANIM_HURT_BY_CURSE     ; $10d
 	const ANIM_IN_WHIRLPOOL      ; $10e
 ; battle anims
 	const ANIM_MISS              ; $10f
@@ -284,6 +284,7 @@
 	const ANIM_SHAKE             ; $115
 	const ANIM_HIT_CONFUSION     ; $116
 	const ANIM_IN_HAIL           ; $117
+	const ANIM_STEAL_BOOSTS      ; $118
 
 ; wNumHits uses offsets from ANIM_MISS
 	const_def

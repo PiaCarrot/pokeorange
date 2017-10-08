@@ -32,8 +32,7 @@
 
 ## Moves
 
-- EFFECT_BUG_BITE
-- EFFECT_SPECTRAL_THIEF (similar to EFFECT_PSYCH_UP)
+- `BugBite` effect for Bug Bite
 
 
 ## Animations
@@ -51,5 +50,8 @@
 - Rock Climb
 - Shadow Sneak
 - Shell Trap
+- Spectral Thief (steal boosted stats)
+- Spectral Thief (attack)
 - Venoshock
+- Volt Tackle
 - Water Pulse

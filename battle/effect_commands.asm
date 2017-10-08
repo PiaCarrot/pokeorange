@@ -691,6 +691,16 @@ BattleCommand_Nightmare: ; 37536
 ; nightmare
 BattleCommand_FuryCutter: ; 37792
 ; furycutter
+BattleCommand_Spite: ; 35c0f
+; spite
+BattleCommand_FakeOut: ; 36a82
+; fakeout
+BattleCommand_PsychUp: ; 37c55
+; psychup
+BattleCommand_BeatUp: ; 35461
+; beatup
+BattleCommand_HiddenPower: ; 37be8
+; hiddenpower
 	ret
 
 
@@ -2715,8 +2725,6 @@ BattleCommand_CheckDestinyBond: ; 351c0
 	cp EFFECT_TWINEEDLE
 	jr z, .multiple_hit_raise_sub
 	cp EFFECT_TRIPLE_KICK
-	jr z, .multiple_hit_raise_sub
-	cp EFFECT_BEAT_UP
 	jr nz, .finish
 
 .multiple_hit_raise_sub
@@ -3231,223 +3239,66 @@ EnemyAttackDamage: ; 353f6
 ; 35461
 
 
-BattleCommand_BeatUp: ; 35461
-; beatup
-
-	call ResetDamage
-	ld a, [hBattleTurn]
-	and a
-	jp nz, .enemy_beats_up
-	ld a, [PlayerSubStatus3]
-	bit SUBSTATUS_IN_LOOP, a
-	jr nz, .next_mon
-	ld c, 20
-	call DelayFrames
-	xor a
-	ld [PlayerRolloutCount], a
-	ld [wd002], a
-	ld [wBeatUpHitAtLeastOnce], a
-	jr .got_mon
-
-.next_mon
-	ld a, [PlayerRolloutCount]
-	ld b, a
-	ld a, [PartyCount]
-	sub b
-	ld [wd002], a
-
-.got_mon
-	ld a, [wd002]
-	ld hl, PartyMonNicknames
-	call GetNick
-	ld a, MON_HP
-	call GetBeatupMonLocation
-	ld a, [hli]
-	or [hl]
-	jp z, .beatup_fail ; fainted
-	ld a, [wd002]
-	ld c, a
-	ld a, [CurBattleMon]
-	cp [hl]
-	ld hl, BattleMonStatus
-	jr z, .active_mon
-	ld a, MON_STATUS
-	call GetBeatupMonLocation
-.active_mon
-	ld a, [hl]
-	and a
-	jp nz, .beatup_fail
-
-	ld a, $1
-	ld [wBeatUpHitAtLeastOnce], a
-	ld hl, BeatUpAttackText
-	call StdBattleTextBox
-	ld a, [EnemyMonSpecies]
-	ld [CurSpecies], a
-	call GetBaseData
-	ld a, [BaseDefense]
-	ld c, a
-	push bc
-	ld a, MON_SPECIES
-	call GetBeatupMonLocation
-	ld a, [hl]
-	ld [CurSpecies], a
-	call GetBaseData
-	ld a, [BaseAttack]
-	pop bc
-	ld b, a
-	push bc
-	ld a, MON_LEVEL
-	call GetBeatupMonLocation
-	ld a, [hl]
-	ld e, a
-	pop bc
-	ld a, [wPlayerMoveStructPower]
-	ld d, a
-	ret
-
-.enemy_beats_up
-	ld a, [EnemySubStatus3]
-	bit SUBSTATUS_IN_LOOP, a
-	jr nz, .not_first_enemy_beatup
-
-	xor a
-	ld [EnemyRolloutCount], a
-	ld [wd002], a
-	ld [wBeatUpHitAtLeastOnce], a
-	jr .enemy_continue
-
-.not_first_enemy_beatup
-	ld a, [EnemyRolloutCount]
-	ld b, a
-	ld a, [OTPartyCount]
-	sub b
-	ld [wd002], a
-.enemy_continue
-	ld a, [wBattleMode]
-	dec a
-	jr z, .wild
-
-	ld a, [wLinkMode]
-	and a
-	jr nz, .link_or_tower
-
-	ld a, [InBattleTowerBattle]
-	and a
-	jr nz, .link_or_tower
-
-	ld a, [wd002]
-	ld c, a
-	ld b, 0
-	ld hl, OTPartySpecies
-	add hl, bc
-	ld a, [hl]
-	ld [wNamedObjectIndexBuffer], a
-	call GetPokemonName
-	jr .got_enemy_nick
-
-.link_or_tower
-	ld a, [wd002]
-	ld hl, OTPartyMonNicknames
-	ld bc, NAME_LENGTH
-	call AddNTimes
-	ld de, StringBuffer1
-	call CopyBytes
-.got_enemy_nick
-	ld a, MON_HP
-	call GetBeatupMonLocation
-	ld a, [hli]
-	or [hl]
-	jp z, .beatup_fail
-	ld a, [wd002]
-	ld b, a
-	ld a, [CurOTMon]
-	cp b
-	ld hl, EnemyMonStatus
-	jr z, .active_enemy
-
-	ld a, MON_STATUS
-	call GetBeatupMonLocation
-.active_enemy
-	ld a, [hl]
-	and a
-	jr nz, .beatup_fail
-
-	ld a, $1
-	ld [wBeatUpHitAtLeastOnce], a
-	jr .finish_beatup
-
-.wild
-	ld a, [EnemyMonSpecies]
-	ld [wNamedObjectIndexBuffer], a
-	call GetPokemonName
-	ld hl, BeatUpAttackText
-	call StdBattleTextBox
-	jp EnemyAttackDamage
-
-.finish_beatup
-	ld hl, BeatUpAttackText
-	call StdBattleTextBox
-	ld a, [BattleMonSpecies]
-	ld [CurSpecies], a
-	call GetBaseData
-	ld a, [BaseDefense]
-	ld c, a
-	push bc
-	ld a, MON_SPECIES
-	call GetBeatupMonLocation
-	ld a, [hl]
-	ld [CurSpecies], a
-	call GetBaseData
-	ld a, [BaseAttack]
-	pop bc
-	ld b, a
-	push bc
-	ld a, MON_LEVEL
-	call GetBeatupMonLocation
-	ld a, [hl]
-	ld e, a
-	pop bc
-	ld a, [wEnemyMoveStructPower]
-	ld d, a
-	ret
-
-; 355b0
-
-
-.beatup_fail ; 355b0
-	ld b, buildopponentrage_command
-	jp SkipToBattleCommand
-
-; 355b5
-
-
-BattleCommanda8: ; 355b5
-	ld a, [wBeatUpHitAtLeastOnce]
+BattleCommand_StealBoostedStats: ; 355b5
+	ld a, [AttackMissed]
 	and a
 	ret nz
 
-	jp PrintButItFailed
-
-; 355bd
-
-
-GetBeatupMonLocation: ; 355bd
-	push bc
-	ld c, a
-	ld b, 0
+	ld hl, EnemyStatLevels
+	ld de, PlayerStatLevels
 	ld a, [hBattleTurn]
 	and a
-	ld hl, PartyMon1Species
-	jr z, .got_species
-	ld hl, OTPartyMon1Species
-
-.got_species
-	ld a, [wd002]
-	add hl, bc
-	call GetPartyLocation
-	pop bc
+	jr z, .pointers_correct
+; It's the enemy's turn, so swap the pointers.
+	push hl
+	ld h, d
+	ld l, e
+	pop de
+.pointers_correct
+	push hl
+	ld b, NUM_LEVEL_STATS
+; If none of the opponent's stats is boosted from its base level,
+; nothing will be stolen.
+.loop
+	ld a, [hli]
+	cp BASE_STAT_LEVEL + 1
+	jr nc, .break
+	dec b
+	jr nz, .loop
+	pop hl
 	ret
+
+.break
+	pop hl
+; Steal the opponent's boosted stats.
+	ld b, NUM_LEVEL_STATS
+.loop2
+	ld a, [hli]
+	cp BASE_STAT_LEVEL + 1
+	jr nc, .not_boost
+	ld [de], a
+.not_boost
+	inc de
+	dec b
+	jr nz, .loop2
+
+; Recalculate stats
+	ld a, [hBattleTurn]
+	and a
+	jr nz, .calc_enemy_stats
+	call CalcPlayerStats
+	jr .merge
+.calc_enemy_stats
+	call CalcEnemyStats
+.merge
+
+; Show animation and alert
+	ld de, ANIM_STEAL_BOOSTS
+	call FarPlayBattleAnimation
+	ld hl, StoleBoostedStatsText
+	jp StdBattleTextBox
+
+; 355bd
 
 
 BattleCommand_ClearMissDamage: ; 355d5
@@ -4384,95 +4235,6 @@ BattleCommand_DestinyBond: ; 35bff
 ; 35c0f
 
 
-BattleCommand_Spite: ; 35c0f
-; spite
-
-	ld a, [AttackMissed]
-	and a
-	jp nz, .failed
-	ld bc, PARTYMON_STRUCT_LENGTH ; ????
-	ld hl, EnemyMonMoves
-	ld a, [hBattleTurn]
-	and a
-	jr z, .got_moves
-	ld hl, BattleMonMoves
-.got_moves
-	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
-	call GetBattleVar
-	and a
-	jr z, .failed
-	cp STRUGGLE
-	jr z, .failed
-	ld b, a
-	ld c, -1
-.loop
-	inc c
-	ld a, [hli]
-	cp b
-	jr nz, .loop
-	ld [wTypeMatchup], a
-	dec hl
-	ld b, 0
-	push bc
-	ld c, BattleMonPP - BattleMonMoves
-	add hl, bc
-	pop bc
-	ld a, [hl]
-	and $3f
-	jr z, .failed
-	push bc
-	call GetMoveName
-	call BattleRandom
-	and 3
-	inc a
-	inc a
-	ld b, a
-	ld a, [hl]
-	and $3f
-	cp b
-	jr nc, .deplete_pp
-	ld b, a
-.deplete_pp
-	ld a, [hl]
-	sub b
-	ld [hl], a
-	push af
-	ld a, MON_PP
-	call OpponentPartyAttr
-	ld d, b
-	pop af
-	pop bc
-	add hl, bc
-	ld e, a
-	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVar
-	bit SUBSTATUS_TRANSFORMED, a
-	jr nz, .transformed
-	ld a, [hBattleTurn]
-	and a
-	jr nz, .not_wildmon
-	ld a, [wBattleMode]
-	dec a
-	jr nz, .not_wildmon
-	ld hl, wWildMonPP
-	add hl, bc
-.not_wildmon
-	ld [hl], e
-.transformed
-	push de
-	call AnimateCurrentMove
-	pop de
-	ld a, d
-	ld [wTypeMatchup], a
-	ld hl, SpiteEffectText
-	jp StdBattleTextBox
-
-.failed
-	jp PrintDidntAffect2
-
-; 35c94
-
-
 BattleCommand_FalseSwipe: ; 35c94
 ; falseswipe
 
@@ -4751,8 +4513,6 @@ SelfInflictDamageToSubstitute: ; 35de0
 	cp EFFECT_TWINEEDLE
 	jr z, .ok
 	cp EFFECT_TRIPLE_KICK
-	jr z, .ok
-	cp EFFECT_BEAT_UP
 	jr z, .ok
 	xor a
 	ld [hl], a
@@ -6716,8 +6476,6 @@ BattleCommand_EndLoop: ; 369b6
 	ld a, 1
 	jr z, .double_hit
 	ld a, [hl]
-	cp EFFECT_BEAT_UP
-	jr z, .beat_up
 	cp EFFECT_TRIPLE_KICK
 	jr nz, .not_triple_kick
 .reject_triple_kick_sample
@@ -6729,33 +6487,6 @@ BattleCommand_EndLoop: ; 369b6
 	ld a, 1
 	ld [bc], a
 	jr .done_loop
-
-.beat_up
-	ld a, [hBattleTurn]
-	and a
-	jr nz, .check_ot_beat_up
-	ld a, [PartyCount]
-	cp 1
-	jp z, .only_one_beatup
-	dec a
-	jr .double_hit
-
-.check_ot_beat_up
-	ld a, [wBattleMode]
-	cp WILD_BATTLE
-	jp z, .only_one_beatup
-	ld a, [OTPartyCount]
-	cp 1
-	jp z, .only_one_beatup
-	dec a
-	jr .double_hit
-
-.only_one_beatup
-	ld a, BATTLE_VARS_SUBSTATUS3
-	call GetBattleVarAddr
-	res SUBSTATUS_IN_LOOP, [hl]
-	call BattleCommanda8
-	jp EndMoveEffect
 
 .not_triple_kick
 	call BattleRandom
@@ -6794,13 +6525,7 @@ BattleCommand_EndLoop: ; 369b6
 .got_hit_n_times_text
 
 	push bc
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_BEAT_UP
-	jr z, .beat_up_2
 	call StdBattleTextBox
-.beat_up_2
-
 	pop bc
 	xor a
 	ld [bc], a
@@ -6824,30 +6549,6 @@ BattleCommand_EndLoop: ; 369b6
 	ret
 
 ; 36a82
-
-
-BattleCommand_FakeOut: ; 36a82
-	ld a, [AttackMissed]
-	and a
-	ret nz
-
-	call CheckSubstituteOpp
-	jr nz, .fail
-
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVar
-	and 1 << FRZ | SLP
-	jr nz, .fail
-
-	call CheckOpponentWentFirst
-	jr z, FlinchTarget
-
-.fail
-	ld a, 1
-	ld [AttackMissed], a
-	ret
-
-; 36aa0
 
 
 BattleCommand_FlinchTarget: ; 36aa0
@@ -9045,18 +8746,6 @@ BattleCommand_TimeBasedHealContinue: ; 37b7e
 ; 37be8
 
 
-BattleCommand_HiddenPower: ; 37be8
-; hiddenpower
-
-	ld a, [AttackMissed]
-	and a
-	ret nz
-	farcall HiddenPowerDamage
-	ret
-
-; 37bf4
-
-
 BattleCommand_StartRain: ; 37bf4
 ; startrain
 	ld a, WEATHER_RAIN
@@ -9116,59 +8805,6 @@ BattleCommand_BellyDrum: ; 37c1a
 	jp PrintButItFailed
 
 ; 37c55
-
-
-BattleCommand_PsychUp: ; 37c55
-; psychup
-
-	ld hl, EnemyStatLevels
-	ld de, PlayerStatLevels
-	ld a, [hBattleTurn]
-	and a
-	jr z, .pointers_correct
-; It's the enemy's turn, so swap the pointers.
-	push hl
-	ld h, d
-	ld l, e
-	pop de
-.pointers_correct
-	push hl
-	ld b, NUM_LEVEL_STATS
-; If any of the enemy's stats is modified from its base level,
-; the move succeeds.  Otherwise, it fails.
-.loop
-	ld a, [hli]
-	cp BASE_STAT_LEVEL
-	jr nz, .break
-	dec b
-	jr nz, .loop
-	pop hl
-	call AnimateFailedMove
-	jp PrintButItFailed
-
-.break
-	pop hl
-	ld b, NUM_LEVEL_STATS
-.loop2
-	ld a, [hli]
-	ld [de], a
-	inc de
-	dec b
-	jr nz, .loop2
-	ld a, [hBattleTurn]
-	and a
-	jr nz, .calc_enemy_stats
-	call CalcPlayerStats
-	jr .merge
-
-.calc_enemy_stats
-	call CalcEnemyStats
-.merge
-	call AnimateCurrentMove
-	ld hl, CopiedStatsText
-	jp StdBattleTextBox
-
-; 37c95
 
 
 BattleCommand_MirrorCoat: ; 37c95

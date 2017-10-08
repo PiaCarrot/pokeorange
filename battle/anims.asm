@@ -236,7 +236,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_MorningSun
 	dw BattleAnim_Synthesis
 	dw BattleAnim_Moonlight
-	dw BattleAnim_HiddenPower
+	dw BattleAnim_VoltTackle
 	dw BattleAnim_CrossChop
 	dw BattleAnim_Twister
 	dw BattleAnim_RainDance
@@ -280,6 +280,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_Shake
 	dw BattleAnim_HitConfusion
 	dw BattleAnim_InHail
+	dw BattleAnim_StealBoostedStats
 ; c929b
 
 BattleAnim_0: ; c929b
@@ -3525,6 +3526,7 @@ BattleAnim_ScaryFace: ; caf73
 ; caf84
 
 BattleAnim_ShadowSneak: ; TODO: new Shadow Sneak animation
+BattleAnim_SpectraThief: ; TODO: new Spectral Thief animation
 BattleAnim_FaintAttack: ; caf84
 	anim_1gfx ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_CURSE
@@ -3917,6 +3919,7 @@ BattleAnim_Swagger: ; cb30d
 	anim_ret
 ; cb328
 
+BattleAnim_VoltTackle: ; TODO: new Volt Tackle animation
 BattleAnim_Spark: ; cb34d
 	anim_2gfx ANIM_GFX_LIGHTNING, ANIM_GFX_EXPLOSION
 	anim_sound 0, 0, SFX_ZAP_CANNON
@@ -4084,7 +4087,7 @@ BattleAnim_Safeguard: ; cb4f9
 ; cb51e
 
 ;BattleAnim_PainSplit: ; cb51e
-BattleAnim_SpectraThief:
+BattleAnim_StealBoostedStats: ; TODO: new Spectral Thief steal animation
 	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_OBJECTS
 	anim_call BattleAnim_FollowPlayerHead_0
 	anim_bgeffect ANIM_BG_25, $0, $1, $0
@@ -4143,7 +4146,7 @@ BattleAnim_Magnitude: ; cb57d
 	anim_ret
 ; cb5aa
 
-BattleAnim_PowerUpPunch: ; TODO: new PowerUpPunch animation
+BattleAnim_PowerUpPunch: ; TODO: new Power-Up Punch animation
 BattleAnim_Dynamicpunch: ; cb5aa
 	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_EXPLOSION
 	anim_sound 0, 1, SFX_COMET_PUNCH
@@ -4404,41 +4407,6 @@ BattleAnim_Moonlight: ; cb7a8
 	anim_call BattleAnim_Moonlight_branch_cbc80
 	anim_ret
 ; cb7db
-
-BattleAnim_HiddenPower: ; cb7db
-	anim_1gfx ANIM_GFX_CHARGE
-	anim_call BattleAnim_FollowEnemyFeet_0
-	anim_bgeffect ANIM_BG_1A, $0, $1, $20
-	anim_bgeffect ANIM_BG_07, $0, $2, $0
-	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $0
-	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $8
-	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $10
-	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $18
-	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $20
-	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $28
-	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $30
-	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $38
-.loop
-	anim_sound 0, 0, SFX_SWORDS_DANCE
-	anim_wait 8
-	anim_loop 12, .loop
-	anim_incbgeffect ANIM_BG_1A
-	anim_call BattleAnim_ShowMon_0
-	anim_wait 1
-	anim_incobj  2
-	anim_incobj  3
-	anim_incobj  4
-	anim_incobj  5
-	anim_incobj  6
-	anim_incobj  7
-	anim_incobj  8
-	anim_incobj  9
-	anim_wait 16
-	anim_1gfx ANIM_GFX_HIT
-	anim_obj ANIM_OBJ_00, -15, 0,   7, 0, $0
-	anim_wait 32
-	anim_ret
-; cb83a
 
 BattleAnim_CrossChop: ; cb83a
 	anim_1gfx ANIM_GFX_CUT
@@ -5307,3 +5275,38 @@ BattleAnim_InHail: ; from Prism
 ;	anim_jumpuntil .loop
 ;	anim_ret
 ;; cb3a1
+
+;BattleAnim_HiddenPower: ; cb7db
+;	anim_1gfx ANIM_GFX_CHARGE
+;	anim_call BattleAnim_FollowEnemyFeet_0
+;	anim_bgeffect ANIM_BG_1A, $0, $1, $20
+;	anim_bgeffect ANIM_BG_07, $0, $2, $0
+;	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $0
+;	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $8
+;	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $10
+;	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $18
+;	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $20
+;	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $28
+;	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $30
+;	anim_obj ANIM_OBJ_9F,   5, 4,  11, 0, $38
+;.loop
+;	anim_sound 0, 0, SFX_SWORDS_DANCE
+;	anim_wait 8
+;	anim_loop 12, .loop
+;	anim_incbgeffect ANIM_BG_1A
+;	anim_call BattleAnim_ShowMon_0
+;	anim_wait 1
+;	anim_incobj  2
+;	anim_incobj  3
+;	anim_incobj  4
+;	anim_incobj  5
+;	anim_incobj  6
+;	anim_incobj  7
+;	anim_incobj  8
+;	anim_incobj  9
+;	anim_wait 16
+;	anim_1gfx ANIM_GFX_HIT
+;	anim_obj ANIM_OBJ_00, -15, 0,   7, 0, $0
+;	anim_wait 32
+;	anim_ret
+;; cb83a
