@@ -505,8 +505,8 @@ TreeMons2: ; b8320
 	db -1
 
 	db 50, SPEAROW,    10
-	db 15, HERACROSS,  10
-	db 15, HERACROSS,  10
+	db 15, MAREANIE,  10
+	db 15, MAREANIE,  10
 	db 10, PIDGEY,      10
 	db  5, PIDGEY,      10
 	db  5, PIDGEY,      10
@@ -514,16 +514,16 @@ TreeMons2: ; b8320
 
 TreeMons3: ; b8346
 	db 50, CHINGLING,   10
-	db 15, SPINARAK,   10
-	db 15, LEDYBA,     10
+	db 15, FINNEON,   10
+	db 15, SALANDIT,     10
 	db 10, EXEGGCUTE,  10
 	db  5, EXEGGCUTE,  10
 	db  5, EXEGGCUTE,  10
 	db -1
 
 	db 50, CHINGLING,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
+	db 15, TRAPINCH,     10
+	db 15, TRAPINCH,     10
 	db 10, EXEGGCUTE,  10
 	db  5, EXEGGCUTE,  10
 	db  5, EXEGGCUTE,  10
@@ -539,8 +539,8 @@ TreeMons4: ; b836c
 	db -1
 
 	db 50, CHINGLING,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
+	db 15, TRAPINCH,     10
+	db 15, TRAPINCH,     10
 	db 10, EXEGGCUTE,  10
 	db  5, EXEGGCUTE,  10
 	db  5, EXEGGCUTE,  10
@@ -556,8 +556,8 @@ TreeMons5: ; b8392
 	db -1
 
 	db 50, CHINGLING,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
+	db 15, TRAPINCH,     10
+	db 15, TRAPINCH,     10
 	db 10, EXEGGCUTE,  10
 	db  5, EXEGGCUTE,  10
 	db  5, EXEGGCUTE,  10
@@ -565,8 +565,8 @@ TreeMons5: ; b8392
 
 TreeMons6: ; b83b8
 	db 50, CHINGLING,   10
-	db 15, PINECO,     10
-	db 15, PINECO,     10
+	db 15, TRAPINCH,     10
+	db 15, TRAPINCH,     10
 	db 10, CHIMECHO,    10
 	db  5, BUTTERFREE, 10
 	db  5, BEEDRILL,   10

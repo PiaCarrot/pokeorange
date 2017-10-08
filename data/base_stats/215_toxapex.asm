@@ -1,4 +1,4 @@
-	db SNEASEL ; 215
+	db TOXAPEX ; 215
 
 	db  55,  95,  55, 115,  35,  75
 	;   hp  atk  def  spd  sat  sdf

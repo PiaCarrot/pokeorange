@@ -1,4 +1,4 @@
-	db HERACROSS ; 214
+	db MAREANIE ; 214
 
 	db  80, 125,  75,  85,  40,  95
 	;   hp  atk  def  spd  sat  sdf

@@ -1,4 +1,4 @@
-	db RAIKOU ; 243
+	db CUTIEFLY ; 243
 
 	db  90,  85,  75, 115, 115, 100
 	;   hp  atk  def  spd  sat  sdf

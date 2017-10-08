@@ -5,7 +5,7 @@
 	; morn
 	db 12, NIDORAN_M
 	db 12, NIDORAN_F
-	db 14, LEDYBA
+	db 14, SALANDIT
 	db 13, PIDGEY
 	db 10, CATERPIE
 	db 10, WEEDLE
@@ -21,7 +21,7 @@
 	; nite
 	db 12, PSYDUCK
 	db 13, CHINGLING
-	db 14, SPINARAK
+	db 14, FINNEON
 	db 15, CHINGLING
 	db 10, VENONAT
 	db 12, VENONAT

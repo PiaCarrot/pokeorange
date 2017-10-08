@@ -165,10 +165,10 @@ const_value set 1
 	const PELIPPER
 	const CHINGLING
 	const CHIMECHO
-	const LEDYBA
-	const LEDIAN
-	const SPINARAK
-	const ARIADOS
+	const SALANDIT
+	const SALAZZLE
+	const FINNEON
+	const LUMINEON
 	const CROBAT
 	const CHINCHOU
 	const LANTURN
@@ -193,20 +193,20 @@ const_value set 1
 	const STUNFISK
 	const SUNKERN
 	const SUNFLORA
-	const YANMA
-	const WOOPER
-	const QUAGSIRE
+	const LEAFEON
+	const GLACEON
+	const SYLVEON
 	const ESPEON
 	const UMBREON
 	const RELICANTH
 	const SLOWKING
-	const MISDREAVUS
+	const MIMIKYU
 	const SPINDA
-	const WOBBUFFET
-	const GIRAFARIG
-	const PINECO
-	const FORRETRESS
-	const DUNSPARCE
+	const SKRELP
+	const DRAGALGE
+	const TRAPINCH
+	const VIBRAVA
+	const FLYGON
 	const GLIGAR
 	const STEELIX
 	const WAILMER
@@ -214,14 +214,14 @@ const_value set 1
 	const QWILFISH
 	const SCIZOR
 	const SHUCKLE
-	const HERACROSS
-	const SNEASEL
-	const TEDDIURSA
-	const URSARING
+	const MAREANIE
+	const TOXAPEX
+	const SANDYGAST
+	const PALOSSAND
 	const SLUGMA
 	const MAGCARGO
-	const SWINUB
-	const PILOSWINE
+	const CARVANHA
+	const SHARPEDO
 	const CORSOLA
 	const REMORAID
 	const OCTILLERY
@@ -243,8 +243,8 @@ const_value set 1
 	const MAGBY
 	const HAPPINY
 	const BLISSEY
-	const RAIKOU
-	const ENTEI
+	const CUTIEFLY
+	const RIBOMBEE
 	const TANGROWTH
 	const RHYPERIOR
 	const MAGNEZONE

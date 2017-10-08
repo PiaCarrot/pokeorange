@@ -2286,7 +2286,7 @@ ChimechoEvosAttacks:
 	db 0 ; no more level-up moves
 
 SalanditEvosAttacks:
-	db EVOLVE_LEVEL, 18, LEDIAN
+	db EVOLVE_LEVEL, 18, SALAZZLE
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 8, SUPERSONIC
@@ -2316,7 +2316,7 @@ SalazzleEvosAttacks:
 	db 0 ; no more level-up moves
 
 FinneonEvosAttacks:
-	db EVOLVE_LEVEL, 22, ARIADOS
+	db EVOLVE_LEVEL, 22, LUMINEON
 	db 0 ; no more evolutions
 	db 1, POISON_STING
 	db 1, STRING_SHOT
@@ -2669,7 +2669,7 @@ LeafeonEvosAttacks:
 	db 0 ; no more level-up moves
 
 GlaceonEvosAttacks:
-	db EVOLVE_LEVEL, 20, QUAGSIRE
+	db EVOLVE_LEVEL, 20, SYLVEON
 	db 0 ; no more evolutions
 	db 1, WATER_GUN
 	db 1, TAIL_WHIP
@@ -2799,7 +2799,7 @@ DragalgeEvosAttacks:
 	db 0 ; no more level-up moves
 
 TrapinchEvosAttacks:
-	db EVOLVE_LEVEL, 31, FORRETRESS
+	db EVOLVE_LEVEL, 31, VIBRAVA
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, PROTECT
@@ -2955,7 +2955,7 @@ ToxapexEvosAttacks:
 	db 0 ; no more level-up moves
 
 SandygastEvosAttacks:
-	db EVOLVE_LEVEL, 30, URSARING
+	db EVOLVE_LEVEL, 30, PALOSSAND
 	db 0 ; no more evolutions
 	db 1, SCRATCH
 	db 1, LEER
@@ -3011,7 +3011,7 @@ MagcargoEvosAttacks:
 	db 0 ; no more level-up moves
 
 CarvanhaEvosAttacks:
-	db EVOLVE_LEVEL, 33, PILOSWINE
+	db EVOLVE_LEVEL, 33, SHARPEDO
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 10, ICY_WIND ; POWDER_SNOW

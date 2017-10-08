@@ -6295,7 +6295,7 @@ CheckSleepingTreeMon: ; 3eb38
 	db SPEAROW
 	db EKANS
 	db EXEGGCUTE
-	db LEDYBA
+	db SALANDIT
 	db STUNFISK
 	db -1 ; end
 
@@ -6303,16 +6303,16 @@ CheckSleepingTreeMon: ; 3eb38
 	db VENONAT
 	db CHINGLING
 	db CHIMECHO
-	db SPINARAK
-	db HERACROSS
+	db FINNEON
+	db MAREANIE
 	db -1 ; end
 
 .Morn:
 	db VENONAT
 	db CHINGLING
 	db CHIMECHO
-	db SPINARAK
-	db HERACROSS
+	db FINNEON
+	db MAREANIE
 	db -1 ; end
 ; 3eb75
 
