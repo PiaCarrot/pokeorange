@@ -1,10 +1,10 @@
 ; TyranitarPokedexEntry: ; 0x1d177b
-	db "ARMOR@" ; species name
-	dw 607, 4450 ; height, width
+	db "GLOOMDWELL@" ; species name
+	dw 204, 489 ; height, width
 
-	db   "In just one of its"
-	next "mighty hands, it"
-	next "has the power to"
-	page "make the ground"
-	next "shake and moun-"
-	next "tains crumble.@"
+	db   "It conceals itself"
+	next "in shadows, never"
+	next "appearing before"
+	page "humans. Its very"
+	next "existence was the"
+	next "stuff of myth.@"

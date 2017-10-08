@@ -1,10 +1,10 @@
 ; HoundoomPokedexEntry: ; 0x1d0f66
-	db "DARK@" ; species name
-	dw 407, 770 ; height, width
+	db "THUNDERBOLT@" ; species name
+	dw 511, 3056 ; height, width
 
-	db   "The pungent-"
-	next "smelling flame"
-	next "that shoots from"
-	page "its mouth results"
-	next "from toxins burn-"
-	next "ing in its body.@"
+	db   "When it gets ex-"
+	next "cited, it thumps"
+	next "its chest. With"
+	page "every thud, thun-"
+	next "der roars and"
+	next "sparks shower.@"

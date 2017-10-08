@@ -154,7 +154,7 @@ EvosAttacksPointers:: ; 0x425b1
 	dw DragoniteEvosAttacks
 	dw MewtwoEvosAttacks
 	dw MewEvosAttacks
-	dw CryogonalEvosAttacks
+	dw TropiusEvosAttacks
 	dw KecleonEvosAttacks
 	dw ChatotEvosAttacks
 	dw PikipekEvosAttacks

@@ -14,7 +14,7 @@ const_value SET 1
 	const INSECT       ; 3
 	const AVIAN        ; 4
 	const FIELD        ; 5
-	const FAIRYEGG        ; 6
+	const FAIRYEGG     ; 6
 	const PLANT        ; 7
 	const HUMANSHAPE   ; 8
 	const INVERTEBRATE ; 9

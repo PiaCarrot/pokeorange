@@ -149,7 +149,7 @@
 	db "DRAGONITE@"
 	db "MEWTWO@@@@"
 	db "MEW@@@@@@@"
-	db "CRYOGONAL@"
+	db "TROPIUS@@@"
 	db "KECLEON@@@"
 	db "CHATOT@@@@"
 	db "PIKIPEK@@@"

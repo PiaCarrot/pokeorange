@@ -1,10 +1,10 @@
 ; HoothootPokedexEntry: ; 0x1cce58
-	db "OWL@" ; species name
-	dw 204, 470 ; height, width
+	db "BELL@" ; species name
+	dw 008, 13 ; height, width
 
-	db   "It begins to hoot"
-	next "at the same time"
-	next "every day. Some"
-	page "trainers use them"
-	next "in place of"
-	next "clocks.@"
+	db   "It emits high-"
+	next "frequency cries"
+	next "people can't hear"
+	page "Once it starts, it"
+	next "can cry for an aw-"
+	next "fully long time.@"
