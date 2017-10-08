@@ -1,20 +1,20 @@
 	db TROPIUS ; 152
 
-	db  70,  50,  30,  105,  95,  135
+	db  99,  68,  83,  51,  72,  87
 	;   hp  atk  def  spd  sat  sdf
 
-	db ICE, ICE
-	db 25 ; catch rate
-	db 170 ; base exp
-	db NO_ITEM ; item 1
-	db NEVERMELTICE ; item 2
-	db 255 ; gender
+	db GRASS, FLYING
+	db 200 ; catch rate
+	db 169 ; base exp
+	db GOLD_BERRY ; item 1
+	db GOLD_BERRY ; item 2
+	db 127 ; gender
 	db 20 ; step cycles to hatch
 	dn 7, 7 ; frontpic dimensions
 
-	db MEDIUM_SLOW ; growth rate
-	dn INANIMATE, INANIMATE ; egg groups
+	db SLOW ; growth rate
+	dn MONSTER, PLANT ; egg groups
 
 	; tmhm
-	tmhm ICY_WIND
+	tmhm DRAGON_PULSE, SLEEP_TALK, TOXIC, BULLET_SEED, FISSURE, SUNNY_DAY, WATER_GUN, HYPER_BEAM, DRAGONBREATH, PROTECT, RAIN_DANCE, GIGA_DRAIN, ENDURE, FRUSTRATION, SOLARBEAM, IRON_TAIL, EARTHQUAKE, RETURN, DOUBLE_TEAM, SWAGGER, SANDSTORM, SWIFT, AERIAL_ACE, HEADBUTT, REST, ATTRACT, THIEF, STEEL_WING, FLASH, CUT, FLY, STRENGTH, ROCK_SMASH
 	; end

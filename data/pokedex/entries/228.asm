@@ -1,10 +1,10 @@
 ; HoundourPokedexEntry: ; 0x1d0eff
-	db "DARK@" ; species name
-	dw 200, 240 ; height, width
+	db "BLAST@" ; species name
+	dw 503, 1499 ; height, width
 
-	db   "Around dawn, its"
-	next "ominous howl"
-	next "echoes through the"
-	page "area to announce"
-	next "that this is its"
-	next "territory.@"
+	db   "They dwell in vol-"
+	next "canic craters."
+	next "According to what"
+	page "is known, a single"
+	next "pair live in one"
+	next "volcano together.@"

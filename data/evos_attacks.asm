@@ -2087,22 +2087,20 @@ MewEvosAttacks:
 
 TropiusEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, BIND
-	db 7, DEFENSE_CURL
-	db 13, RAPID_SPIN
-	db 17, ICY_WIND
-	db 21, MIST
-	db 21, HAZE
-	db 25, AURORA_BEAM
-	db 29, ACID_ARMOR
-	db 33, ICE_BEAM
-	db 37, LIGHT_SCREEN
-	db 37, REFLECT
-	db 41, SLASH
-	db 45, CONFUSE_RAY
-	db 49, RECOVER
-	db 53, SOLARBEAM
-	db 61, BLIZZARD
+	db 1, GROWTH
+	db 1, LEER
+	db 1, GUST
+	db 1, VINE_WHIP
+	db 6, SWEET_SCENT
+	db 10, STOMP
+	db 16, RAZOR_LEAF
+	db 21, WHIRLWIND
+	db 29, WING_ATTACK
+	db 36, SLASH
+	db 41, BODY_SLAM
+	db 50, SYNTHESIS
+	db 56, SOLARBEAM
+	db 61, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 KecleonEvosAttacks: ;kecleon
@@ -2124,7 +2122,7 @@ KecleonEvosAttacks: ;kecleon
 	db 55, ANCIENTPOWER
 	db 0 ; no more level-up moves
 
-ChatotEvosAttacks: ;chatot
+ChatotEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, PECK
 	db 5, GROWL
@@ -2136,6 +2134,7 @@ ChatotEvosAttacks: ;chatot
 	db 33, STEEL_WING
 	db 37, DRILL_PECK
 	db 41, REST
+	db 46, AERIAL_ACE
 	db 55, SKY_ATTACK
 	db 0 ; no more level-up moves
 
@@ -3115,16 +3114,22 @@ SkarmoryEvosAttacks:
 	db 49, STEEL_WING
 	db 0 ; no more level-up moves
 
-MagmortarEvosAttacks: ;MAGMORTAR
+MagmortarEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, THUNDERPUNCH
+	db 1, SMOG
 	db 1, LEER
-	db 1, EMBER
-	db 7, ROAR
-	db 13, SMOG
-	db 20, BITE
-	db 27, FAINT_ATTACK
-	db 35, FLAMETHROWER
-	db 43, CRUNCH
+	db 5, EMBER
+	db 8, SMOKESCREEN
+	db 12, FAINT_ATTACK
+	db 15, FIRE_SPIN
+	db 22, FLAME_WHEEL
+	db 26, CONFUSE_RAY
+	db 29, FIRE_PUNCH
+	db 42, SUNNY_DAY
+	db 49, FLAMETHROWER
+	db 55, FIRE_BLAST
+	db 62, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 ElectivireEvosAttacks: ;ELECTIVIRE
@@ -3371,18 +3376,20 @@ MagnezoneEvosAttacks: ;MAGNEZONE
 
 MarshadowEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, BITE
-	db 1, LEER
-	db 1, SANDSTORM
-	db 1, SCREECH
-	db 8, SANDSTORM
-	db 15, SCREECH
-	db 22, ROCK_SLIDE
-	db 29, THRASH
-	db 38, SCARY_FACE
-	db 47, CRUNCH
-	db 61, EARTHQUAKE
-	db 75, HYPER_BEAM
+	db 1, DYNAMICPUNCH
+	db 1, SHADOW_SNEAK
+	db 1, PURSUIT
+	db 1, COUNTER
+	db 5, LOW_KICK
+	db 11, ASTONISH
+	db 15, HI_JUMP_KICK
+	db 20, MIRROR_COAT
+	db 26, SHADOW_BALL
+	db 30, THIEF
+	db 35, DIZZY_PUNCH
+	db 41, NASTY_PLOT
+	db 45, SPECTRATHIEF
+	db 50, CROSS_CHOP
 	db 0 ; no more level-up moves
 
 LugiaEvosAttacks:

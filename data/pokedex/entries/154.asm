@@ -1,10 +1,10 @@
 ; MeganiumPokedexEntry: ; 0x1cca54
-	db "HERB@" ; species name
-	dw 511, 2220 ; height, width
+	db "MUSIC NOTE@" ; species name
+	dw 108, 42 ; height, width
 
-	db   "Anyone who stands"
-	next "beside it becomes"
-	next "refreshed, just as"
-	page "if they were"
-	next "relaxing in a"
-	next "sunny forest.@"
+	db   "It keeps rhythm by"
+	next "flicking its tail"
+	next "feathers like a"
+	page "metronome."
+	next "It imitates human"
+	next "speech.@"
