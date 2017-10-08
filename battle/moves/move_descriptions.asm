@@ -235,7 +235,7 @@
 	dw MorningSunDescription
 	dw SynthesisDescription
 	dw MoonlightDescription
-	dw HiddenPowerDescription
+	dw VoltTackleDescription
 	dw CrossChopDescription
 	dw TwisterDescription
 	dw RainDanceDescription
@@ -419,6 +419,7 @@ WrapDescription:
 
 TakeDownDescription:
 DoubleEdgeDescription:
+VoltTackleDescription:
 	db   "A tackle that also"
 	next "hurts the user.@"
 
@@ -1021,10 +1022,6 @@ SynthesisDescription:
 MoonlightDescription:
 	db   "Restores HP"
 	next "(varies by time).@"
-
-HiddenPowerDescription:
-	db   "The power varies"
-	next "with the #MON.@"
 
 TwisterDescription:
 	db   "Whips up a tornado"

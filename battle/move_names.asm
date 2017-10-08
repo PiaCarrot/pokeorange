@@ -234,7 +234,7 @@
 	db "MORNING SUN@"
 	db "SYNTHESIS@"
 	db "MOONLIGHT@"
-	db "HIDDEN POWER@"
+	db "VOLT TACKLE@"
 	db "CROSS CHOP@"
 	db "TWISTER@"
 	db "RAIN DANCE@"

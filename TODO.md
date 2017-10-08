@@ -32,7 +32,6 @@
 
 ## Moves
 
-- Replace Hidden Power or make it a TM/tutor move
 - `BugBite` effect for Bug Bite
 
 
@@ -54,4 +53,5 @@
 - Spectral Thief (steal boosted stats)
 - Spectral Thief (attack)
 - Venoshock
+- Volt Tackle
 - Water Pulse

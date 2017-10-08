@@ -376,7 +376,6 @@ AI_Smart: ; 386be
 	dbw EFFECT_MORNING_SUN,      AI_Smart_MorningSun
 	dbw EFFECT_SYNTHESIS,        AI_Smart_Synthesis
 	dbw EFFECT_MOONLIGHT,        AI_Smart_Moonlight
-	dbw EFFECT_HIDDEN_POWER,     AI_Smart_HiddenPower
 	dbw EFFECT_RAIN_DANCE,       AI_Smart_RainDance
 	dbw EFFECT_SUNNY_DAY,        AI_Smart_SunnyDay
 	dbw EFFECT_BELLY_DRUM,       AI_Smart_BellyDrum
@@ -2379,46 +2378,6 @@ AI_Smart_RapidSpin: ; 39084
 	dec [hl]
 	ret
 ; 3909e
-
-
-AI_Smart_HiddenPower: ; 3909e
-	push hl
-	ld a, 1
-	ld [hBattleTurn], a
-
-; Calculate Hidden Power's type and base power based on enemy's DVs.
-	farcall HiddenPowerDamage
-	farcall BattleCheckTypeMatchup
-	pop hl
-
-; Discourage Hidden Power if not very effective.
-	ld a, [wd265]
-	cp 10
-	jr c, .bad
-
-; Discourage Hidden Power if its base power	is lower than 50.
-	ld a, d
-	cp 50
-	jr c, .bad
-
-; Encourage Hidden Power if super-effective.
-	ld a, [wd265]
-	cp 11
-	jr nc, .good
-
-; Encourage Hidden Power if its base power is 70.
-	ld a, d
-	cp 70
-	ret c
-
-.good
-	dec [hl]
-	ret
-
-.bad
-	inc [hl]
-	ret
-; 390cb
 
 
 AI_Smart_RainDance: ; 390cb

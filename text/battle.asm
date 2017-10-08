@@ -696,17 +696,6 @@ DestinyBondEffectText: ; 0x81156
 	prompt
 ; 0x8117f
 
-SpiteEffectText: ; 0x8117f
-	text "<TARGET>'s"
-	line "@"
-	text_from_ram StringBuffer1
-	text " was"
-	cont "reduced by @"
-	deciram wd265, 1, 1
-	text "!"
-	prompt
-; 0x811a0
-
 BellChimedText: ; 0x811a0
 	text "A bell chimed!"
 	line ""
@@ -1168,33 +1157,11 @@ BellyDrumText: ; 0x817d2
 	prompt
 ; 0x817f6
 
-CopiedStatsText: ; 0x817f6
-	text "<USER>"
-	line "copied the stat"
-
-	para "changes of"
-	line "<TARGET>!"
-	prompt
-; 0x81817
-
 ForesawAttackText: ; 0x81817
 	text "<USER>"
 	line "foresaw an attack!"
 	prompt
 ; 0x8182d
-
-BeatUpAttackText: ; 0x8182d
-	text_from_ram StringBuffer1
-	text "'s"
-	line "attack!"
-	done
-; 0x8183b
-
-RefusedGiftText: ; 0x8183b
-	text "<TARGET>"
-	line "refused the gift!"
-	prompt
-; 0x81850
 
 IgnoredOrders2Text: ; 0x81850
 	text "<USER>"

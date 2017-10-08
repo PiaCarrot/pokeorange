@@ -1878,24 +1878,27 @@ Moonlight:
 	healnite
 	endmove
 
-HiddenPower:
+VoltTackle:
 	checkobedience
 	usedmovetext
 	doturn
 	critical
-	hiddenpower
+	damagestats
 	damagecalc
 	stab
 	damagevariation
 	checkhit
+	effectchance
 	hittarget
 	failuretext
 	checkfaint
 	criticaltext
 	supereffectivetext
+	recoil
 	checkdestinybond
 	buildopponentrage
 	kingsrock
+	paralyzetarget
 	endmove
 
 RainDance:

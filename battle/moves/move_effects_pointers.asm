@@ -119,7 +119,7 @@
 	dw MorningSun
 	dw Synthesis
 	dw Moonlight
-	dw HiddenPower
+	dw VoltTackle
 	dw RainDance
 	dw SunnyDay
 	dw DefenseUpHit
