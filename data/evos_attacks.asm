@@ -2085,7 +2085,7 @@ MewEvosAttacks:
 	db 50, ANCIENTPOWER
 	db 0 ; no more level-up moves
 
-CryogonalEvosAttacks: ;cryogonal
+TropiusEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, BIND
 	db 7, DEFENSE_CURL

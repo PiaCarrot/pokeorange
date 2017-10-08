@@ -1,4 +1,4 @@
-	db CRYOGONAL ; 152
+	db TROPIUS ; 152
 
 	db  70,  50,  30,  105,  95,  135
 	;   hp  atk  def  spd  sat  sdf

@@ -152,7 +152,7 @@ const_value set 1
 	const DRAGONITE
 	const MEWTWO
 	const MEW
-	const CRYOGONAL
+	const TROPIUS
 	const KECLEON
 	const CHATOT
 	const PIKIPEK
