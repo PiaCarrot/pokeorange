@@ -554,7 +554,7 @@ TryLoadSaveData: ; 14f1c
 ; 14f7c
 
 DefaultOptions: ; 14f7c
-	db $03 ; Options: mid text speed
+	db $01 ; Options: fast text speed
 	db $00 ; wSaveFileExists
 	db $00 ; TextBoxFrame: frame 0
 	db $01 ; TextBoxFlags
