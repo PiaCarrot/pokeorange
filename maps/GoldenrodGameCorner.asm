@@ -193,16 +193,16 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	if_equal $2, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
 	checkcode VAR_PARTYCOUNT
 	if_equal $6, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
-	pokenamemem WOBBUFFET, $0
+	pokenamemem SKRELP, $0
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
 	waitsfx
 	playsound SFX_TRANSACTION
 	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
 	waitbutton
-	writebyte WOBBUFFET
+	writebyte SKRELP
 	special Special_GameCornerPrizeMonCheckDex
-	givepoke WOBBUFFET, 15
+	givepoke SKRELP, 15
 	takecoins 1500
 	jump .loop
 
@@ -219,7 +219,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	db 4 ; items
 	db "ABRA        100@"
 	db "CUBONE      800@"
-	db "WOBBUFFET  1500@"
+	db "SKRELP  1500@"
 	db "CANCEL@"
 
 

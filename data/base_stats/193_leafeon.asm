@@ -1,4 +1,4 @@
-	db YANMA ; 193
+	db LEAFEON ; 193
 
 	db  65,  65,  45,  95,  75,  45
 	;   hp  atk  def  spd  sat  sdf

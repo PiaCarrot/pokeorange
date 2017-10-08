@@ -178,10 +178,10 @@ MonMenuIcons: ; 8eac4
 	db ICON_BIRD         ; PELIPPER
 	db ICON_BIRD         ; CHINGLING
 	db ICON_BIRD         ; CHIMECHO
-	db ICON_BUG          ; LEDYBA
-	db ICON_BUG          ; LEDIAN
-	db ICON_BUG          ; SPINARAK
-	db ICON_BUG          ; ARIADOS
+	db ICON_BUG          ; SALANDIT
+	db ICON_BUG          ; SALAZZLE
+	db ICON_BUG          ; FINNEON
+	db ICON_BUG          ; LUMINEON
 	db ICON_BAT          ; CROBAT
 	db ICON_FISH         ; CHINCHOU
 	db ICON_FISH         ; LANTURN
@@ -206,20 +206,20 @@ MonMenuIcons: ; 8eac4
 	db ICON_FISH         ; STUNFISK
 	db ICON_ODDISH       ; SUNKERN
 	db ICON_ODDISH       ; SUNFLORA
-	db ICON_BUG          ; YANMA
-	db ICON_MONSTER      ; WOOPER
-	db ICON_MONSTER      ; QUAGSIRE
+	db ICON_BUG          ; LEAFEON
+	db ICON_MONSTER      ; GLACEON
+	db ICON_MONSTER      ; SYLVEON
 	db ICON_FOX          ; ESPEON
 	db ICON_FOX          ; UMBREON
 	db ICON_FISH         ; RELICANTH
 	db ICON_SLOWPOKE     ; SLOWKING
-	db ICON_GHOST        ; MISDREAVUS
+	db ICON_GHOST        ; MIMIKYU
 	db ICON_MONSTER      ; SPINDA
-	db ICON_GHOST        ; WOBBUFFET
-	db ICON_EQUINE       ; GIRAFARIG
-	db ICON_BUG          ; PINECO
-	db ICON_BUG          ; FORRETRESS
-	db ICON_SERPENT      ; DUNSPARCE
+	db ICON_GHOST        ; SKRELP
+	db ICON_EQUINE       ; DRAGALGE
+	db ICON_BUG          ; TRAPINCH
+	db ICON_BUG          ; VIBRAVA
+	db ICON_SERPENT      ; FLYGON
 	db ICON_BUG          ; GLIGAR
 	db ICON_SERPENT      ; STEELIX
 	db ICON_FISH         ; WAILMER
@@ -227,14 +227,14 @@ MonMenuIcons: ; 8eac4
 	db ICON_FISH         ; QWILFISH
 	db ICON_BUG          ; SCIZOR
 	db ICON_BUG          ; SHUCKLE
-	db ICON_BUG          ; HERACROSS
-	db ICON_FOX          ; SNEASEL
-	db ICON_MONSTER      ; TEDDIURSA
-	db ICON_MONSTER      ; URSARING
+	db ICON_BUG          ; MAREANIE
+	db ICON_FOX          ; TOXAPEX
+	db ICON_MONSTER      ; SANDYGAST
+	db ICON_MONSTER      ; PALOSSAND
 	db ICON_BLOB         ; SLUGMA
 	db ICON_BLOB         ; MAGCARGO
-	db ICON_EQUINE       ; SWINUB
-	db ICON_EQUINE       ; PILOSWINE
+	db ICON_EQUINE       ; CARVANHA
+	db ICON_EQUINE       ; SHARPEDO
 	db ICON_SHELL        ; CORSOLA
 	db ICON_FISH         ; REMORAID
 	db ICON_FISH         ; OCTILLERY
@@ -256,8 +256,8 @@ MonMenuIcons: ; 8eac4
 	db ICON_HUMANSHAPE   ; MAGBY
 	db ICON_CLEFAIRY     ; HAPPINY
 	db ICON_CLEFAIRY     ; BLISSEY
-	db ICON_FOX          ; RAIKOU
-	db ICON_FOX          ; ENTEI
+	db ICON_FOX          ; CUTIEFLY
+	db ICON_FOX          ; RIBOMBEE
 	db ICON_ODDISH       ; TANGROWTH
 	db ICON_MONSTER      ; RHYPERIOR
 	db ICON_VOLTORB      ; MAGNEZONE

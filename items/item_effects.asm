@@ -1113,7 +1113,9 @@ WaterStone:
 LeafStone:
 SunStone:
 ShinyStone:
-TradeStone: ; ee0f
+TradeStone:
+UpGrade:
+DubiousDisc: ; ee0f
 	ld b, PARTYMENUACTION_EVO_STONE
 	call UseItem_SelectMon
 
@@ -2767,7 +2769,6 @@ BerserkGene:
 FlowerMail:
 LightBall:
 PolkadotBow:
-UpGrade:
 RainbowWing:
 MoroTrophy:
 TeruSama: ; f77d
