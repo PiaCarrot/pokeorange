@@ -3421,9 +3421,63 @@ BattleCommand_BeatUp: ; 35461
 
 
 BattleCommand_StealBoostedStats: ; 355b5
-	; TODO: steal stat boosts
-	; use ANIM_STEAL_BOOSTS and StoleBoostedStatsText
+	ld a, [AttackMissed]
+	and a
+	ret nz
+
+	ld hl, EnemyStatLevels
+	ld de, PlayerStatLevels
+	ld a, [hBattleTurn]
+	and a
+	jr z, .pointers_correct
+; It's the enemy's turn, so swap the pointers.
+	push hl
+	ld h, d
+	ld l, e
+	pop de
+.pointers_correct
+	push hl
+	ld b, NUM_LEVEL_STATS
+; If none of the opponent's stats is boosted from its base level,
+; nothing will be stolen.
+.loop
+	ld a, [hli]
+	cp BASE_STAT_LEVEL + 1
+	jr nc, .break
+	dec b
+	jr nz, .loop
+	pop hl
 	ret
+
+.break
+	pop hl
+; Steal the opponent's boosted stats.
+	ld b, NUM_LEVEL_STATS
+.loop2
+	ld a, [hli]
+	cp BASE_STAT_LEVEL + 1
+	jr nc, .not_boost
+	ld [de], a
+.not_boost
+	inc de
+	dec b
+	jr nz, .loop2
+
+; Recalculate stats
+	ld a, [hBattleTurn]
+	and a
+	jr nz, .calc_enemy_stats
+	call CalcPlayerStats
+	jr .merge
+.calc_enemy_stats
+	call CalcEnemyStats
+.merge
+
+; Show animation and alert
+	ld de, ANIM_STEAL_BOOSTS
+	call FarPlayBattleAnimation
+	ld hl, StoleBoostedStatsText
+	jp StdBattleTextBox
 
 ; 355bd
 

@@ -32,7 +32,7 @@
 
 ## Moves
 
-- `BattleCommand_StealBoostedStats` command for Spectral Thief
+- Replace Hidden Power or make it a TM/tutor move
 - `BugBite` effect for Bug Bite
 
 
