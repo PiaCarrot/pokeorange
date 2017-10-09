@@ -2353,8 +2353,13 @@ WinTrainerBattle: ; 3cfa4
 	and a
 	ld a, b
 	call z, PlayVictoryMusic
+
 	farcall Battle_GetTrainerName
+	call CheckPluralTrainer
+	ld hl, BattleText_PluralEnemyWereDefeated
+	jr z, .PlaceBattleEndText
 	ld hl, BattleText_EnemyWasDefeated
+.PlaceBattleEndText
 	call StdBattleTextBox
 
 	ld a, [wLinkMode]
@@ -3403,9 +3408,15 @@ CheckWhetherToAskSwitch: ; 3d714
 OfferSwitch: ; 3d74b
 	ld a, [CurPartyMon]
 	push af
+
 	farcall Battle_GetTrainerName
+	call CheckPluralTrainer
+	ld hl, BattleText_PluralEnemyAreAboutToUseWillPlayerChangePkmn
+	jr z, .PlaceBattleChangeText
 	ld hl, BattleText_EnemyIsAboutToUseWillPlayerChangePkmn
+.PlaceBattleChangeText
 	call StdBattleTextBox
+
 	lb bc, 1, 7
 	call PlaceYesNoBox
 	ld a, [wMenuCursorY]
@@ -8676,7 +8687,9 @@ BattleStartMessage: ; 3fc8b
 	call DelayFrames
 
 	farcall Battle_GetTrainerName
-
+	call CheckPluralTrainer
+	ld hl, PluralWantToBattleText
+	jr z, .PlaceBattleStartText
 	ld hl, WantsToBattleText
 	jr .PlaceBattleStartText
 
@@ -8731,6 +8744,13 @@ BattleStartMessage: ; 3fc8b
 	pop hl
 	jp StdBattleTextBox
 ; 3fd26
+
+CheckPluralTrainer:
+	ld a, [OtherTrainerClass]
+	cp CASSIDY_BUTCH
+	ret z
+	cp JESSIE_JAMES
+	ret
 
 PlayerSetAShellTrap:
 	ld a, [wPlayerAction]

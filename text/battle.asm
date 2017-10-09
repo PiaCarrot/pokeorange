@@ -36,6 +36,11 @@ WantsToBattleText:: ; 0x807a9
 	prompt
 ; 0x807bd
 
+PluralWantToBattleText::
+	text "<ENEMY>"
+	line "want to battle!"
+	prompt
+
 BattleText_WildFled: ; 0x807bd
 	text "Wild @"
 	text_from_ram EnemyMonNick
@@ -206,6 +211,11 @@ BattleText_EnemyWasDefeated: ; 0x809da
 	prompt
 ; 0x809eb
 
+BattleText_PluralEnemyWereDefeated:
+	text "<ENEMY>"
+	line "were defeated!"
+	prompt
+
 TiedAgainstText: ; 0x809eb
 	text "Tied against"
 	line "<ENEMY>!"
@@ -241,6 +251,17 @@ BattleText_EnemyIsAboutToUseWillPlayerChangePkmn: ; 0x80aca
 	line "change #MON?"
 	done
 ; 0x80af8
+
+BattleText_PluralEnemyAreAboutToUseWillPlayerChangePkmn:
+	text "<ENEMY>"
+	line "are about to use"
+	cont "@"
+	text_from_ram EnemyMonNick
+	text "."
+
+	para "Will <PLAYER>"
+	line "change #MON?"
+	done
 
 BattleText_EnemySentOut: ; 0x80af8
 	text "<ENEMY>"

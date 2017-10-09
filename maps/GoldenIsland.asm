@@ -128,7 +128,7 @@ GoldenIslandRocketText:
 	line "in and beat the"
 	cont "crazy cat people."
 
-	para "JESSIE: Ah haha."
+	para "JESSIE: Ah haha!"
 	line "Then all of their"
 	cont "#MON are as"
 	cont "good as ours!"
