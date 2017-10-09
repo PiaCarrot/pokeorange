@@ -1,9 +1,21 @@
 # To Do
 
+
+## Content
+
 - Revise learnsets and TM sets after replacing moves
 - Diving sprites
 - Wrecked Ship tileset
 - Add clouds to title screen
+
+
+## Features
+
+- Exp All
+- Shiny Charm
+- Catch Exp
+- Make GHOST special
+- Make DARK physical
 
 
 ## Pokemon
@@ -56,16 +68,8 @@
 - Volt Tackle
 - Water Pulse
 
+
 ## Evolution Methods
 
 - EVOLVE_MOVE (Mime Jr -> Mr Mime)
 - EVOLVE_GENDER (Salandit -> Salazzle)
-
-## Features
-
--Exp All
--Shiny Charm
--Catch Exp
--BW Repel System
--Make GHOST special
--Make DARK physical
