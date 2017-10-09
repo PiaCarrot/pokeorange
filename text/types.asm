@@ -92,7 +92,7 @@ TypeNames: ; 5097b
 	dw Ground
 	dw Rock
 	dw Bug
-	dw Ghost
+	dw Dark
 	dw Steel
 	dw CurseType
 	dw Fire
@@ -102,7 +102,7 @@ TypeNames: ; 5097b
 	dw Psychic
 	dw Ice
 	dw Dragon
-	dw Dark
+	dw Ghost
 	dw Fairy
 
 Normal:    db "NORMAL@"
@@ -112,7 +112,7 @@ Poison:    db "POISON@"
 Ground:    db "GROUND@"
 Rock:      db "ROCK@"
 Bug:       db "BUG@"
-Ghost:     db "GHOST@"
+Dark:      db "DARK@"
 Steel:     db "STEEL@"
 CurseType: db "???@"
 Fire:      db "FIRE@"
@@ -122,7 +122,7 @@ Electric:  db "ELECTRIC@"
 Psychic:   db "PSYCHIC@"
 Ice:       db "ICE@"
 Dragon:    db "DRAGON@"
-Dark:      db "DARK@"
+Ghost:     db "GHOST@"
 Fairy:     db "FAIRY@"
 
 ; 50a28

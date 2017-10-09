@@ -14,8 +14,6 @@
 - Exp All
 - Shiny Charm
 - Catch Exp
-- Make GHOST special
-- Make DARK physical
 
 
 ## Pokemon
