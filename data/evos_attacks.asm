@@ -2986,7 +2986,7 @@ ShuckleEvosAttacks:
 	db 9, WRAP
 	db 14, ENCORE
 	db 23, SAFEGUARD
-	db 28, PROTECT ; BIDE
+	db 28, PROTECT
 	db 37, REST
 	db 0 ; no more level-up moves
 
@@ -3145,7 +3145,7 @@ OctilleryEvosAttacks:
 	db 70, HYPER_BEAM
 	db 0 ; no more level-up moves
 
-MantykeEvosAttacks: ;MANTYKE
+MantykeEvosAttacks:
 	db EVOLVE_LEVEL, 30, MANTINE
 	db 0 ; no more evolutions
 	db 1, SPLASH
