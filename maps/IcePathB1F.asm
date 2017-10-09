@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const ICEPATHB1F_BOULDER1
 	const ICEPATHB1F_BOULDER2
 	const ICEPATHB1F_BOULDER3

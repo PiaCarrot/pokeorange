@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const CRYSTAL_CAVE_B1_BROCK
 	const CRYSTAL_CAVE_B1_ITEM1
 	const CRYSTAL_CAVE_B1_ONIX

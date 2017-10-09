@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const SEVENGRAPEFRUITS_BIG_SNORLAX
 	const SEVENGRAPEFRUITS_WORKER
 	const SEVENGRAPEFRUITS_GUARD1

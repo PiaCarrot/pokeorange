@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const ROUTE55QUESTHOUSE_GRANNY
 
 Route55QuestHouse_MapScriptHeader:

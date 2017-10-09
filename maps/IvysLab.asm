@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const IVYSLAB_IVY
 	const IVYSLAB_IVYS_AIDE
 	const IVYSLAB_POKE_BALL1

@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const TANGELOMART_CLERK
 	const TANGELOMART_COOLTRAINER_M
 	const TANGELOMART_YOUNGSTER

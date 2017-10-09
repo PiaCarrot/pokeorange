@@ -2160,6 +2160,7 @@ SpectralThief:
 	doturn
 	checkhit
 	critical
+	stab ; type immunity check
 	stealboostedstats
 	damagestats
 	damagecalc

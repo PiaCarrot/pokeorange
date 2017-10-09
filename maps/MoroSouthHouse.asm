@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 
 MoroSouthHouse_MapScriptHeader:
 .MapTriggers: db 0

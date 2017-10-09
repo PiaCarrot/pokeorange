@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const GOLDEN_ISLAND_CATMAN_1
 	const GOLDEN_ISLAND_CATMAN_2
 	const GOLDEN_ISLAND_CATMAN_3
@@ -128,7 +128,7 @@ GoldenIslandRocketText:
 	line "in and beat the"
 	cont "crazy cat people."
 
-	para "JESSIE: Ah haha."
+	para "JESSIE: Ah haha!"
 	line "Then all of their"
 	cont "#MON are as"
 	cont "good as ours!"

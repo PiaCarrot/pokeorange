@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const TANGELOJUNGLE_POKE_BALL1
 	const TANGELOJUNGLE_LASS
 	const TANGELOJUNGLE_YOUNGSTER2

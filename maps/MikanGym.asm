@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const MIKANGYM_FALKNER
 	const MIKANGYM_YOUNGSTER1
 	const MIKANGYM_YOUNGSTER2

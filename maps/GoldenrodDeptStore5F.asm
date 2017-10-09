@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const GOLDENRODDEPTSTORE5F_CLERK
 
 GoldenrodDeptStore5F_MapScriptHeader:

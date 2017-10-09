@@ -1,4 +1,4 @@
-const_value set 2
+const_value set 1
 	const VALENCIAPORT_SAILOR
 	const VALENCIAPORT_FISHING_GURU
 
