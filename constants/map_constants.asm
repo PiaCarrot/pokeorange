@@ -225,7 +225,6 @@ const_value SET 1
 	const OBJECT_30 ; 1e
 	const OBJECT_31 ; 1f
 	const OBJECT_RANGE ; 20
-; 33-39 are not used
 
 ; map object struct
 	const_def
@@ -243,8 +242,6 @@ const_value SET 1
 	const MAPOBJECT_POINTER_HI ; b
 	const MAPOBJECT_EVENT_FLAG ; c
 	const MAPOBJECT_FLAG_HI ; d
-	const MAPOBJECT_E ; unused
-	const MAPOBJECT_F ; unused
 OBJECT_LENGTH EQU const_value
 
 MAPOBJECT_SCREEN_HEIGHT EQU 11

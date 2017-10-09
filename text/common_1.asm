@@ -233,6 +233,13 @@ UnknownText_0x1bd308::
 	line "wore off."
 	done
 
+UseAnotherRepelText::
+	text "REPEL's effect"
+	line "wore off."
+
+	para "Use another?"
+	done
+
 UnknownText_0x1bd321::
 	text "<PLAYER> found"
 	line "@"

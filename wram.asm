@@ -716,7 +716,7 @@ wPlayerFutureSightDamage:: ds 2 ; c727
 wEnemyFutureSightDamage:: ds 2 ; c729
 wPlayerRageCounter:: ds 1 ; c72b
 wEnemyRageCounter:: ds 1 ; c72c
-wBeatUpHitAtLeastOnce:: ds 1 ; c72d
+	ds 1 ; c72d
 wPlayerTrappingMove:: ds 1 ; c72e
 wEnemyTrappingMove:: ds 1 ; c72f
 wPlayerWrapCount:: ds 1 ; c730
@@ -2192,6 +2192,7 @@ MapObjects:: ; d71e
 	map_object Map14
 	map_object Map15
 	map_object Map16
+	map_object Map17
 MapObjectsEnd::
 
 wObjectMasks:: ds NUM_OBJECTS ; d81e
@@ -2398,7 +2399,8 @@ wParkBallsRemaining:: ds 1
 wLuckyNumberShowFlag:: ds 2 ; dc9d
 wLuckyIDNumber:: ds 2 ; dc9f
 wRepelEffect:: ds 1 ; If a Repel is in use, it contains the nr of steps it's still active
-	ds 2
+wRepelType:: ds 1
+	ds 1
 
 wPlayerDataEnd::
 

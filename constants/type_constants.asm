@@ -8,7 +8,7 @@ PHYSICAL EQU const_value
 	const GROUND
 	const ROCK
 	const BUG
-	const GHOST
+	const DARK
 	const STEEL
 
 	const CURSE_T
@@ -21,7 +21,7 @@ SPECIAL EQU const_value
 	const PSYCHIC
 	const ICE
 	const DRAGON
-	const DARK
+	const GHOST
 	const FAIRY
 
 TYPES_END EQU const_value

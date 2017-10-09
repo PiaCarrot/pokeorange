@@ -105,6 +105,7 @@ DoBattle: ; 3c000
 	call SpikesDamage
 
 .not_linked_2
+	call AutomaticHailOnMtNavelPeak
 	jp BattleTurn
 
 WildFled_EnemyFled_LinkBattleCanceled: ; 3c0e5
@@ -8768,3 +8769,20 @@ EnemySetAShellTrap:
 	ret nz
 	ld hl, EnemySetAShellTrapText
 	jp StdBattleTextBox
+
+AutomaticHailOnMtNavelPeak:
+	ld a, [MapGroup]
+	cp GROUP_MT_NAVEL_PEAK
+	ret nz
+	ld a, [MapNumber]
+	cp MAP_MT_NAVEL_PEAK
+	ret nz
+	ld a, WEATHER_HAIL
+	ld [Weather], a
+	ld a, 255
+	ld [WeatherCount], a
+	ld de, ANIM_IN_HAIL
+	call Call_PlayBattleAnim
+	ld hl, ItStartedToHailText
+	call StdBattleTextBox
+	jp EmptyBattleTextBox
