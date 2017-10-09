@@ -1,20 +1,20 @@
 	db SYLVEON ; 195
 
-	db  95,  85,  85,  35,  65,  65
+	db  95,  65,  65,  60,  110,  130
 	;   hp  atk  def  spd  sat  sdf
 
-	db WATER, GROUND
-	db 90 ; catch rate
-	db 137 ; base exp
+	db FAIRY, FAIRY
+	db 45 ; catch rate
+	db 184 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
-	db 127 ; gender
-	db 20 ; step cycles to hatch
+	db 31 ; gender
+	db 35 ; step cycles to hatch
 	dn 6, 6 ; frontpic dimensions
 
 	db MEDIUM_FAST ; growth rate
-	dn AMPHIBIAN, FIELD ; egg groups
+	dn FIELD, FIELD ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, TOXIC, HYPER_BEAM, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, IRON_TAIL, EARTHQUAKE, RETURN, DIG, ICE_PUNCH, SWAGGER, SLEEP_TALK, SLUDGE_BOMB, SANDSTORM, REST, ATTRACT, SURF, STRENGTH
+	tmhm SLEEP_TALK, TOXIC, SUNNY_DAY, HYPER_BEAM, PROTECT, RAIN_DANCE, ENDURE FRUSTRATION, IRON_TAIL, RETURN, SHADOW_BALL, DOUBLE_TEAM, SWAGGER, SWIFT, AERIAL_ACE, HEADBUTT, REST, ATTRACT, DAZZLINGLEAM, FLASH, VENOSHOCK
 	; end

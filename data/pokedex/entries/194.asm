@@ -1,10 +1,10 @@
 ; WooperPokedexEntry: ; 0x1d0078
-	db "WATER FISH@" ; species name
-	dw 104, 190 ; height, width
+	db "FRESH SNOW@" ; species name
+	dw 207, 571 ; height, width
 
-	db   "A mucous"
-	next "membrane covers"
-	next "its body. Touching"
-	page "it barehanded will"
-	next "cause a shooting"
-	next "pain.@"
+	db   "It can control"
+	next "its body temperat-"
+	next "ure at will. This"
+	page "enables it to"
+	next "freeze moisture in"
+	next "the atmosphere.@"

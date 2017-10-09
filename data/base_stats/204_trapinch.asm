@@ -1,20 +1,20 @@
 	db TRAPINCH ; 204
 
-	db  50,  65,  90,  15,  35,  35
+	db  45,  100,  45,  10,  45,  45
 	;   hp  atk  def  spd  sat  sdf
 
-	db BUG, BUG
-	db 190 ; catch rate
-	db 60 ; base exp
+	db GROUND, GROUND
+	db 255 ; catch rate
+	db 73 ; base exp
 	db NO_ITEM ; item 1
-	db NO_ITEM ; item 2
+	db SOFT_SAND ; item 2
 	db 127 ; gender
 	db 20 ; step cycles to hatch
 	dn 5, 5 ; frontpic dimensions
 
-	db MEDIUM_FAST ; growth rate
+	db MEDIUM_SLOW ; growth rate
 	dn INSECT, INSECT ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, TOXIC, SUNNY_DAY, PROTECT, GIGA_DRAIN, ENDURE, FRUSTRATION, SOLARBEAM, RETURN, SWAGGER, SLEEP_TALK, REST, ATTRACT, STRENGTH
+	tmhm SLEEP_TALK, TOXIC, FISSURE, SUNNY_DAY, HYPER_BEAM, DRAGONBREATH, PROTECT, ENDURE, FRUSTRATION, SOLARBEAM, EARTHQUAKE, RETURN, DIG, DOUBLE_TEAM, SWAGGER, SANDSTORM, SWIFT, REST, ATTRACT, THIEF, CUT, STRENGTH, ROCK_SMASH, BUG_BITE, SIGNAL_BEAM, VENOSHOCK
 	; end

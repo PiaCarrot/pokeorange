@@ -1,20 +1,21 @@
 	db VIBRAVA ; 205
 
-	db  75,  90, 140,  40,  60,  60
+	db  50,  70, 50,  70,  50,  50
 	;   hp  atk  def  spd  sat  sdf
 
-	db BUG, STEEL
-	db 75 ; catch rate
-	db 118 ; base exp
+	db GROUND, DRAGON
+	db 120 ; catch rate
+	db 126 ; base exp
 	db NO_ITEM ; item 1
-	db NO_ITEM ; item 2
+	db SOFT_SAND ; item 2
 	db 127 ; gender
 	db 20 ; step cycles to hatch
-	dn 7, 7 ; frontpic dimensions
+	dn 6, 6 ; frontpic dimensions
 
-	db MEDIUM_FAST ; growth rate
+	db MEDIUM_SLOW ; growth rate
 	dn INSECT, INSECT ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, TOXIC, SUNNY_DAY, HYPER_BEAM, PROTECT, GIGA_DRAIN, ENDURE, FRUSTRATION, SOLARBEAM, RETURN, SWAGGER, SLEEP_TALK, SANDSTORM, REST, ATTRACT, STRENGTH
+	tmhm SLEEP_TALK, TOXIC, FISSURE, SUNNY_DAY, HYPER_BEAM, DRAGONBREATH, PROTECT, ENDURE, FRUSTRATION, SOLARBEAM, EARTHQUAKE, RETURN, DIG, DOUBLE_TEAM, SWAGGER, SANDSTORM, SWIFT, REST, ATTRACT, THIEF, CUT, STRENGTH, ROCK_SMASH, BUG_BITE, SIGNAL_BEAM, VENOSHOCK
 	; end
+	

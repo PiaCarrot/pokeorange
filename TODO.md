@@ -58,6 +58,14 @@
 
 ## Evolution Methods
 
-- EVOLVE_LOCATION (Leafeon, Glaceon, Magnezone)
 - EVOLVE_MOVE (Mime Jr -> Mr Mime)
 - EVOLVE_GENDER (Salandit -> Salazzle)
+
+## Features
+
+-Exp All
+-Shiny Charm
+-Catch Exp
+-BW Repel System
+-Make GHOST special
+-Make DARK physical

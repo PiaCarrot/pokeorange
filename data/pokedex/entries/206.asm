@@ -1,10 +1,10 @@
 ; DunsparcePokedexEntry: ; 0x1d0593
-	db "LAND SNAKE@" ; species name
-	dw 411, 310 ; height, width
+	db "MYSTIC@" ; species name
+	dw 607, 1808 ; height, width
 
-	db   "It hides deep"
-	next "inside caves where"
-	next "no light ever"
-	page "reaches it and"
-	next "remains virtually"
-	next "motionless there.@"
+	db   "This #MON hides "
+	next "in the heart of"
+	next "sandstorms it"
+	page "creates and seldom"
+	next "appears where peo-"
+	next "ple can see it.@"

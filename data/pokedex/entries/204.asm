@@ -1,10 +1,10 @@
 ; PinecoPokedexEntry: ; 0x1d04b0
-	db "BAGWORM@" ; species name
-	dw 200, 160 ; height, width
+	db "ANT PIT@" ; species name
+	dw 204, 331 ; height, width
 
-	db   "It spits out a"
-	next "fluid that it uses"
-	next "to glue tree bark"
-	page "to its body. The"
-	next "fluid hardens when"
-	next "it touches air.@"
+	db   "As it digs through"
+	next "the sand, its huge"
+	next "jaws crush any ro-"
+	page "cks that obstruct"
+	next "its path. They are"
+	next "found in deserts.@"

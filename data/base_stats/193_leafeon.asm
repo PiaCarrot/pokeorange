@@ -1,20 +1,20 @@
 	db LEAFEON ; 193
 
-	db  65,  65,  45,  95,  75,  45
+	db  65,  110,  130,  95,  60,  65
 	;   hp  atk  def  spd  sat  sdf
 
-	db BUG, FLYING
-	db 75 ; catch rate
-	db 147 ; base exp
+	db GRASS, GRASS
+	db 45 ; catch rate
+	db 196 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
-	db 127 ; gender
-	db 20 ; step cycles to hatch
+	db 31 ; gender
+	db 35 ; step cycles to hatch
 	dn 6, 6 ; frontpic dimensions
 
 	db MEDIUM_FAST ; growth rate
-	dn INSECT, INSECT ; egg groups
+	dn FIELD, FIELD ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, TOXIC, SUNNY_DAY, PROTECT, GIGA_DRAIN, ENDURE, FRUSTRATION, SOLARBEAM, RETURN, SWAGGER, SLEEP_TALK, SWIFT, REST, ATTRACT, THIEF
+	tmhm SLEEP_TALK, TOXIC, BULLET_SEED, SUNNY_DAY, HYPER_BEAM, PROTECT, RAIN_DANCE, GIGA_DRAIN, ENDURE, FRUSTRATION, SOLARBEAM, IRON_TAIL, RETURN, SHADOW_BALL, DOUBLE_TEAM, SWAGGER, SWIFT, AERIAL_ACE, HEADBUTT, REST, ATTRACT, DAZZLINGLEAM, FLASH, VENOSHOCK
 	; end
