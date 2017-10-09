@@ -1,10 +1,10 @@
 ; PiloswinePokedexEntry: ; 0x1d0c01
-	db "SWINE@" ; species name
-	dw 307, 1230 ; height, width
+	db "BRUTAL@" ; species name
+	dw 511, 1958 ; height, width
 
-	db   "Although its legs"
-	next "are short, its"
-	next "rugged hooves"
-	page "prevent it from"
-	next "slipping, even on"
-	next "icy ground.@"
+	db   "It has a sad hist-"
+	next "ory. In the past,"
+	next "its dorsal fin was"
+	page "a treasured food-"
+	next "stuff, so SHARPEDO"
+	next "were overfished.@"

@@ -1,20 +1,20 @@
 	db FINNEON ; 167
 
-	db  40,  60,  40,  30,  40,  40
+	db  49,  49,  56,  66,  49,  61
 	;   hp  atk  def  spd  sat  sdf
 
-	db BUG, POISON
-	db 255 ; catch rate
-	db 54 ; base exp
+	db WATER, WATER
+	db 190 ; catch rate
+	db 90 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 127 ; gender
 	db 15 ; step cycles to hatch
 	dn 5, 5 ; frontpic dimensions
 
-	db FAST ; growth rate
-	dn INSECT, INSECT ; egg groups
+	db SLIGHTLY_FAST ; growth rate
+	dn FISH, FISH ; egg groups
 
 	; tmhm
-	tmhm TOXIC, SUNNY_DAY, PROTECT, GIGA_DRAIN, ENDURE, FRUSTRATION, SOLARBEAM, RETURN, DIG, PSYCHIC, SWAGGER, SLEEP_TALK, SLUDGE_BOMB, REST, ATTRACT, THIEF
+	tmhm ICY_WIND, TOXIC, HAIL, WHIRLPOOL, WATER_GUN, ICE_BEAM, BLIZZARD, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, IRON_TAIL, RETURN, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, SWIFT, HEADBUTT, REST, ATTRACT, FLASH, SURF, DIVE, WATERFALL
 	; end

@@ -1,20 +1,20 @@
 	db AZURILL ; 178
 
-	db  65,  75,  70,  95,  95,  70
+	db  50,  20,  40,  20,  20,  40
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, FAIRY
-	db 75 ; catch rate
-	db 171 ; base exp
+	db 150 ; catch rate
+	db 38 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
-	db 127 ; gender 75% female
+	db 200 ; gender
 	db 20 ; step cycles to hatch
-	dn 6, 6 ; frontpic dimensions
+	dn 5, 5 ; frontpic dimensions
 
-	db MEDIUM_FAST ; growth rate
-	dn AVIAN, AVIAN ; egg groups
+	db FAST ; growth rate
+	dn NO_EGGS, NO_EGGS ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, TOXIC, BLIZZARD, ICY_WIND, PROTECT, RAIN_DANCE, ENDURE, BUBBLEBEAM, FRUSTRATION, IRON_TAIL, RETURN, ICE_PUNCH, SWAGGER, SLEEP_TALK, SWIFT, REST, ATTRACT, SURF, WATERFALL
+	tmhm ICY_WIND, TOXIC, HAIL, WHIRLPOOL, WATER_GUN, ICE_BEAM, BLIZZARD, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, IRON_TAIL, RETURN, DOUBLE_TEAM, SWAGGER, SLEEP_TALK, SWIFT, HEADBUTT, REST, ATTRACT, DAZZLINGLEAM, SURF, DIVE, WATERFALL
 	; end

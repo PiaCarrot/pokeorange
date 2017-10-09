@@ -1,10 +1,10 @@
 ; MurkrowPokedexEntry: ; 0x1d021e
-	db "DARKNESS@" ; species name
-	dw 108, 50 ; height, width
+	db "LONGEVITY@" ; species name
+	dw 303, 516 ; height, width
 
-	db   "It hides any shiny"
-	next "object it finds in"
-	next "a secret location."
-	page "RELICANTH and"
-	next "MEOWTH loot one"
-	next "another's stashes.@"
+	db   "Discovered by ch-"
+	next "ance during deep-"
+	next "sea explorations,"
+	page "it has not chang-"
+	next "ed for 100 milli-"
+	next "on years.@"

@@ -1,10 +1,10 @@
 ; XatuPokedexEntry: ; 0x1cd4e9
-	db "MYSTIC@" ; species name
-	dw 411, 330 ; height, width
+	db "POLKA DOT@" ; species name
+	dw 008, 44 ; height, width
 
-	db   "Once it begins to"
-	next "meditate at sun-"
-	next "rise, the entire"
-	page "day will pass"
-	next "before it will"
-	next "move again.@"
+	db   "Its tail is filled"
+	next "with nutrients"
+	next "necessary for"
+	page "growth. It plays"
+	next "by bouncing on"
+	next "its tail.@"

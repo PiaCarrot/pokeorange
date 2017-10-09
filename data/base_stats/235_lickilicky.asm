@@ -1,20 +1,20 @@
 	db LICKILICKY ; 235
 
-	db  55,  20,  35,  75,  20,  45
+	db  110,  85,  95,  50,  80,  95
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL
-	db 45 ; catch rate
-	db 106 ; base exp
+	db 30 ; catch rate
+	db 193 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 127 ; gender
 	db 20 ; step cycles to hatch
 	dn 7, 7 ; frontpic dimensions
 
-	db FAST ; growth rate
-	dn FIELD, FIELD ; egg groups
+	db MEDIUM_FAST ; growth rate
+	dn MONSTER, MONSTER ; egg groups
 
 	; tmhm
-	tmhm
+	tmhm SLEEP_TALK, TOXIC, HAIL, WHIRLPOOL, FISSURE, SUNNY_DAY, ICE_BEAM, BLIZZARD, HYPER_BEAM, DRAGONBREATH, PROTECT, RAIN_DANCE, FRUSTRATION, SOLARBEAM, THUNDERBOLT, THUNDER, EARTHQUAKE, RETURN, SHADOW_BALL, BUBBLEBEAM, DOUBLE_TEAM, ICE_PUNCH, SWAGGER, FLAMETHROWER, SLUDGE_BOMB, SANDSTORM, FIRE_BLAST, SWIFT, THUNDERPUNCH, HEADBUTT, REST, ATTRACT, THIEF, FIRE_PUNCH, CUT, SURF, STRENGTH, ROCK_SMASH
 	; end

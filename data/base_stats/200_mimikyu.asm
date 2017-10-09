@@ -1,20 +1,20 @@
 	db MIMIKYU ; 200
 
-	db  60,  60,  60,  85,  85,  85
+	db  55,  90,  80,  96,  50,  105
 	;   hp  atk  def  spd  sat  sdf
 
-	db GHOST, GHOST
+	db GHOST, FAIRY
 	db 45 ; catch rate
-	db 147 ; base exp
+	db 167 ; base exp
 	db NO_ITEM ; item 1
 	db SPELL_TAG ; item 2
 	db 127 ; gender
-	db 25 ; step cycles to hatch
-	dn 6, 6 ; frontpic dimensions
+	db 20 ; step cycles to hatch
+	dn 5, 5 ; frontpic dimensions
 
-	db FAST ; growth rate
+	db MEDIUM_FAST ; growth rate
 	dn AMORPHOUS, AMORPHOUS ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, TOXIC, ZAP_CANNON, SUNNY_DAY, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, THUNDER, RETURN, PSYCHIC, SHADOW_BALL, SWAGGER, SLEEP_TALK, SWIFT, REST, ATTRACT, THIEF
+	tmhm TOXIC, BULLET_SEED, WATER_GUN, HYPER_BEAM, DRAGONBREATH, PROTECT, ENDURE, FRUSTRATION, IRON_TAIL, THUNDERBOLT, THUNDER, PSYCHIC, SHADOW_BALL, DOUBLE_TEAM, SWIFT, REST, ATTRACT, THIEF, CUT, SIGNAL_BEAM, VENOSHOCK
 	; end

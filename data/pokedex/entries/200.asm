@@ -1,10 +1,10 @@
 ; MisdreavusPokedexEntry: ; 0x1d0301
-	db "LONGEVITY@" ; species name
-	dw 303, 516 ; height, width
+	db "DISGUISE@" ; species name
+	dw 008, 15 ; height, width
 
-	db   "Discovered by ch-"
-	next "ance during deep-"
-	next "sea explorations,"
-	page "it has not chang-"
-	next "ed for 100 milli-"
-	next "on years.@"
+	db   "A lonely #MON,"
+	next "it conceals its"
+	next "terrifying appear-"
+	page "ance beneath an"
+	next "old rag so it can"
+	next "feign innocence.@"

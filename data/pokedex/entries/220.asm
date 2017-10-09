@@ -1,10 +1,15 @@
 ; SwinubPokedexEntry: ; 0x1d0b8d
-	db "PIG@" ; species name
-	dw 104, 140 ; height, width
+	db "SAVAGE@" ; species name
+	dw 207, 459 ; height, width
 
-	db   "It uses the tip of"
-	next "its nose to dig"
-	next "for food. Its nose"
-	page "is so tough that"
-	next "even frozen ground"
-	next "poses no problem.@"
+	db   "It lives in expan-"
+	next "sive rivers that"
+	next "course through"
+	page "jungles. It swarms"
+	next "prey that enter"
+	next "its territory.@"
+
+ 
+
+ 
+ 

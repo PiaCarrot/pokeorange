@@ -1,10 +1,10 @@
 ; SpinarakPokedexEntry: ; 0x1cd012
-	db "STRINGSPIT@" ; species name
-	dw 108, 190 ; height, width
+	db "WING FISH@" ; species name
+	dw 104, 154 ; height, width
 
-	db   "If prey becomes"
-	next "ensnared in its"
-	next "nest of spun"
-	page "string, it waits"
-	next "motionlessly until"
-	next "it becomes dark.@"
+	db   "It absorbs sun-"
+	next "light with the"
+	next "pink areas of its"
+	page "skin, which shine."
+	next "This appears to be"
+	next "its camouflage.@"

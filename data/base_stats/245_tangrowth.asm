@@ -1,20 +1,20 @@
 	db TANGROWTH ; 245
 
-	db 100,  75, 115,  85,  90, 115
+	db 100,  100, 125,  50,  110, 50
 	;   hp  atk  def  spd  sat  sdf
 
-	db WATER, WATER
-	db 3 ; catch rate
+	db GRASS, GRASS
+	db 30 ; catch rate
 	db 215 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
-	db 255 ; gender
-	db 80 ; step cycles to hatch
-	dn 6, 6 ; frontpic dimensions
+	db 127 ; gender
+	db 20 ; step cycles to hatch
+	dn 7, 7 ; frontpic dimensions
 
-	db SLOW ; growth rate
-	dn NO_EGGS, NO_EGGS ; egg groups
+	db MEDIUM_FAST ; growth rate
+	dn PLANT, PLANT ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, TOXIC, SUNNY_DAY, BLIZZARD, HYPER_BEAM, ICY_WIND, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, IRON_TAIL, RETURN, DIG, SWAGGER, SLEEP_TALK, SANDSTORM, SWIFT, REST, CUT, SURF, WATERFALL
+	tmhm SLEEP_TALK, TOXIC, BULLET_SEED, FISSURE, SUNNY_DAY, HYPER_BEAM, DRAGONBREATH, PROTECT, GIGA_DRAIN, ENDURE, FRUSTRATION, SOLARBEAM, EARTHQUAKE, RETURN, DOUBLE_TEAM, SWAGGER, SLUDGE_BOMB, SWIFT, AERIAL_ACE, HEADBUTT, REST, ATTRACT, THIEF, FLASH, CUT, STRENGTH, ROCK_SMASH, VENOSHOCK
 	; end
