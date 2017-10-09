@@ -1,10 +1,10 @@
 ; LedybaPokedexEntry: ; 0x1ccf2c
-	db "FIVE STAR@" ; species name
-	dw 303, 240 ; height, width
+	db "TOXICLIZAR@" ; species name
+	dw 200, 106 ; height, width
 
-	db   "It is timid and"
-	next "clusters together"
-	next "with others. The"
-	page "fluid secreted by"
-	next "its feet indicates"
-	next "its location.@"
+	db   "SALANDIT burns its"
+	next "body fluid to make"
+	next "poison gas. If the"
+	page "enemy gets disori-"
+	next "ented from inhala-"
+	next "tion, it strikes.@"

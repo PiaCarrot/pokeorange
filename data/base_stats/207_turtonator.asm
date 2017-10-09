@@ -1,20 +1,20 @@
-	db GLIGAR ; 207
+	db TURTONATOR ; 207
 
-	db  65,  75, 105,  85,  35,  65
+	db  60,  78, 135,  36,  91,  85
 	;   hp  atk  def  spd  sat  sdf
 
-	db GROUND, FLYING
-	db 60 ; catch rate
-	db 108 ; base exp
+	db FIRE, DRAGON
+	db 70 ; catch rate
+	db 170 ; base exp
 	db NO_ITEM ; item 1
-	db NO_ITEM ; item 2
+	db CHARCOAL ; item 2
 	db 127 ; gender
 	db 20 ; step cycles to hatch
-	dn 6, 6 ; frontpic dimensions
+	dn 7, 7 ; frontpic dimensions
 
-	db MEDIUM_SLOW ; growth rate
-	dn INSECT, INSECT ; egg groups
+	db MEDIUM_FAST ; growth rate
+	dn MONSTER, REPTILE ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, TOXIC, SUNNY_DAY, PROTECT, ENDURE, FRUSTRATION, IRON_TAIL, RETURN, SWAGGER, SLEEP_TALK, SLUDGE_BOMB, SANDSTORM, SWIFT, REST, ATTRACT, THIEF, CUT, STRENGTH
+	tmhm DRAGON_PULSE, SLEEP_TALK, TOXIC, FISSURE, SUNNY_DAY, HYPER_BEAM, DRAGONBREATH, PROTECT, ENDURE, FRUSTRATION, SOLARBEAM, IRON_TAIL, EARTHQUAKE, RETURN, DIG, DOUBLE_TEAM, SWAGGER, FLAMETHROWER, FIRE_BLAST, SWIFT, HEADBUTT, ZAP_CANNON, REST, ATTRACT, FIRE_PUNCH, ICE_PUNCH, THUNDERPUNCH, FLASH, STRENGTH, ROCK_SMASH, ROCK_CLIMB, COMET_PUNCH, MACH_PUNCH, DYNAMICPUNCH, VENOSHOCK
 	; end

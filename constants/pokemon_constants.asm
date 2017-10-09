@@ -207,7 +207,7 @@ const_value set 1
 	const TRAPINCH
 	const VIBRAVA
 	const FLYGON
-	const GLIGAR
+	const TURTONATOR
 	const STEELIX
 	const WAILMER
 	const WAILORD

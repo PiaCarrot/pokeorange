@@ -1,10 +1,10 @@
 ; MiltankPokedexEntry: ; 0x1d1482
-	db "MILK COW@" ; species name
-	dw 311, 1660 ; height, width
+	db "PLAYHOUSE@" ; species name
+	dw 20, 538 ; height, width
 
-	db   "In order to milk a"
-	next "HAPPINY, one must"
-	next "have a knack for"
-	page "rhythmically pull-"
-	next "ing up and down"
-	next "on its udders.@"
+	db   "It searches out"
+	next "round white stones"
+	next "to use as a surro-"
+	page "gate, as it's much"
+	next "too small to lay"
+	next "eggs yet.@"
