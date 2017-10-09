@@ -1,10 +1,10 @@
 ; GligarPokedexEntry: ; 0x1d0604
-	db "FLYSCORPIO@" ; species name
-	dw 307, 1430 ; height, width
+	db "BLASTTURTL@" ; species name
+	dw 607, 4674 ; height, width
 
-	db   "It builds its nest"
-	next "on a steep cliff."
-	next "When it is done"
-	page "gliding, it hops"
-	next "along the ground"
-	next "back to its nest.@"
+	db   "Its shell is chem-"
+	next "ically unstable"
+	next "and explodes if"
+	page "struck. The hole"
+	next "in its stomach is"
+	next "its weak point.@"

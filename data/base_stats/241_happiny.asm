@@ -1,20 +1,20 @@
 	db HAPPINY ; 241
 
-	db  95,  80, 105, 100,  40,  70
+	db  100,  5, 5, 30,  15,  65
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL
-	db 45 ; catch rate
-	db 200 ; base exp
-	db MOOMOO_MILK ; item 1
-	db MOOMOO_MILK ; item 2
+	db 130 ; catch rate
+	db 255 ; base exp
+	db NO_ITEM ; item 1
+	db LUCKY_EGG ; item 2
 	db 254 ; gender
-	db 20 ; step cycles to hatch
+	db 40 ; step cycles to hatch
 	dn 5, 5 ; frontpic dimensions
 
-	db SLOW ; growth rate
-	dn FIELD, FIELD ; egg groups
+	db FAST ; growth rate
+	dn NO_EGGS, NO_EGGS ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, TOXIC, ZAP_CANNON, SUNNY_DAY, BLIZZARD, HYPER_BEAM, ICY_WIND, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, IRON_TAIL, THUNDER, EARTHQUAKE, RETURN, SHADOW_BALL, ICE_PUNCH, SWAGGER, SLEEP_TALK, SANDSTORM, THUNDERPUNCH, REST, ATTRACT, FIRE_PUNCH, SURF, STRENGTH
+	tmhm SLEEP_TALK, TOXIC, HAIL, SUNNY_DAY, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, RETURN, PSYCHIC, SHADOW_BALL, DOUBLE_TEAM, FLAMETHROWER, FIRE_BLAST, SWIFT, HEADBUTT, REST, ATTRACT, VENOSHOCK
 	; end

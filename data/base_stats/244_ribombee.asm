@@ -1,20 +1,20 @@
 	db RIBOMBEE ; 244
 
-	db 115, 115,  85, 100,  90,  75
+	db 60, 55,  60, 124,  95,  70
 	;   hp  atk  def  spd  sat  sdf
 
-	db FIRE, FIRE
-	db 3 ; catch rate
-	db 217 ; base exp
+	db BUG, FAIRY
+	db 75 ; catch rate
+	db 162 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
-	db 255 ; gender
-	db 80 ; step cycles to hatch
-	dn 7, 7 ; frontpic dimensions
+	db 127 ; gender
+	db 20 ; step cycles to hatch
+	dn 6, 6 ; frontpic dimensions
 
-	db SLOW ; growth rate
-	dn NO_EGGS, NO_EGGS ; egg groups
+	db MEDIUM_FAST ; growth rate
+	dn INSECT, INSECT ; egg groups
 
 	; tmhm
-	tmhm HEADBUTT, TOXIC, SUNNY_DAY, HYPER_BEAM, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, SOLARBEAM, IRON_TAIL, RETURN, DIG, SWAGGER, SLEEP_TALK, SANDSTORM, FIRE_BLAST, SWIFT, REST, CUT, STRENGTH
+	tmhm SLEEP_TALK, TOXIC, SUNNY_DAY, PROTECT, RAIN_DANCE, GIGA_DRAIN, ENDURE, FRUSTRATION, RETURN, PSYCHIC, DOUBLE_TEAM, SWAGGER, SWIFT, AERIAL_ACE, REST, ATTRACT, THIEF, STEEL_WING, DAZZLINGLEAM, BUG_BITE, SIGNAL_BEAM, VENOSHOCK
 	; end

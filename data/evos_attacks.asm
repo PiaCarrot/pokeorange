@@ -2293,33 +2293,39 @@ ChimechoEvosAttacks:
 	db 0 ; no more level-up moves
 
 SalanditEvosAttacks:
-	db EVOLVE_LEVEL, 18, SALAZZLE
+;	 db EVOLVE_GENDER, FEMALE, SALAZZLE
+	db EVOLVE_LEVEL, 33, SALAZZLE
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 8, SUPERSONIC
-	db 15, COMET_PUNCH
-	db 22, LIGHT_SCREEN
-	db 22, REFLECT
-	db 22, SAFEGUARD
-	db 29, BATON_PASS
-	db 36, SWIFT
-	db 43, AGILITY
-	db 50, DOUBLE_EDGE
+	db 1, SCRATCH
+	db 1, POISON_GAS
+	db 5, EMBER
+	db 8, SWEET_SCENT
+	db 13, DRAGON_RAGE
+	db 21, DOUBLESLAP
+	db 24, FLAME_WHEEL
+	db 29, TOXIC
+	db 32, NASTY_PLOT
+	db 37, VENOSHOCK
+	db 40, FLAMETHROWER
+	db 45, ACID
+	db 48, DRAGON_PULSE
 	db 0 ; no more level-up moves
 
 SalazzleEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, SUPERSONIC
-	db 8, SUPERSONIC
-	db 15, COMET_PUNCH
-	db 24, LIGHT_SCREEN
-	db 24, REFLECT
-	db 24, SAFEGUARD
-	db 33, BATON_PASS
-	db 42, SWIFT
-	db 51, AGILITY
-	db 60, DOUBLE_EDGE
+	db 1, SCRATCH
+	db 1, POISON_GAS
+	db 5, EMBER
+	db 8, SWEET_SCENT
+	db 13, DRAGON_RAGE
+	db 21, DOUBLESLAP
+	db 24, FLAME_WHEEL
+	db 29, TOXIC
+	db 32, NASTY_PLOT
+	db 41, VENOSHOCK
+	db 44, FLAMETHROWER
+	db 49, ACID
+	db 52, DRAGON_PULSE
 	db 0 ; no more level-up moves
 
 FinneonEvosAttacks:
@@ -2449,7 +2455,7 @@ TogeticEvosAttacks:
 	db 38, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
-TogekissEvosAttacks: ;TOGEKISS
+TogekissEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, GROWL
 	db 1, CHARM
@@ -2459,6 +2465,9 @@ TogekissEvosAttacks: ;TOGEKISS
 	db 25, ENCORE
 	db 31, SAFEGUARD
 	db 38, DOUBLE_EDGE
+	db 42, SKY_ATTACK
+	db 47, EXTREMESPEED
+	db 52, MOONBLAST
 	db 0 ; no more level-up moves
 
 AzurillEvosAttacks:
@@ -2900,16 +2909,24 @@ FlygonEvosAttacks:
 	db 49, HYPER_BEAM
 	db 0 ; no more level-up moves
 
-TurtonatorEvosAttacks: ;TURTONATOR
+TurtonatorEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, POISON_STING
-	db 6, SAND_ATTACK
-	db 13, HARDEN
-	db 20, QUICK_ATTACK
-	db 28, FAINT_ATTACK
-	db 36, SLASH
-	db 44, SCREECH
-	db 52, GUILLOTINE
+	db 1, EMBER
+	db 1, TACKLE
+	db 1, WITHDRAW
+	db 5, SMOG
+	db 9, PROTECT
+	db 13, SMOKESCREEN
+	db 17, FLAIL
+	db 21, ENDURE
+	db 25, DRAGON_RAGE
+	db 29, FLAMETHROWER
+	db 33, BODY_SLAM
+	db 37, FLAME_WHEEL
+	db 41, DRAGON_PULSE
+	db 45, SHELL_TRAP
+	db 49, FIRE_BLAST
+	db 53, EXPLOSION
 	db 0 ; no more level-up moves
 
 SteelixEvosAttacks:
@@ -3377,16 +3394,13 @@ MagbyEvosAttacks:
 	db 0 ; no more level-up moves
 
 HappinyEvosAttacks:
+	db EVOLVE_HAPPINESS, TR_MORNDAY, CHANSEY
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 4, GROWL
-	db 8, DEFENSE_CURL
-	db 13, STOMP
-	db 19, STRUGGLE ; MILK_DRINK
-	db 26, STRUGGLE ; BIDE
-	db 34, ROLLOUT
-	db 43, BODY_SLAM
-	db 53, HEAL_BELL
+	db 1, POUND
+	db 1, CHARM
+	db 5, MIMIC
+	db 9, RECOVER
+	db 12, SWEET_KISS
 	db 0 ; no more level-up moves
 
 BlisseyEvosAttacks:
@@ -3405,29 +3419,36 @@ BlisseyEvosAttacks:
 	db 0 ; no more level-up moves
 
 CutieflyEvosAttacks:
+	db EVOLVE_LEVEL, 25, RIBOMBEE
 	db 0 ; no more evolutions
-	db 1, BITE
-	db 1, LEER
-	db 11, THUNDERSHOCK
-	db 21, ROAR
-	db 31, QUICK_ATTACK
-	db 41, SPARK
-	db 51, REFLECT
-	db 61, CRUNCH
-	db 71, THUNDER
+	db 1, ABSORB
+	db 4, FAIRY_WIND
+	db 7, STUN_SPORE
+	db 10, BUG_BITE
+	db 13, CHARM
+	db 16, SWEET_KISS
+	db 21, SWEET_SCENT
+	db 26, MEGA_DRAIN
+	db 31, DAZZLINGLEAM
+	db 36, LEECH_LIFE
+	db 41, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
 RibombeeEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, BITE
-	db 1, LEER
-	db 11, EMBER
-	db 21, ROAR
-	db 31, FIRE_SPIN
-	db 41, STOMP
-	db 51, FLAMETHROWER
-	db 61, SWAGGER
-	db 71, FIRE_BLAST
+	db 1, ABSORB
+	db 4, FAIRY_WIND
+	db 7, STUN_SPORE
+	db 10, BUG_BITE
+	db 13, CHARM
+	db 16, SWEET_KISS
+	db 21, SWEET_SCENT
+	db 25, COTTON_SPORE
+	db 28, MEGA_DRAIN
+	db 35, DAZZLINGLEAM
+	db 42, LEECH_LIFE
+	db 45, COTTON_SPORE
+	db 49, SWORDS_DANCE
 	db 0 ; no more level-up moves
 
 TangrowthEvosAttacks:

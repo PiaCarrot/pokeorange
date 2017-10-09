@@ -1,10 +1,10 @@
 ; NatuPokedexEntry: ; 0x1cd47d
-	db "LITTLE BIRD@" ; species name
-	dw 8, 40 ; height, width
+	db "JUBILEE@" ; species name
+	dw 411, 838 ; height, width
 
-	db   "It is extremely"
-	next "good at climbing"
-	next "tree trunks and"
-	page "likes to eat the"
-	next "new sprouts on"
-	next "the trees.@"
+	db   "It shares many"
+	next "blessings with"
+	next "people who respect"
+	page "one another's "
+	next "rights and avoid "
+	next "needless strife.@"

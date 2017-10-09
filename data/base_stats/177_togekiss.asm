@@ -1,20 +1,20 @@
 	db TOGEKISS ; 177
 
-	db  40,  50,  45,  70,  70,  45
+	db  85,  50,  95,  80,  120,  115
 	;   hp  atk  def  spd  sat  sdf
 
 	db FAIRY, FLYING
-	db 190 ; catch rate
-	db 73 ; base exp
+	db 30 ; catch rate
+	db 245 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
-	db 127 ; gender
-	db 20 ; step cycles to hatch
+	db 31 ; gender
+	db 15 ; step cycles to hatch
 	dn 7, 7 ; frontpic dimensions
 
-	db MEDIUM_FAST ; growth rate
-	dn AVIAN, AVIAN ; egg groups
+	db FAST ; growth rate
+	dn AVIAN, FAIRYEGG ; egg groups
 
 	; tmhm
-	tmhm TOXIC, SUNNY_DAY, PROTECT, GIGA_DRAIN, ENDURE, FRUSTRATION, SOLARBEAM, RETURN, PSYCHIC, SWAGGER, SLEEP_TALK, SWIFT, REST, ATTRACT, THIEF
+	tmhm WATER_PULSE, SLEEP_TALK, TOXIC, SUNNY_DAY, HYPER_BEAM, PROTECT, RAIN_DANCE, ENDURE, FRUSTRATION, SOLARBEAM, RETURN, PSYCHIC, SHADOW_BALL, DOUBLE_TEAM, FLAMETHROWER, FIRE_BLAST, SWIFT, AERIAL_ACE, ZAP_CANNON, REST, ATTRACT, STEEL_WING, DAZZLINGLEAM, FLASH, FLY
 	; end

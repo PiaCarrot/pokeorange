@@ -220,7 +220,7 @@ MonMenuIcons: ; 8eac4
 	db ICON_BUG          ; TRAPINCH
 	db ICON_BUG          ; VIBRAVA
 	db ICON_SERPENT      ; FLYGON
-	db ICON_BUG          ; GLIGAR
+	db ICON_BUG          ; TURTONATOR
 	db ICON_SERPENT      ; STEELIX
 	db ICON_FISH         ; WAILMER
 	db ICON_FISH         ; WAILORD
