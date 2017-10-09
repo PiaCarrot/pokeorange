@@ -4,6 +4,7 @@
 ## Content
 
 - Revise learnsets and TM sets after replacing moves
+- Edit gfx/pokedex/footprints.w128.1bpp
 - Diving sprites
 - Wrecked Ship tileset
 - Add clouds to title screen
