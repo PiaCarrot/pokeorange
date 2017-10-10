@@ -181,6 +181,8 @@ endr
 	jr nz, .copywildmonstats
 
 ; Shiny Charm gives 1/256 chance of a shiny
+	ld a, [CurItem]
+	push af
 	ld a, SHINY_CHARM
 	ld [CurItem], a
 	push hl
@@ -195,10 +197,14 @@ endr
 	call Random
 	and a
 	jr nz, .no_shiny_charm
+	pop af
+	ld [CurItem], a
 	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
 	jr .initializetrainermonstats
 
 .no_shiny_charm
+	pop af
+	ld [CurItem], a
 	call Random
 	ld b, a
 	call Random
