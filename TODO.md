@@ -12,9 +12,14 @@
 
 ## Features
 
-- Exp All
 - Shiny Charm
+- Exp All
 - Catch Exp
+
+
+## Moves
+
+- `BugBite` effect for Bug Bite
 
 
 ## Pokemon
@@ -41,11 +46,6 @@
 - 253. Latios
 
 
-## Moves
-
-- `BugBite` effect for Bug Bite
-
-
 ## Animations
 
 - Aerial Ace
@@ -66,9 +66,3 @@
 - Venoshock
 - Volt Tackle
 - Water Pulse
-
-
-## Evolution Methods
-
-- EVOLVE_MOVE (Mime Jr -> Mr Mime)
-- EVOLVE_GENDER (Salandit -> Salazzle)
