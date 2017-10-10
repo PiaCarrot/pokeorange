@@ -17,6 +17,12 @@
 	db 6, TENTACOOL
 	db 6, WINGULL
 	db 6, REMORAID
+	
+	map TANGELO_JUNGLE
+	db 4 percent
+	db 6, CARVANHA
+	db 6, CARVANHA
+	db 6, PSYDUCK
 
 	map ROUTE_52
 	db 6 percent ; encounter rate
