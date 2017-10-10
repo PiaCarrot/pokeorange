@@ -25,7 +25,7 @@ MAP_NONE EQU 0
 
 	newgroup ; 2
 
-	mapgroup TANGELO_JUNGLE, 27, 15
+	mapgroup TANGELO_JUNGLE, 27, 25
 	mapgroup NATIONAL_PARK, 27, 20
 	mapgroup NATIONAL_PARK_BUG_CONTEST, 27, 20
 	mapgroup MT_NAVEL_1F, 14, 14

@@ -97,7 +97,7 @@
 	map_header_2 TangeloGymSpeechHouse, TANGELO_GYM_SPEECH_HOUSE, $0, 0
 	map_header_2 TangeloEvolutionSpeechHouse, TANGELO_EVOLUTION_SPEECH_HOUSE, 0, 0
 	map_header_2 Route51TangeloJungleGate, ROUTE_51_TANGELO_JUNGLE_GATE, 0, 0
-	map_header_2 TangeloJungle, TANGELO_JUNGLE, 5, 0
+	map_header_2 TangeloJungle, TANGELO_JUNGLE, 0, 0
 	map_header_2 Route52TangeloJungleGate, ROUTE_52_TANGELO_JUNGLE_GATE, $0, 0
 	map_header_2 Route52PokeCenter1F, ROUTE_52_POKECENTER_1F, 0, 0
 	map_header_2 MikanMart, MIKAN_MART, $0, 0
