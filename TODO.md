@@ -23,6 +23,7 @@
 
 ## Pokemon
 
+152. Cryogonal -> Tropius
 193. Yanma -> Leafeon
 194. Wooper -> Glaceon
 195. Quagsire -> Sylveon
