@@ -171,7 +171,7 @@ ItemDescriptions:
 	dw TradeStoneDesc
 	dw MoroTrophyDesc
 	dw DubiousDiscDesc
-	dw TeruSamaDesc
+	dw ShinyCharmDesc
 	dw TeruSamaDesc
 	dw TeruSamaDesc
 	dw TeruSamaDesc
@@ -741,11 +741,15 @@ TradeStoneDesc:
 MoroTrophyDesc:
 	db   "A stolen trophy."
 	next "300 years old.@"
-	
+
 DubiousDiscDesc:
 	db   "A mysterious disc"
 	next "of unknown origin.@"
-	
+
+ShinyCharmDesc:
+	db   "A charm for find-"
+	next "ing shiny #MON.@"
+
 TeruSamaDesc:
 	db   "?@"
 

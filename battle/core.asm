@@ -5983,8 +5983,25 @@ LoadEnemyMon: ; 3e8eb
 ; Forced shiny battle type
 ; Used by Red Gyarados at Lake of Rage
 	cp a, BATTLETYPE_SHINY
+	jr z, .force_shiny
+
+; Shiny Charm gives 1/256 chance of a shiny
+	ld a, SHINY_CHARM
+	ld [CurItem], a
+	push hl
+	push bc
+	push de
+	ld hl, NumItems
+	call CheckItem
+	pop de
+	pop bc
+	pop hl
+	jr nc, .GenerateDVs
+	call BattleRandom
+	and a
 	jr nz, .GenerateDVs
 
+.force_shiny
 	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
 	jr .UpdateDVs
 

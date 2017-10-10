@@ -108,9 +108,9 @@ if def(DEBUG)
 	giveitem MAX_REPEL, 99
 	giveitem RARE_CANDY, 99
 	giveitem SHINY_STONE
+	giveitem EVERSTONE
 	giveitem SKATEBOARD
 	opentext
-	givepoke MEWTWO, 40
 	givepoke LAPRAS, 40
 	givepoke CHARIZARD, 40
 	givepoke PIKACHU, 40

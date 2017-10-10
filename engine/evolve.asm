@@ -66,7 +66,7 @@ EvolveAfterBattle_MasterLoop
 	ld b, a
 
 	cp EVOLVE_TRADE
-	jr z, .trade
+	jp z, .trade
 
 	ld a, [wLinkMode]
 	and a
@@ -81,8 +81,12 @@ EvolveAfterBattle_MasterLoop
 	jp nz, .dont_evolve_2
 
 	ld a, b
-	cp EVOLVE_LOCATION
-	jp z, .location
+	cp EVOLVE_MAP
+	jp z, .map
+	cp EVOLVE_MOVE
+	jp z, .move
+	cp EVOLVE_FEMALE
+	jp z, .female
 	cp EVOLVE_LEVEL
 	jp z, .level
 	cp EVOLVE_HAPPINESS
@@ -128,7 +132,7 @@ EvolveAfterBattle_MasterLoop
 
 	ld a, [hli]
 	cp TR_ANYTIME
-	jr z, .proceed
+	jp z, .proceed
 	cp TR_MORNDAY
 	jr z, .happiness_daylight
 
@@ -136,13 +140,13 @@ EvolveAfterBattle_MasterLoop
 	ld a, [TimeOfDay]
 	cp NITE
 	jp nz, .dont_evolve_3
-	jr .proceed
+	jp .proceed
 
 .happiness_daylight
 	ld a, [TimeOfDay]
 	cp NITE
 	jp z, .dont_evolve_3
-	jr .proceed
+	jp .proceed
 
 
 .trade
@@ -156,7 +160,7 @@ EvolveAfterBattle_MasterLoop
 	ld a, [hli]
 	ld b, a
 	inc a
-	jr z, .proceed
+	jp z, .proceed
 
 	ld a, [TempMonItem]
 	cp b
@@ -183,20 +187,50 @@ EvolveAfterBattle_MasterLoop
 	jr .proceed
 
 
-.location
+.map
+	call IsMonHoldingEverstone
+	jp z, .dont_evolve_1
 	ld a, [MapGroup]
 	ld b, a
+	ld a, [hli]
+	cp b
+	jp nz, .dont_evolve_2
 	ld a, [MapNumber]
-	ld c, a
-	push hl
-	call GetWorldMapLocation
-	pop hl
 	ld b, a
 	ld a, [hli]
 	cp b
 	jp nz, .dont_evolve_3
 	jr .proceed
 
+
+.move
+	call IsMonHoldingEverstone
+	jp z, .dont_evolve_2
+	ld a, [hli]
+	ld b, a
+	push hl
+	ld hl, TempMonMoves
+rept NUM_MOVES
+	ld a, [hli]
+	cp b
+	jp z, .move_proceed
+endr
+	pop hl
+	jp .dont_evolve_3
+
+.move_proceed
+	pop hl
+	jp .proceed
+
+
+.female
+	xor a
+	ld [MonType], a
+	push hl
+	farcall GetGender
+	pop hl
+	jp nz, .dont_evolve_2
+	; fallthrough
 
 .level
 	ld a, [hli]
@@ -646,10 +680,13 @@ GetPreEvolution: ; 42581
 	and a
 	jr z, .no_evolve ; If we jump, this Pokemon does not evolve into CurPartySpecies.
 	cp EVOLVE_STAT ; This evolution type has the extra parameter of stat comparison.
-	jr nz, .not_tyrogue
+	jr z, .tyrogue
+	cp EVOLVE_MAP ; This evolution type has the extra parameter of map group.
+	jr nz, .not_two_bytes
+.tyrogue
 	inc hl
 
-.not_tyrogue
+.not_two_bytes
 	inc hl
 	ld a, [CurPartySpecies]
 	cp [hl]
