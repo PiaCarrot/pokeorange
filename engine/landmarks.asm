@@ -81,8 +81,8 @@ ENDM
 	landmark   148, 100, GrapefruitName
 	landmark   148, 108, Route59Name
 	landmark   148, 116, MoroIslandName
-	landmark   146, 116, WreckedShipName
 	landmark   140, 124, Route60Name
+	landmark   146, 116, WreckedShipName
 	landmark   128, 128, GoldenIslandName
 	landmark   124, 140, Route61Name
 	landmark   140, 144, MurcottIslandName
@@ -105,6 +105,7 @@ ENDM
 	landmark   44,   60, Route69Name
 	landmark   24,   56, UnnamedIsland3Name
 	landmark   20,   36, Route70Name
+	landmark   20,   36, VictoryRoadName
 	landmark   36,   36, PummeloIslandName
 	landmark   52,   36, Route71Name
 	landmark   64,   32, TarrocoIslandName
@@ -130,7 +131,6 @@ ENDM
 	landmark   0,   0, CinnabarVolcanoName
 	landmark   0,   0, Route21Name
 	landmark   0,   0, PalletTownName
-	landmark   0,   0, Route1Name
 	landmark   0,   0, CinnabarSeaName
 	landmark   0,   0, SaydaIslandName
 	landmark   0,   0, KantoSea1Name
@@ -175,8 +175,8 @@ MtNavelName:         db "MT. NAVEL@"
 GrapefruitName:      db "7 GRAPEFRUITS@"
 Route59Name:         db "ROUTE 59@"
 MoroIslandName:      db "MORO ISLAND@"
-WreckedShipName:     db "WRECKED SHIP@"
 Route60Name:         db "ROUTE 60@"
+WreckedShipName:     db "WRECKED SHIP@"
 GoldenIslandName:    db "GOLDEN ISLAND@"
 Route61Name:         db "ROUTE 61@"
 MurcottIslandName:   db "MURCOTT ISLAND@"
@@ -199,6 +199,7 @@ RindIslandName:      db "RIND ISLAND@"
 Route69Name:         db "ROUTE 69@"
 UnnamedIsland3Name:  db "UNNAMED ISLAND@"
 Route70Name:         db "ROUTE 70@"
+VictoryRoadName:     db "VICTORY ROAD@"
 PummeloIslandName:   db "PUMMELO ISLAND@"
 Route71Name:         db "ROUTE 71@"
 TarrocoIslandName:   db "TARROCO ISLAND@"
@@ -225,7 +226,6 @@ CinnabarIslandName:  db "CINNABAR ISLAND@"
 CinnabarVolcanoName: db "CINNABAR VOLCANO@"
 Route21Name:         db "ROUTE 21@"
 PalletTownName:      db "PALLET TOWN@"
-Route1Name:          db "ROUTE 1@"
 CinnabarSeaName:     db "CINNABAR SEA@"
 SaydaIslandName:     db "SAYDA ISLAND@"
 KantoSea1Name:       db "KANTO SEA@"
