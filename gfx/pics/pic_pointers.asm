@@ -301,8 +301,8 @@
 	dba MewtwoBackpic
 	dba MewFrontpic
 	dba MewBackpic
-	dba CryogonalFrontpic
-	dba CryogonalBackpic
+	dba TropiusFrontpic
+	dba TropiusBackpic
 	dba KecleonFrontpic
 	dba KecleonBackpic
 	dba ChatotFrontpic
