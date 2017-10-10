@@ -28,7 +28,7 @@
 	db 12, VENONAT
 
 	map TANGELO_JUNGLE
-	db 5 percent, 5 percent, 5 percent ; encounter rates: morn/day/nite
+	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
 	db 8, CATERPIE
 	db 8, WEEDLE
