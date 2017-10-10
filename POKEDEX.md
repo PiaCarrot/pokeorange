@@ -1,6 +1,6 @@
 001-151 are the Gen 1 Pokemon.
 
-152. *Cryogonal*
+152. *Tropius*
 153. *Kecleon*
 154. *Chatot*
 155. *Pikipek*
