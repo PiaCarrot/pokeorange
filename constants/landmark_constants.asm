@@ -28,8 +28,8 @@
 	const GRAPEFRUIT
 	const ROUTE_59
 	const MORO_ISLAND
-	const WRECKED_SHIP
 	const ROUTE_60
+	const WRECKED_SHIP
 	const GOLDEN_ISLAND
 	const ROUTE_61
 	const MURCOTT_ISLAND
@@ -52,6 +52,7 @@
 	const ROUTE_69
 	const UNNAMED_ISLAND_3
 	const ROUTE_70
+	const VICTORY_ROAD
 	const PUMMELO_ISLAND
 	const ROUTE_71
 	const TARROCO_ISLAND
@@ -79,7 +80,6 @@ KANTO_LANDMARK EQU const_value
 	const CINNABAR_VOLCANO
 	const ROUTE_21
 	const PALLET_TOWN
-	const ROUTE_1
 	const CINNABAR_SEA
 	const SAYDA_ISLAND
 	const KANTO_SEA_1
