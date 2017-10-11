@@ -3161,7 +3161,7 @@ OctilleryEvosAttacks:
 	db 0 ; no more level-up moves
 
 MantykeEvosAttacks:
-	db EVOLVE_LEVEL, 30, MANTINE
+	db EVOLVE_ALONGSIDE, REMORAID, MANTINE
 	db 0 ; no more evolutions
 	db 1, SPLASH
 	db 1, BUBBLE

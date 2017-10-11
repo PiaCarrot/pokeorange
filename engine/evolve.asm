@@ -85,6 +85,8 @@ EvolveAfterBattle_MasterLoop
 	jp z, .map
 	cp EVOLVE_MOVE
 	jp z, .move
+	cp EVOLVE_ALONGSIDE
+	jp z, .alongside
 	cp EVOLVE_FEMALE
 	jp z, .female
 	cp EVOLVE_LEVEL
@@ -168,7 +170,7 @@ EvolveAfterBattle_MasterLoop
 
 	xor a
 	ld [TempMonItem], a
-	jr .proceed
+	jp .proceed
 
 
 .item
@@ -213,12 +215,30 @@ EvolveAfterBattle_MasterLoop
 rept NUM_MOVES
 	ld a, [hli]
 	cp b
-	jp z, .move_proceed
+	jr z, .pop_proceed
 endr
 	pop hl
 	jp .dont_evolve_3
 
-.move_proceed
+
+.alongside
+	ld a, [hli]
+	ld b, a
+	ld a, [PartyCount]
+	ld c, a
+	push hl
+	ld hl, PartySpecies
+.alongside_loop
+	ld a, [hli]
+	cp b
+	jr z, .pop_proceed
+	dec c
+	jr nz, .alongside_loop
+	pop hl
+	jp .dont_evolve_3
+
+
+.pop_proceed
 	pop hl
 	jp .proceed
 
