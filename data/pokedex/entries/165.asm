@@ -1,5 +1,5 @@
 ; LedybaPokedexEntry: ; 0x1ccf2c
-	db "TOXICLIZAR@" ; species name
+	db "TOXICLIZARD@" ; species name
 	dw 200, 106 ; height, width
 
 	db   "SALANDIT burns its"
