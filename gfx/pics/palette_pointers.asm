@@ -509,25 +509,15 @@ HoOhPalette:            INCLUDE "gfx/pics/ho_oh/normal.pal"
 HoOhShinyPalette:       INCLUDE "gfx/pics/ho_oh/shiny.pal"
 CelebiPalette:          INCLUDE "gfx/pics/celebi/normal.pal"
 CelebiShinyPalette:     INCLUDE "gfx/pics/celebi/shiny.pal"
-
-; 252
-	RGB 30, 26, 11
-	RGB 23, 16, 00
-; 252 shiny
-	RGB 30, 26, 11
-	RGB 23, 16, 00
+LatiasPalette:          INCLUDE "gfx/pics/latias/normal.pal"
+LatiasShinyPalette:     INCLUDE "gfx/pics/latias/shiny.pal"
+LatiosPalette:          INCLUDE "gfx/pics/latios/normal.pal"
+LatiosShinyPalette:     INCLUDE "gfx/pics/latios/shiny.pal"
 
 ; Egg
 	RGB 30, 26, 11
 	RGB 23, 16, 00
 ; Egg shiny
-	RGB 30, 26, 11
-	RGB 23, 16, 00
-
-; 254
-	RGB 30, 26, 11
-	RGB 23, 16, 00
-; 254 shiny
 	RGB 30, 26, 11
 	RGB 23, 16, 00
 

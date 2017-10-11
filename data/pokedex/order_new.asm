@@ -245,6 +245,8 @@
 	db DRAGONITE
 	db MEWTWO
 	db MEW
+	db LATIAS
+	db LATIOS
 	db LUGIA
 	db HO_OH
 	db CELEBI

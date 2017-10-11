@@ -842,7 +842,7 @@ wPokedexDataEnd::
 
 wMiscEnd::
 
-	ds 24
+	ds 22
 
 SECTION "Overworld Map", WRAM0 [$c800]
 
@@ -2474,7 +2474,7 @@ PartyMonNicknames:: ds PKMN_NAME_LENGTH * PARTY_LENGTH ; de41
 PartyMonNicknamesEnd::
 
 
-	ds 22
+	ds 20
 
 
 PokedexCaught:: ; de99
