@@ -10,7 +10,7 @@
 	db SOFT_SAND ; item 2
 	db 127 ; gender
 	db 20 ; step cycles to hatch
-	dn 6, 6 ; frontpic dimensions
+	dn 7, 7 ; frontpic dimensions
 
 	db MEDIUM_SLOW ; growth rate
 	dn INSECT, INSECT ; egg groups
