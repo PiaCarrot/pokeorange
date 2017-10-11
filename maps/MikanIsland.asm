@@ -86,7 +86,7 @@ MikanIslandSuperNerdText:
 	done
 
 SendaNotBeatenCissyText:
-	text "SENDA: My sis,"
+	text "SENDA: My sister,"
 	line "CISSY, is the"
 	cont "strongest trainer"
 	cont "I know!"
