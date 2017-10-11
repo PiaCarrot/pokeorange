@@ -723,6 +723,10 @@ GolemFrontpic:       INCBIN "gfx/pics/golem/front.2bpp.lz"
 
 SECTION "Pics 20", ROMX
 
+LatiasFrontpic:      INCBIN "gfx/pics/latias/front.2bpp.lz"
+LatiasBackpic:       INCBIN "gfx/pics/latias/back.2bpp.lz"
+LatiosFrontpic:      INCBIN "gfx/pics/latios/front.2bpp.lz"
+LatiosBackpic:       INCBIN "gfx/pics/latios/back.2bpp.lz"
 LoreleiPic:          INCBIN "gfx/trainers/lorelei.2bpp.lz"
 AgathaPic:           INCBIN "gfx/trainers/agatha.2bpp.lz"
 LancePic:            INCBIN "gfx/trainers/lance.2bpp.lz"
@@ -738,4 +742,4 @@ LawrencePic:         INCBIN "gfx/trainers/lawrence.2bpp.lz"
 ProfOakPic:          INCBIN "gfx/trainers/prof_oak.2bpp.lz"
 NursePic:            INCBIN "gfx/trainers/nurse.2bpp.lz"
 BugCatcherFPic:      INCBIN "gfx/trainers/bug_catcher_f.2bpp.lz"
-CatmanPic:			 INCBIN "gfx/trainers/catman.2bpp.lz"
+CatmanPic:           INCBIN "gfx/trainers/catman.2bpp.lz"

@@ -252,12 +252,14 @@ const_value set 1
 	const LUGIA
 	const HO_OH
 	const CELEBI
+	const LATIAS
+	const LATIOS
 
 const_value SET const_value + -1
 
 NUM_POKEMON EQU const_value
 
-EGG EQU 253
+EGG EQU 254
 
 ; pokemon structure in RAM
 MON_SPECIES              EQUS "(PartyMon1Species - PartyMon1)"

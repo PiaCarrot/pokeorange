@@ -3,7 +3,6 @@
 
 ## Content
 
-- Revise learnsets and TM sets after replacing moves
 - Edit gfx/pokedex/footprints.w128.1bpp
 - Wrecked Ship tileset
 - Add clouds to title screen
@@ -41,8 +40,6 @@
 221. Piloswine -> Sharpedo
 243. Raikou -> Cutiefly
 244. Entei -> Ribombee
-252. Latias
-253. Latios
 
 
 ## Animations
