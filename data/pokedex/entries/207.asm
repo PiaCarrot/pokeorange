@@ -1,5 +1,5 @@
 ; GligarPokedexEntry: ; 0x1d0604
-	db "BLASTTURTL@" ; species name
+	db "BLASTTURTLE@" ; species name
 	dw 607, 4674 ; height, width
 
 	db   "Its shell is chem-"
