@@ -172,7 +172,7 @@ ItemDescriptions:
 	dw MoroTrophyDesc
 	dw DubiousDiscDesc
 	dw ShinyCharmDesc
-	dw TeruSamaDesc
+	dw SoulDewDesc
 	dw TeruSamaDesc
 	dw TeruSamaDesc
 	dw FlowerMailDesc
@@ -749,6 +749,10 @@ DubiousDiscDesc:
 ShinyCharmDesc:
 	db   "A charm for find-"
 	next "ing shiny #MON.@"
+
+SoulDewDesc:
+	db   "A wondrous orb for"
+	next "LATIOS or LATIAS.@"
 
 TeruSamaDesc:
 	db   "?@"

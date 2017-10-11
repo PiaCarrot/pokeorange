@@ -154,7 +154,7 @@ ItemEffects: ; e73c
 	dw MoroTrophy
 	dw DubiousDisc
 	dw ShinyCharm
-	dw TeruSama
+	dw SoulDew
 	dw TeruSama
 	dw TeruSama
 	dw FlowerMail
@@ -2776,6 +2776,7 @@ PolkadotBow:
 RainbowWing:
 MoroTrophy:
 ShinyCharm:
+SoulDew:
 TeruSama: ; f77d
 	jp IsntTheTimeMessage
 ; f780

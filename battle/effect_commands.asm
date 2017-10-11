@@ -3444,6 +3444,20 @@ BattleCommand_DamageCalc: ; 35612
 	and a
 	jr z, .DoneItem
 
+; Soul Dew boosts Psychic or Dragon moves
+	ld a, [hl]
+	cp SOUL_DEW
+	jr nz, .NotSoulDew
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVar
+	cp PSYCHIC
+	jr z, .TypeBoost
+	cp DRAGON
+	jr z, .TypeBoost
+	jr .DoneItem
+
+; Other items boost one type each
+.NotSoulDew
 	ld hl, TypeBoostItems
 
 .NextItem:
@@ -3463,6 +3477,7 @@ BattleCommand_DamageCalc: ; 35612
 	cp b
 	jr nz, .DoneItem
 
+.TypeBoost:
 ; * 100 + item effect amount
 	ld a, c
 	add 100

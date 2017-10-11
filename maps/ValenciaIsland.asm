@@ -113,10 +113,10 @@ if def(DEBUG)
 	opentext
 	givepoke LAPRAS, 40
 	givepoke CHARIZARD, 40
-	givepoke PIKACHU, 40
+	givepoke PIKACHU, 40, LIGHT_BALL
 	givepoke MEOWTH, 40
 	givepoke MEW, 40
-	givepoke LATIOS, 40
+	givepoke LATIOS, 40, SOUL_DEW
 	closetext
 	callasm CheatFillPokedex
 	warp GOLDEN_ISLAND, 20, 5
