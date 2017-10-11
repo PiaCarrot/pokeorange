@@ -277,13 +277,11 @@ Pokedex_InitDexEntryScreen: ; 40217 (10:4217)
 	xor a
 	ld [hBGMapMode], a
 	call ClearSprites
-	call Pokedex_LoadCurrentFootprint
 	call Pokedex_DrawDexEntryScreenBG
 	call Pokedex_InitArrowCursor
 	call Pokedex_GetSelectedMon
 	ld [wLastDexEntry], a
 	farcall DisplayDexEntry
-	call Pokedex_DrawFootprint
 	call WaitBGMap
 	ld a, $a7
 	ld [hWX], a
@@ -346,11 +344,9 @@ Pokedex_ReinitDexEntryScreen: ; 402aa (10:42aa)
 	ld [hBGMapMode], a
 	call Pokedex_DrawDexEntryScreenBG
 	call Pokedex_InitArrowCursor
-	call Pokedex_LoadCurrentFootprint
 	call Pokedex_GetSelectedMon
 	ld [wLastDexEntry], a
 	farcall DisplayDexEntry
-	call Pokedex_DrawFootprint
 	call Pokedex_LoadSelectedMonTiles
 	call WaitBGMap
 	call Pokedex_GetSelectedMon
@@ -416,7 +412,7 @@ Pokedex_RedisplayDexEntry: ; 4038d
 	call Pokedex_DrawDexEntryScreenBG
 	call Pokedex_GetSelectedMon
 	farcall DisplayDexEntry
-	jp Pokedex_DrawFootprint
+	ret
 
 Pokedex_InitSearchScreen: ; 40443 (10:4443)
 	xor a
@@ -843,10 +839,10 @@ Pokedex_DrawDexEntryScreenBG: ; 407fd
 	ld bc, 18
 	ld a, " "
 	call ByteFill
-	hlcoord 9, 7
+	hlcoord 9, 6
 	ld de, .Height
 	call Pokedex_PlaceString
-	hlcoord 9, 9
+	hlcoord 9, 8
 	ld de, .Weight
 	call Pokedex_PlaceString
 	hlcoord 0, 17
@@ -1137,19 +1133,6 @@ Pokedex_PlaceDefaultStringIfNotSeen: ; 40b8d (10:4b8d)
 
 .NameNotSeen: ; 40b9a
 	db "-----@"
-
-Pokedex_DrawFootprint: ; 40ba0
-	hlcoord 18, 1
-	ld a, $6c
-	ld [hli], a
-	inc a
-	ld [hl], a
-	hlcoord 18, 2
-	ld a, $6e
-	ld [hli], a
-	inc a
-	ld [hl], a
-	ret
 
 Pokedex_GetSelectedMon: ; 40bb1
 ; Gets the species of the currently selected Pokémon. This corresponds to the
@@ -1775,49 +1758,6 @@ Pokedex_LoadSelectedMonTiles: ; 4143b
 	call Get2bpp
 	jp CloseSRAM
 
-Pokedex_LoadCurrentFootprint: ; 41478 (10:5478)
-	call Pokedex_GetSelectedMon
-
-Pokedex_LoadAnyFootprint: ; 4147b
-	ld a, [wd265]
-	dec a
-	and ($ff ^ $07) ; $f8 ; $1f << 3
-	srl a
-	srl a
-	srl a
-	ld e, 0
-	ld d, a
-	ld a, [wd265]
-	dec a
-	and 7
-	swap a ; * $10
-	ld l, a
-	ld h, 0
-	add hl, de
-	ld de, Footprints
-	add hl, de
-
-	push hl
-	ld e, l
-	ld d, h
-	ld hl, VTiles2 tile $6c
-	lb bc, BANK(Footprints), 2
-	call Request1bpp
-	pop hl
-
-	; Whoever was editing footprints forgot to fix their
-	; tile editor. Now each bottom half is 8 tiles off.
-	ld de, 8 tiles
-	add hl, de
-
-	ld e, l
-	ld d, h
-	ld hl, VTiles2 tile $6e
-	lb bc, BANK(Footprints), 2
-	call Request1bpp
-
-	ret
-
 Pokedex_LoadGFX: ; 414b7
 	call DisableLCD
 	ld hl, VTiles2
@@ -1845,11 +1785,9 @@ _NewPokedexEntry: ; 41a7f
 	call LoadStandardFont
 	call LoadFontsExtra
 	call Pokedex_LoadGFX
-	call Pokedex_LoadAnyFootprint
 	ld a, [wd265]
 	ld [CurPartySpecies], a
 	call Pokedex_DrawDexEntryScreenBG
-	call Pokedex_DrawFootprint
 	hlcoord 0, 17
 	ld [hl], $3b
 	inc hl

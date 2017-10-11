@@ -3,9 +3,9 @@
 
 ## Content
 
-- Edit gfx/pokedex/footprints.w128.1bpp
 - Wrecked Ship tileset
 - Add clouds to title screen
+- Fix Pokédex numbers?
 
 
 ## Features

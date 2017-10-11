@@ -1,5 +1,5 @@
 ; CleffaPokedexEntry: ; 0x1cd2bc
-	db "STARSHAPE@" ; species name
+	db "STAR SHAPE@" ; species name
 	dw 100, 70 ; height, width
 
 	db   "If the impact site"

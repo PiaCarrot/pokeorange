@@ -118,6 +118,7 @@ if def(DEBUG)
 	givepoke MEW, 40
 	givepoke LATIOS, 40
 	closetext
+	callasm CheatFillPokedex
 	warp GOLDEN_ISLAND, 20, 5
 	end
 else
@@ -245,3 +246,19 @@ ValenciaIsland_MapEventHeader::
 .ObjectEvents: db 2
 	person_event SPRITE_COOLTRAINER_M, 8, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 1, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ValenciaIslandTeacherScript, -1
 	person_event SPRITE_YOUNGSTER, 18, 10, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, ValenciaIslandFisherScript, -1
+
+if def(DEBUG)
+CheatFillPokedex:
+	ld a, 1
+	ld [wFirstSpindaSeen], a
+	ld hl, PokedexSeen
+	call .Fill
+	ld hl, PokedexCaught
+.Fill:
+	ld a, %11111111
+	ld bc, 31 ; 001-248
+	call ByteFill
+	ld a, %00011111
+	ld [hl], a ; 249-253
+	ret
+endc

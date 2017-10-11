@@ -6,5 +6,5 @@
 	next "man speech and is"
 	next "very intelligent."
 	page "It is a tender"
-	next "#mon that dis-"
+	next "#MON that dis-"
 	next "likes fighting.@"

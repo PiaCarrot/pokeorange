@@ -1541,14 +1541,14 @@ DoDexSearchSlowpokeFrame: ; 44207
 
 DisplayDexEntry: ; 4424d
 	call GetPokemonName
-	hlcoord 9, 3
+	hlcoord 9, 2
 	call PlaceString ; mon species
 	ld a, [wd265]
 	ld b, a
 	call GetDexEntryPointer
 	ld a, b
 	push af
-	hlcoord 9, 5
+	hlcoord 9, 4
 	call FarString ; dex species
 	ld h, b
 	ld l, c
@@ -1590,11 +1590,11 @@ DisplayDexEntry: ; 4424d
 	ld hl, sp+$0
 	ld d, h
 	ld e, l
-	hlcoord 12, 7
+	hlcoord 12, 6
 	lb bc, 2, PRINTNUM_MONEY | 4
 	call PrintNum
-	hlcoord 14, 7
-	ld [hl], $5e ; ft symbol
+	hlcoord 14, 6
+	ld [hl], "′"
 	pop af
 	pop hl
 
@@ -1614,7 +1614,7 @@ DisplayDexEntry: ; 4424d
 	ld hl, sp+$0
 	ld d, h
 	ld e, l
-	hlcoord 11, 9
+	hlcoord 11, 8
 	lb bc, 2, PRINTNUM_RIGHTALIGN | 5
 	call PrintNum
 	pop de
