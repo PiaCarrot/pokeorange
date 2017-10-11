@@ -8,7 +8,25 @@ KrissHouse1F_MapScriptHeader:
 .MapCallbacks: db 0
 
 MotherScript:
-	jumptextfaceplayer MotherText
+	opentext
+	faceplayer
+	checkevent EVENT_BEAT_ORANGE_LEAGUE
+	iftrue .MotherOrangeCrewText
+	writetext MotherText
+	waitbutton
+	closetext
+	end
+	
+.MotherOrangeCrewText:
+	checkevent EVENT_BEAT_RED
+	iftrue .MotherBattle
+	writetext MotherBeatOrangeCrewText
+	waitbutton
+	closetext
+	end
+	
+.MotherBattle ;TODO
+	end
 
 TVScript:
 	jumptext TVText
@@ -35,6 +53,19 @@ MotherText:
 	para "If you ever get"
 	line "strong, I will"
 	cont "gladly battle you."
+	done
+	
+MotherBeatOrangeCrewText:
+	text "MOM: Way to go,"
+	line "baby!"
+	
+	para "Keep at it, I'm"
+	line "rooting for you."
+	
+	para "I once took on"
+	line "the INDIGO LEAGUE."
+	cont "I hear there's a"
+	cont "new champion now."
 	done
 
 StoveText:
