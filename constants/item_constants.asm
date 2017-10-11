@@ -182,7 +182,7 @@
 	add_tm EARTHQUAKE   ; $b3
 	add_tm RETURN       ; $b4
 	add_tm DIG          ; $b5
-	add_tm PSYCHIC      ; $b6
+	add_tm PSYCHIC_M    ; $b6
 	add_tm SHADOW_BALL  ; $b7
 	add_tm BUBBLEBEAM   ; $b8
 	add_tm DOUBLE_TEAM  ; $b9

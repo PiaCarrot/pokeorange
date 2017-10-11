@@ -116,6 +116,7 @@ if def(DEBUG)
 	givepoke PIKACHU, 40
 	givepoke MEOWTH, 40
 	givepoke MEW, 40
+	givepoke LATIOS, 40
 	closetext
 	warp GOLDEN_ISLAND, 20, 5
 	end

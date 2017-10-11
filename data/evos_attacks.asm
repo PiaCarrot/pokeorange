@@ -3559,3 +3559,13 @@ CelebiEvosAttacks:
 	db 40, BATON_PASS
 	db 50, PERISH_SONG
 	db 0 ; no more level-up moves
+
+LatiasEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, STRUGGLE
+	db 0 ; no more level-up moves
+
+LatiosEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, STRUGGLE
+	db 0 ; no more level-up moves

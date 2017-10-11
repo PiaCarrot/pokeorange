@@ -251,8 +251,8 @@ TyranitarCryHeader:   cry_header CRY_RAIKOU,     -$100,  $180
 LugiaCryHeader:       cry_header CRY_TOUCANNON,  $000,  $100
 HoOhCryHeader:        cry_header CRY_STUNFISK,       $000,  $180
 CelebiCryHeader:      cry_header CRY_ENTEI,       $14a,  $111
-CryHeader252:         cry_header CRY_NIDORAN_M,      0,     0
-CryHeader253:         cry_header CRY_NIDORAN_M,      0,     0
+LatiasCryHeader:      cry_header CRY_NIDORAN_M,      0,     0
+LatiosCryHeader:      cry_header CRY_NIDORAN_M,      0,     0
 CryHeader254:         cry_header CRY_NIDORAN_M,      0,     0
 CryHeader255:         cry_header CRY_NIDORAN_M,      0,     0
 ; f2d81

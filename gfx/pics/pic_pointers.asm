@@ -504,7 +504,11 @@
 	dba HoOhBackpic
 	dba CelebiFrontpic
 	dba CelebiBackpic
-	dbw -1, -1 ; unused
-	dbw -1, -1 ; unused
+	dba LatiasFrontpic
+	dba LatiasBackpic
+	dba LatiosFrontpic
+	dba LatiosBackpic
 	dba EggPic
+	dbw -1, -1 ; unused
+	dbw -1, -1 ; unused
 	dbw -1, -1 ; unused
