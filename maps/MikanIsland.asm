@@ -25,8 +25,29 @@ MikanIslandSuperNerdScript:
 	jumptextfaceplayer MikanIslandSuperNerdText
 
 MikanIslandGrampsScript:
-	jumptextfaceplayer MikanIslandGrampsText
-
+	opentext
+	faceplayer
+	checkevent EVENT_BEAT_CISSY
+	iftrue .SendaBeatCissy
+	writetext SendaNotBeatenCissyText
+	waitbutton
+	closetext
+	end
+	
+.SendaBeatCissy:
+	checkevent EVENT_BEAT_ORANGE_LEAGUE
+	iftrue .SendaBeatOrangeCrew
+	writetext SendaBeatCissyText
+	waitbutton
+	closetext
+	end
+	
+.SendaBeatOrangeCrew:
+	writetext SendaBeatOrangeCrewText
+	waitbutton
+	closetext
+	end
+	
 MikanIslandYoungsterScript:
 	jumptextfaceplayer MikanIslandYoungsterText
 
@@ -64,13 +85,32 @@ MikanIslandSuperNerdText:
 	cont "by CISSY!"
 	done
 
-MikanIslandGrampsText:
-	text "My sister, CISSY"
-	line "is the strongest"
-	cont "trainer I know!"
+SendaNotBeatenCissyText:
+	text "SENDA: My sis,"
+	line "CISSY, is the"
+	cont "strongest trainer"
+	cont "I know!"
 
 	para "Fat chance you can"
 	line "beat her!"
+	done
+	
+SendaBeatCissyText:
+	text "SENDA: Hmph!"
+	
+	para "I won't acknowled-"
+	line "ge your victory"
+	cont "unless you beat"
+	cont "the ORANGE CREW!"
+	done
+	
+SendaBeatOrangeCrewText:
+	text "SENDA: Hmph!"
+	
+	para "I acknowledge your"
+	line "skill. Rematch my"
+	cont "sister anytime you"
+	cont "want to!"
 	done
 
 MikanIslandYoungsterText:
