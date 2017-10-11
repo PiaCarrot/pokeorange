@@ -1,5 +1,5 @@
 ; RattataPokedexEntry: ; 0x181e3d
-	db "RAT@" ; species name
+	db "MOUSE@" ; species name
 	dw 100, 80 ; height, width
 
 	db   "This #MON's"

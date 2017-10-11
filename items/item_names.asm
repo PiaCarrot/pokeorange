@@ -138,7 +138,7 @@
 	db "MORO TROPHY@"
 	db "DUBIOUS DISC@"
 	db "SHINY CHARM@"
-	db "8D@"
+	db "SOUL DEW@"
 	db "8E@"
 	db "8F@"
 	db "FLOWER MAIL@"

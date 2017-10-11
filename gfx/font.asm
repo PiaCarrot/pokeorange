@@ -49,10 +49,6 @@ MapEntryFrameGFX: ; f9344
 INCBIN "gfx/frames/map_entry_sign.2bpp"
 ; f9424
 
-Footprints: ; f9434
-INCBIN "gfx/pokedex/footprints.w128.1bpp"
-; fb434
-
 _LoadStandardFont:: ; fb449
 	ld de, Font
 	ld hl, VTiles1

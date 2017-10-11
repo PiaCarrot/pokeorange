@@ -140,7 +140,7 @@
 	const MORO_TROPHY  ; $8a
 	const DUBIOUS_DISC ; $8b
 	const SHINY_CHARM  ; $8c
-	const ITEM_8D      ; $8d
+	const SOUL_DEW     ; $8d
 	const ITEM_8E      ; $8e
 	const ITEM_8F      ; $8f
 	const FLOWER_MAIL  ; $90
