@@ -78,6 +78,7 @@ const_value SET 1
 	const EVOLVE_MAP
 	const EVOLVE_MOVE
 	const EVOLVE_FEMALE
+	const EVOLVE_ALONGSIDE
 
 
 BASE_HAPPINESS        EQU 70
