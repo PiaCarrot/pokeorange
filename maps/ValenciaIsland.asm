@@ -120,80 +120,10 @@ if def(DEBUG)
 	closetext
 	callasm CheatFillPokedex
 	warp GOLDEN_ISLAND, 20, 5
-	callasm CheatFillPokedex
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon
 endc
-
-CheatFillPokedex:
-    ld a, %11111111
-    ld [PokedexSeen+0], a ; 000-007
-    ld [PokedexCaught+0], a ; 000-007
-    ld [PokedexSeen+1], a
-    ld [PokedexCaught+1], a
-    ld [PokedexSeen+2], a
-    ld [PokedexCaught+2], a
-    ld [PokedexSeen+3], a
-    ld [PokedexCaught+3], a
-    ld [PokedexSeen+4], a
-    ld [PokedexCaught+4], a
-    ld [PokedexSeen+5], a
-    ld [PokedexCaught+5], a
-    ld [PokedexSeen+6], a
-    ld [PokedexCaught+6], a
-    ld [PokedexSeen+7], a
-    ld [PokedexCaught+7], a
-    ld [PokedexSeen+8], a
-    ld [PokedexCaught+8], a
-    ld [PokedexSeen+9], a
-    ld [PokedexCaught+9], a
-    ld [PokedexSeen+10], a
-    ld [PokedexCaught+10], a
-    ld [PokedexSeen+11], a
-    ld [PokedexCaught+11], a
-    ld [PokedexSeen+12], a
-    ld [PokedexCaught+12], a
-    ld [PokedexSeen+13], a
-    ld [PokedexCaught+13], a
-    ld [PokedexSeen+14], a
-    ld [PokedexCaught+14], a
-    ld [PokedexSeen+15], a
-    ld [PokedexCaught+15], a
-    ld [PokedexSeen+16], a
-    ld [PokedexCaught+16], a
-    ld [PokedexSeen+17], a
-    ld [PokedexCaught+17], a
-    ld [PokedexSeen+18], a
-    ld [PokedexCaught+18], a
-    ld [PokedexSeen+19], a
-    ld [PokedexCaught+19], a
-    ld [PokedexSeen+20], a
-    ld [PokedexCaught+20], a
-    ld [PokedexSeen+21], a
-    ld [PokedexCaught+21], a
-    ld [PokedexSeen+22], a
-    ld [PokedexCaught+22], a
-    ld [PokedexSeen+23], a
-    ld [PokedexCaught+23], a
-    ld [PokedexSeen+24], a
-    ld [PokedexCaught+24], a
- ;   ld [PokedexSeen+25], a
-  ;  ld [PokedexCaught+25], a
-    ld [PokedexSeen+26], a
-    ld [PokedexCaught+26], a
-    ld [PokedexSeen+27], a
-    ld [PokedexCaught+27], a
-    ld [PokedexSeen+28], a
-    ld [PokedexCaught+28], a
-    ld [PokedexSeen+29], a
-    ld [PokedexCaught+29], a
-    ld [PokedexSeen+30], a ; 240-248
-    ld [PokedexCaught+30], a ; 240-248
-    ld a, %00011111
-    ld [PokedexSeen+31], a ; 249-253
-    ld [PokedexCaught+31], a ; 249-253
-    ret
 
 ValenciaIslandSign:
 	jumptext ValenciaIslandSignText
