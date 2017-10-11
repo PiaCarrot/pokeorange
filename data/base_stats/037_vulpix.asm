@@ -5,7 +5,7 @@
 
 	db FIRE, FIRE
 	db 190 ; catch rate
-	db 63 ; base exp
+	db 60 ; base exp
 	db BURNT_BERRY ; item 1
 	db BURNT_BERRY ; item 2
 	db 191 ; gender

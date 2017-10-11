@@ -5,7 +5,7 @@
 
 	db ELECTRIC, FLYING
 	db 3 ; catch rate
-	db 216 ; base exp
+	db 261 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 255 ; gender

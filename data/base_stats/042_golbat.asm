@@ -5,7 +5,7 @@
 
 	db POISON, FLYING
 	db 90 ; catch rate
-	db 171 ; base exp
+	db 159 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 127 ; gender

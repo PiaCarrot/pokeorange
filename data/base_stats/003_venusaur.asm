@@ -5,7 +5,7 @@
 
 	db GRASS, POISON
 	db 45 ; catch rate
-	db 208 ; base exp
+	db 236 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 31 ; gender

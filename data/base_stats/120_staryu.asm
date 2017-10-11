@@ -5,7 +5,7 @@
 
 	db WATER, WATER
 	db 225 ; catch rate
-	db 106 ; base exp
+	db 68 ; base exp
 	db STARDUST ; item 1
 	db STAR_PIECE ; item 2
 	db 255 ; gender

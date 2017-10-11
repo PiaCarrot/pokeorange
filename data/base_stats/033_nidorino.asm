@@ -5,7 +5,7 @@
 
 	db POISON, POISON
 	db 120 ; catch rate
-	db 118 ; base exp
+	db 128 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 0 ; gender

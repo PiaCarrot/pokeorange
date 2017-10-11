@@ -5,7 +5,7 @@
 
 	db WATER, PSYCHIC
 	db 190 ; catch rate
-	db 99 ; base exp
+	db 63 ; base exp
 	db NO_ITEM ; item 1
 	db KINGS_ROCK ; item 2
 	db 127 ; gender

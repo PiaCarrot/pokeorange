@@ -5,7 +5,7 @@
 
 	db GROUND, GROUND
 	db 255 ; catch rate
-	db 93 ; base exp
+	db 60 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 127 ; gender

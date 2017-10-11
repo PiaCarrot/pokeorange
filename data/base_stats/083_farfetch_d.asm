@@ -5,7 +5,7 @@
 
 	db NORMAL, FLYING
 	db 45 ; catch rate
-	db 94 ; base exp
+	db 132 ; base exp
 	db NO_ITEM ; item 1
 	db STICK ; item 2
 	db 127 ; gender

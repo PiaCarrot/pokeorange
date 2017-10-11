@@ -5,7 +5,7 @@
 
 	db NORMAL, FLYING
 	db 90 ; catch rate
-	db 162 ; base exp
+	db 155 ; base exp
 	db NO_ITEM ; item 1
 	db SHARP_BEAK ; item 2
 	db 127 ; gender

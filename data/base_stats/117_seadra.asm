@@ -5,7 +5,7 @@
 
 	db WATER, WATER
 	db 75 ; catch rate
-	db 155 ; base exp
+	db 154 ; base exp
 	db NO_ITEM ; item 1
 	db DRAGON_SCALE ; item 2
 	db 127 ; gender

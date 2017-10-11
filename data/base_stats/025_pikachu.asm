@@ -5,7 +5,7 @@
 
 	db ELECTRIC, ELECTRIC
 	db 190 ; catch rate
-	db 82 ; base exp
+	db 112 ; base exp
 	db NO_ITEM ; item 1
 	db BERRY ; item 2
 	db 127 ; gender

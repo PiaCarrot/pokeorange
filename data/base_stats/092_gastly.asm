@@ -5,7 +5,7 @@
 
 	db GHOST, POISON
 	db 190 ; catch rate
-	db 95 ; base exp
+	db 62 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 127 ; gender

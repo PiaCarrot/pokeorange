@@ -5,7 +5,7 @@
 
 	db BUG, FLYING
 	db 45 ; catch rate
-	db 160 ; base exp
+	db 178 ; base exp
 	db NO_ITEM ; item 1
 	db SILVERPOWDER ; item 2
 	db 127 ; gender

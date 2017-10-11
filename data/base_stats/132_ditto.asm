@@ -5,7 +5,7 @@
 
 	db NORMAL, NORMAL
 	db 35 ; catch rate
-	db 61 ; base exp
+	db 101 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 255 ; gender

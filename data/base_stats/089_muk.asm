@@ -5,7 +5,7 @@
 
 	db POISON, DARK
 	db 75 ; catch rate
-	db 157 ; base exp
+	db 175 ; base exp
 	db NO_ITEM ; item 1
 	db NUGGET ; item 2
 	db 127 ; gender

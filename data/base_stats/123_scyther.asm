@@ -5,7 +5,7 @@
 
 	db BUG, FLYING
 	db 45 ; catch rate
-	db 187 ; base exp
+	db 100 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 127 ; gender

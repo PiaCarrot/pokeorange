@@ -5,7 +5,7 @@
 
 	db DRAGON, DRAGON
 	db 45 ; catch rate
-	db 144 ; base exp
+	db 147 ; base exp
 	db NO_ITEM ; item 1
 	db DRAGON_SCALE ; item 2
 	db 127 ; gender

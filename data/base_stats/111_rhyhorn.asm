@@ -5,7 +5,7 @@
 
 	db GROUND, ROCK
 	db 120 ; catch rate
-	db 135 ; base exp
+	db 69 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 127 ; gender

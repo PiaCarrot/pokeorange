@@ -5,7 +5,7 @@
 
 	db PSYCHIC, PSYCHIC
 	db 200 ; catch rate
-	db 73 ; base exp
+	db 62 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 63 ; gender
