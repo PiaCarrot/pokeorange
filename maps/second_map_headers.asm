@@ -112,7 +112,7 @@
 	map_header_2 SunburstSouthHouse, SUNBURST_SOUTH_HOUSE, 0, 0
 	map_header_2 SunburstCrystalShop, SUNBURST_CRYSTAL_SHOP, 0, 0
 	map_header_2 CrystalCave1F, CRYSTAL_CAVE_1F, $9, 0
-	map_header_2 CrystalCaveB1, CRYSTAL_CAVE_B1, $9, 0
+	map_header_2 CrystalCaveB1, CRYSTAL_CAVE_B1, 9, 0
 	map_header_2 MandarinNorthPokeCenter, MANDARIN_NORTH_POKECENTER, 0, 0
 	map_header_2 MandarinNorthNameRater, MANDARIN_NORTH_NAME_RATER, 0, 0
 	map_header_2 MandarinNorthSmallHouse, MANDARIN_NORTH_SMALL_HOUSE, 0, 0
