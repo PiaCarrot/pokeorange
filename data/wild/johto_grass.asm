@@ -548,16 +548,16 @@
 	db 21, JIGGLYPUFF
 	db 21, EKANS
 	db 21, SPEAROW
-	db 22, EKANS
-	db 22, FEAROW
+	db 21, SANDYGAST
+	db 22, SANDYGAST
 	; day
 	db 20, JIGGLYPUFF
 	db 20, SPEAROW
 	db 21, JIGGLYPUFF
 	db 21, EKANS
 	db 21, SPEAROW
-	db 22, EKANS
-	db 22, FEAROW
+	db 21, SANDYGAST
+	db 22, SANDYGAST
 	; night
 	db 20, ZUBAT
 	db 20, GASTLY
@@ -566,6 +566,33 @@
 	db 21, GASTLY
 	db 22, ODDISH
 	db 22, GASTLY
+	
+	map WRECKED_SHIP
+	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
+	; morn
+	db 30, FINNEON
+	db 30, CORSOLA
+	db 30, MAREANIE
+	db 31, FINNEON
+	db 31, CORSOLA
+	db 31, SKRELP
+	db 31, RELICANTH
+	; day
+	db 30, FINNEON
+	db 30, CORSOLA
+	db 30, MAREANIE
+	db 31, FINNEON
+	db 31, CORSOLA
+	db 31, SKRELP
+	db 31, RELICANTH
+	; nite
+	db 30, FINNEON
+	db 30, CORSOLA
+	db 30, MAREANIE
+	db 31, FINNEON
+	db 31, CORSOLA
+	db 31, SKRELP
+	db 31, RELICANTH
 
 	map ROUTE_61
 	db 6 percent, 6 percent, 6 percent
