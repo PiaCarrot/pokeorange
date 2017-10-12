@@ -8,7 +8,12 @@ Route55_MapScriptHeader::
 
 .Triggers: db 0
 
-.Callbacks: db 0
+.Callbacks: db 1
+	dbw MAPCALLBACK_NEWMAP, .InitializeDiveMap
+
+.InitializeDiveMap:
+	divemap ROUTE_55_UNDERWATER, 0, 0
+	return
 
 TrainerSwimmerMayumi:
 	trainer EVENT_BEAT_SWIMMERF_MAYUMI, SWIMMERF, MAYUMI, SwimmerMayumiSeenText, SwimmerMayumiBeatenText, 0, .Script
@@ -138,3 +143,4 @@ Route55_MapEventHeader::
 	person_event SPRITE_SWIMMER_GUY, 31, 33, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerKosuke, -1
 	person_event SPRITE_COOLTRAINER_M, 40, 37, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerAthleteHideki, -1
 	person_event SPRITE_POKE_BALL, 39, 6, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route55MaxRevive, EVENT_ROUTE_55_MAX_REVIVE
+

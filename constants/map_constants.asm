@@ -60,6 +60,7 @@ MAP_NONE EQU 0
 	newgroup ; 4
 
 	mapgroup ROUTE_55, 25, 25
+	mapgroup ROUTE_55_UNDERWATER, 25, 25
 	mapgroup PINKAN_ISLAND, 17, 21
 	mapgroup ROUTE_56_WEST, 17, 35
 	mapgroup ROUTE_56_EAST, 17, 35

@@ -102,6 +102,9 @@ Route54_BlockData:
 Route55_BlockData:
 	INCBIN "maps/Route55.blk"
 
+Route55Underwater_BlockData:
+	INCBIN "maps/Route55Underwater.blk"
+
 Route56West_BlockData:
 	INCBIN "maps/Route56West.blk"
 

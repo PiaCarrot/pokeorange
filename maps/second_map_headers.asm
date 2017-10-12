@@ -119,6 +119,7 @@
 	map_header_2 MandarinNorthLargeHouse, MANDARIN_NORTH_LARGE_HOUSE, 0, 0
 	map_header_2 MandarinUnderground, MANDARIN_UNDERGROUND, 0, 0
 	map_header_2 MandarinNorthMart, MANDARIN_NORTH_MART, 0, 0
+	map_header_2 Route55Underwater, ROUTE_55_UNDERWATER, 9, 0
 	map_header_2 Route55QuestHouse, ROUTE_55_QUEST_HOUSE, 0, 0
 	map_header_2 Route56PokeCenter, ROUTE_56_POKE_CENTER, 0, 0
 	map_header_2 KinnowTradeHouse, KINNOW_TRADE_HOUSE, 0, 0

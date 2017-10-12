@@ -90,6 +90,7 @@ INCLUDE "maps/SunburstSouthHouse.asm"
 INCLUDE "maps/CrystalCave1F.asm"
 INCLUDE "maps/CrystalCaveB1.asm"
 INCLUDE "maps/Route55.asm"
+INCLUDE "maps/Route55Underwater.asm"
 INCLUDE "maps/Route55QuestHouse.asm"
 INCLUDE "maps/PinkanIsland.asm"
 

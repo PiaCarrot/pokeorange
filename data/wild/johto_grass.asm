@@ -297,6 +297,33 @@
 	db 18, RATTATA
 	db 18, DODUO
 
+	map ROUTE_55_UNDERWATER
+	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
+	; morn
+	db 30, FINNEON
+	db 30, CORSOLA
+	db 30, MAREANIE
+	db 31, FINNEON
+	db 31, CORSOLA
+	db 31, SKRELP
+	db 31, RELICANTH
+	; day
+	db 30, FINNEON
+	db 30, CORSOLA
+	db 30, MAREANIE
+	db 31, FINNEON
+	db 31, CORSOLA
+	db 31, SKRELP
+	db 31, RELICANTH
+	; nite
+	db 30, FINNEON
+	db 30, CORSOLA
+	db 30, MAREANIE
+	db 31, FINNEON
+	db 31, CORSOLA
+	db 31, SKRELP
+	db 31, RELICANTH
+	
 	map ROUTE_56_WEST
 	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
 	; morn
@@ -485,6 +512,33 @@
 	db 19, ODDISH
 	db 20, ZUBAT
 	db 20, RATICATE
+	
+	map SEVEN_GRAPEFRUITS_UNDERWATER
+	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
+	; morn
+	db 30, FINNEON
+	db 30, CORSOLA
+	db 30, MAREANIE
+	db 31, FINNEON
+	db 31, CORSOLA
+	db 31, SKRELP
+	db 31, RELICANTH
+	; day
+	db 30, FINNEON
+	db 30, CORSOLA
+	db 30, MAREANIE
+	db 31, FINNEON
+	db 31, CORSOLA
+	db 31, SKRELP
+	db 31, RELICANTH
+	; nite
+	db 30, FINNEON
+	db 30, CORSOLA
+	db 30, MAREANIE
+	db 31, FINNEON
+	db 31, CORSOLA
+	db 31, SKRELP
+	db 31, RELICANTH
 
 	map ROUTE_60
 	db 6 percent, 6 percent, 6 percent
