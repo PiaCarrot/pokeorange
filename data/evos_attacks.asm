@@ -3592,10 +3592,40 @@ CelebiEvosAttacks:
 
 LatiasEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, STRUGGLE
+	db 1, PSYBEAM
+	db 1, SAFEGUARD
+	db 1, NASTY_PLOT
+	db 4, PROTECT
+	db 7, CHARM
+	db 10, CONFUSION
+	db 13, REFRESH
+	db 16, HEAL_BELL
+	db 20, DRAGONBREATH
+	db 24, MIST_BALL
+	db 32, RECOVER
+	db 38, HEADBUTT
+	db 46, DRAGON_RAGE
+	db 51, PSYCHIC
+	db 56, DRAGON_PULSE
+	db 61, HEAL_BELL
 	db 0 ; no more level-up moves
 
 LatiosEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, STRUGGLE
+	db 1, PSYBEAM
+	db 1, SAFEGUARD
+	db 1, NASTY_PLOT
+	db 4, PROTECT
+	db 7, AGILITY
+	db 10, CONFUSION
+	db 13, REFRESH
+	db 16, HEAL_BELL
+	db 20, DRAGONBREATH
+	db 24, LUSTER_PURGE
+	db 32, RECOVER
+	db 38, HEADBUTT
+	db 46, DRAGON_RAGE
+	db 51, PSYCHIC
+	db 56, DRAGON_PULSE
+	db 61, NASTY_PLOT
 	db 0 ; no more level-up moves
