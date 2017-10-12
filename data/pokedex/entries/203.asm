@@ -1,10 +1,9 @@
 ; GirafarigPokedexEntry: ; 0x1d0446
-	db "LONG NECK@" ; species name
-	dw 411, 910 ; height, width
+	db "MOCK KELP@" ; species name
+	dw 511, 1797 ; height, width
 
-	db   "When it is in"
-	next "danger, its tail"
-	next "uses some sort of"
-	page "mysterious powers"
-	next "to drive away the"
-	next "enemy.@"
+	db   "Tales are told of"
+	next "ships that wander"
+	next "into seas where"
+	page "DRAGALGE live,"
+	next "never to return.@"

@@ -1,11 +1,11 @@
 	db SKRELP ; 202
 
-	db 190,  33,  58,  33,  33,  58
+	db 50,  60,  60,  30,  60,  60
 	;   hp  atk  def  spd  sat  sdf
 
-	db PSYCHIC, PSYCHIC
-	db 45 ; catch rate
-	db 177 ; base exp
+	db POISON, WATER
+	db 225 ; catch rate
+	db 64 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 127 ; gender
@@ -13,8 +13,8 @@
 	dn 6, 6 ; frontpic dimensions
 
 	db MEDIUM_FAST ; growth rate
-	dn AMORPHOUS, AMORPHOUS ; egg groups
+	dn FISH, REPTILE ; egg groups
 
 	; tmhm
-	tmhm
+	tmhm DRAGON_PULSE, WATER_PULSE, ICY_WIND, SLEEP_TALK, TOXIC, HAIL, WATER_GUN, PROTECT, RAIN_DANCE, FRUSTRATION, IRON_TAIL, THUNDERBOLT, THUNDER, RETURN, SHADOW_BALL, DOUBLE_TEAM, SWAGGER, SLUDGE_BOMB, REST, ATTRACT, SURF, DIVE, WATERFALL, VENOSHOCK
 	; end

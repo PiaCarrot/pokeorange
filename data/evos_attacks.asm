@@ -2830,25 +2830,41 @@ SpindaEvosAttacks:
 	db 0 ; no more level-up moves
 
 SkrelpEvosAttacks:
+	db EVOLVE_LEVEL, 48, DRAGALGE
 	db 0 ; no more evolutions
-	db 1, COUNTER
-	db 1, MIRROR_COAT
-	db 1, SAFEGUARD
-	db 1, DESTINY_BOND
+	db 1, TACKLE
+	db 1, SMOKESCREEN
+	db 1, WATER_GUN
+	db 5, FAINT_ATTACK
+	db 9, TAIL_WHIP
+	db 12, BUBBLE
+	db 15, ACID
+	db 19, MINIMIZE
+	db 25, WATER_PULSE
+	db 32, TOXIC
+	db 35, DRAGON_RAGE
+	db 42, HYDRO_PUMP
+	db 49, DRAGON_PULSE
 	db 0 ; no more level-up moves
 
 DragalgeEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, GROWL
-	db 1, CONFUSION
-	db 1, STOMP
-	db 7, CONFUSION
-	db 13, STOMP
-	db 20, AGILITY
-	db 30, BATON_PASS
-	db 41, PSYBEAM
-	db 54, CRUNCH
+	db 1, SMOKESCREEN
+	db 1, WATER_GUN
+	db 1, TWISTER
+	db 5, FAINT_ATTACK
+	db 9, TAIL_WHIP
+	db 12, BUBBLE
+	db 15, ACID
+	db 19, MINIMIZE
+	db 25, WATER_PULSE
+	db 32, TOXIC
+	db 35, DRAGON_RAGE
+	db 42, HYDRO_PUMP
+	db 48, TWISTER
+	db 53, DRAGON_PULSE
+	db 59, OUTRAGE
 	db 0 ; no more level-up moves
 
 TrapinchEvosAttacks:
