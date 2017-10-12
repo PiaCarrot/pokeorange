@@ -10,7 +10,7 @@
 	db NO_ITEM ; item 2
 	db 127 ; gender
 	db 15 ; step cycles to hatch
-	dn 7, 7 ; frontpic dimensions
+	dn 6, 6 ; frontpic dimensions
 
 	db SLIGHTLY_FAST ; growth rate
 	dn FISH, FISH ; egg groups

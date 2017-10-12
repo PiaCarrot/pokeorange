@@ -1,10 +1,10 @@
 ; CyndaquilPokedexEntry: ; 0x1ccabd
-	db "FIRE MOUSE@" ; species name
-	dw 108, 170 ; height, width
+	db "WOODPECKER@" ; species name
+	dw 100, 26 ; height, width
 
-	db   "The fire that"
-	next "spouts from its"
-	next "back burns hottest"
-	page "when it is angry."
-	next "The flaring flames"
-	next "intimidate foes.@"
+	db   "It can peck up to"
+	next "16 times a second"
+	next "to drill holes in"
+	page "trees. It uses the"
+	next "holes for food st-"
+	next "orage and nesting.@"

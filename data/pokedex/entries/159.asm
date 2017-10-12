@@ -1,10 +1,10 @@
 ; CroconawPokedexEntry: ; 0x1ccc84
-	db "BIG JAW@" ; species name
-	dw 307, 550 ; height, width
+	db "CHINCHILLA@" ; species name
+	dw 104, 128 ; height, width
 
-	db   "The tips of its"
-	next "fangs are slanted"
-	next "backward. Once"
-	page "those fangs clamp"
-	next "down, the prey has"
-	next "no hope of escape.@"
+	db   "They greet each-"
+	next "other by rubbing"
+	next "eachother's tails,"
+	page "which are always"
+	next "kept well groomed"
+	next "and clean.@"

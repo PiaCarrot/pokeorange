@@ -1,10 +1,10 @@
 ; QuilavaPokedexEntry: ; 0x1ccb33
-	db "VOLCANO@" ; species name
-	dw 211, 420 ; height, width
+	db "BUGLE BEAK@" ; species name
+	dw 200, 326 ; height, width
 
-	db   "Before battle, it"
-	next "turns its back on"
-	next "its opponent to"
-	page "demonstrate how"
-	next "ferociously its"
-	next "fire blazes.@"
+	db   "It can bend its"
+	next "beak, to produce a"
+	next "variety of calls"
+	page "and brand itself a"
+	next "noisy nuisance for"
+	next "its neighbors.@"

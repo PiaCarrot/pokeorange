@@ -1,10 +1,10 @@
 ; DelibirdPokedexEntry: ; 0x1d0db1
-	db "DELIVERY@" ; species name
-	dw 211, 350 ; height, width
+	db "KITE@" ; species name
+	dw 303, 1433 ; height, width
 
-	db   "It always carries"
-	next "its food with it,"
-	next "wherever it goes."
-	page "If attacked, it"
-	next "throws its food at"
-	next "the opponent.@"
+	db   "People organize"
+	next "tours to see this"
+	next "#MON frolic and"
+	page "skim the tops of"
+	next "the waves with"
+	next "REMORAID.@"

@@ -2151,43 +2151,47 @@ ChatotEvosAttacks:
 PikipekEvosAttacks:
 	db EVOLVE_LEVEL, 14, TRUMBEAK
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, HEADBUTT
-	db 1, SURF
-	db 6, SMOKESCREEN
-	db 12, EMBER
-	db 19, QUICK_ATTACK
-	db 27, FLAME_WHEEL
-	db 36, SWIFT
-	db 46, FLAMETHROWER
+	db 1, PECK
+	db 3, GROWL
+	db 7, WING_ATTACK
+	db 9, BULLET_SEED
+	db 13, SUPERSONIC
+	db 21, FURY_ATTACK
+	db 25, SCREECH
+	db 31, QUICK_ATTACK
+	db 37, DRILL_PECK
 	db 0 ; no more level-up moves
 
 TrumbeakEvosAttacks:
-	db EVOLVE_LEVEL, 36, TOUCANNON
+	db EVOLVE_LEVEL, 28, TOUCANNON
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, LEER
-	db 1, SMOKESCREEN
-	db 6, SMOKESCREEN
-	db 12, EMBER
-	db 21, QUICK_ATTACK
-	db 31, FLAME_WHEEL
-	db 42, SWIFT
-	db 54, FLAMETHROWER
+	db 1, PECK
+	db 1, GROWL
+	db 1, ROCK_BLAST
+	db 3, GROWL
+	db 7, WING_ATTACK
+	db 9, BULLET_SEED
+	db 13, SUPERSONIC
+	db 24, FURY_ATTACK
+	db 29, SCREECH
+	db 37, QUICK_ATTACK
+	db 45, DRILL_PECK
 	db 0 ; no more level-up moves
 
 ToucannonEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, LEER
-	db 1, SMOKESCREEN
-	db 1, EMBER
-	db 6, SMOKESCREEN
-	db 12, EMBER
-	db 21, QUICK_ATTACK
-	db 31, FLAME_WHEEL
-	db 45, SWIFT
-	db 60, FLAMETHROWER
+	db 1, PECK
+	db 1, GROWL
+	db 1, ROCK_BLAST
+	db 3, GROWL
+	db 7, WING_ATTACK
+	db 9, BULLET_SEED
+	db 13, SUPERSONIC
+	db 24, FURY_ATTACK
+	db 28, SKY_ATTACK ;BEAK BLAST?
+	db 30, SCREECH
+	db 40, QUICK_ATTACK
+	db 50, DRILL_PECK
 	db 0 ; no more level-up moves
 
 MunchlaxEvosAttacks:
@@ -2312,19 +2316,20 @@ SalanditEvosAttacks:
 
 SalazzleEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, SCRATCH
 	db 1, POISON_GAS
+	db 1, DISABLE
 	db 5, EMBER
 	db 8, SWEET_SCENT
 	db 13, DRAGON_RAGE
+	db 16, SMOG
 	db 21, DOUBLESLAP
 	db 24, FLAME_WHEEL
 	db 29, TOXIC
 	db 32, NASTY_PLOT
-	db 41, VENOSHOCK
+	db 39, VENOSHOCK
 	db 44, FLAMETHROWER
-	db 49, ACID
-	db 52, DRAGON_PULSE
+	db 51, ACID
+	db 56, DRAGON_PULSE
 	db 0 ; no more level-up moves
 
 FinneonEvosAttacks:
@@ -3033,32 +3038,36 @@ ToxapexEvosAttacks:
 	db 0 ; no more level-up moves
 
 SandygastEvosAttacks:
-	db EVOLVE_LEVEL, 30, PALOSSAND
+	db EVOLVE_LEVEL, 42, PALOSSAND
 	db 0 ; no more evolutions
-	db 1, SCRATCH
-	db 1, LEER
-	db 8, LICK
-	db 15, FURY_SWIPES
-	db 22, FAINT_ATTACK
-	db 29, REST
-	db 36, SLASH
-	db 43, SNORE
-	db 50, THRASH
+	db 1, HARDEN
+	db 1, ABSORB
+	db 5, ASTONISH
+	db 9, SAND_ATTACK
+	db 14, MUD_SLAP
+	db 21, MEGA_DRAIN
+	db 27, HYPNOSIS
+	db 32, DIG
+	db 36, GIGA_DRAIN
+	db 41, SHADOW_BALL
+	db 49, EARTHQUAKE
+	db 54, SANDSTORM
 	db 0 ; no more level-up moves
 
 PalossandEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, SCRATCH
-	db 1, LEER
-	db 1, LICK
-	db 1, FURY_SWIPES
-	db 8, LICK
-	db 15, FURY_SWIPES
-	db 22, FAINT_ATTACK
-	db 29, REST
-	db 39, SLASH
-	db 49, SNORE
-	db 59, THRASH
+	db 1, HARDEN
+	db 1, ABSORB
+	db 5, ASTONISH
+	db 9, SAND_ATTACK
+	db 14, MUD_SLAP
+	db 21, MEGA_DRAIN
+	db 27, HYPNOSIS
+	db 32, DIG
+	db 36, GIGA_DRAIN
+	db 41, SHADOW_BALL
+	db 53, EARTHQUAKE
+	db 60, SANDSTORM
 	db 0 ; no more level-up moves
 
 SlugmaEvosAttacks:

@@ -1,19 +1,19 @@
 	db PALOSSAND ; 217
 
-	db  90, 130,  75,  55,  75,  75
+	db  85, 75,  110,  35,  100,  75
 	;   hp  atk  def  spd  sat  sdf
 
-	db NORMAL, NORMAL
+	db GHOST, GROUND
 	db 60 ; catch rate
-	db 189 ; base exp
+	db 168 ; base exp
 	db NO_ITEM ; item 1
-	db NO_ITEM ; item 2
+	db SPELL_TAG ; item 2
 	db 127 ; gender
 	db 20 ; step cycles to hatch
-	dn 7, 7 ; frontpic dimensions
+	dn 6, 6 ; frontpic dimensions
 
 	db MEDIUM_FAST ; growth rate
-	dn FIELD, FIELD ; egg groups
+	dn AMORPHOUS, AMORPHOUS ; egg groups
 
 	; tmhm
 	tmhm SLEEP_TALK, TOXIC, PROTECT, GIGA_DRAIN, FRUSTRATION, EARTHQUAKE, RETURN, PSYCHIC_M, SHADOW_BALL, DOUBLE_TEAM, SWAGGER, SLUDGE_BOMB, SANDSTORM, REST, ATTRACT

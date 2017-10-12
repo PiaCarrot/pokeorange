@@ -1,10 +1,10 @@
 ; UrsaringPokedexEntry: ; 0x1d0a41
-	db "HIBERNATOR@" ; species name
-	dw 511, 2770 ; height, width
+	db "SAND CASTLE@" ; species name
+	dw 403, 5512 ; height, width
 
-	db   "Although it has a"
-	next "large body, it is"
-	next "quite skilled at"
-	page "climbing trees. It"
-	next "eats and sleeps in"
-	next "the treetops.@"
+	db   "It will possess"
+	next "people to trans-"
+	next "form SANDYGAST"
+	page "into a castle."
+	next "It's power to"
+	next "curse is immense.@"
