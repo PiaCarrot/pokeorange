@@ -3598,7 +3598,6 @@ LatiasEvosAttacks:
 	db 4, PROTECT
 	db 7, CHARM
 	db 10, CONFUSION
-	db 13, REFRESH
 	db 16, HEAL_BELL
 	db 20, DRAGONBREATH
 	db 24, MIST_BALL
@@ -3618,7 +3617,6 @@ LatiosEvosAttacks:
 	db 4, PROTECT
 	db 7, AGILITY
 	db 10, CONFUSION
-	db 13, REFRESH
 	db 16, HEAL_BELL
 	db 20, DRAGONBREATH
 	db 24, LUSTER_PURGE
