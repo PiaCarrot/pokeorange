@@ -3027,30 +3027,35 @@ ShuckleEvosAttacks:
 	db 0 ; no more level-up moves
 
 MareanieEvosAttacks:
+	db EVOLVE_LEVEL, 38, TOXAPEX
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, LEER
-	db 6, HORN_ATTACK
-	db 12, ENDURE
-	db 19, FURY_ATTACK
-	db 27, COUNTER
-	db 35, TAKE_DOWN
-	db 44, REVERSAL
-	db 54, MEGAHORN
+	db 1, POISON_STING
+	db 5, PECK
+	db 9, BITE
+	db 13, SPIKES
+	db 17, ACID
+	db 21, TOXIC
+	db 29, SPIKE_CANNON
+	db 33, RECOVER
+	db 39, VENOSHOCK
+	db 45, PIN_MISSILE
+	db 49, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 ToxapexEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, SCRATCH
-	db 1, LEER
-	db 9, QUICK_ATTACK
-	db 17, SCREECH
-	db 25, FAINT_ATTACK
-	db 33, FURY_SWIPES
-	db 41, AGILITY
-	db 49, SLASH
-	db 57, STRUGGLE ; BEAT_UP
-	db 65, METAL_CLAW
+	db 1, POISON_STING
+	db 5, PECK
+	db 9, BITE
+	db 13, SPIKES
+	db 17, ACID
+	db 21, TOXIC
+	db 29, SPIKE_CANNON
+	db 33, RECOVER
+	db 38, SLUDGE_BOMB
+	db 44, VENOSHOCK
+	db 51, PIN_MISSILE
+	db 58, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 SandygastEvosAttacks:

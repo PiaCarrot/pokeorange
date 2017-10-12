@@ -1,10 +1,10 @@
 ; SneaselPokedexEntry: ; 0x1d097a
-	db "SHARP CLAW@" ; species name
-	dw 211, 620 ; height, width
+	db "BRUTAL STAR@" ; species name
+	dw 204, 320 ; height, width
 
-	db   "This cunning"
-	next "#MON hides"
-	next "under the cover"
-	page "of darkness,"
-	next "waiting to attack"
-	next "its prey.@"
+	db   "Those attacked by"
+	next "TOXAPEX's poison"
+	next "suffer intense"
+	page "pain for three"
+	next "days and three"
+	next "nights.@"

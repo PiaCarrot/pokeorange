@@ -1,10 +1,10 @@
 ; HeracrossPokedexEntry: ; 0x1d0907
-	db "SINGLE HORN@" ; species name
-	dw 411, 1190 ; height, width
+	db "BRUTAL STAR@" ; species name
+	dw 104, 176 ; height, width
 
-	db   "With its Herculean"
-	next "powers, it can"
-	next "easily throw arou-"
-	page "nd an object that"
-	next "is 100 times its"
-	next "own weight.@"
+	db   "It's found on bea-"
+	next "ches and the sea-"
+	next "floor. Coral that"
+	page "grows on CORSOLA"
+	next "is a delicacy to"
+	next "this #MON.@"

@@ -1,19 +1,19 @@
 	db MAREANIE ; 214
 
-	db  80, 125,  75,  85,  40,  95
+	db  50, 53,  62,  45,  43,  52
 	;   hp  atk  def  spd  sat  sdf
 
-	db BUG, FIGHTING
-	db 45 ; catch rate
-	db 200 ; base exp
+	db POISON, WATER
+	db 190 ; catch rate
+	db 61 ; base exp
 	db NO_ITEM ; item 1
-	db NO_ITEM ; item 2
+	db POISON_BARB ; item 2
 	db 127 ; gender
-	db 25 ; step cycles to hatch
+	db 20 ; step cycles to hatch
 	dn 6, 6 ; frontpic dimensions
 
-	db SLOW ; growth rate
-	dn INSECT, INSECT ; egg groups
+	db MEDIUM_FAST ; growth rate
+	dn INVERTEBRATE, INVERTEBRATE ; egg groups
 
 	; tmhm
 	tmhm SLEEP_TALK, TOXIC, HAIL, ICE_BEAM, BLIZZARD, PROTECT, RAIN_DANCE, FRUSTRATION, RETURN, DOUBLE_TEAM, SWAGGER, SLUDGE_BOMB, REST, ATTRACT, SURF, VENOSHOCK
