@@ -261,6 +261,10 @@
 	const EVENT_PINKAN_ISLAND_HIDDEN_PINKAN_BERRY
 	const EVENT_GRAPEFRUIT_RARE_CANDY
 	const EVENT_MORO_ISLAND_HIDDEN_NUGGET
+	const EVENT_ROUTE_55_HIDDEN_STARDUST
+	const EVENT_ROUTE_55_HIDDEN_PEARL
+	const EVENT_GRAPEFRUIT_LURE_BALL
+	const EVENT_GRAPEFRUIT_STARDUST
 
 ; Sprite visibility: When these events are cleared, the sprite becomes visible; when set, the sprite is hidden.
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.
@@ -306,6 +310,9 @@
 	const EVENT_GOLDEN_ISLAND_AMULET_COIN
 	const EVENT_GOLDEN_ISLAND_QUICK_CLAW
 	const EVENT_TANGELO_PORT_WATER_GUN
+	const EVENT_ROUTE_55_WATER_PULSE
+	const EVENT_ROUTE_55_NUGGET
+	const EVENT_GRAPEFRUIT_HP_UP
 
 ; People
 	const EVENT_BULBASAUR_POKEBALL_IN_IVYS_LAB

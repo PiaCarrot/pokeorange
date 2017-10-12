@@ -56,3 +56,6 @@ SevenGrapefruitsUnderwater_BlockData:
 
 MoroIsland_BlockData:
 	INCBIN "maps/MoroIsland.blk"
+
+WreckedShip_BlockData: 
+	INCBIN "maps/WreckedShip.blk"

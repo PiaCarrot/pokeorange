@@ -432,6 +432,8 @@ endm
 ; b82c5
 
 RockMonMaps: ; b82c5
+	treemon_map SEVEN_GRAPEFRUITS_UNDERWATER, 7
+	treemon_map ROUTE_56_EAST, 6
 	db -1
 ; b82d2
 
@@ -470,8 +472,8 @@ TreeMons: ; b82e8
 	dw TreeMons3
 	dw TreeMons4
 	dw TreeMons5
-	dw TreeMons6
-	dw RockMons
+	dw RockMons1
+	dw RockMons2
 	dw TreeMons1
 
 ; Two tables each (normal, rare).
@@ -563,26 +565,14 @@ TreeMons5: ; b8392
 	db  5, EXEGGCUTE,  10
 	db -1
 
-TreeMons6: ; b83b8
-	db 50, CHINGLING,   10
-	db 15, TRAPINCH,     10
-	db 15, TRAPINCH,     10
-	db 10, CHIMECHO,    10
-	db  5, BUTTERFREE, 10
-	db  5, BEEDRILL,   10
+RockMons1: ; b83b8
+	db 90, KRABBY,     30
+	db 10, SHUCKLE,    30
 	db -1
 
-	db 50, CHINGLING,   10
-	db 15, CATERPIE,   10
-	db 15, WEEDLE,     10
-	db 10, CHINGLING,   10
-	db  5, METAPOD,    10
-	db  5, KAKUNA,     10
-	db -1
-
-RockMons: ; b83de
-	db 90, KRABBY,     15
-	db 10, SHUCKLE,    15
+RockMons2: ; b83de
+	db 90, KRABBY,     30
+	db 10, STUNFISK,   30
 	db -1
 ; b83e5
 

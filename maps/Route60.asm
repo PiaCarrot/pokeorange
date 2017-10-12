@@ -6,8 +6,13 @@ Route60_MapScriptHeader::
 
 .Triggers: db 0
 
-.Callbacks: db 0
+.Callbacks: db 1
+	dbw MAPCALLBACK_NEWMAP, .InitializeDiveMap
 
+.InitializeDiveMap:
+	divemap WRECKED_SHIP, 0, 0
+	return
+	
 RocketRoute60Event:
 	showemote EMOTE_SHOCK, PLAYER, 15
 	opentext

@@ -95,6 +95,7 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_60_GATE_UPSTAIRS, 4, 5
 	mapgroup GOLDEN_ISLAND, 16, 14
 	mapgroup ROUTE_60, 12, 28
+	mapgroup WRECKED_SHIP, 12, 28
 	mapgroup GOLDEN_ISLAND_HOUSE_1, 4, 4
 	mapgroup GOLDEN_ISLAND_HOUSE_2, 4, 4
 	mapgroup GOLDEN_ISLAND_HOUSE_3, 4, 4
