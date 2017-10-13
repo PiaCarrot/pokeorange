@@ -59,3 +59,6 @@ MoroIsland_BlockData:
 
 WreckedShip_BlockData: 
 	INCBIN "maps/WreckedShip.blk"
+	
+MurcottIsland_BlockData:
+	INCBIN "maps/MurcottIsland.blk"

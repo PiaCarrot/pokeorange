@@ -80,7 +80,11 @@
 	map_header_2 MoroIsland, MORO_ISLAND, 53, NORTH
 	connection north, ROUTE_59, Route59, 6, 0, 12, MORO_ISLAND
 
-	map_header_2 Route61, ROUTE_61, 53, 0
+	map_header_2 Route61, ROUTE_61, 53, EAST
+	connection east, MURCOTT_ISLAND, MurcottIsland, 18, 4, 8, ROUTE_61
+	
+	map_header_2 MurcottIsland, MURCOTT_ISLAND, 5, WEST
+	connection west, ROUTE_61, Route61, 4, 18, 8, MURCOTT_ISLAND
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, $0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
