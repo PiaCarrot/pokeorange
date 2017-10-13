@@ -128,6 +128,22 @@ MurcottLassText:
 MurcottIslandFruitTree:
 	fruittree FRUITTREE_MURCOTT_ISLAND
 	
+MurcottOldManScript:
+	jumptextfaceplayer MurcottOldManText
+	
+MurcottOldManText:
+	text "My brother and his"
+	line "wife run the DAY-"
+	cont "CARE on the north"
+	cont "end of town."
+	
+	para "They can raise a"
+	line "#MON for you."
+	done
+	
+MurcottIslandTMRainDance:
+	itemball TM_RAIN_DANCE
+	
 MurcottIsland_MapEventHeader::
 
 .Warps: db 3
@@ -140,10 +156,12 @@ MurcottIsland_MapEventHeader::
 .BGEvents: db 1
 	signpost 8, 20, SIGNPOST_READ, DayCareSign
 
-.ObjectEvents: db 5
+.ObjectEvents: db 7
 	person_event SPRITE_GRAMPS, 8, 18, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DayCareManScript_Outside, EVENT_DAYCARE_MAN_OUTSIDE
 	person_event SPRITE_DAYCARE_MON_1, 5, 22, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DaycareMon1Script, EVENT_DAYCARE_MON_1
 	person_event SPRITE_DAYCARE_MON_2, 6, 24, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DaycareMon2Script, EVENT_DAYCARE_MON_2
-	person_event SPRITE_LASS, 15, 18, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MurcottLassScript, -1
+	person_event SPRITE_LASS, 16, 19, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MurcottLassScript, -1
 	person_event SPRITE_FRUIT_TREE, 31, 22, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MurcottIslandFruitTree, -1
+	person_event SPRITE_GRAMPS, 22, 45, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -2, -2, PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, MurcottOldManScript, -1
+	person_event SPRITE_POKE_BALL, 33, 51, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MurcottIslandTMRainDance, EVENT_MURCOTT_ISLAND_RAIN_DANCE
 

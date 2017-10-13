@@ -23,7 +23,7 @@ MapGroupRoofs: ; 1c021i
 	db  0 ; group 3 (Moro Island)
 	db  3 ; group 4 (Pinkan Island, Kinnow Island)
 	db  4 ; group 5 (Mikan Island)
-	db -1 ; group 6
+	db  4 ; group 6 (Murcott)
 	db -1 ; group 7
 	db -1 ; group 8
 	db -1 ; group 9
