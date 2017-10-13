@@ -2,6 +2,8 @@ const_value set 2
 	const MURCOTT_GRAMPS
 	const MURCOTT_DAYCARE_MON_1
 	const MURCOTT_DAYCARE_MON_2
+	const MURCOTT_LASS
+	const MURCOTT_FRUIT_TREE
 
 MurcottIsland_MapScriptHeader::
 
@@ -123,6 +125,9 @@ MurcottLassText:
 	cont "MANDARIN SOUTH!"
 	done
 	
+MurcottIslandFruitTree:
+	fruittree FRUITTREE_MURCOTT_ISLAND
+	
 MurcottIsland_MapEventHeader::
 
 .Warps: db 3
@@ -132,12 +137,13 @@ MurcottIsland_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 2
+.BGEvents: db 1
 	signpost 8, 20, SIGNPOST_READ, DayCareSign
-	signpost 10, 20, SIGNPOST_READ, MurcottIslandSign
 
-.ObjectEvents: db 3
+.ObjectEvents: db 5
 	person_event SPRITE_GRAMPS, 8, 18, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DayCareManScript_Outside, EVENT_DAYCARE_MAN_OUTSIDE
 	person_event SPRITE_DAYCARE_MON_1, 5, 22, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DaycareMon1Script, EVENT_DAYCARE_MON_1
 	person_event SPRITE_DAYCARE_MON_2, 6, 24, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DaycareMon2Script, EVENT_DAYCARE_MON_2
-	person_event SPRITE_LASS, 16, 18, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MurcottLassScript, -1
+	person_event SPRITE_LASS, 15, 18, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MurcottLassScript, -1
+	person_event SPRITE_FRUIT_TREE, 31, 22, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MurcottIslandFruitTree, -1
+
