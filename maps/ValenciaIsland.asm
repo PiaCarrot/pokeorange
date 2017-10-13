@@ -92,6 +92,7 @@ if def(DEBUG)
 	setflag ENGINE_FLYPOINT_KINNOW
 	setflag ENGINE_FLYPOINT_NAVEL
 	setflag ENGINE_FLYPOINT_MORO
+	setflag ENGINE_FLYPOINT_MURCOTT
 	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
 	giveitem MASTER_BALL
@@ -119,7 +120,7 @@ if def(DEBUG)
 	givepoke LATIOS, 40, SOUL_DEW
 	closetext
 	callasm CheatFillPokedex
-	warp GOLDEN_ISLAND, 20, 5
+	warp MURCOTT_ISLAND, 15, 15
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

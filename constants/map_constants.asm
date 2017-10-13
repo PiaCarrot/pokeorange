@@ -103,6 +103,7 @@ MAP_NONE EQU 0
 	mapgroup GOLDEN_ISLAND_GATE_HOUSE, 10, 4
 	mapgroup ROUTE_61, 30, 28
 	mapgroup MURCOTT_ISLAND, 18, 26
+	mapgroup DAYCARE, 4, 4
 
 	newgroup ; 7
 
@@ -115,8 +116,6 @@ MAP_NONE EQU 0
 
 	mapgroup VALENCIA_PORT, 12, 12
 	mapgroup TANGELO_PORT, 12, 12
-	mapgroup DAYCARE, 4, 4
-
 	newgroup ; 9
 
 	mapgroup HALL_OF_FAME, 7, 5
@@ -296,6 +295,7 @@ const_value = -1
 	const SPAWN_KINNOW
 	const SPAWN_NAVEL
 	const SPAWN_MORO
+	const SPAWN_MURCOTT
 NUM_SPAWNS EQU const_value
 
 	const_def

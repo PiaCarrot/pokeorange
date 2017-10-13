@@ -620,5 +620,32 @@
 	db 22, RATTATA
 	db 23, SPINDA
 	db 23, RATICATE
+	
+	map MURCOTT_ISLAND
+	db 6 percent, 6 percent, 6 percent
+	; morning
+	db 21, SUNKERN
+	db 21, DITTO
+	db 22, SUNKERN
+	db 22, DITTO
+	db 23, SUNKERN
+	db 23, DITTO
+	db 23, SCYTHER
+	; day
+	db 21, SUNKERN
+	db 21, DITTO
+	db 22, SUNKERN
+	db 22, DITTO
+	db 23, SUNKERN
+	db 23, DITTO
+	db 23, SCYTHER
+	; night
+	db 21, MARILL
+	db 21, DITTO
+	db 22, RATTATA
+	db 22, DITTO
+	db 23, RATICATE
+	db 23, DITTO
+	db 23, SCYTHER
 
 	db -1 ; end

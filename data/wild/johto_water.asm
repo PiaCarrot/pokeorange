@@ -143,5 +143,11 @@
 	db 20, WINGULL
 	db 20, WAILMER
 	db 20, TENTACOOL
+	
+	map MURCOTT_ISLAND
+	db 3 percent
+	db 20, POLIWAG
+	db 20, MARILL
+	db 22, POLIWHIRL
 
 	db -1 ; end

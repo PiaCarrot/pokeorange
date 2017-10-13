@@ -18,6 +18,7 @@ ENDM
 	spawn KINNOW_ISLAND,   17, 10
 	spawn NAVEL_ISLAND,    16, 22
 	spawn MORO_ISLAND,     7, 12
+	spawn MURCOTT_ISLAND,  29, 20
 	spawn N_A,             -1, -1
 
 

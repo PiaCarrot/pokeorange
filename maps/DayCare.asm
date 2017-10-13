@@ -55,7 +55,11 @@ Text_GrampsLookingForYou:
 
 DayCare_MapEventHeader:
 
-.Warps: db 0
+.Warps: db 4
+	warp_def 7, 2, 1, MURCOTT_ISLAND
+	warp_def 7, 3, 1, MURCOTT_ISLAND
+	warp_def 5, 7, 2, MURCOTT_ISLAND
+	warp_def 6, 7, 3, MURCOTT_ISLAND
 
 .XYTriggers: db 0
 
