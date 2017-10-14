@@ -167,6 +167,11 @@ INCLUDE "maps/GoldenIslandGateHouse.asm"
 INCLUDE "maps/Route61.asm"
 INCLUDE "maps/WreckedShip.asm"
 INCLUDE "maps/MurcottIsland.asm"
+INCLUDE "maps/MurcottHouse1.asm"
+INCLUDE "maps/MurcottHouse2.asm"
+INCLUDE "maps/MurcottHouse3.asm"
+INCLUDE "maps/MurcottPokeCenter.asm"
+INCLUDE "maps/MurcottPokeMart.asm"
 
 SECTION "Map Scripts 11", ROMX, BANK[MAP_SCRIPTS_11]
 

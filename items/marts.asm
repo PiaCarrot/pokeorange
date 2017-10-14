@@ -8,6 +8,7 @@ Marts: ; 160a9
 	dw KinnowMart
 	dw Route58Mart
 	dw MoroMart
+	dw MurcottMart
 MartsEnd
 ; 160ed
 
@@ -110,6 +111,15 @@ MoroMart:
 	db AWAKENING
 	db FULL_HEAL
 	db LURE_BALL
+	db $ff
+	
+MurcottMart:
+	db 5
+	db GREAT_BALL
+	db SUPER_POTION
+	db REVIVE
+	db FULL_HEAL
+	db HEAVY_BALL
 	db $ff
 
 DefaultMart: ; 16214

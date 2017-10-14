@@ -7,6 +7,7 @@ Route56PokeCenter_BlockData:
 KinnowPokeCenter_BlockData:
 UnnamedIsland1PokeCenter_BlockData:
 MoroPokeCenter_BlockData:
+MurcottPokeCenter_BlockData:
 	INCBIN "maps/PokeCenter1F.blk"
 
 PokeCenter2F_BlockData:
@@ -18,6 +19,7 @@ MandarinNorthMart_BlockData:
 VermilionMart_BlockData:
 KinnowMart_BlockData:
 MoroMart_BlockData:
+MurcottPokeMart_BlockData:
 	INCBIN "maps/Mart.blk"
 
 Colosseum_BlockData:
@@ -42,6 +44,9 @@ MoroFishingHouse_BlockData:
 MoroSouthHouse_BlockData:
 MoroHouse1_BlockData:
 MoroHouse2_BlockData:
+MurcottHouse1_BlockData:
+MurcottHouse2_BlockData:
+MurcottHouse3_BlockData:
 	INCBIN "maps/House1.blk"
 
 MikanNicknameSpeechHouse_BlockData:

@@ -123,6 +123,12 @@ ENDM
 	engine_flag VisitedSpawns + 1, 1 ; navel
 	engine_flag VisitedSpawns + 1, 2 ; moro
 	engine_flag VisitedSpawns + 1, 3 ; murcott
+	engine_flag VisitedSpawns + 1, 4 ; trovitopolis
+	engine_flag VisitedSpawns + 1, 5 ; ascorbia
+	engine_flag VisitedSpawns + 1, 6 ; kumquat
+	engine_flag VisitedSpawns + 2, 0 ; pummelo
+	engine_flag VisitedSpawns + 2, 1 ; hamlin
+	engine_flag VisitedSpawns + 2, 2 ; shamouti
 
 	; wDaycareMan, 7 ; daycare 1 on
 	engine_flag wDaycareMan, 6 ; egg is ready

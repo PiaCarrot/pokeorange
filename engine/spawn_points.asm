@@ -19,6 +19,12 @@ ENDM
 	spawn NAVEL_ISLAND,    16, 22
 	spawn MORO_ISLAND,     7, 12
 	spawn MURCOTT_ISLAND,  29, 20
+;    spawn TROVITOPOLIS,    0,  0
+;    spawn ASCORBIA_ISLAND, 0,  0
+;    spawn KUMQUAT_ISLAND,  0,  0
+;    spawn PUMMELO_ISLAND,  0,  0
+;    spawn HAMLIN_ISLAND,   0,  0
+;    spawn SHAMOUTI_ISLAND, 0,  0
 	spawn N_A,             -1, -1
 
 

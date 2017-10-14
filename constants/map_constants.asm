@@ -104,6 +104,11 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_61, 30, 28
 	mapgroup MURCOTT_ISLAND, 18, 26
 	mapgroup DAYCARE, 4, 4
+	mapgroup MURCOTT_HOUSE_1, 4, 4
+	mapgroup MURCOTT_HOUSE_2, 4, 4
+	mapgroup MURCOTT_HOUSE_3, 4, 4
+	mapgroup MURCOTT_POKE_CENTER, 4, 5
+	mapgroup MURCOTT_POKE_MART, 4, 6
 
 	newgroup ; 7
 
@@ -296,6 +301,12 @@ const_value = -1
 	const SPAWN_NAVEL
 	const SPAWN_MORO
 	const SPAWN_MURCOTT
+	const SPAWN_TROVITOPOLIS
+	const SPAWN_ASCORBIA
+	const SPAWN_KUMQUAT
+	const SPAWN_PUMMELO
+	const SPAWN_HAMLIN
+	const SPAWN_SHAMOUTI
 NUM_SPAWNS EQU const_value
 
 	const_def

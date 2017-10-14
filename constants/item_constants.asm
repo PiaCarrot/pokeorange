@@ -349,6 +349,7 @@ ITEMMENU_CLOSE              EQU 6
 	const MART_KINNOW
 	const MART_ROUTE_58
 	const MART_MORO
+	const MART_MURCOTT
 
 ; PartyMenuActionText
 	const_def
