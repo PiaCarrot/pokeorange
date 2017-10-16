@@ -5,7 +5,7 @@
 
 	db STEEL, GROUND
 	db 25 ; catch rate
-	db 196 ; base exp
+	db 179 ; base exp
 	db NO_ITEM ; item 1
 	db METAL_COAT ; item 2
 	db 127 ; gender

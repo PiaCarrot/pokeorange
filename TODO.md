@@ -20,6 +20,7 @@
 - Heal Ball
 - Dusk Ball
 - Instant surf (no need to ask if I want to surf)
+- Gen 5 Exp System
 
 ## Pokémon
 
