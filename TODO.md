@@ -17,10 +17,6 @@
 - Prism Menu Icon code (Not using the Chamber/Blueemerald/Soloo menu sprites)
 - Prism DED cry code
 
-## Pokémon
-
-- Magikarp Jump sprites from Polished Crystal
-
 ## Moves
 
 - `BugBite` effect for Bug Bite
