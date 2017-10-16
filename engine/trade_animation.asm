@@ -836,7 +836,7 @@ TradeAnim_AnimateFrontpic: ; 29487
 TradeAnim_GetFrontpic: ; 29491
 	push de
 	push af
-	predef GetSpindaPattern
+	predef GetVariant
 	pop af
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a

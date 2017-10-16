@@ -11,8 +11,11 @@
 	dba CharmeleonBackpic
 	dba CharizardFrontpic
 	dba CharizardBackpic
-	dba SquirtleFrontpic
-	dba SquirtleBackpic
+
+	; Squirtle pics have their own table. See SquirtlePicPointers
+	dbw -1, -1
+	dbw -1, -1
+
 	dba WartortleFrontpic
 	dba WartortleBackpic
 	dba BlastoiseFrontpic
@@ -255,8 +258,11 @@
 	dba PinsirBackpic
 	dba TaurosFrontpic
 	dba TaurosBackpic
-	dba MagikarpFrontpic
-	dba MagikarpBackpic
+
+	; Magikarp pics have their own table. See MagikarpPicPointers
+	dbw -1, -1
+	dbw -1, -1
+
 	dba GyaradosFrontpic
 	dba GyaradosBackpic
 	dba LaprasFrontpic
@@ -400,7 +406,7 @@
 	dba MisdreavusFrontpic
 	dba MisdreavusBackpic
 
-	; Unown pics have their own table. See UnownPicPointers
+	; Spinda pics have their own table. See SpindaPicPointers
 	dbw -1, -1
 	dbw -1, -1
 
@@ -509,6 +515,6 @@
 	dba LatiosFrontpic
 	dba LatiosBackpic
 	dba EggPic
-	dbw -1, -1 ; unused
+	dbw -1, -1 ; no EggBackpic
 	dbw -1, -1 ; unused
 	dbw -1, -1 ; unused

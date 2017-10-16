@@ -2211,7 +2211,7 @@ GetTrademonFrontpic: ; 4d7fd
 	ld de, VTiles2
 	push de
 	push af
-	predef GetSpindaPattern
+	predef GetVariant
 	pop af
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a

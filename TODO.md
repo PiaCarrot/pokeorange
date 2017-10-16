@@ -20,7 +20,6 @@
 ## Pokémon
 
 - Magikarp Jump sprites from Polished Crystal
-- Squirtle with sunglasses if equipped with BLACKGLASSES
 
 ## Moves
 

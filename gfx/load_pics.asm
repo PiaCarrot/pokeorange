@@ -1,6 +1,12 @@
-GetSpindaPattern: ; 51040
-; Return Spinda pattern in SpindaPattern based on DVs at hl
+GetVariant: ; 51040
+; Return MonVariant based on DVs at hl
+	ld a, [CurPartySpecies]
+	cp SQUIRTLE
+	jp z, .GetSquirtleVariant
+	cp MAGIKARP
+	jp z, .GetMagikarpVariant
 
+; Spinda Variant
 ; Take the middle 2 bits of each DV and place them in order:
 ;	atk  def  spd  spc
 ;	.ww..xx.  .yy..zz.
@@ -45,7 +51,43 @@ GetSpindaPattern: ; 51040
 ; Increment to get 1-26
 	ld a, [hQuotient + 2]
 	inc a
-	ld [SpindaPattern], a
+	ld [MonVariant], a
+	ret
+
+.GetSquirtleVariant:
+
+; Get the item from box_struct TempMon or battle_struct
+	push bc
+	ld bc, TempMonDVs
+	ld a, b
+	cp h
+	jr nz, .not_tempmon
+	ld a, c
+	cp l
+	jr nz, .not_tempmon
+	ld bc, -15
+	add hl, bc
+.not_tempmon
+	ld bc, -5
+	add hl, bc
+	pop bc
+
+; Sunglasses form
+	ld a, 2
+	ld [MonVariant], a
+	ld a, [hl]
+	cp BLACKGLASSES
+	ret z
+
+; Normal form
+	ld a, 1
+	ld [MonVariant], a
+	ret
+
+.GetMagikarpVariant:
+; TODO: use variants
+	ld a, 1
+	ld [MonVariant], a
 	ret
 
 GetFrontpic: ; 51077
@@ -86,11 +128,11 @@ _GetFrontpic: ; 510a5
 	ld a, $6
 	ld [rSVBK], a
 	ld a, b
-	ld de, wDecompressScratch + $800
+	ld de, wDecompressScratch + $80 tiles
 	call FarDecompress
 	pop bc
 	ld hl, wDecompressScratch
-	ld de, wDecompressScratch + $800
+	ld de, wDecompressScratch + $80 tiles
 	call Function512ab
 	pop hl
 	push hl
@@ -103,21 +145,38 @@ _GetFrontpic: ; 510a5
 	ret
 
 GetFrontpicPointer: ; 510d7
-GLOBAL PicPointers, SpindaPicPointers
+GLOBAL PicPointers, SpindaPicPointers, SquirtlePicPointers, MagikarpPicPointers
 
 	ld a, [CurPartySpecies]
 	cp SPINDA
 	jr z, .spinda
+	cp SQUIRTLE
+	jr z, .squirtle
+	cp MAGIKARP
+	jr z, .magikarp
 	ld a, [CurPartySpecies]
+	ld hl, PicPointers
 	ld d, BANK(PicPointers)
 	jr .ok
 
 .spinda
-	ld a, [SpindaPattern]
+	ld a, [MonVariant]
+	ld hl, SpindaPicPointers
 	ld d, BANK(SpindaPicPointers)
+	jr .ok
+
+.squirtle
+	ld a, [MonVariant]
+	ld hl, SquirtlePicPointers
+	ld d, BANK(SquirtlePicPointers)
+	jr .ok
+
+.magikarp
+	ld a, [MonVariant]
+	ld hl, MagikarpPicPointers
+	ld d, BANK(MagikarpPicPointers)
 
 .ok
-	ld hl, PicPointers ; SpindaPicPointers
 	dec a
 	ld bc, 6
 	call AddNTimes
@@ -201,7 +260,7 @@ GetBackpic: ; 5116c
 
 	ld a, [CurPartySpecies]
 	ld b, a
-	ld a, [SpindaPattern]
+	ld a, [MonVariant]
 	ld c, a
 	ld a, [rSVBK]
 	push af
@@ -209,16 +268,36 @@ GetBackpic: ; 5116c
 	ld [rSVBK], a
 	push de
 
-	; These are assumed to be at the same
-	; address in their respective banks.
-	GLOBAL PicPointers,  SpindaPicPointers
-	ld hl, PicPointers ; SpindaPicPointers
+GLOBAL PicPointers,  SpindaPicPointers, SquirtlePicPointers, MagikarpPicPointers
+
 	ld a, b
-	ld d, BANK(PicPointers)
 	cp SPINDA
-	jr nz, .ok
+	jr z, .spinda
+	cp SQUIRTLE
+	jr z, .squirtle
+	cp MAGIKARP
+	jr z, .magikarp
+	ld hl, PicPointers
+	ld d, BANK(PicPointers)
+	jr .ok
+
+.spinda
 	ld a, c
+	ld hl, SpindaPicPointers
 	ld d, BANK(SpindaPicPointers)
+	jr .ok
+
+.squirtle
+	ld a, c
+	ld hl, SquirtlePicPointers
+	ld d, BANK(SquirtlePicPointers)
+	jr .ok
+
+.magikarp
+	ld a, c
+	ld hl, MagikarpPicPointers
+	ld d, BANK(MagikarpPicPointers)
+
 .ok
 	dec a
 	ld bc, 6
@@ -354,39 +433,39 @@ Function512ab: ; 512ab
 	jr z, .five
 
 .seven_loop
-	ld c, $70
+	ld c, 7 tiles
 	call LoadFrontpic
 	dec b
 	jr nz, .seven_loop
 	ret
 
 .six
-	ld c, $70
+	ld c, 7 tiles
 	xor a
 	call .Fill
 .six_loop
-	ld c, $10
+	ld c, 1 tiles
 	xor a
 	call .Fill
-	ld c, $60
+	ld c, 6 tiles
 	call LoadFrontpic
 	dec b
 	jr nz, .six_loop
 	ret
 
 .five
-	ld c, $70
+	ld c, 7 tiles
 	xor a
 	call .Fill
 .five_loop
-	ld c, $20
+	ld c, 2 tiles
 	xor a
 	call .Fill
-	ld c, $50
+	ld c, 5 tiles
 	call LoadFrontpic
 	dec b
 	jr nz, .five_loop
-	ld c, $70
+	ld c, 7 tiles
 	xor a
 	jp .Fill
 
