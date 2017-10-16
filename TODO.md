@@ -14,6 +14,8 @@
 - Exp All
 - Catch Exp
 - Gen 5 Exp System
+- Prism Menu Icon code (Not using the Chamber/Blueemerald/Soloo menu sprites)
+- Prism DED cry code
 
 ## Pokémon
 

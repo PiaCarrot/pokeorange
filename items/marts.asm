@@ -39,7 +39,7 @@ MikanMart: ; 160fa
 ; 16106
 
 MandarinNorth: ; 16106
-	db 8 ; # items
+	db 11 ; # items
 	db POKE_BALL
 	db GREAT_BALL
 	db POTION
@@ -48,6 +48,9 @@ MandarinNorth: ; 16106
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db AWAKENING
+	db X_DEFEND
+	db X_ATTACK
+	db X_SPEED
 	db $ff
 ; 16111
 
@@ -75,23 +78,30 @@ SunburstMart2: ; 16118
 ; 16121
 
 SunburstMart3: ; 16121
-	db 6 ; # items
+	db 10 ; # items
 	db POKE_DOLL
-	db SWEET_ORANGE
 	db FRESH_WATER
 	db SODA_POP
 	db LEMONADE
+	db X_DEFEND
+	db X_ATTACK
+	db X_SPECIAL
+	db X_ATTACK
+	db X_SPEED
 	db SURF_MAIL
 	db $ff
 ; 1612b
 
 KinnowMart:
-	db 5
+	db 8
 	db GREAT_BALL
 	db SUPER_POTION
 	db ESCAPE_ROPE
 	db FULL_HEAL
 	db REVIVE
+	db X_DEFEND
+	db X_ACCURACY
+	db X_SPEED
 	db $ff
 
 Route58Mart:
@@ -103,23 +113,29 @@ Route58Mart:
 	db $ff
 
 MoroMart:
-	db 7
+	db 10
 	db GREAT_BALL
 	db SUPER_POTION
 	db ESCAPE_ROPE
 	db PARLYZ_HEAL
 	db AWAKENING
 	db FULL_HEAL
+	db X_DEFEND
+	db X_ATTACK
+	db X_ACCURACY
 	db LURE_BALL
 	db $ff
 	
 MurcottMart:
-	db 5
+	db 8
 	db GREAT_BALL
 	db SUPER_POTION
 	db REVIVE
 	db FULL_HEAL
 	db HEAVY_BALL
+	db X_ACCURACY
+	db X_ATTACK
+	db X_SPEED
 	db $ff
 
 DefaultMart: ; 16214
