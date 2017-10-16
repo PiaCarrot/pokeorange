@@ -401,6 +401,7 @@ SurfFromMenuScript: ; c983
 	special UpdateTimePals
 
 UsedSurfScript: ; c986
+	opentext
 	writetext UsedSurfText ; "used SURF!"
 	waitbutton
 	closetext
@@ -508,8 +509,8 @@ TrySurfOW:: ; c9e7
 	ld [MovementType], a
 	call GetPartyNick
 
-	ld a, BANK(AskSurfScript)
-	ld hl, AskSurfScript
+	ld a, BANK(UsedSurfScript)
+	ld hl, UsedSurfScript
 	call CallScript
 
 	scf
@@ -518,18 +519,6 @@ TrySurfOW:: ; c9e7
 .quit
 	xor a
 	ret
-
-AskSurfScript: ; ca2c
-	opentext
-	writetext AskSurfText
-	yesorno
-	iftrue UsedSurfScript
-	closetext
-	end
-
-AskSurfText: ; ca36
-	text_jump _AskSurfText ; The water is calm.
-	db "@"              ; Want to SURF?
 
 DiveFunction:
 	call FieldMoveJumptableReset

@@ -6,7 +6,6 @@
 - Wrecked Ship tileset
 - Add clouds to title screen
 - Unnamed Island 2 Fishing Contest (requires some asm magix)
-- Check for 252 Pokémon Caught (To unlock Celebi)
 - Pokémon TCG2-esque Credits
 - Method to get other starters
 
@@ -15,7 +14,6 @@
 - Exp All
 - Catch Exp
 - SHINY option in Pokedex, next to CRY, to show shiny palette (unlocked after Shiny Charm?)
-- Instant surf (no need to ask if I want to surf)
 - Gen 5 Exp System
 
 ## Pokémon
