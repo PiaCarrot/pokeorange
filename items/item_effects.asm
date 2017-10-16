@@ -155,8 +155,9 @@ ItemEffects: ; e73c
 	dw DubiousDisc
 	dw ShinyCharm
 	dw SoulDew
-	dw TeruSama
-	dw TeruSama
+	dw DiveBall
+	dw HealBall
+	dw DuskBall
 	dw FlowerMail
 	dw FlowerMail
 	dw FlowerMail
@@ -181,7 +182,10 @@ FastBall:
 FriendBall:
 MoonBall:
 LoveBall:
-ParkBall: ; e8a2
+ParkBall:
+DiveBall:
+HealBall:
+DuskBall: ; e8a2
 	ld a, [wBattleMode]
 	dec a
 	jp nz, UseBallInTrainerBattle
@@ -503,7 +507,7 @@ ParkBall: ; e8a2
 
 	ld a, [PartyCount]
 	cp PARTY_LENGTH
-	jr z, .SendToPC
+	jp z, .SendToPC
 
 	xor a ; PARTYMON
 	ld [MonType], a
@@ -526,6 +530,16 @@ ParkBall: ; e8a2
 	ld a, FRIEND_BALL_HAPPINESS
 	ld [hl], a
 .SkipPartyMonFriendBall:
+
+	ld a, [CurItem]
+	cp HEAL_BALL
+	jr nz, .SkipPartyMonHealBall
+
+	ld a, [PartyCount]
+	dec a
+	ld [CurPartyMon], a
+	farcall HealPartyMon
+.SkipPartyMonHealBall:
 
 	ld hl, Text_AskNicknameNewlyCaughtMon
 	call PrintText
@@ -682,6 +696,9 @@ BallMultiplierFunctionTable:
 	dbw MOON_BALL,   MoonBallMultiplier
 	dbw LOVE_BALL,   LoveBallMultiplier
 	dbw PARK_BALL,   ParkBallMultiplier
+	dbw PARK_BALL,   ParkBallMultiplier
+	dbw DIVE_BALL,   DiveBallMultiplier
+	dbw DUSK_BALL,   DuskBallMultiplier
 	db $ff
 
 UltraBallMultiplier:
@@ -849,9 +866,7 @@ LureBallMultiplier:
 	ret
 
 MoonBallMultiplier:
-; This function is buggy.
-; Intent:  multiply catch rate by 4 if mon evolves with moon stone
-; Reality: no boost
+; multiply catch rate by 4 if mon evolves with moon stone
 
 GLOBAL EvosAttacks
 GLOBAL EvosAttacksPointers
@@ -879,13 +894,10 @@ GLOBAL EvosAttacksPointers
 	inc hl
 	inc hl
 
-; Moon Stone's constant from Pokémon Red is used.
-; No Pokémon evolve with Burn Heal,
-; so Moon Balls always have a catch rate of 1×.
 	push bc
 	ld a, BANK(EvosAttacks)
 	call GetFarByte
-	cp MOON_STONE ; BURN_HEAL
+	cp MOON_STONE
 	pop bc
 	ret nz
 
@@ -899,9 +911,7 @@ GLOBAL EvosAttacksPointers
 	ret
 
 LoveBallMultiplier:
-; This function is buggy.
-; Intent:  multiply catch rate by 8 if mons are of same species, different sex
-; Reality: multiply catch rate by 8 if mons are of same species, same sex
+; multiply catch rate by 8 if mons are of same species, different sex
 
 	; does species match?
 	ld a, [TempEnemyMonSpecies]
@@ -944,7 +954,7 @@ LoveBallMultiplier:
 	pop de
 	cp d
 	pop bc
-	ret z ; for the intended effect, this should be “ret z”
+	ret z
 
 	sla b
 	jr c, .max
@@ -964,11 +974,7 @@ LoveBallMultiplier:
 	ret
 
 FastBallMultiplier:
-; This function is buggy.
-; Intent:  multiply catch rate by 4 if enemy mon is in one of the three
-;          FleeMons tables.
-; Reality: multiply catch rate by 4 if enemy mon is one of the first three in
-;          the first FleeMons table.
+; multiply catch rate by 4 if enemy mon is in one of the three FleeMons tables
 	ld a, [TempEnemyMonSpecies]
 	ld c, a
 	ld hl, FleeMons
@@ -982,7 +988,7 @@ FastBallMultiplier:
 	cp -1
 	jr z, .next
 	cp c
-	jr nz, .loop ; for the intended effect, this should be “jr nz, .loop”
+	jr nz, .loop
 	sla b
 	jr c, .max
 
@@ -1023,6 +1029,45 @@ LevelBallMultiplier:
 	ret nc
 
 .max
+	ld b, $ff
+	ret
+
+DiveBallMultiplier:
+; multiply catch rate by 3.5 if underwater
+	ld a, [wTileset]
+	cp TILESET_UNDERWATER
+	ret nz
+	ld a, b
+	srl a
+	add b
+	add b
+	add b
+	ld b, a
+	ret nc
+	ld b, $ff
+	ret
+	ret
+
+DuskBallMultiplier:
+; multiply catch rate by 3.5 at night or in caves
+	ld a, [wPermission]
+	cp CAVE
+	jr z, .dusk
+
+	ld a, [TimeOfDay]
+	cp 1 << NITE
+	jr z, .dusk
+
+	ret
+
+.dusk
+	ld a, b
+	srl a
+	add b
+	add b
+	add b
+	ld b, a
+	ret nc
 	ld b, $ff
 	ret
 
@@ -2776,8 +2821,7 @@ PolkadotBow:
 RainbowWing:
 MoroTrophy:
 ShinyCharm:
-SoulDew:
-TeruSama: ; f77d
+SoulDew: ; f77d
 	jp IsntTheTimeMessage
 ; f780
 

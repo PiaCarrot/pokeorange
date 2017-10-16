@@ -1,0 +1,3 @@
+
+	dba MagikarpFrontpic
+	dba MagikarpBackpic

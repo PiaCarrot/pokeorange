@@ -173,8 +173,9 @@ ItemDescriptions:
 	dw DubiousDiscDesc
 	dw ShinyCharmDesc
 	dw SoulDewDesc
-	dw TeruSamaDesc
-	dw TeruSamaDesc
+	dw DiveBallDesc
+	dw HealBallDesc
+	dw DuskBallDesc
 	dw FlowerMailDesc
 	dw SurfMailDesc
 	dw LiteBlueMailDesc
@@ -754,8 +755,17 @@ SoulDewDesc:
 	db   "A wondrous orb for"
 	next "LATIOS or LATIAS.@"
 
-TeruSamaDesc:
-	db   "?@"
+DiveBallDesc:
+	db   "A BALL for under-"
+	next "water #MON.@"
+
+HealBallDesc:
+	db   "A remedial BALL to"
+	next "heal #MON.@"
+
+DuskBallDesc:
+	db   "A BALL for night-"
+	next "time or caves.@"
 
 SurfMailDesc:
 	db   "LAPRAS-print MAIL."

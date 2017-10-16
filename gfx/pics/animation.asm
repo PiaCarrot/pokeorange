@@ -217,18 +217,15 @@ PokeAnim_InitPicAttributes: ; d01d6
 	ld hl, CurPartySpecies
 	call GetFarWRAMByte
 	ld [wPokeAnimSpecies], a
-	ld [wPokeAnimSpeciesOrSpindaPattern], a
+	ld [wPokeAnimSpeciesOrVariant], a
 
 	ld a, $1
-	ld hl, SpindaPattern
+	ld hl, MonVariant
 	call GetFarWRAMByte
-	ld [wPokeAnimSpindaPattern], a
+	ld [wPokeAnimVariant], a
 
-	call PokeAnim_IsSpinda
-	jr nz, .not_spinda
-	ld a, [wPokeAnimSpindaPattern]
-	ld [wPokeAnimSpeciesOrSpindaPattern], a
-.not_spinda
+	call PokeAnim_GetSpeciesOrVariant
+	ld [wPokeAnimSpeciesOrVariant], a
 
 	pop af
 	ld [rSVBK], a
@@ -240,6 +237,16 @@ PokeAnim_IsSpinda: ; d02ec
 	cp SPINDA
 	ret
 ; d02f2
+
+PokeAnim_IsSquirtle:
+	ld a, [wPokeAnimSpecies]
+	cp SQUIRTLE
+	ret
+
+PokeAnim_IsMagikarp:
+	ld a, [wPokeAnimSpecies]
+	cp MAGIKARP
+	ret
 
 PokeAnim_PlaceGraphic: ; d04bd
 	ld hl, wPokeAnimCoord
@@ -355,6 +362,21 @@ PokeAnim_GetAttrMapCoord: ; d0551
 	add hl, de
 	ret
 ; d055c
+
+PokeAnim_GetSpeciesOrVariant: ; d065c
+	call PokeAnim_IsSpinda
+	jr z, .variant
+	call PokeAnim_IsSquirtle
+	jr z, .variant
+	call PokeAnim_IsMagikarp
+	jr z, .variant
+	ld a, [wPokeAnimSpecies]
+	ret
+
+.variant
+	ld a, [wPokeAnimVariant]
+	ret
+; d0669
 
 HOF_AnimateFrontpic: ; d066e Predef 49
 	call AnimateMon_CheckIfPokemon

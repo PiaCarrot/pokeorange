@@ -3358,15 +3358,15 @@ LoadEnemyPkmnToSwitchTo: ; 3d6ca
 
 	ld a, [CurPartySpecies]
 	cp SPINDA
-	jr nz, .skip_unown
+	jr nz, .skip_spinda
 	ld a, [wFirstSpindaSeen]
 	and a
-	jr nz, .skip_unown
+	jr nz, .skip_spinda
 	ld hl, EnemyMonDVs
-	predef GetSpindaPattern
-	ld a, [SpindaPattern]
+	predef GetVariant
+	ld a, [MonVariant]
 	ld [wFirstSpindaSeen], a
-.skip_unown
+.skip_spinda
 
 	ld hl, EnemyMonHP
 	ld a, [hli]
@@ -3934,7 +3934,7 @@ SwitchPlayerMon: ; 3db32
 
 SendOutPlayerMon: ; 3db5f
 	ld hl, BattleMonDVs
-	predef GetSpindaPattern
+	predef GetVariant
 	hlcoord 1, 5
 	lb bc, 7, 8
 	call ClearBox
@@ -7708,7 +7708,7 @@ DropPlayerSub: ; 3f447
 	ld a, [BattleMonSpecies]
 	ld [CurPartySpecies], a
 	ld hl, BattleMonDVs
-	predef GetSpindaPattern
+	predef GetVariant
 	ld de, VTiles2 tile $31
 	predef GetBackpic
 	pop af
@@ -7747,7 +7747,7 @@ DropEnemySub: ; 3f486
 	ld [CurPartySpecies], a
 	call GetBaseData
 	ld hl, EnemyMonDVs
-	predef GetSpindaPattern
+	predef GetVariant
 	ld de, VTiles2
 	predef FrontpicPredef
 	pop af
@@ -7928,16 +7928,16 @@ InitEnemyWildmon: ; 3f607
 	ld bc, NUM_MOVES
 	call CopyBytes
 	ld hl, EnemyMonDVs
-	predef GetSpindaPattern
+	predef GetVariant
 	ld a, [CurPartySpecies]
 	cp SPINDA
-	jr nz, .skip_unown
+	jr nz, .skip_spinda
 	ld a, [wFirstSpindaSeen]
 	and a
-	jr nz, .skip_unown
-	ld a, [SpindaPattern]
+	jr nz, .skip_spinda
+	ld a, [MonVariant]
 	ld [wFirstSpindaSeen], a
-.skip_unown
+.skip_spinda
 	ld de, VTiles2
 	predef FrontpicPredef
 	xor a
