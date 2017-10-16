@@ -7,35 +7,8 @@ GetVariant: ; 51040
 	jp z, .GetMagikarpVariant
 
 ; Spinda Variant
-; Take the middle 2 bits of each DV and place them in order:
-;	atk  def  spd  spc
-;	.ww..xx.  .yy..zz.
-
-	; atk
-	ld a, [hl]
-	and %01100000
-	sla a
-	ld b, a
-	; def
-	ld a, [hli]
-	and %00000110
-	swap a
-	srl a
-	or b
-	ld b, a
-
-	; spd
-	ld a, [hl]
-	and %01100000
-	swap a
-	sla a
-	or b
-	ld b, a
-	; spc
-	ld a, [hl]
-	and %00000110
-	srl a
-	or b
+; Get 0-255 from the DV bits
+	call GetMiddleDVBits
 
 ; Divide by 10 to get 0-25
 	ld [hDividend + 3], a
@@ -85,9 +58,56 @@ GetVariant: ; 51040
 	ret
 
 .GetMagikarpVariant:
-; TODO: use variants
-	ld a, 1
+; Get 0-255 from the DV bits
+	call GetMiddleDVBits
+
+; Divide by 19 to get 0-13
+	ld [hDividend + 3], a
+	xor a
+	ld [hDividend], a
+	ld [hDividend + 1], a
+	ld [hDividend + 2], a
+	ld a, 19
+	ld [hDivisor], a
+	ld b, 4
+	call Divide
+
+; Increment to get 1-14
+	ld a, [hQuotient + 2]
+	inc a
 	ld [MonVariant], a
+	ret
+
+GetMiddleDVBits:
+; Take the middle 2 bits of each DV and place them in order:
+;	atk  def  spd  spc
+;	.ww..xx.  .yy..zz.
+
+	; atk
+	ld a, [hl]
+	and %01100000
+	sla a
+	ld b, a
+	; def
+	ld a, [hli]
+	and %00000110
+	swap a
+	srl a
+	or b
+	ld b, a
+
+	; spd
+	ld a, [hl]
+	and %01100000
+	swap a
+	sla a
+	or b
+	ld b, a
+	; spc
+	ld a, [hl]
+	and %00000110
+	srl a
+	or b
 	ret
 
 GetFrontpic: ; 51077

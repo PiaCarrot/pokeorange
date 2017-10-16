@@ -835,6 +835,7 @@ Group8Sprites: ; 14714
 ; TangeloPort
 	db SPRITE_FISHING_GURU
 	db SPRITE_SAILOR
+	db SPRITE_POKE_BALL
 	db 0 ; end
 
 Group9Sprites: ; 144ec
