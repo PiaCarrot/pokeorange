@@ -13,7 +13,6 @@
 
 - Exp All
 - Catch Exp
-- SHINY option in Pokedex, next to CRY, to show shiny palette (unlocked after Shiny Charm?)
 - Gen 5 Exp System
 
 ## Pokémon
