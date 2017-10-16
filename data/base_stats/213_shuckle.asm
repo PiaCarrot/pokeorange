@@ -5,7 +5,7 @@
 
 	db BUG, ROCK
 	db 190 ; catch rate
-	db 80 ; base exp
+	db 177 ; base exp
 	db BERRY ; item 1
 	db BERRY ; item 2
 	db 127 ; gender

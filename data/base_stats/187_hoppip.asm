@@ -5,7 +5,7 @@
 
 	db GRASS, FLYING
 	db 255 ; catch rate
-	db 74 ; base exp
+	db 50 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db 127 ; gender
