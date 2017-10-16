@@ -1,5 +1,5 @@
 ; GranbullPokedexEntry: ; 0x1d074a
-	db "FLOATWHALE@" ; species name
+	db "FLOAT WHALE@" ; species name
 	dw 4707, 8774 ; height, width
 
 	db   "It is the largest"
