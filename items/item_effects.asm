@@ -168,6 +168,7 @@ ItemEffects: ; e73c
 	dw FlowerMail
 	dw FlowerMail
 	dw FlowerMail
+	dw XSpclDef
 ; e8a2
 
 
@@ -2266,7 +2267,8 @@ DireHit: ; f4b8
 XAttack:
 XDefend:
 XSpeed:
-XSpclAtk: ; f4c5
+XSpclAtk:
+XSpclDef:; f4c5
 	call UseItemText
 
 	ld a, [CurItem]
@@ -2304,6 +2306,7 @@ XSpclAtk: ; f4c5
     db X_DEFEND,   $10 | DEFENSE
     db X_SPEED,    $10 | SPEED
     db X_SPCL_ATK, $10 | SP_ATTACK
+	db X_SPCL_DEF, $10 | SP_DEFENSE
 ; f50c
 
 

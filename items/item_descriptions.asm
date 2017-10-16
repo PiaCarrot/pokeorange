@@ -83,7 +83,7 @@ ItemDescriptions:
 	dw XAttackDesc
 	dw XDefendDesc
 	dw XSpeedDesc
-	dw XSpecialDesc
+	dw XSpclAtkDesc
 	dw CoinCaseDesc
 	dw ItemfinderDesc
 	dw PokeFluteDesc
@@ -186,6 +186,7 @@ ItemDescriptions:
 	dw BlueSkyMailDesc
 	dw MusicMailDesc
 	dw MewMailDesc
+	dw XSpclDefDesc
 
 MasterBallDesc:
 	db   "The best BALL. It"
@@ -391,7 +392,7 @@ XSpeedDesc:
 	db   "Raises SPEED."
 	next "(1 BTL)@"
 
-XSpecialDesc:
+XSpclAtkDesc:
 	db   "Raises SPECIAL"
 	next "ATTACK. (1 BTL)@"
 
@@ -802,3 +803,7 @@ MusicMailDesc:
 MewMailDesc:
 	db   "MEW-print MAIL."
 	next "(HOLD)@"
+	
+XSpclDefDesc:
+	db   "Raises SPECIAL"
+	next "DEFENSE. (1 BTL)@"
