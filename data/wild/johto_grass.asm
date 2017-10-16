@@ -32,7 +32,7 @@
 	; morn
 	db 8, CATERPIE
 	db 8, WEEDLE
-	db 8, BELLSPROUT
+	db 8, PIKIPEK
 	db 9, BELLSPROUT
 	db 8, METAPOD
 	db 8, PIKACHU
@@ -40,7 +40,7 @@
 	; day
 	db 8, CATERPIE
 	db 8, WEEDLE
-	db 8, BELLSPROUT
+	db 8, PIKIPEK
 	db 9, BELLSPROUT
 	db 8, METAPOD
 	db 8, PIKACHU
@@ -63,7 +63,7 @@
 	db 7, CATERPIE
 	db 6, NIDORAN_F
 	db 7, NIDORAN_M
-	db 7, PARAS
+	db 7, PIKIPEK
 	; day
 	db 6, PARAS
 	db 6, CATERPIE
@@ -71,7 +71,7 @@
 	db 7, CATERPIE
 	db 6, NIDORAN_F
 	db 7, NIDORAN_M
-	db 7, PARAS
+	db 7, PIKIPEK
 	; nite
 	db 6, RATTATA
 	db 6, ODDISH
@@ -87,7 +87,7 @@
 	db 7, MINCCINO
 	db 7, WINGULL
 	db 8, HOPPIP
-	db 8, MINCCINO
+	db 8, PIKIPEK
 	db 7, HOPPIP
 	db 7, VULPIX
 	db 8, VULPIX
@@ -95,7 +95,7 @@
 	db 7, MINCCINO
 	db 7, WINGULL
 	db 8, HOPPIP
-	db 8, MINCCINO
+	db 8, PIKIPEK
 	db 7, HOPPIP
 	db 7, VULPIX
 	db 8, VULPIX
@@ -138,24 +138,24 @@
 	map ROUTE_52
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 9, KRABBY
-	db 10, KRABBY
-	db 9, PIDGEY
+	db 9, CUTIEFLY
 	db 10, PIDGEY
+	db 9, PIDGEY
+	db 10, CUTIEFLY
 	db 9, HOPPIP
 	db 10, HOPPIP
 	db 9, TANGELA
 	; day
-	db 9, KRABBY
-	db 10, KRABBY
-	db 9, PIDGEY
+	db 9, CUTIEFLY
 	db 10, PIDGEY
+	db 9, PIDGEY
+	db 10, CUTIEFLY
 	db 9, HOPPIP
 	db 10, HOPPIP
 	db 9, TANGELA
 	; nite
-	db 9, KRABBY
-	db 10, KRABBY
+	db 9, VENONAT
+	db 10, VENONAT
 	db 9, SPEAROW
 	db 10, SPEAROW
 	db 9, ODDISH
@@ -249,7 +249,7 @@
 	db 17, MANKEY
 	db 17, MACHOP
 	db 17, PIDGEY
-	db 17, WINGULL
+	db 17, EXEGGCUTE
 	db 18, NIDORINA
 	db 18, NIDORINO
 	db 18, RHYHORN
@@ -327,18 +327,18 @@
 	map ROUTE_56_WEST
 	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
 	; morn
-	db 17, MANKEY ; CHINGLING
+	db 17, CHINGLING
 	db 17, PIDGEY
 	db 17, PHANPY
-	db 17, MINCCINO ;MINCCINO
+	db 17, MINCCINO
 	db 18, PIDGEY
 	db 18, PHANPY
 	db 18, DROWZEE
 	; day
-	db 17, MANKEY ; CHINGLING
+	db 17, CHINGLING
 	db 17, PIDGEY
 	db 17, PHANPY
-	db 17, MINCCINO ;MINCCINO
+	db 17, MINCCINO
 	db 18, PIDGEY
 	db 18, PHANPY
 	db 18, DROWZEE
@@ -354,17 +354,17 @@
 	map ROUTE_57
 	db 7 percent, 7 percent, 7 percent
 	;morn
-	db 18, SPEAROW
+	db 18, PIKIPEK
 	db 18, MINCCINO
-	db 18, SPEAROW
+	db 18, TRUMBEAK
 	db 18, MANKEY
 	db 19, MINCCINO
 	db 19, MANKEY
 	db 19, SPEAROW
 	;day
-	db 18, SPEAROW
+	db 18, PIKIPEK
 	db 18, MINCCINO
-	db 18, SPEAROW
+	db 18, TRUMBEAK
 	db 18, MANKEY
 	db 19, MINCCINO
 	db 19, MANKEY
@@ -386,15 +386,15 @@
 	db 18, NIDORINA
 	db 18, SANDSHREW
 	db 19, PIDGEY
-	db 19, SPEAROW
-	db 19, JIGGLYPUFF
+	db 19, PIDGEOTTO
+	db 19, PINSIR
 	;day
 	db 18, PIDGEY
 	db 18, NIDORAN_F
 	db 18, NIDORINA
 	db 18, SANDSHREW
 	db 19, PIDGEY
-	db 19, SPEAROW
+	db 19, PIDGEOTTO
 	db 19, PINSIR
 	;nite
 	db 18, RATTATA
@@ -468,7 +468,7 @@
 	db 35, JYNX
 	db 35, GOLDUCK
 	db 35, GOLBAT
-	db 35, JYNX ;CRYOGANAL
+	db 35, JYNX
 	; day
 	db 35, GOLDUCK
 	db 35, GOLBAT
@@ -476,7 +476,7 @@
 	db 35, JYNX
 	db 35, GOLDUCK
 	db 35, GOLBAT
-	db 35, JYNX ;CRYOGANAL
+	db 35, JYNX
 	; nite
 	db 35, GOLDUCK
 	db 35, GOLBAT
@@ -484,7 +484,7 @@
 	db 35, JYNX
 	db 35, GOLDUCK
 	db 35, GOLBAT
-	db 35, JYNX ;CRYOGANAL
+	db 35, JYNX
 
 	map SEVEN_GRAPEFRUITS
 	db 6 percent, 6 percent, 6 percent
@@ -599,18 +599,18 @@
 	; morning
 	db 21, TANGELA
 	db 21, PIDGEY
-	db 22, TANGELA
+	db 21, PIKIPEK
 	db 22, SPINDA
 	db 22, PIDGEY
-	db 23, SPINDA
+	db 23, TRUMBEAK
 	db 23, PIDGEOTTO
 	; day
 	db 21, TANGELA
 	db 21, PIDGEY
-	db 22, TANGELA
+	db 21, PIKIPEK
 	db 22, SPINDA
 	db 22, PIDGEY
-	db 23, SPINDA
+	db 23, TRUMBEAK
 	db 23, PIDGEOTTO
 	; night
 	db 21, TANGELA

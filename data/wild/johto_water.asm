@@ -105,7 +105,7 @@
 	map UNNAMED_ISLAND_1
 	db 3 percent
 	db 17, WINGULL
-	db 17, TENTACOOL
+	db 17, GOLDEEN
 	db 17, TENTACOOL
 
 	map ROUTE_58
@@ -123,7 +123,7 @@
 	map SEVEN_GRAPEFRUITS
 	db 3 percent
 	db 17, WAILMER
-	db 17, TENTACOOL
+	db 17, GOLDEEN
 	db 17, REMORAID
 
 	map ROUTE_59
@@ -140,7 +140,7 @@
 
 	map ROUTE_61
 	db 3 percent
-	db 20, WINGULL
+	db 20, GOLDEEN
 	db 20, WAILMER
 	db 20, TENTACOOL
 	
