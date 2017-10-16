@@ -278,7 +278,7 @@ AI_Items: ; 39196
 	dbw X_ATTACK,     .XAttack
 	dbw X_DEFEND,     .XDefend
 	dbw X_SPEED,      .XSpeed
-	dbw X_SPECIAL,    .XSpecial
+	dbw X_SPCL_ATK,    .XSpecial
 	db $ff
 ; 381be
 
@@ -747,7 +747,7 @@ EnemyUsedXSpeed: ; 3854d
 
 EnemyUsedXSpecial: ; 38553
 	ld b, SP_ATTACK
-	ld a, X_SPECIAL
+	ld a, X_SPCL_ATK
 
 
 ; Parameter

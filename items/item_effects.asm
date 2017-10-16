@@ -65,7 +65,7 @@ ItemEffects: ; e73c
 	dw XAttack
 	dw XDefend
 	dw XSpeed
-	dw XSpecial
+	dw XSpclAtk
 	dw CoinCase
 	dw Itemfinder
 	dw PokeFlute
@@ -2266,7 +2266,7 @@ DireHit: ; f4b8
 XAttack:
 XDefend:
 XSpeed:
-XSpecial: ; f4c5
+XSpclAtk: ; f4c5
 	call UseItemText
 
 	ld a, [CurItem]
@@ -2300,10 +2300,10 @@ XSpecial: ; f4c5
 ; f504
 
 .x_item_table ; f504
-	db X_ATTACK,  ATTACK
-	db X_DEFEND,  DEFENSE
-	db X_SPEED,   SPEED
-	db X_SPECIAL, SP_ATTACK
+    db X_ATTACK,   $10 | ATTACK
+    db X_DEFEND,   $10 | DEFENSE
+    db X_SPEED,    $10 | SPEED
+    db X_SPCL_ATK, $10 | SP_ATTACK
 ; f50c
 
 

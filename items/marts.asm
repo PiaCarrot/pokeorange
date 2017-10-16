@@ -85,7 +85,7 @@ SunburstMart3: ; 16121
 	db LEMONADE
 	db X_DEFEND
 	db X_ATTACK
-	db X_SPECIAL
+	db X_SPCL_ATK
 	db X_ATTACK
 	db X_SPEED
 	db SURF_MAIL

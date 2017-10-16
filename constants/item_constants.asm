@@ -51,7 +51,7 @@
 	const X_ATTACK     ; $31
 	const X_DEFEND     ; $32
 	const X_SPEED      ; $33
-	const X_SPECIAL    ; $34
+	const X_SPCL_ATK    ; $34
 	const COIN_CASE    ; $35
 	const ITEMFINDER   ; $36
 	const POKE_FLUTE   ; $37
