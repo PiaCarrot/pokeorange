@@ -725,7 +725,7 @@ OTString: ; 4e222
 
 StatsScreen_PlaceFrontpic: ; 4e226 (13:6226)
 	ld hl, TempMonDVs
-	predef GetSpindaPattern
+	predef GetVariant
 	call StatsScreen_GetAnimationParam
 	jr c, .egg
 	and a
@@ -751,11 +751,11 @@ StatsScreen_PlaceFrontpic: ; 4e226 (13:6226)
 	set 5, [hl]
 	ld a, [CurPartySpecies]
 	cp SPINDA
-	jr z, .unown
+	jr z, .spinda
 	hlcoord 0, 0
 	jp PrepMonFrontpic
 
-.unown
+.spinda
 	xor a
 	ld [wBoxAlignment], a
 	hlcoord 0, 0
@@ -764,12 +764,12 @@ StatsScreen_PlaceFrontpic: ; 4e226 (13:6226)
 .AnimateEgg: ; 4e271 (13:6271)
 	ld a, [CurPartySpecies]
 	cp SPINDA
-	jr z, .unownegg
+	jr z, .spinda_egg
 	ld a, TRUE
 	ld [wBoxAlignment], a
 	jp .get_animation
 
-.unownegg
+.spinda_egg
 	xor a
 	ld [wBoxAlignment], a
 	jp .get_animation

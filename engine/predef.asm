@@ -73,7 +73,7 @@ PredefPointers:: ; 856b
 	add_predef PrintMoveType
 	add_predef PrintType
 	add_predef PrintMonTypes
-	add_predef GetSpindaPattern
+	add_predef GetVariant
 	add_predef LoadPoisonBGPals
 	add_predef Predef_LoadSGBLayoutCGB
 	add_predef _Area

@@ -95,7 +95,10 @@ if def(DEBUG)
 	setflag ENGINE_FLYPOINT_MURCOTT
 	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
-	giveitem MASTER_BALL
+	giveitem MASTER_BALL, 99
+	giveitem DIVE_BALL, 99
+	giveitem HEAL_BALL, 99
+	giveitem DUSK_BALL, 99
 	giveitem HM_CUT
 	giveitem HM_FLY
 	giveitem HM_SURF

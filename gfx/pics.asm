@@ -1,13 +1,17 @@
 INCLUDE "includes.asm"
 
 
-; Unown pic pointers are assumed to start at the same address in a different bank.
-
 SECTION "Pic Pointers", ROMX[$4000], BANK[PIC_POINTERS]
 PicPointers:: INCLUDE "gfx/pics/pic_pointers.asm"
 
 SECTION "Spinda Pic Pointers", ROMX[$4000], BANK[SPINDA_PIC_POINTERS]
 SpindaPicPointers:: INCLUDE "gfx/pics/spinda_pic_pointers.asm"
+
+SECTION "Squirtle Pic Pointers", ROMX[$4000]
+SquirtlePicPointers:: INCLUDE "gfx/pics/squirtle_pic_pointers.asm"
+
+SECTION "Magikarp Pic Pointers", ROMX[$4000]
+MagikarpPicPointers:: INCLUDE "gfx/pics/magikarp_pic_pointers.asm"
 
 
 SECTION "Trainer Pic Pointers", ROMX, BANK[TRAINER_PIC_POINTERS]
@@ -743,3 +747,9 @@ ProfOakPic:          INCBIN "gfx/trainers/prof_oak.2bpp.lz"
 NursePic:            INCBIN "gfx/trainers/nurse.2bpp.lz"
 BugCatcherFPic:      INCBIN "gfx/trainers/bug_catcher_f.2bpp.lz"
 CatmanPic:           INCBIN "gfx/trainers/catman.2bpp.lz"
+
+
+SECTION "Pics 21", ROMX
+
+SquirtleGlassesFrontpic: INCBIN "gfx/pics/squirtle_glasses/front.2bpp.lz"
+SquirtleGlassesBackpic:  INCBIN "gfx/pics/squirtle_glasses/back.2bpp.lz"

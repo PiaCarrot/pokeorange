@@ -1738,7 +1738,7 @@ Pokedex_LoadSelectedMonTiles: ; 4143b
 	call Pokedex_CheckSeen
 	jr z, .QuestionMark
 	ld a, [wFirstSpindaSeen]
-	ld [SpindaPattern], a
+	ld [MonVariant], a
 	ld a, [wd265]
 	ld [CurPartySpecies], a
 	call GetBaseData
