@@ -14,11 +14,6 @@ _AlreadySurfingText::
 	line "SURFING."
 	prompt
 
-_AskSurfText::
-	text "The water is calm."
-	line "Want to SURF?"
-	done
-
 _UsedDiveText::
 	text_from_ram StringBuffer2
 	text " used"
@@ -100,10 +95,7 @@ UnknownText_0x1c0788::
 	prompt
 
 UnknownText_0x1c07a0::
-	text "A #MON may be"
-	line "able to move this."
-
-	para "Want to use"
+	text "Want to use"
 	line "STRENGTH?"
 	done
 
@@ -132,10 +124,7 @@ UnknownText_0x1c082b::
 	done
 
 UnknownText_0x1c0864::
-	text "A whirlpool is in"
-	line "the way."
-
-	para "Want to use"
+	text "Want to use"
 	line "WHIRLPOOL?"
 	done
 
@@ -169,10 +158,7 @@ UnknownText_0x1c0906::
 	done
 
 UnknownText_0x1c0924::
-	text "This rock looks"
-	line "breakable."
-
-	para "Want to use ROCK"
+	text "Want to use ROCK"
 	line "SMASH?"
 	done
 
@@ -205,10 +191,7 @@ UnknownText_0x1c09c7::
 	done
 
 UnknownText_0x1c09dd::
-	text "This tree can be"
-	line "CUT!"
-
-	para "Want to use CUT?"
+	text "Want to use CUT?"
 	done
 
 UnknownText_0x1c0a05::
@@ -217,10 +200,7 @@ UnknownText_0x1c0a05::
 	done
 
 _AskRockClimbText::
-	text "The wall is very"
-	line "rocky<...>"
-
-	para "Want to use"
+	text "Want to use"
 	line "ROCK CLIMB?"
 	done
 

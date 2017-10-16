@@ -213,6 +213,9 @@ Pokedex_InitMainScreen: ; 4013c (10:413c)
 	call Pokedex_ResetBGMapMode
 	ld a, -1
 	ld [CurPartySpecies], a
+	xor a
+	ld [wDexMonDVs], a
+	ld [wDexMonDVs+1], a
 	ld a, SCGB_POKEDEX
 	call Pokedex_GetSGBLayout
 	call Pokedex_UpdateCursorOAM
@@ -287,6 +290,9 @@ Pokedex_InitDexEntryScreen: ; 40217 (10:4217)
 	ld [hWX], a
 	call Pokedex_GetSelectedMon
 	ld [CurPartySpecies], a
+	xor a
+	ld [wDexMonDVs], a
+	ld [wDexMonDVs+1], a
 	ld a, SCGB_POKEDEX
 	call Pokedex_GetSGBLayout
 	ld a, [CurPartySpecies]
@@ -360,15 +366,17 @@ Pokedex_ReinitDexEntryScreen: ; 402aa (10:42aa)
 	ret
 
 DexEntryScreen_ArrowCursorData: ; 402e8
-	db D_RIGHT | D_LEFT, 3
+	db D_RIGHT | D_LEFT, 4
 	dwcoord 1, 17
 	dwcoord 6, 17
 	dwcoord 11, 17
+	dwcoord 15, 17
 
 DexEntryScreen_MenuActionJumptable: ; 402f2
 	dw Pokedex_Page
 	dw .Area
 	dw .Cry
+	dw .Shiny
 
 .Area: ; 402fa
 	call Pokedex_WhiteOutBG
@@ -407,6 +415,17 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 	ld e, c
 	ld d, b
 	jp PlayCryHeader
+
+.Shiny: ; 4034f
+	ld hl, wDexMonDVs
+	ld a, [hl]
+	xor ATKDEFDV_SHINY ; alternate 0 and ATKDEFDV_SHINY
+	ld [hli], a
+	ld [hl], SPDSPCDV_SHINY
+	call Pokedex_GetSelectedMon
+	ld [CurPartySpecies], a
+	ld a, SCGB_POKEDEX
+	jp Pokedex_GetSGBLayout
 
 Pokedex_RedisplayDexEntry: ; 4038d
 	call Pokedex_DrawDexEntryScreenBG
@@ -855,7 +874,7 @@ Pokedex_DrawDexEntryScreenBG: ; 407fd
 .Weight: ; 4085c
 	db "WT   ???lb", $ff ; WT   ???lb
 .MenuItems: ; 40867
-	db $3b, " PAGE AREA CRY      ", $ff
+	db $3b, " PAGE AREA CRY SHNY", $ff
 
 Pokedex_DrawSearchScreenBG: ; 408f0 (10:48f0)
 	call Pokedex_FillBackgroundColor2
@@ -1707,7 +1726,7 @@ Pokedex_WhiteOutBG: ; 41401 (10:5401)
 	ld a, $5
 	ld [rSVBK], a
 	ld hl, UnknBGPals
-	ld bc, $40
+	ld bc, 8 palettes
 	ld a, $ff ; xor a
 	call ByteFill
 	pop af

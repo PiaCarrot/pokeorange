@@ -825,7 +825,8 @@ wDexArrowCursorPosIndex:: ds 1
 wDexArrowCursorDelayCounter:: ds 1
 wDexArrowCursorBlinkCounter:: ds 1
 wDexSearchSlowpokeFrame:: ds 1
-	ds 3
+wDexMonDVs:: ds 2
+	ds 1
 wDexConvertedMonType:: ds 1 ; mon type converted from dex search mon type
 wDexListingScrollOffsetBackup:: ds 1
 wDexListingCursorBackup:: ds 1
