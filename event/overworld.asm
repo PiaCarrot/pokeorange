@@ -935,12 +935,36 @@ Script_UsedRockClimb:
 	playsound SFX_STRENGTH
 	checkcode VAR_FACING
 	if_equal DOWN, .Down
-	applymovement PLAYER, RockClimbUpMovementData
-	end
+.loop_up
+    applymovement PLAYER, .RockClimbUpStep
+    callasm .CheckContinueRockClimb
+    iffalse .loop_up
+    end
+
+.CheckContinueRockClimb:
+    xor a
+    ld [ScriptVar], a
+    ld a, [PlayerStandingTile]
+    cp COLL_ROCK_CLIMB
+    ret z
+    ld a, $1
+    ld [ScriptVar], a
+    ret
+
+.RockClimbUpStep:
+    step UP
+    step_end
 
 .Down:
-	applymovement PLAYER, RockClimbDownMovementData
-	end
+.loop_down
+    applymovement PLAYER, .RockClimbDownStep
+    callasm .CheckContinueRockClimb
+    iffalse .loop_down
+    end
+
+.RockClimbDownStep:
+    step DOWN
+    step_end
 
 Text_UsedRockClimb:
 	text_jump _UsedRockClimbText
