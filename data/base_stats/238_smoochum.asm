@@ -8,7 +8,7 @@
 	db 61 ; base exp
 	db ICE_BERRY ; item 1
 	db ICE_BERRY ; item 2
-	db 254 ; gender
+	db ALL_FEMALE ; gender
 	db 25 ; step cycles to hatch
 	dn 5, 5 ; frontpic dimensions
 

@@ -8,7 +8,7 @@
 	db 169 ; base exp
 	db GOLD_BERRY ; item 1
 	db GOLD_BERRY ; item 2
-	db 127 ; gender
+	db FEMALE_50 ; gender
 	db 20 ; step cycles to hatch
 	dn 7, 7 ; frontpic dimensions
 

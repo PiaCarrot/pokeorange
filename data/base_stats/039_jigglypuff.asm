@@ -8,7 +8,7 @@
 	db 95 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
-	db 191 ; gender
+	db FEMALE_75 ; gender
 	db 10 ; step cycles to hatch
 	dn 5, 5 ; frontpic dimensions
 
