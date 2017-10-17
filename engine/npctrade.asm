@@ -185,7 +185,7 @@ DoNPCTrade: ; fcc63
 	call Trade_GetAttributeOfCurrentPartymon
 	ld b, h
 	ld c, l
-	farcall GetCaughtGender
+	call GetCaughtGender
 	ld a, c
 	ld [wPlayerTrademonCaughtData], a
 
@@ -604,3 +604,28 @@ TradeAfterText3: ; 0xfcfe7
 	text_jump UnknownText_0x1bd745
 	db "@"
 ; 0xfcfec
+
+GetCaughtGender: ; 4f301
+	ld hl, MON_CAUGHTGENDER
+	add hl, bc
+
+	ld a, [hl]
+	and $7f
+	jr z, .genderless
+	cp $7f
+	jr z, .genderless
+
+	ld a, [hl]
+	and $80
+	jr nz, .male
+	ld c, 1
+	ret
+
+.male
+	ld c, 2
+	ret
+
+.genderless
+	ld c, 0
+	ret
+; 4f31c

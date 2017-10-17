@@ -2838,8 +2838,6 @@ CheckBattleScene: ; 4ea44
 
 INCLUDE "engine/gbc_only.asm"
 
-INCLUDE "event/poke_seer.asm"
-
 SECTION "bank14", ROMX, BANK[$14]
 
 INCLUDE "engine/party_menu.asm"

@@ -106,7 +106,6 @@ SpecialsPointers:: ; c029
 	; Crystal
 	add_special Reset
 	add_special Special_MoveTutor
-	add_special SpecialPokeSeer
 	add_special SpecialMonCheck
 	add_special Special_SetPlayerPalette
 	add_special RefreshSprites
