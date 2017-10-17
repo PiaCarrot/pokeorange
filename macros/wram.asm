@@ -19,9 +19,12 @@ box_struct: MACRO
 \1PP::             ds NUM_MOVES
 \1Happiness::      db
 \1PokerusStatus::  db
+\1Personality::
+\1Gender::
+\1Shiny::
+\1Pink::
+\1Form::           db
 \1CaughtData::
-\1CaughtTime::
-\1CaughtLevel::    db
 \1CaughtGender::
 \1CaughtLocation:: db
 \1Level::          db
