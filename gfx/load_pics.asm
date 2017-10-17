@@ -1,34 +1,12 @@
 GetVariant: ; 51040
 ; Return MonVariant based on DVs at hl
 	ld a, [CurPartySpecies]
-	cp SQUIRTLE
-	jp z, .GetSquirtleVariant
+	cp SPINDA
+	jr z, .GetSpindaVariant
 	cp MAGIKARP
-	jp z, .GetMagikarpVariant
+	jr z, .GetMagikarpVariant
 
-; Spinda Variant
-; Get 0-255 from the DV bits
-	call GetMiddleDVBits
-
-; Divide by 10 to get 0-25
-	ld [hDividend + 3], a
-	xor a
-	ld [hDividend], a
-	ld [hDividend + 1], a
-	ld [hDividend + 2], a
-	ld a, 10
-	ld [hDivisor], a
-	ld b, 4
-	call Divide
-
-; Increment to get 1-26
-	ld a, [hQuotient + 2]
-	inc a
-	ld [MonVariant], a
-	ret
-
-.GetSquirtleVariant:
-
+; Squirtle Variant
 ; Get the item from box_struct TempMon or battle_struct
 	push bc
 	ld bc, TempMonDVs
@@ -58,27 +36,13 @@ GetVariant: ; 51040
 	ret
 
 .GetMagikarpVariant:
-; Get 0-255 from the DV bits
-	call GetMiddleDVBits
+	ld a, 19 ; 14 forms; 255 / 14 + 1 = 19
+	jr GetVariantFromMiddleDVBits
 
-; Divide by 19 to get 0-13
-	ld [hDividend + 3], a
-	xor a
-	ld [hDividend], a
-	ld [hDividend + 1], a
-	ld [hDividend + 2], a
-	ld a, 19
-	ld [hDivisor], a
-	ld b, 4
-	call Divide
-
-; Increment to get 1-14
-	ld a, [hQuotient + 2]
-	inc a
-	ld [MonVariant], a
-	ret
-
-GetMiddleDVBits:
+.GetSpindaVariant:
+	ld a, 10 ; 26 forms; 255 / 26 + 1 = 10
+GetVariantFromMiddleDVBits:
+	push af
 ; Take the middle 2 bits of each DV and place them in order:
 ;	atk  def  spd  spc
 ;	.ww..xx.  .yy..zz.
@@ -108,6 +72,22 @@ GetMiddleDVBits:
 	and %00000110
 	srl a
 	or b
+
+	; divide by routine argument (pushed a)
+	ld [hDividend + 3], a
+	xor a
+	ld [hDividend], a
+	ld [hDividend + 1], a
+	ld [hDividend + 2], a
+	pop af
+	ld [hDivisor], a
+	ld b, 4
+	call Divide
+
+	; increment
+	ld a, [hQuotient + 2]
+	inc a
+	ld [MonVariant], a
 	ret
 
 GetFrontpic: ; 51077
