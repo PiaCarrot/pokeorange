@@ -73,6 +73,12 @@ Tileset01Anim: ; 0xfc0a3
 	dw NULL,  DoneTileAnimation
 ; 0xfc0d7
 
+Tileset19Anim: ; 0xfc2e7
+	dw RSEWaterFrames1, AnimateRSEWaterTile
+    dw RSEWaterFrames2, AnimateRSEWaterTile
+   	dw DiveWaterFrames1, AnimateDiveWaterTile
+    dw DiveWaterFrames2, AnimateDiveWaterTile
+	
 Tileset09Anim: ; 0xfc12f
 	dw VTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
@@ -189,7 +195,6 @@ Tileset14Anim: ; 0xfc2e7
 Tileset16Anim: ; 0xfc2e7
 Tileset17Anim: ; 0xfc2e7
 Tileset18Anim: ; 0xfc2e7
-Tileset19Anim: ; 0xfc2e7
 Tileset20Anim: ; 0xfc2e7
 Tileset21Anim: ; 0xfc2e7
 Tileset22Anim: ; 0xfc2e7
