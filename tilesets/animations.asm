@@ -78,6 +78,16 @@ Tileset19Anim: ; 0xfc2e7
     dw RSEWaterFrames2, AnimateRSEWaterTile
    	dw DiveWaterFrames1, AnimateDiveWaterTile
     dw DiveWaterFrames2, AnimateDiveWaterTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
 	
 Tileset09Anim: ; 0xfc12f
 	dw VTiles2 tile $14, AnimateWaterTile
