@@ -11,10 +11,12 @@ WreckedShip_MapScriptHeader::
 
 WreckedShip_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 1
+	warp_def 4, 12, 1, WRECKED_SHIP_UNDERWATER
 
 .CoordEvents: db 0
 
 .BGEvents: db 0
 
 .ObjectEvents: db 0
+

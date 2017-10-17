@@ -161,6 +161,8 @@
 	map_header_2 GoldenIslandHouse3, GOLDEN_ISLAND_HOUSE_3, 0, 0
 	map_header_2 GoldenIslandElderHouse, GOLDEN_ISLAND_ELDER_HOUSE, 0, 0
 	map_header_2 WreckedShip, WRECKED_SHIP, 9, 0
+	map_header_2 WreckedShipUnderwater, WRECKED_SHIP_UNDERWATER, 0, 0
+	map_header_2 WreckedShipUnsunk, WRECKED_SHIP_UNSUNK, 0, 0
 	map_header_2 MurcottHouse1, MURCOTT_HOUSE_1, 0, 0
 	map_header_2 MurcottHouse2, MURCOTT_HOUSE_2, 0, 0
 	map_header_2 MurcottHouse3, MURCOTT_HOUSE_3, 0, 0

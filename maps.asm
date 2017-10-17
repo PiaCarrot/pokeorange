@@ -172,6 +172,8 @@ INCLUDE "maps/MurcottHouse2.asm"
 INCLUDE "maps/MurcottHouse3.asm"
 INCLUDE "maps/MurcottPokeCenter.asm"
 INCLUDE "maps/MurcottPokeMart.asm"
+INCLUDE "maps/WreckedShipUnderwater.asm"
+INCLUDE "maps/WreckedShipUnsunk.asm"
 
 SECTION "Map Scripts 11", ROMX, BANK[MAP_SCRIPTS_11]
 

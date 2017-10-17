@@ -3,7 +3,6 @@
 
 ## Content
 
-- Wrecked Ship tileset
 - Add clouds to title screen
 - Unnamed Island 2 Fishing Contest (requires some asm magix)
 - Pokémon TCG2-esque Credits
