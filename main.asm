@@ -2559,12 +2559,6 @@ CheckPartyFullAfterContest: ; 4d9e5
 	ld e, l
 	ld hl, wMonOrItemNameBuffer
 	call CopyBytes
-	ld a, [PartyCount]
-	dec a
-	ld hl, PartyMon1Level
-	call GetPartyLocation
-	ld a, [hl]
-	ld [CurPartyLevel], a
 	call SetCaughtData
 	ld a, [PartyCount]
 	dec a
@@ -2572,7 +2566,7 @@ CheckPartyFullAfterContest: ; 4d9e5
 	call GetPartyLocation
 	ld a, [hl]
 	and $80
-	ld b, $13
+	ld b, $42 ; TODO: UNNAMED_ISLAND_2_CONTEST_OUTSIDE
 	or b
 	ld [hl], a
 	xor a
@@ -2621,18 +2615,13 @@ CheckPartyFullAfterContest: ; 4d9e5
 	call CloseSRAM
 
 .BoxFull:
-	ld a, BANK(sBoxMon1Level)
-	call GetSRAMBank
-	ld a, [sBoxMon1Level]
-	ld [CurPartyLevel], a
-	call CloseSRAM
 	call SetBoxMonCaughtData
 	ld a, BANK(sBoxMon1CaughtLocation)
 	call GetSRAMBank
 	ld hl, sBoxMon1CaughtLocation
 	ld a, [hl]
 	and $80
-	ld b, $13
+	ld b, $42 ; TODO: UNNAMED_ISLAND_2_CONTEST_OUTSIDE
 	or b
 	ld [hl], a
 	call CloseSRAM
@@ -2660,17 +2649,9 @@ TextJump_GiveANickname: ; 0x4db44
 SetCaughtData: ; 4db49
 	ld a, [PartyCount]
 	dec a
-	ld hl, PartyMon1CaughtLevel
+	ld hl, PartyMon1CaughtData
 	call GetPartyLocation
 SetBoxmonOrEggmonCaughtData: ; 4db53
-	ld a, [TimeOfDay]
-	inc a
-	rrca
-	rrca
-	ld b, a
-	ld a, [CurPartyLevel]
-	or b
-	ld [hli], a
 	ld a, [MapGroup]
 	ld b, a
 	ld a, [MapNumber]
@@ -2696,31 +2677,23 @@ SetBoxmonOrEggmonCaughtData: ; 4db53
 	ret
 
 SetBoxMonCaughtData: ; 4db83
-	ld a, BANK(sBoxMon1CaughtLevel)
+	ld a, BANK(sBoxMon1CaughtData)
 	call GetSRAMBank
-	ld hl, sBoxMon1CaughtLevel
+	ld hl, sBoxMon1CaughtData
 	call SetBoxmonOrEggmonCaughtData
 	jp CloseSRAM
 
 SetGiftBoxMonCaughtData: ; 4db92
 	push bc
-	ld a, BANK(sBoxMon1CaughtLevel)
+	ld a, BANK(sBoxMon1CaughtData)
 	call GetSRAMBank
-	ld hl, sBoxMon1CaughtLevel
+	ld hl, sBoxMon1CaughtData
 	pop bc
 	call SetGiftMonCaughtData
 	jp CloseSRAM
 
 SetGiftPartyMonCaughtData: ; 4dba3
-	ld a, [PartyCount]
-	dec a
-	ld hl, PartyMon1CaughtLevel
-	push bc
-	call GetPartyLocation
-	pop bc
 SetGiftMonCaughtData: ; 4dbaf
-	xor a
-	ld [hli], a
 	ld a, $7e
 	rrc b
 	or b
@@ -2729,16 +2702,9 @@ SetGiftMonCaughtData: ; 4dbaf
 
 SetEggMonCaughtData: ; 4dbb8 (13:5bb8)
 	ld a, [CurPartyMon]
-	ld hl, PartyMon1CaughtLevel
+	ld hl, PartyMon1CaughtData
 	call GetPartyLocation
-	ld a, [CurPartyLevel]
-	push af
-	ld a, $1
-	ld [CurPartyLevel], a
-	call SetBoxmonOrEggmonCaughtData
-	pop af
-	ld [CurPartyLevel], a
-	ret
+	jr SetBoxmonOrEggmonCaughtData
 
 INCLUDE "engine/search2.asm"
 INCLUDE "engine/stats_screen.asm"
@@ -2837,8 +2803,6 @@ CheckBattleScene: ; 4ea44
 	ret
 
 INCLUDE "engine/gbc_only.asm"
-
-INCLUDE "event/poke_seer.asm"
 
 SECTION "bank14", ROMX, BANK[$14]
 

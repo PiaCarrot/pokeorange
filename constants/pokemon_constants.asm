@@ -277,9 +277,12 @@ MON_DVS                  EQUS "(PartyMon1DVs - PartyMon1)"
 MON_PP                   EQUS "(PartyMon1PP - PartyMon1)"
 MON_HAPPINESS            EQUS "(PartyMon1Happiness - PartyMon1)"
 MON_PKRUS                EQUS "(PartyMon1PokerusStatus - PartyMon1)"
+MON_PERSONALITY          EQUS "(PartyMon1Personality - PartyMon1)"
+MON_GENDER               EQUS "(PartyMon1Gender - PartyMon1)"
+MON_SHINY                EQUS "(PartyMon1Shiny - PartyMon1)"
+MON_PINK                 EQUS "(PartyMon1Pink - PartyMon1)"
+MON_FORM                 EQUS "(PartyMon1Form - PartyMon1)"
 MON_CAUGHTDATA           EQUS "(PartyMon1CaughtData - PartyMon1)"
-MON_CAUGHTLEVEL          EQUS "(PartyMon1CaughtLevel - PartyMon1)"
-MON_CAUGHTTIME           EQUS "(PartyMon1CaughtTime - PartyMon1)"
 MON_CAUGHTGENDER         EQUS "(PartyMon1CaughtGender - PartyMon1)"
 MON_CAUGHTLOCATION       EQUS "(PartyMon1CaughtLocation - PartyMon1)"
 MON_LEVEL                EQUS "(PartyMon1Level - PartyMon1)"
@@ -293,7 +296,6 @@ MON_SAT                  EQUS "(PartyMon1SpclAtk - PartyMon1)"
 MON_SDF                  EQUS "(PartyMon1SpclDef - PartyMon1)"
 BOXMON_STRUCT_LENGTH     EQUS "(PartyMon1End - PartyMon1)"
 PARTYMON_STRUCT_LENGTH   EQUS "(PartyMon1StatsEnd - PartyMon1)"
-REDMON_STRUCT_LENGTH EQU 44
 
 const_value SET 1
 	const MONMENU_CUT        ; 1

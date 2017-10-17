@@ -1360,18 +1360,6 @@ wd001:: ds 1
 wTempMail:: mailmsg wTempMail
 	ds wTempMail - @
 
-wSeerAction:: ds 1
-wSeerNickname:: ds PKMN_NAME_LENGTH
-wSeerCaughtLocation:: ds 17
-wSeerTimeOfDay:: ds NAME_LENGTH
-wSeerOTName:: ds NAME_LENGTH
-	ds 1
-wSeerCaughtLevelString:: ds 4
-wSeerCaughtLevel:: ds 1
-wSeerCaughtData:: ds 1
-wSeerCaughtGender:: ds 1
-	ds wSeerAction - @
-
 wBufferMonNick:: ds PKMN_NAME_LENGTH ; d002
 wBufferMonOT:: ds NAME_LENGTH ; d00d
 wBufferMon:: party_struct wBufferMon ; d018

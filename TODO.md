@@ -43,7 +43,7 @@
 
 ## Data Structures
 
-- Replace `CaughtTime:2` and `CaughtLevel:6` with `Gender:4`, `Shiny:1`, `Pink:1`, and `Form:2`
+- Implement Gender/MON_GENDER:4, Shiny/MON_SHINY:1, Pink/MON_PINK:1, and Form/MON_FORM:2
 
 ## Things that might be added eventually
 
