@@ -8,7 +8,7 @@
 	db 60 ; base exp
 	db BURNT_BERRY ; item 1
 	db BURNT_BERRY ; item 2
-	db 191 ; gender
+	db FEMALE_75 ; gender
 	db 20 ; step cycles to hatch
 	dn 6, 6 ; frontpic dimensions
 

@@ -8,7 +8,7 @@
 	db 120 ; base exp
 	db MYSTERYBERRY ; item 1
 	db MYSTERYBERRY ; item 2
-	db 255 ; gender
+	db GENDERLESS ; gender
 	db 40 ; step cycles to hatch
 	dn 6, 6 ; frontpic dimensions
 

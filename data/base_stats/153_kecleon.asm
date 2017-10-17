@@ -8,7 +8,7 @@
 	db 154 ; base exp
 	db NO_ITEM ; item 1
 	db BITTER_BERRY ; item 2
-	db 128 ; gender
+	db FEMALE_50 ; gender
 	db 20 ; step cycles to hatch
 	dn 7, 7 ; frontpic dimensions
 
