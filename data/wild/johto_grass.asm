@@ -595,7 +595,7 @@
 	db 31, RELICANTH
 	
 	map WRECKED_SHIP_UNDERWATER
-	db 3 percent, 3 percent, 3 percent ; encounter rates: morn/day/nite
+	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
 	db 30, GASTLY
 	db 30, GASTLY
@@ -621,8 +621,8 @@
 	db 32, GASTLY
 	db 30, DRATINI
 	
-	map WRECKED_SHIP_UNDERWATER
-	db 3 percent, 3 percent, 3 percent ; encounter rates: morn/day/nite
+	map WRECKED_SHIP_UNSUNK
+	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
 	db 30, GASTLY
 	db 30, SANDYGAST
