@@ -701,5 +701,59 @@
 	db 23, RATICATE
 	db 23, DITTO
 	db 23, SCYTHER
+	
+	map UNNAMED_ISLAND_2
+	db 6 percent, 6 percent, 6 percent
+	; morning
+	db 21, FARFETCH_D
+	db 21, PIKIPEK
+	db 22, FARFETCH_D
+	db 22, TRUMBEAK
+	db 23, FARFETCH_D
+	db 23, TRUMBEAK
+	db 24, FARFETCH_D
+	; day
+	db 21, FARFETCH_D
+	db 21, PIKIPEK
+	db 22, FARFETCH_D
+	db 22, TRUMBEAK
+	db 23, FARFETCH_D
+	db 23, TRUMBEAK
+	db 24, FARFETCH_D
+	; night
+	db 21, FARFETCH_D
+	db 21, RATTATA
+	db 22, FARFETCH_D
+	db 22, RATICATE
+	db 23, FARFETCH_D
+	db 23, RATICATE
+	db 24, FARFETCH_D
+	
+	map ROUTE_62
+	db 6 percent, 6 percent, 6 percent
+	; morning
+	db 22, CHINGLING
+	db 22, SALANDIT
+	db 23, CHIMECHO
+	db 23, SALANDIT
+	db 24, GEODUDE
+	db 24, SALANDIT
+	db 25, GRAVELER
+	; day
+	db 22, CUTIEFLY
+	db 22, SALANDIT
+	db 23, RIBOMBEE
+	db 23, SALANDIT
+	db 24, GEODUDE
+	db 24, SALANDIT
+	db 25, GRAVELER
+	; night
+	db 22, CHINGLING
+	db 22, SALANDIT
+	db 23, CHIMECHO
+	db 23, SALANDIT
+	db 24, GEODUDE
+	db 24, SALANDIT
+	db 25, GRAVELER
 
 	db -1 ; end
