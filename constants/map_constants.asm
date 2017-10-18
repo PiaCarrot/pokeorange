@@ -5,9 +5,9 @@ MAP_NONE EQU 0
 
 ; map group ids
 	const_def
+
 	newgroup ; 1
 
-	mapgroup SUNBURST_ISLAND, 24, 20
 	mapgroup ROUTE_53, 9, 31
 	mapgroup ROUTE_54, 24, 11
 	mapgroup MANDARIN_NORTH, 18, 18
@@ -17,11 +17,6 @@ MAP_NONE EQU 0
 	mapgroup MANDARIN_NORTH_LARGE_HOUSE, 4, 4
 	mapgroup MANDARIN_UNDERGROUND, 10, 16
 	mapgroup MANDARIN_NORTH_MART, 4, 6
-	mapgroup SUNBURST_POKECENTER, 4, 5
-	mapgroup SUNBURST_SMALL_HOUSE, 4, 4
-	mapgroup SUNBURST_LARGE_HOUSE, 4, 4
-	mapgroup SUNBURST_SOUTH_HOUSE, 4, 4
-	mapgroup SUNBURST_CRYSTAL_SHOP, 3, 4
 
 	newgroup ; 2
 
@@ -125,6 +120,7 @@ MAP_NONE EQU 0
 
 	mapgroup VALENCIA_PORT, 12, 12
 	mapgroup TANGELO_PORT, 12, 12
+
 	newgroup ; 9
 
 	mapgroup HALL_OF_FAME, 7, 5
@@ -156,6 +152,15 @@ MAP_NONE EQU 0
 	mapgroup TANGELO_POKECENTER_1F, 4, 5
 	mapgroup TANGELO_GYM_SPEECH_HOUSE, 4, 4
 	mapgroup TANGELO_EVOLUTION_SPEECH_HOUSE, 4, 4
+
+	newgroup ; 13
+
+	mapgroup SUNBURST_ISLAND, 24, 20
+	mapgroup SUNBURST_POKECENTER, 4, 5
+	mapgroup SUNBURST_SMALL_HOUSE, 4, 4
+	mapgroup SUNBURST_LARGE_HOUSE, 4, 4
+	mapgroup SUNBURST_SOUTH_HOUSE, 4, 4
+	mapgroup SUNBURST_CRYSTAL_SHOP, 3, 4
 
 
 ; elevator floors

@@ -693,18 +693,13 @@ StatsScreen_LoadGFX: ; 4dfb6 (13:5fb6)
 	hlcoord 2, 13
 	call PlaceString
 	ld a, [TempMonCaughtGender]
-	and a
-	jr z, .done
-	cp $7f
-	jr z, .done
-	and $80
+	and CAUGHTGENDER_MASK
 	ld a, "♂"
 	jr z, .got_gender
 	ld a, "♀"
 .got_gender
 	hlcoord 9, 13
 	ld [hl], a
-.done
 	ret
 ; 4e216 (13:6216)
 
