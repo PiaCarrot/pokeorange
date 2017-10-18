@@ -149,5 +149,17 @@
 	db 20, POLIWAG
 	db 20, MARILL
 	db 22, POLIWHIRL
+	
+	map UNNAMED_ISLAND_2
+	db 3 percent
+	db 20, WAILMER
+	db 20, GOLDEEN
+	db 20, REMORAID
+
+	map ROUTE_62
+	db 3 percent
+	db 21, POLIWAG
+	db 21, MARILL
+	db 22, POLIWHIRL
 
 	db -1 ; end
