@@ -545,10 +545,6 @@ StartTrainerBattle_SpeckleToBlack: ; 8c58f (23:458f)
 	ret
 
 StartTrainerBattle_LoadPokeBallGraphics: ; 8c5dc (23:45dc)
-	ld a, [OtherTrainerClass]
-	and a
-	jp z, .nextscene ; don't need to be here if wild
-
 	xor a
 	ld [hBGMapMode], a
 	hlcoord 0, 0, AttrMap
@@ -568,7 +564,12 @@ StartTrainerBattle_LoadPokeBallGraphics: ; 8c5dc (23:45dc)
 	dec b
 	jr nz, .loop
 
-	call .loadpokeballgfx ; ld a, [OtherTrainerClass] \ ld de, PokeBallTransition \ ret
+	ld a, [OtherTrainerClass]
+	and a
+	jr z, .nopokeballgfx ; don't need to be here if wild
+
+	ld a, [OtherTrainerClass] ; ???
+	ld de, PokeBallTransition
 	hlcoord 2, 1
 
 	ld b, SCREEN_WIDTH - 4
@@ -611,9 +612,19 @@ StartTrainerBattle_LoadPokeBallGraphics: ; 8c5dc (23:45dc)
 	ld a, [TimeOfDayPal]
 	and (1 << 2) - 1
 	cp 3
-	jr nz, .daytime
+	jr nz, .continue
 	ld hl, .nightpals
-.daytime
+	jr .continue
+
+.nopokeballgfx
+	ld hl, .wilddaypals
+	ld a, [TimeOfDayPal]
+	and (1 << 2) - 1
+	cp 3
+	jr nz, .continue
+	ld hl, .wildnightpals
+
+.continue
 	ld a, [rSVBK]
 	push af
 	ld a, $5 ; WRAM5 = palettes
@@ -671,10 +682,17 @@ StartTrainerBattle_LoadPokeBallGraphics: ; 8c5dc (23:45dc)
 	RGB 31, 05, 05
 	RGB 31, 05, 05
 
-.loadpokeballgfx
-	ld a, [OtherTrainerClass]
-	ld de, PokeBallTransition
-	ret
+.wilddaypals
+	RGB 31, 25, 09
+	RGB 28, 20, 07
+	RGB 26, 16, 05
+	RGB 07, 07, 07
+
+.wildnightpals
+	RGB 31, 25, 09
+	RGB 26, 16, 05
+	RGB 26, 16, 05
+	RGB 26, 16, 05
 
 PokeBallTransition:
 	db %00000011, %11000000
