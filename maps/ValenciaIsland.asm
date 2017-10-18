@@ -123,7 +123,7 @@ if def(DEBUG)
 	givepoke LATIOS, 40, SOUL_DEW
 	closetext
 	callasm CheatFillPokedex
-	warp MURCOTT_ISLAND, 15, 15
+	warp ROUTE_62, 9, 9
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

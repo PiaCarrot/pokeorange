@@ -157,13 +157,7 @@ SECTION "Map Scripts 10", ROMX, BANK[MAP_SCRIPTS_10]
 
 INCLUDE "maps/MoroRoute60Gate.asm"
 INCLUDE "maps/Route60GateUpstairs.asm"
-INCLUDE "maps/GoldenIsland.asm"
 INCLUDE "maps/Route60.asm"
-INCLUDE "maps/GoldenIslandHouse1.asm"
-INCLUDE "maps/GoldenIslandHouse2.asm"
-INCLUDE "maps/GoldenIslandHouse3.asm"
-INCLUDE "maps/GoldenIslandElderHouse.asm"
-INCLUDE "maps/GoldenIslandGateHouse.asm"
 INCLUDE "maps/Route61.asm"
 INCLUDE "maps/WreckedShip.asm"
 INCLUDE "maps/MurcottIsland.asm"
@@ -174,8 +168,16 @@ INCLUDE "maps/MurcottPokeCenter.asm"
 INCLUDE "maps/MurcottPokeMart.asm"
 INCLUDE "maps/WreckedShipUnderwater.asm"
 INCLUDE "maps/WreckedShipUnsunk.asm"
+INCLUDE "maps/UnnamedIsland2.asm"
+INCLUDE "maps/Route62.asm"
 
 SECTION "Map Scripts 11", ROMX, BANK[MAP_SCRIPTS_11]
+INCLUDE "maps/GoldenIsland.asm"
+INCLUDE "maps/GoldenIslandHouse1.asm"
+INCLUDE "maps/GoldenIslandHouse2.asm"
+INCLUDE "maps/GoldenIslandHouse3.asm"
+INCLUDE "maps/GoldenIslandElderHouse.asm"
+INCLUDE "maps/GoldenIslandGateHouse.asm"
 
 
 SECTION "Map Scripts 12", ROMX, BANK[MAP_SCRIPTS_12]
