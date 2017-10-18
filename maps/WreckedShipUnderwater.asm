@@ -8,6 +8,15 @@ WreckedShipUnderwater_MapScriptHeader::
 .InitializeDiveMap:
 	divemap WRECKED_SHIP_UNSUNK, 0, 0
 	return
+	
+WreckedShipTradeStone:
+	itemball TRADE_STONE
+	
+WreckedShipDiveBall:
+	itemball DIVE_BALL
+	
+WreckedShipHiddenHyperPotion:
+	dwb EVENT_WRECKED_SHIP_HIDDEN_HYPER_POTION, HYPER_POTION
 
 WreckedShipUnderwater_MapEventHeader::
 
@@ -22,7 +31,9 @@ WreckedShipUnderwater_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 1
+	signpost 2, 32, SIGNPOST_ITEM, WreckedShipHiddenHyperPotion
 
-.ObjectEvents: db 0
-
+.ObjectEvents: db 2
+	person_event SPRITE_POKE_BALL, 20, 31, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, WreckedShipTradeStone, EVENT_WRECKED_SHIP_TRADE_STONE
+	person_event SPRITE_POKE_BALL, 2, 1, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, WreckedShipDiveBall, EVENT_WRECKED_SHIP_DIVE_BALL

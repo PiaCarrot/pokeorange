@@ -68,3 +68,6 @@ WreckedShipUnsunk_BlockData:
 	
 MurcottIsland_BlockData:
 	INCBIN "maps/MurcottIsland.blk"
+	
+UnnamedIsland2_BlockData:
+	INCBIN "maps/UnnamedIsland2.blk"

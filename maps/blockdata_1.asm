@@ -131,3 +131,5 @@ Route60_BlockData:
 Route61_BlockData:
 	INCBIN "maps/Route61.blk"
 
+Route62_BlockData:
+	INCBIN "maps/Route62.blk"
