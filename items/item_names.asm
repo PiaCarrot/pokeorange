@@ -61,7 +61,7 @@
 	db "ETHER@"
 	db "MAX ETHER@"
 	db "ELIXER@"
-	db "ODD CRYSTAL@"
+	db "PINK CURE@"
 	db "MOOMOO MILK@"
 	db "QUICK CLAW@"
 	db "PSNCUREBERRY@"

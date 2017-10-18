@@ -158,8 +158,9 @@ MurcottIsland_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 1
+.BGEvents: db 2
 	signpost 8, 20, SIGNPOST_READ, DayCareSign
+	signpost 14, 14, SIGNPOST_READ, MurcottIslandSign
 
 .ObjectEvents: db 7
 	person_event SPRITE_GRAMPS, 8, 18, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DayCareManScript_Outside, EVENT_DAYCARE_MAN_OUTSIDE

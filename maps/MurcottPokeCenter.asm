@@ -25,6 +25,24 @@ MurcottSlouchText:
 	cont "ars."
 	done
 	
+MurcottSightseerScript:
+	jumptextfaceplayer MurcottSightseerText
+	
+MurcottSightseerText:
+	text "The southern is-"
+	line "lands are rather"
+	cont "quaint, don't you"
+	cont "think?"
+	
+	para "I can't wait until"
+	line "I get to KUMQUAT"
+	cont "or TROVITOPOLIS."
+	
+	para "Huge malls, five-"
+	line "star hotels, and"
+	cont "the best beaches!"
+	done
+	
 MurcottPokeCenter_MapEventHeader::
 
 .Warps: db 2
@@ -38,3 +56,5 @@ MurcottPokeCenter_MapEventHeader::
 .ObjectEvents: db 3
 	person_event SPRITE_NURSE, 1, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MurcottNurseScript, -1
 	person_event SPRITE_PC_SLOUCH, 4, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MurcottSlouchScript, -1
+	person_event SPRITE_SIGHTSEER_F, 6, 7, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MurcottSightseerScript, -1
+

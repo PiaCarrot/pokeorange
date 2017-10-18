@@ -14,8 +14,9 @@ MartsEnd
 
 
 TangeloMart: ; 160ed
-	db 5 ; # items
+	db 6 ; # items
 	db POKE_BALL
+	db HEAL_BALL
 	db POTION
 	db ANTIDOTE
 	db PARLYZ_HEAL
@@ -24,8 +25,9 @@ TangeloMart: ; 160ed
 ; 160f3
 
 MikanMart: ; 160fa
-	db 10 ; # items
+	db 11 ; # items
 	db POKE_BALL
+	db HEAL_BALL
 	db POTION
 	db SUPER_POTION
 	db ESCAPE_ROPE
@@ -39,8 +41,10 @@ MikanMart: ; 160fa
 ; 16106
 
 MandarinNorth: ; 16106
-	db 11 ; # items
+	db 13 ; # items
 	db POKE_BALL
+	db HEAL_BALL
+	db DUSK_BALL
 	db GREAT_BALL
 	db POTION
 	db SUPER_POTION
@@ -78,22 +82,22 @@ SunburstMart2: ; 16118
 ; 16121
 
 SunburstMart3: ; 16121
-	db 10 ; # items
-	db POKE_DOLL
-	db FRESH_WATER
-	db SODA_POP
-	db LEMONADE
+	db 8 ; # items
 	db X_DEFEND
 	db X_ATTACK
 	db X_SPCL_ATK
+	db X_SPCL_DEF
 	db X_ATTACK
 	db X_SPEED
-	db SURF_MAIL
+	db DIRE_HIT
+	db GUARD_SPEC
 	db $ff
 ; 1612b
 
 KinnowMart:
-	db 8
+	db 10
+	db HEAL_BALL
+	db DUSK_BALL
 	db GREAT_BALL
 	db SUPER_POTION
 	db ESCAPE_ROPE
@@ -113,7 +117,9 @@ Route58Mart:
 	db $ff
 
 MoroMart:
-	db 10
+	db 12
+	db HEAL_BALL
+	db DUSK_BALL
 	db GREAT_BALL
 	db SUPER_POTION
 	db ESCAPE_ROPE
@@ -128,6 +134,8 @@ MoroMart:
 	
 MurcottMart:
 	db 8
+	db HEAL_BALL
+	db DUSK_BALL
 	db GREAT_BALL
 	db SUPER_POTION
 	db REVIVE

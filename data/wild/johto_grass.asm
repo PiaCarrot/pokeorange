@@ -300,26 +300,26 @@
 	map ROUTE_55_UNDERWATER
 	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
 	; morn
-	db 30, FINNEON
+	db 30, SHELLDER
 	db 30, CORSOLA
 	db 30, MAREANIE
-	db 31, FINNEON
+	db 31, SHELLDER
 	db 31, CORSOLA
 	db 31, SKRELP
 	db 31, RELICANTH
 	; day
-	db 30, FINNEON
+	db 30, SHELLDER
 	db 30, CORSOLA
 	db 30, MAREANIE
-	db 31, FINNEON
+	db 31, SHELLDER
 	db 31, CORSOLA
 	db 31, SKRELP
 	db 31, RELICANTH
 	; nite
-	db 30, FINNEON
+	db 30, SHELLDER
 	db 30, CORSOLA
 	db 30, MAREANIE
-	db 31, FINNEON
+	db 31, SHELLDER
 	db 31, CORSOLA
 	db 31, SKRELP
 	db 31, RELICANTH
@@ -516,26 +516,26 @@
 	map SEVEN_GRAPEFRUITS_UNDERWATER
 	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
 	; morn
-	db 30, FINNEON
+	db 30, SHELLDER
 	db 30, CORSOLA
 	db 30, MAREANIE
-	db 31, FINNEON
+	db 31, SHELLDER
 	db 31, CORSOLA
 	db 31, SKRELP
 	db 31, RELICANTH
 	; day
-	db 30, FINNEON
+	db 30, SHELLDER
 	db 30, CORSOLA
 	db 30, MAREANIE
-	db 31, FINNEON
+	db 31, SHELLDER
 	db 31, CORSOLA
 	db 31, SKRELP
 	db 31, RELICANTH
 	; nite
-	db 30, FINNEON
+	db 30, SHELLDER
 	db 30, CORSOLA
 	db 30, MAREANIE
-	db 31, FINNEON
+	db 31, SHELLDER
 	db 31, CORSOLA
 	db 31, SKRELP
 	db 31, RELICANTH
@@ -571,28 +571,82 @@
 	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
 	; morn
 	db 30, FINNEON
-	db 30, CORSOLA
-	db 30, MAREANIE
+	db 30, STARYU
+	db 30, STARMIE
 	db 31, FINNEON
-	db 31, CORSOLA
-	db 31, SKRELP
+	db 31, STARYU
+	db 31, LUMINEON
 	db 31, RELICANTH
 	; day
 	db 30, FINNEON
-	db 30, CORSOLA
-	db 30, MAREANIE
+	db 30, STARYU
+	db 30, STARMIE
 	db 31, FINNEON
-	db 31, CORSOLA
-	db 31, SKRELP
+	db 31, STARYU
+	db 31, LUMINEON
 	db 31, RELICANTH
 	; nite
 	db 30, FINNEON
-	db 30, CORSOLA
-	db 30, MAREANIE
+	db 30, STARYU
+	db 30, STARMIE
 	db 31, FINNEON
-	db 31, CORSOLA
-	db 31, SKRELP
+	db 31, STARYU
+	db 31, LUMINEON
 	db 31, RELICANTH
+	
+	map WRECKED_SHIP_UNDERWATER
+	db 3 percent, 3 percent, 3 percent ; encounter rates: morn/day/nite
+	; morn
+	db 30, GASTLY
+	db 30, GASTLY
+	db 30, HAUNTER
+	db 31, GASTLY
+	db 31, HAUNTER
+	db 32, GASTLY
+	db 30, DRATINI
+	; day
+	db 30, GASTLY
+	db 30, GASTLY
+	db 30, HAUNTER
+	db 31, GASTLY
+	db 31, HAUNTER
+	db 32, GASTLY
+	db 30, DRATINI
+	; nite
+	db 30, GASTLY
+	db 30, GASTLY
+	db 30, HAUNTER
+	db 31, GASTLY
+	db 31, HAUNTER
+	db 32, GASTLY
+	db 30, DRATINI
+	
+	map WRECKED_SHIP_UNDERWATER
+	db 3 percent, 3 percent, 3 percent ; encounter rates: morn/day/nite
+	; morn
+	db 30, GASTLY
+	db 30, SANDYGAST
+	db 30, HAUNTER
+	db 31, GASTLY
+	db 31, HAUNTER
+	db 32, GASTLY
+	db 32, SANDYGAST
+	; day
+	db 30, GASTLY
+	db 30, SANDYGAST
+	db 30, HAUNTER
+	db 31, GASTLY
+	db 31, HAUNTER
+	db 32, GASTLY
+	db 32, SANDYGAST
+	; nite
+	db 30, GASTLY
+	db 30, SANDYGAST
+	db 30, HAUNTER
+	db 31, GASTLY
+	db 31, HAUNTER
+	db 32, GASTLY
+	db 32, SANDYGAST
 
 	map ROUTE_61
 	db 6 percent, 6 percent, 6 percent

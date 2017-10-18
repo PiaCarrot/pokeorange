@@ -95,7 +95,7 @@ ItemDescriptions:
 	dw EtherDesc
 	dw MaxEtherDesc
 	dw ElixerDesc
-	dw OddCrystalDesc
+	dw PinkCureDesc
 	dw MoomooMilkDesc
 	dw QuickClawDesc
 	dw PsnCureBerryDesc
@@ -440,9 +440,9 @@ ElixerDesc:
 	db   "Restores PP of all"
 	next "moves by 10.@"
 
-OddCrystalDesc:
-	db   "A mysterious, tiny"
-	next "CRYSTAL.@"
+PinkCureDesc:
+	db   "Removes PINK color"
+	next "on #MON.@"
 
 SilverWingDesc:
 	db   "A strange, silver-"

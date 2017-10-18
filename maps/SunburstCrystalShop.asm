@@ -8,7 +8,7 @@ SunburstCrystalShop_MapScriptHeader:
 .MapCallbacks: db 0
 
 SunburstCrystalShop:
-	itemball ODD_CRYSTAL
+	itemball TRADE_STONE
 
 SunburstCrystalShop_MapEventHeader::
 
@@ -21,4 +21,4 @@ SunburstCrystalShop_MapEventHeader::
 .BGEvents: db 0
 
 .ObjectEvents: db 1
-	person_event SPRITE_POKE_BALL, 2, 3, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, SunburstCrystalShop, EVENT_CRYSTAL_SHOP_ODD_CRYSTAL
+	person_event SPRITE_POKE_BALL, 2, 3, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, SunburstCrystalShop, EVENT_CRYSTAL_SHOP_TRADE_STONE

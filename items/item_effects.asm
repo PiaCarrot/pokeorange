@@ -77,7 +77,7 @@ ItemEffects: ; e73c
 	dw Ether
 	dw MaxEther
 	dw Elixer
-	dw OddCrystal
+	dw PinkCure
 	dw MoomooMilk
 	dw QuickClaw
 	dw Psncureberry
@@ -1449,6 +1449,7 @@ IceHeal:
 Awakening:
 ParlyzHeal:
 FullHeal:
+PinkCure:
 Psncureberry:
 Przcureberry:
 BurntBerry:
@@ -2778,7 +2779,6 @@ LuckyPunch:
 MetalPowder:
 Nugget:
 ExpShare:
-OddCrystal:
 SilverWing:
 QuickClaw:
 SoftSand:

@@ -63,7 +63,7 @@
 	const ETHER        ; $3d
 	const MAX_ETHER    ; $3e
 	const ELIXER       ; $3f
-	const ODD_CRYSTAL  ; $40
+	const PINK_CURE  ; $40
 	const MOOMOO_MILK  ; $41
 	const QUICK_CLAW   ; $42
 	const PSNCUREBERRY ; $43
