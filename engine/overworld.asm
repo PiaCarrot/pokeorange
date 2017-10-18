@@ -726,13 +726,15 @@ OutdoorSprites: ; 144b8
 	dw Group10Sprites
 	dw Group11Sprites
 	dw Group12Sprites
+	dw Group13Sprites
 ; 144ec
 
 Group1Sprites: ; 146a1
-; SunburstIsland
-; Route53
-; Route54
-; MandarinNorth
+; Route 53
+; Route 54
+; Mandarin North
+Group13Sprites:
+; Sunburst Island
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_FISHER
 	db SPRITE_GRAMPS
@@ -747,8 +749,7 @@ Group1Sprites: ; 146a1
 ; 146b8
 
 Group2Sprites: ; 146cf
-; NationalPark
-; NationalParkBugContest
+; National Park
 	db SPRITE_LASS
 	db SPRITE_POKEFAN_M
 	db SPRITE_ROCKER
@@ -757,8 +758,8 @@ Group2Sprites: ; 146cf
 ; 146e6
 
 Group3Sprites: ; 146fd
-; Route57
-; Unnamed Island
+; Route 57
+; Unnamed Island 1
 ; Route 58
 ; Navel Island
 ; 7 Grapefruits
@@ -777,11 +778,11 @@ Group3Sprites: ; 146fd
 	db 0
 
 Group4Sprites: ; 146b8
-; Route55
-; PinkanIsland
-; Route56West
-; Route56East
-; KinnowIsland
+; Route 55
+; Pinkan Island
+; Route 56 West
+; Route 56 East
+; Kinnow Island
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_FISHER
 	db SPRITE_POKEFAN_M
@@ -796,8 +797,8 @@ Group4Sprites: ; 146b8
 ; 146cf
 
 Group5Sprites: ; 1462e
-; Route52
-; MikanIsland
+; Route 52
+; Mikan Island
 	db SPRITE_FISHER
 	db SPRITE_LASS
 	db SPRITE_SUPER_NERD
@@ -809,12 +810,12 @@ Group5Sprites: ; 1462e
 	db 0 ; end
 
 Group6Sprites: ; 146e6
-;Route60
-;GoldenIsland
-;Route61
-;MurcottIsland
-;UnnamedIsland2
-;MandarinSouth
+; Route 60
+; Golden Island
+; Route 61
+; Murcott Island
+; Unnamed Island 2
+; Mandarin South
 	db SPRITE_JESSIE
 	db SPRITE_JAMES
 	db SPRITE_SWIMMER_GIRL
@@ -831,8 +832,8 @@ Group7Sprites: ; 14503
 	db 0 ; end
 
 Group8Sprites: ; 14714
-; ValenciaPort
-; TangeloPort
+; Valencia Port
+; Tangelo Port
 	db SPRITE_FISHING_GURU
 	db SPRITE_SAILOR
 	db SPRITE_POKE_BALL
@@ -845,8 +846,8 @@ Group10Sprites: ; 1472b
 	db 0 ; end
 
 Group11Sprites: ; 145e9
-; Route49
-; ValenciaIsland
+; Route 49
+; Valencia Island
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_YOUNGSTER
@@ -855,9 +856,9 @@ Group11Sprites: ; 145e9
 	db 0 ; end
 
 Group12Sprites: ; 14600
-; Route50
-; Route51
-; TangeloIsland
+; Route 50
+; Route 51
+; Tangelo Island
 	db SPRITE_BUG_BOY
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_TRACEY

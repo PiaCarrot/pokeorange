@@ -1482,33 +1482,33 @@ FemaleTownMapPals:
 
 SlotMachinePals:
 	RGB 31, 31, 31
-	RGB 24, 25, 28
-	RGB 24, 24, 09
+	RGB 26, 16, 00
+	RGB 31, 24, 09
 	RGB 00, 00, 00
 
 	RGB 31, 31, 31
 	RGB 30, 10, 06
-	RGB 24, 24, 09
+	RGB 31, 24, 09
 	RGB 00, 00, 00
 
 	RGB 31, 31, 31
 	RGB 15, 31, 00
-	RGB 24, 24, 09
+	RGB 31, 24, 09
 	RGB 00, 00, 00
 
 	RGB 31, 31, 31
 	RGB 31, 15, 31
-	RGB 24, 24, 09
+	RGB 31, 24, 09
 	RGB 00, 00, 00
 
 	RGB 31, 31, 31
 	RGB 15, 21, 31
-	RGB 24, 24, 09
+	RGB 31, 24, 09
 	RGB 00, 00, 00
 
 	RGB 31, 31, 11
 	RGB 31, 31, 06
-	RGB 24, 24, 09
+	RGB 31, 24, 09
 	RGB 00, 00, 00
 
 	RGB 31, 31, 31

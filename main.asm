@@ -855,7 +855,7 @@ LevelUpHappinessMod: ; 2709e
 	ld hl, PartyMon1CaughtLocation
 	call GetPartyLocation
 	ld a, [hl]
-	and $7f
+	and CAUGHTLOCATION_MASK
 	ld d, a
 	ld a, [MapGroup]
 	ld b, a
@@ -2565,7 +2565,7 @@ CheckPartyFullAfterContest: ; 4d9e5
 	ld hl, PartyMon1CaughtLocation
 	call GetPartyLocation
 	ld a, [hl]
-	and $80
+	and CAUGHTGENDER_MASK
 	ld b, $42 ; TODO: UNNAMED_ISLAND_2_CONTEST_OUTSIDE
 	or b
 	ld [hl], a
@@ -2620,7 +2620,7 @@ CheckPartyFullAfterContest: ; 4d9e5
 	call GetSRAMBank
 	ld hl, sBoxMon1CaughtLocation
 	ld a, [hl]
-	and $80
+	and CAUGHTGENDER_MASK
 	ld b, $42 ; TODO: UNNAMED_ISLAND_2_CONTEST_OUTSIDE
 	or b
 	ld [hl], a
@@ -2669,9 +2669,11 @@ SetBoxmonOrEggmonCaughtData: ; 4db53
 
 .NotPokeCenter2F:
 	call GetWorldMapLocation
+	;and CAUGHTLOCATION_MASK
 	ld b, a
 	ld a, [PlayerGender]
 	rrca
+	;and CAUGHTGENDER_MASK
 	or b
 	ld [hl], a
 	ret
