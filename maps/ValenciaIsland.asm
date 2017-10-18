@@ -120,10 +120,10 @@ if def(DEBUG)
 	givepoke PIKACHU, 40, LIGHT_BALL
 	givepoke MEOWTH, 40
 	givepoke MEW, 40
-	callasm TeachHMSlaveMoves
 	closetext
+	callasm TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp ROUTE_62, 9, 9
+	warp ROUTE_62, 51, 11
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon
