@@ -982,16 +982,6 @@ Text_UsedRockClimb:
 	text_jump _UsedRockClimbText
 	db "@"
 
-RockClimbUpMovementData:
-	step UP
-	step UP
-	step_end
-
-RockClimbDownMovementData:
-	step DOWN
-	step DOWN
-	step_end
-
 AskRockClimbText:
 	text_jump _AskRockClimbText
 	db "@"
