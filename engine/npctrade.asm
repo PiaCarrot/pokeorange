@@ -418,7 +418,7 @@ ENDM
 
 	npctrade 2, PHANPY,     ELEKID,     "ZOKZOK@@@@@", $98, $88, GOLD_BERRY,   37460, "ARMON@@@@@@", TRADE_EITHER_GENDER
 	npctrade 3, PIKACHU,    CLEFAIRY,   "ARIALA@@@@@", $96, $66, GOLD_BERRY,   48926, "MARISSA@@@@", TRADE_EITHER_GENDER
-	npctrade 0, MEOWTH,     SKARMORY,   "MORKY@@@@@@", $98, $88, METAL_COAT,   22689, "OSCAR@@@@@@", TRADE_EITHER_GENDER
+	npctrade 0, MEOWTH,     KECLEON,    "KEKKIE@@@@@", $98, $88, FOCUS_BAND,   22689, "OSCAR@@@@@@", TRADE_EITHER_GENDER
 ; fcf38
 
 
