@@ -120,7 +120,7 @@ if def(DEBUG)
 	givepoke PIKACHU, 40, LIGHT_BALL
 	givepoke MEOWTH, 40
 	givepoke MEW, 40
-	givepoke LATIOS, 40, SOUL_DEW
+	callasm TeachHMSlaveMoves
 	closetext
 	callasm CheatFillPokedex
 	warp ROUTE_62, 9, 9
@@ -264,5 +264,37 @@ CheatFillPokedex:
 	call ByteFill
 	ld a, %00011111
 	ld [hl], a ; 249-253
+	ret
+
+TeachHMSlaveMoves:
+	; LAPRAS
+	ld hl, PartyMon1Moves + 1
+	ld a, SURF
+	ld [hli], a ; CONFUSE_RAY
+	ld a, DIVE
+	ld [hl], a ; PERISH_SONG
+	; CHARIZARD
+	ld hl, PartyMon2Moves
+	ld a, FLY
+	ld [hli], a ; RAGE
+	ld a, CUT
+	ld [hl], a ; SCARY_FACE
+	; PIKACHU
+	ld hl, PartyMon3Moves
+	ld a, STRENGTH
+	ld [hli], a ; DOUBLE_TEAM
+	ld a, FLASH
+	ld [hl], a ; SLAM
+	; MEOWTH
+	; MEW
+	ld hl, PartyMon5Moves
+	ld a, ROCK_SMASH
+	ld [hli], a ; TRANSFORM
+	ld a, WATERFALL
+	ld [hli], a ; MEGA_PUNCH
+	ld a, ROCK_CLIMB
+	ld [hli], a ; METRONOME
+	ld a, WHIRLPOOL
+	ld [hl], a ; PSYCHIC_M
 	ret
 endc

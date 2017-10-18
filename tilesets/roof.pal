@@ -4,7 +4,7 @@
 	RGB 12, 03, 18
 	RGB 09, 03, 15
 
-; group 1 (Sunburst Island, Mandarin North)
+; group 1 (Mandarin North)
 	RGB 00, 20, 10
 	RGB 00, 14, 10
 	RGB 09, 09, 17
@@ -16,13 +16,13 @@
 	RGB 06, 09, 07
 	RGB 04, 05, 06
 
-; group 3 (Navel, Moro Island)
+; group 3 (Moro Island)
 	RGB 23, 15, 31
 	RGB 16, 05, 31
 	RGB 12, 07, 17
 	RGB 08, 06, 10
 
-; group 4 (Pinkan Island, Kinnow Island)
+; group 4 (Kinnow Island)
 	RGB 00, 15, 31
 	RGB 00, 10, 20
 	RGB 00, 07, 16
@@ -34,7 +34,7 @@
 	RGB 15, 07, 02
 	RGB 11, 04, 02
 
-; group 6
+; group 6 (Murcott Island, Mandarin South)
 	RGB 31, 10, 00
 	RGB 18, 06, 00
 	RGB 18, 05, 09
@@ -75,3 +75,9 @@
 	RGB 22, 00, 00
 	RGB 14, 02, 02
 	RGB 11, 00, 00
+
+; group 13 (Sunburst Island)
+	RGB 30, 30, 00
+	RGB 26, 19, 00
+	RGB 15, 15, 00
+	RGB 13, 09, 00

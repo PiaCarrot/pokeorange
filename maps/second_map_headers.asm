@@ -168,6 +168,7 @@
 	map_header_2 GoldenIslandHouse2, GOLDEN_ISLAND_HOUSE_2, 0, 0
 	map_header_2 GoldenIslandHouse3, GOLDEN_ISLAND_HOUSE_3, 0, 0
 	map_header_2 GoldenIslandElderHouse, GOLDEN_ISLAND_ELDER_HOUSE, 0, 0
+	map_header_2 GoldenIslandGateHouse, GOLDEN_ISLAND_GATE_HOUSE, 0, 0
 	map_header_2 WreckedShip, WRECKED_SHIP, 9, 0
 	map_header_2 WreckedShipUnderwater, WRECKED_SHIP_UNDERWATER, 0, 0
 	map_header_2 WreckedShipUnsunk, WRECKED_SHIP_UNSUNK, 0, 0
@@ -185,4 +186,3 @@
 
 	map_header_2 NationalPark, NATIONAL_PARK, $0, 0
 	map_header_2 NationalParkBugContest, NATIONAL_PARK_BUG_CONTEST, $0, 0
-	map_header_2 GoldenIslandGateHouse, GOLDEN_ISLAND_GATE_HOUSE, 0, 0
