@@ -44,6 +44,7 @@
 ## Data Structures
 
 - Implement Gender/MON_GENDER:4, Shiny/MON_SHINY:1, Pink/MON_PINK:1, and Form/MON_FORM:2
+- Remove PNK and Make PINK CURE remove pinkness bit from above change
 
 ## Things that might be added eventually
 
