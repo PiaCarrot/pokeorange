@@ -49,7 +49,7 @@
 	db "X ATTACK@"
 	db "X DEFEND@"
 	db "X SPEED@"
-	db "X SPCL DEF@"
+	db "X SPCL ATK@"
 	db "COIN CASE@"
 	db "ITEMFINDER@"
 	db "# FLUTE@"
