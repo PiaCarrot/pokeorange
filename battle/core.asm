@@ -579,6 +579,8 @@ ParsePlayerAction: ; 3c434
 	ld a, [wPlayerAction]
 	cp $2
 	jr z, .reset_rage
+	and a
+	jr nz, .used_item
 	xor a
 	ld [wMoveSelectionMenuType], a
 	inc a ; POUND
@@ -621,6 +623,8 @@ ParsePlayerAction: ; 3c434
 	xor a
 	ld [PlayerProtectCount], a
 	jr .continue_protect
+
+.used_item
 
 .locked_in
 	xor a
