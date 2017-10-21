@@ -6,36 +6,11 @@ SHINY_SPD_VAL EQU 10
 SHINY_SPC_VAL EQU 10
 
 CheckShininess:
-; Check if a mon is shiny by DVs at bc.
+; Check if a mon is shiny by personality at bc.
 ; Return carry if shiny.
-
-	ld l, c
-	ld h, b
-
-; Attack
-	ld a, [hl]
-	and 1 << SHINY_ATK_BIT
+	ld a, [bc]
+	and SHINY_MASK
 	jr z, .NotShiny
-
-; Defense
-	ld a, [hli]
-	and $f
-	cp  SHINY_DEF_VAL
-	jr nz, .NotShiny
-
-; Speed
-	ld a, [hl]
-	and $f0
-	cp  SHINY_SPD_VAL << 4
-	jr nz, .NotShiny
-
-; Special
-	ld a, [hl]
-	and $f
-	cp  SHINY_SPC_VAL
-	jr nz, .NotShiny
-
-.Shiny:
 	scf
 	ret
 
@@ -77,52 +52,37 @@ CheckContestMon:
 	ret
 
 CheckPink:
-; given bc = MonDVs from a party_struct or battle_struct
-; return c(arry) if mon is pink due to PNK status or native to PINKAN_ISLAND
+; given bc = MonPink from a party_struct or battle_struct
+; return c(arry) if mon is pink
 
 ; check if bc == BattleMonDVs
-	ld a, BattleMonDVs % $100
+	ld a, BattleMonPink % $100
 	cp b
-	jr nz, .bc_is_not_BattleMonDVs
-	ld a, BattleMonDVs / $100
+	jr nz, .bc_is_not_BattleMonPink
+	ld a, BattleMonPink / $100
 	cp c
 	ret z
 
-.bc_is_not_BattleMonDVs:
-; check if bc == EnemyMonDVs
-	ld a, EnemyMonDVs % $100
+.bc_is_not_BattleMonPink:
+; check if bc == EnemyMonPink
+	ld a, EnemyMonPink % $100
 	cp b
-	jr nz, .bc_is_not_EnemyMonDVs
-	ld a, EnemyMonDVs / $100
+	jr nz, .bc_is_not_EnemyMonPink
+	ld a, EnemyMonPink / $100
 	cp c
 	ret z
 
-.bc_is_not_EnemyMonDVs:
+.bc_is_not_EnemyMonPink:
 ; bc is from a party_struct
-; check if caught location is PINKAN_ISLAND
-	push hl
-	ld hl, MON_CAUGHTLOCATION - MON_DVS
-	add hl, bc
-	ld a, [hl]
-	pop hl
-	and %01111111
-	cp PINKAN_ISLAND ; PINKAN_ISLAND
-	jr z, .is_pink
-
-; check if status is PNK
-	push hl
-	ld hl, MON_STATUS - MON_DVS
-	add hl, bc
-	bit PNK, [hl]
-	pop hl
-	jr nz, .is_pink
-
-; not pink
-	xor a
+; check if PINK_MASK fits
+	ld a, [bc]
+	and PINK_MASK
+	jr z, .not_pink
+	scf
 	ret
 
-.is_pink:
-	scf
+.not_pink
+	xor a
 	ret
 
 
@@ -130,27 +90,19 @@ GetBattlemonBackpicPalettePointer:
 	ld a, [TempBattleMonSpecies]
 	and a
 	jp z, GetPlayerPalettePointer
-; check if caught location is PINKAN_ISLAND
-	ld hl, PartyMon1CaughtLocation
+; check if battle mon is pink
+	ld hl, PartyMon1Pink
 	ld a, [CurBattleMon]
 	call GetPartyLocation
 	ld a, [hl]
-	and %01111111
-	cp PINKAN_ISLAND ; PINKAN_ISLAND
-	jr nz, .not_pinkan_island
-.pink:
+	and PINK_MASK
+	jr z, .not_pink
 	ld hl, PinkanPalette
 	ret
 
-.not_pinkan_island:
-; check if player has PNK status
-	ld a, [BattleMonStatus]
-	bit PNK, a
-	jr nz, .pink
-
 .not_pink:
 	push de
-	farcall GetPartyMonDVs
+	farcall GetPartyMonPersonality
 	ld c, l
 	ld b, h
 	ld a, [TempBattleMonSpecies]
@@ -160,26 +112,16 @@ GetBattlemonBackpicPalettePointer:
 
 
 GetEnemyFrontpicPalettePointer:
-; check if current location is PINKAN_ISLAND
-	ld a, [MapGroup]
-	cp GROUP_PINKAN_ISLAND ; GROUP_PINKAN_ISLAND
-	jr nz, .not_pinkan_island
-	ld a, [MapNumber]
-	cp MAP_PINKAN_ISLAND ; MAP_PINKAN_ISLAND
-	jr nz, .not_pinkan_island
-.pink:
+; check if enemy mon is pink
+	ld a, [EnemyMonPink]
+	and PINK_MASK
+	jr z, .not_pink
 	ld hl, PinkanPalette
 	ret
 
-.not_pinkan_island:
-; check if enemy has PNK status
-	ld a, [EnemyMonStatus]
-	bit PNK, a
-	jr nz, .pink
-
 .not_pink:
 	push de
-	farcall GetEnemyMonDVs
+	farcall GetEnemyMonPersonality
 	ld c, l
 	ld b, h
 	ld a, [TempEnemyMonSpecies]

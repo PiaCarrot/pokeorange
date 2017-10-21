@@ -67,6 +67,11 @@ battle_struct: MACRO
 \1Type::
 \1Type1::     db
 \1Type2::     db
+\1Personality::
+\1Gender::
+\1Shiny::
+\1Pink::
+\1Form::      db
 \1StructEnd::
 ENDM
 
@@ -158,6 +163,11 @@ roam_struct: MACRO
 \1MapNumber:: db
 \1HP::        ds 1
 \1DVs::       ds 2
+\1Personality::
+\1Gender::
+\1Shiny::
+\1Pink::
+\1Form::      db
 ENDM
 
 bugcontestwinner: macro

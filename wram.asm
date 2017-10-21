@@ -362,8 +362,6 @@ BattleMonNick:: ds PKMN_NAME_LENGTH ; c621
 
 BattleMon:: battle_struct BattleMon ; c62c
 
-	ds 2
-
 wWildMon:: ds 1 ; c64e
 	ds 1
 wEnemyTrainerItem1:: ds 1 ; c650
@@ -612,8 +610,10 @@ CurEnemyMoveNum:: ; c6e9
 wEnemyHPAtTimeOfPlayerSwitch:: ds 2 ; c6ea
 wPayDayMoney:: ds 3 ; c6ec
 
-	ds 3
+	ds 2
 
+wEnemyBackupPersonality:: ; used when enemy is transformed
+	ds 1
 wEnemyBackupDVs:: ; used when enemy is transformed
 	ds 2
 AlreadyDisobeyed:: ; c6f4
@@ -825,8 +825,8 @@ wDexArrowCursorPosIndex:: ds 1
 wDexArrowCursorDelayCounter:: ds 1
 wDexArrowCursorBlinkCounter:: ds 1
 wDexSearchSlowpokeFrame:: ds 1
-wDexMonDVs:: ds 2
-	ds 1
+wDexMonPersonality:: ds 1
+	ds 2
 wDexConvertedMonType:: ds 1 ; mon type converted from dex search mon type
 wDexListingScrollOffsetBackup:: ds 1
 wDexListingCursorBackup:: ds 1

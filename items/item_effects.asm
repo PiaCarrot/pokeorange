@@ -429,6 +429,9 @@ DuskBall: ; e8a2
 	ld [hli], a
 	ld a, [EnemyMonDVs + 1]
 	ld [hl], a
+	ld hl, wEnemyBackupPersonality
+	ld a, [EnemyMonPersonality]
+	ld [hl], a
 
 .load_data
 	ld a, [TempEnemyMonSpecies]
@@ -1449,7 +1452,6 @@ IceHeal:
 Awakening:
 ParlyzHeal:
 FullHeal:
-PinkCure:
 Psncureberry:
 Przcureberry:
 BurntBerry:
@@ -2729,31 +2731,25 @@ PinkanBerry:
 ; Exit early if the player canceled
 	jr c, PinkanBerry_ExitMenu
 
-; Pinkan Berry has no effect on native mons
-	ld a, MON_CAUGHTLOCATION
+; Pinkan Berry has no effect on already-pink mons
+	ld a, MON_PINK
 	call GetPartyParamLocation
 	ld a, [hl]
-	and %01111111
-	cp PINKAN_ISLAND
-	jp z, NoEffectMessage
-
-; Get the chosen Pokémon's current status
-	ld a, MON_STATUS
-	call GetPartyParamLocation
-; If it's already pink, no effect
-	ld a, [hl]
-	and (1 << PNK)
+	and PINK_MASK
 	jp nz, NoEffectMessage
 
 ; Make it pink
-	ld a, (1 << PNK)
+	ld a, [hl]
+	or PINK_MASK
 	ld [hl], a
 
 ; Make it pink in battle (new section)
 	call IsItemUsedOnBattleMon
 	jr nc, .not_in_battle
-	ld a, (1 << PNK)
-	ld [BattleMonStatus], a
+	ld hl, BattleMonPink
+	ld a, [hl]
+	or PINK_MASK
+	ld [hl], a
 .not_in_battle
 
 ; Play a sound effect
@@ -2767,7 +2763,47 @@ PinkanBerry:
 	call UseDisposableItem
 	jp ClearPalettes
 
+PinkCure:
+; Choose a Pokémon to use it on
+	ld b, PARTYMENUACTION_HEALING_ITEM
+	call UseItem_SelectMon
+; Exit early if the player canceled
+	jr c, PinkCure_ExitMenu
+
+; Pink Cure has no effect on not-pink mons
+	ld a, MON_PINK
+	call GetPartyParamLocation
+	ld a, [hl]
+	and PINK_MASK
+	jp z, NoEffectMessage
+
+; Make it not pink
+	ld a, [hl]
+	and $ff - PINK_MASK
+	ld [hl], a
+
+; Make it not pink in battle (new section)
+	call IsItemUsedOnBattleMon
+	jr nc, .not_in_battle
+	ld hl, BattleMonPink
+	ld a, [hl]
+	and $ff - PINK_MASK
+	ld [hl], a
+.not_in_battle
+
+; Play a sound effect
+	call Play_SFX_FULL_HEAL
+
+; Describe the effect
+	ld a, PARTYMENUTEXT_MAKE_NOT_PINK
+	ld [PartyMenuActionText], a
+	call ItemActionTextWaitButton
+; Use up the Pink Cure
+	call UseDisposableItem
+	jp ClearPalettes
+
 PinkanBerry_ExitMenu:
+PinkCure_ExitMenu:
 ; wItemEffectSucceeded of 0 means it was canceled
 ; it's set to 1 by default before calling PinkanBerry
 	xor a

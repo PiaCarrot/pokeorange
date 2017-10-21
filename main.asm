@@ -3081,31 +3081,31 @@ GetGender: ; 50bdd
 ; Figure out what type of monster struct we're looking at.
 
 ; 0: PartyMon
-	ld hl, PartyMon1DVs
+	ld hl, PartyMon1Gender
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, [MonType]
 	and a
 	jr z, .PartyMon
 
 ; 1: OTPartyMon
-	ld hl, OTPartyMon1DVs
+	ld hl, OTPartyMon1Gender
 	dec a
 	jr z, .PartyMon
 
 ; 2: sBoxMon
-	ld hl, sBoxMon1DVs
+	ld hl, sBoxMon1Gender
 	ld bc, BOXMON_STRUCT_LENGTH
 	dec a
 	jr z, .sBoxMon
 
 ; 3: Unknown
-	ld hl, TempMonDVs
+	ld hl, TempMonGender
 	dec a
-	jr z, .DVs
+	jr z, .Gender
 
 ; else: WildMon
-	ld hl, EnemyMonDVs
-	jr .DVs
+	ld hl, EnemyMonGender
+	jr .Gender
 
 ; Get our place in the party/box.
 
@@ -3114,7 +3114,7 @@ GetGender: ; 50bdd
 	ld a, [CurPartyMon]
 	call AddNTimes
 
-.DVs:
+.Gender:
 
 ; sBoxMon data is read directly from SRAM.
 	ld a, [MonType]
@@ -3122,17 +3122,9 @@ GetGender: ; 50bdd
 	ld a, 1
 	call z, GetSRAMBank
 
-; Attack DV
-	ld a, [hli]
-	and $f0
-	ld b, a
-; Speed DV
+; Get gender.
 	ld a, [hl]
-	and $f0
-	swap a
-
-; Put our DVs together.
-	or b
+	and GENDER_MASK
 	ld b, a
 
 ; Close SRAM if we were dealing with a sBoxMon.
@@ -3305,9 +3297,6 @@ CopyStatusString: ; 50d25
 PlaceNonFaintStatus: ; 50d2e
 	push de
 	ld a, [de]
-	ld de, PnkString
-	bit PNK, a
-	jr nz, .place
 	ld de, PsnString
 	bit PSN, a
 	jr nz, .place
@@ -3338,7 +3327,6 @@ PsnString: db "PSN@"
 BrnString: db "BRN@"
 FrzString: db "FRZ@"
 ParString: db "PAR@"
-PnkString: db "PNK@"
 
 ListMoves: ; 50d6f
 ; List moves at hl, spaced every [Buffer1] tiles.

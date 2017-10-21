@@ -3815,11 +3815,11 @@ InitBattleMon: ; 3da0d
 ; 3da74
 
 BattleCheckPlayerShininess: ; 3da74
-	call GetPartyMonDVs
+	call GetPartyMonPersonality
 	jr BattleCheckShininess
 
 BattleCheckEnemyShininess: ; 3da79
-	call GetEnemyMonDVs
+	call GetEnemyMonPersonality
 
 BattleCheckShininess: ; 3da7c
 	ld b, h
@@ -3851,6 +3851,29 @@ GetEnemyMonDVs: ; 3da97
 	ld a, [CurOTMon]
 	jp GetPartyLocation
 ; 3dab1
+
+GetPartyMonPersonality:
+	ld hl, BattleMonPersonality
+	ld a, [PlayerSubStatus5]
+	bit SUBSTATUS_TRANSFORMED, a
+	ret z
+	ld hl, PartyMon1Personality
+	ld a, [CurBattleMon]
+	jp GetPartyLocation
+; 3da97
+
+GetEnemyMonPersonality:
+	ld hl, EnemyMonPersonality
+	ld a, [EnemySubStatus5]
+	bit SUBSTATUS_TRANSFORMED, a
+	ret z
+	ld hl, wEnemyBackupPersonality
+	ld a, [wBattleMode]
+	dec a
+	ret z
+	ld hl, OTPartyMon1Personality
+	ld a, [CurOTMon]
+	jp GetPartyLocation
 
 ResetPlayerStatLevels: ; 3dab1
 	ld a, BASE_STAT_LEVEL
@@ -4350,7 +4373,6 @@ UseHeldStatusHealingItem: ; 3dde9
 ; 3de44
 
 .Statuses: ; 3de44
-	db HELD_HEAL_PINK, 1 << PNK
 	db HELD_HEAL_POISON, 1 << PSN
 	db HELD_HEAL_FREEZE, 1 << FRZ
 	db HELD_HEAL_BURN, 1 << BRN
@@ -4693,16 +4715,13 @@ DrawEnemyHUD: ; 3e043
 	ld l, c
 	dec hl
 
-	ld hl, EnemyMonDVs
-	ld de, TempMonDVs
+	ld hl, EnemyMonPersonality
+	ld de, TempMonPersonality
 	ld a, [EnemySubStatus5]
 	bit SUBSTATUS_TRANSFORMED, a
 	jr z, .ok
-	ld hl, wEnemyBackupDVs
+	ld hl, wEnemyBackupPersonality
 .ok
-	ld a, [hli]
-	ld [de], a
-	inc de
 	ld a, [hl]
 	ld [de], a
 
@@ -5918,6 +5937,10 @@ LoadEnemyMon: ; 3e8eb
 	jr z, .InitDVs
 
 ; Unknown
+	ld hl, wEnemyBackupPersonality
+	ld de, EnemyMonPersonality
+	ld a, [hl]
+	ld [de], a
 	ld hl, wEnemyBackupDVs
 	ld de, EnemyMonDVs
 	ld a, [hli]
@@ -5983,31 +6006,6 @@ LoadEnemyMon: ; 3e8eb
 
 .NotRoaming:
 ; Register a contains BattleType
-
-; Forced shiny battle type
-; Used by Red Gyarados at Lake of Rage
-	cp a, BATTLETYPE_SHINY
-	jr z, .force_shiny
-
-; Shiny Charm gives 1/256 chance of a shiny
-	ld a, SHINY_CHARM
-	ld [CurItem], a
-	push hl
-	push bc
-	push de
-	ld hl, NumItems
-	call CheckItem
-	pop de
-	pop bc
-	pop hl
-	jr nc, .GenerateDVs
-	call BattleRandom
-	and a
-	jr nz, .GenerateDVs
-
-.force_shiny
-	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
-	jr .UpdateDVs
 
 .GenerateDVs:
 ; Generate new random DVs
@@ -6227,7 +6225,7 @@ LoadEnemyMon: ; 3e8eb
 	ld hl, EnemyMonMoves
 	ld de, EnemyMonPP
 	predef FillPP
-	jr .Finish
+	jr .Personality
 
 .TrainerPP:
 ; Copy PP from the party struct
@@ -6237,6 +6235,22 @@ LoadEnemyMon: ; 3e8eb
 	ld de, EnemyMonPP
 	ld bc, NUM_MOVES
 	call CopyBytes
+
+.Personality:
+; Trainer battle?
+	ld a, [wBattleMode]
+	cp a, TRAINER_BATTLE
+	jr z, .TrainerPersonality
+
+; Wild personality
+	call GetWildPersonality
+	ld [EnemyMonPersonality], a
+	jr .Finish
+
+.TrainerPersonality:
+; All trainers have preset personalities, determined by class
+	farcall GetTrainerPersonality
+	ld [EnemyMonPersonality], a
 
 .Finish:
 ; Only the first five base stats are copied..
@@ -8358,6 +8372,17 @@ GetRoamMonSpecies: ; 3fa31
 	ret
 ; 3fa42
 
+GetRoamMonPersonality:
+	ld a, [TempEnemyMonSpecies]
+	ld hl, wRoamMon1Personality
+	cp [hl]
+	ret z
+	ld hl, wRoamMon2Personality
+	cp [hl]
+	ret z
+	ld hl, wRoamMon3Personality
+	ret
+
 
 AddLastBattleToLinkRecord: ; 3fa42
 	ld hl, OTPlayerID
@@ -8807,3 +8832,120 @@ AutomaticHailOnMtNavelPeak:
 	ld hl, ItStartedToHailText
 	call StdBattleTextBox
 	jp EmptyBattleTextBox
+
+GetWildPersonality:
+; Roaming monsters (Entei, Raikou) work differently
+; They have their own structs, which are shorter than normal
+	ld a, [BattleType]
+	cp a, BATTLETYPE_ROAMING
+	jr nz, GetBattleRandomPersonality
+
+; Grab HP
+	call GetRoamMonHP
+	ld a, [hl]
+; Check if the HP has been initialized
+	and a
+; We'll do something with the result in a minute
+	push af
+
+; Grab personality
+	call GetRoamMonPersonality
+	ld b, [hl]
+
+; Get back the result of our check
+	pop af
+; If the RoamMon struct has already been initialized, we're done
+	ret nz
+
+; If it hasn't, we need to initialize the personality
+; (HP is initialized at the end of the battle)
+	call GetRoamMonPersonality
+	push hl
+	call GetBattleRandomPersonality
+	pop hl
+	ld [hl], a
+	ret
+
+GetBattleRandomPersonality:
+; Gender
+	call BattleRandom
+	and GENDER_MASK
+	ld b, a
+
+; Shiny?
+	; Forced shiny battle type
+	ld a, [BattleType]
+	cp BATTLETYPE_SHINY
+	jr z, .force_shiny
+	; Shiny Charm gives 1/256 chance of a shiny
+	call .HaveShinyCharm
+	jr c, .likely_shiny
+	; 1/16 roll
+	call BattleRandom
+	cp $10
+	jr nc, .not_shiny
+.likely_shiny
+	; 1/256 roll (compounds with 1/16 for 1/4096 random shiny chance)
+	call BattleRandom
+	and a
+	jr nz, .not_shiny
+.force_shiny
+	ld a, SHINY_MASK
+	jr .got_shiny
+.not_shiny
+	xor a
+.got_shiny
+	or b
+	ld b, a
+
+; Pink?
+	push bc
+	ld a, [MapGroup]
+	ld b, a
+	ld a, [MapNumber]
+	ld c, a
+	call GetWorldMapLocation
+	pop bc
+	cp PINKAN_ISLAND
+	jr z, .is_pink
+	xor a
+	jr .got_pink
+.is_pink
+	ld a, PINK_MASK
+.got_pink
+	or b
+	ld b, a
+
+; Form
+	xor a ; nonzero for special forms
+	or b
+	ld b, a
+
+; Return personality in a and b
+	ret
+
+.HaveShinyCharm:
+	ld a, [CurItem]
+	push af
+	ld a, SHINY_CHARM
+	ld [CurItem], a
+	push hl
+	push bc
+	push de
+	ld hl, NumItems
+	call CheckItem
+	pop de
+	pop bc
+	pop hl
+	jr c, .have_shiny_charm
+	pop af
+	ld [CurItem], a
+	xor a
+	and a
+	ret
+
+.have_shiny_charm
+	pop af
+	ld [CurItem], a
+	scf
+	ret

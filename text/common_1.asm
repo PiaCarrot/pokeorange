@@ -96,7 +96,13 @@ UnknownText_0x1bc16e::
 MakePinkText::
 	text_from_ram StringBuffer1
 	text " has"
-	line "turned pink!"
+	line "turned PINK!"
+	done
+
+MakeNotPinkText::
+	text_from_ram StringBuffer1
+	text " is"
+	line "no longer PINK!"
 	done
 
 UnknownText_0x1bc29c::

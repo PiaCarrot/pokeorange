@@ -285,8 +285,8 @@ WaterStoneDesc:
 	next "kinds of #MON.@"
 
 PinkanBerryDesc:
-	db   "It turns the user"
-	next "pink!@"
+	db   "It turns a #-"
+	next "MON PINK!@"
 
 HPUpDesc:
 	db   "Raises the HP of"

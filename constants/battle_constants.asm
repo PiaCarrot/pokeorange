@@ -95,9 +95,8 @@ const_value = 3
     const BRN
     const FRZ
     const PAR
-    const PNK
 
-ALL_STATUS EQU (1 << PNK) + (1 << PSN) + (1 << BRN) + (1 << FRZ) + (1 << PAR) + SLP
+ALL_STATUS EQU (1 << PSN) + (1 << BRN) + (1 << FRZ) + (1 << PAR) + SLP
 
 ; substatus
 	enum_start 7, -1
