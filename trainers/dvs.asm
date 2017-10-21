@@ -22,61 +22,61 @@ GetTrainerDVs: ; 270c4
 TrainerClassDVs: ; 270d6
 	;  Atk  Spd
 	;  Def  Spc
-	db $9A, $77 ; cissy
-	db $88, $88 ; danny
-	db $98, $88 ; rudy
-	db $98, $88 ; luana
-	db $DC, $DD ; drake
+	db $99, $99 ; cissy
+	db $AA, $AA ; danny
+	db $BB, $BB ; rudy
+	db $CC, $CC ; luana
+	db $DD, $DD ; drake
 	db $DD, $DD ; tracey
-	db $98, $88 ; brock
-	db $78, $88 ; misty
-	db $98, $88 ; lt surge
-	db $78, $88 ; erika
-	db $98, $88 ; koga
-	db $7D, $87 ; sabrina
-	db $98, $88 ; blaine
-	db $98, $88 ; giovanni
-	db $7D, $DD ; lorelei
-	db $DC, $DD ; bruno
-	db $7F, $DF ; agatha
-	db $DC, $DD ; lance
-	db $FD, $DE ; red
-	db $9D, $DD ; blue
-	db $7E, $DE ; green
-	db $7E, $DE ; yellow
-	db $DC, $DD ; cal
+	db $9D, $79 ; brock
+	db $99, $99 ; misty
+	db $97, $D9 ; lt surge
+	db $99, $99 ; erika
+	db $99, $99 ; koga
+	db $79, $9D ; sabrina
+	db $97, $8D ; blaine
+	db $99, $99 ; giovanni
+	db $EE, $EE ; lorelei
+	db $EE, $EE ; bruno
+	db $EE, $EE ; agatha
+	db $EE, $EE ; lance
+	db $FF, $FF ; red
+	db $FF, $FF ; blue
+	db $FF, $FF ; green
+	db $FF, $FF ; yellow
+	db $DD, $DD ; cal
 	db $D8, $A8 ; butch
-	db $7E, $A8 ; cassidy
-	db $7E, $A8 ; cassidy&butch
+	db $D8, $A8 ; cassidy
+	db $D8, $A8 ; cassidy&butch
 	db $D8, $A8 ; james
-	db $7E, $A8 ; jessie
-	db $7E, $A8 ; jessie&james
-	db $78, $88 ; mom
+	db $D8, $A8 ; jessie
+	db $D8, $A8 ; jessie&james
+	db $99, $99 ; mom
 	db $98, $88 ; bill
 	db $98, $88 ; imakuni
 	db $98, $88 ; lawrence
 	db $98, $88 ; prof.oak
-	db $78, $88 ; prof.ivy
-	db $78, $88 ; prof.aide
-	db $78, $88 ; nurse
-	db $78, $88 ; officer
+	db $98, $88 ; prof.ivy
+	db $98, $88 ; prof.aide
+	db $98, $88 ; nurse
+	db $98, $88 ; officer
 	db $98, $88 ; youngster
-	db $58, $88 ; lass
-	db $69, $C8 ; beauty
+	db $98, $88 ; lass
+	db $78, $99 ; beauty
 	db $98, $88 ; bug catcher
-	db $78, $88 ; bug catcher f
+	db $98, $88 ; bug catcher f
 	db $98, $88 ; swimmerm
-	db $78, $88 ; swimmerf
+	db $98, $88 ; swimmerf
 	db $98, $88 ; camper
 	db $98, $88 ; pokemaniac
 	db $98, $88 ; fisher
 	db $A8, $88 ; hiker
 	db $98, $88 ; athlete
 	db $98, $88 ; sightseerm
-	db $68, $88 ; sightseerf
-	db $68, $88 ; waitress
+	db $98, $88 ; sightseerf
+	db $98, $88 ; waitress
 	db $D8, $C8 ; cooltrainerm
-	db $7C, $C8 ; cooltrainerf
+	db $D8, $C8 ; cooltrainerf
 	db $98, $88 ; catman
 ;	db $98, $88 ; bird keeper
 ;	db $98, $88 ; gentleman
@@ -95,3 +95,80 @@ TrainerClassDVs: ; 270d6
 ;	db $98, $88 ; pokefanm
 ;	db $6D, $88 ; pokefanf
 ; 2715c
+
+
+GetTrainerPersonality:
+; Return the personality of OtherTrainerClass in a
+
+	push hl
+	ld a, [OtherTrainerClass]
+	dec a
+	ld c, a
+	ld b, 0
+
+	ld hl, TrainerClassPersonalities
+	add hl, bc
+
+	ld a, [hl]
+
+	pop hl
+	ret
+
+TrainerClassPersonalities:
+
+	db FEMALE_MASK ; cissy
+	db MALE_MASK   ; danny
+	db MALE_MASK   ; rudy
+	db FEMALE_MASK ; luana
+	db MALE_MASK   ; drake
+	db MALE_MASK   ; tracey
+	db MALE_MASK   ; brock
+	db FEMALE_MASK ; misty
+	db MALE_MASK   ; lt surge
+	db FEMALE_MASK ; erika
+	db MALE_MASK   ; koga
+	db FEMALE_MASK ; sabrina
+	db MALE_MASK   ; blaine
+	db MALE_MASK   ; giovanni
+	db FEMALE_MASK ; lorelei
+	db MALE_MASK   ; bruno
+	db FEMALE_MASK ; agatha
+	db MALE_MASK   ; lance
+	db MALE_MASK   ; red
+	db MALE_MASK   ; blue
+	db FEMALE_MASK ; green
+	db FEMALE_MASK ; yellow
+	db MALE_MASK   ; cal
+	db MALE_MASK   ; butch
+	db FEMALE_MASK ; cassidy
+	db MALE_MASK   ; cassidy&butch
+	db MALE_MASK   ; james
+	db FEMALE_MASK ; jessie
+	db MALE_MASK   ; jessie&james
+	db FEMALE_MASK ; mom
+	db MALE_MASK   ; bill
+	db MALE_MASK   ; imakuni
+	db MALE_MASK   ; lawrence
+	db MALE_MASK   ; prof.oak
+	db FEMALE_MASK ; prof.ivy
+	db FEMALE_MASK ; prof.aide
+	db FEMALE_MASK ; nurse
+	db FEMALE_MASK ; officer
+	db MALE_MASK   ; youngster
+	db FEMALE_MASK ; lass
+	db FEMALE_MASK ; beauty
+	db MALE_MASK   ; bug catcher
+	db FEMALE_MASK ; bug catcher f
+	db MALE_MASK   ; swimmerm
+	db FEMALE_MASK ; swimmerf
+	db MALE_MASK   ; camper
+	db MALE_MASK | PINK_MASK ; pokemaniac
+	db MALE_MASK   ; fisher
+	db MALE_MASK   ; hiker
+	db MALE_MASK   ; athlete
+	db MALE_MASK   ; sightseerm
+	db FEMALE_MASK ; sightseerf
+	db FEMALE_MASK ; waitress
+	db MALE_MASK   ; cooltrainerm
+	db FEMALE_MASK ; cooltrainerf
+	db MALE_MASK   ; catman

@@ -6248,10 +6248,8 @@ LoadEnemyMon: ; 3e8eb
 	jr .Finish
 
 .TrainerPersonality:
-; Copy personality from the party struct
-	ld hl, OTPartyMon1Personality
-	ld a, [CurPartyMon]
-	call GetPartyLocation
+; All trainers have preset personalities, determined by class
+	farcall GetTrainerPersonality
 	ld [EnemyMonPersonality], a
 
 .Finish:
