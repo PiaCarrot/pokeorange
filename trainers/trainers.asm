@@ -446,6 +446,51 @@ NurseGroup:
 OfficerGroup:
 ; ================================
 ; ================
+
+	; OFFICER(1) Mikan Island
+	db "JENNY@"
+	db 0 ; normal
+
+	; party
+	db 14, GROWLITHE
+
+	db $ff ; end
+	
+; ================================
+
+	; OFFICER(2) Kinnow Island
+	db "JENNY@"
+	db 0 ; normal
+
+	; party
+	db 24, GROWLITHE
+	db 24, SKIPLOOM
+
+	db $ff ; end
+	
+; ================================
+
+	; OFFICER(3) Moro Island
+	db "JENNY@"
+	db 0 ; normal
+
+	; party
+	db 29, ARCANINE
+	db 30, JUMPLUFF
+
+	db $ff ; end
+	
+; ================================
+
+	; OFFICER(4) Murcott Island
+	db "JENNY@"
+	db 0 ; normal
+
+	; party
+	db 33, ARCANINE
+
+	db $ff ; end
+	
 ; ================================
 
 

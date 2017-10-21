@@ -83,6 +83,10 @@ KRIS EQU __enum__
 	trainerclass NURSE
 
 	trainerclass OFFICER
+	const JENNY_1
+	const JENNY_2
+	const JENNY_3
+	const JENNY_4
 
 	trainerclass YOUNGSTER
 	const KOJI
