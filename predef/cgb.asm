@@ -186,7 +186,7 @@ _CGB_StatsScreenHPPals: ; 8edb
 	add hl, bc
 	call LoadPalette_White_Col1_Col2_Black
 	ld a, [CurPartySpecies]
-	ld bc, TempMonDVs
+	ld bc, TempMonPersonality
 	call GetPlayerOrMonPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
 	ld hl, ExpBarPalette
@@ -267,7 +267,7 @@ _CGB_Pokedex: ; 8f70
 	call LoadHLPaletteIntoDE
 	jr .got_palette
 .is_pokemon
-	ld bc, wDexMonDVs
+	ld bc, wDexMonPersonality
 	call GetMonNormalOrShinyPalettePointer_NoPinkCheck
 	call LoadPalette_White_Col1_Col2_Black
 .got_palette
@@ -337,7 +337,7 @@ _CGB_BillsPC: ; 8fca
 	jr .Resume
 
 .GetMonPalette:
-	ld bc, TempMonDVs
+	ld bc, TempMonPersonality
 	call GetPlayerOrMonPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
 .Resume:
@@ -455,7 +455,7 @@ _CGB_Evolution: ; 91e4
 	jr .got_palette
 
 .pokemon
-	ld hl, PartyMon1DVs
+	ld hl, PartyMon1Personality
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, [CurPartyMon]
 	call AddNTimes
@@ -795,7 +795,7 @@ _CGB_GamefreakLogo: ; 94fa
 _CGB_PlayerOrMonFrontpicPals: ; 9529
 	ld de, UnknBGPals
 	ld a, [CurPartySpecies]
-	ld bc, TempMonDVs
+	ld bc, TempMonPersonality
 	call GetPlayerOrMonPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
 	call WipeAttrMap
@@ -821,7 +821,7 @@ _CGB_TradeTube: ; 9555
 _CGB_TrainerOrMonFrontpicPals: ; 9578
 	ld de, UnknBGPals
 	ld a, [CurPartySpecies]
-	ld bc, TempMonDVs
+	ld bc, TempMonPersonality
 	call GetFrontpicPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
 	call WipeAttrMap

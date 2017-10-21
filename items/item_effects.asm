@@ -429,6 +429,9 @@ DuskBall: ; e8a2
 	ld [hli], a
 	ld a, [EnemyMonDVs + 1]
 	ld [hl], a
+	ld hl, wEnemyBackupPersonality
+	ld a, [EnemyMonPersonality]
+	ld [hl], a
 
 .load_data
 	ld a, [TempEnemyMonSpecies]
@@ -2729,31 +2732,25 @@ PinkanBerry:
 ; Exit early if the player canceled
 	jr c, PinkanBerry_ExitMenu
 
-; Pinkan Berry has no effect on native mons
-	ld a, MON_CAUGHTLOCATION
+; Pinkan Berry has no effect on already-pink mons
+	ld a, MON_PINK
 	call GetPartyParamLocation
 	ld a, [hl]
-	and %01111111
-	cp PINKAN_ISLAND
-	jp z, NoEffectMessage
-
-; Get the chosen Pokémon's current status
-	ld a, MON_STATUS
-	call GetPartyParamLocation
-; If it's already pink, no effect
-	ld a, [hl]
-	and (1 << PNK)
+	and PINK_MASK
 	jp nz, NoEffectMessage
 
 ; Make it pink
-	ld a, (1 << PNK)
+	ld a, [hl]
+	or PINK_MASK
 	ld [hl], a
 
 ; Make it pink in battle (new section)
 	call IsItemUsedOnBattleMon
 	jr nc, .not_in_battle
-	ld a, (1 << PNK)
-	ld [BattleMonStatus], a
+	ld hl, BattleMonPink
+	ld a, [hl]
+	or PINK_MASK
+	ld [hl], a
 .not_in_battle
 
 ; Play a sound effect

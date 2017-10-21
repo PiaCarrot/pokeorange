@@ -1123,7 +1123,7 @@ BillsPC_LoadMonStats: ; e2b6d (38:6b6d)
 	and a
 	jr z, .party
 	cp NUM_BOXES + 1
-	jr z, .sBox
+	jp z, .sBox
 	ld b, a
 	call GetBoxPointer
 	ld a, b
@@ -1145,6 +1145,15 @@ BillsPC_LoadMonStats: ; e2b6d (38:6b6d)
 	call AddNTimes
 	ld a, [hl]
 	ld [TempMonItem], a
+	pop hl
+	push hl
+	ld bc, sBoxMon1Personality - sBox
+	add hl, bc
+	ld bc, BOXMON_STRUCT_LENGTH
+	ld a, e
+	call AddNTimes
+	ld a, [hl]
+	ld [TempMonPersonality], a
 	pop hl
 	ld bc, sBoxMon1DVs - sBox
 	add hl, bc
@@ -1172,6 +1181,12 @@ BillsPC_LoadMonStats: ; e2b6d (38:6b6d)
 	call AddNTimes
 	ld a, [hl]
 	ld [TempMonItem], a
+	ld hl, PartyMon1Personality
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, e
+	call AddNTimes
+	ld a, [hl]
+	ld [TempMonPersonality], a
 	ld hl, PartyMon1DVs
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, e
@@ -1200,6 +1215,13 @@ BillsPC_LoadMonStats: ; e2b6d (38:6b6d)
 	call AddNTimes
 	ld a, [hl]
 	ld [TempMonItem], a
+
+	ld hl, sBoxMon1Personality
+	ld bc, BOXMON_STRUCT_LENGTH
+	ld a, e
+	call AddNTimes
+	ld a, [hl]
+	ld [TempMonPersonality], a
 
 	ld hl, sBoxMon1DVs
 	ld bc, BOXMON_STRUCT_LENGTH

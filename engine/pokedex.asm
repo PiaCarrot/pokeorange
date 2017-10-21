@@ -214,8 +214,7 @@ Pokedex_InitMainScreen: ; 4013c (10:413c)
 	ld a, -1
 	ld [CurPartySpecies], a
 	xor a
-	ld [wDexMonDVs], a
-	ld [wDexMonDVs+1], a
+	ld [wDexMonPersonality], a
 	ld a, SCGB_POKEDEX
 	call Pokedex_GetSGBLayout
 	call Pokedex_UpdateCursorOAM
@@ -291,8 +290,7 @@ Pokedex_InitDexEntryScreen: ; 40217 (10:4217)
 	call Pokedex_GetSelectedMon
 	ld [CurPartySpecies], a
 	xor a
-	ld [wDexMonDVs], a
-	ld [wDexMonDVs+1], a
+	ld [wDexMonPersonality], a
 	ld a, SCGB_POKEDEX
 	call Pokedex_GetSGBLayout
 	ld a, [CurPartySpecies]
@@ -417,11 +415,10 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 	jp PlayCryHeader
 
 .Shiny: ; 4034f
-	ld hl, wDexMonDVs
+	ld hl, wDexMonPersonality
 	ld a, [hl]
-	xor ATKDEFDV_SHINY ; alternate 0 and ATKDEFDV_SHINY
-	ld [hli], a
-	ld [hl], SPDSPCDV_SHINY
+	xor SHINY_MASK ; alternate normal and shiny
+	ld [hl], a
 	call Pokedex_GetSelectedMon
 	ld [CurPartySpecies], a
 	ld a, SCGB_POKEDEX

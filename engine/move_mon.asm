@@ -180,31 +180,7 @@ endr
 	and a
 	jr nz, .copywildmonstats
 
-; Shiny Charm gives 1/256 chance of a shiny
-	ld a, [CurItem]
-	push af
-	ld a, SHINY_CHARM
-	ld [CurItem], a
-	push hl
-	push bc
-	push de
-	ld hl, NumItems
-	call CheckItem
-	pop de
-	pop bc
-	pop hl
-	jr nc, .no_shiny_charm
-	call Random
-	and a
-	jr nz, .no_shiny_charm
-	pop af
-	ld [CurItem], a
-	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY
-	jr .initializetrainermonstats
-
-.no_shiny_charm
-	pop af
-	ld [CurItem], a
+	; TODO: call GetRandomPersonality for gift mon
 	call Random
 	ld b, a
 	call Random
@@ -227,24 +203,32 @@ endr
 rept 4
 	inc de
 endr
-	ld a, 70
+; happiness
+	ld a, BASE_HAPPINESS
 	ld [de], a
 	inc de
+; pokerus
 	xor a
 	ld [de], a
 	inc de
+; personality
 	ld [de], a
 	inc de
+; caught data
 	ld [de], a
 	inc de
+; level
 	ld a, [CurPartyLevel]
 	ld [de], a
 	inc de
+; status
 	xor a
 	ld [de], a
 	inc de
+; unused
 	ld [de], a
 	inc de
+; stats
 	ld bc, 10
 	add hl, bc
 	ld a, $1
@@ -278,19 +262,28 @@ endr
 	jr nz, .wildmonpploop
 	pop hl
 
+; happiness
 	ld a, BASE_HAPPINESS
 	ld [de], a
 	inc de
+; pokerus
 	xor a
 	ld [de], a
 	inc de
+; personality
+	ld a, [EnemyMonPersonality]
 	ld [de], a
 	inc de
+; caught data
+	xor a
 	ld [de], a
 	inc de
+; level
 	ld a, [CurPartyLevel]
 	ld [de], a
 	inc de
+
+; status
 	ld hl, EnemyMonStatus
 	; Copy EnemyMonStatus
 	ld a, [hli]
@@ -1784,3 +1777,83 @@ InitNickname: ; e3de
 	call InitName
 	jp ExitAllMenus
 ; e3fd
+
+GetRandomPersonality:
+; Gender
+	call Random
+	and GENDER_MASK
+	ld b, a
+
+; Shiny?
+	; Shiny Charm gives 1/256 chance of a shiny
+	call .HaveShinyCharm
+	jr c, .likely_shiny
+	; 1/16 roll
+	call Random
+	cp $10
+	jr nc, .not_shiny
+.likely_shiny
+	; 1/256 roll (compounds with 1/16 for 1/4096 random shiny chance)
+	call Random
+	and a
+	jr nz, .not_shiny
+	ld a, SHINY_MASK
+	jr .got_shiny
+.not_shiny
+	xor a
+.got_shiny
+	or b
+	ld b, a
+
+; Pink?
+	push bc
+	ld a, [MapGroup]
+	ld b, a
+	ld a, [MapNumber]
+	ld c, a
+	call GetWorldMapLocation
+	pop bc
+	cp PINKAN_ISLAND
+	jr z, .is_pink
+	xor a
+	jr .got_pink
+.is_pink
+	ld a, PINK_MASK
+.got_pink
+	or b
+	ld b, a
+
+; Form
+	xor a ; nonzero for special forms
+	or b
+	ld b, a
+
+; Return personality in a and b
+	ret
+
+.HaveShinyCharm:
+	ld a, [CurItem]
+	push af
+	ld a, SHINY_CHARM
+	ld [CurItem], a
+	push hl
+	push bc
+	push de
+	ld hl, NumItems
+	call CheckItem
+	pop de
+	pop bc
+	pop hl
+	jr c, .have_shiny_charm
+	pop af
+	ld [CurItem], a
+	xor a
+	and a
+	ret
+
+.have_shiny_charm
+	pop af
+	ld [CurItem], a
+	scf
+	ret
+
