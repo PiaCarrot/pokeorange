@@ -8,9 +8,31 @@ KinnowIslandRoute57Gate_MapScriptHeader:
 .MapCallbacks: db 0
 
 KinnowOfficerScript:
-	jumptextfaceplayer KinnowOfficerText
+	faceplayer
+	opentext
+	checknite
+	iffalse .NoFight
+	checkevent EVENT_BEAT_JENNY_2
+	iftrue .NoFight
+	playmusic MUSIC_OFFICER_ENCOUNTER
+	writetext OfficerJenny2SeenText
+	waitbutton
+	closetext
+	winlosstext OfficerJenny2WinText, 0
+	loadtrainer OFFICER, JENNY_2
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_JENNY_2
+	closetext
+	end
 
-KinnowOfficerText:
+.NoFight:
+	writetext OfficerJenny2DaytimeText
+	waitbutton
+	closetext
+	end
+
+OfficerJenny2DaytimeText:
 	text "Be careful out"
 	line "there, kid."
 
@@ -19,6 +41,19 @@ KinnowOfficerText:
 	cont "stock up on FULL"
 	cont "HEAL."
 	done
+	
+OfficerJenny2SeenText:
+	text "Hey, it's pretty"
+	line "boring around here"
+	cont "at night. Let's"
+	cont "have a battle!"
+	done
+
+OfficerJenny2WinText:
+	text "You're a tough"
+	line "little kid."
+	done
+
 
 KinnowIslandRoute57Gate_MapEventHeader::
 
