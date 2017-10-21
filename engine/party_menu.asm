@@ -765,6 +765,7 @@ PrintPartyMenuActionText: ; 50566
 	dw .Text_GrewToLevel
 	dw .Text_CameToItsSenses
 	dw .Text_MakePink
+	dw .Text_MakeNotPink
 ; 5058f
 
 .Text_RecoveredSomeHP: ; 0x5058f
@@ -829,6 +830,10 @@ PrintPartyMenuActionText: ; 50566
 
 .Text_MakePink:
 	text_jump MakePinkText
+	db "@"
+
+.Text_MakeNotPink:
+	text_jump MakeNotPinkText
 	db "@"
 
 .PrintText: ; 505c1

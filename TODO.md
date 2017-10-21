@@ -41,13 +41,10 @@
 - Volt Tackle
 - Water Pulse
 
-## Data Structures
-
-- Make PINK CURE remove pinkness bit
-
 ## Bugs
 
 - Caught Pokémon sent to the PC lose their personality byte (gender, shiny, pink)
+- NPC trainers have inconsistent/incorrect personalities
 
 ## Things that might be added eventually
 

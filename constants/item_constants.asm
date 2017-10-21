@@ -63,7 +63,7 @@
 	const ETHER        ; $3d
 	const MAX_ETHER    ; $3e
 	const ELIXER       ; $3f
-	const PINK_CURE  ; $40
+	const PINK_CURE    ; $40
 	const MOOMOO_MILK  ; $41
 	const QUICK_CLAW   ; $42
 	const PSNCUREBERRY ; $43
@@ -377,3 +377,4 @@ const_value set $f0
 	const PARTYMENUTEXT_LEVEL_UP
 	const PARTYMENUTEXT_HEAL_CONFUSION
 	const PARTYMENUTEXT_MAKE_PINK
+	const PARTYMENUTEXT_MAKE_NOT_PINK

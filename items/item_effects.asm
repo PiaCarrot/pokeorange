@@ -1452,7 +1452,6 @@ IceHeal:
 Awakening:
 ParlyzHeal:
 FullHeal:
-PinkCure:
 Psncureberry:
 Przcureberry:
 BurntBerry:
@@ -2764,7 +2763,47 @@ PinkanBerry:
 	call UseDisposableItem
 	jp ClearPalettes
 
+PinkCure:
+; Choose a Pokémon to use it on
+	ld b, PARTYMENUACTION_HEALING_ITEM
+	call UseItem_SelectMon
+; Exit early if the player canceled
+	jr c, PinkCure_ExitMenu
+
+; Pink Cure has no effect on not-pink mons
+	ld a, MON_PINK
+	call GetPartyParamLocation
+	ld a, [hl]
+	and PINK_MASK
+	jp z, NoEffectMessage
+
+; Make it not pink
+	ld a, [hl]
+	and $ff - PINK_MASK
+	ld [hl], a
+
+; Make it not pink in battle (new section)
+	call IsItemUsedOnBattleMon
+	jr nc, .not_in_battle
+	ld hl, BattleMonPink
+	ld a, [hl]
+	and $ff - PINK_MASK
+	ld [hl], a
+.not_in_battle
+
+; Play a sound effect
+	call Play_SFX_FULL_HEAL
+
+; Describe the effect
+	ld a, PARTYMENUTEXT_MAKE_NOT_PINK
+	ld [PartyMenuActionText], a
+	call ItemActionTextWaitButton
+; Use up the Pink Cure
+	call UseDisposableItem
+	jp ClearPalettes
+
 PinkanBerry_ExitMenu:
+PinkCure_ExitMenu:
 ; wItemEffectSucceeded of 0 means it was canceled
 ; it's set to 1 by default before calling PinkanBerry
 	xor a
