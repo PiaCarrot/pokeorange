@@ -39,6 +39,52 @@ CissyGroup:
 		db BUBBLEBEAM
 		db ACID
 		db CONSTRICT
+		
+	db $ff ; end
+		
+; ================
+
+	; CISSY (2)
+	db "CISSY@"
+	db 1 ; moves
+
+	; party
+
+	db 66, KINGDRA
+		db HYDRO_PUMP
+		db OUTRAGE
+		db DRAGON_PULSE
+		db SLUDGE_BOMB
+
+	db 69, BLASTOISE
+		db RAPID_SPIN
+		db HYDRO_PUMP
+		db EARTHQUAKE
+		db FISSURE
+
+	db 67, TOXAPEX
+		db VENOSHOCK
+		db WATERFALL
+		db DIVE
+		db TOXIC
+		
+	db 68, GOLDUCK
+		db PSYCHIC_M
+		db WATERFALL
+		db DISABLE
+		db HYPER_BEAM
+		
+	db 66, GYARADOS
+		db DRAGON_PULSE
+		db THRASH
+		db HYPER_BEAM
+		db SURF
+		
+	db 67, LANTURN
+		db THUNDER
+		db RAIN_DANCE
+		db LOCK_ON
+		db HYDRO_PUMP
 
 	db $ff ; end
 
@@ -79,15 +125,145 @@ DannyGroup:
 		db EXPLOSION
 		db 0
 		db 0
+		
+	db $ff ; end
+		
+	; ================
+
+	; DANNY (2)
+	db "DANNY@"
+	db 1 ; moves
+
+	; party
+
+	db 68, NIDOQUEEN
+		db BLIZZARD
+		db HAIL
+		db DOUBLE_KICK
+		db BATON_PASS
+
+	db 70, MACHAMP
+		db DYNAMICPUNCH
+		db POWERUPPUNCH
+		db FISSURE
+		db FOCUS_ENERGY
+
+	db 71, SCIZOR
+		db SIGNAL_BEAM
+		db SWORDS_DANCE
+		db HYPER_BEAM
+		db AERIAL_ACE
+
+	db 69, ELECTRODE
+		db THUNDER
+		db NASTY_PLOT
+		db RAIN_DANCE
+		db EXPLOSION
+		
+	db 70, RHYPERIOR
+		db ROCK_CLIMB
+		db HORN_DRILL
+		db LOCK_ON
+		db SURF
+		
+	db 69, NINETAILS
+		db DAZZLINGLEAM
+		db BLIZZARD
+		db EXTREMESPEED
+		db NASTY_PLOT
 
 	db $ff ; end
 
 ; ================================
 
-
 RudyGroup:
 ; ================================
 ; ================
+
+	; RUDY (1)
+	db "RUDY@"
+	db 1 ; moves
+
+	; party
+
+	db 40, ELECTABUZZ
+		db QUICK_ATTACK
+		db THUNDERPUNCH
+		db ROCK_SMASH
+		db AGILITY
+		
+	db 42, EXEGGUTOR
+		db EGG_BOMB
+		db DRAGON_PULSE
+		db MEGA_DRAIN
+		db STOMP
+		
+	db 41, STARMIE
+		db RAPID_SPIN
+		db WATERFALL
+		db THUNDERBOLT
+		db PSYBEAM
+		
+	db 40, HITMONCHAN
+		db MACH_PUNCH
+		db THUNDERPUNCH
+		db ICE_PUNCH
+		db FIRE_PUNCH
+		
+	db 39, GOLEM
+		db DEFENSE_CURL
+		db ROLLOUT
+		db ROCK_THROW
+		db ROCK_SMASH
+		
+	db $ff ; end
+		
+; ================
+
+	; RUDY (2)
+	db "RUDY@"
+	db 1 ; moves
+
+	; party
+
+	db 72, ELECTIVIRE
+		db SUNNY_DAY
+		db NASTY_PLOT
+		db THUNDERBOLT
+		db COMET_PUNCH
+		
+	db 74, EXEGGUTOR
+		db DRAGON_PULSE
+		db NASTY_PLOT
+		db SOLARBEAM
+		db GIGA_DRAIN
+		
+	db 71, SHARPEDO
+		db CRUNCH
+		db DIVE
+		db MEAN_LOOK
+		db FOCUS_ENERGY
+		
+	db 70, HITMONTOP
+		db TRIPLE_KICK
+		db FOCUS_ENERGY
+		db SWORDS_DANCE
+		db POWERUPPUNCH
+		
+	db 69, GOLEM
+		db DEFENSE_CURL
+		db ROLLOUT
+		db FISSURE
+		db LOCK_ON
+		
+	db 73, FLYGON
+		db OUTRAGE
+		db DRAGONBREATH
+		db AERIAL_ACE
+		db FLY
+		
+	db $ff ; end
+		
 ; ================================
 
 
@@ -95,6 +271,33 @@ RudyGroup:
 LuanaGroup:
 ; ================================
 ; ================
+
+	; LUANA (1)
+	db "LUANA@"
+	db 1 ; moves
+
+	; party
+
+	db 53, ALAKAZAM
+		db PSYCHIC_M
+		db NASTY_PLOT
+		db SAFEGUARD
+		db RECOVER
+		
+	db 54, MAROWAK
+		db SHADOW_BONE
+		db NIGHT_SHADE
+		db FIRE_SPIN
+		db PROTECT
+		
+	db 55, TURTONATOR
+		db SHELL_TRAP
+		db DRAGON_PULSE
+		db FIRE_BLAST
+		db NASTY_PLOT
+		
+	db $ff ; end
+
 ; ================================
 
 
