@@ -166,7 +166,7 @@ DannyGroup:
 		db LOCK_ON
 		db SURF
 		
-	db 69, NINETAILS
+	db 69, NINETALES
 		db DAZZLINGLEAM
 		db BLIZZARD
 		db EXTREMESPEED
