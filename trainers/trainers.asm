@@ -256,11 +256,11 @@ RudyGroup:
 		db FISSURE
 		db LOCK_ON
 		
-	db 73, FLYGON
-		db OUTRAGE
-		db DRAGONBREATH
-		db AERIAL_ACE
-		db FLY
+	db 73, CLEFABLE
+		db ENCORE
+		db DAZZLINGLEAM
+		db DOUBLE_EDGE
+		db BATON_PASS
 		
 	db $ff ; end
 		
@@ -546,14 +546,33 @@ BrockGroup:
 
 	; BROCK (1)
 	db "BROCK@"
-	db 0 ; moves
+	db 1 ; moves
 
 	; party
 
 	db 19, GEODUDE
+		db TACKLE
+		db ROCK_THROW
+		db HARDEN ;ROCK POLISH?
+		db 0
+
 	db 22, VULPIX
+		db FAIRY_WIND
+		db ICY_WIND
+		db CHARM
+		db TAIL_WHIP
+
 	db 22, ONIX
+		db TACKLE
+		db ROCK_THROW
+		db SCREECH
+		db DIG
+
 	db 18, ZUBAT
+		db ABSORB
+		db WING_ATTACK
+		db SUPERSONIC
+		db ASTONISH
 
 	db $ff ; end
 
@@ -570,6 +589,38 @@ MistyGroup:
 LtSurgeGroup:
 ; ================================
 ; ================
+
+	; LT.SURGE (3)
+	db "LT.SURGE@"
+	db 1 ; moves
+
+	; party
+
+	db 60, ELECTRODE
+		db EXPLOSION
+		db ENDURE
+		db NASTY_PLOT
+		db 0
+
+	db 62, RAICHU
+		db VOLT_TACKLE
+		db AGILITY
+		db IRON_TAIL
+		db SURF
+
+	db 61, JOLTEON
+		db AGILITY
+		db PIN_MISSILE
+		db THUNDERBOLT
+		db BATON_PASS
+
+	db 60, AMPHAROS
+		db THUNDER
+		db THUNDERPUNCH
+		db QUICK_ATTACK
+		db DOUBLE_TEAM
+
+	db $ff ; end
 ; ================================
 
 
@@ -606,6 +657,44 @@ GiovanniGroup:
 LoreleiGroup:
 ; ================================
 ; ================
+
+	; LORELEI (1)
+	db "LORELEI@"
+	db 1 ; moves
+
+	; party
+
+	db 40, DEWGONG
+		db ICE_BEAM
+		db LOCK_ON
+		db SIGNAL_BEAM
+		db WATERFALL
+		
+	db 41, CLOYSTER
+		db SPIKES
+		db DIVE
+		db HAIL
+		db PROTECT
+
+	db 41, NINETALES
+		db DAZZLINGLEAM
+		db ICE_BEAM
+		db CONFUSE_RAY
+		db PSYCHIC_M
+
+	db 39, LAPRAS
+		db BODY_SLAM
+		db CONFUSE_RAY
+		db SURF
+		db ICE_BEAM
+
+	db 37, JYNX
+		db DOUBLESLAP
+		db ICE_PUNCH
+		db SWEET_KISS
+		db ATTRACT
+
+	db $ff ; end
 ; ================================
 
 
@@ -618,18 +707,148 @@ BrunoGroup:
 AgathaGroup:
 ; ================================
 ; ================
+
+	; AGATHA (1)
+	db "AGATHA@"
+	db 1 ; moves
+
+	; party
+
+	db 65, GENGAR
+		db CONFUSE_RAY
+		db SHADOW_BALL
+		db HYPNOSIS
+		db DREAM_EATER
+		
+	db 64, CROBAT
+		db CONFUSE_RAY
+		db FLY
+		db HAZE
+		db AERIAL_ACE
+		
+	db 64, MAROWAK
+		db SHADOW_BONE
+		db EARTHQUAKE
+		db FIRE_BLAST
+		db BATON_PASS
+
+	db 65, PALOSSAND
+		db EARTHQUAKE
+		db SHADOW_BALL
+		db HYPNOSIS
+		db MEAN_LOOK
+
+	db 62, ARBOK
+		db CRUNCH
+		db GLARE
+		db TOXIC
+		db VENOSHOCK
+
+	db 63, MIMIKYU
+		db SHADOW_SNEAK
+		db MIMIC
+		db SHADOW_BALL
+		db DOUBLE_TEAM
+
+	db $ff ; end
 ; ================================
 
 
 LanceGroup:
 ; ================================
 ; ================
+
+	; LANCE (1)
+	db "LANCE@"
+	db 1 ; moves
+
+	db 70, DRAGONITE
+		db HYPER_BEAM
+		db DRAGON_PULSE
+		db THUNDER
+		db ICE_BEAM
+		
+	db 69, DRAGALGE
+		db TOXIC
+		db VENOSHOCK
+		db SPIKES
+		db RECOVER
+		
+	db 69, KINGDRA
+		db WHIRLPOOL
+		db DRAGON_PULSE
+		db DRAGONBREATH
+		db OUTRAGE
+		
+	db 71, TURTONATOR
+		db SHELL_TRAP
+		db SUNNY_DAY
+		db SOLARBEAM
+		db RAPID_SPIN
+		
+	db 70, EXEGGUTOR
+		db EGG_BOMB
+		db DRAGON_PULSE ;DRAGON_HAMMER
+		db PETAL_DANCE
+		db SYNTHESIS
+		
+	db 69, FLYGON
+		db DRAGON_PULSE
+		db SANDSTORM
+		db EARTHQUAKE
+		db FLY
+	
+	db $ff ; end
+
 ; ================================
 
 
 RedGroup:
 ; ================================
 ; ================
+
+	; RED (1)
+	db "RED@"
+	db 1 ; moves
+	
+	db 88, PIKACHU
+		db THUNDERBOLT
+		db AGILITY
+		db IRON_TAIL
+		db VOLT_TACKLE
+		
+	db 86, VENUSAUR
+		db PETAL_DANCE
+		db SUNNY_DAY
+		db SOLARBEAM
+		db NASTY_PLOT
+		
+	db 86, CHARIZARD
+		db FIRE_SPIN
+		db FLY
+		db DRAGON_PULSE
+		db SEISMIC_TOSS
+		
+	db 86, BLASTOISE
+		db HYDRO_PUMP
+		db RAIN_DANCE
+		db CRUNCH
+		db ROCK_CLIMB
+		
+	db 90, SNORLAX
+		db REST
+		db BELLY_DRUM
+		db SLEEP_TALK
+		db DOUBLE_EDGE
+		
+	db 89, MEWTWO
+		db PSYSTRIKE
+		db DISABLE
+		db SHADOW_BALL
+		db CONFUSE_RAY
+		
+	db $ff ; end
+
 ; ================================
 
 
