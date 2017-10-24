@@ -155,6 +155,7 @@
 	const MUSIC_MAIL   ; $99
 	const MIRAGE_MAIL  ; $9a
 	const X_SPCL_DEF
+	const ICE_STONE
 
 	add_tm POWERUPPUNCH ; $9b
 	add_tm DRAGON_PULSE ; $9c

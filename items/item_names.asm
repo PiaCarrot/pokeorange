@@ -153,6 +153,7 @@
 	db "MUSIC MAIL@"
 	db "MIRAGE MAIL@"
 	db "X SPCL DEF@"
+	db "ICE STONE@"
 	db "TM01@"
 	db "TM02@"
 	db "TM03@"

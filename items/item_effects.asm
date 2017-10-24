@@ -169,6 +169,7 @@ ItemEffects: ; e73c
 	dw FlowerMail
 	dw FlowerMail
 	dw XSpclDef
+	dw IceStone
 ; e8a2
 
 
@@ -1164,7 +1165,8 @@ SunStone:
 ShinyStone:
 TradeStone:
 UpGrade:
-DubiousDisc: ; ee0f
+DubiousDisc:
+IceStone: ; ee0f
 	ld b, PARTYMENUACTION_EVO_STONE
 	call UseItem_SelectMon
 

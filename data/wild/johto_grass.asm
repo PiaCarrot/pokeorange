@@ -89,24 +89,24 @@
 	db 8, HOPPIP
 	db 8, PIKIPEK
 	db 7, HOPPIP
-	db 7, VULPIX
-	db 8, VULPIX
+	db 7, GROWLITHE
+	db 8, GROWLITHE
 	; day
 	db 7, MINCCINO
 	db 7, WINGULL
 	db 8, HOPPIP
 	db 8, PIKIPEK
 	db 7, HOPPIP
-	db 7, VULPIX
-	db 8, VULPIX
+	db 7, GROWLITHE
+	db 8, GROWLITHE
 	; nite
 	db 7, ODDISH
 	db 8, ODDISH
 	db 7, WINGULL
 	db 7, RATTATA
 	db 8, RATTATA
-	db 7, VULPIX
-	db 8, VULPIX
+	db 7, GROWLITHE
+	db 8, GROWLITHE
 
 	map ROUTE_51
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
@@ -408,11 +408,11 @@
 	map MT_NAVEL_1F
 	db 5 percent, 5 percent, 5 percent ; encounter rates: morn/day/nite
 	; morn
-	db 18, PSYDUCK
+	db 18, VULPIX
 	db 18, ZUBAT
-	db 19, PSYDUCK
+	db 19, VULPIX
 	db 19, JYNX
-	db 19, PSYDUCK
+	db 19, VULPIX
 	db 20, ZUBAT
 	db 20, JYNX
 	; day
@@ -424,22 +424,22 @@
 	db 20, ZUBAT
 	db 20, JYNX
 	; nite
-	db 18, PSYDUCK
+	db 18, VULPIX
 	db 18, ZUBAT
-	db 19, PSYDUCK
+	db 19, VULPIX
 	db 19, JYNX
-	db 19, PSYDUCK
+	db 19, VULPIX
 	db 20, ZUBAT
 	db 20, JYNX
 
 	map MT_NAVEL_2F
 	db 5 percent, 5 percent, 5 percent ; encounter rates: morn/day/nite
 	; morn
-	db 18, PSYDUCK
+	db 18, VULPIX
 	db 18, ZUBAT
-	db 19, PSYDUCK
+	db 19, VULPIX
 	db 19, JYNX
-	db 19, PSYDUCK
+	db 19, VULPIX
 	db 20, ZUBAT
 	db 20, JYNX
 	; day
@@ -451,22 +451,22 @@
 	db 20, ZUBAT
 	db 20, JYNX
 	; nite
-	db 18, PSYDUCK
+	db 18, VULPIX
 	db 18, ZUBAT
-	db 19, PSYDUCK
+	db 19, VULPIX
 	db 19, JYNX
-	db 19, PSYDUCK
+	db 19, VULPIX
 	db 20, ZUBAT
 	db 20, JYNX
 
 	map MT_NAVEL_ICE_ROCK
 	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
 	; morn
-	db 35, GOLDUCK
+	db 35, NINETALES
 	db 35, GOLBAT
 	db 35, JYNX
 	db 35, JYNX
-	db 35, GOLDUCK
+	db 35, NINETALES
 	db 35, GOLBAT
 	db 35, JYNX
 	; day
@@ -478,11 +478,11 @@
 	db 35, GOLBAT
 	db 35, JYNX
 	; nite
-	db 35, GOLDUCK
+	db 35, NINETALES
 	db 35, GOLBAT
 	db 35, JYNX
 	db 35, JYNX
-	db 35, GOLDUCK
+	db 35, NINETALES
 	db 35, GOLBAT
 	db 35, JYNX
 

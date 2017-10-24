@@ -3,11 +3,11 @@
 	db  38,  41,  40,  65,  50,  65
 	;   hp  atk  def  spd  sat  sdf
 
-	db FIRE, FIRE
+	db ICE, ICE
 	db 190 ; catch rate
 	db 60 ; base exp
-	db BURNT_BERRY ; item 1
-	db BURNT_BERRY ; item 2
+	db NO_TEM ; item 1
+	db FIRE_STONE ; item 2 ICE_STONE
 	db FEMALE_75 ; gender
 	db 20 ; step cycles to hatch
 	dn 6, 6 ; frontpic dimensions

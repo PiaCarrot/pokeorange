@@ -187,6 +187,7 @@ ItemDescriptions:
 	dw MusicMailDesc
 	dw MewMailDesc
 	dw XSpclDefDesc
+	dw IceStoneDesc
 
 MasterBallDesc:
 	db   "The best BALL. It"
@@ -807,3 +808,7 @@ MewMailDesc:
 XSpclDefDesc:
 	db   "Raises SPECIAL"
 	next "DEFENSE. (1 BTL)@"
+	
+IceStoneDesc:
+	db   "Evolves certain"
+	next "kinds of #MON.@"
