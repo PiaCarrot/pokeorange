@@ -514,8 +514,7 @@ ClefableEvosAttacks:
 	db 0 ; no more level-up moves
 
 VulpixEvosAttacks:
-	db EVOLVE_ITEM, FIRE_STONE, NINETALES
-;	db EVOLVE_ITEM, ICE_STONE, NINETALES
+	db EVOLVE_ITEM, ICE_STONE, NINETALES
 	db 0 ; no more evolutions
 	db 1, ICY_WIND
 	db 1, TAIL_WHIP

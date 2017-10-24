@@ -462,11 +462,11 @@
 	map MT_NAVEL_ICE_ROCK
 	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
 	; morn
-	db 35, NINETALES
+	db 35, VULPIX
 	db 35, GOLBAT
 	db 35, JYNX
 	db 35, JYNX
-	db 35, NINETALES
+	db 35, VULPIX
 	db 35, GOLBAT
 	db 35, JYNX
 	; day
@@ -478,11 +478,11 @@
 	db 35, GOLBAT
 	db 35, JYNX
 	; nite
-	db 35, NINETALES
+	db 35, VULPIX
 	db 35, GOLBAT
 	db 35, JYNX
 	db 35, JYNX
-	db 35, NINETALES
+	db 35, VULPIX
 	db 35, GOLBAT
 	db 35, JYNX
 
