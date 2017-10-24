@@ -645,6 +645,49 @@ SabrinaGroup:
 BlaineGroup:
 ; ================================
 ; ================
+
+	; BLAINE (1)
+	db "BLAINE@"
+	db 1 ; moves
+	
+	db 64, ARCANINE
+		db EXTREMESPEED
+		db FIRE_BLAST
+		db AGILITY
+		db ROAR
+		
+	db 65, MAGMORTAR
+		db FLAMETHROWER
+		db SLUDGE_BOMB
+		db SUNNY_DAY
+		db FIRE_BLAST
+		
+	db 64, RAPIDASH
+		db HORN_DRILL
+		db LOCK_ON
+		db FOCUS_ENERGY
+		db HYPER_BEAM
+		
+	db 63, MAGCARGO
+		db DIG
+		db FIRE_BLAST
+		db ROCK_SLIDE
+		db AMNESIA
+		
+	db 62, FLAREON
+		db BATON_PASS
+		db NASTY_PLOT
+		db FLAME_WHEEL
+		db QUICK_ATTACK
+		
+	db 63, CHARIZARD
+		db FLY
+		db SEISMIC_TOSS
+		db FIRE_PUNCH
+		db DRAGONBREATH
+		
+	db $ff
+	
 ; ================================
 
 
@@ -695,6 +738,50 @@ LoreleiGroup:
 		db ATTRACT
 
 	db $ff ; end
+	
+; ================
+
+	; LORELEI (2)
+	db "LORELEI@"
+	db 1 ; moves
+	
+	db 64, DEWGONG
+		db LOCK_ON
+		db HORN_DRILL
+		db BLIZZARD
+		db HAIL
+		
+	db 65, CLOYSTER
+		db SPIKE_CANNON
+		db DIVE
+		db MIRROR_COAT
+		db SPIKES
+		
+	db 63, NINETALES
+		db MOONBLAST
+		db ICE_BEAM
+		db CONFUSE_RAY
+		db PSYCHIC_M
+		
+	db 61, LAPRAS
+		db PERISH_SONG
+		db BATON_PASS
+		db SURF
+		db ENDURE
+		
+	db 62, JYNX
+		db SWEET_KISS
+		db ICE_PUNCH
+		db ATTRACT
+		db FISSURE
+		
+	db 60, GLACEON
+		db NASTY_PLOT
+		db BATON_PASS
+		db ICE_BEAM
+		db BITE
+		
+	db $ff
 ; ================================
 
 
@@ -1279,7 +1366,7 @@ SwimmerMGroup:
 	db 0 ; normal
 
 	; party
-	db 16, WINGULL
+	db 16, MAREANIE
 	db 16, GOLDEEN
 
 	db $ff ; end
@@ -1315,7 +1402,7 @@ SwimmerMGroup:
 	db 0 ; normal
 
 	; party
-	db 23, WAILMER
+	db 23, MAREANIE
 	db 23, WAILMER
 
 	db $ff ; end
@@ -1338,11 +1425,9 @@ SwimmerMGroup:
 	db 0 ; normal
 
 	db 6, MAGIKARP
+	db 6, SLOWPOKE
 	db 6, MAGIKARP
-	db 6, MAGIKARP
-	db 6, MAGIKARP
-	db 6, MAGIKARP
-	db 6, MAGIKARP
+	db 6, CARVANHA
 
 	db $ff
 
@@ -1410,7 +1495,7 @@ SwimmerFGroup:
 	db 0 ; normal
 
 	; party
-	db 16, GOLDEEN
+	db 16, SKRELP
 	db 16, GOLDEEN
 	db 16, QWILFISH
 
@@ -1436,7 +1521,7 @@ SwimmerFGroup:
 
 	; party
 	db 22, CHINCHOU
-	db 22, CORSOLA
+	db 22, STARYU
 	db 22, STUNFISK
 	db 22, CHINCHOU
 
@@ -1449,8 +1534,8 @@ SwimmerFGroup:
 	db 0 ; normal
 
 	; party
-	db 24, SHELLDER
-	db 24, STARYU
+	db 24, HORSEA
+	db 24, SKRELP
 
 	db $ff ; end
 
@@ -1565,7 +1650,7 @@ FisherGroup:
 
 	; party
 	db 23, QWILFISH
-	db 23, RELICANTH
+	db 23, FINNEON
 	db 23, CHINCHOU
 
 	db $ff ; end

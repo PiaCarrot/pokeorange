@@ -47,9 +47,9 @@ PinkanIslandHiddenPinkanBerry:
 ManiacShawnSeenText:
 	text "Ahaha!"
 
-	para "I painted myself"
-	line "to blend in with"
-	cont "the #MON!"
+	para "PINK! PINK! PINK!"
+	line "Pink is the best"
+	cont "color!"
 
 	para "How do you like"
 	line "it?"
@@ -80,11 +80,10 @@ PinkanTrainerTipsSignText:
 	line "caught on PINKAN"
 	cont "ISLAND are PINK"
 	cont "permanently."
-
-	para "However, #MON"
-	line "that eat PINKAN"
-	cont "BERRIES will be"
-	cont "PINK temporarily."
+	
+	para "PINKAN BERRY will"
+	line "also turn #MON"
+	cont "PINK."
 	done
 
 PinkanIslandFruitTree1:
