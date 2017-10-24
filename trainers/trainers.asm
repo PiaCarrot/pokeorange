@@ -297,6 +297,52 @@ LuanaGroup:
 		db NASTY_PLOT
 		
 	db $ff ; end
+	
+; ================
+
+	; LUANA (2)
+	db "LUANA@"
+	db 1 ; moves
+
+	; party
+		
+	db 74, MAROWAK
+		db SHADOW_BONE
+		db SUNNY_DAY
+		db FIRE_BLAST
+		db PROTECT
+		
+	db 75, TURTONATOR
+		db SHELL_TRAP
+		db DRAGON_PULSE
+		db FIRE_BLAST
+		db NASTY_PLOT
+		
+	db 76, ALAKAZAM
+		db PSYCHIC_M
+		db NASTY_PLOT
+		db SUNNY_DAY
+		db SAFEGUARD
+		
+	db 73, TROPIUS
+		db AERIAL_ACE
+		db FLY
+		db SOLARBEAM
+		db SYNTHESIS
+		
+	db 74, LICKILICKY
+		db DEFENSE_CURL
+		db ROLLOUT
+		db DOUBLE_EDGE
+		db HYPER_BEAM
+		
+	db 73, AZUMARILL
+		db DAZZLINGLEAM
+		db WATERFALL
+		db BATON_PASS
+		db DOUBLE_EDGE
+		
+	db $ff ; end
 
 ; ================================
 
@@ -304,6 +350,97 @@ LuanaGroup:
 DrakeGroup:
 ; ================================
 ; ================
+
+	; DRAKE (1)
+	db "DRAKE@"
+	db 1 ; moves
+
+	; party
+
+	db 60, DITTO
+		db TRANSFORM
+		db 0
+		db 0
+		db 0
+		
+	db 62, STEELIX
+		db DIG
+		db IRON_TAIL
+		db ROCK_BLAST
+		db EARTHQUAKE
+		
+	db 61, GENGAR
+		db CONFUSE_RAY
+		db HYPNOSIS
+		db SHADOW_BALL
+		db NASTY_PLOT
+		
+	db 63, VENUSAUR
+		db SUNNY_DAY
+		db SOLARBEAM
+		db VENOSHOCK
+		db TOXIC
+		
+	db 61, ELECTIVIRE
+		db THUNDERPUNCH
+		db BODY_SLAM
+		db POWERUPPUNCH
+		db AGILITY
+		
+	db 64, DRAGONITE
+		db DRAGON_RAGE
+		db DRAGON_PULSE
+		db HYPER_BEAM
+		db ICE_BEAM
+		
+	db $ff ; end
+	
+; ================
+
+	; DRAKE (2)
+	db "DRAKE@"
+	db 1 ; moves
+
+	; party
+
+	db 76, MR__MIME
+		db PSYCHIC_M
+		db NASTY_PLOT
+		db BARRIER
+		db BATON_PASS
+		
+	db 77, STEELIX
+		db DOUBLE_EDGE
+		db IRON_TAIL
+		db ANCIENTPOWER
+		db EARTHQUAKE
+		
+	db 77, PORYGONZ
+		db CONVERSION
+		db CONVERSION2
+		db TRI_ATTACK
+		db HYPER_BEAM
+		
+	db 79, VENUSAUR
+		db SUNNY_DAY
+		db SOLARBEAM
+		db NASTY_PLOT
+		db PETAL_DANCE
+		
+	db 78, DRAGALGE
+		db TOXIC
+		db DRAGON_PULSE
+		db VENOSHOCK
+		db WATERFALL
+		
+	db 80, DRAGONITE
+		db THUNDER
+		db DRAGON_PULSE
+		db HYPER_BEAM
+		db ICE_BEAM
+		
+	db $ff ; end
+	
 ; ================================
 
 
@@ -359,6 +496,40 @@ TraceyGroup:
 
 	db 22, FLAAFFY
 		db THUNDERBOLT
+		db THUNDER_WAVE
+		db QUICK_ATTACK
+		db DOUBLE_TEAM
+
+	db $ff ; end
+	
+; ================
+
+	; TRACEY (3)
+	db "TRACEY@"
+	db 1 ; moves
+
+	; party
+
+	db 33, VENOMOTH
+		db SIGNAL_BEAM
+		db WING_ATTACK
+		db HYPNOSIS
+		db POISONPOWDER
+
+	db 34, AZUMARILL
+		db BUBBLEBEAM
+		db FAIRY_WIND
+		db SLAM
+		db SURF
+
+	db 31, DODRIO
+		db FLY
+		db AGILITY
+		db TRI_ATTACK
+		db AERIAL_ACE
+
+	db 30, AMPHAROS
+		db THUNDERPUNCH
 		db THUNDER_WAVE
 		db QUICK_ATTACK
 		db DOUBLE_TEAM
