@@ -161,6 +161,7 @@ MAP_NONE EQU 0
 	mapgroup SUNBURST_LARGE_HOUSE, 4, 4
 	mapgroup SUNBURST_SOUTH_HOUSE, 4, 4
 	mapgroup SUNBURST_CRYSTAL_SHOP, 3, 4
+	mapgroup TROVITOPOLIS, 25, 36
 
 
 ; elevator floors

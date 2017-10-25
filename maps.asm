@@ -170,6 +170,7 @@ INCLUDE "maps/WreckedShipUnderwater.asm"
 INCLUDE "maps/WreckedShipUnsunk.asm"
 INCLUDE "maps/UnnamedIsland2.asm"
 INCLUDE "maps/Route62.asm"
+INCLUDE "maps/Trovitopolis.asm"
 
 SECTION "Map Scripts 11", ROMX, BANK[MAP_SCRIPTS_11]
 INCLUDE "maps/GoldenIsland.asm"

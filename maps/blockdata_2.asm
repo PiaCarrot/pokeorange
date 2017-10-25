@@ -71,3 +71,6 @@ MurcottIsland_BlockData:
 	
 UnnamedIsland2_BlockData:
 	INCBIN "maps/UnnamedIsland2.blk"
+	
+Trovitopolis_BlockData:
+	INCBIN "maps/Trovitopolis.blk"
