@@ -37,47 +37,44 @@ const_value SET 1
 
 ; menu sprites
 const_value SET 1
-	const ICON_POLIWAG
-	const ICON_JIGGLYPUFF
-	const ICON_DIGLETT
-	const ICON_PIKACHU
-	const ICON_STARYU
-	const ICON_FISH
-	const ICON_BIRD
-	const ICON_MONSTER
-	const ICON_CLEFAIRY
-	const ICON_ODDISH
-	const ICON_BUG
-	const ICON_GHOST
-	const ICON_LAPRAS
-	const ICON_HUMANSHAPE
-	const ICON_FOX
-	const ICON_EQUINE
-	const ICON_SHELL
-	const ICON_BLOB
-	const ICON_SERPENT
-	const ICON_VOLTORB
-	const ICON_SQUIRTLE
-	const ICON_BULBASAUR
-	const ICON_CHARMANDER
-	const ICON_CATERPILLAR
-	const ICON_SPINDA
-	const ICON_GEODUDE
-	const ICON_FIGHTER
 	const ICON_EGG
-	const ICON_JELLYFISH
-	const ICON_MOTH
-	const ICON_BAT
-	const ICON_SNORLAX
-	const ICON_HO_OH
-	const ICON_LUGIA
-	const ICON_GYARADOS
-	const ICON_SLOWPOKE
-	const ICON_MIME__JR
-	const ICON_BIGMON
 	
+	const ICON_BULBASAUR
+	const ICON_IVYSAUR
+	const ICON_VENUSAUR
+	const ICON_CHARMANDER
+	const ICON_CHARMELEON
+	const ICON_CHARIZARD
+	const ICON_SQUIRTLE
+	const ICON_WARTORTLE
+	const ICON_BLASTOISE
+	const ICON_CATERPIE
+	const ICON_METAPOD
+	const ICON_BUTTERFREE
+	const ICON_WEEDLE
+	const ICON_KAKUNA
+	const ICON_BEEDRILL
+	const ICON_PIDGEY
+	const ICON_PIDGEOTTO
+	const ICON_PIDGEOT
+	const ICON_RATTATA
+	const ICON_RATICATE
+	const ICON_SPEAROW
+	const ICON_FEAROW
+	const ICON_EKANS
+	const ICON_ARBOK
+	const ICON_PIKACHU
+	const ICON_RAICHU
+	const ICON_SANDSHREW
+	
+;gen 3
 	const ICON_WINGULL
-
+	const ICON_PELIPPER
+	const ICON_AZURILL
+	const ICON_CHIMECHO
+	const ICON_KECLEON
+	const ICON_TROPIUS
+	const ICON_RELICANTH
 
 ; evolution types
 const_value SET 1

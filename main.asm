@@ -3981,7 +3981,7 @@ INCBIN "gfx/player/chris.7x7.2bpp"
 KrisPic: ; 88bb9
 INCBIN "gfx/player/kris.7x7.2bpp"
 
-SECTION "bank23", ROMX, BANK[$23]
+SECTION "bank23", ROMX
 
 INCLUDE "engine/timeofdaypals.asm"
 INCLUDE "engine/battle_start.asm"
