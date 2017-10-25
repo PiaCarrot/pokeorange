@@ -75,6 +75,8 @@ const_value SET 1
 	const ICON_SLOWPOKE
 	const ICON_MIME__JR
 	const ICON_BIGMON
+	
+	const ICON_WINGULL
 
 
 ; evolution types

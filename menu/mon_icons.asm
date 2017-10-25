@@ -174,7 +174,7 @@ MonMenuIcons: ; 8eac4
 	db ICON_MONSTER      ; MUNCHLAX
 	db ICON_MONSTER      ; MINCCINO
 	db ICON_MONSTER      ; CINCCINO
-	db ICON_BIRD         ; WINGULL
+	db ICON_WINGULL      ; WINGULL
 	db ICON_BIRD         ; PELIPPER
 	db ICON_BIRD         ; CHINGLING
 	db ICON_BIRD         ; CHIMECHO
@@ -308,6 +308,8 @@ IconPointers:
 	dw SlowpokeIcon
 	dw SudowoodoIcon
 	dw BigmonIcon
+	
+	dw WingullIcon
 
 Icons:
 NullIcon:
@@ -349,3 +351,5 @@ GyaradosIcon:     INCBIN "gfx/icon/gyarados.2bpp" ; 0x8fd0d
 SlowpokeIcon:     INCBIN "gfx/icon/slowpoke.2bpp" ; 0x8fd8d
 SudowoodoIcon:    INCBIN "gfx/icon/sudowoodo.2bpp" ; 0x8fe0d
 BigmonIcon:       INCBIN "gfx/icon/bigmon.2bpp" ; 0x8fe8d
+
+WingullIcon:      INCBIN "gfx/icon/wingull.2bpp"
