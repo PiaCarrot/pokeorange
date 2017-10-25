@@ -15,6 +15,7 @@
 - Gen 5 Exp System
 - Prism Menu Icon code (Not using the Chamber/Blueemerald/Soloo menu sprites)
 - Prism DED cry code
+- When releasing Pokemon, make sure it is not last Pokemon you own with Surf.
 
 ## Moves
 
