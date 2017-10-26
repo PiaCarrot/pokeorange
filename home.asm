@@ -1129,7 +1129,6 @@ HandleStoneQueue:: ; 3567
 ; 35de
 
 .IsObjectInStoneTable: ; 35de
-	inc e
 	ld hl, CMDQUEUE_ADDR
 	add hl, bc
 	ld a, [hli]
