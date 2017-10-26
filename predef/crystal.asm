@@ -32,6 +32,10 @@ LoadSpecialMapPalette: ; 494ac
 	ld hl, GoldenIslandPalette
 	cp TILESET_GOLDEN_ISLAND
 	jr z, LoadEightTimeOfDayBGPalettes
+	
+	ld hl, MandarinDesertPalette
+	cp TILESET_DESERT
+	jr z, LoadEightTimeOfDayBGPalettes
 
 .do_nothing
 	and a
@@ -89,6 +93,8 @@ INCLUDE "tilesets/underwater.pal"
 GoldenIslandPalette:
 INCLUDE "tilesets/golden_island.pal"
 
+MandarinDesertPalette:
+INCLUDE "tilesets/mandarin_desert.pal"
 
 LoadSpecialMapOBPalette:
 	ld a, [wTileset]

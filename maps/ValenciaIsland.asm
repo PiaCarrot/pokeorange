@@ -123,7 +123,7 @@ if def(DEBUG)
 	closetext
 	callasm TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp TROVITOPOLIS, 37, 19
+	warp MANDARIN_DESERT, 37, 19
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

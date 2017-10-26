@@ -67,3 +67,6 @@ GoldenIsland_BlockData:
 
 GoldenIslandGateHouse_BlockData:
 	INCBIN "maps/GoldenIslandGateHouse.blk"
+
+MandarinDesert_BlockData:
+	INCBIN "maps/MandarinDesert.blk"

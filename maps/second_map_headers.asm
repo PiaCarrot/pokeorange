@@ -178,6 +178,7 @@
 	map_header_2 MurcottPokeCenter, MURCOTT_POKE_CENTER, 0, 0
 	map_header_2 MurcottPokeMart, MURCOTT_POKE_MART, 0, 0
 	map_header_2 Trovitopolis, TROVITOPOLIS, 53, 0
+	map_header_2 MandarinDesert, MANDARIN_DESERT, 21, 0
 
 	map_header_2 DayCare, DAYCARE, $0, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

@@ -29,6 +29,7 @@ MAP_NONE EQU 0
 	mapgroup MT_NAVEL_ICE_ROCK, 4, 4
 	mapgroup CRYSTAL_CAVE_1F, 14, 17
 	mapgroup CRYSTAL_CAVE_B1, 14, 18
+	mapgroup MANDARIN_DESERT, 25, 25
 
 	newgroup ; 3
 
