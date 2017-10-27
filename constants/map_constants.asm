@@ -74,7 +74,7 @@ MAP_NONE EQU 0
 	newgroup ; 5
 
 	mapgroup ROUTE_52_TANGELO_JUNGLE_GATE, 4, 5
-	mapgroup ROUTE_52, 45, 11
+	mapgroup ROUTE_52, 40, 11
 	mapgroup MIKAN_ISLAND, 18, 17
 	mapgroup MIKAN_MART, 4, 6
 	mapgroup MIKAN_GYM, 9, 5
@@ -162,7 +162,7 @@ MAP_NONE EQU 0
 	mapgroup SUNBURST_LARGE_HOUSE, 4, 4
 	mapgroup SUNBURST_SOUTH_HOUSE, 4, 4
 	mapgroup SUNBURST_CRYSTAL_SHOP, 3, 4
-	mapgroup TROVITOPOLIS, 25, 36
+	mapgroup TROVITOPOLIS, 25, 35
 
 
 ; elevator floors

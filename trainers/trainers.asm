@@ -1460,6 +1460,17 @@ SwimmerMGroup:
 		db RAPID_SPIN
 
 	db $ff
+	
+; ================
+
+	; SWIMMERM (11)
+	db "TAKAO@"
+	db 0 ; normal
+
+	db 28, STARMIE
+	db 26, STUNFISK
+
+	db $ff
 ; =================
 ; ================================
 
