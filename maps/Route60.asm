@@ -155,8 +155,8 @@ Route60_MapEventHeader::
 .Warps: db 4
 	warp_def 10, 49, 1, MORO_ROUTE_60_GATE
 	warp_def 11, 49, 2, MORO_ROUTE_60_GATE
-	warp_def 10, 4, 3, GOLDEN_ISLAND_GATE_HOUSE
-	warp_def 11, 4, 4, GOLDEN_ISLAND_GATE_HOUSE
+	warp_def 52, 4, 3, GOLDEN_ISLAND_GATE_HOUSE
+	warp_def 53, 4, 4, GOLDEN_ISLAND_GATE_HOUSE
 
 .CoordEvents: db 2
 	xy_trigger 0, 12, 39, 0, RocketRoute60Event, 0, 0
@@ -170,3 +170,4 @@ Route60_MapEventHeader::
 	person_event SPRITE_JAMES, 13, 35, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_60_ROCKET
 	person_event SPRITE_POKE_BALL, 19, 46, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route60UltraBall, EVENT_ROUTE_60_ULTRA_BALL
 	person_event SPRITE_SWIMMER_GIRL, 14, 18, SPRITEMOVEDATA_SWIM_AROUND, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route60SwimmerGirlScript, -1
+

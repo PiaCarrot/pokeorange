@@ -755,5 +755,32 @@
 	db 24, GRAVELER
 	db 24, TAUROS
 	db 25, SKARMORY
+	
+	map MANDARIN_DESERT
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 22, SANDYGAST
+	db 22, DIGLETT
+	db 22, SANDSHREW
+	db 23, SANDYGAST
+	db 23, TRAPINCH
+	db 24, TRAPINCH
+	db 24, CUBONE
+	; day
+	db 22, SANDYGAST
+	db 22, DIGLETT
+	db 22, SANDSHREW
+	db 23, SANDYGAST
+	db 23, TRAPINCH
+	db 24, TRAPINCH
+	db 24, CUBONE
+	; nite
+	db 22, SANDYGAST
+	db 22, DIGLETT
+	db 22, SANDSHREW
+	db 23, SANDYGAST
+	db 23, TRAPINCH
+	db 24, TRAPINCH
+	db 24, CUBONE
 
 	db -1 ; end
