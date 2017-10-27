@@ -20,3 +20,4 @@ Trovitopolis_MapEventHeader::
 .BGEvents: db 0
 
 .ObjectEvents: db 0
+

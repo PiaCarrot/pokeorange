@@ -1224,6 +1224,19 @@ YoungsterGroup:
 	db 9, PIKACHU
 
 	db $ff ; end
+	
+; ================
+
+; YOUNGSTER (5)
+	db "HIRUMA@"
+	db 0 ; normal
+
+	; party
+	db 29, IVYSAUR
+	db 29, RATICATE
+	db 29, POLITOED
+
+	db $ff ; end
 
 ; ================
 ; ================================
@@ -1240,6 +1253,18 @@ LassGroup:
 	; party
 	db 11, MARILL
 	db 11, STARYU
+
+	db $ff ; end
+	
+; ================
+
+	; LASS (2)
+	db "FUYUMI@"
+	db 0 ; normal
+
+	; party
+	db 31, JUMPLUFF
+	db 29, HORSEA
 
 	db $ff ; end
 
@@ -1599,6 +1624,19 @@ PokemaniacGroup:
 	db $ff ; end
 
 ; ================
+
+	; POKEMANIAC (2)
+	db "KUSATO@"
+	db 0 ; normal
+
+	; party
+	db 34, SALAZZLE
+	db 31, MUK
+	db 28, SKRELP
+
+	db $ff ; end
+	
+; ================
 ; ================================
 
 
@@ -1912,9 +1950,20 @@ CatmanGroup:
 ; ================================
 
 
-;BirdKeeperGroup:
+BirdKeeperGroup:
 ; ================================
 ; ================
+	; BIRDKEEPER (1)
+	db "TATSUYA@"
+	db 0
+
+	db 29, PIDGEOTTO
+	db 28, TRUMBEAK
+	db 27, CHATOT
+	db 26, PELIPPER
+	
+	db $ff
+
 ; ================
 ; ================================
 
