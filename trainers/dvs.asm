@@ -78,7 +78,7 @@ TrainerClassDVs: ; 270d6
 	db $D8, $C8 ; cooltrainerm
 	db $D8, $C8 ; cooltrainerf
 	db $98, $88 ; catman
-;	db $98, $88 ; bird keeper
+	db $98, $88 ; birdkeeper
 ;	db $98, $88 ; gentleman
 ;	db $68, $88 ; teacher
 ;	db $98, $88 ; sailor

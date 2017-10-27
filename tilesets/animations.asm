@@ -159,25 +159,6 @@ Tileset29Anim: ; 0xfc233
 	dw NULL,  DoneTileAnimation
 ; 0xfc27f
 
-Tileset23Anim: ; 0xfc27f
-	dw SproutPillarTilePointer9,  AnimateSproutPillarTile
-	dw SproutPillarTilePointer10, AnimateSproutPillarTile
-	dw SproutPillarTilePointer7,  AnimateSproutPillarTile
-	dw SproutPillarTilePointer8,  AnimateSproutPillarTile
-	dw SproutPillarTilePointer5,  AnimateSproutPillarTile
-	dw SproutPillarTilePointer6,  AnimateSproutPillarTile
-	dw SproutPillarTilePointer3,  AnimateSproutPillarTile
-	dw SproutPillarTilePointer4,  AnimateSproutPillarTile
-	dw SproutPillarTilePointer1,  AnimateSproutPillarTile
-	dw SproutPillarTilePointer2,  AnimateSproutPillarTile
-	dw NULL,  StandingTileFrame
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  DoneTileAnimation
-; 0xfc2bf
-
 Tileset30Anim: ; 0xfc1e7
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -208,6 +189,7 @@ Tileset18Anim: ; 0xfc2e7
 Tileset20Anim: ; 0xfc2e7
 Tileset21Anim: ; 0xfc2e7
 Tileset22Anim: ; 0xfc2e7
+Tileset23Anim: ; 0xfc2bf
 Tileset25Anim: ; 0xfc047
 Tileset26Anim: ; 0xfc2e7
 Tileset27Anim: ; 0xfc2e7

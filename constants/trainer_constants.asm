@@ -176,7 +176,8 @@ KRIS EQU __enum__
 	const REN
 	const MIMI
 
-;	trainerclass BIRD_KEEPER
+	trainerclass BIRDKEEPER
+	const TATSUYA
 
 ;	trainerclass GENTLEMAN
 

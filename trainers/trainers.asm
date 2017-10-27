@@ -1950,7 +1950,7 @@ CatmanGroup:
 ; ================================
 
 
-BirdKeeperGroup:
+BirdkeeperGroup:
 ; ================================
 ; ================
 	; BIRDKEEPER (1)

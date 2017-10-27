@@ -57,7 +57,7 @@ TrainerGroups: ; 0x39999
 	dw CooltrainerMGroup
 	dw CooltrainerFGroup
 	dw CatmanGroup
-;	dw BirdKeeperGroup
+	dw BirdkeeperGroup
 ;	dw GentlemanGroup
 ;	dw TeacherGroup
 ;	dw SailorGroup
