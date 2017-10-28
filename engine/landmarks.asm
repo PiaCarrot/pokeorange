@@ -105,7 +105,7 @@ ENDM
 	landmark   44,   60, Route69Name
 	landmark   24,   56, UnnamedIsland3Name
 	landmark   20,   36, Route70Name
-	landmark   20,   36, VictoryRoadName
+	landmark   28,   36, VictoryRoadName
 	landmark   36,   36, PummeloIslandName
 	landmark   52,   36, Route71Name
 	landmark   64,   32, TarrocoIslandName

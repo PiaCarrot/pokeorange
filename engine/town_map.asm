@@ -980,6 +980,7 @@ endm
 	townmappals 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 4, 5
 	townmappals 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1
 	townmappals 1, 1, 1, 2, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0
+	townmappals 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 2, 2, 0, 0
 ; 91f7b
 
 TownMapMon: ; 91f7b
@@ -1057,7 +1058,7 @@ TownMapPlayerIcon: ; 91fa6
 LoadTownMapGFX: ; 91ff2
 	ld hl, TownMapGFX
 	ld de, VTiles2
-	lb bc, BANK(TownMapGFX), $30
+	lb bc, BANK(TownMapGFX), $40
 	jp DecompressRequest2bpp
 
 ; 91fff

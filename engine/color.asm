@@ -1390,6 +1390,11 @@ MaleTownMapPals:
 	RGB 15, 07, 00
 	RGB 31, 00, 00
 
+	RGB 00, 31, 00
+	RGB 15, 07, 00
+	RGB 00, 00, 31
+	RGB 00, 00, 00
+
 FemaleTownMapPals:
 	RGB 28, 31, 20
 	RGB 21, 21, 21
@@ -1421,6 +1426,11 @@ FemaleTownMapPals:
 	RGB 00, 31, 00
 	RGB 15, 07, 00
 	RGB 31, 00, 00
+
+	RGB 00, 31, 00
+	RGB 15, 07, 00
+	RGB 00, 00, 31
+	RGB 00, 00, 00
 
 SlotMachinePals:
 	RGB 31, 31, 31

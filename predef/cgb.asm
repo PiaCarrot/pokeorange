@@ -161,7 +161,7 @@ _CGB_TownMapPals: ; 8eb9
 	ld hl, FemaleTownMapPals
 .male
 	ld de, UnknBGPals
-	ld bc, 6 palettes
+	ld bc, 7 palettes
 	ld a, $5
 	call FarCopyWRAM
 	ld hl, PartyMenuOBPals
