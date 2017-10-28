@@ -222,3 +222,5 @@ SECTION "Map Scripts 24", ROMX, BANK[MAP_SCRIPTS_24]
 
 
 SECTION "Map Scripts 25", ROMX, BANK[MAP_SCRIPTS_25]
+
+INCLUDE "maps/VermilionCity.asm"

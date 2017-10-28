@@ -19,6 +19,9 @@ RedsHouse2F_BlockData:
 OaksLab_BlockData:
 	INCBIN "maps/OaksLab.blk"
 
+VermilionCity_BlockData:
+	INCBIN "maps/VermilionCity.blk"
+
 NationalPark_BlockData:
 NationalParkBugContest_BlockData:
 	INCBIN "maps/NationalPark.blk"

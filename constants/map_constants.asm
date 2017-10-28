@@ -116,6 +116,7 @@ MAP_NONE EQU 0
 	mapgroup REDS_HOUSE_2F, 4, 4
 	mapgroup BLUES_HOUSE, 4, 4
 	mapgroup OAKS_LAB, 6, 5
+	mapgroup VERMILION_CITY, 20, 24
 
 	newgroup ; 8
 
