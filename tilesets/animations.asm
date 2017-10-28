@@ -37,7 +37,6 @@ _AnimateTileset:: ; fc000
 
 Tileset00Anim: ; 0xfc01b
 Tileset02Anim: ; 0xfc01b
-Tileset03Anim: ; 0xfc01b
 Tileset31Anim: ; 0xfc073
 	dw VTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
@@ -53,6 +52,18 @@ Tileset31Anim: ; 0xfc073
 ; 0xfc047
 
 
+Tileset03Anim: ; 0xfc01b
+	dw VTiles2 tile $14, AnimateWaterTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  AnimateKantoFlowerTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
 ; 0xfc073
 
 Tileset01Anim: ; 0xfc0a3
@@ -495,6 +506,34 @@ FlowerTileFrames: ; fc58c
 	INCBIN "gfx/tilesets/flower/1.2bpp"
 	INCBIN "gfx/tilesets/flower/2.2bpp"
 ; fc5cc
+
+
+AnimateKantoFlowerTile:
+; No parameters.
+
+; Save sp in bc (see WriteTile).
+	ld hl, sp+$0
+	ld b, h
+	ld c, l
+
+; Alternate tile graphic every other frame
+	ld a, [TileAnimationTimer]
+	and %10
+	srl a
+	swap a ; << 4 (16 bytes)
+	ld e, a
+	ld d, 0
+	ld hl, KantoFlowerTileFrames
+	add hl, de
+	ld sp, hl
+
+	ld hl, VTiles2 tile $62
+
+	jp WriteTile
+
+KantoFlowerTileFrames:
+	INCBIN "gfx/tilesets/kanto-flower/1.2bpp"
+	INCBIN "gfx/tilesets/kanto-flower/2.2bpp"
 
 
 SafariFountainAnim1: ; fc5cc
