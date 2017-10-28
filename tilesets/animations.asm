@@ -51,21 +51,6 @@ Tileset31Anim: ; 0xfc073
 	dw NULL,  DoneTileAnimation
 ; 0xfc047
 
-
-Tileset03Anim: ; 0xfc01b
-	dw VTiles2 tile $14, AnimateWaterTile
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  AnimateKantoFlowerTile
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  StandingTileFrame8
-	dw NULL,  DoneTileAnimation
-; 0xfc073
-
 Tileset01Anim: ; 0xfc0a3
 	dw RSEWaterFrames1, AnimateRSEWaterTile
     dw RSEWaterFrames2, AnimateRSEWaterTile
@@ -83,6 +68,24 @@ Tileset01Anim: ; 0xfc0a3
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 ; 0xfc0d7
+
+Tileset03Anim: ; 0xfc01b
+	dw RSEWaterFrames1, AnimateRSEWaterTile
+    dw RSEWaterFrames2, AnimateRSEWaterTile
+   	dw DiveWaterFrames1, AnimateDiveWaterTile
+    dw DiveWaterFrames2, AnimateDiveWaterTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  AnimateKantoFlowerTile
+	dw WhirlpoolFrames1, AnimateWhirlpoolTile
+	dw WhirlpoolFrames2, AnimateWhirlpoolTile
+	dw WhirlpoolFrames3, AnimateWhirlpoolTile
+	dw WhirlpoolFrames4, AnimateWhirlpoolTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+; 0xfc073
 
 Tileset19Anim: ; 0xfc2e7
 	dw RSEWaterFrames1, AnimateRSEWaterTile
