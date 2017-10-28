@@ -90,7 +90,7 @@ MAP_NONE EQU 0
 	mapgroup MORO_ROUTE_60_GATE, 4, 5
 	mapgroup ROUTE_60_GATE_UPSTAIRS, 4, 5
 	mapgroup GOLDEN_ISLAND, 16, 14
-	mapgroup ROUTE_60, 30, 28
+	mapgroup ROUTE_60, 32, 28
 	mapgroup WRECKED_SHIP, 12, 20
 	mapgroup WRECKED_SHIP_UNDERWATER, 12, 18
 	mapgroup WRECKED_SHIP_UNSUNK, 12, 18
