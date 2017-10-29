@@ -33,7 +33,7 @@ MAP_NONE EQU 0
 
 	newgroup ; 3
 
-	mapgroup ROUTE_57, 16, 12
+	mapgroup ROUTE_57, 22, 12
 	mapgroup KINNOW_ISLAND_ROUTE_57_GATE, 4, 5
 	mapgroup ROUTE_57_GATE_UPSTAIRS, 4, 5
 	mapgroup UNNAMED_ISLAND_1, 12, 12
@@ -90,7 +90,7 @@ MAP_NONE EQU 0
 	mapgroup MORO_ROUTE_60_GATE, 4, 5
 	mapgroup ROUTE_60_GATE_UPSTAIRS, 4, 5
 	mapgroup GOLDEN_ISLAND, 16, 14
-	mapgroup ROUTE_60, 30, 28
+	mapgroup ROUTE_60, 32, 28
 	mapgroup WRECKED_SHIP, 12, 20
 	mapgroup WRECKED_SHIP_UNDERWATER, 12, 18
 	mapgroup WRECKED_SHIP_UNSUNK, 12, 18
@@ -116,6 +116,7 @@ MAP_NONE EQU 0
 	mapgroup REDS_HOUSE_2F, 4, 4
 	mapgroup BLUES_HOUSE, 4, 4
 	mapgroup OAKS_LAB, 6, 5
+	mapgroup VERMILION_CITY, 20, 24
 
 	newgroup ; 8
 

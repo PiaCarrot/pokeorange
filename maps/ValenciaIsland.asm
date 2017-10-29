@@ -122,8 +122,9 @@ if def(DEBUG)
 	givepoke MEW, 40
 	closetext
 	callasm TeachHMSlaveMoves
+	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp MANDARIN_DESERT, 37, 19
+	warp VERMILION_CITY, 11, 4
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

@@ -1,6 +1,6 @@
 const_value set 1
 
-Trovitopolis_MapScriptHeader::
+VermilionCity_MapScriptHeader::
 
 .Triggers: db 0
 
@@ -8,10 +8,10 @@ Trovitopolis_MapScriptHeader::
 	dbw MAPCALLBACK_NEWMAP, .FlyPoint
 
 .FlyPoint:
-	setflag ENGINE_FLYPOINT_TROVITOPOLIS
+	;setflag ENGINE_FLYPOINT_VERMILION
 	return
 
-Trovitopolis_MapEventHeader::
+VermilionCity_MapEventHeader::
 
 .Warps: db 0
 

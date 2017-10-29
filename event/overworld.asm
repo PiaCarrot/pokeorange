@@ -263,12 +263,10 @@ CutTreeBlockPointers: ; c862
 	db -1
 
 .kanto ; Kanto OW
-	db $0b, $0a, $01 ; grass
-	db $32, $6d, $00 ; tree
-	db $33, $6c, $00 ; tree
-	db $34, $6f, $00 ; tree
-	db $35, $4c, $00 ; tree
-	db $60, $6e, $00 ; tree
+	db $04, $02, $01 ; grass
+	db $05, $02, $01 ; grass
+	db $13, $39, $00 ; tree
+	db $59, $39, $00 ; tree
 	db -1
 
 .park ; National Park
