@@ -122,6 +122,7 @@ if def(DEBUG)
 	givepoke MEW, 40
 	closetext
 	callasm TeachHMSlaveMoves
+	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
 	warp VERMILION_CITY, 11, 4
 	end
