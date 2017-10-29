@@ -25,7 +25,7 @@ MapGroupRoofs: ; 1c021i
 	db  4 ; group 5 (Mikan)
 	db  4 ; group 6 (Murcott)
 	db -1 ; group 7
-	db -1 ; group 8
+	db  2 ; group 8
 	db -1 ; group 9
 	db -1 ; group 10
 	db  0 ; group 11 (Valencia)

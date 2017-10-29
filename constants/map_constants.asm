@@ -122,6 +122,7 @@ MAP_NONE EQU 0
 
 	mapgroup VALENCIA_PORT, 12, 12
 	mapgroup TANGELO_PORT, 12, 12
+	mapgroup TROVITOPOLIS, 24, 36
 
 	newgroup ; 9
 
@@ -163,7 +164,6 @@ MAP_NONE EQU 0
 	mapgroup SUNBURST_LARGE_HOUSE, 4, 4
 	mapgroup SUNBURST_SOUTH_HOUSE, 4, 4
 	mapgroup SUNBURST_CRYSTAL_SHOP, 3, 4
-	mapgroup TROVITOPOLIS, 24, 36
 
 
 ; elevator floors
