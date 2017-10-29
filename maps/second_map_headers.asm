@@ -54,7 +54,7 @@
 
 	map_header_2 Route57, ROUTE_57, 53, NORTH | EAST
 	connection north, UNNAMED_ISLAND_1, UnnamedIsland1, 0, 0, 12, ROUTE_57
-	connection east, SEVEN_GRAPEFRUITS, SevenGrapefruits, 0, 6, 16, ROUTE_57
+	connection east, SEVEN_GRAPEFRUITS, SevenGrapefruits, 0, 0, 22, ROUTE_57
 
 	map_header_2 UnnamedIsland1, UNNAMED_ISLAND_1, 53, SOUTH | EAST
 	connection south, ROUTE_57, Route57, 0, 0, 12, UNNAMED_ISLAND_1
@@ -71,7 +71,7 @@
 	map_header_2 SevenGrapefruits, SEVEN_GRAPEFRUITS, 53, WEST | NORTH | SOUTH
 	connection north, ROUTE_58, Route58, 0, 0, 18, SEVEN_GRAPEFRUITS
 	connection south, ROUTE_59, Route59, 5, 0, 12, SEVEN_GRAPEFRUITS
-	connection west, ROUTE_57, Route57, 6, 0, 16, SEVEN_GRAPEFRUITS
+	connection west, ROUTE_57, Route57, 0, 0, 22, SEVEN_GRAPEFRUITS
 
 	map_header_2 Route59, ROUTE_59, 53, NORTH | SOUTH
 	connection north, SEVEN_GRAPEFRUITS, SevenGrapefruits, -2, 3, 16, ROUTE_59

@@ -3,6 +3,7 @@ const_value set 1
 	const ROUTE_57_SWIMMER_GIRL
 	const ROUTE_57_SIGHTSEERF
 	const ROUTE_57_BUGCATCHERF
+	const ROUTE_57_FISHER
 
 Route57_MapScriptHeader::
 
@@ -82,22 +83,51 @@ BugCatcherFAliaAfterText:
 	cont "#MON collectors."
     done
 
+TrainerFisherYuuta:
+	trainer EVENT_BEAT_FISHER_YUUTA, FISHER, YUUTA, FisherYuutaSeenText, FisherYuutaBeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext FisherYuutaAfterText
+	waitbutton
+	closetext
+	end
+
+FisherYuutaSeenText:
+	text "Deep sea angling"
+	line "will net you big"
+	cont "catches!"
+	done
+
+FisherYuutaBeatenText:
+	text "Wiped out!"
+	done
+
+FisherYuutaAfterText:
+	text "Not bad."
+
+	para "I sense a great"
+	line "FISHER spirit in"
+	cont "you."
+	done
+
 Route57HardStone:
 	itemball HARD_STONE
 
 Route57_MapEventHeader::
 
 .Warps: db 2
-	warp_def 22, 4, 3, KINNOW_ISLAND_ROUTE_57_GATE
-	warp_def 23, 4, 4, KINNOW_ISLAND_ROUTE_57_GATE
+	warp_def 34, 4, 3, KINNOW_ISLAND_ROUTE_57_GATE
+	warp_def 35, 4, 4, KINNOW_ISLAND_ROUTE_57_GATE
 
 .CoordEvents: db 0
 
 .BGEvents: db 0
 
-.ObjectEvents: db 4
-	person_event SPRITE_POKE_BALL, 27, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route57HardStone, EVENT_ROUTE_57_HARD_STONE
-	person_event SPRITE_SWIMMER_GIRL, 16, 15, SPRITEMOVEDATA_SWIM_LEFT_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route57SwimmerGirlScript, -1
-	person_event SPRITE_SIGHTSEER_F, 21, 12, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, TrainerSightSeerAsami, -1
-	person_event SPRITE_SIGHTSEER_F, 9, 13, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 3, TrainerBugCatcherFAlia, -1
-
+.ObjectEvents: db 5
+	person_event SPRITE_POKE_BALL, 39, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route57HardStone, EVENT_ROUTE_57_HARD_STONE
+	person_event SPRITE_SWIMMER_GIRL, 28, 15, SPRITEMOVEDATA_SWIM_LEFT_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route57SwimmerGirlScript, -1
+	person_event SPRITE_SIGHTSEER_F, 33, 12, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, TrainerSightSeerAsami, -1
+	person_event SPRITE_SIGHTSEER_F, 21, 13, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 3, TrainerBugCatcherFAlia, -1
+	person_event SPRITE_FISHER, 7, 7, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerFisherYuuta, -1
