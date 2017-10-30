@@ -68,6 +68,7 @@ TrainerEncounterMusic: ; e9027
 	db MUSIC_HIKER_ENCOUNTER		; swimmerm
 	db MUSIC_BEAUTY_ENCOUNTER		; swimmerf
 	db MUSIC_YOUNGSTER_ENCOUNTER	; camper
+	db MUSIC_POKEMANIAC_ENCOUNTER	; pink_maniac
 	db MUSIC_POKEMANIAC_ENCOUNTER	; pokemaniac
 	db MUSIC_HIKER_ENCOUNTER		; fisher
 	db MUSIC_HIKER_ENCOUNTER		; hiker

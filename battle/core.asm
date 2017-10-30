@@ -3787,7 +3787,8 @@ InitBattleMon: ; 3da0d
 	ld bc, MON_PKRUS - MON_DVS
 	call CopyBytes
 	inc hl
-	inc hl
+	ld a, [hli]
+	ld [BattleMonPersonality], a
 	inc hl
 	ld de, BattleMonLevel
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_LEVEL
@@ -3899,7 +3900,8 @@ InitEnemyMon: ; 3dabd
 	ld bc, MON_PKRUS - MON_DVS
 	call CopyBytes
 	inc hl
-	inc hl
+	ld a, [hli]
+	ld [EnemyMonPersonality], a
 	inc hl
 	ld de, EnemyMonLevel
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_LEVEL
@@ -4628,6 +4630,11 @@ PrintPlayerHUD: ; 3dfbf
 	push bc
 
 	ld a, [CurBattleMon]
+	ld hl, PartyMon1Personality
+	call GetPartyLocation
+	ld a, [hl]
+	ld [TempMonPersonality], a
+	ld a, [CurBattleMon]
 	ld hl, PartyMon1DVs
 	call GetPartyLocation
 	ld de, TempMonDVs
@@ -4638,7 +4645,7 @@ PrintPlayerHUD: ; 3dfbf
 	ld [de], a
 	ld hl, BattleMonLevel
 	ld de, TempMonLevel
-	ld bc, $0011
+	ld bc, PARTYMON_STRUCT_LENGTH - MON_LEVEL
 	call CopyBytes
 	ld a, [CurBattleMon]
 	ld hl, PartyMon1Species
@@ -6250,6 +6257,7 @@ LoadEnemyMon: ; 3e8eb
 .TrainerPersonality:
 ; All trainers have preset personalities, determined by class
 	farcall GetTrainerPersonality
+	ld a, b
 	ld [EnemyMonPersonality], a
 
 .Finish:

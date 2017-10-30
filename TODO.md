@@ -45,7 +45,6 @@
 ## Bugs
 
 - Caught Pokémon sent to the PC lose their personality byte (gender, shiny, pink)
-- NPC trainers have inconsistent/incorrect personalities
 
 ## Things that might be added eventually
 

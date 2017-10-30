@@ -1,10 +1,5 @@
 INCLUDE "predef/cgb.asm"
 
-SHINY_ATK_BIT EQU 5
-SHINY_DEF_VAL EQU 10
-SHINY_SPD_VAL EQU 10
-SHINY_SPC_VAL EQU 10
-
 CheckShininess:
 ; Check if a mon is shiny by personality at bc.
 ; Return carry if shiny.
@@ -113,6 +108,9 @@ GetBattlemonBackpicPalettePointer:
 
 GetEnemyFrontpicPalettePointer:
 ; check if enemy mon is pink
+	ld a, [TempEnemyMonSpecies]
+	and a
+	jp z, GetFrontpicPalettePointer_Trainer
 	ld a, [EnemyMonPink]
 	and PINK_MASK
 	jr z, .not_pink
@@ -125,7 +123,7 @@ GetEnemyFrontpicPalettePointer:
 	ld c, l
 	ld b, h
 	ld a, [TempEnemyMonSpecies]
-	call GetFrontpicPalettePointer_NoMonPinkCheck
+	call GetMonNormalOrShinyPalettePointer_NoPinkCheck
 	pop de
 	ret
 
@@ -160,6 +158,7 @@ endr
 	ret
 
 GetMonNormalOrShinyPalettePointer_Pink:
+	; TODO: separate palette for shiny pink Pokemon?
 	pop af
 	ld hl, PinkanPalette
 	ret
@@ -557,11 +556,6 @@ GetPlayerPalettePointer:
 .male
 	ld hl, PlayerPalette
 	ret
-
-GetFrontpicPalettePointer_NoMonPinkCheck:
-	and a
-	jr z, GetFrontpicPalettePointer_Trainer
-	jp GetMonNormalOrShinyPalettePointer_NoPinkCheck
 
 GetFrontpicPalettePointer:
 	and a

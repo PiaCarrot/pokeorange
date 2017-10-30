@@ -180,7 +180,6 @@ endr
 	and a
 	jr nz, .copywildmonstats
 
-	; TODO: call GetRandomPersonality for gift mon
 	call Random
 	ld b, a
 	call Random
@@ -212,6 +211,19 @@ endr
 	ld [de], a
 	inc de
 ; personality
+	push de
+	ld a, [MonType]
+	and $f
+	jr z, .generatePersonality
+	push hl
+	farcall GetTrainerPersonality
+	ld a, b
+	pop hl
+	jr .initializetrainermonpersonality
+.generatePersonality
+	call GetRandomPersonality
+.initializetrainermonpersonality
+	pop de
 	ld [de], a
 	inc de
 ; caught data

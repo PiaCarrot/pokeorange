@@ -136,8 +136,10 @@ KRIS EQU __enum__
 	trainerclass CAMPER
 	const SAMM
 
-	trainerclass POKEMANIAC
+	trainerclass PINK_MANIAC
 	const SHAWN
+
+	trainerclass POKEMANIAC
 	const KUSATO
 
 	trainerclass FISHER

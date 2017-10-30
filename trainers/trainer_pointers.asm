@@ -47,6 +47,7 @@ TrainerGroups: ; 0x39999
 	dw SwimmerMGroup
 	dw SwimmerFGroup
 	dw CamperGroup
+	dw PinkManiacGroup
 	dw PokemaniacGroup
 	dw FisherGroup
 	dw HikerGroup

@@ -14,7 +14,7 @@ PinkanIsland_MapScriptHeader::
 .Callbacks: db 0
 
 TrainerManiacShawn:
-	trainer EVENT_BEAT_POKEMANIAC_SHAWN, POKEMANIAC, SHAWN, ManiacShawnSeenText, ManiacShawnBeatenText, 0, .Script
+	trainer EVENT_BEAT_POKEMANIAC_SHAWN, PINK_MANIAC, SHAWN, ManiacShawnSeenText, ManiacShawnBeatenText, 0, .Script
 
 .Script:
 	end_if_just_battled
@@ -47,9 +47,9 @@ PinkanIslandHiddenPinkanBerry:
 ManiacShawnSeenText:
 	text "Ahaha!"
 
-	para "PINK! PINK! PINK!"
-	line "Pink is the best"
-	cont "color!"
+	para "I painted myself"
+	line "to blend in with"
+	cont "the #MON!"
 
 	para "How do you like"
 	line "it?"
@@ -117,4 +117,4 @@ PinkanIsland_MapEventHeader::
 	person_event SPRITE_FRUIT_TREE, 9, 29, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PinkanIslandFruitTree4, -1
 	person_event SPRITE_POKE_BALL, 19, 12, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PinkanIslandBulletSeedTM, EVENT_PINKAN_ISLAND_TM_BULLET_SEED
 	person_event SPRITE_POKE_BALL, 13, 30, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PinkanIslandRevive, EVENT_PINKAN_ISLAND_REVIVE
-	person_event SPRITE_SUPER_NERD, 19, 21, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 5, TrainerManiacShawn, -1
+	person_event SPRITE_SUPER_NERD, 19, 21, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 4, TrainerManiacShawn, -1
