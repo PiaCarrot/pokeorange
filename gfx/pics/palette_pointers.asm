@@ -1,11 +1,11 @@
 PokemonPalettes: ; a8ce
 
 ; 000
-	RGB 30, 21, 31
-	RGB 28, 09, 18
+	RGB 30, 22, 17
+	RGB 16, 14, 19
 ; 000 shiny
-	RGB 31, 16, 20
-	RGB 31, 05, 01
+	RGB 31, 27, 11
+	RGB 31, 11, 08
 
 BulbasaurPalette:       INCLUDE "gfx/pics/bulbasaur/normal.pal"
 BulbasaurShinyPalette:  INCLUDE "gfx/pics/bulbasaur/shiny.pal"

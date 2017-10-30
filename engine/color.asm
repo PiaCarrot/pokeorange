@@ -85,17 +85,12 @@ GetBattlemonBackpicPalettePointer:
 	ld a, [TempBattleMonSpecies]
 	and a
 	jp z, GetPlayerPalettePointer
-; check if battle mon is pink
 	ld hl, PartyMon1Pink
 	ld a, [CurBattleMon]
 	call GetPartyLocation
 	ld a, [hl]
 	and PINK_MASK
-	jr z, .not_pink
-	ld hl, PinkanPalette
-	ret
-
-.not_pink:
+	jp nz, GetNormalOrShinyPinkanPalettePointer
 	push de
 	farcall GetPartyMonPersonality
 	ld c, l
@@ -107,17 +102,12 @@ GetBattlemonBackpicPalettePointer:
 
 
 GetEnemyFrontpicPalettePointer:
-; check if enemy mon is pink
 	ld a, [TempEnemyMonSpecies]
 	and a
 	jp z, GetFrontpicPalettePointer_Trainer
 	ld a, [EnemyMonPink]
 	and PINK_MASK
-	jr z, .not_pink
-	ld hl, PinkanPalette
-	ret
-
-.not_pink:
+	jp nz, GetNormalOrShinyPinkanPalettePointer
 	push de
 	farcall GetEnemyMonPersonality
 	ld c, l
@@ -148,6 +138,7 @@ GetMonNormalOrShinyPalettePointer_NoPinkCheck:
 	push bc
 	call GetMonPalettePointer
 	pop bc
+GetNormalOrShinyPalettePointer:
 	push hl
 	call CheckShininess
 	pop hl
@@ -158,10 +149,10 @@ endr
 	ret
 
 GetMonNormalOrShinyPalettePointer_Pink:
-	; TODO: separate palette for shiny pink Pokemon?
 	pop af
+GetNormalOrShinyPinkanPalettePointer:
 	ld hl, PinkanPalette
-	ret
+	jr GetNormalOrShinyPalettePointer
 
 InitPartyMenuPalettes:
 	ld hl, PalPacket_PartyMenu
@@ -1510,3 +1501,6 @@ SlotMachinePals:
 PinkanPalette:
 	RGB 30, 21, 31
 	RGB 28, 09, 18
+PinkanShinyPalette:
+	RGB 31, 16, 20
+	RGB 31, 05, 01
