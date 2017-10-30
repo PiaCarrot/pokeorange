@@ -42,10 +42,6 @@
 - Volt Tackle
 - Water Pulse
 
-## Bugs
-
-- Caught Pokémon sent to the PC lose their personality byte (gender, shiny, pink)
-
 ## Things that might be added eventually
 
 - Optional PSS Patch

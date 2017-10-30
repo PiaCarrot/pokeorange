@@ -990,16 +990,22 @@ SentPkmnIntoBox: ; de6e
 	dec b
 	jr nz, .loop3
 
+; happiness
 	ld a, BASE_HAPPINESS
 	ld [de], a
 	inc de
+; pokerus
 	xor a
 	ld [de], a
 	inc de
+; personality
+	ld a, [EnemyMonPersonality]
 	ld [de], a
 	inc de
+; caught data (overwritten by SetBoxMonCaughtData)
 	ld [de], a
 	inc de
+; level
 	ld a, [CurPartyLevel]
 	ld [de], a
 	ld a, [CurPartySpecies]

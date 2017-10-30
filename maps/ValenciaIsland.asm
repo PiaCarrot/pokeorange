@@ -110,6 +110,7 @@ if def(DEBUG)
 	giveitem TM_FLASH
 	giveitem TM_WHIRLPOOL
 	giveitem MAX_REPEL, 99
+	giveitem ESCAPE_ROPE, 99
 	giveitem RARE_CANDY, 99
 	giveitem SHINY_STONE
 	giveitem EVERSTONE
