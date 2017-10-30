@@ -73,3 +73,6 @@ GoldenIslandGateHouse_BlockData:
 
 MandarinDesert_BlockData:
 	INCBIN "maps/MandarinDesert.blk"
+	
+TrovitopolisSewer_BlockData:
+	INCBIN "maps/TrovitopolisSewer.blk"

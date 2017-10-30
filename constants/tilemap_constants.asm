@@ -30,6 +30,7 @@ const_value SET 1
 	const TILESET_ICE_PATH             ; 1d
 	const TILESET_UNDERWATER           ; 1e
 	const TILESET_ILEX_FOREST          ; 1f
+	const TILESET_SEWER
 
 	const_def
 	const PAL_BG_GRAY

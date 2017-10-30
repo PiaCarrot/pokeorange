@@ -1,0 +1,12 @@
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WATER, WATER, WATER, WATER
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR
+	tilecoll FLOOR, FLOOR, FLOOR, LADDER
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll FLOOR, FLOOR, FLOOR, LADDER

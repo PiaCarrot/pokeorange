@@ -33,3 +33,12 @@ INCBIN "tilesets/13_metatiles.bin"
 Tileset13Coll: ; 0x1e98c
 INCLUDE "tilesets/13_collision.asm"
 ; 0x1ea8c
+
+Tileset32Coll:
+INCLUDE "tilesets/32_collision.asm"
+
+Tileset32GFX:
+INCBIN "gfx/tilesets/32.2bpp.lz"
+
+Tileset32Meta:
+INCBIN "tilesets/32_metatiles.bin"

@@ -104,6 +104,7 @@ Tileset19Anim: ; 0xfc2e7
 	dw NULL,  DoneTileAnimation
 	
 Tileset09Anim: ; 0xfc12f
+Tileset32Anim:
 	dw VTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation

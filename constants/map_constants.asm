@@ -30,6 +30,7 @@ MAP_NONE EQU 0
 	mapgroup CRYSTAL_CAVE_1F, 14, 17
 	mapgroup CRYSTAL_CAVE_B1, 14, 18
 	mapgroup MANDARIN_DESERT, 25, 25
+	mapgroup TROVITOPOLIS_SEWER, 28, 26
 
 	newgroup ; 3
 
