@@ -819,13 +819,15 @@ Group6Sprites: ; 146e6
 ; Murcott Island
 ; Unnamed Island 2
 ; Mandarin South
-	db SPRITE_POKE_BALL
+	db SPRITE_TRACEY
 	db SPRITE_GRAMPS
 	db SPRITE_LASS
+	db SPRITE_YOUNGSTER
 	db SPRITE_SUPER_NERD
 	db SPRITE_DAYCARE_MON_1
 	db SPRITE_DAYCARE_MON_2
 	db SPRITE_FRUIT_TREE
+	db SPRITE_POKE_BALL
 	db 0 ; end
 
 Group7Sprites: ; 14503

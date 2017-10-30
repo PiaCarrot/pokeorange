@@ -41,6 +41,17 @@ Route6lRareCandy:
 Route61MaxPotion:
 	itemball MAX_POTION
 	
+Route61Sign:
+	jumptext Route61SignText
+
+Route61SignText:
+	text "ROUTE 61"
+	
+	para "EAST to MURCOTT"
+	line "WEST to MANDARIN"
+	cont "ISLAND SOUTH"
+	done
+	
 Route61_MapEventHeader::
 
 .Warps: db 1
@@ -48,7 +59,8 @@ Route61_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 1
+	signpost 46, 32, SIGNPOST_READ, Route61Sign
 
 .ObjectEvents: db 3
 	person_event SPRITE_SUPER_NERD, 14, 46, SPRITEMOVEDATA_SPINCLOCKWISE, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 3, TrainerPokemaniacKusato, -1

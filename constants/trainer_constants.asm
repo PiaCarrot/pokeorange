@@ -93,6 +93,7 @@ KRIS EQU __enum__
 	const TOUYA
 	const KOUTA
 	const NESS
+	const HIRUMA
 
 	trainerclass LASS
 	const NICOLE
