@@ -426,7 +426,7 @@ SunkernFrontpic:     INCBIN "gfx/pics/sunkern/front.2bpp.lz"
 SwimmermPic:         INCBIN "gfx/trainers/swimmer_m.2bpp.lz"
 TentacruelBackpic:   INCBIN "gfx/pics/tentacruel/back.2bpp.lz"
 ToucannonBackpic:    INCBIN "gfx/pics/toucannon/back.2bpp.lz"
-;BirdKeeperPic:       INCBIN "gfx/trainers/bird_keeper.2bpp.lz"
+BirdkeeperPic:       INCBIN "gfx/trainers/bird_keeper.2bpp.lz"
 CooltrainerFPic:     INCBIN "gfx/trainers/cooltrainer_f.2bpp.lz"
 ;TeacherPic:          INCBIN "gfx/trainers/teacher.2bpp.lz"
 ; 153fe3

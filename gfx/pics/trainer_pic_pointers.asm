@@ -55,7 +55,7 @@
 	dba CooltrainerMPic
 	dba CooltrainerFPic
 	dba CatmanPic
-;	dba BirdKeeperPic
+	dba BirdkeeperPic
 ;	dba GentlemanPic
 ;	dba TeacherPic
 ;	dba SailorPic
