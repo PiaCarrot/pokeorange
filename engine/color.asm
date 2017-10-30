@@ -1,10 +1,5 @@
 INCLUDE "predef/cgb.asm"
 
-SHINY_ATK_BIT EQU 5
-SHINY_DEF_VAL EQU 10
-SHINY_SPD_VAL EQU 10
-SHINY_SPC_VAL EQU 10
-
 CheckShininess:
 ; Check if a mon is shiny by personality at bc.
 ; Return carry if shiny.
@@ -90,17 +85,12 @@ GetBattlemonBackpicPalettePointer:
 	ld a, [TempBattleMonSpecies]
 	and a
 	jp z, GetPlayerPalettePointer
-; check if battle mon is pink
 	ld hl, PartyMon1Pink
 	ld a, [CurBattleMon]
 	call GetPartyLocation
 	ld a, [hl]
 	and PINK_MASK
-	jr z, .not_pink
-	ld hl, PinkanPalette
-	ret
-
-.not_pink:
+	jp nz, GetNormalOrShinyPinkanPalettePointer
 	push de
 	farcall GetPartyMonPersonality
 	ld c, l
@@ -112,20 +102,18 @@ GetBattlemonBackpicPalettePointer:
 
 
 GetEnemyFrontpicPalettePointer:
-; check if enemy mon is pink
+	ld a, [TempEnemyMonSpecies]
+	and a
+	jp z, GetFrontpicPalettePointer_Trainer
 	ld a, [EnemyMonPink]
 	and PINK_MASK
-	jr z, .not_pink
-	ld hl, PinkanPalette
-	ret
-
-.not_pink:
+	jp nz, GetNormalOrShinyPinkanPalettePointer
 	push de
 	farcall GetEnemyMonPersonality
 	ld c, l
 	ld b, h
 	ld a, [TempEnemyMonSpecies]
-	call GetFrontpicPalettePointer_NoMonPinkCheck
+	call GetMonNormalOrShinyPalettePointer_NoPinkCheck
 	pop de
 	ret
 
@@ -150,6 +138,7 @@ GetMonNormalOrShinyPalettePointer_NoPinkCheck:
 	push bc
 	call GetMonPalettePointer
 	pop bc
+GetNormalOrShinyPalettePointer:
 	push hl
 	call CheckShininess
 	pop hl
@@ -161,8 +150,9 @@ endr
 
 GetMonNormalOrShinyPalettePointer_Pink:
 	pop af
+GetNormalOrShinyPinkanPalettePointer:
 	ld hl, PinkanPalette
-	ret
+	jr GetNormalOrShinyPalettePointer
 
 InitPartyMenuPalettes:
 	ld hl, PalPacket_PartyMenu
@@ -557,11 +547,6 @@ GetPlayerPalettePointer:
 .male
 	ld hl, PlayerPalette
 	ret
-
-GetFrontpicPalettePointer_NoMonPinkCheck:
-	and a
-	jr z, GetFrontpicPalettePointer_Trainer
-	jp GetMonNormalOrShinyPalettePointer_NoPinkCheck
 
 GetFrontpicPalettePointer:
 	and a
@@ -1516,3 +1501,6 @@ SlotMachinePals:
 PinkanPalette:
 	RGB 30, 21, 31
 	RGB 28, 09, 18
+PinkanShinyPalette:
+	RGB 31, 16, 20
+	RGB 31, 05, 01

@@ -45,6 +45,7 @@
 	dba SwimmermPic
 	dba SwimmerfPic
 	dba CamperPic
+	dba PinkManiacPic
 	dba PokemaniacPic
 	dba FisherPic
 	dba HikerPic

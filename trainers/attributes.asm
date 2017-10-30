@@ -276,6 +276,12 @@ TrainerClassAttributes: ; 3959c
 	dw AI_BASIC + AI_CAUTIOUS + AI_STATUS
 	dw CONTEXT_USE + SWITCH_SOMETIMES
 
+; Pink Maniac
+	db 0, 0 ; items
+	db 15 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_OFFENSIVE + AI_AGGRESSIVE + AI_STATUS
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+
 ; Pokemaniac
 	db 0, 0 ; items
 	db 15 ; base reward

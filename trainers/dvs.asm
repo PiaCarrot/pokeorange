@@ -68,6 +68,7 @@ TrainerClassDVs: ; 270d6
 	db $98, $88 ; swimmerm
 	db $98, $88 ; swimmerf
 	db $98, $88 ; camper
+	db $98, $88 ; pink maniac
 	db $98, $88 ; pokemaniac
 	db $98, $88 ; fisher
 	db $A8, $88 ; hiker
@@ -98,7 +99,7 @@ TrainerClassDVs: ; 270d6
 
 
 GetTrainerPersonality:
-; Return the personality of OtherTrainerClass in a
+; Return the personality of OtherTrainerClass in b
 
 	push hl
 	ld a, [OtherTrainerClass]
@@ -110,6 +111,7 @@ GetTrainerPersonality:
 	add hl, bc
 
 	ld a, [hl]
+	ld b, a
 
 	pop hl
 	ret
@@ -162,7 +164,8 @@ TrainerClassPersonalities:
 	db MALE_MASK   ; swimmerm
 	db FEMALE_MASK ; swimmerf
 	db MALE_MASK   ; camper
-	db MALE_MASK | PINK_MASK ; pokemaniac
+	db MALE_MASK | PINK_MASK ; pink maniac
+	db MALE_MASK ; pokemaniac
 	db MALE_MASK   ; fisher
 	db MALE_MASK   ; hiker
 	db MALE_MASK   ; athlete

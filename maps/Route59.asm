@@ -58,5 +58,5 @@ Route59_MapEventHeader::
 	signpost 19, 7, SIGNPOST_READ, Route59Sign
 
 .ObjectEvents: db 2
-	person_event SPRITE_SWIMMER_GUY, 12, 12, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 5, TrainerSwimmermKazuma, -1
+	person_event SPRITE_SWIMMER_GUY, 12, 12, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmermKazuma, -1
 	person_event SPRITE_POKE_BALL, 24, 4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route59LightBall, EVENT_ROUTE_53_LIGHT_BALL

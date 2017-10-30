@@ -322,6 +322,7 @@ MarillFrontpic:      INCBIN "gfx/pics/marill/front.2bpp.lz"
 NinetalesBackpic:    INCBIN "gfx/pics/ninetales/back.2bpp.lz"
 OmanyteFrontpic:     INCBIN "gfx/pics/omanyte/front.2bpp.lz"
 PinsirBackpic:       INCBIN "gfx/pics/pinsir/back.2bpp.lz"
+PinkManiacPic:
 PokemaniacPic:       INCBIN "gfx/trainers/pokemaniac.2bpp.lz"
 PupitarFrontpic:     INCBIN "gfx/pics/pupitar/front.2bpp.lz"
 QwilfishFrontpic:    INCBIN "gfx/pics/qwilfish/front.2bpp.lz"

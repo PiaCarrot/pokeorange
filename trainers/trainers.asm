@@ -39,9 +39,9 @@ CissyGroup:
 		db BUBBLEBEAM
 		db ACID
 		db CONSTRICT
-		
+
 	db $ff ; end
-		
+
 ; ================
 
 	; CISSY (2)
@@ -67,19 +67,19 @@ CissyGroup:
 		db WATERFALL
 		db DIVE
 		db TOXIC
-		
+
 	db 68, GOLDUCK
 		db PSYCHIC_M
 		db WATERFALL
 		db DISABLE
 		db HYPER_BEAM
-		
+
 	db 66, GYARADOS
 		db DRAGON_PULSE
 		db THRASH
 		db HYPER_BEAM
 		db SURF
-		
+
 	db 67, LANTURN
 		db THUNDER
 		db RAIN_DANCE
@@ -125,9 +125,9 @@ DannyGroup:
 		db EXPLOSION
 		db 0
 		db 0
-		
+
 	db $ff ; end
-		
+
 	; ================
 
 	; DANNY (2)
@@ -159,13 +159,13 @@ DannyGroup:
 		db NASTY_PLOT
 		db RAIN_DANCE
 		db EXPLOSION
-		
+
 	db 70, RHYPERIOR
 		db ROCK_CLIMB
 		db HORN_DRILL
 		db LOCK_ON
 		db SURF
-		
+
 	db 69, NINETALES
 		db DAZZLINGLEAM
 		db BLIZZARD
@@ -191,33 +191,33 @@ RudyGroup:
 		db THUNDERPUNCH
 		db ROCK_SMASH
 		db AGILITY
-		
+
 	db 42, EXEGGUTOR
 		db EGG_BOMB
 		db DRAGON_PULSE
 		db MEGA_DRAIN
 		db STOMP
-		
+
 	db 41, STARMIE
 		db RAPID_SPIN
 		db WATERFALL
 		db THUNDERBOLT
 		db PSYBEAM
-		
+
 	db 40, HITMONCHAN
 		db MACH_PUNCH
 		db THUNDERPUNCH
 		db ICE_PUNCH
 		db FIRE_PUNCH
-		
+
 	db 39, GOLEM
 		db DEFENSE_CURL
 		db ROLLOUT
 		db ROCK_THROW
 		db ROCK_SMASH
-		
+
 	db $ff ; end
-		
+
 ; ================
 
 	; RUDY (2)
@@ -231,39 +231,39 @@ RudyGroup:
 		db NASTY_PLOT
 		db THUNDERBOLT
 		db COMET_PUNCH
-		
+
 	db 74, EXEGGUTOR
 		db DRAGON_PULSE
 		db NASTY_PLOT
 		db SOLARBEAM
 		db GIGA_DRAIN
-		
+
 	db 71, SHARPEDO
 		db CRUNCH
 		db DIVE
 		db MEAN_LOOK
 		db FOCUS_ENERGY
-		
+
 	db 70, HITMONTOP
 		db TRIPLE_KICK
 		db FOCUS_ENERGY
 		db SWORDS_DANCE
 		db POWERUPPUNCH
-		
+
 	db 69, GOLEM
 		db DEFENSE_CURL
 		db ROLLOUT
 		db FISSURE
 		db LOCK_ON
-		
+
 	db 73, CLEFABLE
 		db ENCORE
 		db DAZZLINGLEAM
 		db DOUBLE_EDGE
 		db BATON_PASS
-		
+
 	db $ff ; end
-		
+
 ; ================================
 
 
@@ -283,21 +283,21 @@ LuanaGroup:
 		db NASTY_PLOT
 		db SAFEGUARD
 		db RECOVER
-		
+
 	db 54, MAROWAK
 		db SHADOW_BONE
 		db NIGHT_SHADE
 		db FIRE_SPIN
 		db PROTECT
-		
+
 	db 55, TURTONATOR
 		db SHELL_TRAP
 		db DRAGON_PULSE
 		db FIRE_BLAST
 		db NASTY_PLOT
-		
+
 	db $ff ; end
-	
+
 ; ================
 
 	; LUANA (2)
@@ -305,43 +305,43 @@ LuanaGroup:
 	db 1 ; moves
 
 	; party
-		
+
 	db 74, MAROWAK
 		db SHADOW_BONE
 		db SUNNY_DAY
 		db FIRE_BLAST
 		db PROTECT
-		
+
 	db 75, TURTONATOR
 		db SHELL_TRAP
 		db DRAGON_PULSE
 		db FIRE_BLAST
 		db NASTY_PLOT
-		
+
 	db 76, ALAKAZAM
 		db PSYCHIC_M
 		db NASTY_PLOT
 		db SUNNY_DAY
 		db SAFEGUARD
-		
+
 	db 73, TROPIUS
 		db AERIAL_ACE
 		db FLY
 		db SOLARBEAM
 		db SYNTHESIS
-		
+
 	db 74, LICKILICKY
 		db DEFENSE_CURL
 		db ROLLOUT
 		db DOUBLE_EDGE
 		db HYPER_BEAM
-		
+
 	db 73, AZUMARILL
 		db DAZZLINGLEAM
 		db WATERFALL
 		db BATON_PASS
 		db DOUBLE_EDGE
-		
+
 	db $ff ; end
 
 ; ================================
@@ -362,39 +362,39 @@ DrakeGroup:
 		db 0
 		db 0
 		db 0
-		
+
 	db 62, STEELIX
 		db DIG
 		db IRON_TAIL
 		db ROCK_BLAST
 		db EARTHQUAKE
-		
+
 	db 61, GENGAR
 		db CONFUSE_RAY
 		db HYPNOSIS
 		db SHADOW_BALL
 		db NASTY_PLOT
-		
+
 	db 63, VENUSAUR
 		db SUNNY_DAY
 		db SOLARBEAM
 		db VENOSHOCK
 		db TOXIC
-		
+
 	db 61, ELECTIVIRE
 		db THUNDERPUNCH
 		db BODY_SLAM
 		db POWERUPPUNCH
 		db AGILITY
-		
+
 	db 64, DRAGONITE
 		db DRAGON_RAGE
 		db DRAGON_PULSE
 		db HYPER_BEAM
 		db ICE_BEAM
-		
+
 	db $ff ; end
-	
+
 ; ================
 
 	; DRAKE (2)
@@ -408,39 +408,39 @@ DrakeGroup:
 		db NASTY_PLOT
 		db BARRIER
 		db BATON_PASS
-		
+
 	db 77, STEELIX
 		db DOUBLE_EDGE
 		db IRON_TAIL
 		db ANCIENTPOWER
 		db EARTHQUAKE
-		
+
 	db 77, PORYGONZ
 		db CONVERSION
 		db CONVERSION2
 		db TRI_ATTACK
 		db HYPER_BEAM
-		
+
 	db 79, VENUSAUR
 		db SUNNY_DAY
 		db SOLARBEAM
 		db NASTY_PLOT
 		db PETAL_DANCE
-		
+
 	db 78, DRAGALGE
 		db TOXIC
 		db DRAGON_PULSE
 		db VENOSHOCK
 		db WATERFALL
-		
+
 	db 80, DRAGONITE
 		db THUNDER
 		db DRAGON_PULSE
 		db HYPER_BEAM
 		db ICE_BEAM
-		
+
 	db $ff ; end
-	
+
 ; ================================
 
 
@@ -501,7 +501,7 @@ TraceyGroup:
 		db DOUBLE_TEAM
 
 	db $ff ; end
-	
+
 ; ================
 
 	; TRACEY (3)
@@ -649,45 +649,45 @@ BlaineGroup:
 	; BLAINE (1)
 	db "BLAINE@"
 	db 1 ; moves
-	
+
 	db 64, ARCANINE
 		db EXTREMESPEED
 		db FIRE_BLAST
 		db AGILITY
 		db ROAR
-		
+
 	db 65, MAGMORTAR
 		db FLAMETHROWER
 		db SLUDGE_BOMB
 		db SUNNY_DAY
 		db FIRE_BLAST
-		
+
 	db 64, RAPIDASH
 		db HORN_DRILL
 		db LOCK_ON
 		db FOCUS_ENERGY
 		db HYPER_BEAM
-		
+
 	db 63, MAGCARGO
 		db DIG
 		db FIRE_BLAST
 		db ROCK_SLIDE
 		db AMNESIA
-		
+
 	db 62, FLAREON
 		db BATON_PASS
 		db NASTY_PLOT
 		db FLAME_WHEEL
 		db QUICK_ATTACK
-		
+
 	db 63, CHARIZARD
 		db FLY
 		db SEISMIC_TOSS
 		db FIRE_PUNCH
 		db DRAGONBREATH
-		
+
 	db $ff
-	
+
 ; ================================
 
 
@@ -712,7 +712,7 @@ LoreleiGroup:
 		db LOCK_ON
 		db SIGNAL_BEAM
 		db WATERFALL
-		
+
 	db 41, CLOYSTER
 		db SPIKES
 		db DIVE
@@ -738,49 +738,49 @@ LoreleiGroup:
 		db ATTRACT
 
 	db $ff ; end
-	
+
 ; ================
 
 	; LORELEI (2)
 	db "LORELEI@"
 	db 1 ; moves
-	
+
 	db 64, DEWGONG
 		db LOCK_ON
 		db HORN_DRILL
 		db BLIZZARD
 		db HAIL
-		
+
 	db 65, CLOYSTER
 		db SPIKE_CANNON
 		db DIVE
 		db MIRROR_COAT
 		db SPIKES
-		
+
 	db 63, NINETALES
 		db MOONBLAST
 		db ICE_BEAM
 		db CONFUSE_RAY
 		db PSYCHIC_M
-		
+
 	db 61, LAPRAS
 		db PERISH_SONG
 		db BATON_PASS
 		db SURF
 		db ENDURE
-		
+
 	db 62, JYNX
 		db SWEET_KISS
 		db ICE_PUNCH
 		db ATTRACT
 		db FISSURE
-		
+
 	db 60, GLACEON
 		db NASTY_PLOT
 		db BATON_PASS
 		db ICE_BEAM
 		db BITE
-		
+
 	db $ff
 ; ================================
 
@@ -806,13 +806,13 @@ AgathaGroup:
 		db SHADOW_BALL
 		db HYPNOSIS
 		db DREAM_EATER
-		
+
 	db 64, CROBAT
 		db CONFUSE_RAY
 		db FLY
 		db HAZE
 		db AERIAL_ACE
-		
+
 	db 64, MAROWAK
 		db SHADOW_BONE
 		db EARTHQUAKE
@@ -854,37 +854,37 @@ LanceGroup:
 		db DRAGON_PULSE
 		db THUNDER
 		db ICE_BEAM
-		
+
 	db 69, DRAGALGE
 		db TOXIC
 		db VENOSHOCK
 		db SPIKES
 		db RECOVER
-		
+
 	db 69, KINGDRA
 		db WHIRLPOOL
 		db DRAGON_PULSE
 		db DRAGONBREATH
 		db OUTRAGE
-		
+
 	db 71, TURTONATOR
 		db SHELL_TRAP
 		db SUNNY_DAY
 		db SOLARBEAM
 		db RAPID_SPIN
-		
+
 	db 70, EXEGGUTOR
 		db EGG_BOMB
 		db DRAGON_PULSE ;DRAGON_HAMMER
 		db PETAL_DANCE
 		db SYNTHESIS
-		
+
 	db 69, FLYGON
 		db DRAGON_PULSE
 		db SANDSTORM
 		db EARTHQUAKE
 		db FLY
-	
+
 	db $ff ; end
 
 ; ================================
@@ -897,43 +897,43 @@ RedGroup:
 	; RED (1)
 	db "RED@"
 	db 1 ; moves
-	
+
 	db 88, PIKACHU
 		db THUNDERBOLT
 		db AGILITY
 		db IRON_TAIL
 		db VOLT_TACKLE
-		
+
 	db 86, VENUSAUR
 		db PETAL_DANCE
 		db SUNNY_DAY
 		db SOLARBEAM
 		db NASTY_PLOT
-		
+
 	db 86, CHARIZARD
 		db FIRE_SPIN
 		db FLY
 		db DRAGON_PULSE
 		db SEISMIC_TOSS
-		
+
 	db 86, BLASTOISE
 		db HYDRO_PUMP
 		db RAIN_DANCE
 		db CRUNCH
 		db ROCK_CLIMB
-		
+
 	db 90, SNORLAX
 		db REST
 		db BELLY_DRUM
 		db SLEEP_TALK
 		db DOUBLE_EDGE
-		
+
 	db 89, MEWTWO
 		db PSYSTRIKE
 		db DISABLE
 		db SHADOW_BALL
 		db CONFUSE_RAY
-		
+
 	db $ff ; end
 
 ; ================================
@@ -1135,7 +1135,7 @@ OfficerGroup:
 	db 14, GROWLITHE
 
 	db $ff ; end
-	
+
 ; ================================
 
 	; OFFICER(2) Kinnow Island
@@ -1147,7 +1147,7 @@ OfficerGroup:
 	db 24, SKIPLOOM
 
 	db $ff ; end
-	
+
 ; ================================
 
 	; OFFICER(3) Moro Island
@@ -1159,7 +1159,7 @@ OfficerGroup:
 	db 30, JUMPLUFF
 
 	db $ff ; end
-	
+
 ; ================================
 
 	; OFFICER(4) Murcott Island
@@ -1170,7 +1170,7 @@ OfficerGroup:
 	db 33, ARCANINE
 
 	db $ff ; end
-	
+
 ; ================================
 
 
@@ -1224,7 +1224,7 @@ YoungsterGroup:
 	db 9, PIKACHU
 
 	db $ff ; end
-	
+
 ; ================
 
 ; YOUNGSTER (5)
@@ -1255,7 +1255,7 @@ LassGroup:
 	db 11, STARYU
 
 	db $ff ; end
-	
+
 ; ================
 
 	; LASS (2)
@@ -1485,7 +1485,7 @@ SwimmerMGroup:
 		db RAPID_SPIN
 
 	db $ff
-	
+
 ; ================
 
 	; SWIMMERM (11)
@@ -1608,11 +1608,11 @@ CamperGroup:
 ; ================================
 
 
-PokemaniacGroup:
+PinkManiacGroup:
 ; ================================
 ; ================
 
-	; POKEMANIAC (1)
+	; PINK_MANIAC (1)
 	db "SHAWN@"
 	db 0 ; normal
 
@@ -1624,8 +1624,14 @@ PokemaniacGroup:
 	db $ff ; end
 
 ; ================
+; ================================
 
-	; POKEMANIAC (2)
+
+PokemaniacGroup:
+; ================================
+; ================
+
+	; POKEMANIAC (1)
 	db "KUSATO@"
 	db 0 ; normal
 
@@ -1635,7 +1641,7 @@ PokemaniacGroup:
 	db 28, SKRELP
 
 	db $ff ; end
-	
+
 ; ================
 ; ================================
 
@@ -1961,7 +1967,7 @@ BirdkeeperGroup:
 	db 28, TRUMBEAK
 	db 27, CHATOT
 	db 26, PELIPPER
-	
+
 	db $ff
 
 ; ================
