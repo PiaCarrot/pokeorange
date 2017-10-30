@@ -80,6 +80,26 @@ LassFuyumiAfterText:
 	
 	para "You meanie!"
 	done
+	
+Route62Sign:
+	jumptext R62SignText
+	
+R62SignText:
+	text "ROUTE 62"
+	line "to MANDARIN DESERT"
+	done
+	
+Route62ClimbSign:
+	jumptext R62ClimbSignText
+	
+R62ClimbSignText:
+	text "Hidden in the mou-"
+	line "tain lies SUNRAY"
+	cont "CAVE."
+	
+	para "At the peak, the"
+	line "rainbow awaits."
+	done
 
 Route62_MapEventHeader::
 
@@ -87,7 +107,9 @@ Route62_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 2
+	signpost 14, 62, SIGNPOST_READ, Route62Sign
+	signpost 4, 50, SIGNPOST_READ, Route62ClimbSign
 
 .ObjectEvents: db 7
 	person_event SPRITE_POKE_BALL, 23, 57, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route62XSpecialAttack, EVENT_ROUTE_62_X_SPCL_ATK
