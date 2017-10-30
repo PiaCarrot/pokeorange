@@ -782,5 +782,32 @@
 	db 23, TRAPINCH
 	db 24, TRAPINCH
 	db 24, CUBONE
-
+	
+	map TROVITOPOLIS_SEWER
+	db 7 percent, 7 percent, 7 percent
+	;morn
+	db 25, GRIMER
+	db 26, GRIMER
+	db 27, GRIMER
+	db 28, GRIMER
+	db 29, GRIMER
+	db 30, MUK
+	db 31, MUK
+	;day
+	db 25, GRIMER
+	db 26, GRIMER
+	db 27, GRIMER
+	db 28, GRIMER
+	db 29, GRIMER
+	db 30, MUK
+	db 31, MUK
+	;nite
+	db 25, GRIMER
+	db 26, GRIMER
+	db 27, GRIMER
+	db 28, GRIMER
+	db 29, GRIMER
+	db 30, MUK
+	db 31, MUK
+	
 	db -1 ; end

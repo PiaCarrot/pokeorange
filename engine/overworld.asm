@@ -749,11 +749,16 @@ Group13Sprites:
 ; 146b8
 
 Group2Sprites: ; 146cf
-; National Park
-	db SPRITE_LASS
-	db SPRITE_POKEFAN_M
+; Route 60
+; Golden Island
+	db SPRITE_JESSIE
+	db SPRITE_JAMES
+	db SPRITE_SWIMMER_GIRL
 	db SPRITE_ROCKER
-	db SPRITE_YOUNGSTER
+	db SPRITE_SWIMMER_GUY
+	db SPRITE_CAT_MAN
+	db SPRITE_POKE_BALL
+	db SPRITE_FRUIT_TREE
 	db 0 ; end
 ; 146e6
 
@@ -810,19 +815,14 @@ Group5Sprites: ; 1462e
 	db 0 ; end
 
 Group6Sprites: ; 146e6
-; Route 60
-; Golden Island
 ; Route 61
 ; Murcott Island
 ; Unnamed Island 2
 ; Mandarin South
-	db SPRITE_JESSIE
-	db SPRITE_JAMES
-	db SPRITE_SWIMMER_GIRL
 	db SPRITE_POKE_BALL
-	db SPRITE_CAT_MAN
 	db SPRITE_GRAMPS
 	db SPRITE_LASS
+	db SPRITE_SUPER_NERD
 	db SPRITE_DAYCARE_MON_1
 	db SPRITE_DAYCARE_MON_2
 	db SPRITE_FRUIT_TREE
@@ -836,6 +836,8 @@ Group8Sprites: ; 14714
 ; Tangelo Port
 	db SPRITE_FISHING_GURU
 	db SPRITE_SAILOR
+	db SPRITE_LORELEI
+	db SPRITE_LANCE
 	db SPRITE_POKE_BALL
 	db 0 ; end
 

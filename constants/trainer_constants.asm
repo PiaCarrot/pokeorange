@@ -96,6 +96,7 @@ KRIS EQU __enum__
 
 	trainerclass LASS
 	const NICOLE
+	const FUYUMI
 
 	trainerclass BEAUTY
 
@@ -120,6 +121,7 @@ KRIS EQU __enum__
 	const ATECAIN
 	const THEO
 	const KAZUMA
+	const TAKAO
 
 	trainerclass SWIMMERF
 	const MARIA
@@ -135,6 +137,7 @@ KRIS EQU __enum__
 
 	trainerclass POKEMANIAC
 	const SHAWN
+	const KUSATO
 
 	trainerclass FISHER
 	const SOJIRO

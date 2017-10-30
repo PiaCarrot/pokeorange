@@ -31,6 +31,8 @@ MAP_NONE EQU 0
 	mapgroup CRYSTAL_CAVE_B1, 14, 18
 	mapgroup MANDARIN_DESERT, 25, 25
 	mapgroup TROVITOPOLIS_SEWER, 28, 26
+	mapgroup GOLDEN_ISLAND, 16, 14
+	mapgroup ROUTE_60, 32, 28
 
 	newgroup ; 3
 
@@ -90,8 +92,6 @@ MAP_NONE EQU 0
 
 	mapgroup MORO_ROUTE_60_GATE, 4, 5
 	mapgroup ROUTE_60_GATE_UPSTAIRS, 4, 5
-	mapgroup GOLDEN_ISLAND, 16, 14
-	mapgroup ROUTE_60, 32, 28
 	mapgroup WRECKED_SHIP, 12, 20
 	mapgroup WRECKED_SHIP_UNDERWATER, 12, 18
 	mapgroup WRECKED_SHIP_UNSUNK, 12, 18

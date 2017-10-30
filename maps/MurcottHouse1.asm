@@ -6,6 +6,20 @@ MurcottHouse1_MapScriptHeader:
 
 .MapCallbacks: db 0
 
+MurcottRockerScript:
+	jumptextfaceplayer MurcottRockerText
+	
+MurcottRockerText:
+	text "I spoke with my"
+	line "bro in VERMILION"
+	cont "CITY."
+	
+	para "He traded away a"
+	line "FARFETCH'D for a"
+	cont "SPEAROW, of all"
+	cont "things!"
+	done
+
 MurcottHouse1_MapEventHeader::
 
 .Warps: db 2
@@ -16,4 +30,5 @@ MurcottHouse1_MapEventHeader::
 
 .BGEvents: db 0
 
-.ObjectEvents: db 
+.ObjectEvents: db 1
+	person_event SPRITE_ROCKER, 4, 4, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, MurcottRockerScript, -1

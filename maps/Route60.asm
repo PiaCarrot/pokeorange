@@ -134,6 +134,9 @@ Route60SignText:
 
 Route60UltraBall:
 	itemball ULTRA_BALL
+	
+Route60SuperRepel:
+	itemball SUPER_REPEL
 
 Route60SwimmerGirlScript:
 	jumptextfaceplayer Route60SwimmerText
@@ -148,6 +151,64 @@ Route60SwimmerText:
 	para "GHOST-type #MON"
 	line "appear around here"
 	cont "because of it."
+	done
+	
+; SWIMMER_M_TAKAO
+TrainerSwimmermTakao:
+	trainer EVENT_BEAT_SWIMMERM_TAKAO, SWIMMERM, TAKAO, SwimmerMTakaoSeenText, SwimmerMTakaoWinText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext SwimmerMTakaoAfterText
+	waitbutton
+	closetext
+	end
+	
+SwimmerMTakaoSeenText:
+	text "I tried to go to"
+	line "the WRECKED SHIP"
+	cont "underwater, but a"
+	cont "GHOST attacked me!"
+	done
+	
+SwimmerMTakaoWinText:
+	text "Spooky!"
+	done
+	
+SwimmerMTakaoAfterText:
+	text "I can deal with a"
+	line "SHARPEDO or a TOX-"
+	cont "APEX, but GHOSTS"
+	cont "are too much!"
+	done
+	
+; BIRDKEEPER_TATSUYA
+TrainerBirdkeeperTatsuya:
+	trainer EVENT_BEAT_BIRDKEEPER_TATSUYA, BIRDKEEPER, TATSUYA, BirdkeeperTatsuyaSeenText, BirdkeeperTatsuyaWinText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext BirdkeeperTatsuyaAfterText
+	waitbutton
+	closetext
+	end
+	
+BirdkeeperTatsuyaSeenText:
+	text "Can you soar like"
+	line "my BIRDS?"
+	done
+	
+BirdkeeperTatsuyaWinText:
+	text "I've been clipped!"
+	done
+	
+BirdkeeperTatsuyaAfterText:
+	text "BIRD #MON might"
+	line "be common, but do"
+	cont "not underestimate"
+	cont "their power!"
 	done
 
 Route60_MapEventHeader::
@@ -165,9 +226,12 @@ Route60_MapEventHeader::
 .BGEvents: db 1
 	signpost 6, 16, SIGNPOST_READ, Route60Sign
 
-.ObjectEvents: db 4
+.ObjectEvents: db 7
 	person_event SPRITE_JESSIE, 13, 36, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_60_ROCKET
 	person_event SPRITE_JAMES, 13, 35, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_60_ROCKET
 	person_event SPRITE_POKE_BALL, 19, 46, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route60UltraBall, EVENT_ROUTE_60_ULTRA_BALL
 	person_event SPRITE_SWIMMER_GIRL, 14, 18, SPRITEMOVEDATA_SWIM_AROUND, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route60SwimmerGirlScript, -1
+	person_event SPRITE_POKE_BALL, 37, 31, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route60SuperRepel, EVENT_ROUTE_60_SUPER_REPEL
+	person_event SPRITE_SWIMMER_GUY, 49, 12, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmermTakao, -1
+	person_event SPRITE_ROCKER, 35, 30, SPRITEMOVEDATA_SPINRANDOM_FAST, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerBirdkeeperTatsuya, -1
 
