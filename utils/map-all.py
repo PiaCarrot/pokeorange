@@ -10,6 +10,8 @@ import sys
 import os
 from collections import OrderedDict
 
+max_tileset_id = 32
+
 code_directory         = './'
 tileset_filename       = 'constants/tilemap_constants.asm'
 maps_filename          = 'constants/map_constants.asm'
@@ -18,7 +20,7 @@ block_data_filenames   = {'maps/blockdata_1.asm', 'maps/blockdata_2.asm',
                           'maps/blockdata_3.asm'}
 block_filename_fmt     = 'maps/%s.blk'
 
-tileset_names = ['%02d' % n for n in range(1, 31 + 1)]
+tileset_names = ['%02d' % n for n in range(1, max_tileset_id + 1)]
 
 # {'TILESET_JOHTO_1': 1, ...}
 tileset_ids = {}

@@ -124,7 +124,7 @@ if def(DEBUG)
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp TROVITOPOLIS, 37, 20
+	warp TROVITOPOLIS_SEWER, 3, 25
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

@@ -8,13 +8,13 @@ TrovitopolisSewer_MapScriptHeader::
 
 TrovitopolisSewerSludgeBomb:
 	itemball TM_SLUDGE_BOMB
-	
+
 TrovitopolisSewerTradeStone:
 	itemball TRADE_STONE
-	
+
 TrovitopolisSewerProtein:
 	itemball PROTEIN
-	
+
 TrovitopolisSewerEscapeRope:
 	itemball ESCAPE_ROPE
 
