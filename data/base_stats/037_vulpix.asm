@@ -5,7 +5,6 @@
 
 	db ICE, ICE
 	db 190 ; catch rate
-	db 60 ; base exp
 	db NO_ITEM ; item 1
 	db ICE_STONE ; item 2 ICE_STONE
 	db FEMALE_75 ; gender

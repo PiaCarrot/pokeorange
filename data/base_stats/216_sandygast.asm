@@ -5,7 +5,6 @@
 
 	db GHOST, GROUND
 	db 140 ; catch rate
-	db 64 ; base exp
 	db NO_ITEM ; item 1
 	db SPELL_TAG ; item 2
 	db FEMALE_50 ; gender

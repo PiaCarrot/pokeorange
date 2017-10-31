@@ -5,7 +5,6 @@
 
 	db GROUND, ELECTRIC
 	db 75 ; catch rate
-	db 165 ; base exp
 	db NO_ITEM ; item 1
 	db SOFT_SAND ; item 2
 	db FEMALE_50 ; gender

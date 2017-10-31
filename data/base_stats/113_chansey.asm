@@ -5,7 +5,6 @@
 
 	db NORMAL, NORMAL
 	db 30 ; catch rate
-	db 255 ; base exp
 	db NO_ITEM ; item 1
 	db LUCKY_EGG ; item 2
 	db ALL_FEMALE ; gender

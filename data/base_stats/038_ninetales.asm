@@ -5,7 +5,6 @@
 
 	db ICE, FAIRY
 	db 75 ; catch rate
-	db 177 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db FEMALE_75 ; gender

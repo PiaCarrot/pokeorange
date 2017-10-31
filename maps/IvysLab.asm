@@ -381,7 +381,7 @@ IvyAdventureText:
 	cont "does or who even"
 
 	para "made it. I had it"
-	line "sent to PROF. OAK"
+	line "sent to PROF.OAK"
 	cont "in PALLET TOWN."
 
 	para "It seems he didn't"
@@ -392,7 +392,7 @@ IvyAdventureText:
 	cont "cover its secret."
 
 	para "His name's SAMSON."
-	line "He's PROF. OAK's"
+	line "He's PROF.OAK's"
 	cont "cousin, who is"
 
 	para "currently visiting"

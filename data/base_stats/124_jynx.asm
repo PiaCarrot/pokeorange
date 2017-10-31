@@ -5,7 +5,6 @@
 
 	db ICE, PSYCHIC
 	db 45 ; catch rate
-	db 159 ; base exp
 	db ICE_BERRY ; item 1
 	db ICE_BERRY ; item 2
 	db ALL_FEMALE ; gender
