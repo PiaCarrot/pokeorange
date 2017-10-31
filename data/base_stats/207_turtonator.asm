@@ -5,7 +5,6 @@
 
 	db FIRE, DRAGON
 	db 70 ; catch rate
-	db 170 ; base exp
 	db NO_ITEM ; item 1
 	db CHARCOAL ; item 2
 	db FEMALE_50 ; gender

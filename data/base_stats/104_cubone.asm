@@ -5,7 +5,6 @@
 
 	db GROUND, GROUND
 	db 190 ; catch rate
-	db 64 ; base exp
 	db NO_ITEM ; item 1
 	db THICK_CLUB ; item 2
 	db FEMALE_50 ; gender

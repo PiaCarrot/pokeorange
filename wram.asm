@@ -711,7 +711,7 @@ wEnemyFutureSightCount:: ds 1 ; c71e
 wGivingExperienceToExpShareHolders:: ds 1 ; c71f
 wBackupEnemyMonBaseStats:: ds 5 ; c720
 wBackupEnemyMonCatchRate:: db ; c725
-wBackupEnemyMonBaseExp:: db ; c726
+	ds 1; c726
 wPlayerFutureSightDamage:: ds 2 ; c727
 wEnemyFutureSightDamage:: ds 2 ; c729
 wPlayerRageCounter:: ds 1 ; c72b
@@ -1873,7 +1873,7 @@ TempBattleMonSpecies:: ds 1 ; d205
 EnemyMon:: battle_struct EnemyMon ; d206
 EnemyMonBaseStats:: ds 5 ; d226
 EnemyMonCatchRate:: db ; d22b
-EnemyMonBaseExp::   db ; d22c
+	ds 1 ; d22c
 EnemyMonEnd::
 
 
@@ -1941,8 +1941,6 @@ BaseType2:: ; d23e
 	ds 1
 BaseCatchRate:: ; d23f
 	ds 1
-BaseExp:: ; d240
-	ds 1
 BaseItems:: ; d241
 	ds 2
 BaseGender:: ; d243
@@ -1958,7 +1956,7 @@ BaseEggGroups:: ; d24d
 BaseTMHM:: ; d24e
 	ds 8
 
-	ds 6
+	ds 7
 
 CurDamage:: ; d256
 	ds 2

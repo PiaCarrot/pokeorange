@@ -5,7 +5,6 @@
 
 	db BUG, FAIRY
 	db 75 ; catch rate
-	db 162 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db FEMALE_50 ; gender

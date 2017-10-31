@@ -5,7 +5,6 @@
 
 	db FIGHTING, GHOST
 	db 3 ; catch rate
-	db 120 ; base exp
 	db MYSTERYBERRY ; item 1
 	db MYSTERYBERRY ; item 2
 	db GENDERLESS ; gender

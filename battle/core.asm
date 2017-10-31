@@ -6274,10 +6274,6 @@ LoadEnemyMon: ; 3e8eb
 
 	ld a, [BaseCatchRate]
 	ld [de], a
-	inc de
-
-	ld a, [BaseExp]
-	ld [de], a
 
 	ld a, [TempEnemyMonSpecies]
 	ld [wd265], a

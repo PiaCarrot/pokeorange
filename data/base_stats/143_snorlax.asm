@@ -5,7 +5,6 @@
 
 	db NORMAL, NORMAL
 	db 25 ; catch rate
-	db 189 ; base exp
 	db LEFTOVERS ; item 1
 	db LEFTOVERS ; item 2
 	db FEMALE_12_5 ; gender

@@ -5,7 +5,6 @@
 
 	db NORMAL, FLYING
 	db 255 ; catch rate
-	db 53 ; base exp
 	db NO_ITEM ; item 1
 	db BERRY ; item 2
 	db FEMALE_50 ; gender

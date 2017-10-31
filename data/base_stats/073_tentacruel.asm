@@ -5,7 +5,6 @@
 
 	db WATER, POISON
 	db 60 ; catch rate
-	db 180 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db FEMALE_50 ; gender

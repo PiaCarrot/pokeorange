@@ -5,7 +5,6 @@
 
 	db BUG, POISON
 	db 75 ; catch rate
-	db 158 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db FEMALE_50 ; gender
