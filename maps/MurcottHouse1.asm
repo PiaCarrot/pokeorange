@@ -31,4 +31,5 @@ MurcottHouse1_MapEventHeader::
 .BGEvents: db 0
 
 .ObjectEvents: db 1
-	person_event SPRITE_ROCKER, 4, 4, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, MurcottRockerScript, -1
+	person_event SPRITE_ROCKER, 4, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, MurcottRockerScript, -1
+
