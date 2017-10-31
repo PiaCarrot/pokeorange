@@ -177,7 +177,7 @@ Movement_TeacherBringsYouBack2_NBT:
 Text_GearIsImpressive:
 	text "<PLAYER>!"
 
-	para "PROF. IVY is"
+	para "PROF.IVY is"
 	line "waiting for you!"
 	done
 
@@ -195,7 +195,7 @@ Text_ItsDangerousToGoAlone:
 	line "go out without a"
 	cont "#MON!"
 
-	para "Isn't PROF. IVY"
+	para "Isn't PROF.IVY"
 	line "giving you a "
 
 	para "#MON? She's"

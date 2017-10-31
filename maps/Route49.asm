@@ -69,7 +69,7 @@ Route49TeacherText:
 
 Route49FisherText:
 	text "Did you know?"
-	line "PROF. IVY once"
+	line "PROF.IVY once"
 
 	para "saved a RATICATE"
 	line "that was poisoned"

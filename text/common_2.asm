@@ -93,14 +93,14 @@ Text_ABoostedStringBuffer2ExpPoints::
 	line "a boosted"
 	cont "@"
 	deciram wExpScratch40_1, 3, 8
-	text " EXP!"
+	text " EXP.Points!"
 	prompt
 
 Text_StringBuffer2ExpPoints::
 	text ""
 	line "@"
 	deciram wExpScratch40_1, 3, 8
-	text " EXP!"
+	text " EXP.Points!"
 	prompt
 
 Text_GoPkmn::
