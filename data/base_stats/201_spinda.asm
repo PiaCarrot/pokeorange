@@ -5,7 +5,7 @@
 
 	db NORMAL, NORMAL
 	db 127 ; catch rate
-	db 85 ; base exp
+	db 126 ; base exp
 	db MINT_BERRY ; item 1
 	db NO_ITEM ; item 2
 	db FEMALE_50 ; gender

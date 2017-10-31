@@ -5,7 +5,7 @@
 
 	db GRASS, FLYING
 	db 200 ; catch rate
-	db 169 ; base exp
+	db 161 ; base exp
 	db GOLD_BERRY ; item 1
 	db GOLD_BERRY ; item 2
 	db FEMALE_50 ; gender
