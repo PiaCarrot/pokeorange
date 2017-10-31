@@ -1870,6 +1870,14 @@ LinkBattleRNs:: ; d1fa
 TempEnemyMonSpecies::  ds 1 ; d204
 TempBattleMonSpecies:: ds 1 ; d205
 
+ScaledExpScratch::
+	ds 2 ; don't overlap EnemyMonSpecies or EnemyMonItem
+wExpScratch40_1:: ds 5 ; 40 bits
+wExpScratch40_2:: ds 5 ; 40 bits
+wExpScratchByte:: ds 1
+ScaledExpScratchEnd::
+	ds ScaledExpScratch - @
+
 EnemyMon:: battle_struct EnemyMon ; d206
 EnemyMonBaseStats:: ds 5 ; d226
 EnemyMonCatchRate:: db ; d22b

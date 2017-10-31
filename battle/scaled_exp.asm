@@ -24,7 +24,7 @@ ScaledExpCalculation::
 	call Multiply
 ; divide by s (num of pokes used)
 	push bc
-	ld a, [BWXP_SCRATCH1B]
+	ld a, [wExpScratchByte]
 	ld [hDivisor], a
 	ld b, $4
 	call Divide
@@ -43,11 +43,11 @@ ScaledExpCalculation::
 	ld b, $4
 	call Divide
 	pop bc
-; get # participants and store it for later as we need to use scratch1b for other stuff now
-	ld a, [BWXP_SCRATCH1B]
+; get # participants and store it for later as we need to use wExpScratchByte for other stuff now
+	ld a, [wExpScratchByte]
 	push af
 ; copy the result so far into scratch 1
-	ld hl, BWXP_SCRATCH5B_1
+	ld hl, wExpScratch40_1
 	ld a, [hProduct]
 	ld [hli], a
 	ld a, [hProduct+1]
@@ -79,7 +79,7 @@ ScaledExpCalculation::
 	ld a, [hBigMultiplicand + 4]
 	push af
 ; get back the original base
-	ld hl, BWXP_SCRATCH5B_1
+	ld hl, wExpScratch40_1
 	ld a, [hli]
 	ld [hProduct], a
 	ld a, [hli]
@@ -152,13 +152,13 @@ ScaledExpCalculation::
 	ld a, [hBigMultiplicand + 4]
 	ld l, a
 	ld a, [hBigMultiplicand]
-	ld [BWXP_SCRATCH1B], a
+	ld [wExpScratchByte], a
 ; now we can move on and do the 2.5 power of L+Lp+10
 	ld a, b
 	call Power25Calculator
 	call SwaphProductWithDEHL
 ; get the old MSB back from storage, the divisor here will never be 40-bit
-	ld a, [BWXP_SCRATCH1B]
+	ld a, [wExpScratchByte]
 	ld [hBigMultiplicand], a
 ; do the big division (hBigMultiplicand / dehl)
 	call BigDivision
@@ -172,7 +172,7 @@ ScaledExpCalculation::
 	ld a, $0
 	adc b
 	ld [hProduct + 2], a
-	ld a, [BWXP_SCRATCH1B]
+	ld a, [wExpScratchByte]
 	adc $0
 	ld [hProduct + 1], a
 ; now we need that offset into partymon again
@@ -204,14 +204,14 @@ ScaledExpCalculation::
 	call z, BoostEXP
 ; store final exp count to be handled back in the original bank
 	ld a, [hProduct + 3]
-	ld [BWXP_SCRATCH5B_1 + 2], a
+	ld [wExpScratch40_1 + 2], a
 	ld a, [hProduct + 2]
-	ld [BWXP_SCRATCH5B_1 + 1], a
+	ld [wExpScratch40_1 + 1], a
 	ld a, [hProduct + 1]
-	ld [BWXP_SCRATCH5B_1], a
+	ld [wExpScratch40_1], a
 ; store num of participants for later
 	pop af
-	ld [BWXP_SCRATCH1B], a
+	ld [wExpScratchByte], a
 	ret
 
 Power25Calculator::
@@ -278,12 +278,12 @@ BigMultiply:
 ; hBigMultiplicand argument
 ; hMultiplierStor multiplier
 ; output to hBigMultiplicand
-; uses BWXP_SCRATCH1B as temp storage for 5th byte
+; uses wExpScratchByte as temp storage for 5th byte
 	push bc
 	ld b, 8
 	xor a
 	ld [hBigMultiplicand], a
-	ld [BWXP_SCRATCH1B], a
+	ld [wExpScratchByte], a
 	ld [hMultiplierStor], a
 	ld [hMultiplierStor + 1], a
 	ld [hMultiplierStor + 2], a
@@ -313,11 +313,11 @@ BigMultiply:
 	ld a, [hBigMultiplicand + 1]
 	adc c
 	ld [hMultiplierStor], a
-	ld a, [BWXP_SCRATCH1B]
+	ld a, [wExpScratchByte]
 	ld c, a
 	ld a, [hBigMultiplicand]
 	adc c
-	ld [BWXP_SCRATCH1B], a
+	ld [wExpScratchByte], a
 
 .next
 	dec b
@@ -345,19 +345,19 @@ BigMultiply:
 	ld [hBigMultiplicand + 2], a
 	ld a, [hMultiplierStor]
 	ld [hBigMultiplicand + 1], a
-	ld a, [BWXP_SCRATCH1B]
+	ld a, [wExpScratchByte]
 	ld [hBigMultiplicand], a
 	pop bc
 	ret
 
 SwaphProductWithDEHL:
-; uses BWXP_SCRATCH5B_1 as temp storage
+; uses wExpScratch40_1 as temp storage
 	push bc
 	ld b, h
 	ld c, l
 ; swap hProduct and debc
 ; backup debc
-	ld hl, BWXP_SCRATCH5B_1
+	ld hl, wExpScratch40_1
 	ld a, d
 	ld [hli], a
 	ld a, e
@@ -375,7 +375,7 @@ SwaphProductWithDEHL:
 	ld a, [hProduct + 3]
 	ld c, a
 ; move backup into hProduct
-	ld hl, BWXP_SCRATCH5B_1
+	ld hl, wExpScratch40_1
 	ld a, [hli]
 	ld [hProduct], a
 	ld a, [hli]
@@ -395,14 +395,10 @@ BigDivision::
 ; Inputs:
 ; hBigMultiplicand: 40bit top
 ; de:hl : 32bit bottom
-; Scratch space:
-; BWXP_SCRATCH5B_1: scratch1
-; BWXP_SCRATCH5B_2: scratch2
-; BWXP_SCRATCH1B:bc result
 ; Initialize result
 	ld bc, $0
 	xor a
-	ld [BWXP_SCRATCH1B], a
+	ld [wExpScratchByte], a
 ; Check for div/0 and don't divide at all if it happens
 	ld a, l
 	and a
@@ -421,13 +417,13 @@ BigDivision::
 ; clear temp storage
 	xor a
 	push hl
-	ld hl, BWXP_SCRATCH5B_1
+	ld hl, wExpScratch40_1
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
-	ld hl, BWXP_SCRATCH5B_2
+	ld hl, wExpScratch40_2
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
@@ -439,57 +435,57 @@ BigDivision::
 	pop hl
 ; copy initial value of de:hl into the lower 4 bytes of scratch1
 	ld a, l
-	ld [BWXP_SCRATCH5B_1 + 4], a
+	ld [wExpScratch40_1 + 4], a
 	ld a, h
-	ld [BWXP_SCRATCH5B_1 + 3], a
+	ld [wExpScratch40_1 + 3], a
 	ld a, e
-	ld [BWXP_SCRATCH5B_1 + 2], a
+	ld [wExpScratch40_1 + 2], a
 	ld a, d
-	ld [BWXP_SCRATCH5B_1 + 1], a
+	ld [wExpScratch40_1 + 1], a
 ; setup for the division
 .setup
-	ld hl, BWXP_SCRATCH5B_1
+	ld hl, wExpScratch40_1
 	ld de, hBigMultiplicand
 	call FortyBitCompare
 	jr nc, .loop
-	ld hl, BWXP_SCRATCH5B_1 + 4
+	ld hl, wExpScratch40_1 + 4
 	call FortyBitLeftShift
-	ld hl, BWXP_SCRATCH5B_2 + 4
+	ld hl, wExpScratch40_2 + 4
 	call FortyBitLeftShift
 	jr .setup
 
 .loop
-	ld hl, BWXP_SCRATCH5B_1
+	ld hl, wExpScratch40_1
 	ld de, hBigMultiplicand
 	call FortyBitCompare
 	jr nc, .aftersubtract
 	ld de, hBigMultiplicand + 4
-	ld hl, BWXP_SCRATCH5B_1 + 4
+	ld hl, wExpScratch40_1 + 4
 	call FortyBitSubtract
 	call BigDiv_AccumulateAnswer
 
 .aftersubtract
-	ld hl, BWXP_SCRATCH5B_2
+	ld hl, wExpScratch40_2
 	call FortyBitRightShift
 	ret c ; if carry is set, the accumulator finished so we're done.
-	ld hl, BWXP_SCRATCH5B_1
+	ld hl, wExpScratch40_1
 	call FortyBitRightShift
 	jr .loop
 
 BigDiv_AccumulateAnswer::
 ; set the appropriate answer bit when we do a division step
 	push de
-	ld a, [BWXP_SCRATCH5B_2 + 2]
+	ld a, [wExpScratch40_2 + 2]
 	and a
 	jr z, .checkSecondByte
 	ld d, a
-	ld a, [BWXP_SCRATCH1B]
+	ld a, [wExpScratchByte]
 	or d
-	ld [BWXP_SCRATCH1B], a
+	ld [wExpScratchByte], a
 	jr .done
 
 .checkSecondByte
-	ld a, [BWXP_SCRATCH5B_2 + 3]
+	ld a, [wExpScratch40_2 + 3]
 	and a
 	jr z, .checkThirdByte
 	ld d, a
@@ -499,7 +495,7 @@ BigDiv_AccumulateAnswer::
 	jr .done
 
 .checkThirdByte
-	ld a, [BWXP_SCRATCH5B_2 + 4]
+	ld a, [wExpScratch40_2 + 4]
 	and a
 	jr z, .done
 	ld d, a

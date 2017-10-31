@@ -7084,7 +7084,7 @@ GiveExperiencePoints: ; 3ee3b
 	ld d, a
 	dec c
 	jr nz, .count_loop
-	ld [BWXP_SCRATCH1B], a ; needed for scaled exp
+	ld [wExpScratchByte], a ; needed for scaled exp
 	cp 2
 	ret c
 
@@ -7109,11 +7109,11 @@ GiveExperiencePoints: ; 3ee3b
 
 .ExpAddition:
 ; copy back yield to multiplier fields
-	ld a, [BWXP_SCRATCH5B_1 + 2]
+	ld a, [wExpScratch40_1 + 2]
 	ld [hQuotient + 2], a
-	ld a, [BWXP_SCRATCH5B_1 + 1]
+	ld a, [wExpScratch40_1 + 1]
 	ld [hQuotient + 1], a
-	ld a, [BWXP_SCRATCH5B_1]
+	ld a, [wExpScratch40_1]
 	ld [hQuotient + 0], a
 
 	call AnimateExpBar
