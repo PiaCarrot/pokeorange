@@ -100,7 +100,7 @@ Route49SignText:
 Route49_MapEventHeader::
 
 .Warps: db 1
-	warp_def 5, 7, 2, VALENCIA_PORT
+	warp_def 7, 9, 2, VALENCIA_PORT
 
 .CoordEvents: db 0
 
