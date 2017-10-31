@@ -35,6 +35,7 @@ INCLUDE "maps/KrissNeighborsHouse.asm"
 INCLUDE "maps/IvysHouse.asm"
 INCLUDE "maps/IvysLab.asm"
 INCLUDE "maps/Route49.asm"
+INCLUDE "maps/ValenciaTangeloRoute49.asm"
 
 
 SECTION "Map Scripts 2", ROMX, BANK[MAP_SCRIPTS_2]

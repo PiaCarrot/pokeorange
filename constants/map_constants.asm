@@ -137,13 +137,14 @@ MAP_NONE EQU 0
 
 	newgroup ; 11
 
-	mapgroup ROUTE_49, 11, 20
-	mapgroup VALENCIA_ISLAND, 12, 14
+	mapgroup ROUTE_49, 18, 20
+	mapgroup VALENCIA_ISLAND, 14, 22
 	mapgroup IVYS_LAB, 6, 5
 	mapgroup KRISS_HOUSE_1F, 4, 5
 	mapgroup KRISS_HOUSE_2F, 3, 4
 	mapgroup KRISS_NEIGHBORS_HOUSE, 4, 4
 	mapgroup IVYS_HOUSE, 4, 3
+	mapgroup VALENCIA_TANGELO_ROUTE_49, 24, 16
 
 	newgroup ; 12
 

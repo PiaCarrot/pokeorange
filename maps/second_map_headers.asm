@@ -1,11 +1,17 @@
-	map_header_2 ValenciaIsland, VALENCIA_ISLAND, 32, WEST
+	map_header_2 ValenciaIsland, VALENCIA_ISLAND, 53, WEST
 	connection west, ROUTE_49, Route49, 0, 2, 9, VALENCIA_ISLAND
 
-	map_header_2 Route49, ROUTE_49, 32, EAST
+	map_header_2 Route49, ROUTE_49, 32, NORTH | EAST
+	connection north, VALENCIA_TANGELO_ROUTE_49, ValenciaTangeloRoute49, -1, 0, 10, ROUTE_49
 	connection east, VALENCIA_ISLAND, ValenciaIsland, 2, 0, 9, ROUTE_49
+	
+	map_header_2 ValenciaTangeloRoute49, VALENCIA_TANGELO_ROUTE_49, 53, EAST | SOUTH
+	connection south, ROUTE_49, Route49, 1, 0, 10, VALENCIA_TANGELO_ROUTE_49
+	connection east, TANGELO_ISLAND, TangeloIsland, -4, 0, 10, VALENCIA_TANGELO_ROUTE_49
 
-	map_header_2 TangeloIsland, TANGELO_ISLAND, 53, NORTH
+	map_header_2 TangeloIsland, TANGELO_ISLAND, 53, NORTH | WEST
 	connection north, ROUTE_50, Route50, 5, 0, 10, TANGELO_ISLAND
+	connection west, VALENCIA_TANGELO_ROUTE_49, ValenciaTangeloRoute49, 0, -4, 10, TANGELO_ISLAND
 
 	map_header_2 Route50, ROUTE_50, 32, EAST | SOUTH
 	connection south, TANGELO_ISLAND, TangeloIsland, -3, 2, 10, ROUTE_50

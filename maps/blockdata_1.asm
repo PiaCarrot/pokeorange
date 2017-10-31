@@ -88,6 +88,9 @@ IvysLab_BlockData:
 
 Route49_BlockData:
 	INCBIN "maps/Route49.blk"
+	
+ValenciaTangeloRoute49_BlockData:
+	INCBIN "maps/ValenciaTangeloRoute49.blk"
 
 Route50_BlockData:
 	INCBIN "maps/Route50.blk"

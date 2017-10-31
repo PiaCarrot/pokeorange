@@ -29,7 +29,7 @@ MapGroupRoofs: ; 1c021i
 	db -1 ; group 9
 	db -1 ; group 10
 	db  0 ; group 11 (Valencia)
-	db  3 ; group 12 (Tangelo)
+	db  0 ; group 12 (Tangelo)
 	db  4 ; group 13 (Sunburst)
 ; 1c03c
 

@@ -232,27 +232,38 @@ IvysLabSignText:
 	text "IVY RESEARCH"
 	line "№.2 BAYVIEW"
 	done
+	
+ValenciaIvyHouseSignpostScript:
+	jumptext IvyHouseSignText
 
+IvyHouseSignText:
+	text "PHILENA IVY"
+	line "RESIDENCE"
+	
+	para "№.1 BAYVIEW"
+	done
+	
 ValenciaIsland_MapEventHeader::
 
 .Warps: db 4
-	warp_def 19, 18, 1, IVYS_LAB
-	warp_def 5, 13, 1, KRISS_HOUSE_1F
-	warp_def 11, 3, 1, KRISS_NEIGHBORS_HOUSE
-	warp_def 19, 5, 1, IVYS_HOUSE
+	warp_def 13, 30, 1, IVYS_LAB
+	warp_def 5, 15, 1, KRISS_HOUSE_1F
+	warp_def 19, 5, 1, KRISS_NEIGHBORS_HOUSE
+	warp_def 15, 17, 1, IVYS_HOUSE
 
 .CoordEvents: db 2
 	xy_trigger 0, 8, 1, 0, ValenciaIsland_TeacherStopsYouTrigger1, 0, 0
 	xy_trigger 0, 9, 1, 0, ValenciaIsland_TeacherStopsYouTrigger2, 0, 0
 
-.BGEvents: db 3
+.BGEvents: db 4
 	signpost 12, 8, SIGNPOST_READ, ValenciaIslandSign
-	signpost 5, 11, SIGNPOST_READ, MapValenciaIslandSignpost1Script
-	signpost 19, 15, SIGNPOST_READ, MapValenciaIslandSignpost2Script
+	signpost 5, 13, SIGNPOST_READ, MapValenciaIslandSignpost1Script
+	signpost 13, 27, SIGNPOST_READ, MapValenciaIslandSignpost2Script
+	signpost 17, 15, SIGNPOST_READ, ValenciaIvyHouseSignpostScript
 
 .ObjectEvents: db 2
 	person_event SPRITE_COOLTRAINER_M, 8, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 1, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ValenciaIslandTeacherScript, -1
-	person_event SPRITE_YOUNGSTER, 18, 10, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, ValenciaIslandFisherScript, -1
+	person_event SPRITE_YOUNGSTER, 8, 13, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, ValenciaIslandFisherScript, -1
 
 if def(DEBUG)
 CheatFillPokedex:
