@@ -7182,14 +7182,15 @@ AnimateExpBar: ; 3f136
 	cp MAX_LEVEL
 	jp nc, .finish
 
-	ld a, [hProduct + 3]
+	ld a, [hQuotient + 2]
 	ld [wd004], a
 	push af
-	ld a, [hProduct + 2]
+	ld a, [hQuotient + 1]
 	ld [wd003], a
 	push af
-	xor a
+	ld a, [hQuotient + 0]
 	ld [wd002], a
+	push af
 	xor a ; PARTYMON
 	ld [MonType], a
 	predef CopyPkmnToTempMon
@@ -7201,15 +7202,20 @@ AnimateExpBar: ; 3f136
 	call CalcExpBar
 	push bc
 	ld hl, TempMonExp + 2
+
 	ld a, [wd004]
 	add [hl]
 	ld [hld], a
+
 	ld a, [wd003]
 	adc [hl]
 	ld [hld], a
+
+	ld a, [wd002]
+	adc [hl]
+	ld [hl], a
 	jr nc, .NoOverflow
-	inc [hl]
-	jr nz, .NoOverflow
+
 	ld a, $ff
 	ld [hli], a
 	ld [hli], a
@@ -7218,11 +7224,11 @@ AnimateExpBar: ; 3f136
 .NoOverflow:
 	ld d, MAX_LEVEL
 	farcall CalcExpAtLevel
-	ld a, [hProduct + 1]
+	ld a, [hQuotient + 0]
 	ld b, a
-	ld a, [hProduct + 2]
+	ld a, [hQuotient + 1]
 	ld c, a
-	ld a, [hProduct + 3]
+	ld a, [hQuotient + 2]
 	ld d, a
 	ld hl, TempMonExp + 2
 	ld a, [hld]
@@ -7293,9 +7299,11 @@ AnimateExpBar: ; 3f136
 	call .LoopBarAnimation
 	call TerminateExpBarSound
 	pop af
-	ld [hProduct + 2], a
+	ld [hQuotient + 0], a
 	pop af
-	ld [hProduct + 3], a
+	ld [hQuotient + 1], a
+	pop af
+	ld [hQuotient + 2], a
 
 .finish
 	pop bc
