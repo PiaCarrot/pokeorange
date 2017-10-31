@@ -133,7 +133,7 @@ MonMenuIcons: ; 8eac4
 	db ICON_EGG         ; SEADRA
 	db ICON_EGG         ; GOLDEEN
 	db ICON_EGG         ; SEAKING
-	db ICON_EGG       ; EGG
+	db ICON_EGG       ; STARYU
 	db ICON_EGG       ; STARMIE
 	db ICON_EGG   ; MR__MIME
 	db ICON_EGG          ; SCYTHER
@@ -143,8 +143,8 @@ MonMenuIcons: ; 8eac4
 	db ICON_EGG          ; PINSIR
 	db ICON_EGG       ; TAUROS
 	db ICON_EGG         ; MAGIKARP
-	db ICON_EGG     ; EGG
-	db ICON_EGG       ; EGG
+	db ICON_EGG     ; GYARADOS
+	db ICON_LAPRAS       ; LAPRAS
 	db ICON_EGG         ; DITTO
 	db ICON_EGG          ; EEVEE
 	db ICON_EGG          ; VAPOREON
@@ -300,6 +300,8 @@ IconPointers:
 	dw RaichuIcon
 	dw SandshrewIcon
 	
+	dw LaprasIcon
+	
 	dw WingullIcon
 	dw PelipperIcon
 	dw AzurillIcon
@@ -339,6 +341,8 @@ ArbokIcon:		  INCBIN "gfx/icon/arbok.2bpp"
 PikachuIcon:	  INCBIN "gfx/icon/pikachu.2bpp"
 RaichuIcon:       INCBIN "gfx/icon/raichu.2bpp"
 SandshrewIcon:    INCBIN "gfx/icon/sandshrew.2bpp"
+
+LaprasIcon:       INCBIN "gfx/icon/lapras.2bpp"
 
 WingullIcon:      INCBIN "gfx/icon/wingull.2bpp"
 PelipperIcon:     INCBIN "gfx/icon/pelipper.2bpp"

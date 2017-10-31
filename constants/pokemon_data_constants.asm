@@ -67,6 +67,8 @@ const_value SET 1
 	const ICON_RAICHU
 	const ICON_SANDSHREW
 	
+	const ICON_LAPRAS
+	
 ;gen 3
 	const ICON_WINGULL
 	const ICON_PELIPPER
