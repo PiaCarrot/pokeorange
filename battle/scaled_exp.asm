@@ -2,14 +2,11 @@
 ; https://github.com/Dabomstew/pokecrystal-speedchoice/blob/master/bwxp/core.asm
 
 ScaledExpCalculation::
+; variables in comments refer to Bulbapedia formula
+; https://bulbapedia.bulbagarden.net/wiki/Experience#Gain_formula
 ; requires de = current party mon struct
 	ld a, [EnemyMonLevel]
-	cp MAX_LEVEL + 1
-	jr c, .calc2LPlus10
-	ld a, MAX_LEVEL
-	ld [EnemyMonLevel], a
-.calc2LPlus10
-; start with 2L + 10 part
+; start with 2L+10 part
 	add a
 	add 10
 ; (2L+10)^2.5
@@ -17,7 +14,7 @@ ScaledExpCalculation::
 ; *1.5 for trainer battle
 	ld a, [wBattleMode]
 	dec a
-	call nz, BoostEXP
+	call nz, BoostExp
 ; *L again
 	ld a, [EnemyMonLevel]
 	ld [hMultiplier], a
@@ -46,7 +43,7 @@ ScaledExpCalculation::
 ; get # participants and store it for later as we need to use wExpScratchByte for other stuff now
 	ld a, [wExpScratchByte]
 	push af
-; copy the result so far into scratch 1
+; copy the result so far into wExpScratch40_1
 	ld hl, wExpScratch40_1
 	ld a, [hProduct]
 	ld [hli], a
@@ -131,14 +128,10 @@ ScaledExpCalculation::
 ; now (L+Lp+10)
 	ld a, [EnemyMonLevel]
 	ld b, a
-; deal with our own level (and cap it if need be)
+; deal with our own level
 	ld a, MON_LEVEL
 	call GetPartyParamLocation
 	ld a, [hl]
-	cp MAX_LEVEL + 1
-	jr c, .calcLLpPlus10
-	ld a, MAX_LEVEL
-.calcLLpPlus10
 	add b
 	add 10
 	ld b, a
@@ -156,7 +149,7 @@ ScaledExpCalculation::
 ; now we can move on and do the 2.5 power of L+Lp+10
 	ld a, b
 	call Power25Calculator
-	call SwaphProductWithDEHL
+	call SwapProductWithDEHL
 ; get the old MSB back from storage, the divisor here will never be 40-bit
 	ld a, [wExpScratchByte]
 	ld [hBigMultiplicand], a
@@ -191,7 +184,7 @@ ScaledExpCalculation::
 	jr z, .writeBoostedFlag
 
 .boostedEXP
-	call BoostEXP
+	call BoostExp
 	ld a, $1
 
 .writeBoostedFlag
@@ -201,7 +194,7 @@ ScaledExpCalculation::
 	call GetPartyParamLocation
 	ld a, [hl]
 	cp LUCKY_EGG
-	call z, BoostEXP
+	call z, BoostExp
 ; store final exp count to be handled back in the original bank
 	ld a, [hProduct + 3]
 	ld [wExpScratch40_1 + 2], a
@@ -261,7 +254,7 @@ SqrtHL::
 	pop de
 	ret
 
-BoostEXP::
+BoostExp::
 ; boost exp by 1.5x for stuff like traded or trainer mons
 	push bc
 	ld a, $3
@@ -350,7 +343,7 @@ BigMultiply:
 	pop bc
 	ret
 
-SwaphProductWithDEHL:
+SwapProductWithDEHL:
 ; uses wExpScratch40_1 as temp storage
 	push bc
 	ld b, h
@@ -525,30 +518,14 @@ FortyBitCompare::
 ; 40-bit <=
 ; sets carry if value starting at [hl] <= value starting at [de], clears otherwise
 ; uses b as temp storage along with a
+rept 4
 	ld a, [de]
 	cp [hl]
 	jr c, .false
 	jr nz, .true
 	inc de
 	inc hl
-	ld a, [de]
-	cp [hl]
-	jr c, .false
-	jr nz, .true
-	inc de
-	inc hl
-	ld a, [de]
-	cp [hl]
-	jr c, .false
-	jr nz, .true
-	inc de
-	inc hl
-	ld a, [de]
-	cp [hl]
-	jr c, .false
-	jr nz, .true
-	inc de
-	inc hl
+endr
 	ld a, [de]
 	cp [hl]
 	jr c, .false
@@ -609,6 +586,7 @@ CheckForExpShare::
 ; return true
 	scf
 	ret
+
 .nextentry
 	push de
 	ld de, PartyMon2 - PartyMon1
