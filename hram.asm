@@ -57,6 +57,11 @@ hProduct           EQU $ffb3 ; result (4 bytes long)
 
 hMathBuffer        EQU $ffb8
 
+; used for scaled experience
+hBigDividend       EQU $ffb2
+hBigMultiplicand   EQU $ffb2
+hMultiplierStor    EQU $ffb9
+
 hPrintNum1         EQU $ffb3
 hPrintNum2         EQU $ffb4
 hPrintNum3         EQU $ffb5

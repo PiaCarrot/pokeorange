@@ -6854,15 +6854,18 @@ GiveExperiencePoints: ; 3ee3b
 	inc de
 	dec c
 	jr nz, .loop1
-	jp .ExpCalculation
-.ExpCalculation_End:
+	push hl
+	push bc
+	farcall ScaledExpCalculation
+	pop bc
+	pop hl
 	ld a, [CurPartyMon]
 	ld hl, PartyMonNicknames
 	call GetNick
 	ld hl, Text_PkmnGainedExpPoint
 	call BattleTextBox
-	jp .ExpAddition
-.ExpAddition_End:
+	pop bc ; value needed inside .ExpAddition
+	call .ExpAddition
 	ld a, [CurPartyMon]
 	ld e, a
 	ld d, $0
@@ -7085,6 +7088,7 @@ GiveExperiencePoints: ; 3ee3b
 	ld d, a
 	dec c
 	jr nz, .count_loop
+	ld [BWXP_SCRATCH1B], a ; needed for scaled exp
 	cp 2
 	ret c
 
@@ -7107,105 +7111,46 @@ GiveExperiencePoints: ; 3ee3b
 	ret
 ; 3f106
 
-.ExpCalculation:
-	xor a
-	ld [hMultiplicand + 0], a
-	ld [hMultiplicand + 1], a
-	ld a, [EnemyMonBaseExp]
-	ld [hMultiplicand + 2], a
-	ld a, [EnemyMonLevel]
-	ld [hMultiplier], a
-	call Multiply
-	ld a, 7
-	ld [hDivisor], a
-	ld b, 4
-	call Divide
-; Boost Experience for traded Pokemon
-	pop bc
-	ld hl, MON_ID
-	add hl, bc
-	ld a, [PlayerID]
-	cp [hl]
-	jr nz, .boosted
-	inc hl
-	ld a, [PlayerID + 1]
-	cp [hl]
-	ld a, $0
-	jr z, .no_boost
-
-.boosted
-	call .BoostExp
-	ld a, $1
-
-.no_boost
-; Boost experience for a Trainer Battle
-	ld [StringBuffer2 + 2], a
-	ld a, [wBattleMode]
-	dec a
-	call nz, .BoostExp
-; Boost experience for Lucky Egg
-	push bc
-	ld a, MON_ITEM
-	call GetPartyParamLocation
-	ld a, [hl]
-	cp LUCKY_EGG
-	call z, .BoostExp
-	ld a, [hQuotient + 2]
-	ld [StringBuffer2 + 1], a
-	ld a, [hQuotient + 1]
-	ld [StringBuffer2], a
-	jp .ExpCalculation_End
-
 .ExpAddition:
-	ld a, [StringBuffer2 + 1]
+; copy back yield to multiplier fields
+	ld a, [BWXP_SCRATCH5B_1 + 2]
 	ld [hQuotient + 2], a
-	ld a, [StringBuffer2]
+	ld a, [BWXP_SCRATCH5B_1 + 1]
 	ld [hQuotient + 1], a
-	pop bc
+	ld a, [BWXP_SCRATCH5B_1]
+	ld [hQuotient + 0], a
+
 	call AnimateExpBar
+
 	push bc
 	call LoadTileMapToTempTileMap
 	pop bc
-	ld hl, MON_STAT_EXP - 1
+; set hl = last byte of party mon exp value
+	ld hl, MON_EXP + 2
 	add hl, bc
+; add new exp
 	ld d, [hl]
 	ld a, [hQuotient + 2]
 	add d
 	ld [hld], a
+
 	ld d, [hl]
 	ld a, [hQuotient + 1]
 	adc d
+	ld [hld], a
+
+	ld d, [hl]
+	ld a, [hQuotient + 0]
+	adc d
 	ld [hl], a
-	jp nc, .ExpAddition_End
-	dec hl
-	inc [hl]
-	jp nz, .ExpAddition_End
+	ret nc
+; maxed exp, set it to 16,777,215
 	ld a, $ff
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
-	jp .ExpAddition_End
-
-.BoostExp: ; 3f106
-; Multiply experience by 1.5x
-	push bc
-; load experience value
-	ld a, [hProduct + 2]
-	ld b, a
-	ld a, [hProduct + 3]
-	ld c, a
-; halve it
-	srl b
-	rr c
-; add it back to the whole exp value
-	add c
-	ld [hProduct + 3], a
-	ld a, [hProduct + 2]
-	adc b
-	ld [hProduct + 2], a
-	pop bc
 	ret
-; 3f11b
+
 
 Text_PkmnGainedExpPoint: ; 3f11b
 	text_jump Text_Gained
