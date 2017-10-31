@@ -5,7 +5,7 @@
 
 	db GROUND, DRAGON
 	db 120 ; catch rate
-	db 126 ; base exp
+	db 119 ; base exp
 	db NO_ITEM ; item 1
 	db SOFT_SAND ; item 2
 	db FEMALE_50 ; gender
