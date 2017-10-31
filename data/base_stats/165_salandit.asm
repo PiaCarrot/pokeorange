@@ -5,7 +5,6 @@
 
 	db POISON, FIRE
 	db 120 ; catch rate
-	db 64 ; base exp
 	db NO_ITEM ; item 1
 	db SMOKE_BALL ; item 2
 	db FEMALE_12_5 ; gender

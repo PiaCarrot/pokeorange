@@ -95,6 +95,7 @@ if def(DEBUG)
 	setflag ENGINE_FLYPOINT_MURCOTT
 	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
+	giveitem SKATEBOARD
 	giveitem MASTER_BALL, 99
 	giveitem DIVE_BALL, 99
 	giveitem HEAL_BALL, 99
@@ -114,7 +115,7 @@ if def(DEBUG)
 	giveitem RARE_CANDY, 99
 	giveitem SHINY_STONE
 	giveitem EVERSTONE
-	giveitem SKATEBOARD
+	giveitem EXP_SHARE
 	opentext
 	givepoke LAPRAS, 40
 	givepoke CHARIZARD, 40
@@ -176,7 +177,7 @@ Movement_TeacherBringsYouBack2_NBT:
 Text_GearIsImpressive:
 	text "<PLAYER>!"
 
-	para "PROF. IVY is"
+	para "PROF.IVY is"
 	line "waiting for you!"
 	done
 
@@ -194,7 +195,7 @@ Text_ItsDangerousToGoAlone:
 	line "go out without a"
 	cont "#MON!"
 
-	para "Isn't PROF. IVY"
+	para "Isn't PROF.IVY"
 	line "giving you a "
 
 	para "#MON? She's"

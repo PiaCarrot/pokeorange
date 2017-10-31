@@ -5,7 +5,6 @@
 
 	db GHOST, FAIRY
 	db 45 ; catch rate
-	db 167 ; base exp
 	db NO_ITEM ; item 1
 	db SPELL_TAG ; item 2
 	db FEMALE_50 ; gender

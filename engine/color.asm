@@ -85,37 +85,33 @@ GetBattlemonBackpicPalettePointer:
 	ld a, [TempBattleMonSpecies]
 	and a
 	jp z, GetPlayerPalettePointer
-	ld hl, PartyMon1Pink
-	ld a, [CurBattleMon]
-	call GetPartyLocation
-	ld a, [hl]
-	and PINK_MASK
-	jp nz, GetNormalOrShinyPinkanPalettePointer
-	push de
 	farcall GetPartyMonPersonality
 	ld c, l
 	ld b, h
+	ld hl, PartyMon1Pink
+	ld a, [CurBattleMon]
+	push bc
+	call GetPartyLocation
+	pop bc
+	ld a, [hl]
+	and PINK_MASK
+	jr nz, GetNormalOrShinyPinkanPalettePointer
 	ld a, [TempBattleMonSpecies]
-	call GetMonNormalOrShinyPalettePointer_NoPinkCheck
-	pop de
-	ret
+	jr GetMonNormalOrShinyPalettePointer_NoPinkCheck
 
 
 GetEnemyFrontpicPalettePointer:
 	ld a, [TempEnemyMonSpecies]
 	and a
 	jp z, GetFrontpicPalettePointer_Trainer
-	ld a, [EnemyMonPink]
-	and PINK_MASK
-	jp nz, GetNormalOrShinyPinkanPalettePointer
-	push de
 	farcall GetEnemyMonPersonality
 	ld c, l
 	ld b, h
+	ld a, [EnemyMonPink]
+	and PINK_MASK
+	jr nz, GetNormalOrShinyPinkanPalettePointer
 	ld a, [TempEnemyMonSpecies]
-	call GetMonNormalOrShinyPalettePointer_NoPinkCheck
-	pop de
-	ret
+	jr GetMonNormalOrShinyPalettePointer_NoPinkCheck
 
 
 GetMonPalettePointer:
@@ -154,6 +150,7 @@ GetNormalOrShinyPinkanPalettePointer:
 	ld hl, PinkanPalette
 	jr GetNormalOrShinyPalettePointer
 
+
 InitPartyMenuPalettes:
 	ld hl, PalPacket_PartyMenu
 	call CopyFourPalettes
@@ -165,7 +162,7 @@ ApplyMonOrTrainerPals:
 	and a
 	jr z, .get_trainer
 	ld a, [CurPartySpecies]
-	call GetMonPalettePointer_
+	call GetMonPalettePointer
 	jr .load_palettes
 
 .get_trainer
@@ -561,9 +558,6 @@ GetTrainerPalettePointer:
 	ld bc, TrainerPalettes
 	add hl, bc
 	ret
-
-GetMonPalettePointer_:
-	jp GetMonPalettePointer
 
 InitCGBPals::
 	ld a, $1

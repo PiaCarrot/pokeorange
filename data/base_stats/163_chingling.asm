@@ -5,7 +5,6 @@
 
 	db PSYCHIC, PSYCHIC
 	db 120 ; catch rate
-	db 57 ; base exp
 	db NO_ITEM ; item 1
 	db PSNCUREBERRY ; item 2
 	db FEMALE_50 ; gender

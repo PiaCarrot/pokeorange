@@ -5,7 +5,6 @@
 
 	db FIRE, GHOST
 	db 75 ; catch rate
-	db 149 ; base exp
 	db NO_ITEM ; item 1
 	db THICK_CLUB ; item 2
 	db FEMALE_50 ; gender

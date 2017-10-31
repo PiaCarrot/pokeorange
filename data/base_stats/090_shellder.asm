@@ -5,7 +5,6 @@
 
 	db WATER, WATER
 	db 190 ; catch rate
-	db 61 ; base exp
 	db PEARL ; item 1
 	db BIG_PEARL ; item 2
 	db FEMALE_50 ; gender

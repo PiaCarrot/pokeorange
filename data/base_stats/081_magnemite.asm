@@ -5,7 +5,6 @@
 
 	db ELECTRIC, STEEL
 	db 190 ; catch rate
-	db 65 ; base exp
 	db NO_ITEM ; item 1
 	db METAL_COAT ; item 2
 	db GENDERLESS ; gender

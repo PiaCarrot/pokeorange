@@ -165,7 +165,7 @@ TrainerClassPersonalities:
 	db FEMALE_MASK ; swimmerf
 	db MALE_MASK   ; camper
 	db MALE_MASK | PINK_MASK ; pink maniac
-	db MALE_MASK ; pokemaniac
+	db MALE_MASK   ; pokemaniac
 	db MALE_MASK   ; fisher
 	db MALE_MASK   ; hiker
 	db MALE_MASK   ; athlete

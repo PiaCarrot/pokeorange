@@ -5,7 +5,6 @@
 
 	db PSYCHIC, FAIRY
 	db 145 ; catch rate
-	db 62 ; base exp
 	db NO_ITEM ; item 1
 	db MYSTERYBERRY ; item 2
 	db FEMALE_50 ; gender

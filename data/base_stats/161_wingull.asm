@@ -5,7 +5,6 @@
 
 	db WATER, FLYING
 	db 190 ; catch rate
-	db 54 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db FEMALE_50 ; gender

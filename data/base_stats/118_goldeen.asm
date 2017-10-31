@@ -5,7 +5,6 @@
 
 	db WATER, WATER
 	db 225 ; catch rate
-	db 64 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db FEMALE_50 ; gender

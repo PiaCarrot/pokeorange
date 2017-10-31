@@ -4556,3 +4556,7 @@ Bank77_FillColumn: ; 1de27f
 SECTION "Tileset Data 8", ROMX, BANK[TILESETS_8]
 
 INCLUDE "tilesets/data_8.asm"
+
+SECTION "Scaled Experience", ROMX
+
+INCLUDE "battle/scaled_exp.asm"

@@ -5,7 +5,6 @@
 
 	db ROCK, ELECTRIC
 	db 255 ; catch rate
-	db 60 ; base exp
 	db NO_ITEM ; item 1
 	db EVERSTONE ; item 2
 	db FEMALE_50 ; gender

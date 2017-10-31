@@ -5,7 +5,6 @@
 
 	db FIRE, FLYING
 	db 3 ; catch rate
-	db 255 ; base exp
 	db SACRED_ASH ; item 1
 	db SACRED_ASH ; item 2
 	db GENDERLESS ; gender

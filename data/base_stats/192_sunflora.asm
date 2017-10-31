@@ -5,7 +5,6 @@
 
 	db GRASS, GRASS
 	db 120 ; catch rate
-	db 149 ; base exp
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db FEMALE_50 ; gender
