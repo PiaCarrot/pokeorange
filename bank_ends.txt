@@ -13,12 +13,12 @@ Bank $0b: $6567 ($1a99)
 Bank $0c: $6adf ($1521)
 Bank $0d: $79d8 ($0628)
 Bank $0e: $5e40 ($21c0)
-Bank $0f: $7a8d ($0573)
+Bank $0f: $7a88 ($0578)
 Bank $10: $75db ($0a25)
 Bank $11: $7c92 ($036e)
 Bank $12: $75f8 ($0a08)
 Bank $13: $5ff4 ($200c)
-Bank $14: $757e ($0a82)
+Bank $14: $7481 ($0b7f)
 Bank $15: $5b9e ($2462)
 Bank $16: $5786 ($287a)
 Bank $17: $553b ($2ac5)
@@ -110,7 +110,7 @@ Bank $6c: $4935 ($36cb)
 Bank $6d: $4000 ($4000)
 Bank $6e: $5ae0 ($2520)
 Bank $6f: $4cc1 ($333f)
-Bank $70: $5ad4 ($252c)
+Bank $70: $5ac4 ($253c)
 Bank $71: $4f8b ($3075)
 Bank $72: $6bbb ($1445)
 Bank $73: $5b68 ($2498)
@@ -190,7 +190,7 @@ Bank $16 has $287a bytes of free space
 Bank $1e has $27e4 bytes of free space
 Bank $5e has $2611 bytes of free space
 Bank $74 has $259b bytes of free space
-Bank $70 has $252c bytes of free space
+Bank $70 has $253c bytes of free space
 Bank $6e has $2520 bytes of free space
 Bank $60 has $24ec bytes of free space
 Bank $73 has $2498 bytes of free space
@@ -230,9 +230,9 @@ Bank $08 has $0f2a bytes of free space
 Bank $58 has $0f0f bytes of free space
 Bank $55 has $0ecc bytes of free space
 Bank $54 has $0d2e bytes of free space
+Bank $14 has $0b7f bytes of free space
 Bank $05 has $0b15 bytes of free space
 Bank $53 has $0ac0 bytes of free space
-Bank $14 has $0a82 bytes of free space
 Bank $5a has $0a72 bytes of free space
 Bank $10 has $0a25 bytes of free space
 Bank $12 has $0a08 bytes of free space
@@ -241,7 +241,7 @@ Bank $59 has $08ac bytes of free space
 Bank $00 has $082d bytes of free space
 Bank $0d has $0628 bytes of free space
 Bank $01 has $0599 bytes of free space
-Bank $0f has $0573 bytes of free space
+Bank $0f has $0578 bytes of free space
 Bank $04 has $04d0 bytes of free space
 Bank $32 has $04b9 bytes of free space
 Bank $19 has $048d bytes of free space
@@ -256,4 +256,4 @@ Bank $3d has $0117 bytes of free space
 Bank $31 has $0080 bytes of free space
 Bank $30 has $0040 bytes of free space
 
-Free space: 1231561/2097152 (58.73%)
+Free space: 1231835/2097152 (58.74%)
