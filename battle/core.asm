@@ -6854,86 +6854,15 @@ GiveExperiencePoints: ; 3ee3b
 	inc de
 	dec c
 	jr nz, .loop1
-	xor a
-	ld [hMultiplicand + 0], a
-	ld [hMultiplicand + 1], a
-	ld a, [EnemyMonBaseExp]
-	ld [hMultiplicand + 2], a
-	ld a, [EnemyMonLevel]
-	ld [hMultiplier], a
-	call Multiply
-	ld a, 7
-	ld [hDivisor], a
-	ld b, 4
-	call Divide
-; Boost Experience for traded Pokemon
-	pop bc
-	ld hl, MON_ID
-	add hl, bc
-	ld a, [PlayerID]
-	cp [hl]
-	jr nz, .boosted
-	inc hl
-	ld a, [PlayerID + 1]
-	cp [hl]
-	ld a, $0
-	jr z, .no_boost
-
-.boosted
-	call BoostExp
-	ld a, $1
-
-.no_boost
-; Boost experience for a Trainer Battle
-	ld [StringBuffer2 + 2], a
-	ld a, [wBattleMode]
-	dec a
-	call nz, BoostExp
-; Boost experience for Lucky Egg
-	push bc
-	ld a, MON_ITEM
-	call GetPartyParamLocation
-	ld a, [hl]
-	cp LUCKY_EGG
-	call z, BoostExp
-	ld a, [hQuotient + 2]
-	ld [StringBuffer2 + 1], a
-	ld a, [hQuotient + 1]
-	ld [StringBuffer2], a
+	jp .ExpCalculation
+.ExpCalculation_End:
 	ld a, [CurPartyMon]
 	ld hl, PartyMonNicknames
 	call GetNick
 	ld hl, Text_PkmnGainedExpPoint
 	call BattleTextBox
-	ld a, [StringBuffer2 + 1]
-	ld [hQuotient + 2], a
-	ld a, [StringBuffer2]
-	ld [hQuotient + 1], a
-	pop bc
-	call AnimateExpBar
-	push bc
-	call LoadTileMapToTempTileMap
-	pop bc
-	ld hl, MON_STAT_EXP - 1
-	add hl, bc
-	ld d, [hl]
-	ld a, [hQuotient + 2]
-	add d
-	ld [hld], a
-	ld d, [hl]
-	ld a, [hQuotient + 1]
-	adc d
-	ld [hl], a
-	jr nc, .skip2
-	dec hl
-	inc [hl]
-	jr nz, .skip2
-	ld a, $ff
-	ld [hli], a
-	ld [hli], a
-	ld [hl], a
-
-.skip2
+	jp .ExpAddition
+.ExpAddition_End:
 	ld a, [CurPartyMon]
 	ld e, a
 	ld d, $0
@@ -7178,7 +7107,86 @@ GiveExperiencePoints: ; 3ee3b
 	ret
 ; 3f106
 
-BoostExp: ; 3f106
+.ExpCalculation:
+	xor a
+	ld [hMultiplicand + 0], a
+	ld [hMultiplicand + 1], a
+	ld a, [EnemyMonBaseExp]
+	ld [hMultiplicand + 2], a
+	ld a, [EnemyMonLevel]
+	ld [hMultiplier], a
+	call Multiply
+	ld a, 7
+	ld [hDivisor], a
+	ld b, 4
+	call Divide
+; Boost Experience for traded Pokemon
+	pop bc
+	ld hl, MON_ID
+	add hl, bc
+	ld a, [PlayerID]
+	cp [hl]
+	jr nz, .boosted
+	inc hl
+	ld a, [PlayerID + 1]
+	cp [hl]
+	ld a, $0
+	jr z, .no_boost
+
+.boosted
+	call .BoostExp
+	ld a, $1
+
+.no_boost
+; Boost experience for a Trainer Battle
+	ld [StringBuffer2 + 2], a
+	ld a, [wBattleMode]
+	dec a
+	call nz, .BoostExp
+; Boost experience for Lucky Egg
+	push bc
+	ld a, MON_ITEM
+	call GetPartyParamLocation
+	ld a, [hl]
+	cp LUCKY_EGG
+	call z, .BoostExp
+	ld a, [hQuotient + 2]
+	ld [StringBuffer2 + 1], a
+	ld a, [hQuotient + 1]
+	ld [StringBuffer2], a
+	jp .ExpCalculation_End
+
+.ExpAddition:
+	ld a, [StringBuffer2 + 1]
+	ld [hQuotient + 2], a
+	ld a, [StringBuffer2]
+	ld [hQuotient + 1], a
+	pop bc
+	call AnimateExpBar
+	push bc
+	call LoadTileMapToTempTileMap
+	pop bc
+	ld hl, MON_STAT_EXP - 1
+	add hl, bc
+	ld d, [hl]
+	ld a, [hQuotient + 2]
+	add d
+	ld [hld], a
+	ld d, [hl]
+	ld a, [hQuotient + 1]
+	adc d
+	ld [hl], a
+	jp nc, .ExpAddition_End
+	dec hl
+	inc [hl]
+	jp nz, .ExpAddition_End
+	ld a, $ff
+	ld [hli], a
+	ld [hli], a
+	ld [hl], a
+	jp .ExpAddition_End
+
+.BoostExp: ; 3f106
 ; Multiply experience by 1.5x
 	push bc
 ; load experience value
