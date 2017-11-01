@@ -10,10 +10,10 @@ _TitleScreen: ; 10ed67
 
 ; Reset timing variables
 	ld hl, wJumptableIndex
-	ld [hli], a ; cf63 ; Scene?
-	ld [hli], a ; cf64
-	ld [hli], a ; cf65 ; Timer lo
-	ld [hl], a  ; cf66 ; Timer hi
+	ld [hli], a ; wJumptableIndex
+	ld [hli], a ; wIntroSceneFrameCounter
+	ld [hli], a ; wTitleScreenTimerLo
+	ld [hl], a  ; wTitleScreenTimerHi
 
 ; Turn LCD off
 	call DisableLCD
@@ -32,7 +32,7 @@ _TitleScreen: ; 10ed67
 
 ; Clear screen palettes
 	hlbgcoord 0, 0
-	ld bc, 20 bgrows
+	ld bc, SCREEN_WIDTH bgrows
 	xor a
 	call ByteFill
 
@@ -110,14 +110,14 @@ _TitleScreen: ; 10ed67
 
 ; Draw Pokemon logo
 	hlcoord 0, 1
-	lb bc, 7, 20
-	lb de, $80, $14
+	lb bc, 7, SCREEN_WIDTH
+	lb de, $80, SCREEN_WIDTH
 	call DrawTitleGraphic
 
 ; Draw copyright text
 	hlbgcoord 3, 0, VBGMap1
 	lb bc, 1, 13
-	lb de, $c, $10
+	lb de, $0c, 0
 	call DrawTitleGraphic
 
 ; Initialize running Suicune?
