@@ -24,24 +24,19 @@ Ren:
 	jumptextfaceplayer RenText
 
 Mimi:
-	checkevent EVENT_GOT_EXP_SHARE
-	iftrue .AlreadyGotEXPShare
+	checkevent EVENT_GOT_EXP_ALL
+	iftrue .AlreadyGotExpAll
 	faceplayer
 	opentext
-	writetext GiveExpShareText
+	writetext GiveExpAllText
 	waitbutton
-	verbosegiveitem EXP_SHARE
-	iffalse .ExpShareFullBackpack
-	setevent EVENT_GOT_EXP_SHARE
+	verbosegiveitem EXP_ALL
+	setevent EVENT_GOT_EXP_ALL
 	closetext
 	end
 
-.AlreadyGotEXPShare
+.AlreadyGotExpAll
 	jumptextfaceplayer MimiText
-
-.ExpShareFullBackpack:
-	closetext
-	end
 
 DaikonText:
 	text "You are so strong!"
@@ -67,7 +62,7 @@ MimiText:
 	text "See you around!"
 	done
 
-GiveExpShareText:
+GiveExpAllText:
 	text "Here's your prize"
 	line "for beating us,"
 	cont "<PLAYER>!"

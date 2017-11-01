@@ -250,6 +250,19 @@ UnknownText_0x1c5c7b::
 	deciram Coins, 2, 4
 	db "@@"
 
+Text_TurnOffExpAll::
+	text "Turned off the"
+	line "EXP.ALL."
+	done
+
+Text_TurnOnExpAll::
+	text "Turned on the"
+	line "EXP.ALL!"
+
+	para "The whole party"
+	line "will gain EXP."
+	done
+
 Text_RaiseThePPOfWhichMove::
 	text "Raise the PP of"
 	line "which move?"

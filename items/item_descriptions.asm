@@ -38,7 +38,7 @@ ItemDescriptions:
 	dw GreatBallDesc
 	dw PokeBallDesc
 	dw TownMapDesc
-	dw BicycleDesc
+	dw SkateboardDesc
 	dw MoonStoneDesc
 	dw AntidoteDesc
 	dw BurnHealDesc
@@ -87,7 +87,7 @@ ItemDescriptions:
 	dw CoinCaseDesc
 	dw ItemfinderDesc
 	dw PokeFluteDesc
-	dw ExpShareDesc
+	dw ExpAllDesc
 	dw OldRodDesc
 	dw GoodRodDesc
 	dw SuperRodDesc
@@ -213,7 +213,7 @@ TownMapDesc:
 	db   "A map of the"
 	next "ORANGE ISLANDS.@"
 
-BicycleDesc:
+SkateboardDesc:
 	db   "A high-tech SKATE-"
 	next "BOARD for travel.@"
 
@@ -409,9 +409,9 @@ PokeFluteDesc:
 	db   "A FLUTE used to"
 	next "play melodies.@"
 
-ExpShareDesc:
+ExpAllDesc:
 	db   "Shares battle EXP."
-	next "Points. (HOLD)@"
+	next "Points with party.@"
 
 OldRodDesc:
 	db   "Use by water to"

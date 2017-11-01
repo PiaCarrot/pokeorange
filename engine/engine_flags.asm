@@ -100,6 +100,7 @@ ENDM
 
 	engine_flag StatusFlags, 0 ; pokedex
 	engine_flag StatusFlags, 3 ; pokerus
+	engine_flag StatusFlags, 4 ; exp all
 	engine_flag StatusFlags, 6 ; credits skip
 	engine_flag StatusFlags, 7 ; bug contest on
 

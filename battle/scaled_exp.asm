@@ -25,10 +25,10 @@ ScaledExpCalculation::
 	ld [hDivisor], a
 	ld b, $4
 	call Divide
-; exp share?
-	call CheckForExpShare
+; participated? (if false, exp all must be on)
+	call CheckForParticipation
 	jr nc, .divideConstant
-; divide by 2 if exp share
+; divide by 2 if not participated
 	ld a, 2
 	ld [hDivisor], a
 	ld b, $4
@@ -557,45 +557,26 @@ rept 4
 endr
 	ret
 
-CheckForExpShare::
-; find an alive exp share holder in the party if there is one
-	ld a, [PartyCount]
-	ld b, a
-	ld hl, PartyMon1
-.loop
+CheckForParticipation::
+; return true if CurPartyMon did not participate
 	push hl
 	push bc
-	ld bc, MON_HP
-	add hl, bc
-	ld a, [hli]
-	or [hl]
+	ld hl, wBattleParticipantsNotFainted
+	ld a, [CurPartyMon]
+	ld c, a
+	ld b, CHECK_FLAG
+	ld d, $0
+	predef FlagPredef
+	ld a, c
+	and a
 	pop bc
 	pop hl
-	jr z, .nextentry
-
-	push hl
-	push bc
-	ld bc, MON_ITEM
-	add hl, bc
-	pop bc
-	ld a, [hl]
-	pop hl
-
-	cp EXP_SHARE
-	jr nz, .nextentry
-; return true
-	scf
+	jr z, .true
+	and a
 	ret
 
-.nextentry
-	push de
-	ld de, PartyMon2 - PartyMon1
-	add hl, de
-	pop de
-	dec b
-	jr nz, .loop
-; return false
-	and a
+.true
+	scf
 	ret
 
 BaseExpTable:
