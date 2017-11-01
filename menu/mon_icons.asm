@@ -431,7 +431,7 @@ IconPointers:
 	dw MunchlaxIcon
 	dw MinccinoIcon
 	dw CinccinoIcon
-	dw WIngullIcon
+	dw WingullIcon
 	dw PelipperIcon
 	dw ChinglingIcon
 	dw ChimechoIcon
@@ -533,3 +533,7 @@ INCLUDE "menu/mon_icons_1.asm"
 SECTION "Mon Icons 2", ROMX
 
 INCLUDE "menu/mon_icons_2.asm"
+
+SECTION "Mon Icons 3", ROMX
+
+INCLUDE "menu/mon_icons_3.asm"
