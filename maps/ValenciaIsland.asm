@@ -96,6 +96,7 @@ if def(DEBUG)
 	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
 	giveitem SKATEBOARD
+	giveitem EXP_ALL
 	giveitem MASTER_BALL, 99
 	giveitem DIVE_BALL, 99
 	giveitem HEAL_BALL, 99
@@ -115,7 +116,6 @@ if def(DEBUG)
 	giveitem RARE_CANDY, 99
 	giveitem SHINY_STONE
 	giveitem EVERSTONE
-	giveitem EXP_SHARE
 	opentext
 	givepoke LAPRAS, 40
 	givepoke CHARIZARD, 40

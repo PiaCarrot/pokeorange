@@ -2146,98 +2146,8 @@ UpdateBattleStateAndExperienceAfterEnemyFaint: ; 3ce01
 	ld a, [wBattleResult]
 	and $c0
 	ld [wBattleResult], a
-	call IsAnyMonHoldingExpShare
-	jr z, .skip_exp
-	ld hl, EnemyMonBaseStats
-	ld b, EnemyMonEnd - EnemyMonBaseStats
-.loop
-	srl [hl]
-	inc hl
-	dec b
-	jr nz, .loop
-
-.skip_exp
-	ld hl, EnemyMonBaseStats
-	ld de, wBackupEnemyMonBaseStats
-	ld bc, EnemyMonEnd - EnemyMonBaseStats
-	call CopyBytes
-	xor a
-	ld [wGivingExperienceToExpShareHolders], a
-	call GiveExperiencePoints
-	call IsAnyMonHoldingExpShare
-	ret z
-
-	ld a, [wBattleParticipantsNotFainted]
-	push af
-	ld a, d
-	ld [wBattleParticipantsNotFainted], a
-	ld hl, wBackupEnemyMonBaseStats
-	ld de, EnemyMonBaseStats
-	ld bc, EnemyMonEnd - EnemyMonBaseStats
-	call CopyBytes
-	ld a, $1
-	ld [wGivingExperienceToExpShareHolders], a
-	call GiveExperiencePoints
-	pop af
-	ld [wBattleParticipantsNotFainted], a
-	ret
+	jp GiveExperiencePoints
 ; 3ceaa
-
-IsAnyMonHoldingExpShare: ; 3ceaa
-	ld a, [PartyCount]
-	ld b, a
-	ld hl, PartyMon1
-	ld c, 1
-	ld d, 0
-.loop
-	push hl
-	push bc
-	ld bc, MON_HP
-	add hl, bc
-	ld a, [hli]
-	or [hl]
-	pop bc
-	pop hl
-	jr z, .next
-
-	push hl
-	push bc
-	ld bc, MON_ITEM
-	add hl, bc
-	pop bc
-	ld a, [hl]
-	pop hl
-
-	cp EXP_SHARE
-	jr nz, .next
-	ld a, d
-	or c
-	ld d, a
-
-.next
-	sla c
-	push de
-	ld de, PARTYMON_STRUCT_LENGTH
-	add hl, de
-	pop de
-	dec b
-	jr nz, .loop
-
-	ld a, d
-	ld e, 0
-	ld b, PARTY_LENGTH
-.loop2
-	srl a
-	jr nc, .okay
-	inc e
-
-.okay
-	dec b
-	jr nz, .loop2
-	ld a, e
-	and a
-	ret
-; 3ceec
 
 StopDangerSound: ; 3ceec
 	xor a
@@ -2498,10 +2408,6 @@ PlayVictoryMusic: ; 3d0ea
 	ld a, [wBattleMode]
 	dec a
 	jr nz, .trainer_victory
-	push de
-	call IsAnyMonHoldingExpShare
-	pop de
-	jr nz, .play_music
 	ld hl, wPayDayMoney
 	ld a, [hli]
 	or [hl]
@@ -3198,10 +3104,10 @@ LookUpTheEffectivenessOfEveryMove: ; 3d5d7
 	ld e, NUM_MOVES + 1
 .loop
 	dec e
-	jr z, .done
+	ret z
 	ld a, [hli]
 	and a
-	jr z, .done
+	ret z
 	push hl
 	push de
 	push bc
@@ -3222,8 +3128,6 @@ LookUpTheEffectivenessOfEveryMove: ; 3d5d7
 	jr c, .loop
 	ld hl, Buffer1
 	set 0, [hl]
-	ret
-.done
 	ret
 ; 3d618
 
@@ -4604,7 +4508,7 @@ CheckDanger: ; 3df9e
 	jr z, .no_danger
 	ld a, [wDanger]
 	and a
-	jr nz, .done
+	ret nz
 	ld a, [PlayerHPPal]
 	cp HP_RED
 	jr z, .danger
@@ -4612,13 +4516,11 @@ CheckDanger: ; 3df9e
 .no_danger
 	ld hl, Danger
 	res 7, [hl]
-	jr .done
+	ret
 
 .danger
 	ld hl, Danger
 	set 7, [hl]
-
-.done
 	ret
 ; 3dfbf
 
@@ -5569,8 +5471,7 @@ MoveInfoBox: ; 3e6c8
 
 	hlcoord 1, 10
 	ld de, .Disabled
-	call PlaceString
-	jr .done
+	jp PlaceString
 
 .not_disabled
 	ld hl, wMenuCursorY
@@ -5613,8 +5514,6 @@ MoveInfoBox: ; 3e6c8
 	ld b, a
 	hlcoord 2, 10
 	predef PrintMoveType
-
-.done
 	ret
 ; 3e74f
 
@@ -5675,7 +5574,7 @@ CheckPlayerHasUsableMoves: ; 3e786
 	jr .loop
 
 .done
-	and a ; This is probably a bug, and will result in a move with PP Up confusing the game.
+	and $3f
 	ret nz
 
 .force_struggle
@@ -6772,7 +6671,6 @@ GiveExperiencePoints: ; 3ee3b
 	and a
 	ret nz
 
-	call .EvenlyDivideExpAmongParticipants
 	xor a
 	ld [CurPartyMon], a
 	ld bc, PartyMon1Species
@@ -6784,6 +6682,11 @@ GiveExperiencePoints: ; 3ee3b
 	or [hl]
 	jp z, .skip_stats ; fainted
 
+	ld a, [StatusFlags]
+	bit 4, a ; exp all
+	jr nz, .exp_all
+
+; if exp all is off, skip non-participants
 	push bc
 	ld hl, wBattleParticipantsNotFainted
 	ld a, [CurPartyMon]
@@ -6796,6 +6699,7 @@ GiveExperiencePoints: ; 3ee3b
 	pop bc
 	jp z, .skip_stats
 
+.exp_all
 ; give stat exp
 	ld hl, MON_STAT_EXP + 1
 	add hl, bc
@@ -7059,53 +6963,14 @@ GiveExperiencePoints: ; 3ee3b
 	ld a, [CurPartyMon]
 	inc a
 	cp b
-	jr z, .done
+	jp z, ResetBattleParticipants
 	ld [CurPartyMon], a
 	ld a, MON_SPECIES
 	call GetPartyParamLocation
 	ld b, h
 	ld c, l
 	jp .loop
-
-.done
-	jp ResetBattleParticipants
 ; 3f0d4
-
-.EvenlyDivideExpAmongParticipants:
-; count number of battle participants
-	ld a, [wBattleParticipantsNotFainted]
-	ld b, a
-	ld c, PARTY_LENGTH
-	ld d, 0
-.count_loop
-	xor a
-	srl b
-	adc d
-	ld d, a
-	dec c
-	jr nz, .count_loop
-	ld [wExpScratchByte], a ; needed for scaled exp
-	cp 2
-	ret c
-
-	ld [wd265], a
-	ld hl, EnemyMonBaseStats
-	ld c, EnemyMonEnd - EnemyMonBaseStats
-.count_loop2
-	xor a
-	ld [hDividend + 0], a
-	ld a, [hl]
-	ld [hDividend + 1], a
-	ld a, [wd265]
-	ld [hDivisor], a
-	ld b, 2
-	call Divide
-	ld a, [hQuotient + 2]
-	ld [hli], a
-	dec c
-	jr nz, .count_loop2
-	ret
-; 3f106
 
 .ExpAddition:
 ; copy back yield to multiplier fields
@@ -7873,7 +7738,7 @@ InitEnemyTrainer: ; 3f594
 	ld [wBattleMode], a
 
 	call IsJohtoGymLeader
-	jr nc, .done
+	ret nc
 	xor a
 	ld [CurPartyMon], a
 	ld a, [PartyCount]
@@ -7890,12 +7755,10 @@ InitEnemyTrainer: ; 3f594
 .skipfaintedmon
 	pop bc
 	dec b
-	jr z, .done
+	ret z
 	ld hl, CurPartyMon
 	inc [hl]
 	jr .partyloop
-.done
-	ret
 ; 3f607
 
 InitEnemyWildmon: ; 3f607

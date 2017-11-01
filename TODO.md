@@ -1,20 +1,21 @@
 # To Do
 
-
 ## Content
 
-- Add clouds to title screen
 - Unnamed Island 2 Fishing Contest (requires some asm magix)
-- Pokémon TCG2-esque Credits
-- Method to get other starters
+- Method to get other starters (with exclusive moves)
+- Pokémon TCG2-esque credits
+- Running Shoes (if they're slower than the Skateboard)
 
 ## Features
 
-- Exp All
-- Catch Exp
-- Prism Menu Icon code (Not using the Chamber/Blueemerald/Soloo menu sprites)
 - Prism DED cry code
-- When releasing Pokemon, make sure it is not last Pokemon you own with Surf.
+- When releasing Pokemon, make sure it is not last Pokemon you own with Surf
+
+## Graphics
+
+- Add clouds to title screen
+- Prism menu icon code (not using the Chamber/Blue Emerald/Solo993 menu sprites)
 
 ## Moves
 

@@ -20,7 +20,7 @@ ItemEffects: ; e73c
 	dw GreatBall
 	dw PokeBall
 	dw TownMap
-	dw Bicycle
+	dw Skateboard
 	dw MoonStone
 	dw Antidote
 	dw BurnHeal
@@ -69,7 +69,7 @@ ItemEffects: ; e73c
 	dw CoinCase
 	dw Itemfinder
 	dw PokeFlute
-	dw ExpShare
+	dw ExpAll
 	dw OldRod
 	dw GoodRod
 	dw SuperRod
@@ -468,9 +468,10 @@ DuskBall: ; e8a2
 	ld de, EnemyMonPP
 	ld bc, NUM_MOVES
 	call CopyBytes
-.Transformed:
 
+.Transformed:
 	ld a, [EnemyMonSpecies]
+	push af
 	ld [wWildMon], a
 	ld [CurPartySpecies], a
 	ld [wd265], a
@@ -480,7 +481,14 @@ DuskBall: ; e8a2
 
 	call ClearSprites
 
-	ld a, [wd265]
+	farcall GiveExperiencePoints
+	ld a, [EnemyMonLevel]
+	ld [CurPartyLevel], a
+
+	pop af
+	ld [wWildMon], a
+	ld [CurPartySpecies], a
+	ld [wd265], a
 	dec a
 	call CheckCaughtMon
 
@@ -1150,7 +1158,7 @@ TownMap: ; ee01
 ; ee08
 
 
-Bicycle: ; ee08
+Skateboard: ; ee08
 	farcall BikeFunction
 	ret
 ; ee0f
@@ -2414,6 +2422,28 @@ CoinCase: ; f59a
 ; f5a5
 
 
+ExpAll:
+	ld hl, StatusFlags
+	bit 4, [hl] ; exp all
+	jr z, .off
+	res 4, [hl]
+	ld hl, .turnofftext
+	jp MenuTextBoxWaitButton
+
+.off:
+	set 4, [hl]
+	ld hl, .turnontext
+	jp MenuTextBoxWaitButton
+
+.turnofftext
+	text_jump Text_TurnOffExpAll
+	db "@"
+
+.turnontext
+	text_jump Text_TurnOnExpAll
+	db "@"
+
+
 OldRod: ; f5a5
 	ld e, $0
 	jr UseRod
@@ -2816,7 +2846,6 @@ Brightpowder:
 LuckyPunch:
 MetalPowder:
 Nugget:
-ExpShare:
 SilverWing:
 QuickClaw:
 SoftSand:

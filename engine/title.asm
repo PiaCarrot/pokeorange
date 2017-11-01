@@ -86,7 +86,7 @@ _TitleScreen: ; 10ed67
 	call ByteFill
 
 ; Suicune gfx
-	hlbgcoord 0, 10
+	hlbgcoord 0, 12
 	ld bc, 6 bgrows ; the rest of the screen
 	ld a, 8
 	call ByteFill
@@ -102,11 +102,6 @@ _TitleScreen: ; 10ed67
 	ld de, VTiles1
 	call Decompress
 
-; Decompress clouds
-	ld hl, TitleCloudGFX
-	ld de, VTiles1
-	call Decompress
-
 ; Clear screen tiles
 	hlbgcoord 0, 0
 	ld bc, 64 bgrows
@@ -118,25 +113,6 @@ _TitleScreen: ; 10ed67
 	lb bc, 7, 20
 	lb de, $80, $14
 	call DrawTitleGraphic
-	
-; Draw clouds
-	hlbgcoord 20, 10
-	lb bc, 2, 12
-	lb de, $c, $14
-	call DrawTitleGraphic
-	hlbgcoord 20, 9
-	ld b, 3
-.cloudsloop
-	ld a, $f8
-	ld [hli], a
-	inc a
-	ld [hli], a
-	inc a
-	ld [hli], a
-	ld a, $7
-	ld [hli], a
-	dec b
-	jr nz, .cloudsloop
 
 ; Draw copyright text
 	hlbgcoord 3, 0, VBGMap1
@@ -158,12 +134,12 @@ _TitleScreen: ; 10ed67
 ; Update palette colors
 	ld hl, TitleScreenPalettes
 	ld de, UnknBGPals
-	ld bc, 4 * 32
+	ld bc, 16 palettes
 	call CopyBytes
 
 	ld hl, TitleScreenPalettes
 	ld de, BGPals
-	ld bc, 4 * 32
+	ld bc, 16 palettes
 	call CopyBytes
 
 ; Restore WRAM bank
@@ -178,26 +154,10 @@ _TitleScreen: ; 10ed67
 	ld a, 5 ; BANK(LYOverrides)
 	ld [rSVBK], a
 
-; Make alternating lines come in from opposite sides
-
-; ( This part is actually totally pointless, you can't
-;   see anything until these values are overwritten!  )
-
-	ld b, 80 / 2 ; alternate for 80 lines
+; Make sure the LYOverrides buffer is empty
 	ld hl, LYOverrides
-.loop
-; $00 is the middle position
-	ld [hl], +112 ; coming from the left
-	inc hl
-	ld [hl], -112 ; coming from the right
-	inc hl
-	dec b
-	jr nz, .loop
-
-; Make sure the rest of the buffer is empty
-	ld hl, LYOverrides + 80
 	xor a
-	ld bc, LYOverridesEnd - (LYOverrides + 80)
+	ld bc, LYOverridesEnd - LYOverrides
 	call ByteFill
 
 ; Let LCD Stat know we're messing around with SCX
@@ -238,9 +198,7 @@ _TitleScreen: ; 10ed67
 ; Play starting sound effect
 	call SFXChannelsOff
 	ld de, SFX_TITLE_SCREEN_ENTRANCE
-	call PlaySFX
-
-	ret
+	jp PlaySFX
 ; 10eea7
 
 SuicuneFrameIterator: ; 10eea7
@@ -281,7 +239,7 @@ SuicuneFrameIterator: ; 10eea7
 
 
 LoadSuicuneFrame: ; 10eed2
-	hlcoord 6, 10
+	hlcoord 6, 12
 	ld b, 6
 .bgrows
 	ld c, 8
@@ -343,9 +301,6 @@ TitleLogoGFX: ; 10f326
 INCBIN "gfx/title/logo.w160.t4.2bpp.lz"
 ; 10fcee
 
-TitleCloudGFX:
-INCBIN "gfx/title/tsclouds.w160.2bpp"
-
 TitleScreenPalettes:
 ; BG
 	RGB 11, 20, 27
@@ -387,12 +342,6 @@ TitleScreenPalettes:
 	RGB 11, 11, 19
 	RGB 00, 00, 00
 	RGB 00, 00, 00
-
-; cloud palette	
-;	RGB 22, 25, 30
-;	RGB 31, 31, 31
-;	RGB 31, 31, 31
-;	RGB 03, 13, 25
 
 ; OBJ
 	RGB 00, 00, 00

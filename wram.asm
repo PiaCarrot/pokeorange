@@ -708,10 +708,7 @@ LastEnemyMove:: ; c71c
 
 wPlayerFutureSightCount:: ds 1 ; c71d
 wEnemyFutureSightCount:: ds 1 ; c71e
-wGivingExperienceToExpShareHolders:: ds 1 ; c71f
-wBackupEnemyMonBaseStats:: ds 5 ; c720
-wBackupEnemyMonCatchRate:: db ; c725
-	ds 1; c726
+	ds 8 ; c71f
 wPlayerFutureSightDamage:: ds 2 ; c727
 wEnemyFutureSightDamage:: ds 2 ; c729
 wPlayerRageCounter:: ds 1 ; c72b
@@ -1870,14 +1867,6 @@ LinkBattleRNs:: ; d1fa
 TempEnemyMonSpecies::  ds 1 ; d204
 TempBattleMonSpecies:: ds 1 ; d205
 
-ScaledExpScratch::
-	ds 2 ; don't overlap EnemyMonSpecies or EnemyMonItem
-wExpScratch40_1:: ds 5 ; 40 bits
-wExpScratch40_2:: ds 5 ; 40 bits
-wExpScratchByte:: ds 1
-ScaledExpScratchEnd::
-	ds ScaledExpScratch - @
-
 EnemyMon:: battle_struct EnemyMon ; d206
 EnemyMonBaseStats:: ds 5 ; d226
 EnemyMonCatchRate:: db ; d22b
@@ -1964,7 +1953,9 @@ BaseEggGroups:: ; d24d
 BaseTMHM:: ; d24e
 	ds 8
 
-	ds 7
+wExpScratch40_1:: ds 5 ; 40 bits
+wExpScratch40_2:: ds 5 ; 40 bits
+wExpScratchByte:: ds 1
 
 CurDamage:: ; d256
 	ds 2
@@ -2214,7 +2205,7 @@ StatusFlags:: ; d84c
 	; 1 -
 	; 2 -
 	; 3 - pokerus
-	; 4 - rocket signal
+	; 4 - exp all
 	; 5 - wild encounters on/off
 	; 6 - hall of fame
 	; 7 - bug contest on
