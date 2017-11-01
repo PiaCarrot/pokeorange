@@ -134,12 +134,12 @@ _TitleScreen: ; 10ed67
 ; Update palette colors
 	ld hl, TitleScreenPalettes
 	ld de, UnknBGPals
-	ld bc, 4 * 32
+	ld bc, 16 palettes
 	call CopyBytes
 
 	ld hl, TitleScreenPalettes
 	ld de, BGPals
-	ld bc, 4 * 32
+	ld bc, 16 palettes
 	call CopyBytes
 
 ; Restore WRAM bank
@@ -154,26 +154,10 @@ _TitleScreen: ; 10ed67
 	ld a, 5 ; BANK(LYOverrides)
 	ld [rSVBK], a
 
-; Make alternating lines come in from opposite sides
-
-; ( This part is actually totally pointless, you can't
-;   see anything until these values are overwritten!  )
-
-	ld b, 80 / 2 ; alternate for 80 lines
+; Make sure the LYOverrides buffer is empty
 	ld hl, LYOverrides
-.loop
-; $00 is the middle position
-	ld [hl], +112 ; coming from the left
-	inc hl
-	ld [hl], -112 ; coming from the right
-	inc hl
-	dec b
-	jr nz, .loop
-
-; Make sure the rest of the buffer is empty
-	ld hl, LYOverrides + 80
 	xor a
-	ld bc, LYOverridesEnd - (LYOverrides + 80)
+	ld bc, LYOverridesEnd - LYOverrides
 	call ByteFill
 
 ; Let LCD Stat know we're messing around with SCX
@@ -214,9 +198,7 @@ _TitleScreen: ; 10ed67
 ; Play starting sound effect
 	call SFXChannelsOff
 	ld de, SFX_TITLE_SCREEN_ENTRANCE
-	call PlaySFX
-
-	ret
+	jp PlaySFX
 ; 10eea7
 
 SuicuneFrameIterator: ; 10eea7
