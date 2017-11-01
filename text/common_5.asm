@@ -251,13 +251,13 @@ UnknownText_0x1c5c7b::
 	db "@@"
 
 Text_TurnOffExpAll::
-	text "Turned off the"
-	line "EXP.ALL."
+	text "The EXP.ALL was"
+	line "turned off."
 	done
 
 Text_TurnOnExpAll::
-	text "Turned on the"
-	line "EXP.ALL!"
+	text "The EXP.ALL was"
+	line "turned on!"
 
 	para "The whole party"
 	line "will gain EXP."
