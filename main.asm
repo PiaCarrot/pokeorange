@@ -3991,6 +3991,8 @@ INCLUDE "event/magnet_train.asm"
 
 BattleStart_LoadEDTile: ; 8cf4f
 	jp CGBOnly_LoadEDTile
+	
+INCLUDE "engine/mon_icons.asm"
 
 INCLUDE "engine/sprites.asm"
 
@@ -4354,6 +4356,14 @@ SECTION "Common Text 1", ROMX, BANK[$6C]
 
 INCLUDE "text/stdtext.asm"
 
+SECTION "Mon Icons 1", ROMX, BANK[$6E]
+
+INCLUDE "menu/mon_icons_1.asm"
+
+SECTION "Mon Icons 2", ROMX, BANK[$6F]
+
+INCLUDE "menu/mon_icons_2.asm"
+
 SECTION "bank72", ROMX, BANK[$72]
 
 ItemNames::
@@ -4558,7 +4568,3 @@ INCLUDE "tilesets/data_8.asm"
 SECTION "Scaled Experience", ROMX
 
 INCLUDE "battle/scaled_exp.asm"
-
-SECTION "Menu Icons", ROMX
-
-INCLUDE "engine/mon_icons.asm"

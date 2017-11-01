@@ -193,7 +193,7 @@ MonMenuIcons: ; 8eac4
 	db ICON_TOGEKISS
 	db ICON_AZURILL
 	db ICON_MAREEP
-	db ICON_FLAFFY
+	db ICON_FLAAFFY
 	db ICON_AMPHAROS
 	db ICON_BELLOSSOM
 	db ICON_MARILL
@@ -268,10 +268,9 @@ MonMenuIcons: ; 8eac4
 	db ICON_LATIAS
 	db ICON_LATIOS
 
+
 IconPointers:
 	dw NullIcon
-	dw EggIcon
-	
 	dw BulbasaurIcon
 	dw IvysaurIcon
 	dw VenusaurIcon
@@ -299,85 +298,238 @@ IconPointers:
 	dw PikachuIcon
 	dw RaichuIcon
 	dw SandshrewIcon
-	
+	dw SandslashIcon
+	dw NidoranFIcon
+	dw NidorinaIcon
+	dw NidoqueenIcon
+	dw NidoranMIcon
+	dw NidorinoIcon
+	dw NidokingIcon
+	dw ClefairyIcon
+	dw ClefableIcon
+	dw VulpixIcon
+	dw NinetalesIcon
+	dw JigglypuffIcon
+	dw WigglytuffIcon
+	dw ZubatIcon
+	dw GolbatIcon
+	dw OddishIcon
+	dw GloomIcon
+	dw VileplumeIcon
+	dw ParasIcon
+	dw ParasectIcon
+	dw VenonatIcon
+	dw VenomothIcon
+	dw DiglettIcon
+	dw DugtrioIcon
+	dw MeowthIcon
+	dw PersianIcon
+	dw PsyduckIcon
+	dw GolduckIcon
+	dw MankeyIcon
+	dw PrimeapeIcon
+	dw GrowlitheIcon
+	dw ArcanineIcon
+	dw PoliwagIcon
+	dw PoliwhirlIcon
+	dw PoliwrathIcon
+	dw AbraIcon
+	dw KadabraIcon
+	dw AlakazamIcon
+	dw MachopIcon
+	dw MachokeIcon
+	dw MachampIcon
+	dw BellsproutIcon
+	dw WeepinbellIcon
+	dw VictreebelIcon
+	dw TentacoolIcon
+	dw TentacruelIcon
+	dw GeodudeIcon
+	dw GravelerIcon
+	dw GolemIcon
+	dw PonytaIcon
+	dw RapidashIcon
+	dw SlowpokeIcon
+	dw SlowbroIcon
+	dw MagnemiteIcon
+	dw MagnetonIcon
+	dw FarfetchdIcon
+	dw DoduoIcon
+	dw DodrioIcon
+	dw SeelIcon
+	dw DewgongIcon
+	dw GrimerIcon
+	dw MukIcon
+	dw ShellderIcon
+	dw CloysterIcon
+	dw GastlyIcon
+	dw HaunterIcon
+	dw GengarIcon
+	dw OnixIcon
+	dw DrowzeeIcon
+	dw HypnoIcon
+	dw KrabbyIcon
+	dw KinglerIcon
+	dw VoltorbIcon
+	dw ElectrodeIcon
+	dw ExeggcuteIcon
+	dw ExeggutorIcon
+	dw CuboneIcon
+	dw MarowakIcon
+	dw HitmonleeIcon
+	dw HitmonchanIcon
+	dw LickitungIcon
+	dw KoffingIcon
+	dw WeezingIcon
+	dw RhyhornIcon
+	dw RhydonIcon
+	dw ChanseyIcon
+	dw TangelaIcon
+	dw KangaskhanIcon
+	dw HorseaIcon
+	dw SeadraIcon
+	dw GoldeenIcon
+	dw SeakingIcon
+	dw StaryuIcon
+	dw StarmieIcon
+	dw MrMimeIcon
+	dw ScytherIcon
+	dw JynxIcon
+	dw ElectabuzzIcon
+	dw MagmarIcon
+	dw PinsirIcon
+	dw TaurosIcon
+	dw MagikarpIcon
+	dw GyaradosIcon
 	dw LaprasIcon
-	
+	dw DittoIcon
+	dw EeveeIcon
+	dw VaporeonIcon
+	dw JolteonIcon
+	dw FlareonIcon
+	dw PorygonIcon
+	dw OmanyteIcon
+	dw OmastarIcon
+	dw KabutoIcon
+	dw KabutopsIcon
+	dw AerodactylIcon
+	dw SnorlaxIcon
+	dw ArticunoIcon
+	dw ZapdosIcon
+	dw MoltresIcon
+	dw DratiniIcon
+	dw DragonairIcon
+	dw DragoniteIcon
+	dw MewtwoIcon
+	dw MewIcon
+	dw TropiusIcon
+	dw KecleonIcon
+	dw ChatotIcon
+	dw PikipekIcon
+	dw TrumbeakIcon
+	dw ToucannonIcon
+	dw MunchlaxIcon
+	dw MinccinoIcon
+	dw CinccinoIcon
+	dw WIngullIcon
+	dw PelipperIcon
+	dw ChinglingIcon
+	dw ChimechoIcon
+	dw SalanditIcon
+	dw SalazzleIcon
+	dw FinneonIcon
+	dw LumineonIcon
 	dw CrobatIcon
-	dw TogeticIcon
-	dw QwilfishIcon
-	dw CorsolaIcon
-	dw RemoraidIcon
-	dw KingdraIcon
-	dw SkarmoryIcon
-	dw MantineIcon
 	dw ChinchouIcon
 	dw LanturnIcon
-	
-	dw WingullIcon
-	dw PelipperIcon
+	dw PichuIcon
+	dw CleffaIcon
+	dw IgglybuffIcon
+	dw TogepiIcon
+	dw TogeticIcon
+	dw TogekissIcon
 	dw AzurillIcon
-	dw ChimechoIcon
-	dw KecleonIcon
-	dw TropiusIcon
+	dw MareepIcon
+	dw FlaaffyIcon
+	dw AmpharosIcon
+	dw BellossomIcon
+	dw MarillIcon
+	dw AzumarillIcon
+	dw MimeJrIcon
+	dw PolitoedIcon
+	dw HoppipIcon
+	dw SkiploomIcon
+	dw JumpluffIcon
+	dw StunfiskIcon
+	dw SunkernIcon
+	dw SunfloraIcon
+	dw LeafeonIcon
+	dw GlaceonIcon
+	dw SylveonIcon
+	dw EspeonIcon
+	dw UmbreonIcon
 	dw RelicanthIcon
+	dw SlowkingIcon
+	dw MimikyuIcon
+	dw SpindaIcon
+	dw SkrelpIcon
+	dw DragalgeIcon
+	dw TrapinchIcon
+	dw VibravaIcon
+	dw FlygonIcon
+	dw TurtonatorIcon
+	dw SteelixIcon
 	dw WailmerIcon
 	dw WailordIcon
+	dw QwilfishIcon
+	dw ScizorIcon
+	dw ShuckleIcon
+	dw MareanieIcon
+	dw ToxapexIcon
+	dw SandygastIcon
+	dw PalossandIcon
+	dw SlugmaIcon
+	dw MagcargoIcon
 	dw CarvanhaIcon
 	dw SharpedoIcon
-	
-Icons:
-NullIcon:
-EggIcon:          INCBIN "gfx/icon/egg.2bpp" ; 0x8f98d
+	dw CorsolaIcon
+	dw RemoraidIcon
+	dw OctilleryIcon
+	dw MantykeIcon
+	dw MantineIcon
+	dw SkarmoryIcon
+	dw MagmortarIcon
+	dw ElectivireIcon
+	dw KingdraIcon
+	dw PhanpyIcon
+	dw DonphanIcon
+	dw Porygon2Icon
+	dw PorygonZIcon
+	dw LickilickyIcon
+	dw TyrogueIcon
+	dw HitmontopIcon
+	dw SmoochumIcon
+	dw ElekidIcon
+	dw MagbyIcon
+	dw HappinyIcon
+	dw BlisseyIcon
+	dw CutieflyIcon
+	dw RibombeeIcon
+	dw TangrowthIcon
+	dw RhyperiorIcon
+	dw MagnezoneIcon
+	dw MarshadowIcon
+	dw LugiaIcon
+	dw HoOhIcon
+	dw CelebiIcon
+	dw LatiasIcon
+	dw LatiosIcon
+	dw EggIcon
 
-BulbasaurIcon:    INCBIN "gfx/icon/bulbasaur.2bpp" ; 0x8f68d
-IvysaurIcon:      INCBIN "gfx/icon/ivysaur.2bpp"
-VenusaurIcon:     INCBIN "gfx/icon/venusaur.2bpp"
-CharmanderIcon:   INCBIN "gfx/icon/charmander.2bpp"
-CharmeleonIcon:   INCBIN "gfx/icon/charmeleon.2bpp"
-CharizardIcon:    INCBIN "gfx/icon/charizard.2bpp"
-SquirtleIcon:     INCBIN "gfx/icon/squirtle.2bpp"
-WartortleIcon:    INCBIN "gfx/icon/wartortle.2bpp"
-BlastoiseIcon:    INCBIN "gfx/icon/blastoise.2bpp"
-CaterpieIcon:     INCBIN "gfx/icon/caterpie.2bpp"
-MetapodIcon:      INCBIN "gfx/icon/metapod.2bpp"
-ButterfreeIcon:   INCBIN "gfx/icon/butterfree.2bpp"
-WeedleIcon:       INCBIN "gfx/icon/weedle.2bpp"
-KakunaIcon:       INCBIN "gfx/icon/kakuna.2bpp"
-BeedrillIcon:     INCBIN "gfx/icon/beedrill.2bpp"
-PidgeyIcon:       INCBIN "gfx/icon/pidgey.2bpp"
-PidgeottoIcon:    INCBIN "gfx/icon/pidgeotto.2bpp"
-PidgeotIcon:      INCBIN "gfx/icon/pidgeot.2bpp"
-RattataIcon:	  INCBIN "gfx/icon/rattata.2bpp"
-RaticateIcon:	  INCBIN "gfx/icon/raticate.2bpp"
-SpearowIcon:	  INCBIN "gfx/icon/spearow.2bpp"
-FearowIcon:		  INCBIN "gfx/icon/fearow.2bpp"
-EkansIcon:		  INCBIN "gfx/icon/ekans.2bpp"
-ArbokIcon:		  INCBIN "gfx/icon/arbok.2bpp"
-PikachuIcon:	  INCBIN "gfx/icon/pikachu.2bpp"
-RaichuIcon:       INCBIN "gfx/icon/raichu.2bpp"
-SandshrewIcon:    INCBIN "gfx/icon/sandshrew.2bpp"
+SECTION "Mon Icons 1", ROMX
 
-LaprasIcon:       INCBIN "gfx/icon/lapras.2bpp"
+INCLUDE "menu/mon_icons_1.asm"
 
-CrobatIcon:       INCBIN "gfx/icon/crobat.2bpp"
-TogeticIcon:      INCBIN "gfx/icon/togetic.2bpp"
-QwilfishIcon:     INCBIN "gfx/icon/qwilfish.2bpp"
-CorsolaIcon:      INCBIN "gfx/icon/corsola.2bpp"
-RemoraidIcon:     INCBIN "gfx/icon/remoraid.2bpp"
-KingdraIcon:      INCBIN "gfx/icon/kingdra.2bpp"
-SkarmoryIcon:     INCBIN "gfx/icon/skarmory.2bpp"
-MantineIcon:      INCBIN "gfx/icon/mantine.2bpp"
-ChinchouIcon:     INCBIN "gfx/icon/chinchou.2bpp"
-LanturnIcon:      INCBIN "gfx/icon/lanturn.2bpp"
+SECTION "Mon Icons 2", ROMX
 
-WingullIcon:      INCBIN "gfx/icon/wingull.2bpp"
-PelipperIcon:     INCBIN "gfx/icon/pelipper.2bpp"
-AzurillIcon:      INCBIN "gfx/icon/azurill.2bpp"
-ChimechoIcon:     INCBIN "gfx/icon/chimecho.2bpp"
-KecleonIcon:      INCBIN "gfx/icon/kecleon.2bpp"
-TropiusIcon:      INCBIN "gfx/icon/tropius.2bpp"
-RelicanthIcon:    INCBIN "gfx/icon/relicanth.2bpp"
-WailmerIcon:      INCBIN "gfx/icon/wailmer.2bpp"
-WailordIcon:      INCBIN "gfx/icon/wailord.2bpp"
-CarvanhaIcon:     INCBIN "gfx/icon/carvanha.2bpp"
-SharpedoIcon:     INCBIN "gfx/icon/sharpedo.2bpp"
+INCLUDE "menu/mon_icons_2.asm"

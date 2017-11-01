@@ -217,7 +217,7 @@ const_value SET 1
 	const ICON_TOGEKISS
 	const ICON_AZURILL
 	const ICON_MAREEP
-	const ICON_FLAFFY
+	const ICON_FLAAFFY
 	const ICON_AMPHAROS
 	const ICON_BELLOSSOM
 	const ICON_MARILL
