@@ -9,7 +9,7 @@ LoadOverworldMonIcon: ; 8e82b
 	ld a, [hli]
 	ld e, a
 	ld d, [hl]
-	lb bc, BANK(Icons), 8
+	call GetExtendedIconBank
 	ret
 ; 8e83f
 
@@ -246,12 +246,27 @@ endr
 	ld d, [hl]
 	pop hl
 
-	lb bc, BANK(Icons), 8
+	call GetExtendedIconBank
 	call Request2bpp
 
 	pop hl
 	ret
 ; 8ea3f
+
+; 8ea3f
+
+; routine by com3tiin
+; http://www.pokecommunity.com/showthread.php?t=338470
+GetExtendedIconBank:
+	ld a, [CurIcon]
+	cp a, $80
+	jr nc, .get_bank_2
+	lb bc, BANK(Icons1), 8
+	ret
+	
+.get_bank_2:
+	lb bc, BANK(Icons2), 8
+	ret
 
 FreezeMonIcons: ; 8ea4a
 	ld hl, wSpriteAnimationStructs
