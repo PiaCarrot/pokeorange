@@ -3994,8 +3994,6 @@ BattleStart_LoadEDTile: ; 8cf4f
 
 INCLUDE "engine/sprites.asm"
 
-INCLUDE "engine/mon_icons.asm"
-
 SECTION "bank24", ROMX, BANK[$24]
 
 INCLUDE "engine/timeset.asm"
@@ -4560,3 +4558,7 @@ INCLUDE "tilesets/data_8.asm"
 SECTION "Scaled Experience", ROMX
 
 INCLUDE "battle/scaled_exp.asm"
+
+SECTION "Menu Icons", ROMX
+
+INCLUDE "engine/mon_icons.asm"

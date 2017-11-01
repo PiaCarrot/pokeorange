@@ -69,6 +69,20 @@ const_value SET 1
 	
 	const ICON_LAPRAS
 	
+;gen2 
+
+	const ICON_CROBAT
+	const ICON_TOGETIC
+	const ICON_QWILFISH
+	const ICON_CORSOLA
+	const ICON_REMORAID
+;	const ICON_OCTILLERY
+	const ICON_KINGDRA
+	const ICON_SKARMORY
+	const ICON_MANTINE
+	const ICON_CHINCHOU
+	const ICON_LANTURN
+	
 ;gen 3
 	const ICON_WINGULL
 	const ICON_PELIPPER
@@ -77,6 +91,10 @@ const_value SET 1
 	const ICON_KECLEON
 	const ICON_TROPIUS
 	const ICON_RELICANTH
+	const ICON_WAILMER
+	const ICON_WAILORD
+	const ICON_CARVANHA
+	const ICON_SHARPEDO
 
 ; evolution types
 const_value SET 1

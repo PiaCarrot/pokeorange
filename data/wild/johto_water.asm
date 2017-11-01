@@ -5,6 +5,24 @@
 	db 6, TENTACOOL
 	db 6, TENTACOOL
 	db 6, TENTACOOL
+	
+	map VALENCIA_ISLAND
+	db 2 percent ; encounter rate
+	db 6, TENTACOOL
+	db 6, TENTACOOL
+	db 6, TENTACOOL
+	
+	map ROUTE_49
+	db 2 percent ; encounter rate
+	db 6, TENTACOOL
+	db 6, TENTACOOL
+	db 6, TENTACOOL
+	
+	map VALENCIA_TANGELO_ROUTE_49
+	db 2 percent ; encounter rate
+	db 6, TENTACOOL
+	db 6, TENTACOOL
+	db 6, TENTACOOL
 
 	map ROUTE_50
 	db 2 percent ; encounter rate

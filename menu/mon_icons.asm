@@ -182,9 +182,9 @@ MonMenuIcons: ; 8eac4
 	db ICON_EGG          ; SALAZZLE
 	db ICON_EGG          ; FINNEON
 	db ICON_EGG          ; LUMINEON
-	db ICON_EGG          ; CROEGG
-	db ICON_EGG         ; CHINCHOU
-	db ICON_EGG         ; LANTURN
+	db ICON_CROBAT         ; CROBAT
+	db ICON_CHINCHOU        ; CHINCHOU
+	db ICON_LANTURN         ; LANTURN
 	db ICON_EGG      ; PICHU
 	db ICON_EGG     ; CLEFFA
 	db ICON_EGG   ; IGGLYBUFF
@@ -198,7 +198,7 @@ MonMenuIcons: ; 8eac4
 	db ICON_EGG       ; BELLOSSOM
 	db ICON_EGG   ; MARILL
 	db ICON_EGG   ; AZUMARILL
-	db ICON_EGG     ; EGG
+	db ICON_EGG     ; MIME JR
 	db ICON_EGG      ; POLITOED
 	db ICON_EGG       ; HOPPIP
 	db ICON_EGG       ; SKIPLOOM
@@ -222,9 +222,9 @@ MonMenuIcons: ; 8eac4
 	db ICON_EGG      ; FLYGON
 	db ICON_EGG          ; TURTONATOR
 	db ICON_EGG      ; STEELIX
-	db ICON_EGG         ; WAILMER
-	db ICON_EGG         ; WAILORD
-	db ICON_EGG         ; QWILEGG
+	db ICON_WAILMER         ; WAILMER
+	db ICON_WAILORD         ; WAILORD
+	db ICON_QWILFISH         ; QWILFISH
 	db ICON_EGG          ; SCIZOR
 	db ICON_EGG          ; SHUCKLE
 	db ICON_EGG          ; MAREANIE
@@ -233,17 +233,17 @@ MonMenuIcons: ; 8eac4
 	db ICON_EGG      ; PALOSSAND
 	db ICON_EGG         ; SLUGMA
 	db ICON_EGG         ; MAGCARGO
-	db ICON_EGG       ; CARVANHA
-	db ICON_EGG       ; SHARPEDO
-	db ICON_EGG        ; CORSOLA
-	db ICON_EGG         ; REMORAID
+	db ICON_CARVANHA       ; CARVANHA
+	db ICON_SHARPEDO       ; SHARPEDO
+	db ICON_CORSOLA        ; CORSOLA
+	db ICON_REMORAID        ; REMORAID
 	db ICON_EGG         ; OCTILLERY
 	db ICON_EGG         ; MANTYKE
-	db ICON_EGG         ; MANTINE
-	db ICON_EGG         ; SKARMORY
+	db ICON_MANTINE         ; MANTINE
+	db ICON_SKARMORY        ; SKARMORY
 	db ICON_EGG   ; MAGMORTAR
 	db ICON_EGG   ; ELECTIVIRE
-	db ICON_EGG       ; KINGDRA
+	db ICON_KINGDRA       ; KINGDRA
 	db ICON_EGG       ; PHANPY
 	db ICON_EGG       ; DONPHAN
 	db ICON_EGG      ; PORYGON2
@@ -302,6 +302,17 @@ IconPointers:
 	
 	dw LaprasIcon
 	
+	dw CrobatIcon
+	dw TogeticIcon
+	dw QwilfishIcon
+	dw CorsolaIcon
+	dw RemoraidIcon
+	dw KingdraIcon
+	dw SkarmoryIcon
+	dw MantineIcon
+	dw ChinchouIcon
+	dw LanturnIcon
+	
 	dw WingullIcon
 	dw PelipperIcon
 	dw AzurillIcon
@@ -309,6 +320,10 @@ IconPointers:
 	dw KecleonIcon
 	dw TropiusIcon
 	dw RelicanthIcon
+	dw WailmerIcon
+	dw WailordIcon
+	dw CarvanhaIcon
+	dw SharpedoIcon
 	
 Icons:
 NullIcon:
@@ -344,6 +359,17 @@ SandshrewIcon:    INCBIN "gfx/icon/sandshrew.2bpp"
 
 LaprasIcon:       INCBIN "gfx/icon/lapras.2bpp"
 
+CrobatIcon:       INCBIN "gfx/icon/crobat.2bpp"
+TogeticIcon:      INCBIN "gfx/icon/togetic.2bpp"
+QwilfishIcon:     INCBIN "gfx/icon/qwilfish.2bpp"
+CorsolaIcon:      INCBIN "gfx/icon/corsola.2bpp"
+RemoraidIcon:     INCBIN "gfx/icon/remoraid.2bpp"
+KingdraIcon:      INCBIN "gfx/icon/kingdra.2bpp"
+SkarmoryIcon:     INCBIN "gfx/icon/skarmory.2bpp"
+MantineIcon:      INCBIN "gfx/icon/mantine.2bpp"
+ChinchouIcon:     INCBIN "gfx/icon/chinchou.2bpp"
+LanturnIcon:      INCBIN "gfx/icon/lanturn.2bpp"
+
 WingullIcon:      INCBIN "gfx/icon/wingull.2bpp"
 PelipperIcon:     INCBIN "gfx/icon/pelipper.2bpp"
 AzurillIcon:      INCBIN "gfx/icon/azurill.2bpp"
@@ -351,3 +377,7 @@ ChimechoIcon:     INCBIN "gfx/icon/chimecho.2bpp"
 KecleonIcon:      INCBIN "gfx/icon/kecleon.2bpp"
 TropiusIcon:      INCBIN "gfx/icon/tropius.2bpp"
 RelicanthIcon:    INCBIN "gfx/icon/relicanth.2bpp"
+WailmerIcon:      INCBIN "gfx/icon/wailmer.2bpp"
+WailordIcon:      INCBIN "gfx/icon/wailord.2bpp"
+CarvanhaIcon:     INCBIN "gfx/icon/carvanha.2bpp"
+SharpedoIcon:     INCBIN "gfx/icon/sharpedo.2bpp"

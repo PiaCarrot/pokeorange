@@ -8,7 +8,7 @@ spawn: MACRO
 ENDM
 
 	spawn KRISS_HOUSE_2F,  3,  3
-	spawn VALENCIA_ISLAND, 13,  6
+	spawn VALENCIA_ISLAND, 15,  6
 	spawn TANGELO_ISLAND,  19,  10
 	spawn MIKAN_ISLAND,    11, 30
 	spawn ROUTE_52,        13, 78
@@ -19,7 +19,7 @@ ENDM
 	spawn NAVEL_ISLAND,    16, 22
 	spawn MORO_ISLAND,     7, 12
 	spawn MURCOTT_ISLAND,  25, 18
-;	spawn TROVITOPOLIS,    0,  0
+	spawn TROVITOPOLIS,    47, 32
 ;	spawn ASCORBIA_ISLAND, 0,  0
 ;	spawn KUMQUAT_ISLAND,  0,  0
 ;	spawn PUMMELO_ISLAND,  0,  0
