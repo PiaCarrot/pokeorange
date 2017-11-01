@@ -38,9 +38,6 @@ ScaledExpCalculation::
 	ld b, $4
 	call Divide
 	pop bc
-; cache s
-	ld a, [wExpScratchByte]
-	push af
 ; copy the result so far into wExpScratch40_1
 	ld hl, wExpScratch40_1
 	ld a, [hProduct]
@@ -199,9 +196,6 @@ ScaledExpCalculation::
 	ld [wExpScratch40_1 + 1], a
 	ld a, [hProduct + 1]
 	ld [wExpScratch40_1], a
-; store s for later
-	pop af
-	ld [wExpScratchByte], a
 	ret
 
 Power25Calculator::

@@ -3104,10 +3104,10 @@ LookUpTheEffectivenessOfEveryMove: ; 3d5d7
 	ld e, NUM_MOVES + 1
 .loop
 	dec e
-	jr z, .done
+	ret z
 	ld a, [hli]
 	and a
-	jr z, .done
+	ret z
 	push hl
 	push de
 	push bc
@@ -3128,8 +3128,6 @@ LookUpTheEffectivenessOfEveryMove: ; 3d5d7
 	jr c, .loop
 	ld hl, Buffer1
 	set 0, [hl]
-	ret
-.done
 	ret
 ; 3d618
 
@@ -4510,7 +4508,7 @@ CheckDanger: ; 3df9e
 	jr z, .no_danger
 	ld a, [wDanger]
 	and a
-	jr nz, .done
+	ret nz
 	ld a, [PlayerHPPal]
 	cp HP_RED
 	jr z, .danger
@@ -4518,13 +4516,11 @@ CheckDanger: ; 3df9e
 .no_danger
 	ld hl, Danger
 	res 7, [hl]
-	jr .done
+	ret
 
 .danger
 	ld hl, Danger
 	set 7, [hl]
-
-.done
 	ret
 ; 3dfbf
 
@@ -5475,8 +5471,7 @@ MoveInfoBox: ; 3e6c8
 
 	hlcoord 1, 10
 	ld de, .Disabled
-	call PlaceString
-	jr .done
+	jp PlaceString
 
 .not_disabled
 	ld hl, wMenuCursorY
@@ -5519,8 +5514,6 @@ MoveInfoBox: ; 3e6c8
 	ld b, a
 	hlcoord 2, 10
 	predef PrintMoveType
-
-.done
 	ret
 ; 3e74f
 
@@ -5581,7 +5574,7 @@ CheckPlayerHasUsableMoves: ; 3e786
 	jr .loop
 
 .done
-	and a ; This is probably a bug, and will result in a move with PP Up confusing the game.
+	and $3f
 	ret nz
 
 .force_struggle
@@ -6678,7 +6671,6 @@ GiveExperiencePoints: ; 3ee3b
 	and a
 	ret nz
 
-	call .EvenlyDivideExpAmongParticipants
 	xor a
 	ld [CurPartyMon], a
 	ld bc, PartyMon1Species
@@ -6971,53 +6963,14 @@ GiveExperiencePoints: ; 3ee3b
 	ld a, [CurPartyMon]
 	inc a
 	cp b
-	jr z, .done
+	jp z, ResetBattleParticipants
 	ld [CurPartyMon], a
 	ld a, MON_SPECIES
 	call GetPartyParamLocation
 	ld b, h
 	ld c, l
 	jp .loop
-
-.done
-	jp ResetBattleParticipants
 ; 3f0d4
-
-.EvenlyDivideExpAmongParticipants:
-; count number of battle participants
-	ld a, [wBattleParticipantsNotFainted]
-	ld b, a
-	ld c, PARTY_LENGTH
-	ld d, 0
-.count_loop
-	xor a
-	srl b
-	adc d
-	ld d, a
-	dec c
-	jr nz, .count_loop
-	ld [wExpScratchByte], a ; needed for scaled exp
-	cp 2
-	ret c
-
-	ld [wd265], a
-	ld hl, EnemyMonBaseStats
-	ld c, EnemyMonEnd - EnemyMonBaseStats
-.count_loop2
-	xor a
-	ld [hDividend + 0], a
-	ld a, [hl]
-	ld [hDividend + 1], a
-	ld a, [wd265]
-	ld [hDivisor], a
-	ld b, 2
-	call Divide
-	ld a, [hQuotient + 2]
-	ld [hli], a
-	dec c
-	jr nz, .count_loop2
-	ret
-; 3f106
 
 .ExpAddition:
 ; copy back yield to multiplier fields
@@ -7785,7 +7738,7 @@ InitEnemyTrainer: ; 3f594
 	ld [wBattleMode], a
 
 	call IsJohtoGymLeader
-	jr nc, .done
+	ret nc
 	xor a
 	ld [CurPartyMon], a
 	ld a, [PartyCount]
@@ -7802,12 +7755,10 @@ InitEnemyTrainer: ; 3f594
 .skipfaintedmon
 	pop bc
 	dec b
-	jr z, .done
+	ret z
 	ld hl, CurPartyMon
 	inc [hl]
 	jr .partyloop
-.done
-	ret
 ; 3f607
 
 InitEnemyWildmon: ; 3f607
