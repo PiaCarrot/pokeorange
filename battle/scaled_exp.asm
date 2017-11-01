@@ -1,46 +1,44 @@
 ; Taken from Dabomstew's pokecrystal-speedchoice
 ; https://github.com/Dabomstew/pokecrystal-speedchoice/blob/master/bwxp/core.asm
 
+; Experience formula:
+; EXP = ((a*b*L) / (5*s) * ((2L+10)^2.5 / (L+Lp+10)^2.5) + 1)*t*e
+; a: 1.5 if trainer battle, otherwise 1
+; b: foe's base exp
+; L: foe's level
+; s: 2 if the mon did not participate (exp all must be on), otherwise 1
+; Lp: the mon's level
+; t: 1.5 if mon is traded, otherwise 1
+; e: 1.5 if mon is holding Lucky Egg, otherwise 1
+
 ScaledExpCalculation::
-; variables in comments refer to Bulbapedia formula
-; https://bulbapedia.bulbagarden.net/wiki/Experience#Gain_formula
 ; requires de = current party mon struct
 	ld a, [EnemyMonLevel]
-; start with 2L+10 part
+; calculate 2L+10
 	add a
 	add 10
-; (2L+10)^2.5
+; calculate (2L+10)^2.5
 	call Power25Calculator
-; *1.5 for trainer battle
+; calculate (2L+10)^2.5*a
 	ld a, [wBattleMode]
 	dec a
 	call nz, BoostExp
-; *L again
+; calculate (2L+10)^2.5*(a*L)
 	ld a, [EnemyMonLevel]
 	ld [hMultiplier], a
 	call Multiply
-; divide by s (num of pokes used)
+; calculate (2L+10)^2.5*(a*L)/(5*s)
 	push bc
-	ld a, [wExpScratchByte]
-	ld [hDivisor], a
-	ld b, $4
-	call Divide
-; participated? (if false, exp all must be on)
 	call CheckForParticipation
-	jr nc, .divideConstant
-; divide by 2 if not participated
-	ld a, 2
-	ld [hDivisor], a
-	ld b, $4
-	call Divide
-.divideConstant
-; divide by 5 (constant)
-	ld a, 5
+	ld a, 10 ; if mon did not participate, s = 2 (exp all must be on)
+	jr c, .got_s
+	ld a, 5 ; if mon participated, s = 1
+.got_s
 	ld [hDivisor], a
 	ld b, $4
 	call Divide
 	pop bc
-; get # participants and store it for later as we need to use wExpScratchByte for other stuff now
+; cache s
 	ld a, [wExpScratchByte]
 	push af
 ; copy the result so far into wExpScratch40_1
@@ -53,7 +51,7 @@ ScaledExpCalculation::
 	ld [hli], a
 	ld a, [hProduct+3]
 	ld [hl], a
-; exp yield - done in two parts
+; calculate (2L+10)^2.5*(a*b*L)/(5*s) - done in two parts
 ; first multiplier - least significant byte
 	ld bc, BaseExpTable
 	ld h, $0
@@ -64,7 +62,7 @@ ScaledExpCalculation::
 	ld a, [hl]
 	ld [hMultiplier], a
 	call BigMultiply
-; store the result in the stack
+; store (2L+10)^2.5*(a*L)/(5*s) in the stack
 	ld a, [hBigMultiplicand]
 	push af
 	ld a, [hBigMultiplicand + 1]
@@ -75,7 +73,7 @@ ScaledExpCalculation::
 	push af
 	ld a, [hBigMultiplicand + 4]
 	push af
-; get back the original base
+; get back (2L+10)^2.5*(a*L)/(5*s)
 	ld hl, wExpScratch40_1
 	ld a, [hli]
 	ld [hProduct], a
@@ -125,10 +123,10 @@ ScaledExpCalculation::
 	ld a, [hBigMultiplicand]
 	adc b
 	ld [hBigMultiplicand], a
-; now (L+Lp+10)
+; calculate L
 	ld a, [EnemyMonLevel]
 	ld b, a
-; deal with our own level
+; calculate L+Lp+10
 	ld a, MON_LEVEL
 	call GetPartyParamLocation
 	ld a, [hl]
@@ -146,17 +144,16 @@ ScaledExpCalculation::
 	ld l, a
 	ld a, [hBigMultiplicand]
 	ld [wExpScratchByte], a
-; now we can move on and do the 2.5 power of L+Lp+10
+; calculate (L+Lp+10)^2.5
 	ld a, b
 	call Power25Calculator
 	call SwapProductWithDEHL
 ; get the old MSB back from storage, the divisor here will never be 40-bit
 	ld a, [wExpScratchByte]
 	ld [hBigMultiplicand], a
-; do the big division (hBigMultiplicand / dehl)
+; calculate (a*b*L)/(5*s)*((2L+10)^2.5/(L+Lp+10)^2.5)
 	call BigDivision
-; finally, trade flags etc
-; start by putting (exp+1) into hProduct
+; calculate the whole ratio + 1 into hProduct
 	xor a
 	ld [hProduct], a
 	ld a, c
@@ -168,8 +165,8 @@ ScaledExpCalculation::
 	ld a, [wExpScratchByte]
 	adc $0
 	ld [hProduct + 1], a
+; calculate (ratio+1)*t
 ; now we need that offset into partymon again
-; respect trade flag
 	ld a, MON_ID
 	call GetPartyParamLocation
 	ld b, [hl]
@@ -189,20 +186,20 @@ ScaledExpCalculation::
 
 .writeBoostedFlag
 	ld [StringBuffer2 + 2], a
-; lucky egg
+; calculate (ratio+1)*t*e
 	ld a, MON_ITEM
 	call GetPartyParamLocation
 	ld a, [hl]
 	cp LUCKY_EGG
 	call z, BoostExp
-; store final exp count to be handled back in the original bank
+; store final EXP to be handled back in the original bank
 	ld a, [hProduct + 3]
 	ld [wExpScratch40_1 + 2], a
 	ld a, [hProduct + 2]
 	ld [wExpScratch40_1 + 1], a
 	ld a, [hProduct + 1]
 	ld [wExpScratch40_1], a
-; store num of participants for later
+; store s for later
 	pop af
 	ld [wExpScratchByte], a
 	ret
