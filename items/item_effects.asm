@@ -468,9 +468,10 @@ DuskBall: ; e8a2
 	ld de, EnemyMonPP
 	ld bc, NUM_MOVES
 	call CopyBytes
-.Transformed:
 
+.Transformed:
 	ld a, [EnemyMonSpecies]
+	push af
 	ld [wWildMon], a
 	ld [CurPartySpecies], a
 	ld [wd265], a
@@ -480,7 +481,14 @@ DuskBall: ; e8a2
 
 	call ClearSprites
 
-	ld a, [wd265]
+	farcall GiveExperiencePoints
+	ld a, [EnemyMonLevel]
+	ld [CurPartyLevel], a
+
+	pop af
+	ld [wWildMon], a
+	ld [CurPartySpecies], a
+	ld [wd265], a
 	dec a
 	call CheckCaughtMon
 
