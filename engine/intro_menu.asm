@@ -908,8 +908,8 @@ StartTitleScreen: ; 6219
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call UpdateTimePals
-	ld a, [wcf64]
-	cp $5
+	ld a, [wIntroSceneFrameCounter]
+	cp 5
 	jr c, .ok
 	xor a
 .ok
@@ -1027,10 +1027,10 @@ TitleScreenTimer: ; 62f6
 	inc [hl]
 
 ; Start a timer
-	ld hl, wcf65
+	ld hl, wTitleScreenTimerLo
 	ld de, 73 * 60 + 36
 	ld [hl], e
-	inc hl
+	inc hl ; wTitleScreenTimerHi
 	ld [hl], d
 	ret
 ; 6304
@@ -1038,9 +1038,9 @@ TitleScreenTimer: ; 62f6
 TitleScreenMain: ; 6304
 
 ; Run the timer down.
-	ld hl, wcf65
+	ld hl, wTitleScreenTimerLo
 	ld e, [hl]
-	inc hl
+	inc hl ; wTitleScreenTimerHi
 	ld d, [hl]
 	ld a, e
 	or d
@@ -1081,7 +1081,7 @@ TitleScreenMain: ; 6304
 	ld a, 1
 
 .done
-	ld [wcf64], a
+	ld [wIntroSceneFrameCounter], a
 
 ; Return to the intro sequence.
 	ld hl, wJumptableIndex
@@ -1100,13 +1100,13 @@ TitleScreenMain: ; 6304
 	ld hl, MusicFade
 	ld [hl], 8 ; 1 second
 
-	ld hl, wcf65
+	ld hl, wTitleScreenTimerLo
 	inc [hl]
 	ret
 
 .clock_reset
 	ld a, 4
-	ld [wcf64], a
+	ld [wIntroSceneFrameCounter], a
 
 ; Return to the intro sequence.
 	ld hl, wJumptableIndex
@@ -1118,7 +1118,7 @@ TitleScreenEnd: ; 6375
 
 ; Wait until the music is done fading.
 
-	ld hl, wcf65
+	ld hl, wTitleScreenTimerLo
 	inc [hl]
 
 	ld a, [MusicFade]
@@ -1126,7 +1126,7 @@ TitleScreenEnd: ; 6375
 	ret nz
 
 	ld a, 2
-	ld [wcf64], a
+	ld [wIntroSceneFrameCounter], a
 
 ; Back to the intro.
 	ld hl, wJumptableIndex
