@@ -524,7 +524,7 @@ CGB_ApplyPartyMenuHPPals: ; 96f3 CGB layout $fc
 InitPartyMenuOBPals:
 	ld hl, PartyMenuOBPals
 	ld de, UnknOBPals
-	ld bc, 2 palettes
+	ld bc, 8 palettes
 	ld a, $5
 	jp FarCopyWRAM
 
@@ -1189,31 +1189,32 @@ ExpBarPalette:
 	RGB 04, 17, 31
 
 BattleObjectPals:
+; gray
 	RGB 31, 31, 31
 	RGB 25, 25, 25
 	RGB 13, 13, 13
 	RGB 00, 00, 00
-
+; yellow
 	RGB 31, 31, 31
 	RGB 31, 31, 07
 	RGB 31, 16, 01
 	RGB 00, 00, 00
-
+; red
 	RGB 31, 31, 31
 	RGB 31, 19, 24
 	RGB 30, 10, 06
 	RGB 00, 00, 00
-
+; green
 	RGB 31, 31, 31
 	RGB 12, 25, 01
 	RGB 05, 14, 00
 	RGB 00, 00, 00
-
+; blue
 	RGB 31, 31, 31
 	RGB 08, 12, 31
 	RGB 01, 04, 31
 	RGB 00, 00, 00
-
+; brown
 	RGB 31, 31, 31
 	RGB 24, 18, 07
 	RGB 20, 15, 03
@@ -1267,46 +1268,48 @@ DiplomaPalettes:
 	RGB 00, 00, 00
 
 PartyMenuOBPals:
+; red
 	RGB 27, 31, 27
 	RGB 31, 19, 10
 	RGB 31, 07, 01
 	RGB 00, 00, 00
-
+; blue
 	RGB 27, 31, 27
 	RGB 31, 19, 10
-	RGB 18, 00, 18
+	RGB 10, 09, 31
 	RGB 00, 00, 00
-
+; green
 	RGB 27, 31, 27
 	RGB 31, 19, 10
-	RGB 31, 07, 04
+	RGB 07, 23, 03
 	RGB 00, 00, 00
-
+; brown
 	RGB 27, 31, 27
 	RGB 31, 19, 10
-	RGB 31, 07, 04
+	RGB 15, 10, 03
 	RGB 00, 00, 00
-
+; purple
 	RGB 27, 31, 27
 	RGB 31, 19, 10
-	RGB 31, 07, 04
+	RGB 18, 04, 18
 	RGB 00, 00, 00
-
+; gray
 	RGB 27, 31, 27
 	RGB 31, 19, 10
-	RGB 31, 07, 04
+	RGB 13, 13, 13
 	RGB 00, 00, 00
-
+; yellow
 	RGB 27, 31, 27
 	RGB 31, 19, 10
-	RGB 31, 07, 04
+	RGB 31, 29, 00
 	RGB 00, 00, 00
-
+; teal
 	RGB 27, 31, 27
 	RGB 31, 19, 10
-	RGB 31, 07, 04
+	RGB 03, 23, 21
 	RGB 00, 00, 00
 
+; ???
 	RGB 31, 31, 31
 	RGB 21, 21, 21
 	RGB 13, 13, 13

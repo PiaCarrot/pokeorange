@@ -14,8 +14,8 @@
 
 ## Graphics
 
+- Finish menu icon sprites
 - Add clouds to title screen
-- Prism menu icon code (not using the Chamber/Blue Emerald/Solo993 menu sprites)
 
 ## Moves
 

@@ -3991,10 +3991,13 @@ INCLUDE "event/magnet_train.asm"
 
 BattleStart_LoadEDTile: ; 8cf4f
 	jp CGBOnly_LoadEDTile
-	
-INCLUDE "engine/mon_icons.asm"
 
 INCLUDE "engine/sprites.asm"
+
+INCLUDE "engine/mon_icons.asm"
+
+INCLUDE "gfx/icon_pointers.asm"
+INCLUDE "gfx/icons.asm"
 
 SECTION "bank24", ROMX, BANK[$24]
 

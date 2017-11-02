@@ -79,10 +79,7 @@ NamingScreen: ; 116c1
 .Pokemon: ; 1173e (4:573e)
 	ld a, [CurPartySpecies]
 	ld [wd265], a
-	ld hl, LoadMenuMonIcon
-	ld a, BANK(LoadMenuMonIcon)
-	ld e, $1
-	rst FarCall ;  ; indirect jump to LoadMenuMonIcon (8e83f (23:683f))
+	farcall LoadNamingScreenMonIcon
 	ld a, [CurPartySpecies]
 	ld [wd265], a
 	call GetPokemonName
