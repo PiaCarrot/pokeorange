@@ -102,10 +102,10 @@ SpriteAnimFrameData: ; 8d6e6
 	dorestart
 
 .Frameset_11:
-	frame SPRITE_ANIM_FRAME_IDX_00,  8
-	frame SPRITE_ANIM_FRAME_IDX_01,  8
-	frame SPRITE_ANIM_FRAME_IDX_00,  8
-	frame SPRITE_ANIM_FRAME_IDX_01,  8, OAM_X_FLIP
+	frame SPRITE_ANIM_FRAME_IDX_37,  8
+	frame SPRITE_ANIM_FRAME_IDX_38,  8
+	frame SPRITE_ANIM_FRAME_IDX_37,  8
+	frame SPRITE_ANIM_FRAME_IDX_38,  8, OAM_X_FLIP
 	dorestart
 
 .Frameset_2d:
@@ -456,8 +456,8 @@ SpriteAnimFrameData: ; 8d6e6
 
 SpriteAnimOAMData: ; 8d94d
 	; vtile offset, pointer
-	dbw $00, .OAMData_00 ; 00
-	dbw $04, .OAMData_00 ; 01
+	dbw $00, .OAMData_85 ; 00
+	dbw $04, .OAMData_85 ; 01
 	dbw $4c, .OAMData_02 ; 02
 	dbw $5c, .OAMData_02 ; 03
 	dbw $6c, .OAMData_04 ; 04
@@ -802,12 +802,20 @@ SpriteAnimOAMData: ; 8d94d
 	dsprite  2,  0,  2,  0, $23, $00
 
 .OAMData_00:
-; party menu icons
+; red party menu icons
 	db 4
 	dsprite -1,  0, -1,  0, $00, $00
 	dsprite -1,  0,  0,  0, $01, $00
 	dsprite  0,  0, -1,  0, $02, $00
 	dsprite  0,  0,  0,  0, $03, $00
+
+.OAMData_85:
+; colored party menu icons
+	db 4
+	dsprite -1,  0, -1,  0, $00, -1
+	dsprite -1,  0,  0,  0, $01, -1
+	dsprite  0,  0, -1,  0, $02, -1
+	dsprite  0,  0,  0,  0, $03, -1
 
 .OAMData_31:
 	db 4
@@ -819,34 +827,34 @@ SpriteAnimOAMData: ; 8d94d
 .OAMData_3d:
 ; party menu icon with mail, frame 1
 	db 4
-	dsprite -1,  0, -1,  0, $00, $00
-	dsprite -1,  0,  0,  0, $01, $00
+	dsprite -1,  0, -1,  0, $00, -1
+	dsprite -1,  0,  0,  0, $01, -1
 	dsprite  0,  0, -1,  0, $08, $00
-	dsprite  0,  0,  0,  0, $03, $00
+	dsprite  0,  0,  0,  0, $03, -1
 
 .OAMData_3e:
 ; party menu icon with mail, frame 2
 	db 4
-	dsprite -1,  0, -1,  0, $04, $00
-	dsprite -1,  0,  0,  0, $05, $00
+	dsprite -1,  0, -1,  0, $04, -1
+	dsprite -1,  0,  0,  0, $05, -1
 	dsprite  0,  0, -1,  0, $08, $00
-	dsprite  0,  0,  0,  0, $07, $00
+	dsprite  0,  0,  0,  0, $07, -1
 
 .OAMData_3f:
 ; party menu icon with item, frame 1
 	db 4
-	dsprite -1,  0, -1,  0, $00, $00
-	dsprite -1,  0,  0,  0, $01, $00
+	dsprite -1,  0, -1,  0, $00, -1
+	dsprite -1,  0,  0,  0, $01, -1
 	dsprite  0,  0, -1,  0, $09, $00
-	dsprite  0,  0,  0,  0, $03, $00
+	dsprite  0,  0,  0,  0, $03, -1
 
 .OAMData_40:
 ; party menu icon with item, frame 2
 	db 4
-	dsprite -1,  0, -1,  0, $04, $00
-	dsprite -1,  0,  0,  0, $05, $00
+	dsprite -1,  0, -1,  0, $04, -1
+	dsprite -1,  0,  0,  0, $05, -1
 	dsprite  0,  0, -1,  0, $09, $00
-	dsprite  0,  0,  0,  0, $07, $00
+	dsprite  0,  0,  0,  0, $07, -1
 
 .OAMData_06:
 	db 6
@@ -1204,10 +1212,10 @@ SpriteAnimOAMData: ; 8d94d
 
 .OAMData_63:
 	db 4
-	dsprite -1,  0, -1,  0, $00, $01
-	dsprite -1,  0,  0,  0, $01, $01
-	dsprite  0,  0, -1,  0, $02, $01
-	dsprite  0,  0,  0,  0, $03, $01
+	dsprite -1,  0, -1,  0, $00, $04
+	dsprite -1,  0,  0,  0, $01, $04
+	dsprite  0,  0, -1,  0, $02, $04
+	dsprite  0,  0,  0,  0, $03, $04
 
 .OAMData_65:
 	db 4

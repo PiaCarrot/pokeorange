@@ -1598,8 +1598,7 @@ SetUpMoveScreenBG: ; 13172
 	add hl, de
 	ld a, [hl]
 	ld [wd265], a
-	ld e, $2
-	farcall LoadMenuMonIcon
+	farcall LoadMoveMenuMonIcon
 	hlcoord 0, 1
 	lb bc, 9, 18
 	call TextBox

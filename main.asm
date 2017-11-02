@@ -1626,17 +1626,17 @@ DisplayDexEntry: ; 4424d
 	call ClearBox
 	hlcoord 1, 10
 	ld bc, SCREEN_WIDTH - 1
-	ld a, $61 ; horizontal divider
+	ld a, $70 ; horizontal divider
 	call ByteFill
 	; page number
 	hlcoord 1, 9
-	ld [hl], $55
+	ld [hl], $64
 	inc hl
-	ld [hl], $55
+	ld [hl], $64
 	hlcoord 1, 10
-	ld [hl], $56 ; P.
+	ld [hl], $65 ; P.
 	inc hl
-	ld [hl], $57 ; 1
+	ld [hl], $66 ; 1
 	pop de
 	inc de
 	pop af
@@ -1656,17 +1656,17 @@ DisplayDexEntry: ; 4424d
 	call ClearBox
 	hlcoord 1, 10
 	ld bc, SCREEN_WIDTH - 1
-	ld a, $61
+	ld a, $70
 	call ByteFill
 	; page number
 	hlcoord 1, 9
-	ld [hl], $55
+	ld [hl], $64
 	inc hl
-	ld [hl], $55
+	ld [hl], $64
 	hlcoord 1, 10
-	ld [hl], $56 ; P.
+	ld [hl], $65 ; P.
 	inc hl
-	ld [hl], $58 ; 2
+	ld [hl], $67 ; 2
 	pop de
 	inc de
 	pop af
@@ -3991,10 +3991,13 @@ INCLUDE "event/magnet_train.asm"
 
 BattleStart_LoadEDTile: ; 8cf4f
 	jp CGBOnly_LoadEDTile
-	
-INCLUDE "engine/mon_icons.asm"
 
 INCLUDE "engine/sprites.asm"
+
+INCLUDE "engine/mon_icons.asm"
+
+INCLUDE "gfx/icon_pointers.asm"
+INCLUDE "gfx/icons.asm"
 
 SECTION "bank24", ROMX, BANK[$24]
 
@@ -4433,69 +4436,69 @@ LoadQuestionMarkPic: ; 1de0d7
 INCBIN "gfx/pics/questionmark/front.2bpp.lz"
 
 DrawPokedexListWindow: ; 1de171 (77:6171)
-	ld a, $32
+	ld a, $41
 	hlcoord 0, 17
 	ld bc, 12
 	call ByteFill
 	hlcoord 0, 1
 	lb bc, 15, 11
 	call ClearBox
-	ld a, $34
+	ld a, $43
 	hlcoord 0, 0
 	ld bc, 11
 	call ByteFill
-	ld a, $39
+	ld a, $48
 	hlcoord 0, 16
 	ld bc, 11
 	call ByteFill
 	hlcoord 5, 0
-	ld [hl], $3f
+	ld [hl], $4e
 	hlcoord 5, 16
-	ld [hl], $40
+	ld [hl], $4f
 	hlcoord 11, 0
-	ld [hl], $50
-	ld a, $51
+	ld [hl], $5f
+	ld a, $60
 	hlcoord 11, 1
 	ld b, SCREEN_HEIGHT - 3
 	call Bank77_FillColumn
-	ld [hl], $52
+	ld [hl], $61
 	ret
 
 DrawPokedexSearchResultsWindow: ; 1de1d1 (77:61d1)
-	ld a, $34
+	ld a, $43
 	hlcoord 0, 0
 	ld bc, 11
 	call ByteFill
-	ld a, $39
+	ld a, $48
 	hlcoord 0, 10
 	ld bc, 11
 	call ByteFill
 	hlcoord 5, 0
-	ld [hl], $3f
+	ld [hl], $4e
 	hlcoord 5, 10
-	ld [hl], $40
+	ld [hl], $4f
 	hlcoord 11, 0
-	ld [hl], $66
-	ld a, $67
+	ld [hl], $75
+	ld a, $76
 	hlcoord 11, 1
 	ld b, SCREEN_HEIGHT / 2
 	call Bank77_FillColumn
-	ld [hl], $68
-	ld a, $34
+	ld [hl], $77
+	ld a, $43
 	hlcoord 0, 11
 	ld bc, 11
 	call ByteFill
-	ld a, $39
+	ld a, $48
 	hlcoord 0, 17
 	ld bc, 11
 	call ByteFill
 	hlcoord 11, 11
-	ld [hl], $66
-	ld a, $67
+	ld [hl], $75
+	ld a, $76
 	hlcoord 11, 12
 	ld b, 5
 	call Bank77_FillColumn
-	ld [hl], $68
+	ld [hl], $77
 	hlcoord 0, 12
 	lb bc, 5, 11
 	call ClearBox
@@ -4522,14 +4525,14 @@ DrawDexEntryScreenRightEdge: ; 1de247
 	ld a, h
 	ld [hBGMapAddress + 1], a
 	hlcoord 19, 0
-	ld [hl], $66
+	ld [hl], $75
 	hlcoord 19, 1
-	ld a, $67
+	ld a, $76
 	ld b, 15
 	call Bank77_FillColumn
-	ld [hl], $68
+	ld [hl], $77
 	hlcoord 19, 17
-	ld [hl], $3c
+	ld [hl], $4b
 	xor a
 	ld b, SCREEN_HEIGHT
 	hlcoord 19, 0, AttrMap

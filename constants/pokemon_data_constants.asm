@@ -34,8 +34,6 @@ const_value SET 1
 	const REPTILE      ; e
 	const NO_EGGS      ; f
 
-
-; menu sprites
 ; menu sprites
 const_value SET 1
 	const ICON_BULBASAUR
@@ -305,17 +303,16 @@ const_value SET 1
 	const EVOLVE_FEMALE
 	const EVOLVE_ALONGSIDE
 
-
 BASE_HAPPINESS        EQU 70
 FRIEND_BALL_HAPPINESS EQU 200
 
 ; happiness evolution triggers
 HAPPINESS_TO_EVOLVE EQU 220
+
 const_value SET 1
 	const TR_ANYTIME
 	const TR_MORNDAY
 	const TR_NITE
-
 
 ; stat evolution triggers
 const_value SET 1
