@@ -780,7 +780,7 @@ Pokedex_DrawMainScreenBG: ; 4074c (10:474c)
 	hlcoord 0, 17
 	ld de, String_START_SEARCH
 	call Pokedex_PlaceString
-	ld a, $32
+	ld a, $41
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	call ByteFill
@@ -812,20 +812,20 @@ Pokedex_DrawMainScreenBG: ; 4074c (10:474c)
 	call PrintNum
 	hlcoord 8, 1
 	ld b, 7
-	ld a, $49
+	ld a, $58
 	call Pokedex_FillColumn
 	hlcoord 8, 10
 	ld b, 6
-	ld a, $5a
+	ld a, $69
 	call Pokedex_FillColumn
 	hlcoord 8, 0
-	ld [hl], $47
+	ld [hl], $56
 	hlcoord 8, 8
-	ld [hl], $65
+	ld [hl], $74
 	hlcoord 8, 9
-	ld [hl], $54
+	ld [hl], $63
 	hlcoord 8, 16
-	ld [hl], $5b
+	ld [hl], $6a
 	jp Pokedex_PlaceFrontpicTopLeftCorner
 
 String_SEEN: ; 407e1
@@ -833,7 +833,7 @@ String_SEEN: ; 407e1
 String_OWN: ; 407e6
 	db "OWN", $ff
 String_START_SEARCH: ; 407f2
-	db $32, $3b, $41, $42, $43, $4b, $4c, $4d, $4e, $3c, $ff ; START > SEARCH
+	db $41, $4a, $50, $51, $52, $5a, $5b, $5c, $5d, $4b, $ff ; START > SEARCH
 
 Pokedex_DrawDexEntryScreenBG: ; 407fd
 	call Pokedex_FillBackgroundColor2
@@ -841,15 +841,15 @@ Pokedex_DrawDexEntryScreenBG: ; 407fd
 	lb bc, 15, 18
 	call Pokedex_PlaceBorder
 	hlcoord 19, 0
-	ld [hl], $34
+	ld [hl], $43
 	hlcoord 19, 1
 	ld a, " "
 	ld b, 15
 	call Pokedex_FillColumn
-	ld [hl], $39
+	ld [hl], $48
 	hlcoord 1, 10
 	ld bc, 19
-	ld a, $61
+	ld a, $70
 	call ByteFill
 	hlcoord 1, 17
 	ld bc, 18
@@ -871,7 +871,7 @@ Pokedex_DrawDexEntryScreenBG: ; 407fd
 .Weight: ; 4085c
 	db "WT   ???lb", $ff ; WT   ???lb
 .MenuItems: ; 40867
-	db $3b, " PAGE AREA CRY SHNY", $ff
+	db $4a, " PAGE AREA CRY SHNY", $ff
 
 Pokedex_DrawSearchScreenBG: ; 408f0 (10:48f0)
 	call Pokedex_FillBackgroundColor2
@@ -895,7 +895,7 @@ Pokedex_DrawSearchScreenBG: ; 408f0 (10:48f0)
 	jp PlaceString
 
 .Title: ; 4092a
-	db $3b, " SEARCH ", $3c, $ff
+	db $4a, " SEARCH ", $4b, $ff
 
 .TypeLeftRightArrows: ; 40935
 	db "◀        ▶@"
@@ -926,17 +926,17 @@ Pokedex_DrawSearchResultsScreenBG: ; 40962 (10:4962)
 	lb bc, 1, 3
 	call PrintNum
 	hlcoord 8, 0
-	ld [hl], $47
+	ld [hl], $56
 	hlcoord 8, 1
 	ld b, 7
-	ld a, $49
+	ld a, $58
 	call Pokedex_FillColumn
 	hlcoord 8, 8
-	ld [hl], $65
+	ld [hl], $74
 	hlcoord 8, 9
-	ld [hl], $69
+	ld [hl], $78
 	hlcoord 8, 10
-	ld [hl], $6a
+	ld [hl], $79
 	jp Pokedex_PlaceFrontpicTopLeftCorner
 
 .BottomWindowText: ; 409ae
@@ -965,7 +965,7 @@ Pokedex_PlaceSearchResultsTypeStrings: ; 409cf (10:49cf)
 
 Pokedex_FillBackgroundColor2: ; 40aa6
 	hlcoord 0, 0
-	ld a, $32
+	ld a, $41
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	jp ByteFill
 
@@ -1002,65 +1002,65 @@ Pokedex_PlaceString: ; 40acd
 
 Pokedex_PlaceBorder: ; 40ad5
 	push hl
-	ld a, $33
+	ld a, $42
 	ld [hli], a
-	ld d, $34
+	ld d, $43
 	call Pokedex_PlaceBorder_FillRow
-	ld a, $35
+	ld a, $44
 	ld [hl], a
 	pop hl
 	ld de, SCREEN_WIDTH
 	add hl, de
 .loop
 	push hl
-	ld a, $36
+	ld a, $45
 	ld [hli], a
 	ld d, $7f
 	call Pokedex_PlaceBorder_FillRow
-	ld a, $37
+	ld a, $46
 	ld [hl], a
 	pop hl
 	ld de, SCREEN_WIDTH
 	add hl, de
 	dec b
 	jr nz, .loop
-	ld a, $38
+	ld a, $47
 	ld [hli], a
-	ld d, $39
+	ld d, $48
 	call Pokedex_PlaceBorder_FillRow
-	ld a, $3a
+	ld a, $49
 	ld [hl], a
 	ret
 
 Pokedex_PlaceFrontpicBorder:
 	push hl
-	ld a, $45
+	ld a, $54
 	ld [hli], a
-	ld d, $46
+	ld d, $55
 	call Pokedex_PlaceBorder_FillRow
-	ld a, $47
+	ld a, $56
 	ld [hl], a
 	pop hl
 	ld de, SCREEN_WIDTH
 	add hl, de
 .loop
 	push hl
-	ld a, $48
+	ld a, $57
 	ld [hli], a
 	ld d, $7f
 	call Pokedex_PlaceBorder_FillRow
-	ld a, $49
+	ld a, $58
 	ld [hl], a
 	pop hl
 	ld de, SCREEN_WIDTH
 	add hl, de
 	dec b
 	jr nz, .loop
-	ld a, $63
+	ld a, $72
 	ld [hli], a
-	ld d, $64
+	ld d, $73
 	call Pokedex_PlaceBorder_FillRow
-	ld a, $65
+	ld a, $74
 	ld [hl], a
 	ret
 
@@ -1134,7 +1134,7 @@ Pokedex_PlaceCaughtSymbolIfCaught: ; 40b82 (10:4b82)
 	ret
 
 .place_caught_symbol
-	ld a, $4f
+	ld a, $5e
 	ld [hli], a
 	ret
 
@@ -1777,13 +1777,13 @@ Pokedex_LoadSelectedMonTiles: ; 4143b
 Pokedex_LoadGFX: ; 414b7
 	call DisableLCD
 	ld hl, VTiles2
-	ld bc, $31 tiles
+	ld bc, (7 * 7) tiles
 	xor a
 	call ByteFill
 	call LoadStandardFont
 	call LoadFontsExtra
 	ld hl, PokedexLZ
-	ld de, VTiles2 tile $31
+	ld de, VTiles2 tile $40
 	call Decompress
 	ld hl, PokedexSlowpokeLZ
 	ld de, VTiles0
@@ -1805,7 +1805,7 @@ _NewPokedexEntry: ; 41a7f
 	ld [CurPartySpecies], a
 	call Pokedex_DrawDexEntryScreenBG
 	hlcoord 0, 17
-	ld [hl], $3b
+	ld [hl], $4a
 	inc hl
 	ld bc, 19
 	ld a, " "
