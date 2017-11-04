@@ -96,8 +96,8 @@ endr
 GetFishGroupIndex: ; 9245b
 ; Return the index of fishgroup d in de.
 	ld a, d
-	cp FISHGROUP_QWILFISH
-	jr z, .qwilfish
+;	cp FISHGROUP_QWILFISH
+;	jr z, .qwilfish
 
 .done
 	dec d
@@ -105,12 +105,12 @@ GetFishGroupIndex: ; 9245b
 	ld d, 0
 	ret
 
-.qwilfish
-	ld a, [wFishingSwarmFlag]
-	cp FISHSWARM_QWILFISH
-	jr nz, .done
-	ld d, FISHGROUP_QWILFISH_SWARM
-	jr .done
+;.qwilfish
+;	ld a, [wFishingSwarmFlag]
+;	cp FISHSWARM_QWILFISH
+;	jr nz, .done
+;	ld d, FISHGROUP_QWILFISH_SWARM
+;	jr .done
 ; 92488
 
 

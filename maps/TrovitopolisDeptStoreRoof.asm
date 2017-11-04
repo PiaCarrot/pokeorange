@@ -1,12 +1,12 @@
 const_value set 1
 
-Route14_MapScriptHeader:
+TrovitopolisDeptStoreRoof_MapScriptHeader:
 
 .MapTriggers: db 0
 
 .MapCallbacks: db 0
 
-Route14_MapEventHeader:
+TrovitopolisDeptStoreRoof_MapEventHeader:
 
 .Warps: db 0
 

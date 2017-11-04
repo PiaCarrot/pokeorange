@@ -108,7 +108,7 @@ MAP_NONE EQU 0
 	mapgroup MURCOTT_HOUSE_3, 4, 4
 	mapgroup MURCOTT_POKE_CENTER, 4, 5
 	mapgroup MURCOTT_POKE_MART, 4, 6
-	mapgroup UNNAMED_ISLAND_2, 20, 20
+	mapgroup UNNAMED_ISLAND_2, 20, 17
 	mapgroup ROUTE_62, 20, 37
 
 	newgroup ; 7
@@ -124,6 +124,7 @@ MAP_NONE EQU 0
 	mapgroup VALENCIA_PORT, 12, 12
 	mapgroup TANGELO_PORT, 12, 12
 	mapgroup TROVITOPOLIS, 24, 36
+	mapgroup FISHING_CONTEST, 20, 12
 
 	newgroup ; 9
 

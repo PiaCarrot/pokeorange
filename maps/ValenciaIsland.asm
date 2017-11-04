@@ -116,6 +116,10 @@ if def(DEBUG)
 	giveitem RARE_CANDY, 99
 	giveitem SHINY_STONE
 	giveitem EVERSTONE
+	giveitem OLD_ROD
+	giveitem GOOD_ROD
+	giveitem SUPER_ROD
+	giveitem MASTER_ROD
 	opentext
 	givepoke LAPRAS, 40
 	givepoke CHARIZARD, 40

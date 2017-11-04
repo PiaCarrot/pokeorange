@@ -1,7 +1,7 @@
 const_value set 1
-	const GOLDENRODDEPTSTORE1F_RECEPTIONIST
+	const TROVITOPOLISDEPTSTORE1F_RECEPTIONIST
 
-GoldenrodDeptStore1F_MapScriptHeader:
+TrovitopolisDeptStore1F_MapScriptHeader:
 
 .MapTriggers: db 0
 
@@ -10,10 +10,10 @@ GoldenrodDeptStore1F_MapScriptHeader:
 ReceptionistScript_0x55981:
 	jumptextfaceplayer UnknownText_0x55993
 
-GoldenrodDeptStore1FDirectory:
-	jumptext GoldenrodDeptStore1FDirectoryText
+TrovitopolisDeptStore1FDirectory:
+	jumptext TrovitopolisDeptStore1FDirectoryText
 
-GoldenrodDeptStore1FElevatorButton:
+TrovitopolisDeptStore1FElevatorButton:
 	jumpstd elevatorbutton
 
 UnknownText_0x55993:
@@ -21,7 +21,7 @@ UnknownText_0x55993:
 	line "ROD DEPT.STORE."
 	done
 
-GoldenrodDeptStore1FDirectoryText:
+TrovitopolisDeptStore1FDirectoryText:
 	text "1F SERVICE COUNTER"
 
 	para "2F TRAINER'S"
@@ -39,15 +39,15 @@ GoldenrodDeptStore1FDirectoryText:
 	para "ROOFTOP LOOKOUT"
 	done
 
-GoldenrodDeptStore1F_MapEventHeader:
+TrovitopolisDeptStore1F_MapEventHeader:
 
 .Warps: db 0
 
 .XYTriggers: db 0
 
 .Signposts: db 2
-	signpost 0, 14, SIGNPOST_READ, GoldenrodDeptStore1FDirectory
-	signpost 0, 3, SIGNPOST_READ, GoldenrodDeptStore1FElevatorButton
+	signpost 0, 14, SIGNPOST_READ, TrovitopolisDeptStore1FDirectory
+	signpost 0, 3, SIGNPOST_READ, TrovitopolisDeptStore1FElevatorButton
 
 .PersonEvents: db 1
 	person_event SPRITE_RECEPTIONIST, 1, 10, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ReceptionistScript_0x55981, -1

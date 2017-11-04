@@ -1,14 +1,14 @@
 const_value set 1
 
-GoldenrodDeptStore6F_MapScriptHeader:
+TrovitopolisDeptStore6F_MapScriptHeader:
 
 .MapTriggers: db 0
 
 .MapCallbacks: db 0
 
-GoldenrodVendingMachine:
+TrovitopolisVendingMachine:
 	opentext
-	writetext GoldenrodVendingText
+	writetext TrovitopolisVendingText
 .Start:
 	special PlaceMoneyTopRight
 	loadmenudata .MenuData
@@ -50,18 +50,18 @@ GoldenrodVendingMachine:
 .VendItem:
 	pause 10
 	playsound SFX_ENTER_DOOR
-	writetext GoldenrodClangText
+	writetext TrovitopolisClangText
 	buttonsound
 	itemnotify
 	jump .Start
 
 .NotEnoughMoney:
-	writetext GoldenrodVendingNoMoneyText
+	writetext TrovitopolisVendingNoMoneyText
 	waitbutton
 	jump .Start
 
 .NotEnoughSpace:
-	writetext GoldenrodVendingNoSpaceText
+	writetext TrovitopolisVendingNoSpaceText
 	waitbutton
 	jump .Start
 
@@ -80,18 +80,18 @@ GoldenrodVendingMachine:
 	db "LEMONADE     ¥350@"
 	db "CANCEL@"
 
-GoldenrodDeptStore6FDirectory:
-	jumptext GoldenrodDeptStore6FDirectoryText
+TrovitopolisDeptStore6FDirectory:
+	jumptext TrovitopolisDeptStore6FDirectoryText
 
-GoldenrodDeptStore6FElevatorButton:
+TrovitopolisDeptStore6FElevatorButton:
 	jumpstd elevatorbutton
 
-GoldenrodVendingText:
+TrovitopolisVendingText:
 	text "A vending machine!"
 	line "Here's the menu."
 	done
 
-GoldenrodClangText:
+TrovitopolisClangText:
 	text "Clang! A can of"
 	line "@"
 	text_from_ram StringBuffer3
@@ -99,38 +99,38 @@ GoldenrodClangText:
 	db "popped out!"
 	done
 
-GoldenrodVendingNoMoneyText:
+TrovitopolisVendingNoMoneyText:
 	text "Oops, not enough"
 	line "money."
 	done
 
-GoldenrodVendingNoSpaceText:
+TrovitopolisVendingNoSpaceText:
 	text "There's no more"
 	line "room for stuff."
 	done
 
-GoldenrodDeptStore6FDirectoryText:
+TrovitopolisDeptStore6FDirectoryText:
 	text "Take a Break from"
 	line "Shopping!"
 
 	para "6F TRANQUIL SQUARE"
 	done
 
-GoldenrodDeptStore6F_MapEventHeader:
+TrovitopolisDeptStore6F_MapEventHeader:
 
 .Warps: db 3
-	warp_def $0, $f, 2, GOLDENROD_DEPT_STORE_5F
-	warp_def $0, $2, 1, GOLDENROD_DEPT_STORE_ELEVATOR
-	warp_def $0, $d, 1, GOLDENROD_DEPT_STORE_ROOF
+	warp_def $0, $f, 2, TROVITOPOLIS_DEPT_STORE_5F
+	warp_def $0, $2, 1, TROVITOPOLIS_DEPT_STORE_ELEVATOR
+	warp_def $0, $d, 1, TROVITOPOLIS_DEPT_STORE_ROOF
 
 .XYTriggers: db 0
 
 .Signposts: db 6
-	signpost 0, 14, SIGNPOST_READ, GoldenrodDeptStore6FDirectory
-	signpost 0, 3, SIGNPOST_READ, GoldenrodDeptStore6FElevatorButton
-	signpost 1, 8, SIGNPOST_UP, GoldenrodVendingMachine
-	signpost 1, 9, SIGNPOST_UP, GoldenrodVendingMachine
-	signpost 1, 10, SIGNPOST_UP, GoldenrodVendingMachine
-	signpost 1, 11, SIGNPOST_UP, GoldenrodVendingMachine
+	signpost 0, 14, SIGNPOST_READ, TrovitopolisDeptStore6FDirectory
+	signpost 0, 3, SIGNPOST_READ, TrovitopolisDeptStore6FElevatorButton
+	signpost 1, 8, SIGNPOST_UP, TrovitopolisVendingMachine
+	signpost 1, 9, SIGNPOST_UP, TrovitopolisVendingMachine
+	signpost 1, 10, SIGNPOST_UP, TrovitopolisVendingMachine
+	signpost 1, 11, SIGNPOST_UP, TrovitopolisVendingMachine
 
 .PersonEvents: db 0

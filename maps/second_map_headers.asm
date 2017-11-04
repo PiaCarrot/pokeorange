@@ -97,8 +97,12 @@
 	map_header_2 MurcottIsland, MURCOTT_ISLAND, 5, WEST
 	connection west, ROUTE_61, Route61, 3, 18, 8, MURCOTT_ISLAND
 	
-	map_header_2 UnnamedIsland2, UNNAMED_ISLAND_2, 53, NORTH
+	map_header_2 UnnamedIsland2, UNNAMED_ISLAND_2, 53, NORTH | EAST
 	connection north, ROUTE_61, Route61, 0, 7, 8, UNNAMED_ISLAND_2
+	connection east, FISHING_CONTEST, FishingContest, 0, 0, 40, UNNAMED_ISLAND_2
+	
+	map_header_2 FishingContest, FISHING_CONTEST, 53, WEST
+	connection west, UNNAMED_ISLAND_2, UnnamedIsland2, 0, 0, 40, FISHING_CONTEST
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, $0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0

@@ -76,3 +76,6 @@ MandarinDesert_BlockData:
 	
 TrovitopolisSewer_BlockData:
 	INCBIN "maps/TrovitopolisSewer.blk"
+	
+FishingContest_BlockData:
+	INCBIN "maps/FishingContest.blk"
