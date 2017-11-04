@@ -1,32 +1,5 @@
 ; Johto Pokémon in grass
 
-	map NATIONAL_PARK
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
-	; morn
-	db 12, NIDORAN_M
-	db 12, NIDORAN_F
-	db 14, SALANDIT
-	db 13, PIDGEY
-	db 10, CATERPIE
-	db 10, WEEDLE
-	db 10, WEEDLE
-	; day
-	db 12, NIDORAN_F
-	db 12, NIDORAN_M
-	db 14, SUNKERN
-	db 13, PIDGEY
-	db 10, CATERPIE
-	db 10, WEEDLE
-	db 10, WEEDLE
-	; nite
-	db 12, PSYDUCK
-	db 13, CHINGLING
-	db 14, FINNEON
-	db 15, CHINGLING
-	db 10, VENONAT
-	db 12, VENONAT
-	db 12, VENONAT
-
 	map TANGELO_JUNGLE
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
@@ -55,6 +28,33 @@
 	db 10, BEEDRILL
 
 	map ROUTE_49
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 6, PARAS
+	db 6, CATERPIE
+	db 7, BELLSPROUT
+	db 7, CATERPIE
+	db 6, NIDORAN_F
+	db 7, NIDORAN_M
+	db 7, PIKIPEK
+	; day
+	db 6, PARAS
+	db 6, CATERPIE
+	db 7, BELLSPROUT
+	db 7, CATERPIE
+	db 6, NIDORAN_F
+	db 7, NIDORAN_M
+	db 7, PIKIPEK
+	; nite
+	db 6, RATTATA
+	db 6, ODDISH
+	db 7, RATTATA
+	db 7, ZUBAT
+	db 7, POLIWAG
+	db 7, ODDISH
+	db 7, POLIWAG
+	
+	map VALENCIA_TANGELO_ROUTE_49
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 6, PARAS

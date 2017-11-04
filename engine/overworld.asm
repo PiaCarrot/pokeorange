@@ -836,8 +836,12 @@ Group7Sprites: ; 14503
 Group8Sprites: ; 14714
 ; Valencia Port
 ; Tangelo Port
+; Trovitopolis
 	db SPRITE_FISHING_GURU
 	db SPRITE_SAILOR
+	db SPRITE_FISHER
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_GENTLEMAN
 	db SPRITE_LORELEI
 	db SPRITE_LANCE
 	db SPRITE_POKE_BALL

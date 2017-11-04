@@ -70,10 +70,9 @@ MikanIslandHiddenHyperPotion:
 	dwb EVENT_MIKAN_ISLAND_HIDDEN_HYPER_POTION, HYPER_POTION
 
 MikanIslandLassText:
-	text "I heard a HORSEA"
-	line "was spotted in"
-	cont "the pond behind"
-	cont "the gym!"
+	text "CISSY has a rare"
+	line "#MON called a"
+	cont "HORSEA!"
 	done
 
 MikanIslandSuperNerdText:

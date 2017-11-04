@@ -68,9 +68,9 @@
 
 	map MIKAN_ISLAND
 	db 2 percent ; encounter rate
-	db 7, HORSEA
+	db 7, POLIWAG
 	db 7, GOLDEEN
-	db 7, HORSEA
+	db 7, POLIWAG
 
 	map SUNBURST_ISLAND
 	db 4 percent ; encounter rate

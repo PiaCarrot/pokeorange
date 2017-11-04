@@ -183,6 +183,7 @@ INCLUDE "maps/GoldenIslandHouse2.asm"
 INCLUDE "maps/GoldenIslandHouse3.asm"
 INCLUDE "maps/GoldenIslandElderHouse.asm"
 INCLUDE "maps/GoldenIslandGateHouse.asm"
+INCLUDE "maps/FishingContest.asm"
 
 
 SECTION "Map Scripts 12", ROMX, BANK[MAP_SCRIPTS_12]
