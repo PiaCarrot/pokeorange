@@ -235,7 +235,7 @@ UnknownText_0x1c0a4e::
 	text "<PLAYER> is out of"
 	line "useable #MON!"
 
-	para "<PLAYER> whited"
+	para "<PLAYER> blacked"
 	line "out!"
 	done
 
