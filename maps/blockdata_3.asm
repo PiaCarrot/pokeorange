@@ -10,6 +10,9 @@ KinnowSkateShop_BlockData:
 HallOfFame_BlockData:
 	INCBIN "maps/HallOfFame.blk"
 
+PalletTown_BlockData:
+	INCBIN "maps/PalletTown.blk"
+
 RedsHouse1F_BlockData:
 	INCBIN "maps/RedsHouse1F.blk"
 
