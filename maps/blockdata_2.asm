@@ -57,20 +57,23 @@ SevenGrapefruitsUnderwater_BlockData:
 MoroIsland_BlockData:
 	INCBIN "maps/MoroIsland.blk"
 
-WreckedShip_BlockData: 
+WreckedShip_BlockData:
 	INCBIN "maps/WreckedShip.blk"
-	
+
 WreckedShipUnderwater_BlockData:
 	INCBIN "maps/WreckedShipUnderwater.blk"
-	
+
 WreckedShipUnsunk_BlockData:
 	INCBIN "maps/WreckedShipUnsunk.blk"
-	
+
 MurcottIsland_BlockData:
 	INCBIN "maps/MurcottIsland.blk"
-	
+
 UnnamedIsland2_BlockData:
 	INCBIN "maps/UnnamedIsland2.blk"
-	
+
 Trovitopolis_BlockData:
 	INCBIN "maps/Trovitopolis.blk"
+
+TrovitaIsland_BlockData:
+	INCBIN "maps/TrovitaIsland.blk"

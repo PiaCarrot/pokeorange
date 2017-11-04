@@ -10,7 +10,7 @@ PalletTown_MapScriptHeader:
 	dbw MAPCALLBACK_NEWMAP, .FlyPoint
 
 .FlyPoint:
-	setflag ENGINE_FLYPOINT_PALLET
+	;setflag ENGINE_FLYPOINT_PALLET
 	return
 
 TeacherScript_0x1ac6d5:
@@ -19,17 +19,20 @@ TeacherScript_0x1ac6d5:
 FisherScript_0x1ac6d8:
 	jumptextfaceplayer UnknownText_0x1ac720
 
+OaksLabSign:
+	jumptext OaksLabSignText
+
 PalletTownSign:
 	jumptext PalletTownSignText
 
 RedsHouseSign:
 	jumptext RedsHouseSignText
 
-OaksLabSign:
-	jumptext OaksLabSignText
-
 BluesHouseSign:
 	jumptext BluesHouseSignText
+
+YellowsHouseSign:
+	jumptext YellowsHouseSignText
 
 UnknownText_0x1ac6e7:
 	text "I'm raising #-"
@@ -55,34 +58,36 @@ PalletTownSignText:
 	line "of Peace & Purity"
 	done
 
-RedsHouseSignText:
-	text "RED'S HOUSE"
-	done
-
 OaksLabSignText:
 	text "OAK #MON"
 	line "RESEARCH LAB"
+	done
+
+RedsHouseSignText:
+	text "RED'S HOUSE"
 	done
 
 BluesHouseSignText:
 	text "BLUE'S HOUSE"
 	done
 
+YellowsHouseSignText:
+	text "YELLOW'S HOUSE"
+	done
+
 PalletTown_MapEventHeader:
 
-.Warps: db 3
-	warp_def $5, $5, 1, REDS_HOUSE_1F
-	warp_def $5, $d, 1, BLUES_HOUSE
-	warp_def $b, $c, 1, OAKS_LAB
+.Warps: db 0
 
 .XYTriggers: db 0
 
-.Signposts: db 4
-	signpost 9, 7, SIGNPOST_READ, PalletTownSign
-	signpost 5, 3, SIGNPOST_READ, RedsHouseSign
-	signpost 13, 13, SIGNPOST_READ, OaksLabSign
-	signpost 5, 11, SIGNPOST_READ, BluesHouseSign
+.Signposts: db 5
+	signpost 11, 13, SIGNPOST_READ, PalletTownSign
+	signpost 17, 23, SIGNPOST_READ, OaksLabSign
+	signpost 7, 5, SIGNPOST_READ, RedsHouseSign
+	signpost 5, 21, SIGNPOST_READ, BluesHouseSign
+	signpost 15, 3, SIGNPOST_READ, YellowsHouseSign
 
 .PersonEvents: db 2
-	person_event SPRITE_TEACHER, 8, 3, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TeacherScript_0x1ac6d5, -1
-	person_event SPRITE_FISHER, 14, 12, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 2, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, FisherScript_0x1ac6d8, -1
+	person_event SPRITE_TEACHER, 7, 2, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TeacherScript_0x1ac6d5, -1
+	person_event SPRITE_FISHER, 6, 16, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 2, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, FisherScript_0x1ac6d8, -1

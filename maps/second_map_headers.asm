@@ -4,7 +4,7 @@
 	map_header_2 Route49, ROUTE_49, 32, NORTH | EAST
 	connection north, VALENCIA_TANGELO_ROUTE_49, ValenciaTangeloRoute49, -1, 0, 12, ROUTE_49
 	connection east, VALENCIA_ISLAND, ValenciaIsland, 2, 0, 9, ROUTE_49
-	
+
 	map_header_2 ValenciaTangeloRoute49, VALENCIA_TANGELO_ROUTE_49, 53, EAST | SOUTH
 	connection south, ROUTE_49, Route49, 1, 0, 12, VALENCIA_TANGELO_ROUTE_49
 	connection east, TANGELO_ISLAND, TangeloIsland, -4, 0, 10, VALENCIA_TANGELO_ROUTE_49
@@ -90,17 +90,17 @@
 	connection south, UNNAMED_ISLAND_2, UnnamedIsland2, 7, 0, 8, ROUTE_61
 	connection west, ROUTE_62, Route62, 8, 0, 8, ROUTE_61
 	connection east, MURCOTT_ISLAND, MurcottIsland, 18, 3, 8, ROUTE_61
-	
+
 	map_header_2 Route62, ROUTE_62, 5, EAST
 	connection east, ROUTE_61, Route61, 0, 8, 8, ROUTE_62
-	
+
 	map_header_2 MurcottIsland, MURCOTT_ISLAND, 5, WEST
 	connection west, ROUTE_61, Route61, 3, 18, 8, MURCOTT_ISLAND
-	
+
 	map_header_2 UnnamedIsland2, UNNAMED_ISLAND_2, 53, NORTH | EAST
 	connection north, ROUTE_61, Route61, 0, 7, 8, UNNAMED_ISLAND_2
 	connection east, FISHING_CONTEST, FishingContest, 0, 0, 40, UNNAMED_ISLAND_2
-	
+
 	map_header_2 FishingContest, FISHING_CONTEST, 53, WEST
 	connection west, UNNAMED_ISLAND_2, UnnamedIsland2, 0, 0, 40, FISHING_CONTEST
 
@@ -187,11 +187,13 @@
 	map_header_2 MurcottHouse3, MURCOTT_HOUSE_3, 0, 0
 	map_header_2 MurcottPokeCenter, MURCOTT_POKE_CENTER, 0, 0
 	map_header_2 MurcottPokeMart, MURCOTT_POKE_MART, 0, 0
-	map_header_2 Trovitopolis, TROVITOPOLIS, 53, 0
-	map_header_2 MandarinDesert, MANDARIN_DESERT, 21, 0
-	map_header_2 TrovitopolisSewer, TROVITOPOLIS_SEWER, 0, 0
-
 	map_header_2 DayCare, DAYCARE, $0, 0
+	map_header_2 MandarinDesert, MANDARIN_DESERT, 21, 0
+	map_header_2 Trovitopolis, TROVITOPOLIS, 53, 0
+	map_header_2 TrovitopolisSewer, TROVITOPOLIS_SEWER, 0, 0
+	map_header_2 TrovitaIsland, TROVITA_ISLAND, 53, 0
+
+	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0
 	map_header_2 RedsHouse2F, REDS_HOUSE_2F, $0, 0
 	map_header_2 BluesHouse, BLUES_HOUSE, $0, 0

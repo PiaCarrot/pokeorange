@@ -21,6 +21,15 @@
 
 - `BugBite` effect for Bug Bite
 - Buff Waterfall to compensate for Surf's nerf
+   - Suggestions:
+   - Waterfall: 90 power (like Flamethrower)
+   - Surf: 60 power and 35 PP (like Wing Attack)
+   - Cut: 100% accuracy
+   - Strength: 90 power (like Flamethrower)
+   - Rock Climb: 110 power (like Fire Blast)
+   - Fly, Dive, Dig: 90 power and 100% accuracy
+   - Whirlpool: more power and/or accuracy
+   - Clamp: 85% accuracy, 15 PP (like Fire Spin)
 
 ## Animations
 

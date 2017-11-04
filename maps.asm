@@ -171,9 +171,10 @@ INCLUDE "maps/WreckedShipUnderwater.asm"
 INCLUDE "maps/WreckedShipUnsunk.asm"
 INCLUDE "maps/UnnamedIsland2.asm"
 INCLUDE "maps/Route62.asm"
-INCLUDE "maps/Trovitopolis.asm"
 INCLUDE "maps/MandarinDesert.asm"
+INCLUDE "maps/Trovitopolis.asm"
 INCLUDE "maps/TrovitopolisSewer.asm"
+INCLUDE "maps/TrovitaIsland.asm"
 
 SECTION "Map Scripts 11", ROMX, BANK[MAP_SCRIPTS_11]
 INCLUDE "maps/GoldenIsland.asm"
@@ -226,4 +227,5 @@ SECTION "Map Scripts 24", ROMX, BANK[MAP_SCRIPTS_24]
 
 SECTION "Map Scripts 25", ROMX, BANK[MAP_SCRIPTS_25]
 
+INCLUDE "maps/PalletTown.asm"
 INCLUDE "maps/VermilionCity.asm"

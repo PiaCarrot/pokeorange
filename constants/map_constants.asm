@@ -113,6 +113,7 @@ MAP_NONE EQU 0
 
 	newgroup ; 7
 
+	mapgroup PALLET_TOWN, 16, 17
 	mapgroup REDS_HOUSE_1F, 4, 4
 	mapgroup REDS_HOUSE_2F, 4, 4
 	mapgroup BLUES_HOUSE, 4, 4
@@ -125,6 +126,7 @@ MAP_NONE EQU 0
 	mapgroup TANGELO_PORT, 12, 12
 	mapgroup TROVITOPOLIS, 24, 36
 	mapgroup FISHING_CONTEST, 20, 12
+	mapgroup TROVITA_ISLAND, 22, 24
 
 	newgroup ; 9
 
