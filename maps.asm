@@ -184,6 +184,14 @@ INCLUDE "maps/GoldenIslandHouse3.asm"
 INCLUDE "maps/GoldenIslandElderHouse.asm"
 INCLUDE "maps/GoldenIslandGateHouse.asm"
 INCLUDE "maps/FishingContest.asm"
+INCLUDE "maps/TrovitopolisDeptStore1F.asm"
+INCLUDE "maps/TrovitopolisDeptStore2F.asm"
+INCLUDE "maps/TrovitopolisDeptStore3F.asm"
+INCLUDE "maps/TrovitopolisDeptStore4F.asm"
+INCLUDE "maps/TrovitopolisDeptStore5F.asm"
+INCLUDE "maps/TrovitopolisDeptStore6F.asm"
+INCLUDE "maps/TrovitopolisDeptStoreElevator.asm"
+INCLUDE "maps/TrovitopolisDeptStoreRoof.asm"
 
 
 SECTION "Map Scripts 12", ROMX, BANK[MAP_SCRIPTS_12]

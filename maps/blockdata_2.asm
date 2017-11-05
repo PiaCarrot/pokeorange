@@ -77,3 +77,27 @@ Trovitopolis_BlockData:
 
 TrovitaIsland_BlockData:
 	INCBIN "maps/TrovitaIsland.blk"
+	
+TrovitopolisDeptStore1F_BlockData:
+	INCBIN "maps/DeptStore1F.blk"
+
+TrovitopolisDeptStore2F_BlockData:
+	INCBIN "maps/DeptStore2F.blk"
+
+TrovitopolisDeptStore3F_BlockData:
+	INCBIN "maps/DeptStore3F.blk"
+
+TrovitopolisDeptStore4F_BlockData:
+	INCBIN "maps/DeptStore4F.blk"
+
+TrovitopolisDeptStore5F_BlockData:
+	INCBIN "maps/DeptStore5F.blk"
+
+TrovitopolisDeptStore6F_BlockData:
+	INCBIN "maps/DeptStore6F.blk"
+
+TrovitopolisDeptStoreElevator_BlockData:
+	INCBIN "maps/DeptStoreElevator.blk"
+
+TrovitopolisDeptStoreRoof_BlockData:
+	INCBIN "maps/TrovitopolisDeptStoreRoof.blk"
