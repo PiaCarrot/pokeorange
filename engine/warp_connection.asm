@@ -174,10 +174,13 @@ LoadWarpData: ; 1046c6
 	call GetAnyMapPermission
 	call CheckIndoorMap
 	ret nz
-	ld a, [wPrevMapGroup]
-	jr nz, .not_mt_moon_or_tin_tower
-	ld a, [wPrevMapNumber]
-.not_mt_moon_or_tin_tower
+	ld a, [wNextMapGroup]
+	cp GROUP_MT_NAVEL_2F
+	jr nz, .not_to_mt_navel_2f
+	ld a, [wNextMapNumber]
+	cp MAP_MT_NAVEL_2F
+	ret z
+.not_to_mt_navel_2f
 	ld a, [wPrevWarp]
 	ld [wDigWarp], a
 	ld a, [wPrevMapGroup]
