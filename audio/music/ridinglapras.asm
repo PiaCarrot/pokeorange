@@ -12,7 +12,7 @@ Music_RidingLapras_Ch1:
 	notetype $c, $92
 	note __, 12
 Music_RidingLapras_Ch1_loop:
-;	unknownmusic0xde %11111111
+	sound_duty %11, %11, %11, %11
 	octave 3
 	intensity $92
 	note __, 3
@@ -25,7 +25,7 @@ Music_RidingLapras_Ch1_loop:
 	note G_, 2
 	note G_, 4
 	note G_, 3
-;	unknownmusic0xde %01100110
+	sound_duty %01, %10, %01, %10
 	intensity $50
 	note A#, 12
 	octave 4

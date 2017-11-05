@@ -75,19 +75,20 @@ YellowsHouseSignText:
 	text "YELLOW'S HOUSE"
 	done
 
-PalletTown_MapEventHeader:
+PalletTown_MapEventHeader::
 
 .Warps: db 0
 
-.XYTriggers: db 0
+.CoordEvents: db 0
 
-.Signposts: db 5
+.BGEvents: db 5
 	signpost 11, 13, SIGNPOST_READ, PalletTownSign
 	signpost 17, 23, SIGNPOST_READ, OaksLabSign
 	signpost 7, 5, SIGNPOST_READ, RedsHouseSign
 	signpost 5, 21, SIGNPOST_READ, BluesHouseSign
 	signpost 15, 3, SIGNPOST_READ, YellowsHouseSign
 
-.PersonEvents: db 2
+.ObjectEvents: db 2
 	person_event SPRITE_TEACHER, 7, 2, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TeacherScript_0x1ac6d5, -1
 	person_event SPRITE_FISHER, 6, 16, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 2, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, FisherScript_0x1ac6d8, -1
+

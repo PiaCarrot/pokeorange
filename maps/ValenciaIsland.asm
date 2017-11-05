@@ -93,6 +93,7 @@ if def(DEBUG)
 	setflag ENGINE_FLYPOINT_NAVEL
 	setflag ENGINE_FLYPOINT_MORO
 	setflag ENGINE_FLYPOINT_MURCOTT
+	setflag ENGINE_FLYPOINT_TROVITOPOLIS
 	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
 	giveitem SKATEBOARD
@@ -130,7 +131,7 @@ if def(DEBUG)
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp TROVITOPOLIS, 37, 20
+	warp PALLET_TOWN, 15, 6
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon
@@ -267,7 +268,7 @@ ValenciaIsland_MapEventHeader::
 
 .ObjectEvents: db 2
 	person_event SPRITE_COOLTRAINER_M, 8, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 1, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ValenciaIslandTeacherScript, -1
-	person_event SPRITE_YOUNGSTER, 8, 13, SPRITEMOVEDATA_WALK_UP_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, ValenciaIslandFisherScript, -1
+	person_event SPRITE_YOUNGSTER, 8, 13, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, ValenciaIslandFisherScript, -1
 
 if def(DEBUG)
 CheatFillPokedex:
