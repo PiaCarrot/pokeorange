@@ -15,7 +15,7 @@ Bank $0d: $79d8 ($0628)
 Bank $0e: $5e40 ($21c0)
 Bank $0f: $79c5 ($063b)
 Bank $10: $75c9 ($0a37)
-Bank $11: $7c92 ($036e)
+Bank $11: $7c96 ($036a)
 Bank $12: $75f8 ($0a08)
 Bank $13: $67e0 ($1820)
 Bank $14: $747f ($0b81)
@@ -94,7 +94,7 @@ Bank $5c: $4000 ($4000)
 Bank $5d: $4000 ($4000)
 Bank $5e: $59ef ($2611)
 Bank $5f: $4000 ($4000)
-Bank $60: $5b14 ($24ec)
+Bank $60: $5b13 ($24ed)
 Bank $61: $4000 ($4000)
 Bank $62: $4000 ($4000)
 Bank $63: $4000 ($4000)
@@ -109,7 +109,7 @@ Bank $6b: $4000 ($4000)
 Bank $6c: $4a7f ($3581)
 Bank $6d: $4000 ($4000)
 Bank $6e: $5ae0 ($2520)
-Bank $6f: $4cc1 ($333f)
+Bank $6f: $4cc0 ($3340)
 Bank $70: $5ad3 ($252d)
 Bank $71: $4fe3 ($301d)
 Bank $72: $6bbc ($1444)
@@ -171,7 +171,7 @@ Bank $1c has $36fb bytes of free space
 Bank $22 has $35f6 bytes of free space
 Bank $6c has $3581 bytes of free space
 Bank $1d has $348c bytes of free space
-Bank $6f has $333f bytes of free space
+Bank $6f has $3340 bytes of free space
 Bank $1b has $30fc bytes of free space
 Bank $3e has $30d1 bytes of free space
 Bank $41 has $30cc bytes of free space
@@ -190,7 +190,7 @@ Bank $5e has $2611 bytes of free space
 Bank $74 has $259b bytes of free space
 Bank $70 has $252d bytes of free space
 Bank $6e has $2520 bytes of free space
-Bank $60 has $24ec bytes of free space
+Bank $60 has $24ed bytes of free space
 Bank $73 has $2498 bytes of free space
 Bank $15 has $2436 bytes of free space
 Bank $0e has $21c0 bytes of free space
@@ -244,7 +244,7 @@ Bank $01 has $05d6 bytes of free space
 Bank $04 has $04d4 bytes of free space
 Bank $32 has $04b9 bytes of free space
 Bank $02 has $039f bytes of free space
-Bank $11 has $036e bytes of free space
+Bank $11 has $036a bytes of free space
 Bank $3a has $02f0 bytes of free space
 Bank $3c has $02d6 bytes of free space
 Bank $33 has $01f2 bytes of free space
@@ -256,4 +256,4 @@ Bank $19 has $0074 bytes of free space
 Bank $30 has $0040 bytes of free space
 Bank $21 has $002c bytes of free space
 
-Free space: 1198015/2097152 (57.13%)
+Free space: 1198013/2097152 (57.13%)
