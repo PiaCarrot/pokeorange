@@ -192,6 +192,7 @@ INCLUDE "maps/TrovitopolisDeptStore5F.asm"
 INCLUDE "maps/TrovitopolisDeptStore6F.asm"
 INCLUDE "maps/TrovitopolisDeptStoreElevator.asm"
 INCLUDE "maps/TrovitopolisDeptStoreRoof.asm"
+INCLUDE "maps/TrovitopolisPokeCommCenter.asm"
 
 
 SECTION "Map Scripts 12", ROMX, BANK[MAP_SCRIPTS_12]

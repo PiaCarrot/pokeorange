@@ -134,7 +134,8 @@ MAP_NONE EQU 0
 	mapgroup TROVITOPOLIS_DEPT_STORE_5F,                     4,  8 ; 15
 	mapgroup TROVITOPOLIS_DEPT_STORE_6F,                     4,  8 ; 16
 	mapgroup TROVITOPOLIS_DEPT_STORE_ELEVATOR,               2,  2 ; 17
-	mapgroup TROVITOPOLIS_DEPT_STORE_ROOF,                   4,  8 ; 18
+	mapgroup TROVITOPOLIS_DEPT_STORE_ROOF,                   4,  6 ; 18
+	mapgroup TROVITOPOLIS_POKE_COMM_CENTER, 11, 16
 
 	newgroup ; 9
 
