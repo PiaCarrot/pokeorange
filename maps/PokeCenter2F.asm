@@ -38,8 +38,6 @@ Script_BattleRoomClosed:
 	end
 
 LinkReceptionistScript_Trade:
-	checkevent EVENT_SHOWED_GS_BALL_TO_IVY
-	iffalse Script_TradeCenterClosed
 	opentext
 	writetext Text_TradeReceptionistIntro
 	yesorno
@@ -99,8 +97,6 @@ LinkReceptionistScript_Trade:
 	end
 
 LinkReceptionistScript_Battle:
-	checkevent EVENT_SHOWED_GS_BALL_TO_IVY
-	iffalse Script_BattleRoomClosed
 	opentext
 	writetext Text_BattleReceptionistIntro
 	yesorno
@@ -410,19 +406,19 @@ Text_LikeTheLook:
 	line "style look to you?"
 	done
 
-PokeCenter2F_MapEventHeader:
+PokeCenter2F_MapEventHeader::
 
 .Warps: db 3
-	warp_def $7, $0, -1, POKECENTER_2F
-	warp_def $0, $5, 1, TRADE_CENTER
-	warp_def $0, $9, 1, COLOSSEUM
+	warp_def 5, 0, -1, POKECENTER_2F
+	warp_def 0, 0, 1, TRADE_CENTER
+	warp_def 0, 6, 1, COLOSSEUM
 
-.XYTriggers: db 0
+.CoordEvents: db 0
 
-.Signposts: db 1
-	signpost 3, 7, SIGNPOST_READ, MapPokeCenter2FSignpost0Script
+.BGEvents: db 1
+	signpost 2, 9, SIGNPOST_READ, MapPokeCenter2FSignpost0Script
 
-.PersonEvents: db 4
-	person_event SPRITE_LINK_RECEPTIONIST, 2, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LinkReceptionistScript_Trade, -1
-	person_event SPRITE_LINK_RECEPTIONIST, 2, 9, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LinkReceptionistScript_Battle, -1
-	person_event SPRITE_LINK_RECEPTIONIST, 3, 13, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LinkReceptionistScript_TimeCapsule, -1
+.ObjectEvents: db 2
+	person_event SPRITE_LINK_RECEPTIONIST, 2, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LinkReceptionistScript_Trade, -1
+	person_event SPRITE_LINK_RECEPTIONIST, 2, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LinkReceptionistScript_Battle, -1
+

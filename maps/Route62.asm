@@ -1,3 +1,12 @@
+const_value set 1
+	const ROUTE_62_ITEMBALL1
+	const ROUTE_62_ITEMBALL2
+	const ROUTE_62_ITEMBALL3
+	const ROUTE_62_ITEMBALL4
+	const ROUTE_62_LASS
+	const ROUTE_62_YOUNGSTER
+	const ROUTE_62_TRACEY
+
 Route62_MapScriptHeader::
 
 .Triggers: db 0
@@ -38,8 +47,8 @@ YoungsterHirumaSeenText:
 	done
 	
 YoungsterHirumaWinText:
-	text "I should have"
-	line "caught more #MON"
+	text "Should've caught"
+	line "more #MON"
 	cont "along the way."
 	done
 	
@@ -100,6 +109,74 @@ R62ClimbSignText:
 	para "At the peak, the"
 	line "rainbow awaits."
 	done
+	
+Route62TraceyScript:
+	faceplayer
+	showemote EMOTE_SHOCK, ROUTE_62_TRACEY, 15
+	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	opentext
+	writetext TraceyRoute62Text
+	waitbutton
+	closetext
+	winlosstext TraceyRoute62WinLoss, 0
+	loadtrainer TRACEY, 3
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	opentext
+	writetext TraceyRoute62LeavingNowText
+	waitbutton
+	closetext
+	applymovement ROUTE_62_TRACEY, Tracey62_Movement
+	disappear ROUTE_62_TRACEY
+	playsound SFX_ENTER_DOOR
+	pause 20
+	special Special_FadeOutMusic
+	playmapmusic
+	pause 10
+	setevent EVENT_ROUTE_62_TRACEY
+	end
+	
+TraceyRoute62Text:
+	text "TRACEY: Well, look"
+	line "who it is!"
+	
+	para "<PLAYER>, how's it"
+	line "going? I bet you"
+	cont "got a lot stronger"
+	cont "since ROUTE 56!"
+	
+	para "Why don't we test"
+	line "my theory in a"
+	cont "battle!"
+	done
+	
+TraceyRoute62WinLoss:
+	text "Unbelievable!"
+	done
+	
+TraceyRoute62LeavingNowText:
+	text "TRACEY: I'm headed"
+	line "to TROVITOPOLIS!"
+	
+	para "I've heard they"
+	line "have a huge prob-"
+	cont "lem due to their"
+	cont "mayor."
+	
+	para "I'm going to go"
+	line "see if I can"
+	cont "help them!"
+	
+	para "Seeya, <PLAYER>!"
+	done
+	
+Tracey62_Movement:
+	step UP
+	step RIGHT
+	step UP
+	step_end
 
 Route62_MapEventHeader::
 
@@ -114,9 +191,9 @@ Route62_MapEventHeader::
 .ObjectEvents: db 7
 	person_event SPRITE_POKE_BALL, 23, 57, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route62XSpecialAttack, EVENT_ROUTE_62_X_SPCL_ATK
 	person_event SPRITE_POKE_BALL, 25, 14, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route62TMEarthquake, EVENT_ROUTE_62_TM_EARTHQUAKE
-	person_event SPRITE_POKE_BALL, 35, 4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route62Blackglasses, EVENT_ROUTE_62_BLACKGLASSES
+	person_event SPRITE_POKE_BALL, 39, 64, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route62Blackglasses, EVENT_ROUTE_62_BLACKGLASSES
 	person_event SPRITE_POKE_BALL, 8, 42, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route62PPUp, EVENT_ROUTE_62_PP_UP
-	person_event SPRITE_LASS, 14, 11, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerLassFuyumi, -1
-	person_event SPRITE_YOUNGSTER, 19, 46, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerYoungsterHiruma, -1
-	person_event SPRITE_TRACEY, 31, 24, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_62_TRACEY
+	person_event SPRITE_LASS, 31, 28, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerLassFuyumi, -1
+	person_event SPRITE_YOUNGSTER, 19, 46, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerYoungsterHiruma, -1
+	person_event SPRITE_TRACEY, 9, 5, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, Route62TraceyScript, EVENT_ROUTE_62_TRACEY
 

@@ -153,11 +153,38 @@ TrovitopolisSewerSignText:
 	text "TROVITOPOLIS SEWER"
 	line "ENTRANCE"
 	done
+	
+TrovitopolisSailor2Script:
+	jumptextfaceplayer TrovitopolisSailor2Text
+	
+TrovitopolisSailor2Text:
+	text "The #MON CENTER"
+	line "here is huge!"
+	
+	para "Apparently you can"
+	line "trade and battle"
+	cont "inside this one."
+	done
+	
+TrovitopolisMaxRevive:
+	itemball MAX_REVIVE
+	
+TrovitopolisRareCandy:
+	itemball RARE_CANDY
+	
+TrovitopolisNugget:
+	itemball NUGGET
+	
+TrovitopolisWaterStone:
+	itemball WATER_STONE
 
 Trovitopolis_MapEventHeader::
 
-.Warps: db 1
+.Warps: db 4
 	warp_def 31, 48, 1, TROVITOPOLIS_POKE_COMM_CENTER
+	warp_def 5, 21, 1, TROVITOPOLIS_SEWER
+	warp_def 15, 36, 1, TROVITOPOLIS_DEPT_STORE_1F
+	warp_def 41, 62, 1, MANDARIN_DESERT
 
 .CoordEvents: db 0
 
@@ -171,9 +198,14 @@ Trovitopolis_MapEventHeader::
 	signpost 6, 56, SIGNPOST_READ, TrovitopolisMrFlashSign
 	signpost 6, 20, SIGNPOST_READ, TrovitopolisSewerSign
 
-.ObjectEvents: db 4
+.ObjectEvents: db 9
 	person_event SPRITE_COOLTRAINER_F, 26, 56, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 1, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TrovitopolisRedCoolTrainerScript, -1
 	person_event SPRITE_COOLTRAINER_F, 32, 25, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TrovitopolisGreenCoolTrainerScript, -1
 	person_event SPRITE_GENTLEMAN, 18, 36, SPRITEMOVEDATA_WANDER, 0, 1, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrovitopolisGentlemanScript, -1
 	person_event SPRITE_SAILOR, 21, 4, SPRITEMOVEDATA_STANDING_LEFT, 0, 1, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrovitopolisSailorScript, -1
+	person_event SPRITE_SAILOR, 33, 45, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrovitopolisSailor2Script, -1
+	person_event SPRITE_POKE_BALL, 43, 32, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TrovitopolisMaxRevive, EVENT_TROVITOPOLIS_MAX_REVIVE
+	person_event SPRITE_POKE_BALL, 5, 60, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TrovitopolisRareCandy, EVENT_TROVITOPOLIS_RARE_CANDY
+	person_event SPRITE_POKE_BALL, 17, 61, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TrovitopolisNugget, EVENT_TROVITOPOLIS_NUGGET
+	person_event SPRITE_POKE_BALL, 43, 25, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TrovitopolisWaterStone, EVENT_TROVITOPOLIS_WATER_STONE
 

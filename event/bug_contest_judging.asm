@@ -134,78 +134,29 @@ LoadContestantName: ; 13730
 ; 13783
 
 BugContestantPointers: ; 13783
-	dw BugContestant_BugCatcherDon ; This reverts back to the player
-	dw BugContestant_BugCatcherDon
-	dw BugContestant_BugCatcherEd
-	dw BugContestant_CooltrainerMNick
-	dw BugContestant_PokefanMWilliam
-	dw BugContestant_BugCatcherBenny
-	dw BugContestant_CamperBarry
-	dw BugContestant_PicnickerCindy
-	dw BugContestant_BugCatcherJosh
-	dw BugContestant_YoungsterSamuel
-	dw BugContestant_SchoolboyKipp
+	dw BugContestant_FisherFugu ; This reverts back to the player
+	dw BugContestant_FisherFugu
+	dw BugContestant_FisherYuuta
+	dw BugContestant_FisherNatPagle
 ; 13799
 
-BugContestant_BugCatcherDon:
-	db BUG_CATCHER, KATTA
-	dbw KAKUNA,     300
-	dbw METAPOD,    285
-	dbw CATERPIE,   226
+BugContestant_FisherFugu:
+	db FISHER, FUGU
+	dbw GOLDEEN,     300
+	dbw FINNEON,    285
+	dbw REMORAID,   226
 
-BugContestant_BugCatcherEd:
-	db BUG_CATCHER, SAM
-	dbw BUTTERFREE, 286
-	dbw BUTTERFREE, 251
-	dbw CATERPIE,   237
+BugContestant_FisherYuuta:
+	db FISHER, YUUTA
+	dbw CHINCHOU, 286
+	dbw GOLDEEN, 251
+	dbw FINNEON,   237
 
-BugContestant_CooltrainerMNick:
-	db BUG_CATCHER, MIKE
-	dbw SCYTHER,    357
-	dbw BUTTERFREE, 349
-	dbw PINSIR,     368
-
-BugContestant_PokefanMWilliam:
-	db BUG_CATCHER, MUSHI
-	dbw PINSIR,     332
-	dbw BUTTERFREE, 324
-	dbw VENONAT,    321
-
-BugContestant_BugCatcherBenny:
-	db BUG_CATCHER, ALEX
-	dbw BUTTERFREE, 318
-	dbw WEEDLE,     295
-	dbw CATERPIE,   285
-
-BugContestant_CamperBarry:
-	db YOUNGSTER, KOJI
-	dbw PINSIR,     366
-	dbw VENONAT,    329
-	dbw KAKUNA,     314
-
-BugContestant_PicnickerCindy:
-	db YOUNGSTER, TOUYA
-	dbw BUTTERFREE, 341
-	dbw METAPOD,    301
-	dbw CATERPIE,   264
-
-BugContestant_BugCatcherJosh:
-	db YOUNGSTER, KOUTA
-	dbw SCYTHER,    326
-	dbw BUTTERFREE, 292
-	dbw METAPOD,    282
-
-BugContestant_YoungsterSamuel:
-	db YOUNGSTER, NESS
-	dbw WEEDLE,     270
-	dbw PINSIR,     282
-	dbw CATERPIE,   251
-
-BugContestant_SchoolboyKipp:
-	db LASS, NICOLE
-	dbw VENONAT,    267
-	dbw PARAS,      254
-	dbw KAKUNA,     259
+BugContestant_FisherNatPagle:
+	db FISHER, NAT_PAGLE
+	dbw QWILFISH,   357
+	dbw GOLDEEN,    349
+	dbw CHINCHOU,   368
 ; 13807
 
 BugContest_GetPlayersResult: ; 13807

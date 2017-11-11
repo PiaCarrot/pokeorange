@@ -175,3 +175,4 @@ TrainerClassPersonalities:
 	db MALE_MASK   ; cooltrainerm
 	db FEMALE_MASK ; cooltrainerf
 	db MALE_MASK   ; catman
+	db MALE_MASK   ; birdkeeper

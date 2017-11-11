@@ -15,6 +15,9 @@ PokeCenter2F_BlockData:
 	
 TrovitopolisPokeCommCenter_BlockData:
 	INCBIN "maps/TrovitopolisPokeCommCenter.blk"
+	
+FishingContestLobby_BlockData:
+	INCBIN "maps/FishingContestLobby.blk"
 
 TangeloMart_BlockData:
 MikanMart_BlockData:
