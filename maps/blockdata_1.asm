@@ -12,6 +12,12 @@ MurcottPokeCenter_BlockData:
 
 PokeCenter2F_BlockData:
 	INCBIN "maps/PokeCenter2F.blk"
+	
+TrovitopolisPokeCommCenter_BlockData:
+	INCBIN "maps/TrovitopolisPokeCommCenter.blk"
+	
+FishingContestLobby_BlockData:
+	INCBIN "maps/FishingContestLobby.blk"
 
 TangeloMart_BlockData:
 MikanMart_BlockData:

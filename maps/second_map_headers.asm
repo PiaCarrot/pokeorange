@@ -104,7 +104,7 @@
 	map_header_2 FishingContest, FISHING_CONTEST, 53, WEST
 	connection west, UNNAMED_ISLAND_2, UnnamedIsland2, 0, 0, 40, FISHING_CONTEST
 
-	map_header_2 PokeCenter2F, POKECENTER_2F, $0, 0
+	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
 	map_header_2 Colosseum, COLOSSEUM, $0, 0
 	map_header_2 KrissHouse1F, KRISS_HOUSE_1F, 0, 0
@@ -200,6 +200,8 @@
 	map_header_2 TrovitopolisDeptStore6F, TROVITOPOLIS_DEPT_STORE_6F, $0, 0
 	map_header_2 TrovitopolisDeptStoreElevator, TROVITOPOLIS_DEPT_STORE_ELEVATOR, $0, 0
 	map_header_2 TrovitopolisDeptStoreRoof, TROVITOPOLIS_DEPT_STORE_ROOF, $24, 0
+	map_header_2 TrovitopolisPokeCommCenter, TROVITOPOLIS_POKE_COMM_CENTER, 0, 0
+	map_header_2 FishingContestLobby, FISHING_CONTEST_LOBBY, 0, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

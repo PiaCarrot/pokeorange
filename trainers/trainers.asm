@@ -102,25 +102,25 @@ DannyGroup:
 
 	; party
 
-	db 30, NIDOQUEEN
+	db 28, NIDOQUEEN
 		db ICE_BEAM
 		db MEGA_PUNCH
 		db SLAM
 		db POISON_STING
 
-	db 32, MACHOKE
+	db 30, MACHOKE
 		db SEISMIC_TOSS
 		db KARATE_CHOP
 		db THUNDERPUNCH
 		db FIRE_PUNCH
 
-	db 29, SCIZOR
+	db 27, SCIZOR
 		db CUT
 		db QUICK_ATTACK
 		db METAL_CLAW
 		db AGILITY
 
-	db 31, ELECTRODE
+	db 29, ELECTRODE
 		db THUNDERBOLT
 		db EXPLOSION
 		db 0
@@ -533,6 +533,12 @@ TraceyGroup:
 		db THUNDER_WAVE
 		db QUICK_ATTACK
 		db DOUBLE_TEAM
+		
+	db 32, SCYTHER
+		db SLASH
+		db SWORDS_DANCE
+		db SIGNAL_BEAM
+		db FOCUS_ENERGY
 
 	db $ff ; end
 
@@ -553,7 +559,7 @@ BrockGroup:
 	db 19, GEODUDE
 		db TACKLE
 		db ROCK_THROW
-		db HARDEN ;ROCK POLISH?
+		db DEFENSE_CURL
 		db 0
 
 	db 22, VULPIX
@@ -977,6 +983,40 @@ ButchGroup:
 	db 21, MANKEY
 
 	db $ff ; end
+	
+; ================
+
+	; EXECUTIVEM (2)
+	db "BUTCH@"
+	db 1 ; moves
+
+	; party
+
+	db 40, CLOYSTER
+		db ICE_BEAM
+		db CLAMP
+		db HAIL
+		db SURF
+	
+	db 41, PRIMEAPE
+		db DYNAMICPUNCH
+		db ROCK_SMASH
+		db LOCK_ON
+		db DOUBLE_KICK
+		
+	db 39, SHUCKLE
+		db TOXIC
+		db WRAP
+		db REST
+		db ENCORE
+		
+	db 41, HITMONTOP
+		db TRIPLE_KICK
+		db RAPID_SPIN
+		db ROLLING_KICK
+		db FOCUS_ENERGY
+	
+	db $ff ; end
 
 ; ================
 ; ================================
@@ -999,24 +1039,137 @@ CassidyGroup:
 	db $ff ; end
 
 ; ================
+
+	; EXECUTIVEF (2)
+	db "CASSIDY@"
+	db 1 ; moves
+
+	; party
+
+	db 40, TENTACRUEL
+		db TOXIC
+		db WHIRLPOOL
+		db RAIN_DANCE
+		db WATERFALL
+	
+	db 41, HYPNO
+		db HYPNOSIS
+		db PSYCHIC_M
+		db NASTY_PLOT
+		db REST
+		
+	db 39, MIMIKYU
+		db SHADOW_SNEAK
+		db ASTONISH
+		db SHADOW_BALL
+		db ENDURE
+		
+	db 41, RATICATE
+		db HYPER_FANG
+		db FOCUS_ENERGY
+		db REST
+		db SLEEP_TALK
+	
+	db $ff ; end
 ; ================================
 
 
 CassidyButchGroup:
 ; ================================
 ; ================
+	; C&B (2)
+	db "AND BUTCH@"
+	db 1 ; moves
+
+	db 40, CLOYSTER
+		db ICE_BEAM
+		db CLAMP
+		db HAIL
+		db SURF
+	
+	db 41, PRIMEAPE
+		db DYNAMICPUNCH
+		db ROCK_SMASH
+		db LOCK_ON
+		db DOUBLE_KICK
+		
+	db 41, HITMONTOP
+		db TRIPLE_KICK
+		db RAPID_SPIN
+		db ROLLING_KICK
+		db FOCUS_ENERGY
+		
+	db 41, HYPNO
+		db HYPNOSIS
+		db PSYCHIC_M
+		db NASTY_PLOT
+		db REST
+		
+	db 39, MIMIKYU
+		db SHADOW_SNEAK
+		db ASTONISH
+		db SHADOW_BALL
+		db ENDURE
+		
+	db 41, RATICATE
+		db HYPER_FANG
+		db FOCUS_ENERGY
+		db REST
+		db SLEEP_TALK
+		
+	db $ff
 ; ================================
 
 
 JamesGroup:
 ; ================================
 ; ================
+
+	; James (1)
+	db 1 ;moves
+	
+	db 38, WEEZING
+		db SLUDGE_BOMB
+		db TOXIC
+		db BODY_SLAM
+		db VENOSHOCK
+		
+	db 37, VICTREEBEL
+		db VINE_WHIP
+		db COTTON_SPORE
+		db SLUDGE_BOMB
+		db BITE
+	
+	db $ff
 ; ================================
 
 
 JessieGroup:
 ; ================================
 ; ================
+
+	; Jessie (1)
+	db 1 ;moves
+	
+	db 38, ARBOK
+		db CRUNCH
+		db POISON_STING
+		db MEAN_LOOK
+		db WRAP
+		
+	db 37, LICKITUNG
+		db ROLLOUT
+		db DEFENSE_CURL
+		db LICK
+		db TAKE_DOWN
+		
+	db 35, MEOWTH
+		db FURY_SWIPES
+		db AGILITY
+		db TAIL_WHIP
+		db SLASH
+	
+	db $ff
 ; ================================
 
 
@@ -1055,12 +1208,91 @@ JessieJamesGroup:
 
 	db $ff ; end
 ; ================
+
+	; J&J (2)
+	db "AND JAMES@"
+	db 1 ; moves
+
+	; party
+
+	db 38, WEEZING
+		db SLUDGE_BOMB
+		db TOXIC
+		db BODY_SLAM
+		db VENOSHOCK
+		
+	db 37, VICTREEBEL
+		db VINE_WHIP
+		db COTTON_SPORE
+		db SLUDGE_BOMB
+		db BITE
+
+	db 38, ARBOK
+		db CRUNCH
+		db POISON_STING
+		db MEAN_LOOK
+		db WRAP
+		
+	db 37, LICKITUNG
+		db ROLLOUT
+		db DEFENSE_CURL
+		db LICK
+		db TAKE_DOWN
+		
+	db 35, MEOWTH
+		db FURY_SWIPES
+		db AGILITY
+		db TAIL_WHIP
+		db SLASH
+
+	db $ff ; end
 ; ================================
 
 
 MomGroup:
 ; ================================
 ; ================
+
+	; MOM (1)
+	db 1 ;moves
+	
+	db 95, EXEGGUTOR
+		db OUTRAGE
+		db DRAGON_PULSE
+		db SUNNY_DAY
+		db SOLARBEAM
+		
+	db 99, CLEFABLE
+		db DAZZLINGLEAM
+		db HEAL_BELL
+		db HYPER_BEAM
+		db ATTRACT
+
+	db 97, TOUCANNON
+		db AERIAL_ACE
+		db FIRE_BLAST
+		db STEEL_WING
+		db GLARE
+		
+	db 94, KINGDRA
+		db HYDRO_PUMP
+		db DRAGON_PULSE
+		db SUBSTITUTE
+		db LOCK_ON
+		
+	db 96, SALAZZLE
+		db FLAMETHROWER
+		db TOXIC
+		db VENOSHOCK
+		db AGILITY
+		
+	db 98, RAICHU
+		db VOLT_TACKLE
+		db DOUBLE_TEAM
+		db ENCORE
+		db NASTY_PLOT
+
+	db $ff ; end	
 ; ================
 ; ================================
 

@@ -8,10 +8,13 @@ UnnamedIsland2_MapScriptHeader::
 
 UnnamedIsland2_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 2
+	warp_def 10, 29, 1, FISHING_CONTEST_LOBBY
+	warp_def 11, 29, 2, FISHING_CONTEST_LOBBY
 
 .CoordEvents: db 0
 
 .BGEvents: db 0
 
 .ObjectEvents: db 0
+

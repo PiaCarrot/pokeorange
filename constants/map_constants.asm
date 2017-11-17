@@ -126,6 +126,7 @@ MAP_NONE EQU 0
 	mapgroup TANGELO_PORT, 12, 12
 	mapgroup TROVITOPOLIS, 24, 36
 	mapgroup FISHING_CONTEST, 20, 12
+	mapgroup FISHING_CONTEST_LOBBY, 3, 6
 	mapgroup TROVITA_ISLAND, 22, 24
 	mapgroup TROVITOPOLIS_DEPT_STORE_1F,                     4,  8 ; 11
 	mapgroup TROVITOPOLIS_DEPT_STORE_2F,                     4,  8 ; 12
@@ -134,7 +135,8 @@ MAP_NONE EQU 0
 	mapgroup TROVITOPOLIS_DEPT_STORE_5F,                     4,  8 ; 15
 	mapgroup TROVITOPOLIS_DEPT_STORE_6F,                     4,  8 ; 16
 	mapgroup TROVITOPOLIS_DEPT_STORE_ELEVATOR,               2,  2 ; 17
-	mapgroup TROVITOPOLIS_DEPT_STORE_ROOF,                   4,  8 ; 18
+	mapgroup TROVITOPOLIS_DEPT_STORE_ROOF,                   4,  6 ; 18
+	mapgroup TROVITOPOLIS_POKE_COMM_CENTER, 11, 11
 
 	newgroup ; 9
 
@@ -142,7 +144,7 @@ MAP_NONE EQU 0
 
 	newgroup ; 10
 
-	mapgroup POKECENTER_2F, 4, 8
+	mapgroup POKECENTER_2F, 3, 6
 	mapgroup TRADE_CENTER, 4, 5
 	mapgroup COLOSSEUM, 4, 5
 

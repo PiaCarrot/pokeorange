@@ -128,7 +128,7 @@
 	db "BERRY@"
 	db "GOLD BERRY@"
 	db "SQUIRTBOTTLE@"
-	db "PARK BALL@"
+	db "CONTEST BALL@"
 	db "BERSERK GENE@"
 	db "SACRED ASH@"
 	db "SILVER WING@"
