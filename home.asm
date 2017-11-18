@@ -1553,8 +1553,8 @@ GetBaseData:: ; 3856
 
 .egg
 ; Sprite dimensions
-	ld b, $55 ; 5x5
-	ld [BasePicSize], b
+	ld a, $55 ; 5x5
+	ld [BasePicSize], a
 
 .end
 ; Replace Pokedex # with species
