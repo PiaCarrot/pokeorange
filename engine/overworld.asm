@@ -90,31 +90,20 @@ AddMapSprites: ; 141c9
 	call GetMapPermission
 	call CheckOutdoorMap
 	jr z, .outdoor
-	jp AddIndoorSprites
-
-.outdoor
-	jp AddOutdoorSprites
-; 141d9
-
-
-AddIndoorSprites: ; 141d9
 	ld hl, Map1ObjectSprite
-	ld a, 1
+	ld a, NUM_OBJECTS
 .loop
+	dec a
+	ret z
 	push af
 	ld a, [hl]
 	call AddSpriteGFX
 	ld de, OBJECT_LENGTH
 	add hl, de
 	pop af
-	inc a
-	cp NUM_OBJECTS
-	jr nz, .loop
-	ret
-; 141ee
+	jr .loop
 
-
-AddOutdoorSprites: ; 141ee
+.outdoor ; 141ee
 	ld a, [MapGroup]
 	dec a
 	ld c, a
@@ -125,12 +114,12 @@ AddOutdoorSprites: ; 141ee
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-.loop
+.loop2
 	ld a, [hli]
-	and a ; cp SPRITE_NONE
+	and a
 	ret z
 	call AddSpriteGFX
-	jr .loop
+	jr .loop2
 ; 14209
 
 
