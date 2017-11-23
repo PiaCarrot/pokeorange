@@ -202,7 +202,13 @@
 	map_header_2 TrovitopolisDeptStoreRoof, TROVITOPOLIS_DEPT_STORE_ROOF, $24, 0
 	map_header_2 TrovitopolisPokeCommCenter, TROVITOPOLIS_POKE_COMM_CENTER, 0, 0
 	map_header_2 FishingContestLobby, FISHING_CONTEST_LOBBY, 0, 0
-
+	map_header_2 TrovitopolisMrFlashHouse, TROVITOPOLIS_MR_FLASH_HOUSE, 0, 0
+	map_header_2 TrovitopolisMoveDeleterHouse, TROVITOPOLIS_MOVE_DELETER_HOUSE, 0, 0
+	map_header_2 TrovitopolisHouse1, TROVITOPOLIS_HOUSE_1, 0, 0
+	map_header_2 TrovitopolisHouse2, TROVITOPOLIS_HOUSE_2, 0, 0
+	map_header_2 TrovitopolisHouse3, TROVITOPOLIS_HOUSE_3, 0, 0
+	map_header_2 TrovitopolisHouse4, TROVITOPOLIS_HOUSE_4, 0, 0
+	
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0
 	map_header_2 RedsHouse2F, REDS_HOUSE_2F, $0, 0

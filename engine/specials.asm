@@ -102,6 +102,9 @@ SpecialsPointers:: ; c029
 	add_special InitRoamMons
 	add_special Special_FadeOutMusic
 	add_special Diploma
+	add_special SpecialBulbasaur
+	add_special SpecialCharmander
+	add_special SpecialSquirtle
 
 	; Crystal
 	add_special Reset

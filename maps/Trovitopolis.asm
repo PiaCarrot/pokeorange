@@ -180,11 +180,17 @@ TrovitopolisWaterStone:
 
 Trovitopolis_MapEventHeader::
 
-.Warps: db 4
+.Warps: db 10
 	warp_def 31, 48, 1, TROVITOPOLIS_POKE_COMM_CENTER
-	warp_def 5, 21, 1, TROVITOPOLIS_SEWER
+	warp_def 1, 23, 1, TROVITOPOLIS_SEWER
 	warp_def 15, 36, 1, TROVITOPOLIS_DEPT_STORE_1F
 	warp_def 41, 62, 1, MANDARIN_DESERT
+	warp_def 5, 55, 1, TROVITOPOLIS_MR_FLASH_HOUSE
+	warp_def 21, 45, 1, TROVITOPOLIS_MOVE_DELETER_HOUSE
+	warp_def 29, 59, 1, TROVITOPOLIS_HOUSE_1
+	warp_def 29, 29, 1, TROVITOPOLIS_HOUSE_2
+	warp_def 9, 27, 1, TROVITOPOLIS_HOUSE_3
+	warp_def 17, 15, 1, TROVITOPOLIS_HOUSE_4
 
 .CoordEvents: db 0
 
@@ -196,7 +202,7 @@ Trovitopolis_MapEventHeader::
 	signpost 25, 19, SIGNPOST_READ, TrovitopolisSchoolSign
 	signpost 22, 46, SIGNPOST_READ, TrovitopolisMoveDeleterSign
 	signpost 6, 56, SIGNPOST_READ, TrovitopolisMrFlashSign
-	signpost 6, 20, SIGNPOST_READ, TrovitopolisSewerSign
+	signpost 2, 22, SIGNPOST_READ, TrovitopolisSewerSign
 
 .ObjectEvents: db 9
 	person_event SPRITE_COOLTRAINER_F, 26, 56, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 1, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TrovitopolisRedCoolTrainerScript, -1

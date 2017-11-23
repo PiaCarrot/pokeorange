@@ -53,6 +53,12 @@ MoroHouse2_BlockData:
 MurcottHouse1_BlockData:
 MurcottHouse2_BlockData:
 MurcottHouse3_BlockData:
+TrovitopolisMrFlashHouse_BlockData:
+TrovitopolisMoveDeleterHouse_BlockData:
+TrovitopolisHouse1_BlockData:
+TrovitopolisHouse2_BlockData:
+TrovitopolisHouse3_BlockData:
+TrovitopolisHouse4_BlockData:
 	INCBIN "maps/House1.blk"
 
 MikanNicknameSpeechHouse_BlockData:

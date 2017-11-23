@@ -3934,6 +3934,10 @@ INCBIN "gfx/player/chris.7x7.2bpp"
 KrisPic: ; 88bb9
 INCBIN "gfx/player/kris.7x7.2bpp"
 
+INCLUDE "event/bulbasaur.asm"
+INCLUDE "event/charmander.asm"
+INCLUDE "event/squirtle.asm"
+
 SECTION "bank23", ROMX
 
 INCLUDE "engine/timeofdaypals.asm"

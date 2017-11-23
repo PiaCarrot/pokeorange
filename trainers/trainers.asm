@@ -195,13 +195,13 @@ RudyGroup:
 	db 42, EXEGGUTOR
 		db EGG_BOMB
 		db DRAGON_PULSE
-		db MEGA_DRAIN
+		db DOUBLE_TEAM
 		db STOMP
 
 	db 41, STARMIE
 		db RAPID_SPIN
-		db WATERFALL
-		db THUNDERBOLT
+		db DOUBLE_TEAM
+		db SURF
 		db PSYBEAM
 
 	db 40, HITMONCHAN
@@ -213,7 +213,7 @@ RudyGroup:
 	db 39, GOLEM
 		db DEFENSE_CURL
 		db ROLLOUT
-		db ROCK_THROW
+		db DOUBLE_TEAM
 		db ROCK_SMASH
 
 	db $ff ; end
