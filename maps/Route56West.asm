@@ -268,8 +268,8 @@ Route56West_MapEventHeader::
 	warp_def 7, 35, 1, ROUTE_56_POKE_CENTER
 
 .CoordEvents: db 2
-	xy_trigger 0, 20, 50, 0, TraceyScript1, 0, 0
-	xy_trigger 0, 20, 51, 0, TraceyScript2, 0, 0
+	xy_trigger 0, 20, 50, TraceyScript1
+	xy_trigger 0, 20, 51, TraceyScript2
 
 .BGEvents: db 1
 	signpost 9, 37, SIGNPOST_READ, Route56Sign

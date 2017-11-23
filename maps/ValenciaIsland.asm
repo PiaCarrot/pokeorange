@@ -257,8 +257,8 @@ ValenciaIsland_MapEventHeader::
 	warp_def 15, 17, 1, IVYS_HOUSE
 
 .CoordEvents: db 2
-	xy_trigger 0, 8, 1, 0, ValenciaIsland_TeacherStopsYouTrigger1, 0, 0
-	xy_trigger 0, 9, 1, 0, ValenciaIsland_TeacherStopsYouTrigger2, 0, 0
+	xy_trigger 0, 8, 1, ValenciaIsland_TeacherStopsYouTrigger1
+	xy_trigger 0, 9, 1, ValenciaIsland_TeacherStopsYouTrigger2
 
 .BGEvents: db 4
 	signpost 12, 8, SIGNPOST_READ, ValenciaIslandSign

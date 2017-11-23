@@ -1,5 +1,4 @@
 RefreshScreen:: ; 2dba
-
 	call ClearWindowData
 	ld a, [hROMBank]
 	push af
@@ -15,6 +14,11 @@ RefreshScreen:: ; 2dba
 	ret
 ; 2dcf
 
+RefreshScreen_BridgeUpdate::
+	call GetMovementPermissions
+	call ClearWindowData
+	farcall ReanchorBGMap_NoOAMUpdate_NoDelay
+	ret
 
 CloseText:: ; 2dcf
 	ld a, [hOAMUpdate]

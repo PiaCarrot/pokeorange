@@ -45,10 +45,7 @@ xy_trigger: macro
 	db \1 ; number
 	db \2 ; y
 	db \3 ; x
-	db \4 ; unknown1
-	dw \5 ; script
-	db \6 ; unknown2
-	db \7 ; unknown3
+	dw \4 ; script
 	endm
 
 warp_def: macro
@@ -185,5 +182,18 @@ stonetable: MACRO
 endm
 
 maptrigger: MACRO
-	dw \1, 0
+	dw \1
+endm
+
+endbridgetrigger: MACRO
+	callasm .asm\@
+	end
+.asm\@
+	ld a, \2
+	ld [\1], a ; dotrigger a
+	jp RefreshScreen_BridgeUpdate ; refreshscreen (optimized)
+endm
+
+endbridgeblocks: MACRO
+	jp BufferScreen
 endm

@@ -15,3 +15,15 @@ INCBIN "tilesets/30_metatiles.bin"
 
 Tileset30Coll: ; 0x1f21c
 INCLUDE "tilesets/30_collision.asm"
+
+Tileset20GFX: ; 0x1b43e
+INCBIN "gfx/tilesets/20.2bpp.lz"
+; 0x1b8fe
+
+Tileset20Meta: ; 0x1b8fe
+INCBIN "tilesets/20_metatiles.bin"
+; 0x1bcfe
+
+Tileset20Coll: ; 0x1bcfe
+INCLUDE "tilesets/20_collision.asm"
+; 0x1bdfe

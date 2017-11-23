@@ -284,15 +284,15 @@ MandarinUnderground_MapEventHeader::
 	warp_def 2, 15, 3, MANDARIN_UNDERGROUND
 
 .CoordEvents: db 9
-	xy_trigger 0, 13, 13, 0, ExplodingTrap1, 0, 0
-	xy_trigger 0, 13, 14, 0, ExplodingTrap2, 0, 0
-	xy_trigger 0, 13, 15, 0, ExplodingTrap3, 0, 0
-	xy_trigger 0, 17, 13, 0, ExplodingTrap4, 0, 0
-	xy_trigger 0, 17, 14, 0, ExplodingTrap5, 0, 0
-	xy_trigger 0, 17, 15, 0, ExplodingTrap6, 0, 0
-	xy_trigger 0, 11, 25, 0, ExplodingTrap7, 0, 0
-	xy_trigger 0, 11, 26, 0, ExplodingTrap8, 0, 0
-	xy_trigger 0, 11, 27, 0, ExplodingTrap9, 0, 0
+	xy_trigger 0, 13, 13, ExplodingTrap1
+	xy_trigger 0, 13, 14, ExplodingTrap2
+	xy_trigger 0, 13, 15, ExplodingTrap3
+	xy_trigger 0, 17, 13, ExplodingTrap4
+	xy_trigger 0, 17, 14, ExplodingTrap5
+	xy_trigger 0, 17, 15, ExplodingTrap6
+	xy_trigger 0, 11, 25, ExplodingTrap7
+	xy_trigger 0, 11, 26, ExplodingTrap8
+	xy_trigger 0, 11, 27, ExplodingTrap9
 
 .BGEvents: db 2
 	signpost 15, 18, SIGNPOST_READ, MandarinUndergroundPC
