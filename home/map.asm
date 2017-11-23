@@ -500,7 +500,7 @@ ReadMapTriggers:: ; 23ac
 	and a
 	ret z
 
-	ld bc, 4 ; size of a map trigger header entry
+	ld bc, 2 ; size of a map trigger header entry
 	jp AddNTimes
 ; 23c3
 

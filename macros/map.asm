@@ -182,5 +182,5 @@ stonetable: MACRO
 endm
 
 maptrigger: MACRO
-	dw \1, 0
+	dw \1
 endm
