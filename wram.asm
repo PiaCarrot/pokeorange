@@ -1474,13 +1474,13 @@ wd041::
 wElevatorOriginFloor::
 wTempTrainerHeader::
 wTempTrainerEventFlagLo::
+wCurCoordEventScriptAddr::
 wCurSignpostScriptAddr::
 EngineBuffer4::
 	ds 1
 
 wTempTrainerEventFlagHi::
 MovementAnimation:: ; d042
-wCurCoordEventScriptAddr::
 EngineBuffer5::
 	ds 1
 

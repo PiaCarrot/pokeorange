@@ -633,10 +633,10 @@ IvysLab_MapEventHeader::
 	warp_def 11, 5, 1, VALENCIA_ISLAND
 
 .CoordEvents: db 4
-	xy_trigger 1, 6, 4, 0, LabTryToLeaveScript, 0, 0
-	xy_trigger 1, 6, 5, 0, LabTryToLeaveScript, 0, 0
-	xy_trigger 5, 8, 4, 0, AideScript_WalkPotions1, 0, 0
-	xy_trigger 5, 8, 5, 0, AideScript_WalkPotions2, 0, 0
+	xy_trigger 1, 6, 4, LabTryToLeaveScript
+	xy_trigger 1, 6, 5, LabTryToLeaveScript
+	xy_trigger 5, 8, 4, AideScript_WalkPotions1
+	xy_trigger 5, 8, 5, AideScript_WalkPotions2
 
 .BGEvents: db 16
 	signpost 1, 2, SIGNPOST_READ, IvysLabHealingMachine

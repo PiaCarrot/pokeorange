@@ -548,7 +548,7 @@ ReadCoordEvents:: ; 23f1
 	and a
 	ret z
 
-	ld bc, 8
+	ld bc, 5 ; xy-trigger size
 	jp AddNTimes
 ; 2408
 
@@ -1892,7 +1892,7 @@ CheckCurrentMapXYTriggers:: ; 2ad4
 
 .next
 	pop hl
-	ld a, $8 ; xy-trigger size
+	ld a, 5 ; xy-trigger size
 	add l
 	ld l, a
 	jr nc, .nocarry
@@ -1907,7 +1907,7 @@ CheckCurrentMapXYTriggers:: ; 2ad4
 .copytrigger
 	pop hl
 	ld de, wCurCoordEventTriggerID
-	ld bc, 8 ; xy-trigger size
+	ld bc, 5 ; xy-trigger size
 	call CopyBytes
 	scf
 	ret

@@ -358,8 +358,8 @@ GoldenIsland_MapEventHeader::
 	warp_def 27, 12, 6, GOLDEN_ISLAND_GATE_HOUSE
 
 .CoordEvents: db 2
-	xy_trigger 0, 16, 22, 0, GoldenIslandRocketEvent, 0, 0
-	xy_trigger 0, 16, 23, 0, GoldenIslandRocketEvent, 0, 0
+	xy_trigger 0, 16, 22, GoldenIslandRocketEvent
+	xy_trigger 0, 16, 23, GoldenIslandRocketEvent
 
 .BGEvents: db 5
 	signpost 8, 14, SIGNPOST_READ, GoldenIslandSign
