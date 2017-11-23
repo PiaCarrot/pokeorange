@@ -17,22 +17,11 @@ Route61BridgeCallback:
 
 Route61BridgeOverheadTrigger:
 	callasm Route61_OverheadBridgeAsm
-	callasm .finish_overhead_asm
-	end
-.finish_overhead_asm
-	xor a
-	jr Route61_FinishBridgeAsm
+	endbridgetrigger wRoute61Trigger, $0
 
 Route61BridgeUnderfootTrigger:
 	callasm Route61_UnderfootBridgeAsm
-	callasm .finish_underfoot_asm
-	end
-.finish_underfoot_asm
-	ld a, $1
-	; fallthrough
-Route61_FinishBridgeAsm:
-	ld [wRoute61Trigger], a ; dotrigger a
-	jp RefreshScreen_BridgeUpdate ; refreshscreen (optimized)
+	endbridgetrigger wRoute61Trigger, $1
 
 Route61_OverheadBridgeAsm:
 	changebridgeblock 44, 36, $b9, ROUTE_61
@@ -42,7 +31,7 @@ Route61_OverheadBridgeAsm:
 	changebridgeblock 44, 44, $b4, ROUTE_61
 	changebridgeblock 44, 46, $b4, ROUTE_61
 	changebridgeblock 44, 48, $ba, ROUTE_61
-	jp BufferScreen
+	endbridgeblocks
 
 Route61_UnderfootBridgeAsm:
 	changebridgeblock 44, 36, $c0, ROUTE_61
@@ -52,7 +41,7 @@ Route61_UnderfootBridgeAsm:
 	changebridgeblock 44, 44, $c1, ROUTE_61
 	changebridgeblock 44, 46, $c1, ROUTE_61
 	changebridgeblock 44, 48, $c2, ROUTE_61
-	jp BufferScreen
+	endbridgeblocks
 
 TrainerPokemaniacKusato:
 	trainer EVENT_BEAT_POKEMANIAC_KUSATO, POKEMANIAC, KUSATO, PokemaniacKusatoSeenText, PokemaniacKusatoWinText, 0, .Script
