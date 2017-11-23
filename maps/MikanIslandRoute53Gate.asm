@@ -81,8 +81,8 @@ MikanIslandRoute53Gate_MapEventHeader::
 	warp_def 2, 1, 1, ROUTE_53_GATE_UPSTAIRS
 
 .CoordEvents: db 2
-	xy_trigger 0, 4, 5, 0, Guard_Stop1, 0, 0
-	xy_trigger 0, 5, 5, 0, Guard_Stop1, 0, 0
+	xy_trigger 0, 4, 5, Guard_Stop1
+	xy_trigger 0, 5, 5, Guard_Stop1
 
 .BGEvents: db 0
 

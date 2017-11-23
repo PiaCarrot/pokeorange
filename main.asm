@@ -155,6 +155,48 @@ HDMATransfer_FillBGMap0WithTile60: ; 64db
 	ld [rSVBK], a
 	ret
 
+ReanchorBGMap_NoOAMUpdate_NoDelay::
+	ld a, [hOAMUpdate]
+	push af
+	ld a, $1
+	ld [hOAMUpdate], a
+
+	ld a, [hBGMapMode]
+	push af
+	xor a
+	ld [hBGMapMode], a
+
+	ld [hLCDCPointer], a
+	ld a, $90
+	ld [hWY], a
+	call OverworldTextModeSwitch
+
+	ld a, VBGMap1 / $100
+	ld [hBGMapAddress + 1], a
+	xor a
+	ld [hBGMapAddress], a
+	farcall BridgeTransition_HDMATransferTileMapAndAttrMap
+
+	ld a, VBGMap0 / $100
+	ld [hBGMapAddress + 1], a
+	ld [wBGMapAnchor + 1], a
+	xor a
+	ld [hBGMapAddress], a
+	ld [wBGMapAnchor], a
+	ld [hSCX], a
+	ld [hSCY], a
+	ld [hWY], a
+	inc a
+	ld [hCGBPalUpdate], a
+	farcall BridgeTransition_HDMATransferTileMapAndAttrMap
+
+	pop af
+	ld [hBGMapMode], a
+
+	pop af
+	ld [hOAMUpdate], a
+	ret
+
 INCLUDE "engine/learn.asm"
 INCLUDE "engine/math.asm"
 

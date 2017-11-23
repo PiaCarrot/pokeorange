@@ -367,9 +367,8 @@ DoMapTrigger: ; 968ec
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-rept 4
 	add hl, de
-endr
+	add hl, de
 
 	call GetMapScriptHeaderBank
 	call GetFarHalfword

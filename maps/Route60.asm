@@ -220,8 +220,8 @@ Route60_MapEventHeader::
 	warp_def 53, 4, 4, GOLDEN_ISLAND_GATE_HOUSE
 
 .CoordEvents: db 2
-	xy_trigger 0, 12, 39, 0, RocketRoute60Event, 0, 0
-	xy_trigger 0, 13, 39, 0, RocketRoute60Event, 0, 0
+	xy_trigger 0, 12, 39, RocketRoute60Event
+	xy_trigger 0, 13, 39, RocketRoute60Event
 
 .BGEvents: db 1
 	signpost 6, 16, SIGNPOST_READ, Route60Sign
