@@ -2284,24 +2284,25 @@ UndergroundSwitchPositions:: ; d963
 
 ;SECTION "Map Triggers", WRAMX, BANK [1]
 
-wPokecenter2FTrigger::           ds 1
-wTradeCenterTrigger::            ds 1
-wColosseumTrigger::              ds 1
-wHallOfFameTrigger::             ds 1
-wKrissHouse1FTrigger::           ds 1
-wValenciaIslandTrigger::         ds 1
-wIvysLabTrigger::                ds 1
-wRoute49Trigger::                ds 1
-wMikanIslandRoute53GateTrigger:: ds 1
-wValenciaPortTrigger::           ds 1
-wTangeloPortTrigger::            ds 1
-wMandarinUndergroundTrigger::    ds 1
-wRoute56WestTrigger::            ds 1
+wPokecenter2FTrigger::             ds 1
+wTradeCenterTrigger::              ds 1
+wColosseumTrigger::                ds 1
+wHallOfFameTrigger::               ds 1
+wKrissHouse1FTrigger::             ds 1
+wValenciaIslandTrigger::           ds 1
+wIvysLabTrigger::                  ds 1
+wRoute49Trigger::                  ds 1
+wMikanIslandRoute53GateTrigger::   ds 1
+wValenciaPortTrigger::             ds 1
+wTangeloPortTrigger::              ds 1
+wMandarinUndergroundTrigger::      ds 1
+wRoute56WestTrigger::              ds 1
 wUnnamedIsland1PokeCenterTrigger:: ds 1
-wRoute60Trigger::				 ds 1
-wGoldenIslandTrigger::			 ds 1
+wRoute60Trigger::                  ds 1
+wRoute61Trigger::                  ds 1
+wGoldenIslandTrigger::             ds 1
 
-	ds 24
+	ds 23
 
 EventFlags:: ; da72
 	flag_array NUM_EVENTS

@@ -2,7 +2,57 @@ Route61_MapScriptHeader::
 
 .Triggers: db 0
 
-.Callbacks: db 0
+.Callbacks: db 1
+	dbw MAPCALLBACK_TILES, Route61BridgeCallback
+
+Route61BridgeCallback:
+	checktriggers
+	iftrue .underfoot
+	callasm Route61_OverheadBridgeAsm
+	return
+
+.underfoot:
+	callasm Route61_UnderfootBridgeAsm
+	return
+
+Route61BridgeOverheadTrigger:
+	callasm Route61_OverheadBridgeAsm
+	callasm .finish_overhead_asm
+	end
+.finish_overhead_asm
+	xor a
+	jr Route61_FinishBridgeAsm
+
+Route61BridgeUnderfootTrigger:
+	callasm Route61_UnderfootBridgeAsm
+	callasm .finish_underfoot_asm
+	end
+.finish_underfoot_asm
+	ld a, $1
+	; fallthrough
+Route61_FinishBridgeAsm:
+	ld [wRoute61Trigger], a ; dotrigger a
+	jp RefreshScreen_BridgeUpdate ; refreshscreen (optimized)
+
+Route61_OverheadBridgeAsm:
+	changebridgeblock 44, 36, $b9, ROUTE_61
+	changebridgeblock 44, 38, $b5, ROUTE_61
+	changebridgeblock 44, 40, $b5, ROUTE_61
+	changebridgeblock 44, 42, $b4, ROUTE_61
+	changebridgeblock 44, 44, $b4, ROUTE_61
+	changebridgeblock 44, 46, $b4, ROUTE_61
+	changebridgeblock 44, 48, $ba, ROUTE_61
+	jp BufferScreen
+
+Route61_UnderfootBridgeAsm:
+	changebridgeblock 44, 36, $c0, ROUTE_61
+	changebridgeblock 44, 38, $c1, ROUTE_61
+	changebridgeblock 44, 40, $c1, ROUTE_61
+	changebridgeblock 44, 42, $c1, ROUTE_61
+	changebridgeblock 44, 44, $c1, ROUTE_61
+	changebridgeblock 44, 46, $c1, ROUTE_61
+	changebridgeblock 44, 48, $c2, ROUTE_61
+	jp BufferScreen
 
 TrainerPokemaniacKusato:
 	trainer EVENT_BEAT_POKEMANIAC_KUSATO, POKEMANIAC, KUSATO, PokemaniacKusatoSeenText, PokemaniacKusatoWinText, 0, .Script
@@ -21,49 +71,54 @@ PokemaniacKusatoSeenText:
 	cont "your party in a"
 	cont "#MON battle?"
 	done
-	
+
 PokemaniacKusatoWinText:
 	text "My POISON #MON!"
 	done
-	
+
 PokemaniacKusatoAfterText:
 	text "I'll let you in"
 	line "on a tip."
-	
+
 	para "You can find a"
 	line "SALANDIT on ROUTE"
 	cont "62."
 	done
-	
+
 Route6lRareCandy:
 	itemball RARE_CANDY
-	
+
 Route61MaxPotion:
 	itemball MAX_POTION
-	
+
+Route61MaxElixer:
+	itemball MAX_ELIXER
+
 Route61Sign:
 	jumptext Route61SignText
 
 Route61SignText:
 	text "ROUTE 61"
-	
+
 	para "EAST to MURCOTT"
 	line "WEST to MANDARIN"
 	cont "ISLAND SOUTH"
 	done
-	
+
 Route61_MapEventHeader::
 
 .Warps: db 1
 	warp_def 5, 31, 7, GOLDEN_ISLAND_GATE_HOUSE
 
-.CoordEvents: db 0
+.CoordEvents: db 2
+	xy_trigger 1, 35, 42, 0, Route61BridgeOverheadTrigger, 0, 0
+	xy_trigger 0, 35, 43, 0, Route61BridgeUnderfootTrigger, 0, 0
 
 .BGEvents: db 1
 	signpost 46, 32, SIGNPOST_READ, Route61Sign
 
-.ObjectEvents: db 3
+.ObjectEvents: db 4
 	person_event SPRITE_SUPER_NERD, 14, 46, SPRITEMOVEDATA_SPINCLOCKWISE, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 3, TrainerPokemaniacKusato, -1
 	person_event SPRITE_POKE_BALL, 52, 10, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route6lRareCandy, EVENT_ROUTE_61_RARE_CANDY
-	person_event SPRITE_POKE_BALL, 12, 49, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route61MaxPotion, EVENT_ROUTE_61_MAX_POTION
-
+	person_event SPRITE_POKE_BALL, 12, 48, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route61MaxPotion, EVENT_ROUTE_61_MAX_POTION
+	person_event SPRITE_POKE_BALL, 50, 45, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route61MaxElixer, EVENT_ROUTE_61_MAX_ELIXER
