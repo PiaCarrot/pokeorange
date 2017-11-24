@@ -57,7 +57,7 @@ roms := $(ROM_NAME).gbc $(ROM_NAME)-0xff.gbc
 
 all: orange
 
-orange: $(ROM_NAME).gbc
+orange: $(ROM_NAME).gbc ; sort $(ROM_NAME).sym -o $(ROM_NAME).sym
 
 debug: RGBASM_FLAGS += -DDEBUG
 debug: $(ROM_NAME).gbc
@@ -84,7 +84,7 @@ $(INCLUDES): $(INCLUDES).c
 
 
 clean:
-	$(RM) $(roms) $(orange_obj) $(roms:.gbc=.map) $(roms:.gbc=.sym)
+	$(RM) $(roms) $(orange_obj) $(roms:.gbc=.map) $(ROM_NAME)-0xff.sym
 
 compare: orange
 	$(MD5) -c $(roms_md5)
