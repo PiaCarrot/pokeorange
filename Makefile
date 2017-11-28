@@ -17,6 +17,13 @@ RGBFIX_FLAGS = -Cjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -p $(FILLER) -k 01 
 
 CFLAGS = -O3
 
+ifeq ($(filter pss,$(MAKECMDGOALS)),pss)
+RGBASM_FLAGS += -DPSS
+endif
+ifeq ($(filter debug,$(MAKECMDGOALS)),debug)
+RGBASM_FLAGS += -DDEBUG
+endif
+
 
 .SUFFIXES:
 .PHONY: all clean orange pss debug bankfree freespace compare
@@ -59,11 +66,8 @@ all: orange
 
 orange: $(ROM_NAME).gbc ; sort $(ROM_NAME).sym -o $(ROM_NAME).sym
 
-pss: RGBASM_FLAGS += -DPSS
-pss: $(ROM_NAME).gbc
-
-debug: RGBASM_FLAGS += -DDEBUG
-debug: $(ROM_NAME).gbc
+pss: orange
+debug: orange
 
 bankfree: FILLER = 0xff
 bankfree: ROM_NAME := $(ROM_NAME)-$(FILLER)
