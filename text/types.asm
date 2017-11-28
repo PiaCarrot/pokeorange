@@ -43,6 +43,9 @@ PrintMoveType: ; 5093a
 	ld a, [StringBuffer1 + MOVE_TYPE]
 	pop hl
 
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	ld b, a
 
 

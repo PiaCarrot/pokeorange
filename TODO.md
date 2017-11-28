@@ -53,7 +53,5 @@
 
 ## Things that might be added eventually
 
-- Optional PSS Patch
 - Optional Nuzlocke Patch
-- Optional Nuzlocke with PSS Patch (most will not want PSS to nuzlocke)
 - Orange X, a hard-type patch, inspired by Zel's Shiny Gold X

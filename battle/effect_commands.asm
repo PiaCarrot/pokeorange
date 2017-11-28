@@ -1977,11 +1977,14 @@ BattleCommand_CheckHit: ; 34d32
 	ld de, StringBuffer1
 	call GetMoveData
 
-	ld a, [StringBuffer1 + 2]
+	ld a, [StringBuffer1 + MOVE_POWER]
 	and a
 	jr z, .shell_trap_fail
 
-	ld a, [StringBuffer1 + 3]
+	ld a, [StringBuffer1 + MOVE_CATEGORY]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 	jr nc, .shell_trap_fail
 
@@ -2877,6 +2880,9 @@ PlayerAttackDamage: ; 352e2
 	ret z
 
 	ld a, [hl]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 	jr nc, .special
 
@@ -3025,7 +3031,10 @@ GetDamageStats: ; 3537e
 	ld a, [hBattleTurn]
 	and a
 	jr nz, .enemy
-	ld a, [wPlayerMoveStructType]
+	ld a, [wPlayerMoveStructCategory]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 ; special
 	ld a, [PlayerSAtkLevel]
@@ -3039,7 +3048,10 @@ GetDamageStats: ; 3537e
 	jr .end
 
 .enemy
-	ld a, [wEnemyMoveStructType]
+	ld a, [wEnemyMoveStructCategory]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 ; special
 	ld a, [EnemySAtkLevel]
@@ -3157,12 +3169,15 @@ EnemyAttackDamage: ; 353f6
 
 ; No damage dealt with 0 power.
 	ld hl, wEnemyMoveStructPower
-	ld a, [hli] ; hl = wEnemyMoveStructType
+	ld a, [hli] ; hl = wEnemyMoveStructCategory
 	ld d, a
 	and a
 	ret z
 
 	ld a, [hl]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 	jr nc, .Special
 
@@ -3805,11 +3820,14 @@ BattleCommand_Counter: ; 35813
 	ld de, StringBuffer1
 	call GetMoveData
 
-	ld a, [StringBuffer1 + 2]
+	ld a, [StringBuffer1 + MOVE_POWER]
 	and a
 	ret z
 
-	ld a, [StringBuffer1 + 3]
+	ld a, [StringBuffer1 + MOVE_CATEGORY]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 	ret nc
 
@@ -4003,7 +4021,7 @@ BattleCommand_Conversion2: ; 359e6
 
 .loop
 	call BattleRandom
-	and %11111
+	and TYPE_MASK
 	cp TYPES_END
 	jr nc, .loop
 .okay
@@ -8845,11 +8863,14 @@ BattleCommand_MirrorCoat: ; 37c95
 	ld de, StringBuffer1
 	call GetMoveData
 
-	ld a, [StringBuffer1 + 2]
+	ld a, [StringBuffer1 + MOVE_POWER]
 	and a
 	ret z
 
-	ld a, [StringBuffer1 + 3]
+	ld a, [StringBuffer1 + MOVE_CATEGORY]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 	ret c
 
