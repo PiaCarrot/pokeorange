@@ -3998,16 +3998,12 @@ BattleCommand_Conversion2: ; 359e6
 	call GetMoveAttr
 	ld d, a
 	pop hl
-	cp CURSE_T
-	jr z, .failed
 	call AnimateCurrentMove
 	call BattleCommand_SwitchTurn
 
 .loop
 	call BattleRandom
-	and $1f
-	cp CURSE_T
-	jr z, .loop
+	and %11111
 	cp TYPES_END
 	jr nc, .loop
 .okay
@@ -7672,8 +7668,6 @@ BattleCommand_Conversion: ; 3707f
 	ld a, [hl]
 	cp -1
 	jr z, .fail
-	cp CURSE_T
-	jr z, .next
 	ld a, [de]
 	cp [hl]
 	jr z, .next
@@ -7700,8 +7694,6 @@ BattleCommand_Conversion: ; 3707f
 	add hl, bc
 	ld a, [hl]
 	cp -1
-	jr z, .loop3
-	cp CURSE_T
 	jr z, .loop3
 	ld a, [de]
 	cp [hl]

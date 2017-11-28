@@ -11,8 +11,6 @@ PHYSICAL EQU const_value
 	const DARK
 	const STEEL
 
-	const CURSE_T
-
 SPECIAL EQU const_value
 	const FIRE
 	const WATER

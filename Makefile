@@ -19,7 +19,7 @@ CFLAGS = -O3
 
 
 .SUFFIXES:
-.PHONY: all clean orange debug bankfree freespace compare
+.PHONY: all clean orange pss debug bankfree freespace compare
 .SECONDEXPANSION:
 .PRECIOUS: %.2bpp %.1bpp
 
@@ -58,6 +58,9 @@ roms := $(ROM_NAME).gbc $(ROM_NAME)-0xff.gbc
 all: orange
 
 orange: $(ROM_NAME).gbc ; sort $(ROM_NAME).sym -o $(ROM_NAME).sym
+
+pss: RGBASM_FLAGS += -DPSS
+pss: $(ROM_NAME).gbc
 
 debug: RGBASM_FLAGS += -DDEBUG
 debug: $(ROM_NAME).gbc
