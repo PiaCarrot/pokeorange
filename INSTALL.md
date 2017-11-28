@@ -11,15 +11,14 @@ To build on Windows, install [**Cygwin**](http://cygwin.com/install.html) with t
 In the installer, select the following packages: `make`, `gcc-core`, `python`, `git`, `gettext`.
 If `gettext` no longer exists, get `libsasl2-3` and `ca-certificates`.
 
-Then get [**rgbds 0.2.5**](https://github.com/rednex/rgbds/releases/). Versions 0.3.0 or later are not compatible.
-Extract the archive and put `rgbasm.exe`, `rgblink.exe`, `rgbfix.exe` and `rgbgfx.exe` in `C:\Cygwin\usr\local\bin` or in `pokeorange\rgbds`.
-
 In the **Cygwin terminal**:
 
 ```bash
 git clone https://github.com/PiaCarrot/pokeorange.git
 cd pokeorange
 ```
+
+Then get [**rgbds 0.2.5**](https://github.com/rednex/rgbds/releases/). Versions 0.3.0 or later are not compatible. Extract the archive and put `rgbasm.exe`, `rgblink.exe`, `rgbfix.exe` and `rgbgfx.exe` in `C:\Cygwin\usr\local\bin` or in `pokeorange\rgbds`.
 
 To build **pokeorange.gbc**:
 
