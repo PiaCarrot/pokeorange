@@ -5,8 +5,8 @@ ROMVERSION = 0x32
 FILLER = 0x00
 
 
-ifneq ($(wildcard rgbds-0.2.5/.*),)
-RGBDS_DIR = rgbds-0.2.5/
+ifneq ($(wildcard rgbds/.*),)
+RGBDS_DIR = rgbds/
 else
 RGBDS_DIR =
 endif
