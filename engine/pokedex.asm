@@ -1258,7 +1258,7 @@ Pokedex_PrevSearchMonType: ; 40f65
 	jr .done
 
 .wrap_around
-	ld [hl], $12
+	ld [hl], TYPES_END
 
 .done
 	scf
@@ -1271,7 +1271,7 @@ Pokedex_NextSearchMonType: ; 40f84
 
 	ld hl, wDexSearchMonType1
 	ld a, [hl]
-	cp $12
+	cp TYPES_END
 	jr nc, .type1_wrap_around
 	inc [hl]
 	jr .done
@@ -1282,7 +1282,7 @@ Pokedex_NextSearchMonType: ; 40f84
 .type2
 	ld hl, wDexSearchMonType2
 	ld a, [hl]
-	cp $12
+	cp TYPES_END
 	jr nc, .type2_wrap_around
 	inc [hl]
 	jr .done
