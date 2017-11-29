@@ -1,4 +1,6 @@
-001-151 are the Gen 1 Pokemon.
+# Pokédex
+
+001-151 are the Gen 1 Pokémon.
 
 152. *Tropius*
 153. *Kecleon*
@@ -102,3 +104,39 @@
 251. Celebi
 252. *Latias*
 253. *Latios*
+
+**Removed:**
+Chikorita/Bayleef/Meganium,
+Cyndaquil/Quilava/Typhlosion,
+Totodile/Croconaw/Feraligatr,
+Sentret/Furret,
+Hoothoot/Noctowl,
+Ledyba/Ledian,
+Spinarak/Ariados,
+Natu/Xatu,
+Sudowoodo,
+Aipom,
+Yanma,
+Wooper/Quagsire,
+Murkrow,
+Misdreavus,
+Unown,
+Wobbuffet,
+Girafarig,
+Pineco/Forretress,
+Dunsparce,
+Gligar,
+Snubbull/Granbull,
+Heracross,
+Sneasel,
+Teddiursa/Ursaring,
+Swinub/Piloswine,
+Delibird,
+Houndour/Houndoom,
+Stantler,
+Smeargle,
+Miltank,
+Raikou,
+Entei,
+Suicune,
+Larvitar/Pupitar/Tyranitar
