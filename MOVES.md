@@ -1,3 +1,7 @@
+**Removed:** Vicegrip, Razor Wind, Bide, Bone Club, Skull Bash, Kinesis, Psywave, Sketch, Spider Web, Mind Reader, Nightmare, Spite, Powder Snow, Detect, Milk Drink, Fury Cutter, Present, Pain Split, Hidden Power, Psych Up, Beat Up
+
+**Added:** Bullet Seed, Dragon Pulse, Rock Blast, Shadow Bone, Signal Beam, Dive, Mist Ball, Rock Climb, Shell Trap, Luster Purge, Venoshock, Nasty Plot, Hail, Power-Up Ppunch, Water Pulse, Bug Bite, Astonish, Spectral Thief, Volt Tackle, Aerial Ace, Psystrike, Moonblast, Fairy Wind, Dazzling Gleam, Shadow Sneak
+
 - TM01 *Power-Up Punch*
 - TM02 *Dragon Pulse*
 - TM03 *Water Pulse* (Route 55 Underwater)
