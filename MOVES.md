@@ -130,7 +130,7 @@ Vicegrip
 - HM05 Rock Smash (**TODO:** Trovita Island)
 - HM06 *Dive* (**TODO:** Ascorbia Island)
 - HM07 Waterfall (**TODO:** Unnamed Island 3)
-- HM08 *Rock Climb*
+- HM08 *Rock Climb* (**TODO:** Tarroco Island)
 
 - MT01 Fire Punch
 - MT02 ThunderPunch
