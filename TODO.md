@@ -6,6 +6,7 @@
 - Method to get other starters (with exclusive moves)
 - Pokémon TCG2-esque credits
 - Running Shoes (if they're slower than the Skateboard)
+- Update to rgbds 0.3.3 with unions
 
 ## Features
 
