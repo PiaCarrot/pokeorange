@@ -677,8 +677,6 @@ BattleCommand_StoreEnergy: ; 36671
 ; storeenergy
 BattleCommand_UnleashEnergy: ; 366e5
 ; unleashenergy
-BattleCommand_Present: ; 37874
-; present
 BattleCommand_Sketch: ; 35a74
 ; sketch
 BattleCommand_PainSplit: ; 35926
@@ -7339,6 +7337,15 @@ BattleCommand_Rage: ; 36f1d
 	ret
 
 ; 36f25
+
+
+BattleCommand_Facade: ; 37874
+; facade
+	ld a, BATTLE_VARS_STATUS
+	call GetBattleVar
+	and 1 << BRN | 1 << PSN | 1 << PAR
+	ret z
+	jr DoubleDamage
 
 
 BattleCommand_DoublePoisonDamage: ; 35165

@@ -1,5 +1,4 @@
 BugBite: ; TODO: implement EFFECT_BUG_BITE
-Facade: ; TODO: implement EFFECT_FACADE
 KarateChop:
 Scratch:
 Cut:
@@ -2108,6 +2107,27 @@ DefenseCurl:
 	raisesub
 	statupmessage
 	statupfailtext
+	endmove
+
+Facade:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	checkhit
+	facade
+	damagevariation
+	hittarget
+	failuretext
+	checkfaint
+	criticaltext
+	supereffectivetext
+	checkdestinybond
+	buildopponentrage
+	kingsrock
 	endmove
 
 DragonTail:

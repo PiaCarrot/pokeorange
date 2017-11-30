@@ -21,8 +21,8 @@
 ## Moves
 
 - Add to learnsets: Dark Pulse, Dragon Tail, Earth Power, Facade, Flash Cannon, Giga Impact, Play Rough, Poison Jab, Power Gem, Wood Hammer, Zen Headbutt
-- Implement effects for Bug Bite and Facade
 - Add move tutors, including one for Headbutt on Moro Island
+- Implement Bug Bite move effect
 
 ## Animations
 

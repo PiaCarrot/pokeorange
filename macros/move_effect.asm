@@ -100,7 +100,7 @@ endm
 	command furycutter              ; 5d
 	command attract                 ; 5e
 	command happinesspower          ; 5f
-	command present                 ; 60
+	command facade                  ; 60
 	command damagecalc              ; 61
 	command frustrationpower        ; 62
 	command safeguard               ; 63
