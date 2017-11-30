@@ -75,8 +75,8 @@ Vicegrip
 - TM01 *Power-Up Punch*
 - TM02 *Dragon Pulse*
 - TM03 *Water Pulse* (Route 55 Underwater)
-- TM04 Icy Wind
-- TM05 Sleep Talk
+- TM04 *Dark Pulse*
+- TM05 *Venoshock*
 - TM06 Toxic
 - TM07 *Hail* (Danny)
 - TM08 Whirlpool (Moro Island)
@@ -91,7 +91,7 @@ Vicegrip
 - TM17 Protect
 - TM18 Rain Dance (Murcott Island)
 - TM19 Giga Drain
-- TM20 Endure
+- TM20 *Dragon Tail*
 - TM21 Frustration (Mandarin Underground)
 - TM22 Solarbeam
 - TM23 Iron Tail
@@ -104,22 +104,22 @@ Vicegrip
 - TM30 Shadow Ball (Wrecked Ship)
 - TM31 Bubblebeam (Cissy)
 - TM32 Double Team
-- TM33 Ice Punch
-- TM34 Swagger
+- TM33 *Earth Power*
+- TM34 *Giga Impact*
 - TM35 Flamethrower
 - TM36 Sludge Bomb (Trovitopolis Sewer)
 - TM37 Sandstorm (Mandarin Desert)
 - TM38 Fire Blast
 - TM39 Swift (Sunburst Island)
 - TM40 *Aerial Ace*
-- TM41 ThunderPunch
-- TM42 Headbutt (Moro Island)
+- TM41 *Flash Cannon*
+- TM42 *Facade*
 - TM43 Zap Cannon
 - TM44 Rest
 - TM45 Attract (Route 56)
 - TM46 Thief
 - TM47 Steel Wing
-- TM48 Fire Punch
+- TM48 *Shadow Claw*
 - TM49 *Dazzling Gleam*
 - TM50 Flash (Trovitopolis)
 
@@ -132,9 +132,17 @@ Vicegrip
 - HM07 Waterfall (**TODO:** Unnamed Island 3)
 - HM08 *Rock Climb*
 
-- MT01 Comet Punch
-- MT02 Mach Punch
-- MT03 DynamicPunch
-- MT04 *Bug Bite*
-- MT05 *Signal Beam*
-- MT06 *Venoshock*
+- MT01 Fire Punch
+- MT02 ThunderPunch
+- MT03 Ice Punch
+- MT04 Comet Punch
+- MT05 Mach Punch
+- MT06 DynamicPunch
+- MT07 Headbutt (**TODO:** Moro Island)
+- MT08 *Zen Headbutt*
+- MT09 *Poison Jab*
+- MT10 Sleep Talk
+- MT11 Swagger
+- MT12 Endure
+- MT13 *Bug Bite*
+- MT14 *Signal Beam*

@@ -160,8 +160,8 @@
 	add_tm POWERUPPUNCH ; $9d
 	add_tm DRAGON_PULSE ; $9e
 	add_tm WATER_PULSE  ; $9f
-	add_tm ICY_WIND     ; $a0
-	add_tm SLEEP_TALK   ; $a1
+	add_tm DARK_PULSE   ; $a0
+	add_tm VENOSHOCK    ; $a1
 	add_tm TOXIC        ; $a2
 	add_tm HAIL         ; $a3
 	add_tm WHIRLPOOL    ; $a4
@@ -176,7 +176,7 @@
 	add_tm PROTECT      ; $ad
 	add_tm RAIN_DANCE   ; $ae
 	add_tm GIGA_DRAIN   ; $af
-	add_tm ENDURE       ; $b0
+	add_tm DRAGON_TAIL  ; $b0
 	add_tm FRUSTRATION  ; $b1
 	add_tm SOLARBEAM    ; $b2
 	add_tm IRON_TAIL    ; $b3
@@ -189,22 +189,22 @@
 	add_tm SHADOW_BALL  ; $ba
 	add_tm BUBBLEBEAM   ; $bb
 	add_tm DOUBLE_TEAM  ; $bc
-	add_tm ICE_PUNCH    ; $bd
-	add_tm SWAGGER      ; $be
+	add_tm EARTH_POWER  ; $bd
+	add_tm GIGA_IMPACT  ; $be
 	add_tm FLAMETHROWER ; $bf
 	add_tm SLUDGE_BOMB  ; $c0
 	add_tm SANDSTORM    ; $c1
 	add_tm FIRE_BLAST   ; $c2
 	add_tm SWIFT        ; $c3
 	add_tm AERIAL_ACE   ; $c4
-	add_tm THUNDERPUNCH ; $c5
-	add_tm HEADBUTT     ; $c6
+	add_tm FLASH_CANNON ; $c5
+	add_tm FACADE       ; $c6
 	add_tm ZAP_CANNON   ; $c7
 	add_tm REST         ; $c8
 	add_tm ATTRACT      ; $c9
 	add_tm THIEF        ; $ca
 	add_tm STEEL_WING   ; $cb
-	add_tm FIRE_PUNCH   ; $cc
+	add_tm SHADOW_CLAW  ; $cc
 	add_tm DAZZLINGLEAM ; $cd
 	add_tm FLASH        ; $ce
 NUM_TMS = const_value - TM01
@@ -219,12 +219,20 @@ NUM_TMS = const_value - TM01
 	add_hm ROCK_CLIMB   ; $d6
 NUM_HMS = const_value - HM01
 
+	add_mt FIRE_PUNCH
+	add_mt THUNDERPUNCH
+	add_mt ICE_PUNCH
 	add_mt COMET_PUNCH
 	add_mt MACH_PUNCH
 	add_mt DYNAMICPUNCH
+	add_mt HEADBUTT
+	add_mt ZEN_HEADBUTT
+	add_mt POISON_JAB
+	add_mt SLEEP_TALK
+	add_mt SWAGGER
+	add_mt ENDURE
 	add_mt BUG_BITE
 	add_mt SIGNAL_BEAM
-	add_mt VENOSHOCK
 
 ITEM_FROM_MEM EQU $ff
 

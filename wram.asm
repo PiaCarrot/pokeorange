@@ -1951,7 +1951,7 @@ BaseGrowthRate:: ; d24c
 BaseEggGroups:: ; d24d
 	ds 1
 BaseTMHM:: ; d24e
-	ds 8
+	ds 9 ; 50 TMs + 8 HMs + 14 MTs = 72 bits = 9 bytes
 
 wExpScratch40_1:: ds 5 ; 40 bits
 wExpScratch40_2:: ds 5 ; 40 bits

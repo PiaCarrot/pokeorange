@@ -1,0 +1,19 @@
+	db TOGETIC ; 176
+
+	db  55,  40,  85,  40,  80, 105
+	;   hp  atk  def  spd  sat  sdf
+
+	db FAIRY, FLYING
+	db 75 ; catch rate
+	db NO_ITEM ; item 1
+	db NO_ITEM ; item 2
+	db FEMALE_12_5 ; gender
+	db 10 ; step cycles to hatch
+	dn 7, 7 ; frontpic dimensions
+
+	db FAST ; growth rate
+	dn AVIAN, FAIRYEGG ; egg groups
+
+	; tmhm
+	tmhm WATER_PULSE, TOXIC, SUNNY_DAY, HYPER_BEAM, PROTECT, RAIN_DANCE, FRUSTRATION, SOLARBEAM, RETURN, PSYCHIC_M, SHADOW_BALL, DOUBLE_TEAM, GIGA_IMPACT, FLAMETHROWER, FIRE_BLAST, SWIFT, AERIAL_ACE, FACADE, REST, ATTRACT, STEEL_WING, DAZZLINGLEAM, FLASH, FLY, ROCK_SMASH, HEADBUTT, ZEN_HEADBUTT, SLEEP_TALK, SWAGGER, ENDURE, SIGNAL_BEAM
+	; end

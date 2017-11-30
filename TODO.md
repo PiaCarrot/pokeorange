@@ -20,17 +20,8 @@
 ## Moves
 
 - Add to learnsets: Dark Pulse, Dragon Tail, Earth Power, Facade, Flash Cannon, Giga Impact, Play Rough, Poison Jab, Power Gem, Wood Hammer, Zen Headbutt
-- Edit TMs:
-   - TM04 Icy Wind → Dark Pulse
-   - TM05 Sleep Talk → Venoshock
-   - TM20 Endure → Dragon Tail
-   - TM33 Ice Punch → Earth Power
-   - TM34 Swagger → Giga Impact
-   - TM41 ThunderPunch → Flash Cannon
-   - TM42 Headbutt → Facade
-   - TM48 Fire Punch → Shadow Claw
-   - Tutors: Headbutt, Zen Headbutt, Comet Punch, Mach Punch, DynamicPunch, Ice Punch, Fire Punch, ThunderPunch, Bug Bite, Signal Beam, Poison Jab
 - Implement effects for Bug Bite and Facade
+- Add move tutors, including one for Headbutt on Moro Island
 
 ## Animations
 
