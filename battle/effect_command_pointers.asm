@@ -96,7 +96,7 @@ BattleCommandPointers: ; 3fd28
 	dw BattleCommand_FuryCutter ; 37792
 	dw BattleCommand_Attract ; 377ce
 	dw BattleCommand_HappinessPower ; 3784b
-	dw BattleCommand_Present ; 37874
+	dw BattleCommand_Facade ; 37874
 	dw BattleCommand_DamageCalc ; 35612 - 62
 	dw BattleCommand_FrustrationPower ; 3790e
 	dw BattleCommand_Safeguard ; 37939

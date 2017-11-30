@@ -1,0 +1,19 @@
+	db AERODACTYL ; 142
+
+	db  80, 105,  65, 130,  60,  75
+	;   hp  atk  def  spd  sat  sdf
+
+	db ROCK, FLYING
+	db 45 ; catch rate
+	db NO_ITEM ; item 1
+	db NO_ITEM ; item 2
+	db FEMALE_12_5 ; gender
+	db 35 ; step cycles to hatch
+	dn 7, 7 ; frontpic dimensions
+
+	db SLOW ; growth rate
+	dn AVIAN, AVIAN ; egg groups
+
+	; tmhm
+	tmhm DRAGON_PULSE, TOXIC, SUNNY_DAY, HYPER_BEAM, DRAGONBREATH, PROTECT, RAIN_DANCE, FRUSTRATION, IRON_TAIL, EARTHQUAKE, RETURN, DOUBLE_TEAM, EARTH_POWER, GIGA_IMPACT, FLAMETHROWER, SANDSTORM, FIRE_BLAST, SWIFT, AERIAL_ACE, FACADE, REST, ATTRACT, THIEF, STEEL_WING, FLY, STRENGTH, ROCK_SMASH, HEADBUTT, SLEEP_TALK, SWAGGER, ENDURE
+	; end

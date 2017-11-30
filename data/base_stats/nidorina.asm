@@ -1,0 +1,19 @@
+	db NIDORINA ; 030
+
+	db  70,  62,  67,  56,  55,  55
+	;   hp  atk  def  spd  sat  sdf
+
+	db POISON, POISON
+	db 120 ; catch rate
+	db NO_ITEM ; item 1
+	db NO_ITEM ; item 2
+	db ALL_FEMALE ; gender
+	db 20 ; step cycles to hatch
+	dn 6, 6 ; frontpic dimensions
+
+	db MEDIUM_SLOW ; growth rate
+	dn NO_EGGS, NO_EGGS ; egg groups
+
+	; tmhm
+	tmhm WATER_PULSE, VENOSHOCK, TOXIC, SUNNY_DAY, WATER_GUN, ICE_BEAM, BLIZZARD, PROTECT, RAIN_DANCE, FRUSTRATION, IRON_TAIL, THUNDERBOLT, THUNDER, RETURN, DIG, BUBBLEBEAM, DOUBLE_TEAM, SLUDGE_BOMB, AERIAL_ACE, FACADE, REST, ATTRACT, THIEF, SHADOW_CLAW, CUT, STRENGTH, ROCK_SMASH, HEADBUTT, POISON_JAB, SLEEP_TALK, SWAGGER, ENDURE
+	; end

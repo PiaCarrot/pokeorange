@@ -13,7 +13,8 @@ MoroHeadbuttScript:
 	opentext
 	writetext GivePlayerHeadbuttText
 	waitbutton
-	verbosegiveitem TM_HEADBUTT
+	; TODO: tutor Headbutt
+	;verbosegiveitem TM_HEADBUTT
 	closetext
 	setevent EVENT_HEADBUTT_GUY
 	end

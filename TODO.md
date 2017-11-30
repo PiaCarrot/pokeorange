@@ -6,6 +6,7 @@
 - Method to get other starters (with exclusive moves)
 - Pokémon TCG2-esque credits
 - Running Shoes (if they're slower than the Skateboard)
+- Update to rgbds 0.3.3 with unions
 
 ## Features
 
@@ -19,18 +20,14 @@
 
 ## Moves
 
-- Add to learnsets: Dark Pulse, Dragon Tail, Earth Power, Facade, Flash Cannon, Giga Impact, Play Rough, Poison Jab, Power Gem, Wood Hammer, Zen Headbutt
-- Edit TMs:
-   - TM04 Icy Wind → Dark Pulse
-   - TM05 Sleep Talk → Venoshock
-   - TM20 Endure → Dragon Tail
-   - TM33 Ice Punch → Earth Power
-   - TM34 Swagger → Giga Impact
-   - TM41 ThunderPunch → Flash Cannon
-   - TM42 Headbutt → Facade
-   - TM48 Fire Punch → Shadow Claw
-   - Tutors: Headbutt, Zen Headbutt, Comet Punch, Mach Punch, DynamicPunch, Ice Punch, Fire Punch, ThunderPunch, Bug Bite, Signal Beam, Poison Jab
-- Implement effects for Bug Bite and Facade
+- Add to learnsets: Giga Impact, Play Rough, Poison Jab, Power Gem, Zen Headbutt
+   - Giga Impact: aerodactyl, donphan, electivire, snorlax, tauros
+   - Play Rough: marill/azumarill, mimikyu, persian, wigglytuff
+   - Poison Jab: beedrill, bellsprout/weepinbell/victreebel, farfetchd, mareanie/toxapex, nidoranm/nidorino, qwilfish, rapidash, rhyperior, seaking, tentacool/tentacruel
+   - Power Gem: mareep/flaaffy/ampharos, corsola, persian, slowking, staryu
+   - Zen Headbutt: drowzee/hypno, psyduck/golduck, latias, latios, slowpoke/slowbro/slowking, tauros, venonat/venomoth
+- Add move tutors, including one for Headbutt on Moro Island
+- Implement Bug Bite move effect
 
 ## Animations
 
