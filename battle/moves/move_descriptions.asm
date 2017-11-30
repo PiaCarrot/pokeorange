@@ -1,9 +1,9 @@
 ; MoveDescriptions: ; 2cb52
-	dw PoundDescription
+	dw ShadowClawDescription
 	dw KarateChopDescription
 	dw DoubleslapDescription
 	dw CometPunchDescription
-	dw MegaPunchDescription
+	dw PoisonJabDescription
 	dw PayDayDescription
 	dw FirePunchDescription
 	dw IcePunchDescription
@@ -18,14 +18,14 @@
 	dw WingAttackDescription
 	dw WhirlwindDescription
 	dw FlyDescription
-	dw BindDescription
+	dw DarkPulseDescription
 	dw SlamDescription
 	dw VineWhipDescription
 	dw StompDescription
 	dw DoubleKickDescription
-	dw MegaKickDescription
-	dw JumpKickDescription
-	dw RollingKickDescription
+	dw ZenHeadbuttDescription
+	dw GigaImpactDescription
+	dw FlashCannonDescription
 	dw SandAttackDescription
 	dw HeadbuttDescription
 	dw HornAttackDescription
@@ -70,7 +70,7 @@
 	dw SeismicTossDescription
 	dw StrengthDescription
 	dw AbsorbDescription
-	dw MegaDrainDescription
+	dw PlayRoughDescription
 	dw LeechSeedDescription
 	dw GrowthDescription
 	dw RazorLeafDescription
@@ -157,7 +157,7 @@
 	dw RestDescription
 	dw RockSlideDescription
 	dw HyperFangDescription
-	dw SharpenDescription
+	dw FacadeDescription
 	dw ConversionDescription
 	dw TriAttackDescription
 	dw SuperFangDescription
@@ -171,7 +171,7 @@
 	dw LusterPurgeDescription
 	dw VenoshockDescription
 	dw FlameWheelDescription
-	dw SnoreDescription
+	dw EarthPowerDescription
 	dw CurseDescription
 	dw FlailDescription
 	dw Conversion2Description
@@ -237,7 +237,7 @@
 	dw MoonlightDescription
 	dw VoltTackleDescription
 	dw CrossChopDescription
-	dw TwisterDescription
+	dw DragonTailDescription
 	dw RainDanceDescription
 	dw SunnyDayDescription
 	dw CrunchDescription
@@ -260,16 +260,13 @@
 Move00Description:
 	db "?@"
 
-PoundDescription:
-	db   "Pounds with fore-"
-	next "legs or tail.@"
-
 KarateChopDescription:
 RazorLeafDescription:
 CrabhammerDescription:
 SlashDescription:
 AeroblastDescription:
 CrossChopDescription:
+ShadowClawDescription:
 	db   "Has a high criti-"
 	next "cal hit ratio.@"
 
@@ -280,10 +277,6 @@ DoubleslapDescription:
 CometPunchDescription:
 	db   "Repeatedly punches"
 	next "2-5 times.@"
-
-MegaPunchDescription:
-	db   "A powerful punch"
-	next "thrown very hard.@"
 
 PayDayDescription:
 	db   "Throws coins. Gets"
@@ -346,10 +339,6 @@ DiveDescription:
 	db   "1st turn: Dive"
 	next "2nd turn: Attack@"
 
-BindDescription:
-	db   "Binds the target"
-	next "for 2-5 turns.@"
-
 SlamDescription:
 	db   "Slams the foe with"
 	next "a tail, vine, etc.@"
@@ -365,24 +354,14 @@ RockSlideDescription:
 HyperFangDescription:
 HeadbuttDescription:
 AstonishDescription:
+DarkPulseDescription:
+ZenHeadbuttDescription:
 	db   "An attack that may"
 	next "cause flinching.@"
 
 DoubleKickDescription:
 	db   "A double kicking"
 	next "attack.@"
-
-MegaKickDescription:
-	db   "A powerful kicking"
-	next "attack.@"
-
-JumpKickDescription:
-	db   "May miss, damaging"
-	next "the user.@"
-
-RollingKickDescription:
-	db   "A fast, spinning"
-	next "kick.@"
 
 SandAttackDescription:
 	db   "Reduces accuracy"
@@ -437,6 +416,7 @@ SmogDescription:
 SludgeDescription:
 PoisonGasDescription:
 SludgeBombDescription:
+PoisonJabDescription:
 	db   "An attack that may"
 	next "poison the foe.@"
 
@@ -455,6 +435,10 @@ GrowlDescription:
 RoarDescription:
 	db   "Scares wild foes"
 	next "to end battle.@"
+
+DragonTailDescription:
+	db   "Knocks away the"
+	next "foe to end battle.@"
 
 SingDescription:
 SleepPowderDescription:
@@ -527,10 +511,12 @@ BubbleDescription:
 	next "lower SPEED.@"
 
 AuroraBeamDescription:
+PlayRoughDescription:
 	db   "An attack that may"
 	next "lower ATTACK.@"
 
 HyperBeamDescription:
+GigaImpactDescription:
 	db   "1st turn: Attack"
 	next "2nd turn: Rest@"
 
@@ -560,7 +546,6 @@ StrengthDescription:
 	next "cal attack.@"
 
 AbsorbDescription:
-MegaDrainDescription:
 LeechLifeDescription:
 GigaDrainDescription:
 	db   "Steals 1/2 of the"
@@ -627,11 +612,12 @@ PsychicMDescription:
 CrunchDescription:
 ShadowBallDescription:
 LusterPurgeDescription:
+FlashCannonDescription:
+EarthPowerDescription:
 	db   "An attack that may"
 	next "lower SPCL.DEF.@"
 
 MeditateDescription:
-SharpenDescription:
 	db   "A move that raises"
 	next "the user's ATTACK.@"
 
@@ -837,10 +823,6 @@ VenoshockDescription:
 	db   "Damage doubles if"
 	next "foe is poisoned.@"
 
-SnoreDescription:
-	db   "An attack useable"
-	next "only while asleep.@"
-
 CurseDescription:
 	db   "Works differently"
 	next "for ghost-types.@"
@@ -1023,10 +1005,6 @@ MoonlightDescription:
 	db   "Restores HP"
 	next "(varies by time).@"
 
-TwisterDescription:
-	db   "Whips up a tornado"
-	next "to attack.@"
-
 RainDanceDescription:
 	db   "Boosts water-type"
 	next "moves for 5 turns.@"
@@ -1058,6 +1036,10 @@ PsystrikeDescription:
 DragonPulseDescription:
 	db   "Attacks foe with"
 	next "a shock wave.@"
+
+FacadeDescription:
+	db   "Double damage with"
+	next "PSN, BRN, or PRZ.@"
 
 ShellTrapDescription:
 	db   "Sets a trap for"

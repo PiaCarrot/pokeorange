@@ -191,10 +191,8 @@ BattleCommand_CheckTurn: ; 34084
 	ld hl, FastAsleepText
 	call StdBattleTextBox
 
-	; Snore and Sleep Talk bypass sleep.
+	; Sleep Talk bypasses sleep.
 	ld a, [CurPlayerMove]
-	cp SNORE
-	jr z, .not_asleep
 	cp SLEEP_TALK
 	jr z, .not_asleep
 
@@ -437,10 +435,8 @@ CheckEnemyTurn: ; 3421f
 	jr .not_asleep
 
 .fast_asleep
-	; Snore and Sleep Talk bypass sleep.
+	; Sleep Talk bypasses sleep.
 	ld a, [CurEnemyMove]
-	cp SNORE
-	jr z, .not_asleep
 	cp SLEEP_TALK
 	jr z, .not_asleep
 	call CantMove
@@ -1007,8 +1003,6 @@ IgnoreSleepOnly: ; 3451f
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 
-	cp SNORE
-	jr z, .CheckSleep
 	cp SLEEP_TALK
 	jr z, .CheckSleep
 	and a
@@ -1313,7 +1307,7 @@ BattleCommand_Critical: ; 34631
 	ret
 
 .Criticals:
-	db KARATE_CHOP, RAZOR_LEAF, CRABHAMMER, SLASH, AEROBLAST, CROSS_CHOP, $ff
+	db KARATE_CHOP, RAZOR_LEAF, CRABHAMMER, SLASH, AEROBLAST, CROSS_CHOP, SHADOW_CLAW, $ff
 .Chances:
 	; 6.25% 12.1% 24.6% 33.2% 49.6% 49.6% 49.6%
 	db $11,  $20,  $40,  $55,  $80,  $80,  $80
@@ -1904,8 +1898,6 @@ BattleCommand_CheckHit: ; 34d32
 	cp WHIRLWIND
 	ret z
 	cp THUNDER
-	ret z
-	cp TWISTER
 	ret
 
 .DigMoves:
@@ -3977,21 +3969,6 @@ BattleCommand_Encore: ; 35864
 	jp PrintDidntAffect2
 
 ; 35926
-
-
-BattleCommand_Snore: ; 359d0
-; snore
-	ld a, BATTLE_VARS_STATUS
-	call GetBattleVar
-	and SLP
-	ret nz
-	call ResetDamage
-	ld a, $1
-	ld [AttackMissed], a
-	call FailSnore
-	jp EndMoveEffect
-
-; 359e6
 
 
 BattleCommand_Conversion2: ; 359e6
@@ -6905,7 +6882,6 @@ BattleCommand_TrapTarget: ; 36c2d
 	jp StdBattleTextBox
 
 .Traps:
-	dbw BIND,      UsedBindText      ; 'used BIND on'
 	dbw WRAP,      WrappedByText     ; 'was WRAPPED by'
 	dbw FIRE_SPIN, FireSpinTrapText  ; 'was trapped!'
 	dbw CLAMP,     ClampedByText     ; 'was CLAMPED by'
@@ -7064,10 +7040,10 @@ BattleCommand_Confuse: ; 36d3b
 
 .not_already_confused
 	call CheckSubstituteOpp
-	jr nz, BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit
+	jr nz, BattleCommand_Confuse_CheckSwagger_ConfuseHit
 	ld a, [AttackMissed]
 	and a
-	jr nz, BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit
+	jr nz, BattleCommand_Confuse_CheckSwagger_ConfuseHit
 BattleCommand_FinishConfusingTarget: ; 36d70
 	ld bc, EnemyConfuseCount
 	ld a, [hBattleTurn]
@@ -7086,8 +7062,6 @@ BattleCommand_FinishConfusingTarget: ; 36d70
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_CONFUSE_HIT
-	jr z, .got_effect
-	cp EFFECT_SNORE
 	jr z, .got_effect
 	cp EFFECT_SWAGGER
 	jr z, .got_effect
@@ -7112,12 +7086,10 @@ BattleCommand_FinishConfusingTarget: ; 36d70
 
 ; 36db6
 
-BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit: ; 36db6
+BattleCommand_Confuse_CheckSwagger_ConfuseHit: ; 36db6
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_CONFUSE_HIT
-	ret z
-	cp EFFECT_SNORE
 	ret z
 	cp EFFECT_SWAGGER
 	ret z
@@ -7996,7 +7968,6 @@ PrintButItFailed: ; 3734e
 ; 37354
 
 
-FailSnore:
 FailDisable:
 FailConversion2:
 FailAttract:

@@ -1,11 +1,11 @@
 
 	const_def
 	const NO_MOVE      ; $00
-	const POUND        ; $01
+	const SHADOW_CLAW  ; $01
 	const KARATE_CHOP  ; $02
 	const DOUBLESLAP   ; $03
 	const COMET_PUNCH  ; $04
-	const MEGA_PUNCH   ; $05
+	const POISON_JAB   ; $05
 	const PAY_DAY      ; $06
 	const FIRE_PUNCH   ; $07
 	const ICE_PUNCH    ; $08
@@ -20,14 +20,14 @@
 	const WING_ATTACK  ; $11
 	const WHIRLWIND    ; $12
 	const FLY          ; $13
-	const BIND         ; $14
+	const DARK_PULSE   ; $14
 	const SLAM         ; $15
 	const VINE_WHIP    ; $16
 	const STOMP        ; $17
 	const DOUBLE_KICK  ; $18
-	const MEGA_KICK    ; $19
-	const JUMP_KICK    ; $1a
-	const ROLLING_KICK ; $1b
+	const ZEN_HEADBUTT ; $19
+	const GIGA_IMPACT  ; $1a
+	const FLASH_CANNON ; $1b
 	const SAND_ATTACK  ; $1c
 	const HEADBUTT     ; $1d
 	const HORN_ATTACK  ; $1e
@@ -72,7 +72,7 @@
 	const SEISMIC_TOSS ; $45
 	const STRENGTH     ; $46
 	const ABSORB       ; $47
-	const MEGA_DRAIN   ; $48
+	const PLAY_ROUGH   ; $48
 	const LEECH_SEED   ; $49
 	const GROWTH       ; $4a
 	const RAZOR_LEAF   ; $4b
@@ -159,7 +159,7 @@
 	const REST         ; $9c
 	const ROCK_SLIDE   ; $9d
 	const HYPER_FANG   ; $9e
-	const SHARPEN      ; $9f
+	const FACADE       ; $9f
 	const CONVERSION   ; $a0
 	const TRI_ATTACK   ; $a1
 	const SUPER_FANG   ; $a2
@@ -173,7 +173,7 @@
 	const LUSTER_PURGE ; $aa
 	const VENOSHOCK    ; $ab
 	const FLAME_WHEEL  ; $ac
-	const SNORE        ; $ad
+	const EARTH_POWER  ; $ad
 	const CURSE        ; $ae
 	const FLAIL        ; $af
 	const CONVERSION2  ; $b0
@@ -239,7 +239,7 @@
 	const MOONLIGHT    ; $ec
 	const VOLT_TACKLE  ; $ed
 	const CROSS_CHOP   ; $ee
-	const TWISTER      ; $ef
+	const DRAGON_TAIL  ; $ef
 	const RAIN_DANCE   ; $f0
 	const SUNNY_DAY    ; $f1
 	const CRUNCH       ; $f2

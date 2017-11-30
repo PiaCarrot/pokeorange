@@ -1,12 +1,11 @@
-Pound:
+BugBite: ; TODO: implement EFFECT_BUG_BITE
+Facade: ; TODO: implement EFFECT_FACADE
 KarateChop:
-MegaPunch:
 Scratch:
 Cut:
 WingAttack:
 Slam:
 VineWhip:
-MegaKick:
 HornAttack:
 Tackle:
 WaterGun:
@@ -26,7 +25,6 @@ CrossChop:
 Swift:
 FaintAttack:
 VitalThrow:
-JumpKick:
 HiJumpKick:
 QuickAttack:
 MachPunch:
@@ -35,10 +33,10 @@ AerialAce:
 DragonPulse:
 FairyWind:
 Dazzlingleam:
+ShadowClaw:
 ShadowSneak:
 Psystrike:
 ShellTrap:
-BugBite: ; TODO: implement EFFECT_BUG_BITE
 NormalHit:
 	checkobedience
 	usedmovetext
@@ -77,6 +75,7 @@ PoisonSting:
 Smog:
 Sludge:
 SludgeBomb:
+PoisonJab:
 PoisonHit:
 	checkobedience
 	usedmovetext
@@ -99,7 +98,6 @@ PoisonHit:
 	endmove
 
 Absorb:
-MegaDrain:
 LeechLife:
 GigaDrain:
 LeechHit:
@@ -251,7 +249,6 @@ MirrorMove:
 	endmove
 
 Meditate:
-Sharpen:
 AttackUp:
 	checkobedience
 	usedmovetext
@@ -627,6 +624,7 @@ EvasionDown2:
 	endmove
 
 AuroraBeam:
+PlayRough:
 AttackDownHit:
 	checkobedience
 	usedmovetext
@@ -729,6 +727,8 @@ MistBall:
 PsychicM:
 Crunch:
 ShadowBall:
+FlashCannon:
+EarthPower:
 LusterPurge:
 SpecialDefenseDownHit:
 	checkobedience
@@ -1004,13 +1004,14 @@ PoisonMultiHit:
 	poisontarget
 	endmove
 
-RollingKick:
 Headbutt:
 Bite:
 LowKick:
 RockSlide:
 HyperFang:
 Astonish:
+DarkPulse:
+ZenHeadbutt:
 FlinchHit:
 	checkobedience
 	usedmovetext
@@ -1234,6 +1235,7 @@ Substitute:
 	endmove
 
 HyperBeam:
+GigaImpact:
 	checkobedience
 	usedmovetext
 	doturn
@@ -1338,7 +1340,6 @@ Dive:
 	kingsrock
 	endmove
 
-Bind:
 Wrap:
 FireSpin:
 Clamp:
@@ -1441,29 +1442,6 @@ Encore:
 	doturn
 	checkhit
 	encore
-	endmove
-
-Snore:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	effectchance
-	snore
-	hittarget
-	failuretext
-	checkfaint
-	criticaltext
-	supereffectivetext
-	checkdestinybond
-	buildopponentrage
-	flinchtarget
-	kingsrock
 	endmove
 
 Conversion2:
@@ -1945,28 +1923,6 @@ MirrorCoat:
 	kingsrock
 	endmove
 
-Twister:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	doubleflyingdamage
-	checkhit
-	effectchance
-	hittarget
-	failuretext
-	checkfaint
-	criticaltext
-	supereffectivetext
-	checkdestinybond
-	buildopponentrage
-	flinchtarget
-	endmove
-
 Earthquake:
 	checkobedience
 	usedmovetext
@@ -2152,6 +2108,27 @@ DefenseCurl:
 	raisesub
 	statupmessage
 	statupfailtext
+	endmove
+
+DragonTail:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	hittarget
+	failuretext
+	checkfaint
+	criticaltext
+	supereffectivetext
+	checkdestinybond
+	buildopponentrage
+	kingsrock
+	forceswitch
 	endmove
 
 SpectralThief:

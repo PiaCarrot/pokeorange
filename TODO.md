@@ -37,6 +37,7 @@
 - Bug Bite
 - Bullet Seed
 - Dive
+- Earth Power
 - Luster Purge
 - Mist Ball
 - Nasty Plot

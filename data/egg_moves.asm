@@ -188,7 +188,6 @@ AbraEggMoves:
 MachopEggMoves:
 	db LIGHT_SCREEN
 	db MEDITATE
-	db ROLLING_KICK
 	db ENCORE
 	db $ff
 
@@ -209,7 +208,6 @@ TentacoolEggMoves:
 	db $ff
 
 GeodudeEggMoves:
-	db MEGA_PUNCH
 	db ROCK_SLIDE
 	db $ff
 
@@ -295,7 +293,6 @@ ExeggcuteEggMoves:
 	db SYNTHESIS
 	db MOONLIGHT
 	db REFLECT
-	db MEGA_DRAIN
 	db ANCIENTPOWER
 	db $ff
 
@@ -338,7 +335,6 @@ ChanseyEggMoves:
 TangelaEggMoves:
 	db FLAIL
 	db CONFUSION
-	db MEGA_DRAIN
 	db REFLECT
 	db AMNESIA
 	db $ff
@@ -698,7 +694,6 @@ DelibirdEggMoves:
 	db $ff
 
 MantineEggMoves:
-	db TWISTER
 	db HYDRO_PUMP
 	db HAZE
 	db SLAM
@@ -746,14 +741,12 @@ SmoochumEggMoves:
 ElekidEggMoves:
 	db KARATE_CHOP
 	db BARRIER
-	db ROLLING_KICK
 	db MEDITATE
 	db CROSS_CHOP
 	db $ff
 
 MagbyEggMoves:
 	db KARATE_CHOP
-	db MEGA_PUNCH
 	db BARRIER
 	db SCREECH
 	db CROSS_CHOP

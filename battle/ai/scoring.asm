@@ -332,7 +332,7 @@ AI_Smart: ; 386be
 	dbw EFFECT_LIGHT_SCREEN,     AI_Smart_LightScreen
 	dbw EFFECT_OHKO,             AI_Smart_Ohko
 	dbw EFFECT_SUPER_FANG,       AI_Smart_SuperFang
-	dbw EFFECT_BIND,             AI_Smart_Bind
+	dbw EFFECT_TRAP,             AI_Smart_Trap
 	dbw EFFECT_CONFUSE,          AI_Smart_Confuse
 	dbw EFFECT_SP_DEF_UP_2,      AI_Smart_SpDefenseUp2
 	dbw EFFECT_REFLECT,          AI_Smart_Reflect
@@ -346,7 +346,6 @@ AI_Smart: ; 386be
 	dbw EFFECT_DISABLE,          AI_Smart_Disable
 	dbw EFFECT_COUNTER,          AI_Smart_Counter
 	dbw EFFECT_ENCORE,           AI_Smart_Encore
-	dbw EFFECT_SNORE,            AI_Smart_Snore
 	dbw EFFECT_CONVERSION2,      AI_Smart_Conversion2
 	dbw EFFECT_LOCK_ON,          AI_Smart_LockOn
 	dbw EFFECT_DEFROST_OPPONENT, AI_Smart_DefrostOpponent
@@ -380,7 +379,6 @@ AI_Smart: ; 386be
 	dbw EFFECT_SUNNY_DAY,        AI_Smart_SunnyDay
 	dbw EFFECT_BELLY_DRUM,       AI_Smart_BellyDrum
 	dbw EFFECT_MIRROR_COAT,      AI_Smart_MirrorCoat
-	dbw EFFECT_TWISTER,          AI_Smart_Twister
 	dbw EFFECT_EARTHQUAKE,       AI_Smart_Earthquake
 	dbw EFFECT_SURF,             AI_Smart_Surf
 	dbw EFFECT_WHIRLPOOL,        AI_Smart_Whirlpool
@@ -1010,7 +1008,7 @@ AI_Smart_Ohko: ; 38a60
 ; 38a71
 
 
-AI_Smart_Bind: ; 38a71
+AI_Smart_Trap: ; 38a71
 ; Bind, Wrap, Fire Spin, Clamp
 
 ; 50% chance to discourage this move if the player is already trapped.
@@ -1512,7 +1510,6 @@ AI_Smart_Encore: ; 38c3b
 	db DREAM_EATER
 	db POISON_GAS
 	db SPLASH
-	db SHARPEN
 	db CONVERSION
 	db SUPER_FANG
 	db SUBSTITUTE
@@ -1546,7 +1543,6 @@ AI_Smart_Encore: ; 38c3b
 ;; 38cba
 
 
-AI_Smart_Snore:
 AI_Smart_SleepTalk: ; 38cba
 ; Greatly encourage this move if enemy is fast asleep.
 ; Greatly discourage this move otherwise.
@@ -2366,7 +2362,7 @@ AI_Smart_Pursuit: ; 39072
 
 AI_Smart_RapidSpin: ; 39084
 ; 80% chance to greatly encourage this move if the enemy is
-; trapped (Bind effect), seeded, or scattered with spikes.
+; trapped (trap effect), seeded, or scattered with spikes.
 
 	ld a, [wEnemyWrapCount]
 	and a
@@ -2612,7 +2608,6 @@ endc
 ; 391d5
 
 
-AI_Smart_Twister:
 AI_Smart_Gust: ; 391d5
 
 ; Greatly encourage this move if the player is flying and the enemy is faster.
@@ -3044,7 +3039,6 @@ AI_Opportunist: ; 39315
 	db TRANSFORM
 	db SPLASH
 	db ACID_ARMOR
-	db SHARPEN
 	db CONVERSION
 	db SUBSTITUTE
 	db FLAME_WHEEL

@@ -81,10 +81,9 @@
 	dw Splash
 	dw Disable
 	dw StaticDamage
-	dw StaticDamage
 	dw Counter
 	dw Encore
-	dw Snore
+	dw Facade
 	dw Conversion2
 	dw LockOn
 	dw DefrostOpponent
@@ -128,7 +127,6 @@
 	dw FakeOut
 	dw BellyDrum
 	dw MirrorCoat
-	dw Twister
 	dw Earthquake
 	dw FutureSight
 	dw Gust
@@ -147,3 +145,4 @@
 	dw Surf
 	dw Whirlpool
 	dw Blizzard
+	dw DragonTail
