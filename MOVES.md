@@ -1,3 +1,57 @@
+# Moves
+
+**Added:**
+Bullet Seed,
+Dragon Pulse,
+Rock Blast,
+Shadow Bone,
+Signal Beam,
+Dive,
+Mist Ball,
+Rock Climb,
+Shell Trap,
+Luster Purge,
+Venoshock,
+Nasty Plot,
+Hail,
+Power-Up Punch,
+Water Pulse,
+Bug Bite,
+Astonish,
+Spectral Thief,
+Volt Tackle,
+Aerial Ace,
+Psystrike,
+Moonblast,
+Fairy Wind,
+Dazzling Gleam,
+Shadow Sneak
+
+**Removed:**
+Vicegrip,
+Razor Wind,
+Bide,
+Bone Club,
+Skull Bash,
+Kinesis,
+Psywave,
+Sketch,
+Spider Web,
+Mind Reader,
+Nightmare,
+Spite,
+Powder Snow,
+Detect,
+Milk Drink,
+Fury Cutter,
+Present,
+Pain Split,
+Hidden Power,
+Psych Up,
+Beat Up
+
+## TMs/HMs and Tutors
+
 - TM01 *Power-Up Punch*
 - TM02 *Dragon Pulse*
 - TM03 *Water Pulse* (Route 55 Underwater)
@@ -18,25 +72,25 @@
 - TM18 Rain Dance (Murcott Island)
 - TM19 Giga Drain
 - TM20 Endure
-- TM21 Frustration (Mandarin North Underground)
+- TM21 Frustration (Mandarin Underground)
 - TM22 Solarbeam
 - TM23 Iron Tail
 - TM24 Thunderbolt
 - TM25 Thunder
-- TM26 Earthquake
+- TM26 Earthquake (Route 62)
 - TM27 Return (Unnamed Island 1)
 - TM28 Dig
 - TM29 Psychic
-- TM30 Shadow Ball
+- TM30 Shadow Ball (Wrecked Ship)
 - TM31 Bubblebeam (Cissy)
 - TM32 Double Team
 - TM33 Ice Punch
 - TM34 Swagger
 - TM35 Flamethrower
-- TM36 Sludge Bomb
-- TM37 Sandstorm
+- TM36 Sludge Bomb (Trovitopolis Sewer)
+- TM37 Sandstorm (Mandarin Desert)
 - TM38 Fire Blast
-- TM39 Swift
+- TM39 Swift (Sunburst Island)
 - TM40 *Aerial Ace*
 - TM41 ThunderPunch
 - TM42 Headbutt (Moro Island)
@@ -47,15 +101,15 @@
 - TM47 Steel Wing
 - TM48 Fire Punch
 - TM49 *Dazzling Gleam*
-- TM50 Flash
+- TM50 Flash (Trovitopolis)
 
 - HM01 Cut (Mandarin North)
 - HM02 Fly (Moro Island)
 - HM03 Surf (Tangelo Island)
 - HM04 Strength
-- HM05 Rock Smash (Trovita Island)
-- HM06 *Dive* (Ascorbia Island)
-- HM07 Waterfall (Unnamed Island 3)
+- HM05 Rock Smash (**TODO:** Trovita Island)
+- HM06 *Dive* (**TODO:** Ascorbia Island)
+- HM07 Waterfall (**TODO:** Unnamed Island 3)
 - HM08 *Rock Climb*
 
 - MT01 Comet Punch

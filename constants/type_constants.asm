@@ -1,6 +1,4 @@
 	const_def
-
-PHYSICAL EQU const_value
 	const NORMAL
 	const FIGHTING
 	const FLYING
@@ -10,10 +8,6 @@ PHYSICAL EQU const_value
 	const BUG
 	const DARK
 	const STEEL
-
-	const CURSE_T
-
-SPECIAL EQU const_value
 	const FIRE
 	const WATER
 	const GRASS
@@ -23,5 +17,24 @@ SPECIAL EQU const_value
 	const DRAGON
 	const GHOST
 	const FAIRY
-
 TYPES_END EQU const_value
+
+if DEF(PSS)
+
+PHYSICAL EQU %01000000
+SPECIAL  EQU %10000000 ; SPECIAL > PHYSICAL
+STATUS   EQU %11000000
+
+TYPE_MASK     EQU %00011111
+CATEGORY_MASK EQU %11000000
+
+else
+
+PHYSICAL EQU NORMAL ; first physical type
+SPECIAL  EQU FIRE ; first special type
+STATUS   EQU TYPES_END
+
+TYPE_MASK     EQU %00011111
+CATEGORY_MASK EQU TYPE_MASK
+
+endc

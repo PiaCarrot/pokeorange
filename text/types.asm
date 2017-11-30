@@ -43,6 +43,9 @@ PrintMoveType: ; 5093a
 	ld a, [StringBuffer1 + MOVE_TYPE]
 	pop hl
 
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	ld b, a
 
 
@@ -94,7 +97,6 @@ TypeNames: ; 5097b
 	dw Bug
 	dw Dark
 	dw Steel
-	dw CurseType
 	dw Fire
 	dw Water
 	dw Grass
@@ -114,7 +116,6 @@ Rock:      db "ROCK@"
 Bug:       db "BUG@"
 Dark:      db "DARK@"
 Steel:     db "STEEL@"
-CurseType: db "???@"
 Fire:      db "FIRE@"
 Water:     db "WATER@"
 Grass:     db "GRASS@"

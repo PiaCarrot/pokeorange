@@ -1977,11 +1977,14 @@ BattleCommand_CheckHit: ; 34d32
 	ld de, StringBuffer1
 	call GetMoveData
 
-	ld a, [StringBuffer1 + 2]
+	ld a, [StringBuffer1 + MOVE_POWER]
 	and a
 	jr z, .shell_trap_fail
 
-	ld a, [StringBuffer1 + 3]
+	ld a, [StringBuffer1 + MOVE_CATEGORY]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 	jr nc, .shell_trap_fail
 
@@ -2877,6 +2880,9 @@ PlayerAttackDamage: ; 352e2
 	ret z
 
 	ld a, [hl]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 	jr nc, .special
 
@@ -3025,7 +3031,10 @@ GetDamageStats: ; 3537e
 	ld a, [hBattleTurn]
 	and a
 	jr nz, .enemy
-	ld a, [wPlayerMoveStructType]
+	ld a, [wPlayerMoveStructCategory]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 ; special
 	ld a, [PlayerSAtkLevel]
@@ -3039,7 +3048,10 @@ GetDamageStats: ; 3537e
 	jr .end
 
 .enemy
-	ld a, [wEnemyMoveStructType]
+	ld a, [wEnemyMoveStructCategory]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 ; special
 	ld a, [EnemySAtkLevel]
@@ -3157,12 +3169,15 @@ EnemyAttackDamage: ; 353f6
 
 ; No damage dealt with 0 power.
 	ld hl, wEnemyMoveStructPower
-	ld a, [hli] ; hl = wEnemyMoveStructType
+	ld a, [hli] ; hl = wEnemyMoveStructCategory
 	ld d, a
 	and a
 	ret z
 
 	ld a, [hl]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 	jr nc, .Special
 
@@ -3805,11 +3820,14 @@ BattleCommand_Counter: ; 35813
 	ld de, StringBuffer1
 	call GetMoveData
 
-	ld a, [StringBuffer1 + 2]
+	ld a, [StringBuffer1 + MOVE_POWER]
 	and a
 	ret z
 
-	ld a, [StringBuffer1 + 3]
+	ld a, [StringBuffer1 + MOVE_CATEGORY]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 	ret nc
 
@@ -3998,16 +4016,12 @@ BattleCommand_Conversion2: ; 359e6
 	call GetMoveAttr
 	ld d, a
 	pop hl
-	cp CURSE_T
-	jr z, .failed
 	call AnimateCurrentMove
 	call BattleCommand_SwitchTurn
 
 .loop
 	call BattleRandom
-	and $1f
-	cp CURSE_T
-	jr z, .loop
+	and TYPE_MASK
 	cp TYPES_END
 	jr nc, .loop
 .okay
@@ -7672,8 +7686,6 @@ BattleCommand_Conversion: ; 3707f
 	ld a, [hl]
 	cp -1
 	jr z, .fail
-	cp CURSE_T
-	jr z, .next
 	ld a, [de]
 	cp [hl]
 	jr z, .next
@@ -7700,8 +7712,6 @@ BattleCommand_Conversion: ; 3707f
 	add hl, bc
 	ld a, [hl]
 	cp -1
-	jr z, .loop3
-	cp CURSE_T
 	jr z, .loop3
 	ld a, [de]
 	cp [hl]
@@ -8853,11 +8863,14 @@ BattleCommand_MirrorCoat: ; 37c95
 	ld de, StringBuffer1
 	call GetMoveData
 
-	ld a, [StringBuffer1 + 2]
+	ld a, [StringBuffer1 + MOVE_POWER]
 	and a
 	ret z
 
-	ld a, [StringBuffer1 + 3]
+	ld a, [StringBuffer1 + MOVE_CATEGORY]
+if DEF(PSS)
+	and CATEGORY_MASK
+endc
 	cp SPECIAL
 	ret c
 

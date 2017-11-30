@@ -5,8 +5,8 @@ ROMVERSION = 0x32
 FILLER = 0x00
 
 
-ifneq ($(wildcard rgbds-0.2.5/.*),)
-RGBDS_DIR = rgbds-0.2.5/
+ifneq ($(wildcard rgbds/.*),)
+RGBDS_DIR = rgbds/
 else
 RGBDS_DIR =
 endif
@@ -17,9 +17,16 @@ RGBFIX_FLAGS = -Cjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -p $(FILLER) -k 01 
 
 CFLAGS = -O3
 
+ifeq ($(filter pss,$(MAKECMDGOALS)),pss)
+RGBASM_FLAGS += -DPSS
+endif
+ifeq ($(filter debug,$(MAKECMDGOALS)),debug)
+RGBASM_FLAGS += -DDEBUG
+endif
+
 
 .SUFFIXES:
-.PHONY: all clean orange debug bankfree freespace compare
+.PHONY: all clean orange pss debug bankfree freespace compare
 .SECONDEXPANSION:
 .PRECIOUS: %.2bpp %.1bpp
 
@@ -57,10 +64,10 @@ roms := $(ROM_NAME).gbc $(ROM_NAME)-0xff.gbc
 
 all: orange
 
-orange: $(ROM_NAME).gbc
+orange: $(ROM_NAME).gbc ; sort $(ROM_NAME).sym -o $(ROM_NAME).sym
 
-debug: RGBASM_FLAGS += -DDEBUG
-debug: $(ROM_NAME).gbc
+pss: orange
+debug: orange
 
 bankfree: FILLER = 0xff
 bankfree: ROM_NAME := $(ROM_NAME)-$(FILLER)
@@ -84,7 +91,7 @@ $(INCLUDES): $(INCLUDES).c
 
 
 clean:
-	$(RM) $(roms) $(orange_obj) $(roms:.gbc=.map) $(roms:.gbc=.sym)
+	$(RM) $(roms) $(orange_obj) $(roms:.gbc=.map) $(ROM_NAME)-0xff.sym
 
 compare: orange
 	$(MD5) -c $(roms_md5)

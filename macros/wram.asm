@@ -204,6 +204,7 @@ ENDM
 move_struct: MACRO
 \1Animation:: ds 1
 \1Effect:: ds 1
+\1Category::
 \1Power:: ds 1
 \1Type:: ds 1
 \1Accuracy:: ds 1

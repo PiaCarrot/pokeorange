@@ -5502,25 +5502,42 @@ MoveInfoBox: ; 3e6c8
 	ld [StringBuffer1], a
 	call .PrintPP
 
-	hlcoord 1, 9
-	ld de, .Type
-	call PlaceString
-
 	hlcoord 7, 11
 	ld [hl], "/"
 
 	farcall UpdateMoveData
+
 	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	ld b, a
 	hlcoord 2, 10
 	predef PrintMoveType
-	ret
+
+if DEF(PSS)
+	ld a, [wPlayerMoveStruct + MOVE_CATEGORY]
+	and CATEGORY_MASK
+	ld de, .Physical
+	cp PHYSICAL
+	jr z, .got_category
+	ld de, .Special
+	cp SPECIAL
+	jr z, .got_category
+	ld de, .Status
+.got_category
+else
+	ld de, .Type
+endc
+	hlcoord 1, 9
+	jp PlaceString
 ; 3e74f
 
-.Disabled:
-	db "Disabled!@"
-.Type:
-	db "TYPE/@"
+.Disabled: db "Disabled!@"
+if DEF(PSS)
+.Physical: db "PHYSICAL/@"
+.Special:  db "SPECIAL/@"
+.Status:   db "STATUS/@"
+else
+.Type: db "TYPE/@"
+endc
 ; 3e75f
 
 .PrintPP: ; 3e75f

@@ -1680,8 +1680,27 @@ PlaceMoveData: ; 13256
 	hlcoord 0, 11
 	ld de, String_132c2
 	call PlaceString
-	hlcoord 12, 12
+if DEF(PSS)
+	ld a, [CurMove]
+	dec a
+	ld hl, Moves + MOVE_CATEGORY
+	ld bc, MOVE_LENGTH
+	call AddNTimes
+	ld a, BANK(Moves)
+	call GetFarByte
+	and CATEGORY_MASK
+	ld de, PhysicalCategoryString
+	cp PHYSICAL
+	jr z, .got_category
+	ld de, SpecialCategoryString
+	cp SPECIAL
+	jr z, .got_category
+	ld de, StatusCategoryString
+.got_category
+else
 	ld de, String_132ca
+endc
+	hlcoord 12, 12
 	call PlaceString
 	ld a, [CurMove]
 	ld b, a
@@ -1715,18 +1734,17 @@ PlaceMoveData: ; 13256
 	ret
 ; 132ba
 
-String_132ba: ; 132ba
-	db "┌─────┐@"
-; 132c2
-String_132c2: ; 132c2
-	db "│TYPE/└@"
-; 132ca
-String_132ca: ; 132ca
-	db "ATK/@"
-; 132cf
-String_132cf: ; 132cf
-	db "---@"
-; 132d3
+String_132ba: db "┌─────┐@"
+String_132c2: db "│TYPE/└@"
+String_132cf: db "---@"
+
+if DEF(PSS)
+PhysicalCategoryString: db "PHY/@"
+SpecialCategoryString:  db "SPE/@"
+StatusCategoryString:   db "STA/@"
+else
+String_132ca: db "ATK/@"
+endc
 
 Function132d3: ; 132d3
 	call Function132da
