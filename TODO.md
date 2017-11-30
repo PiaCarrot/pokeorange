@@ -20,7 +20,12 @@
 
 ## Moves
 
-- Add to learnsets: Dark Pulse, Dragon Tail, Earth Power, Facade, Flash Cannon, Giga Impact, Play Rough, Poison Jab, Power Gem, Shadow Claw, Wood Hammer, Zen Headbutt
+- Add to learnsets: Giga Impact, Play Rough, Poison Jab, Power Gem, Zen Headbutt
+   - Giga Impact: aerodactyl, donphan, electivire, snorlax, tauros
+   - Play Rough: marill/azumarill, mimikyu, persian, wigglytuff
+   - Poison Jab: beedrill, bellsprout/weepinbell/victreebel, farfetchd, mareanie/toxapex, nidoranm/nidorino, qwilfish, rapidash, rhyperior, seaking, tentacool/tentacruel
+   - Power Gem: mareep/flaaffy/ampharos, corsola, persian, slowking, staryu
+   - Zen Headbutt: drowzee/hypno, psyduck/golduck, latias, latios, slowpoke/slowbro/slowking, tauros, venonat/venomoth
 - Add move tutors, including one for Headbutt on Moro Island
 - Implement Bug Bite move effect
 
