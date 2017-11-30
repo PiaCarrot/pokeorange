@@ -104,7 +104,7 @@ DannyGroup:
 
 	db 28, NIDOQUEEN
 		db ICE_BEAM
-		db MEGA_PUNCH
+		db BODY_SLAM
 		db SLAM
 		db POISON_STING
 
@@ -1013,7 +1013,7 @@ ButchGroup:
 	db 41, HITMONTOP
 		db TRIPLE_KICK
 		db RAPID_SPIN
-		db ROLLING_KICK
+		db DOUBLE_KICK
 		db FOCUS_ENERGY
 	
 	db $ff ; end
@@ -1096,7 +1096,7 @@ CassidyButchGroup:
 	db 41, HITMONTOP
 		db TRIPLE_KICK
 		db RAPID_SPIN
-		db ROLLING_KICK
+		db DOUBLE_KICK
 		db FOCUS_ENERGY
 		
 	db 41, HYPNO

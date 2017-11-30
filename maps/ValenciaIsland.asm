@@ -310,7 +310,7 @@ TeachHMSlaveMoves:
 	ld a, ROCK_SMASH
 	ld [hli], a ; TRANSFORM
 	ld a, WATERFALL
-	ld [hli], a ; MEGA_PUNCH
+	ld [hli], a ; HEADBUTT
 	ld a, ROCK_CLIMB
 	ld [hli], a ; METRONOME
 	ld a, WHIRLPOOL

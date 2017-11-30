@@ -583,7 +583,7 @@ ParsePlayerAction: ; 3c434
 	jr nz, .used_item
 	xor a
 	ld [wMoveSelectionMenuType], a
-	inc a ; POUND
+	inc a ; SHADOW_CLAW ; ???
 	ld [FXAnimIDLo], a
 	call MoveSelectionScreen
 	push af

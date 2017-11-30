@@ -19,17 +19,18 @@
 
 ## Moves
 
-- `BugBite` effect for Bug Bite
-- Buff Waterfall to compensate for Surf's nerf
-   - Suggestions:
-   - Waterfall: 90 power (like Flamethrower)
-   - Surf: 60 power and 35 PP (like Wing Attack)
-   - Cut: 100% accuracy
-   - Strength: 90 power (like Flamethrower)
-   - Rock Climb: 110 power (like Fire Blast)
-   - Fly, Dive, Dig: 90 power and 100% accuracy
-   - Whirlpool: more power and/or accuracy
-   - Clamp: 85% accuracy, 15 PP (like Fire Spin)
+- Add to learnsets: Dark Pulse, Dragon Tail, Earth Power, Facade, Flash Cannon, Giga Impact, Play Rough, Poison Jab, Power Gem, Wood Hammer, Zen Headbutt
+- Edit TMs:
+   - TM04 Icy Wind → Dark Pulse
+   - TM05 Sleep Talk → Venoshock
+   - TM20 Endure → Dragon Tail
+   - TM33 Ice Punch → Earth Power
+   - TM34 Swagger → Giga Impact
+   - TM41 ThunderPunch → Flash Cannon
+   - TM42 Headbutt → Facade
+   - TM48 Fire Punch → Shadow Claw
+   - Tutors: Headbutt, Zen Headbutt, Comet Punch, Mach Punch, DynamicPunch, Ice Punch, Fire Punch, ThunderPunch, Bug Bite, Signal Beam, Poison Jab
+- Implement effects for Bug Bite and Facade
 
 ## Animations
 
@@ -37,6 +38,7 @@
 - Bug Bite
 - Bullet Seed
 - Dive
+- Earth Power
 - Luster Purge
 - Mist Ball
 - Nasty Plot
@@ -50,6 +52,7 @@
 - Venoshock
 - Volt Tackle
 - Water Pulse
+- Wood Hammer
 
 ## Things that might be added eventually
 

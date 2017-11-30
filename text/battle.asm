@@ -485,13 +485,6 @@ BattleText_UserWasReleasedFromStringBuffer1: ; 0x80df5
 	prompt
 ; 0x80e11
 
-UsedBindText: ; 0x80e11
-	text "<USER>"
-	line "used BIND on"
-	cont "<TARGET>!"
-	prompt
-; 0x80e24
-
 WhirlpoolTrapText: ; 0x80e24
 	text "<TARGET>"
 	line "was trapped!"

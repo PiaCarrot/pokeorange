@@ -67,7 +67,6 @@ BattleCommandPointers: ; 3fd28
 	dw BattleCommand_Counter ; 35813
 	dw BattleCommand_Encore ; 35864
 	dw BattleCommand_PainSplit ; 35926
-	dw BattleCommand_Snore ; 359d0
 	dw BattleCommand_Conversion2 ; 359e6
 	dw BattleCommand_LockOn ; 35a53
 	dw BattleCommand_Sketch ; 35a74
