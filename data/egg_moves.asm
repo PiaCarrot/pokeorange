@@ -158,7 +158,6 @@ PsyduckEggMoves:
 MankeyEggMoves:
 	db ROCK_SLIDE
 	db FORESIGHT
-	db MEDITATE
 	db COUNTER
 	db REVERSAL
 	db $ff
@@ -187,7 +186,6 @@ AbraEggMoves:
 
 MachopEggMoves:
 	db LIGHT_SCREEN
-	db MEDITATE
 	db ENCORE
 	db $ff
 
@@ -735,13 +733,12 @@ TyrogueEggMoves:
 	db $ff
 
 SmoochumEggMoves:
-	db MEDITATE
+	db NASTY_PLOT
 	db $ff
 
 ElekidEggMoves:
 	db KARATE_CHOP
 	db BARRIER
-	db MEDITATE
 	db CROSS_CHOP
 	db $ff
 

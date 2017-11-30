@@ -95,7 +95,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_Confusion
 	dw BattleAnim_PsychicM
 	dw BattleAnim_Hypnosis
-	dw BattleAnim_Meditate
+	dw BattleAnim_PowerGem
 	dw BattleAnim_Agility
 	dw BattleAnim_QuickAttack
 	dw BattleAnim_Rage
@@ -223,7 +223,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_SacredFire
 	dw BattleAnim_Magnitude
 	dw BattleAnim_Dynamicpunch
-	dw BattleAnim_Megahorn
+	dw BattleAnim_WoodHammer
 	dw BattleAnim_Dragonbreath
 	dw BattleAnim_BatonPass
 	dw BattleAnim_Encore
@@ -2853,18 +2853,6 @@ BattleAnim_QuickAttack: ; ca99e
 	anim_ret
 ; ca9d8
 
-BattleAnim_Meditate: ; ca9d8
-	anim_1gfx ANIM_GFX_HIT
-	anim_call BattleAnim_FollowEnemyFeet_0
-	anim_sound 0, 0, SFX_PSYBEAM
-	anim_bgeffect ANIM_BG_WAVE_DEFORM_USER, $0, $1, $0
-	anim_wait 48
-	anim_incbgeffect ANIM_BG_WAVE_DEFORM_USER
-	anim_wait 48
-	anim_call BattleAnim_ShowMon_0
-	anim_ret
-; ca9ed
-
 BattleAnim_DefenseCurl: ; caa0a
 	anim_1gfx ANIM_GFX_SHAPES
 	anim_obp0 $e4
@@ -4015,6 +4003,7 @@ BattleAnim_Dynamicpunch: ; cb5aa
 	anim_ret
 ; cb5c0
 
+BattleAnim_WoodHammer: ; TODO: new Wood Hammer animation
 BattleAnim_Megahorn: ; cb5c0
 	anim_2gfx ANIM_GFX_HORN, ANIM_GFX_HIT
 	anim_bgeffect ANIM_BG_1F, $40, $2, $0
@@ -4970,6 +4959,36 @@ BattleAnim_FlashCannon: ; from Prism
 	anim_bgp $e4
 	anim_ret
 
+BattleAnim_PowerGem: ; from Prism
+	anim_2gfx ANIM_GFX_ICE, ANIM_GFX_SPEED
+.loop
+	anim_bgeffect ANIM_BG_1F, $8, $2, $0
+	anim_sound 6, 2, SFX_SHINE
+	anim_obj ANIM_OBJ_GEM,  7, 4, 9, 4, $4
+	anim_obj ANIM_OBJ_GEM,  7, 4, 11, 0, $4
+	anim_obj ANIM_OBJ_GEM,  8, 4, 10, 0, $4
+	anim_obj ANIM_OBJ_GEM,  8, 4, 11, 4, $4
+	anim_wait 4
+	anim_sound 6, 2, SFX_FLASH
+	anim_obj ANIM_OBJ_AE,  8, 0,  9, 0, $4
+	anim_wait 4
+	anim_obj ANIM_OBJ_AE,  8, 0, 11, 0, $4
+	anim_obj ANIM_OBJ_6C,  8, 0, 10, 0, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_AE,  8, 0, 10, 0, $4
+	anim_wait 2
+	anim_obj ANIM_OBJ_6C, 10, 0,  7, 6, $0
+	anim_wait 4
+	anim_obj ANIM_OBJ_6C, 12, 0,  9, 4, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_AE,  8, 0, 12, 0, $4
+	anim_wait 2
+	anim_obj ANIM_OBJ_6C, 14, 0,  8, 0, $0
+	anim_wait 2
+	anim_loop 2, .loop
+	anim_wait 6
+	anim_ret
+
 ; unused effects:
 
 ;BattleAnim_Bide: ; c9ffc
@@ -5462,3 +5481,15 @@ BattleAnim_FlashCannon: ; from Prism
 ;	anim_wait 32
 ;	anim_ret
 ;; cb8b3
+
+;BattleAnim_Meditate: ; ca9d8
+;	anim_1gfx ANIM_GFX_HIT
+;	anim_call BattleAnim_FollowEnemyFeet_0
+;	anim_sound 0, 0, SFX_PSYBEAM
+;	anim_bgeffect ANIM_BG_WAVE_DEFORM_USER, $0, $1, $0
+;	anim_wait 48
+;	anim_incbgeffect ANIM_BG_WAVE_DEFORM_USER
+;	anim_wait 48
+;	anim_call BattleAnim_ShowMon_0
+;	anim_ret
+;; ca9ed

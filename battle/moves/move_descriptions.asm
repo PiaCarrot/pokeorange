@@ -94,7 +94,7 @@
 	dw ConfusionDescription
 	dw PsychicMDescription
 	dw HypnosisDescription
-	dw MeditateDescription
+	dw PowerGemDescription
 	dw AgilityDescription
 	dw QuickAttackDescription
 	dw RageDescription
@@ -222,7 +222,7 @@
 	dw SacredFireDescription
 	dw MagnitudeDescription
 	dw DynamicpunchDescription
-	dw MegahornDescription
+	dw WoodHammerDescription
 	dw DragonbreathDescription
 	dw BatonPassDescription
 	dw EncoreDescription
@@ -400,6 +400,10 @@ TakeDownDescription:
 DoubleEdgeDescription:
 VoltTackleDescription:
 	db   "A tackle that also"
+	next "hurts the user.@"
+
+WoodHammerDescription:
+	db   "A rugged slam that"
 	next "hurts the user.@"
 
 ThrashDescription:
@@ -616,10 +620,6 @@ FlashCannonDescription:
 EarthPowerDescription:
 	db   "An attack that may"
 	next "lower SPCL.DEF.@"
-
-MeditateDescription:
-	db   "A move that raises"
-	next "the user's ATTACK.@"
 
 AgilityDescription:
 	db   "Sharply increases"
@@ -962,10 +962,6 @@ DynamicpunchDescription:
 	db   "An attack that"
 	next "always confuses.@"
 
-MegahornDescription:
-	db   "A powerful charge"
-	next "attack.@"
-
 DragonbreathDescription:
 	db   "A strong breath"
 	next "attack.@"
@@ -1040,6 +1036,10 @@ DragonPulseDescription:
 FacadeDescription:
 	db   "Double damage with"
 	next "PSN, BRN, or PRZ.@"
+
+PowerGemDescription:
+	db   "Attacks with a ray"
+	next "of gem-like light.@"
 
 ShellTrapDescription:
 	db   "Sets a trap for"

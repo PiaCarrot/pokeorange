@@ -1389,7 +1389,7 @@ DrowzeeEvosAttacks:
 	db 18, CONFUSION
 	db 25, HEADBUTT
 	db 31, POISON_GAS
-	db 36, MEDITATE
+	db 36, STRUGGLE ; MEDITATE ; TODO
 	db 40, PSYCHIC_M
 	db 45, FUTURE_SIGHT
 	db 0 ; no more level-up moves
@@ -1404,7 +1404,7 @@ HypnoEvosAttacks:
 	db 18, CONFUSION
 	db 25, HEADBUTT
 	db 33, POISON_GAS
-	db 40, MEDITATE
+	db 40, STRUGGLE ; MEDITATE ; TODO
 	db 49, PSYCHIC_M
 	db 60, FUTURE_SIGHT
 	db 0 ; no more level-up moves
@@ -1541,7 +1541,7 @@ MarowakEvosAttacks:
 HitmonleeEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, DOUBLE_KICK
-	db 6, MEDITATE
+	db 6, AGILITY
 	db 11, STRUGGLE ; ROLLING_KICK ; TODO
 	db 16, STRUGGLE ; JUMP_KICK ; TODO
 	db 20, PURSUIT ; BRICK_BREAK
@@ -1624,10 +1624,10 @@ RhyhornEvosAttacks:
 	db 15, FURY_ATTACK
 	db 24, SCARY_FACE
 	db 29, ROCK_BLAST
-	db 38, HORN_DRILL
+	db 38, DOUBLE_EDGE
 	db 53, TAKE_DOWN
 	db 52, EARTHQUAKE
-	db 57, MEGAHORN
+	db 57, HORN_DRILL
 	db 0 ; no more level-up moves
 
 RhydonEvosAttacks:
@@ -1641,10 +1641,10 @@ RhydonEvosAttacks:
 	db 15, FURY_ATTACK
 	db 24, SCARY_FACE
 	db 29, ROCK_BLAST
-	db 38, HORN_DRILL
+	db 38, DOUBLE_EDGE
 	db 46, TAKE_DOWN
 	db 58, EARTHQUAKE
-	db 66, MEGAHORN
+	db 66, HORN_DRILL
 	db 0 ; no more level-up moves
 
 ChanseyEvosAttacks:
@@ -1782,7 +1782,7 @@ MrMimeEvosAttacks:
 	db 1, BARRIER
 	db 6, CONFUSION
 	db 11, SUBSTITUTE
-	db 16, MEDITATE
+	db 16, AMNESIA ; MEDITATE
 	db 21, DOUBLESLAP
 	db 26, LIGHT_SCREEN
 	db 26, REFLECT
@@ -3634,10 +3634,10 @@ RhyperiorEvosAttacks:
 	db 15, SANDSTORM
 	db 24, SCREECH
 	db 29, THRASH
-	db 38, HORN_DRILL
+	db 38, DOUBLE_EDGE
 	db 46, ROCK_SLIDE
 	db 58, EARTHQUAKE
-	db 66, MEGAHORN
+	db 66, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 MagnezoneEvosAttacks:

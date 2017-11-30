@@ -96,7 +96,7 @@
 	const CONFUSION    ; $5d
 	const PSYCHIC_M    ; $5e
 	const HYPNOSIS     ; $5f
-	const MEDITATE     ; $60
+	const POWER_GEM    ; $60
 	const AGILITY      ; $61
 	const QUICK_ATTACK ; $62
 	const RAGE         ; $63
@@ -224,7 +224,7 @@
 	const SACRED_FIRE  ; $dd
 	const MAGNITUDE    ; $de
 	const DYNAMICPUNCH ; $df
-	const MEGAHORN     ; $e0
+	const WOOD_HAMMER  ; $e0
 	const DRAGONBREATH ; $e1
 	const BATON_PASS   ; $e2
 	const ENCORE       ; $e3

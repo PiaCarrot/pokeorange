@@ -20,7 +20,6 @@ Waterfall:
 Crabhammer:
 Slash:
 Aeroblast:
-Megahorn:
 CrossChop:
 Swift:
 FaintAttack:
@@ -31,6 +30,7 @@ MachPunch:
 Extremespeed:
 AerialAce:
 DragonPulse:
+PowerGem:
 FairyWind:
 Dazzlingleam:
 ShadowClaw:
@@ -248,7 +248,6 @@ MirrorMove:
 	mirrormove
 	endmove
 
-Meditate:
 AttackUp:
 	checkobedience
 	usedmovetext
@@ -1054,6 +1053,7 @@ OHKOHit:
 TakeDown:
 DoubleEdge:
 Submission:
+WoodHammer:
 Struggle:
 RecoilHit:
 	checkobedience
