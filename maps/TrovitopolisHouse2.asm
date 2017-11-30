@@ -6,6 +6,24 @@ TrovitopolisHouse2_MapScriptHeader:
 
 .MapCallbacks: db 0
 
+TrovitopolisBugBoyScript:
+	jumptextfaceplayer TrovitopolisBugBoyText
+	
+TrovitopolisBugBoyText:
+	text "PINSIR is an odd"
+	line "#MON."
+	
+	para "It's compared to"
+	line "SCYTHER often, but"
+	cont "PINSIR doesn't"
+	cont "evolve."
+	
+	para "I wonder if one"
+	line "day someone will"
+	cont "discover a new"
+	cont "evolution method?"
+	done
+
 TrovitopolisHouse2_MapEventHeader::
 
 .Warps: db 2
@@ -17,4 +35,4 @@ TrovitopolisHouse2_MapEventHeader::
 .BGEvents: db 0
 
 .ObjectEvents: db 1
-	person_event SPRITE_POKEFAN_F, 4, 2, SPRITEMOVEDATA_STANDING_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeFanFScript, -1
+	person_event SPRITE_BUG_BOY, 4, 2, SPRITEMOVEDATA_STANDING_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TrovitopolisBugBoyScript, -1
