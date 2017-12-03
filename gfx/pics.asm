@@ -1,16 +1,16 @@
 INCLUDE "includes.asm"
 
 
-SECTION "Pic Pointers", ROMX[$4000], BANK[PIC_POINTERS]
+SECTION "Pic Pointers", ROMX, BANK[PIC_POINTERS]
 PicPointers:: INCLUDE "gfx/pics/pic_pointers.asm"
 
-SECTION "Spinda Pic Pointers", ROMX[$4000], BANK[SPINDA_PIC_POINTERS]
+SECTION "Spinda Pic Pointers", ROMX, BANK[SPINDA_PIC_POINTERS]
 SpindaPicPointers:: INCLUDE "gfx/pics/spinda_pic_pointers.asm"
 
-SECTION "Squirtle Pic Pointers", ROMX[$4000]
+SECTION "Squirtle Pic Pointers", ROMX
 SquirtlePicPointers:: INCLUDE "gfx/pics/squirtle_pic_pointers.asm"
 
-SECTION "Magikarp Pic Pointers", ROMX[$4000]
+SECTION "Magikarp Pic Pointers", ROMX
 MagikarpPicPointers:: INCLUDE "gfx/pics/magikarp_pic_pointers.asm"
 
 

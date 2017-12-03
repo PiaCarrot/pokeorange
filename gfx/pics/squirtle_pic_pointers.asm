@@ -1,5 +1,3 @@
 
-	dba SquirtleFrontpic
-	dba SquirtleBackpic
-	dba SquirtleGlassesFrontpic
-	dba SquirtleGlassesBackpic
+	dfb Squirtle
+	dfb SquirtleGlasses
