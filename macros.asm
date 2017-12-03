@@ -95,6 +95,16 @@ dab: MACRO ; dwb address, bank
 	endr
 	ENDM
 
+dbba: MACRO
+	db \1
+	dba \2
+	ENDM
+
+dfb: MACRO ; dba Frontpic, Backpic
+	dba \1Frontpic
+	dba \1Backpic
+	ENDM
+
 lb: MACRO ; r, hi, lo
 	ld \1, (\2 & $ff) << 8 + (\3 & $ff)
 	ENDM

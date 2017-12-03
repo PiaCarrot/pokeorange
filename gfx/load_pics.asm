@@ -145,38 +145,12 @@ _GetFrontpic: ; 510a5
 	ret
 
 GetFrontpicPointer: ; 510d7
-GLOBAL PicPointers, SpindaPicPointers, SquirtlePicPointers, MagikarpPicPointers
-
 	ld a, [CurPartySpecies]
-	cp SPINDA
-	jr z, .spinda
-	cp SQUIRTLE
-	jr z, .squirtle
-	cp MAGIKARP
-	jr z, .magikarp
+	call GetRelevantPicPointers
 	ld a, [CurPartySpecies]
-	ld hl, PicPointers
-	ld d, BANK(PicPointers)
-	jr .ok
-
-.spinda
+	jr nc, .notvariant
 	ld a, [MonVariant]
-	ld hl, SpindaPicPointers
-	ld d, BANK(SpindaPicPointers)
-	jr .ok
-
-.squirtle
-	ld a, [MonVariant]
-	ld hl, SquirtlePicPointers
-	ld d, BANK(SquirtlePicPointers)
-	jr .ok
-
-.magikarp
-	ld a, [MonVariant]
-	ld hl, MagikarpPicPointers
-	ld d, BANK(MagikarpPicPointers)
-
-.ok
+.notvariant
 	dec a
 	ld bc, 6
 	call AddNTimes
@@ -257,7 +231,6 @@ GetBackpic: ; 5116c
 	ld a, [CurPartySpecies]
 	call IsAPokemon
 	ret c
-
 	ld a, [CurPartySpecies]
 	ld b, a
 	ld a, [MonVariant]
@@ -267,38 +240,14 @@ GetBackpic: ; 5116c
 	ld a, $6
 	ld [rSVBK], a
 	push de
-
-GLOBAL PicPointers,  SpindaPicPointers, SquirtlePicPointers, MagikarpPicPointers
-
 	ld a, b
-	cp SPINDA
-	jr z, .spinda
-	cp SQUIRTLE
-	jr z, .squirtle
-	cp MAGIKARP
-	jr z, .magikarp
-	ld hl, PicPointers
-	ld d, BANK(PicPointers)
-	jr .ok
-
-.spinda
+	push bc
+	call GetRelevantPicPointers
+	pop bc
+	ld a, b
+	jr nc, .notvariant
 	ld a, c
-	ld hl, SpindaPicPointers
-	ld d, BANK(SpindaPicPointers)
-	jr .ok
-
-.squirtle
-	ld a, c
-	ld hl, SquirtlePicPointers
-	ld d, BANK(SquirtlePicPointers)
-	jr .ok
-
-.magikarp
-	ld a, c
-	ld hl, MagikarpPicPointers
-	ld d, BANK(MagikarpPicPointers)
-
-.ok
+.notvariant
 	dec a
 	ld bc, 6
 	call AddNTimes
@@ -503,3 +452,20 @@ LoadFrontpic: ; 512f2
 	jr nz, .right_loop
 	pop bc
 	ret
+
+GetRelevantPicPointers:
+; given species in a, return *PicPointers in hl and BANK(*PicPointers) in d
+; returns c for variants, nc for normal species
+	ld hl, .VariantPicPointerTable
+	ld de, 4
+	call IsInArray
+	inc hl
+	ld a, [hli]
+	ld d, a
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ret
+
+.VariantPicPointerTable:
+INCLUDE "gfx/pics/variant_pic_pointers.asm"
