@@ -20,7 +20,10 @@ MandarinDesertSmokeBall:
 
 MandarinDesert_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 3
+	warp_def 5, 8, 4, TROVITOPOLIS
+	warp_def 45, 41, 1, ROUTE_62
+	warp_def 45, 42, 1, ROUTE_62
 
 .CoordEvents: db 0
 

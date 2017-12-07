@@ -180,7 +180,8 @@ Tracey62_Movement:
 
 Route62_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 1
+	warp_def 7, 6, 2, MANDARIN_DESERT
 
 .CoordEvents: db 0
 
