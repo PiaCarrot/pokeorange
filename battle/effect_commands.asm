@@ -1386,6 +1386,9 @@ BattleCommand_Stab: ; 346d2
 .go
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVarAddr
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	ld [wTypeMatchup], a
 
 	push hl
@@ -1427,6 +1430,9 @@ BattleCommand_Stab: ; 346d2
 .SkipStab:
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	ld b, a
 	ld hl, TypeMatchup
 
@@ -1547,6 +1553,9 @@ CheckTypeMatchup: ; 347d3
 	push bc
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	ld d, a
 	ld b, [hl]
 	inc hl
@@ -3455,6 +3464,9 @@ BattleCommand_DamageCalc: ; 35612
 	jr nz, .NotSoulDew
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	cp PSYCHIC
 	jr z, .TypeBoost
 	cp DRAGON
@@ -3479,6 +3491,9 @@ BattleCommand_DamageCalc: ; 35612
 	ld b, a
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	cp b
 	jr nz, .DoneItem
 
@@ -3989,6 +4004,9 @@ BattleCommand_Conversion2: ; 359e6
 	dec a
 	ld hl, Moves + MOVE_TYPE
 	call GetMoveAttr
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	ld d, a
 	pop hl
 	call AnimateCurrentMove
@@ -7195,6 +7213,9 @@ CheckMoveTypeMatchesTarget: ; 36e5b
 
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	cp NORMAL
 	jr z, .normal
 
@@ -7644,6 +7665,9 @@ BattleCommand_Conversion: ; 3707f
 	dec a
 	ld hl, Moves + MOVE_TYPE
 	call GetMoveAttr
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	ld [de], a
 	inc de
 	pop bc

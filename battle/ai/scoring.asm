@@ -200,6 +200,9 @@ AI_Types: ; 38635
 	push de
 	push bc
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	ld d, a
 	ld hl, EnemyMonMoves
 	lb bc, NUM_MOVES + 1, 0
@@ -213,6 +216,9 @@ AI_Types: ; 38635
 
 	call AIGetEnemyMove
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	cp d
 	jr z, .checkmove2
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
@@ -1455,6 +1461,9 @@ AI_Smart_Encore: ; 38c3b
 
 	push hl
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	ld hl, EnemyMonType1
 	predef CheckTypeMatchup
 
@@ -1709,6 +1718,9 @@ AI_Smart_Conversion2: ; 38d98
 
 	ld a, BANK(Moves)
 	call GetFarByte
+if DEF(PSS)
+	and TYPE_MASK
+endc
 	ld [wPlayerMoveStruct + MOVE_TYPE], a
 
 	xor a
