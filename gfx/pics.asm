@@ -748,6 +748,7 @@ ProfOakPic:          INCBIN "gfx/trainers/prof_oak.2bpp.lz"
 NursePic:            INCBIN "gfx/trainers/nurse.2bpp.lz"
 BugCatcherFPic:      INCBIN "gfx/trainers/bug_catcher_f.2bpp.lz"
 CatmanPic:           INCBIN "gfx/trainers/catman.2bpp.lz"
+CrossPic:			 INCBIN "gfx/trainers/cross.2bpp.lz"
 
 
 SECTION "Pics 21", ROMX

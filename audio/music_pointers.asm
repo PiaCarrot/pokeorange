@@ -125,4 +125,5 @@
 	dba Music_CaveOfOrigin
 	dba Music_HoennDewfordTown
 	dba Music_EverGrandeCity
+	dba Music_LookGladion
 ; e91a3

@@ -176,3 +176,4 @@ TrainerClassPersonalities:
 	db FEMALE_MASK ; cooltrainerf
 	db MALE_MASK   ; catman
 	db MALE_MASK   ; birdkeeper
+	db MALE_MASK   ; cross

@@ -562,11 +562,11 @@ BrockGroup:
 		db DEFENSE_CURL
 		db 0
 
-	db 22, VULPIX
-		db FAIRY_WIND
-		db ICY_WIND
-		db CHARM
-		db TAIL_WHIP
+	db 22, MINCCINO
+		db ROCK_THROW
+		db GROWL
+		db ROAR
+		db TACKLE
 
 	db 22, ONIX
 		db TACKLE
@@ -574,11 +574,11 @@ BrockGroup:
 		db SCREECH
 		db DIG
 
-	db 18, ZUBAT
-		db ABSORB
-		db WING_ATTACK
-		db SUPERSONIC
-		db ASTONISH
+	db 18, CORSOLA
+		db BUBBLE
+		db HARDEN
+		db 0
+		db 0
 
 	db $ff ; end
 
@@ -2205,6 +2205,257 @@ BirdkeeperGroup:
 ; ================
 ; ================================
 
+CrossGroup:
+; ================================
+; ================ TANGELO JUNGLE (PICK CHARMANDER)
+
+	; CROSS (1)
+	db "CROSS@"
+	db 1 ; moves
+
+	; party
+
+	db 14, SQUIRTLE
+		db WITHDRAW
+		db WATER_GUN
+		db TACKLE
+		db BUBBLE
+
+	db 12, MINCCINO
+		db ROCK_THROW
+		db TACKLE
+		db GROWL
+		db 0
+
+	db $ff ; end
+; ================ (PICK SQUIRTLE)
+
+	; CROSS (2)
+	db "CROSS@"
+	db 1 ; moves
+
+	; party
+
+	db 14, BULBASAUR
+		db TACKLE
+		db VINE_WHIP
+		db LEECH_SEED
+		db GROWL
+
+	db 12, MINCCINO
+		db ROCK_THROW
+		db TACKLE
+		db GROWL
+		db 0
+
+	db $ff ; end
+; ================ TANGELO JUNGLE(PICK BULBASAUR)
+
+	; CROSS (3)
+	db "CROSS@"
+	db 1 ; moves
+
+	; party
+
+	db 14, CHARMANDER
+		db METAL_CLAW
+		db EMBER
+		db SMOKESCREEN
+		db SCRATCH
+
+	db 12, MINCCINO
+		db ROCK_THROW
+		db TACKLE
+		db GROWL
+		db 0
+
+	db $ff ; end
+	
+; ================ MT NAVEL (PICK CHARMANDER)
+
+	; CROSS (4)
+	db "CROSS@"
+	db 1 ; moves
+
+	; party
+
+	db 27, WARTORTLE
+		db BUBBLEBEAM
+		db BITE
+		db SURF
+		db NASTY_PLOT
+
+	db 25, CINCCINO
+		db ROCK_THROW
+		db BITE
+		db FORESIGHT
+		db FRUSTRATION
+		
+	db 24, FLAREON
+		db FLAMETHROWER
+		db BITE
+		db QUICK_ATTACK
+		db SUNNY_DAY
+
+	db $ff ; end
+	
+; ================ MT NAVEL (PICK SQUIRTLE)
+
+	; CROSS (5)
+	db "CROSS@"
+	db 1 ; moves
+
+	; party
+
+	db 27, IVYSAUR
+		db RAZOR_LEAF
+		db LEECH_SEED
+		db SLEEP_POWDER
+		db NASTY_PLOT
+
+	db 25, CINCCINO
+		db ROCK_THROW
+		db BITE
+		db FORESIGHT
+		db FRUSTRATION
+		
+	db 24, VAPOREON
+		db BUBBLEBEAM
+		db BITE
+		db QUICK_ATTACK
+		db RAIN_DANCE
+
+	db $ff ; end
+	
+; ================ MT NAVEL (PICK BULBASAUR)
+
+	; CROSS (6)
+	db "CROSS@"
+	db 1 ; moves
+
+	; party
+
+	db 27, CHARMELEON
+		db FLAMETHROWER
+		db SLASH
+		db SMOKESCREEN
+		db NASTY_PLOT
+
+	db 25, CINCCINO
+		db ROCK_THROW
+		db BITE
+		db FORESIGHT
+		db FRUSTRATION
+		
+	db 24, LEAFEON
+		db RAZOR_LEAF
+		db BITE
+		db QUICK_ATTACK
+		db GROWTH
+
+	db $ff ; end
+	
+; ================ MURCOTT (PICK CHARMANDER)
+
+	; CROSS (7)
+	db "CROSS@"
+	db 1 ; moves
+
+	; party
+
+	db 36, BLASTOISE
+		db BUBBLEBEAM
+		db BITE
+		db SURF
+		db NASTY_PLOT
+
+	db 32, CINCCINO
+		db ROCK_THROW
+		db CRUNCH
+		db FORESIGHT
+		db ROCK_SMASH
+		
+	db 31, FLAREON
+		db FLAMETHROWER
+		db BITE
+		db QUICK_ATTACK
+		db SUNNY_DAY
+		
+	db 29, SKARMORY
+		db STEEL_WING
+		db AERIAL_ACE
+		db SWORDS_DANCE
+		db WHIRLWIND
+
+	db $ff ; end
+	
+; ================ MURCOTT (PICK SQUIRTLE)
+
+	; CROSS (8)
+	db "CROSS@"
+	db 1 ; moves
+
+	; party
+
+	db 36, VENUSAUR
+		db GIGA_DRAIN
+		db LEECH_SEED
+		db PETAL_DANCE
+		db NASTY_PLOT
+
+	db 32, CINCCINO
+		db ROCK_THROW
+		db CRUNCH
+		db FORESIGHT
+		db ROCK_SMASH
+		
+	db 31, VAPOREON
+		db BUBBLEBEAM
+		db BITE
+		db QUICK_ATTACK
+		db RAIN_DANCE
+		
+	db 29, SKARMORY
+		db STEEL_WING
+		db AERIAL_ACE
+		db SWORDS_DANCE
+		db WHIRLWIND
+
+	db $ff ; end
+	
+; ================ MURCOTT (PICK BULBASAUR)
+
+	; CROSS (9)
+	db "CROSS@"
+	db 1 ; moves
+
+	; party
+
+	db 36, CHARIZARD
+		db FLAMETHROWER
+		db DRAGON_TAIL
+		db SLASH
+		db SMOKESCREEN
+
+	db 32, CINCCINO
+		db ROCK_THROW
+		db CRUNCH
+		db FORESIGHT
+		db ROCK_SMASH
+		
+	db 31, LEAFEON
+		db RAZOR_LEAF
+		db BITE
+		db QUICK_ATTACK
+		db GROWTH
+		
+	db 29, SKARMORY
+		db STEEL_WING
+		db AERIAL_ACE
+		db SWORDS_DANCE
+		db WHIRLWIND
+
+	db $ff ; end
 
 ;GentlemanGroup:
 ; ================================

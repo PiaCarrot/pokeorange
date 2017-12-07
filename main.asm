@@ -1281,6 +1281,8 @@ PlayBattleMusic: ; 2ee6c
 	ld a, [OtherTrainerClass]
 	cp TRACEY
 	jr z, .done
+	cp CROSS
+	jr z, .done
 	ld a, [wLinkMode]
 	and a
 	jr nz, .johtotrainer

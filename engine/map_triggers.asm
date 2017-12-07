@@ -25,6 +25,7 @@ ENDM
 	trigger_def ROUTE_60,                     wRoute60Trigger
 	trigger_def ROUTE_61,                     wRoute61Trigger
 	trigger_def GOLDEN_ISLAND,                wGoldenIslandTrigger
+	trigger_def MURCOTT_ISLAND,				  wMurcottIslandTrigger
 
 	db -1
 ; 4d15b

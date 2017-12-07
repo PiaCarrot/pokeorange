@@ -809,6 +809,7 @@ Group6Sprites: ; 146e6
 ; Unnamed Island 2
 ; Mandarin South
 	db SPRITE_TRACEY
+	db SPRITE_ROCKER
 	db SPRITE_GRAMPS
 	db SPRITE_LASS
 	db SPRITE_YOUNGSTER

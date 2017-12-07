@@ -2301,6 +2301,7 @@ wUnnamedIsland1PokeCenterTrigger:: ds 1
 wRoute60Trigger::                  ds 1
 wRoute61Trigger::                  ds 1
 wGoldenIslandTrigger::             ds 1
+wMurcottIslandTrigger::            ds 1
 
 	ds 23
 

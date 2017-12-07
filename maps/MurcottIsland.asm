@@ -1,9 +1,12 @@
-const_value set 2
+const_value set 1
+	const MURCOTT_ISLAND_CROSS
 	const MURCOTT_GRAMPS
 	const MURCOTT_DAYCARE_MON_1
 	const MURCOTT_DAYCARE_MON_2
 	const MURCOTT_LASS
 	const MURCOTT_FRUIT_TREE
+	const MURCOTT_GRAMPS_2
+	const MURCOTT_POKEBALL
 
 MurcottIsland_MapScriptHeader::
 
@@ -144,6 +147,185 @@ MurcottOldManText:
 MurcottIslandTMRainDance:
 	itemball TM_RAIN_DANCE
 	
+CrossBattle3Script1:
+	faceplayer
+	showemote EMOTE_SHOCK, PLAYER, 15
+	applymovement PLAYER, CrossMurcottIslandApproach1_Movement
+	playmusic MUSIC_LOOK_GLADION
+	opentext
+	writetext CrossMurcottIslandText
+	waitbutton
+	closetext
+	checkevent EVENT_GOT_CHARMANDER_FROM_IVY
+	iftrue .GotCharmander
+	checkevent EVENT_GOT_SQUIRTLE_FROM_IVY
+	iftrue .GotSquirtle
+	winlosstext CrossMurcottIslandWinLoss, 0
+	setlasttalked MURCOTT_ISLAND_CROSS
+	loadtrainer CROSS, 9
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	jump .returnfrombattle
+	
+.GotCharmander:
+	winlosstext CrossMurcottIslandWinLoss, 0
+	setlasttalked MURCOTT_ISLAND_CROSS
+	loadtrainer CROSS, 7
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	jump .returnfrombattle
+	
+.GotSquirtle:
+	winlosstext CrossMurcottIslandWinLoss, 0
+	setlasttalked MURCOTT_ISLAND_CROSS
+	loadtrainer CROSS, 8
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	jump .returnfrombattle
+
+.returnfrombattle:
+	playmusic MUSIC_LOOK_GLADION
+	opentext
+	writetext CrossMurcottIslandLeavingNowText
+	waitbutton
+	closetext
+	applymovement MURCOTT_ISLAND_CROSS, CrossMurcottIsland_Movement
+	disappear MURCOTT_ISLAND_CROSS
+	pause 20
+	special Special_FadeOutMusic
+	playmapmusic
+	pause 10
+	setevent EVENT_MURCOTT_ISLAND_CROSS
+	end	
+	
+CrossBattle3Script2:	
+	faceplayer
+	showemote EMOTE_SHOCK, PLAYER, 15
+	applymovement PLAYER, CrossMurcottIslandApproach2_Movement
+	playmusic MUSIC_LOOK_GLADION
+	opentext
+	writetext CrossMurcottIslandText
+	waitbutton
+	closetext
+	checkevent EVENT_GOT_CHARMANDER_FROM_IVY
+	iftrue .GotCharmander
+	checkevent EVENT_GOT_SQUIRTLE_FROM_IVY
+	iftrue .GotSquirtle
+	winlosstext CrossMurcottIslandWinLoss, 0
+	setlasttalked MURCOTT_ISLAND_CROSS
+	loadtrainer CROSS, 9
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	jump .returnfrombattle
+	
+.GotCharmander:
+	winlosstext CrossMurcottIslandWinLoss, 0
+	setlasttalked MURCOTT_ISLAND_CROSS
+	loadtrainer CROSS, 7
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	jump .returnfrombattle
+	
+.GotSquirtle:
+	winlosstext CrossMurcottIslandWinLoss, 0
+	setlasttalked MURCOTT_ISLAND_CROSS
+	loadtrainer CROSS, 8
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	jump .returnfrombattle
+
+.returnfrombattle:
+	playmusic MUSIC_LOOK_GLADION
+	opentext
+	writetext CrossMurcottIslandLeavingNowText
+	waitbutton
+	closetext
+	applymovement MURCOTT_ISLAND_CROSS, CrossMurcottIsland_Movement
+	disappear MURCOTT_ISLAND_CROSS
+	pause 20
+	special Special_FadeOutMusic
+	playmapmusic
+	pause 10
+	setevent EVENT_MURCOTT_ISLAND_CROSS
+	end
+	
+CrossMurcottIslandText:
+	text "CROSS: Stopping by"
+	line "this loser town,"
+	cont "<PLAYER>? Fitting."
+
+	para "There's nothing"
+	line "but old geezers."
+
+	para "I came to find a"
+	line "strong #MON,"
+	cont "but I can't find"
+	cont" a SCYTHER."
+
+	para "No matter! I got"
+	line "something even"
+	cont "better off the"
+	cont "next island!"
+
+	para "Prepare yourself!"
+	done
+	
+CrossMurcottIslandWinLoss:
+	text "How frustrating!"
+	done
+	
+CrossMurcottIslandLeavingNowText:
+	text "CROSS: <...>"
+
+	para "I won't let this"
+	line "bring me down! I"
+	cont "don't understand,"
+	cont "though."
+
+	para "I know I've made"
+	line "my #MON the"
+	cont "strongest they"
+	cont "can be!"
+
+	para "So why is it that"
+	line "you win every"
+	cont "time?"
+
+	para "No matter, I'll"
+	line "see you again!"
+	done
+	
+CrossMurcottIsland_Movement:
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step_end
+	
+CrossMurcottIslandApproach1_Movement:
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step_end
+	
+CrossMurcottIslandApproach2_Movement:
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step UP
+	turn_head RIGHT
+	step_end
+	
 MurcottIsland_MapEventHeader::
 
 .Warps: db 8
@@ -156,13 +338,16 @@ MurcottIsland_MapEventHeader::
 	warp_def 17, 25, 1, MURCOTT_POKE_CENTER
 	warp_def 17, 37, 2, MURCOTT_POKE_MART
 
-.CoordEvents: db 0
+.CoordEvents: db 2
+	xy_trigger 0, 14, 0, CrossBattle3Script1
+	xy_trigger 0, 15, 0, CrossBattle3Script2
 
 .BGEvents: db 2
 	signpost 6, 16, SIGNPOST_READ, DayCareSign
-	signpost 12, 10, SIGNPOST_READ, MurcottIslandSign
+	signpost 13, 5, SIGNPOST_READ, MurcottIslandSign
 
-.ObjectEvents: db 7
+.ObjectEvents: db 8
+	person_event SPRITE_ROCKER, 14, 5, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_MURCOTT_ISLAND_CROSS
 	person_event SPRITE_GRAMPS, 6, 14, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DayCareManScript_Outside, EVENT_DAYCARE_MAN_OUTSIDE
 	person_event SPRITE_DAYCARE_MON_1, 3, 18, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DaycareMon1Script, EVENT_DAYCARE_MON_1
 	person_event SPRITE_DAYCARE_MON_2, 4, 21, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DaycareMon2Script, EVENT_DAYCARE_MON_2

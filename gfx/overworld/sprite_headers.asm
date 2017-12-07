@@ -183,7 +183,7 @@ SuperNerdSprite: ; 14832
 ; 14838
 
 RockerSprite: ; 14838
-	sprite_header RockerSpriteGFX, 3, WALKING_SPRITE, PAL_OW_GREEN
+	sprite_header RockerSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED
 ; 1483e
 
 PokefanMSprite: ; 1483e

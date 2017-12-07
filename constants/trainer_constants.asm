@@ -184,6 +184,8 @@ KRIS EQU __enum__
 
 	trainerclass BIRDKEEPER
 	const TATSUYA
+	
+	trainerclass CROSS
 
 ;	trainerclass GENTLEMAN
 

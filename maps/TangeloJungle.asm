@@ -1,4 +1,5 @@
 const_value set 1
+	const TANGELO_JUNGLE_CROSS
 	const TANGELOJUNGLE_POKE_BALL1
 	const TANGELOJUNGLE_LASS
 	const TANGELOJUNGLE_YOUNGSTER2
@@ -177,6 +178,111 @@ YoungsterNessAfterText:
 
 	para "What a loser."
 	done
+	
+CrossBattle1Script:
+	faceplayer
+	showemote EMOTE_SHOCK, TANGELO_JUNGLE_CROSS, 15
+	playmusic MUSIC_LOOK_GLADION
+	opentext
+	writetext CrossJungleText
+	waitbutton
+	closetext
+	checkevent EVENT_GOT_CHARMANDER_FROM_IVY
+	iftrue .GotCharmander
+	checkevent EVENT_GOT_SQUIRTLE_FROM_IVY
+	iftrue .GotSquirtle
+	winlosstext CrossJungleWinLoss, 0
+	setlasttalked TANGELO_JUNGLE_CROSS
+	loadtrainer CROSS, 3
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	jump .returnfrombattle
+	
+.GotCharmander:
+	winlosstext CrossJungleWinLoss, 0
+	setlasttalked TANGELO_JUNGLE_CROSS
+	loadtrainer CROSS, 1
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	jump .returnfrombattle
+	
+.GotSquirtle:
+	winlosstext CrossJungleWinLoss, 0
+	setlasttalked TANGELO_JUNGLE_CROSS
+	loadtrainer CROSS, 2
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	jump .returnfrombattle
+
+.returnfrombattle:
+	playmusic MUSIC_LOOK_GLADION
+	opentext
+	writetext CrossJungleLeavingNowText
+	waitbutton
+	closetext
+	applymovement TANGELO_JUNGLE_CROSS, CrossJungle_Movement
+	disappear TANGELO_JUNGLE_CROSS
+	playsound SFX_ENTER_DOOR
+	pause 20
+	special Special_FadeOutMusic
+	playmapmusic
+	pause 10
+	setevent EVENT_TANGELO_JUNGLE_CROSS
+	end
+	
+CrossJungleText:
+	text "???: Huh?"
+
+	para "Who's the weakling"
+	line "in my way here?"
+
+	para "<...>"
+	
+	para "<PLAYER>? Never"
+	line "heard of you. Hah!"
+
+	para "Well, since I'm"
+	line "already here, I"
+	cont "guess I'll intro-"
+	cont "duce myself."
+
+	para "CROSS: I am CROSS,"
+	line "the one who will"
+	cont "be the ultimate"
+	cont "trainer using"
+
+	para "strength alone!"
+	line "Allow me to demon-"
+	cont "strate!"
+	done
+	
+CrossJungleWinLoss:
+	text "That was just a"
+	line "fluke."
+	done
+	
+CrossJungleLeavingNowText:
+	text "CROSS: Hmph!"
+
+	para "Don't think you've"
+	line "won! I'll be back,"
+	cont "stronger than you"
+	cont "can handle!"
+
+	para "Remember this,"
+	line "<PLAYER>!"
+	done
+	
+CrossJungle_Movement:
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step UP
+	step_end
 
 TangeloJungle_MapEventHeader::
 
@@ -193,14 +299,15 @@ TangeloJungle_MapEventHeader::
 	signpost 26, 4, SIGNPOST_ITEM, TangeloJungleHiddenFullHeal
 	signpost 51, 39, SIGNPOST_UP, MapTangeloJungleSignpost4Script
 
-.ObjectEvents: db 9
+.ObjectEvents: db 10
+	person_event SPRITE_ROCKER, 6, 21, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, CrossBattle1Script, EVENT_TANGELO_JUNGLE_CROSS
 	person_event SPRITE_POKE_BALL, 26, 45, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJunglePoisonBarb, EVENT_TANGELO_JUNGLE_POISON_BARB
-	person_event SPRITE_YOUNGSTER, 37, 20, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TangeloJungleLassScript, -1
+	person_event SPRITE_YOUNGSTER, 37, 20, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TangeloJungleLassScript, -1
 	person_event SPRITE_BUG_BOY, 6, 31, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 0, TrainerBug_catcherWayne, -1
 	person_event SPRITE_BUG_BOY, 24, 15, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerBug_catcherMushi, -1
 	person_event SPRITE_BUG_BOY, 13, 5, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerBug_catcherAlex, -1
 	person_event SPRITE_POKE_BALL, 14, 19, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleSuperPotion, EVENT_TANGELO_JUNGLE_SUPER_POTION
 	person_event SPRITE_POKE_BALL, 44, 1, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleAntidote, EVENT_TANGELO_JUNGLE_ANTIDOTE
 	person_event SPRITE_POKE_BALL, 14, 41, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleEther, EVENT_TANGELO_JUNGLE_ETHER
-	person_event SPRITE_YOUNGSTER, 31, 4, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 >> 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerYoungsterNess, -1
+	person_event SPRITE_YOUNGSTER, 31, 4, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerYoungsterNess, -1
 

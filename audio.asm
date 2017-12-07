@@ -162,6 +162,7 @@ INCLUDE "audio/music/sootopoliscity.asm"
 INCLUDE "audio/music/caveoforigin.asm"
 INCLUDE "audio/music/hoenn_dewford_town.asm"
 INCLUDE "audio/music/evergrandecity.asm"
+INCLUDE "audio/music/lookgladion.asm"
 
 SECTION "Sound Effects", ROMX, BANK[SOUND_EFFECTS]
 
