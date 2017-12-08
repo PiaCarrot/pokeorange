@@ -1,10 +1,10 @@
 ; CroconawPokedexEntry: ; 0x1ccc84
-	db "CHINCHILLA@" ; species name
-	dw 104, 128 ; height, width
+	db "PUPPY@" ; species name
+	dw 108, 203 ; height, width
 
-	db   "They greet each-"
-	next "other by rubbing"
-	next "eachother's tails,"
-	page "which are always"
-	next "kept well groomed"
-	next "and clean.@"
+	db   "As they develop,"
+	next "they grow more"
+	next "violent. It's"
+	page "common for them to"
+	next "leave and return"
+	next "after evolution.@"

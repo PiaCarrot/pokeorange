@@ -84,7 +84,7 @@
 	map ROUTE_50
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 7, MINCCINO
+	db 7, ROCKRUFF
 	db 7, WINGULL
 	db 8, HOPPIP
 	db 8, PIKIPEK
@@ -92,7 +92,7 @@
 	db 7, GROWLITHE
 	db 8, GROWLITHE
 	; day
-	db 7, MINCCINO
+	db 7, ROCKRUFF
 	db 7, WINGULL
 	db 8, HOPPIP
 	db 8, PIKIPEK
@@ -330,7 +330,7 @@
 	db 17, CHINGLING
 	db 17, PIDGEY
 	db 17, PHANPY
-	db 17, MINCCINO
+	db 17, ROCKRUFF
 	db 18, PIDGEY
 	db 18, PHANPY
 	db 18, DROWZEE
@@ -338,7 +338,7 @@
 	db 17, CHINGLING
 	db 17, PIDGEY
 	db 17, PHANPY
-	db 17, MINCCINO
+	db 17, ROCKRUFF
 	db 18, PIDGEY
 	db 18, PHANPY
 	db 18, DROWZEE
@@ -355,18 +355,18 @@
 	db 7 percent, 7 percent, 7 percent
 	;morn
 	db 18, PIKIPEK
-	db 18, MINCCINO
+	db 18, ROCKRUFF
 	db 18, TRUMBEAK
 	db 18, MANKEY
-	db 19, MINCCINO
+	db 19, ROCKRUFF
 	db 19, MANKEY
 	db 19, SPEAROW
 	;day
 	db 18, PIKIPEK
-	db 18, MINCCINO
+	db 18, ROCKRUFF
 	db 18, TRUMBEAK
 	db 18, MANKEY
-	db 19, MINCCINO
+	db 19, ROCKRUFF
 	db 19, MANKEY
 	db 19, SPEAROW
 	;nite
@@ -491,7 +491,7 @@
 	; morning
 	db 18, HOPPIP
 	db 18, FLAAFFY
-	db 19, MINCCINO
+	db 19, ROCKRUFF
 	db 19, HOPPIP
 	db 19, MAREEP
 	db 20, FLAAFFY
@@ -499,7 +499,7 @@
 	; day
 	db 18, HOPPIP
 	db 18, FLAAFFY
-	db 19, MINCCINO
+	db 19, ROCKRUFF
 	db 19, HOPPIP
 	db 19, MAREEP
 	db 20, FLAAFFY

@@ -2334,36 +2334,41 @@ MunchlaxEvosAttacks:
 	db 0 ; no more level-up moves
 
 MinccinoEvosAttacks:
-	db EVOLVE_ITEM, SHINY_STONE, CINCCINO
+	db EVOLVE_LEVEL, 25, LYCANROC
 	db 0 ; no more evolutions
 	db 1, TACKLE ; POUND
-	db 3, GROWL
-	db 7, TAIL_WHIP
-	db 9, FLAIL
-	db 13, DOUBLESLAP
-	db 15, ENCORE
-	db 22, SWIFT
-	db 24, SING
-	db 30, CHARM
-	db 34, IRON_TAIL
-	db 40, SLAM
-	db 46, PERISH_SONG
+	db 1, LEER
+	db 4, SAND_ATTACK
+	db 7, BITE
+	db 12, MUD_SLAP
+	db 15, ROCK_THROW
+	db 18, FORESIGHT
+	db 23, ROCK_BLAST
+	db 26, ROAR
+	db 34, ROCK_SLIDE
+	db 37, SCARY_FACE
+	db 40, CRUNCH
+	db 45, EARTH_POWER
+	db 48, FISSURE
 	db 0 ; no more level-up moves
 
 CinccinoEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, QUICK_ATTACK
 	db 1, TACKLE ; POUND
-	db 3, GROWL
-	db 7, TAIL_WHIP
-	db 9, FLAIL
-	db 13, DOUBLESLAP
-	db 15, ENCORE
-	db 19, SWIFT
-	db 21, SING
-	db 27, CHARM
-	db 31, IRON_TAIL
-	db 37, SLAM
-	db 43, PERISH_SONG
+	db 1, LEER
+	db 4, SAND_ATTACK
+	db 7, BITE
+	db 12, MUD_SLAP
+	db 15, ROCK_THROW
+	db 18, FORESIGHT
+	db 23, ROCK_BLAST
+	db 26, ROAR
+	db 34, ROCK_SLIDE
+	db 37, SCARY_FACE
+	db 40, CRUNCH
+	db 45, EARTH_POWER
+	db 48, FISSURE
 	db 0 ; no more level-up moves
 
 WingullEvosAttacks:

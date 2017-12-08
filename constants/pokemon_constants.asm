@@ -159,8 +159,8 @@ const_value set 1
 	const TRUMBEAK
 	const TOUCANNON
 	const MUNCHLAX
-	const MINCCINO
-	const CINCCINO
+	const ROCKRUFF
+	const LYCANROC
 	const WINGULL
 	const PELIPPER
 	const CHINGLING

@@ -160,8 +160,8 @@ endm
 	icon_pals RED, BLUE ; TRUMBEAK
 	icon_pals RED, BLUE ; TOUCANNON
 	icon_pals BLUE, BLUE ; MUNCHLAX
-	icon_pals GRAY, GREEN ; MINCCINO
-	icon_pals GRAY, GREEN ; CINCCINO
+	icon_pals GRAY, BLUE ; ROCKRUFF
+	icon_pals GRAY, BLUE ; LYCANROC
 	icon_pals BLUE, GREEN ; WINGULL
 	icon_pals BLUE, GREEN ; PELIPPER
 	icon_pals RED, BLUE ; CHINGLING

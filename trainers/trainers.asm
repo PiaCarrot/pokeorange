@@ -562,7 +562,7 @@ BrockGroup:
 		db DEFENSE_CURL
 		db 0
 
-	db 22, MINCCINO
+	db 22, ROCKRUFF
 		db ROCK_THROW
 		db GROWL
 		db ROAR
@@ -2221,7 +2221,7 @@ CrossGroup:
 		db TACKLE
 		db BUBBLE
 
-	db 12, MINCCINO
+	db 12, ROCKRUFF
 		db ROCK_THROW
 		db TACKLE
 		db GROWL
@@ -2242,7 +2242,7 @@ CrossGroup:
 		db LEECH_SEED
 		db GROWL
 
-	db 12, MINCCINO
+	db 12, ROCKRUFF
 		db ROCK_THROW
 		db TACKLE
 		db GROWL
@@ -2263,7 +2263,7 @@ CrossGroup:
 		db SMOKESCREEN
 		db SCRATCH
 
-	db 12, MINCCINO
+	db 12, ROCKRUFF
 		db ROCK_THROW
 		db TACKLE
 		db GROWL
@@ -2285,7 +2285,7 @@ CrossGroup:
 		db SURF
 		db NASTY_PLOT
 
-	db 25, CINCCINO
+	db 25, LYCANROC
 		db ROCK_THROW
 		db BITE
 		db FORESIGHT
@@ -2313,7 +2313,7 @@ CrossGroup:
 		db SLEEP_POWDER
 		db NASTY_PLOT
 
-	db 25, CINCCINO
+	db 25, LYCANROC
 		db ROCK_THROW
 		db BITE
 		db FORESIGHT
@@ -2341,7 +2341,7 @@ CrossGroup:
 		db SMOKESCREEN
 		db NASTY_PLOT
 
-	db 25, CINCCINO
+	db 25, LYCANROC
 		db ROCK_THROW
 		db BITE
 		db FORESIGHT
@@ -2369,7 +2369,7 @@ CrossGroup:
 		db SURF
 		db NASTY_PLOT
 
-	db 32, CINCCINO
+	db 32, LYCANROC
 		db ROCK_THROW
 		db CRUNCH
 		db FORESIGHT
@@ -2403,7 +2403,7 @@ CrossGroup:
 		db PETAL_DANCE
 		db NASTY_PLOT
 
-	db 32, CINCCINO
+	db 32, LYCANROC
 		db ROCK_THROW
 		db CRUNCH
 		db FORESIGHT
@@ -2437,7 +2437,7 @@ CrossGroup:
 		db SLASH
 		db SMOKESCREEN
 
-	db 32, CINCCINO
+	db 32, LYCANROC
 		db ROCK_THROW
 		db CRUNCH
 		db FORESIGHT
