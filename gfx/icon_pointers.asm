@@ -158,8 +158,8 @@ IconPointers:
 	dw TrumbeakIcon
 	dw ToucannonIcon
 	dw MunchlaxIcon
-	dw MinccinoIcon
-	dw CinccinoIcon
+	dw RockruffIcon
+	dw LycanrocIcon
 	dw WingullIcon
 	dw PelipperIcon
 	dw ChinglingIcon

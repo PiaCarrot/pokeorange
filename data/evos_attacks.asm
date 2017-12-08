@@ -2333,7 +2333,7 @@ MunchlaxEvosAttacks:
 	db 47, HYPER_BEAM
 	db 0 ; no more level-up moves
 
-MinccinoEvosAttacks:
+RockruffEvosAttacks:
 	db EVOLVE_LEVEL, 25, LYCANROC
 	db 0 ; no more evolutions
 	db 1, TACKLE ; POUND
@@ -2352,7 +2352,7 @@ MinccinoEvosAttacks:
 	db 48, FISSURE
 	db 0 ; no more level-up moves
 
-CinccinoEvosAttacks:
+LycanrocEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, QUICK_ATTACK
 	db 1, TACKLE ; POUND

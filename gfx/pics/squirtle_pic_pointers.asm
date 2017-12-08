@@ -1,3 +1,3 @@
 
-	dfb Squirtle
-	dfb SquirtleGlasses
+	add_pics Squirtle
+	add_pics SquirtleGlasses

@@ -100,7 +100,7 @@ dbba: MACRO
 	dba \2
 	ENDM
 
-dfb: MACRO ; dba Frontpic, Backpic
+add_pics: MACRO ; dba Frontpic, Backpic
 	dba \1Frontpic
 	dba \1Backpic
 	ENDM
