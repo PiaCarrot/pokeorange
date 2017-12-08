@@ -7739,6 +7739,7 @@ InitEnemyTrainer: ; 3f594
 	ld [TempEnemyMonSpecies], a
 	farcall GetTrainerAttributes
 	farcall ReadTrainerParty
+	farcall ComputeTrainerReward
 
 	ld de, VTiles2
 	farcall GetTrainerPic

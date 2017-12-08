@@ -21,6 +21,7 @@
 
 ## Moves
 
+- Replace Constrict with Accelerock
 - Add to learnsets: Giga Impact, Play Rough, Poison Jab, Power Gem, Zen Headbutt
    - Giga Impact: aerodactyl, donphan, electivire, snorlax, tauros
    - Play Rough: marill/azumarill, mimikyu, persian, wigglytuff

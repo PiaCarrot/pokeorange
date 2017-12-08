@@ -4,10 +4,10 @@ Trainers:
 	; Name
 		; String in format "TEXT@"
 	; Type
-		; 0: Level, species
-		; 1: Level, species, moves
-		; 2: Level, species, item
-		; 3: Level, species, item, moves
+		; TRAINERTYPE_NORMAL:      level, species
+		; TRAINERTYPE_ITEM:        item
+		; TRAINERTYPE_PERSONALITY: personality
+		; TRAINERTYPE_MOVES:       moves
 	; Party
 		; Up to six monsters following the data type
 	; $ff
@@ -18,7 +18,7 @@ CissyGroup:
 
 	; CISSY (1)
 	db "CISSY@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -46,7 +46,7 @@ CissyGroup:
 
 	; CISSY (2)
 	db "CISSY@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -98,7 +98,7 @@ DannyGroup:
 
 	; DANNY (1)
 	db "DANNY@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -132,7 +132,7 @@ DannyGroup:
 
 	; DANNY (2)
 	db "DANNY@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -182,7 +182,7 @@ RudyGroup:
 
 	; RUDY (1)
 	db "RUDY@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -222,7 +222,7 @@ RudyGroup:
 
 	; RUDY (2)
 	db "RUDY@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -274,7 +274,7 @@ LuanaGroup:
 
 	; LUANA (1)
 	db "LUANA@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -302,7 +302,7 @@ LuanaGroup:
 
 	; LUANA (2)
 	db "LUANA@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -353,7 +353,7 @@ DrakeGroup:
 
 	; DRAKE (1)
 	db "DRAKE@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -399,7 +399,7 @@ DrakeGroup:
 
 	; DRAKE (2)
 	db "DRAKE@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -450,7 +450,7 @@ TraceyGroup:
 
 	; TRACEY (1)
 	db "TRACEY@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -472,7 +472,7 @@ TraceyGroup:
 
 	; TRACEY (2)
 	db "TRACEY@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -506,7 +506,7 @@ TraceyGroup:
 
 	; TRACEY (3)
 	db "TRACEY@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -552,7 +552,7 @@ BrockGroup:
 
 	; BROCK (1)
 	db "BROCK@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -598,7 +598,7 @@ LtSurgeGroup:
 
 	; LT.SURGE (3)
 	db "LT.SURGE@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -654,7 +654,7 @@ BlaineGroup:
 
 	; BLAINE (1)
 	db "BLAINE@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	db 64, ARCANINE
 		db EXTREMESPEED
@@ -709,7 +709,7 @@ LoreleiGroup:
 
 	; LORELEI (1)
 	db "LORELEI@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -749,7 +749,7 @@ LoreleiGroup:
 
 	; LORELEI (2)
 	db "LORELEI@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	db 64, DEWGONG
 		db LOCK_ON
@@ -803,7 +803,7 @@ AgathaGroup:
 
 	; AGATHA (1)
 	db "AGATHA@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -853,7 +853,7 @@ LanceGroup:
 
 	; LANCE (1)
 	db "LANCE@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	db 70, DRAGONITE
 		db HYPER_BEAM
@@ -902,7 +902,7 @@ RedGroup:
 
 	; RED (1)
 	db "RED@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	db 88, PIKACHU
 		db THUNDERBOLT
@@ -975,7 +975,7 @@ ButchGroup:
 
 	; EXECUTIVEM (1)
 	db "BUTCH@"
-	db 0 ; moves
+	db TRAINERTYPE_NORMAL
 
 	; party
 
@@ -988,7 +988,7 @@ ButchGroup:
 
 	; EXECUTIVEM (2)
 	db "BUTCH@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -1028,7 +1028,7 @@ CassidyGroup:
 
 	; EXECUTIVEF (1)
 	db "CASSIDY@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 
@@ -1042,7 +1042,7 @@ CassidyGroup:
 
 	; EXECUTIVEF (2)
 	db "CASSIDY@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -1079,7 +1079,7 @@ CassidyButchGroup:
 ; ================
 	; C&B (2)
 	db "AND BUTCH@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	db 40, CLOYSTER
 		db ICE_BEAM
@@ -1126,7 +1126,7 @@ JamesGroup:
 ; ================
 
 	; James (1)
-	db 1 ;moves
+	db TRAINERTYPE_MOVES
 	
 	db 38, WEEZING
 		db SLUDGE_BOMB
@@ -1149,7 +1149,7 @@ JessieGroup:
 ; ================
 
 	; Jessie (1)
-	db 1 ;moves
+	db TRAINERTYPE_MOVES
 	
 	db 38, ARBOK
 		db CRUNCH
@@ -1178,7 +1178,7 @@ JessieJamesGroup:
 ; ================================
 	; J&J (1)
 	db "AND JAMES@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -1211,7 +1211,7 @@ JessieJamesGroup:
 
 	; J&J (2)
 	db "AND JAMES@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -1254,7 +1254,7 @@ MomGroup:
 ; ================
 
 	; MOM (1)
-	db 1 ;moves
+	db TRAINERTYPE_MOVES
 	
 	db 95, EXEGGUTOR
 		db OUTRAGE
@@ -1338,7 +1338,7 @@ ProfAideGroup:
 
 	; PROF_AIDE (1)
 	db "CHARITY@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 7, RATTATA
@@ -1361,7 +1361,7 @@ OfficerGroup:
 
 	; OFFICER(1) Mikan Island
 	db "JENNY@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 14, GROWLITHE
@@ -1372,7 +1372,7 @@ OfficerGroup:
 
 	; OFFICER(2) Kinnow Island
 	db "JENNY@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 24, GROWLITHE
@@ -1384,7 +1384,7 @@ OfficerGroup:
 
 	; OFFICER(3) Moro Island
 	db "JENNY@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 29, ARCANINE
@@ -1396,7 +1396,7 @@ OfficerGroup:
 
 	; OFFICER(4) Murcott Island
 	db "JENNY@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 33, ARCANINE
@@ -1412,7 +1412,7 @@ YoungsterGroup:
 
 	; YOUNGSTER (1)
 	db "KOJI@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 8, SPEAROW
@@ -1424,7 +1424,7 @@ YoungsterGroup:
 
 	; YOUNGSTER (2)
 	db "TOUYA@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 8, POLIWAG
@@ -1436,7 +1436,7 @@ YoungsterGroup:
 
 	; YOUNGSTER (3)
 	db "KOUTA@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 9, TANGELA
@@ -1448,7 +1448,7 @@ YoungsterGroup:
 
 ; YOUNGSTER (4)
 	db "NESS@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 9, WINGULL
@@ -1461,7 +1461,7 @@ YoungsterGroup:
 
 ; YOUNGSTER (5)
 	db "HIRUMA@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 29, IVYSAUR
@@ -1480,7 +1480,7 @@ LassGroup:
 
 	; LASS (1)
 	db "NICOLE@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 11, MARILL
@@ -1492,7 +1492,7 @@ LassGroup:
 
 	; LASS (2)
 	db "FUYUMI@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 31, JUMPLUFF
@@ -1517,7 +1517,7 @@ BugCatcherGroup:
 
 	; BUG_CATCHER (1)
 	db "KATTA@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 10, BUTTERFREE
@@ -1528,7 +1528,7 @@ BugCatcherGroup:
 
 	; BUG_CATCHER (2)
 	db "SAM@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 10, BEEDRILL
@@ -1539,7 +1539,7 @@ BugCatcherGroup:
 
 	; BUG_CATCHER (3)
 	db "MIKE@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 10, CATERPIE
@@ -1551,7 +1551,7 @@ BugCatcherGroup:
 
 	; BUG_CATCHER (4)
 	db "MUSHI@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 11, PINSIR
@@ -1562,7 +1562,7 @@ BugCatcherGroup:
 
 	; BUG_CATCHER (5)
 	db "ALEX@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 8, CATERPIE
@@ -1609,7 +1609,7 @@ SwimmerMGroup:
 
 	; SWIMMERM (2)
 	db "YOUTA@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 17, SHELLDER
@@ -1620,7 +1620,7 @@ SwimmerMGroup:
 
 	; SWIMMERM (3)
 	db "HAIRO@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 16, MAREANIE
@@ -1632,7 +1632,7 @@ SwimmerMGroup:
 
 	; SWIMMERM (4)
 	db "DAISUKE@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 18, CHINCHOU
@@ -1643,7 +1643,7 @@ SwimmerMGroup:
 
 	; SWIMMERM (5)
 	db "JUNPEI@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 15, CORSOLA
@@ -1656,7 +1656,7 @@ SwimmerMGroup:
 
 	; SWIMMERM (6)
 	db "KOSUKE@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 23, MAREANIE
@@ -1668,7 +1668,7 @@ SwimmerMGroup:
 
 	; SWIMMERM (7)
 	db "NAOYA@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 25, CLOYSTER
@@ -1679,7 +1679,7 @@ SwimmerMGroup:
 
 	; SWIMMERM (8)
 	db "ATECAIN@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	db 6, MAGIKARP
 	db 6, SLOWPOKE
@@ -1692,7 +1692,7 @@ SwimmerMGroup:
 
 	; SWIMMERM (9)
 	db "THEO@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	db 10, STARYU
 
@@ -1722,7 +1722,7 @@ SwimmerMGroup:
 
 	; SWIMMERM (11)
 	db "TAKAO@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	db 28, STARMIE
 	db 26, STUNFISK
@@ -1738,7 +1738,7 @@ SwimmerFGroup:
 
 	; SWIMMERF (1)
 	db "MARIA@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 13, CORSOLA
@@ -1749,7 +1749,7 @@ SwimmerFGroup:
 
 	; SWIMMERF (2)
 	db "REINA@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 18, STARYU
@@ -1760,7 +1760,7 @@ SwimmerFGroup:
 
 	; SWIMMERF (3)
 	db "UMIKO@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 16, SKRELP
@@ -1785,7 +1785,7 @@ SwimmerFGroup:
 
 	; SWIMMERF (5)
 	db "YAEKO@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 22, CHINCHOU
@@ -1799,7 +1799,7 @@ SwimmerFGroup:
 
 	; SWIMMERF (6)
 	db "SAKAKO@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 24, HORSEA
@@ -1811,7 +1811,7 @@ SwimmerFGroup:
 
 	; SWIMMERF (7)
 	db "YUKA@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 9, WAILMER
@@ -1829,7 +1829,7 @@ CamperGroup:
 
 	; CAMPER (1)
 	db "SAMM@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 10, MANKEY
@@ -1846,7 +1846,7 @@ PinkManiacGroup:
 
 	; PINK_MANIAC (1)
 	db "SHAWN@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 23, RAICHU
@@ -1865,7 +1865,7 @@ PokemaniacGroup:
 
 	; POKEMANIAC (1)
 	db "KUSATO@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 34, SALAZZLE
@@ -1884,7 +1884,7 @@ FisherGroup:
 
 	; FISHER (1)
 	db "SOJIRO@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 7, CHINCHOU
@@ -1897,7 +1897,7 @@ FisherGroup:
 
 	; FISHER (2)
 	db "FUGU@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 10, QWILFISH
@@ -1908,7 +1908,7 @@ FisherGroup:
 
 	; FISHER (3)
 	db "NAT PAGLE@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 14, TENTACOOL
@@ -1921,7 +1921,7 @@ FisherGroup:
 
 	; FISHER (4)
 	db "NOBU@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 8, POLIWAG
@@ -1933,7 +1933,7 @@ FisherGroup:
 
 	; FISHER (5)
 	db "ISAO@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 23, QWILFISH
@@ -1961,7 +1961,7 @@ HikerGroup:
 
 	; HIKER (1)
 	db "TEPPEI@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 26, KABUTO
@@ -1978,7 +1978,7 @@ AthleteGroup:
 
 	; ATHLETE (1)
 	db "HIDEKI@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 22, DODUO
@@ -1991,7 +1991,7 @@ AthleteGroup:
 
 	; ATHLETE (2)
 	db "KAITO@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 24, DODUO
@@ -2009,7 +2009,7 @@ SightseerMGroup:
 
 	; SIGHTSEERM (1)
 	db "MICHIO@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 24, KADABRA
@@ -2027,7 +2027,7 @@ SightseerFGroup:
 
 	; SIGHTSEERF (1)
 	db "ASAMI@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 25, JIGGLYPUFF
@@ -2046,7 +2046,7 @@ WaitressGroup:
 
 	; WAITRESS (1)
 	db "SATOMI@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 24, CLEFAIRY
@@ -2059,7 +2059,7 @@ WaitressGroup:
 
 	; WAITRESS (2)
 	db "SAORI@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 24, JIGGLYPUFF
@@ -2072,7 +2072,7 @@ WaitressGroup:
 
 	; WAITRESS (3)
 	db "NAOMI@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 24, SMOOCHUM
@@ -2085,7 +2085,7 @@ WaitressGroup:
 
 	; WAITRESS (4)
 	db "JUN@"
-	db 0 ; normal
+	db TRAINERTYPE_NORMAL
 
 	; party
 	db 23, EEVEE
@@ -2211,7 +2211,7 @@ CrossGroup:
 
 	; CROSS (1)
 	db "CROSS@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -2232,7 +2232,7 @@ CrossGroup:
 
 	; CROSS (2)
 	db "CROSS@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -2253,7 +2253,7 @@ CrossGroup:
 
 	; CROSS (3)
 	db "CROSS@"
-	db 1 ; moves
+	db TRAINERTYPE_MOVES
 
 	; party
 
@@ -2275,23 +2275,23 @@ CrossGroup:
 
 	; CROSS (4)
 	db "CROSS@"
-	db 1 ; moves
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 
 	; party
 
-	db 27, WARTORTLE
+	db 27, WARTORTLE, 0
 		db BUBBLEBEAM
 		db BITE
 		db SURF
 		db NASTY_PLOT
 
-	db 25, LYCANROC
+	db 25, LYCANROC, LYCANROC_MIDNIGHT_FORM
 		db ROCK_THROW
 		db BITE
 		db FORESIGHT
 		db FRUSTRATION
 		
-	db 24, FLAREON
+	db 24, FLAREON, 0
 		db FLAMETHROWER
 		db BITE
 		db QUICK_ATTACK
@@ -2303,23 +2303,23 @@ CrossGroup:
 
 	; CROSS (5)
 	db "CROSS@"
-	db 1 ; moves
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 
 	; party
 
-	db 27, IVYSAUR
+	db 27, IVYSAUR, 0
 		db RAZOR_LEAF
 		db LEECH_SEED
 		db SLEEP_POWDER
 		db NASTY_PLOT
 
-	db 25, LYCANROC
+	db 25, LYCANROC, LYCANROC_MIDNIGHT_FORM
 		db ROCK_THROW
 		db BITE
 		db FORESIGHT
 		db FRUSTRATION
 		
-	db 24, VAPOREON
+	db 24, VAPOREON, 0
 		db BUBBLEBEAM
 		db BITE
 		db QUICK_ATTACK
@@ -2331,23 +2331,23 @@ CrossGroup:
 
 	; CROSS (6)
 	db "CROSS@"
-	db 1 ; moves
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 
 	; party
 
-	db 27, CHARMELEON
+	db 27, CHARMELEON, 0
 		db FLAMETHROWER
 		db SLASH
 		db SMOKESCREEN
 		db NASTY_PLOT
 
-	db 25, LYCANROC
+	db 25, LYCANROC, LYCANROC_MIDNIGHT_FORM
 		db ROCK_THROW
 		db BITE
 		db FORESIGHT
 		db FRUSTRATION
 		
-	db 24, LEAFEON
+	db 24, LEAFEON, 0
 		db RAZOR_LEAF
 		db BITE
 		db QUICK_ATTACK
@@ -2359,29 +2359,29 @@ CrossGroup:
 
 	; CROSS (7)
 	db "CROSS@"
-	db 1 ; moves
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 
 	; party
 
-	db 36, BLASTOISE
+	db 36, BLASTOISE, 0
 		db BUBBLEBEAM
 		db BITE
 		db SURF
 		db NASTY_PLOT
 
-	db 32, LYCANROC
+	db 32, LYCANROC, LYCANROC_MIDNIGHT_FORM
 		db ROCK_THROW
 		db CRUNCH
 		db FORESIGHT
 		db ROCK_SMASH
 		
-	db 31, FLAREON
+	db 31, FLAREON, 0
 		db FLAMETHROWER
 		db BITE
 		db QUICK_ATTACK
 		db SUNNY_DAY
 		
-	db 29, SKARMORY
+	db 29, SKARMORY, 0
 		db STEEL_WING
 		db AERIAL_ACE
 		db SWORDS_DANCE
@@ -2393,29 +2393,29 @@ CrossGroup:
 
 	; CROSS (8)
 	db "CROSS@"
-	db 1 ; moves
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 
 	; party
 
-	db 36, VENUSAUR
+	db 36, VENUSAUR, 0
 		db GIGA_DRAIN
 		db LEECH_SEED
 		db PETAL_DANCE
 		db NASTY_PLOT
 
-	db 32, LYCANROC
+	db 32, LYCANROC, LYCANROC_MIDNIGHT_FORM
 		db ROCK_THROW
 		db CRUNCH
 		db FORESIGHT
 		db ROCK_SMASH
 		
-	db 31, VAPOREON
+	db 31, VAPOREON, 0
 		db BUBBLEBEAM
 		db BITE
 		db QUICK_ATTACK
 		db RAIN_DANCE
 		
-	db 29, SKARMORY
+	db 29, SKARMORY, 0
 		db STEEL_WING
 		db AERIAL_ACE
 		db SWORDS_DANCE
@@ -2427,29 +2427,29 @@ CrossGroup:
 
 	; CROSS (9)
 	db "CROSS@"
-	db 1 ; moves
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 
 	; party
 
-	db 36, CHARIZARD
+	db 36, CHARIZARD, 0
 		db FLAMETHROWER
 		db DRAGON_TAIL
 		db SLASH
 		db SMOKESCREEN
 
-	db 32, LYCANROC
+	db 32, LYCANROC, LYCANROC_MIDNIGHT_FORM
 		db ROCK_THROW
 		db CRUNCH
 		db FORESIGHT
 		db ROCK_SMASH
 		
-	db 31, LEAFEON
+	db 31, LEAFEON, 0
 		db RAZOR_LEAF
 		db BITE
 		db QUICK_ATTACK
 		db GROWTH
 		
-	db 29, SKARMORY
+	db 29, SKARMORY, 0
 		db STEEL_WING
 		db AERIAL_ACE
 		db SWORDS_DANCE
