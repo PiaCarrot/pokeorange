@@ -6134,7 +6134,7 @@ LoadEnemyMon: ; 3e8eb
 	ld [hli], a
 	ld [hl], a
 ; Make sure the predef knows this isn't a partymon
-	ld [MagikarpLength], a
+	ld [wEvolutionOldSpecies], a
 ; Fill moves based on level
 	predef FillMoves
 
@@ -8762,7 +8762,23 @@ GetBattleRandomPersonality:
 	ld b, a
 
 ; Form
-	xor a ; nonzero for special forms
+	ld a, [TempEnemyMonSpecies]
+	cp LYCANROC
+	ld a, 0 ; default form 0
+	jr nz, .got_form
+	; 5:00 PM to 5:59 PM = Dusk Lycanroc
+	ld a, [hHours]
+	cp 17
+	ld a, LYCANROC_DUSK_FORM
+	jr z, .got_form
+	; night = Midnight Lycanroc
+	ld a, [TimeOfDay]
+	cp NITE
+	ld a, LYCANROC_MIDNIGHT_FORM
+	jr z, .got_form
+	; day = Midday Lycanroc
+	ld a, LYCANROC_MIDDAY_FORM
+.got_form
 	or b
 	ld b, a
 

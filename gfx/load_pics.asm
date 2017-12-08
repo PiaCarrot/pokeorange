@@ -1,25 +1,27 @@
 GetVariant: ; 51040
 ; Return MonVariant based on DVs at hl
 	ld a, [CurPartySpecies]
+	cp LYCANROC
+	jr z, .GetLycanrocVariant
 	cp SPINDA
 	jr z, .GetSpindaVariant
 	cp MAGIKARP
 	jr z, .GetMagikarpVariant
 
 ; Squirtle Variant
-; Get the item from box_struct TempMon or battle_struct
+; Get the item from party_struct TempMon or battle_struct
 	push bc
 	ld bc, TempMonDVs
 	ld a, b
 	cp h
-	jr nz, .not_tempmon
+	jr nz, .not_tempmon_squirtle
 	ld a, c
 	cp l
-	jr nz, .not_tempmon
-	ld bc, -15
+	jr nz, .not_tempmon_squirtle
+	ld bc, (TempMonItem - TempMonDVs) - (BattleMonItem - BattleMonDVs)
 	add hl, bc
-.not_tempmon
-	ld bc, -5
+.not_tempmon_squirtle
+	ld bc, BattleMonItem - BattleMonDVs
 	add hl, bc
 	pop bc
 
@@ -32,6 +34,31 @@ GetVariant: ; 51040
 
 ; Normal form
 	ld a, 1
+	ld [MonVariant], a
+	ret
+
+.GetLycanrocVariant:
+; Get the form from party_struct TempMon or battle_struct
+	push bc
+	ld bc, TempMonDVs
+	ld a, b
+	cp h
+	jr nz, .not_tempmon_lycanroc
+	ld a, c
+	cp l
+	jr nz, .not_tempmon_lycanroc
+	ld bc, (TempMonForm - TempMonDVs) - (BattleMonForm - BattleMonDVs)
+	add hl, bc
+.not_tempmon_lycanroc
+	ld bc, BattleMonForm - BattleMonDVs
+	add hl, bc
+	pop bc
+
+	ld a, [hl]
+	and FORM_MASK ; 0, 1, 2, or 3
+	jr nz, .ok_lycanroc
+	ld a, 1 ; 0 -> 1
+.ok_lycanroc
 	ld [MonVariant], a
 	ret
 

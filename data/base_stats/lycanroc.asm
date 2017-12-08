@@ -11,7 +11,7 @@
 	db 20 ; step cycles to hatch
 	dn 7, 7 ; frontpic dimensions
 
-	db FAST ; growth rate
+	db MEDIUM_FAST ; growth rate
 	dn FIELD, FIELD ; egg groups
 
 	; tmhm

@@ -288,52 +288,21 @@ SetPartyMonIconAnimSpeed: ; 8e936 (23:6936)
 	db $00, $40, $80
 ; 8e961
 
-PokegearFlyMap_GetMonIcon: ; 8e9ac
-; Load species icon into VRAM at tile a
+FlyFunction_GetSpecies:
 	push de
 	ld a, [wd265]
 	ld [CurIcon], a
 	pop de
 	ld a, e
-	jp GetIconGFX
-; 8e9bc
-
-FlyFunction_GetMonIcon: ; 8e9bc (23:69bc)
-	push de
-	ld a, [wd265]
-	ld [CurIcon], a
-	pop de
-	ld a, e
-	jp GetIcon_a
-; 8e9cc (23:69cc)
-
-GetMemIconGFX: ; 8e9db (23:69db)
-	ld a, [wCurIconTile]
-GetIconGFX: ; 8e9de
-	call GetIcon_a
-	ld de, $80 ; 8 tiles
-	add hl, de
-	ld de, HeldItemIcons
-	lb bc, BANK(HeldItemIcons), 2
-	call Request2bpp
-	ld a, [wCurIconTile]
-	add 10
-	ld [wCurIconTile], a
 	ret
 
-HeldItemIcons:
-INCBIN "gfx/icon/mail.2bpp"
-INCBIN "gfx/icon/item.2bpp"
-; 8ea17
-
-GetIcon_a: ; 8ea1b
+FlyFunction_GetMonIcon: ; 8e9bc (23:69bc)
+	call FlyFunction_GetSpecies
+	; fallthrough
+GetIcon: ; 8ea1b
 ; Load icon graphics into VRAM starting from tile a.
 	ld l, a
 	ld h, 0
-
-GetIcon: ; 8ea1e
-; Load icon graphics into VRAM starting from tile hl.
-
 ; One tile is 16 bytes long.
 rept 4
 	add hl, hl
@@ -370,6 +339,32 @@ GetMonIconBank:
 	ret c
 	lb bc, BANK(Icons2), 8
 	ret
+
+GetMemIconGFX: ; 8e9db (23:69db)
+	ld a, [wCurIconTile]
+	jr GetIconGFX
+; 8e9bc
+
+PokegearFlyMap_GetMonIcon: ; 8e9ac
+	call FlyFunction_GetSpecies
+	; fallthrough
+GetIconGFX: ; 8e9de
+; Load species icon into VRAM at tile a
+	call GetIcon
+	ld de, $80 ; 8 tiles
+	add hl, de
+	ld de, HeldItemIcons
+	lb bc, BANK(HeldItemIcons), 2
+	call Request2bpp
+	ld a, [wCurIconTile]
+	add 10
+	ld [wCurIconTile], a
+	ret
+
+HeldItemIcons:
+INCBIN "gfx/icon/mail.2bpp"
+INCBIN "gfx/icon/item.2bpp"
+; 8ea17
 
 FreezeMonIcons: ; 8ea4a
 	ld hl, wSpriteAnimationStructs

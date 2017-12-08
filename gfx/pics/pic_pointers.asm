@@ -158,7 +158,7 @@
 	add_pics Toucannon
 	add_pics Munchlax
 	add_pics Rockruff
-	add_pics Lycanroc
+	add_pics LycanrocMidday ; unused; see LycanrocPicPointers
 	add_pics Wingull
 	add_pics Pelipper
 	add_pics Chingling

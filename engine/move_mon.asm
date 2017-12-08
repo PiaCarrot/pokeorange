@@ -1842,7 +1842,23 @@ GetRandomPersonality:
 	ld b, a
 
 ; Form
-	xor a ; nonzero for special forms
+	ld a, [CurSpecies]
+	cp LYCANROC
+	ld a, 0 ; default form 0
+	jr nz, .got_form
+	; 5:00 PM to 5:59 PM = Dusk Lycanroc
+	ld a, [hHours]
+	cp 17
+	ld a, LYCANROC_DUSK_FORM
+	jr z, .got_form
+	; night = Midnight Lycanroc
+	ld a, [TimeOfDay]
+	cp NITE
+	ld a, LYCANROC_MIDNIGHT_FORM
+	jr z, .got_form
+	; day = Midday Lycanroc
+	ld a, LYCANROC_MIDDAY_FORM
+.got_form
 	or b
 	ld b, a
 
@@ -1874,4 +1890,3 @@ GetRandomPersonality:
 	ld [CurItem], a
 	scf
 	ret
-
