@@ -266,7 +266,7 @@ CrossMurcottIslandText:
 	para "I came to find a"
 	line "strong #MON,"
 	cont "but I can't find"
-	cont" a SCYTHER."
+	cont "a SCYTHER."
 
 	para "No matter! I got"
 	line "something even"

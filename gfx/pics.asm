@@ -7,23 +7,23 @@ PicPointers:: INCLUDE "gfx/pics/pic_pointers.asm"
 SECTION "Spinda Pic Pointers", ROMX, BANK[SPINDA_PIC_POINTERS]
 SpindaPicPointers:: INCLUDE "gfx/pics/spinda_pic_pointers.asm"
 
+SECTION "Lycanroc Pic Pointers", ROMX
+LycanrocPicPointers:: INCLUDE "gfx/pics/lycanroc_pic_pointers.asm"
+
 SECTION "Squirtle Pic Pointers", ROMX
 SquirtlePicPointers:: INCLUDE "gfx/pics/squirtle_pic_pointers.asm"
 
 SECTION "Magikarp Pic Pointers", ROMX
 MagikarpPicPointers:: INCLUDE "gfx/pics/magikarp_pic_pointers.asm"
 
-
 SECTION "Trainer Pic Pointers", ROMX, BANK[TRAINER_PIC_POINTERS]
 TrainerPicPointers:: INCLUDE "gfx/pics/trainer_pic_pointers.asm"
-
 
 
 SECTION "Pics 1", ROMX, BANK[PICS_1]
 
 ArticunoFrontpic:    INCBIN "gfx/pics/articuno/front.2bpp.lz"
 EnteiFrontpic:       INCBIN "gfx/pics/entei/front.2bpp.lz"
-CinccinoFrontpic:    INCBIN "gfx/pics/cinccino/front.2bpp.lz"
 HoOhFrontpic:        INCBIN "gfx/pics/ho_oh/front.2bpp.lz"
 LugiaFrontpic:       INCBIN "gfx/pics/lugia/front.2bpp.lz"
 MachampFrontpic:     INCBIN "gfx/pics/machamp/front.2bpp.lz"
@@ -83,7 +83,7 @@ SECTION "Pics 4", ROMX, BANK[PICS_4]
 
 AerodactylFrontpic:  INCBIN "gfx/pics/aerodactyl/front.2bpp.lz"
 BlisseyFrontpic:     INCBIN "gfx/pics/blissey/front.2bpp.lz"
-MinccinoFrontpic:    INCBIN "gfx/pics/minccino/front.2bpp.lz"
+RockruffFrontpic:    INCBIN "gfx/pics/rockruff/front.2bpp.lz"
 DodrioFrontpic:      INCBIN "gfx/pics/dodrio/front.2bpp.lz"
 DonphanFrontpic:     INCBIN "gfx/pics/donphan/front.2bpp.lz"
 DragoniteFrontpic:   INCBIN "gfx/pics/dragonite/front.2bpp.lz"
@@ -312,7 +312,6 @@ DodrioBackpic:       INCBIN "gfx/pics/dodrio/back.2bpp.lz"
 DoduoFrontpic:       INCBIN "gfx/pics/doduo/front.2bpp.lz"
 DratiniFrontpic:     INCBIN "gfx/pics/dratini/front.2bpp.lz"
 ElekidBackpic:       INCBIN "gfx/pics/elekid/back.2bpp.lz"
-CinccinoBackpic:     INCBIN "gfx/pics/cinccino/back.2bpp.lz"
 GrowlitheFrontpic:   INCBIN "gfx/pics/growlithe/front.2bpp.lz"
 GyaradosBackpic:     INCBIN "gfx/pics/gyarados/back.2bpp.lz"
 KrabbyBackpic:       INCBIN "gfx/pics/krabby/back.2bpp.lz"
@@ -350,7 +349,7 @@ KecleonBackpic:      INCBIN "gfx/pics/kecleon/back.2bpp.lz"
 BeautyPic:           INCBIN "gfx/trainers/beauty.2bpp.lz"
 BeedrillBackpic:     INCBIN "gfx/pics/beedrill/back.2bpp.lz"
 BulbasaurFrontpic:   INCBIN "gfx/pics/bulbasaur/front.2bpp.lz"
-MinccinoBackpic:     INCBIN "gfx/pics/minccino/back.2bpp.lz"
+RockruffBackpic:     INCBIN "gfx/pics/rockruff/back.2bpp.lz"
 CuboneBackpic:       INCBIN "gfx/pics/cubone/back.2bpp.lz"
 PikipekBackpic:      INCBIN "gfx/pics/pikipek/back.2bpp.lz"
 DoduoBackpic:        INCBIN "gfx/pics/doduo/back.2bpp.lz"
@@ -748,10 +747,20 @@ ProfOakPic:          INCBIN "gfx/trainers/prof_oak.2bpp.lz"
 NursePic:            INCBIN "gfx/trainers/nurse.2bpp.lz"
 BugCatcherFPic:      INCBIN "gfx/trainers/bug_catcher_f.2bpp.lz"
 CatmanPic:           INCBIN "gfx/trainers/catman.2bpp.lz"
-CrossPic:			 INCBIN "gfx/trainers/cross.2bpp.lz"
+CrossPic:            INCBIN "gfx/trainers/cross.2bpp.lz"
 
 
 SECTION "Pics 21", ROMX
+
+LycanrocMiddayFrontpic:   INCBIN "gfx/pics/lycanroc_midday/front.2bpp.lz"
+LycanrocMiddayBackpic:    INCBIN "gfx/pics/lycanroc_midday/back.2bpp.lz"
+LycanrocMidnightFrontpic: INCBIN "gfx/pics/lycanroc_midnight/front.2bpp.lz"
+LycanrocMidnightBackpic:  INCBIN "gfx/pics/lycanroc_midnight/back.2bpp.lz"
+LycanrocDuskFrontpic:     INCBIN "gfx/pics/lycanroc_dusk/front.2bpp.lz"
+LycanrocDuskBackpic:      INCBIN "gfx/pics/lycanroc_dusk/back.2bpp.lz"
+
+
+SECTION "Pics 22", ROMX
 
 SquirtleGlassesFrontpic:  INCBIN "gfx/pics/squirtle_glasses/front.2bpp.lz"
 SquirtleGlassesBackpic:   INCBIN "gfx/pics/squirtle_glasses/back.2bpp.lz"

@@ -12,6 +12,7 @@
 
 - Prism DED cry code
 - When releasing Pokemon, make sure it is not last Pokemon you own with Surf
+- NPC trainers with variant-form Magikarp, Spinda, Lycanroc, and Squirtle
 
 ## Graphics
 
@@ -20,6 +21,7 @@
 
 ## Moves
 
+- Replace Constrict with Accelerock
 - Add to learnsets: Giga Impact, Play Rough, Poison Jab, Power Gem, Zen Headbutt
    - Giga Impact: aerodactyl, donphan, electivire, snorlax, tauros
    - Play Rough: marill/azumarill, mimikyu, persian, wigglytuff

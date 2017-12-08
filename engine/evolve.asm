@@ -262,6 +262,44 @@ endr
 	jp z, .dont_evolve_3
 
 .proceed
+	ld a, [TempMonSpecies]
+	cp ROCKRUFF
+	jr nz, .not_rockruff
+	push hl
+	push bc
+	; 5:00 PM to 5:59 PM = Dusk Lycanroc
+	ld a, [hHours]
+	cp 17
+	ld a, LYCANROC_DUSK_FORM
+	jr z, .got_rockruff_form
+	; night = Midnight Lycanroc
+	ld a, [TimeOfDay]
+	cp NITE
+	ld a, LYCANROC_MIDNIGHT_FORM
+	jr z, .got_rockruff_form
+	; day = Midday Lycanroc
+	ld a, LYCANROC_MIDDAY_FORM
+.got_rockruff_form
+	ld b, a
+	ld a, [TempMonForm]
+	and $ff - FORM_MASK
+	or b
+	ld [TempMonForm], a
+	ld a, [CurPartyMon]
+	ld hl, PartyMon1Form
+	call GetPartyLocation
+	ld a, [TempMonForm]
+	ld [hl], a
+	pop bc
+	pop hl
+.not_rockruff
+
+	push hl
+	ld hl, TempMonDVs
+	predef GetVariant
+	; TODO: make this variant apply correctly to Lycanroc
+	pop hl
+
 	ld a, [TempMonLevel]
 	ld [CurPartyLevel], a
 	ld a, $1

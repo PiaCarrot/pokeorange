@@ -122,11 +122,11 @@ if def(DEBUG)
 	giveitem SUPER_ROD
 	giveitem MASTER_ROD
 	opentext
-	givepoke LAPRAS, 40
-	givepoke CHARIZARD, 40
-	givepoke PIKACHU, 40, LIGHT_BALL
-	givepoke MEOWTH, 40
-	givepoke MEW, 40
+	givepoke LAPRAS, 50
+	givepoke CHARIZARD, 50
+	givepoke PIKACHU, 50, LIGHT_BALL
+	givepoke ROCKRUFF, 50
+	givepoke MEW, 50
 	closetext
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
@@ -304,7 +304,7 @@ TeachHMSlaveMoves:
 	ld [hli], a ; DOUBLE_TEAM
 	ld a, FLASH
 	ld [hl], a ; SLAM
-	; MEOWTH
+	; LYCANROC
 	; MEW
 	ld hl, PartyMon5Moves
 	ld a, ROCK_SMASH

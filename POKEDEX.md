@@ -9,8 +9,8 @@
 156. *Trumbeak*
 157. *Toucannon*
 158. *Munchlax*
-159. *Minccino*
-160. *Cinccino*
+159. *Rockruff*
+160. *Lycanroc*
 161. *Wingull*
 162. *Pelipper*
 163. *Chingling*

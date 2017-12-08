@@ -161,8 +161,8 @@ EvosAttacksPointers:: ; 0x425b1
 	dw TrumbeakEvosAttacks
 	dw ToucannonEvosAttacks
 	dw MunchlaxEvosAttacks
-	dw MinccinoEvosAttacks
-	dw CinccinoEvosAttacks
+	dw RockruffEvosAttacks
+	dw LycanrocEvosAttacks
 	dw WingullEvosAttacks
 	dw PelipperEvosAttacks
 	dw ChinglingEvosAttacks
