@@ -444,3 +444,6 @@ ChrisDiveSprite:
 
 KrisDiveSprite:
 	sprite_header KrisDiveSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED
+
+InvisibleSprite:
+	sprite_header InvisibleSpriteGFX, 3, STANDING_SPRITE, PAL_OW_GREEN

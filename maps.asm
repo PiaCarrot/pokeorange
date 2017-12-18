@@ -175,6 +175,8 @@ INCLUDE "maps/MandarinDesert.asm"
 INCLUDE "maps/Trovitopolis.asm"
 INCLUDE "maps/TrovitopolisSewer.asm"
 INCLUDE "maps/TrovitaIsland.asm"
+INCLUDE "maps/Route62MandarinDesertGate.asm"
+INCLUDE "maps/SunrayCaveMandarinDesert1F.asm"
 
 SECTION "Map Scripts 11", ROMX, BANK[MAP_SCRIPTS_11]
 INCLUDE "maps/GoldenIsland.asm"
@@ -200,7 +202,7 @@ INCLUDE "maps/TrovitopolisHouse1.asm"
 INCLUDE "maps/TrovitopolisHouse2.asm"
 INCLUDE "maps/TrovitopolisHouse3.asm"
 INCLUDE "maps/TrovitopolisHouse4.asm"
-
+INCLUDE "maps/SewerEntrance.asm"
 
 SECTION "Map Scripts 12", ROMX, BANK[MAP_SCRIPTS_12]
 

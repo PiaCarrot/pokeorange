@@ -167,7 +167,7 @@ MandarinUndergroundCassidyScript:
 	end
 
 MandarinUndergroundTMFrustration:
-	itemball TM_FRUSTRATION
+	itemball HM_CUT
 
 MandarinUndergroundPC:
 	jumptext MandarinUndergroundPCText

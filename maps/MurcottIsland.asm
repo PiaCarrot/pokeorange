@@ -198,6 +198,7 @@ CrossBattle3Script1:
 	special Special_FadeOutMusic
 	playmapmusic
 	pause 10
+	domaptrigger MURCOTT_ISLAND, $1
 	setevent EVENT_MURCOTT_ISLAND_CROSS
 	end	
 	
@@ -252,6 +253,7 @@ CrossBattle3Script2:
 	special Special_FadeOutMusic
 	playmapmusic
 	pause 10
+	domaptrigger MURCOTT_ISLAND, $1
 	setevent EVENT_MURCOTT_ISLAND_CROSS
 	end
 	
@@ -335,19 +337,19 @@ MurcottIsland_MapEventHeader::
 	warp_def 11, 17, 1, MURCOTT_HOUSE_1
 	warp_def 19, 13, 1, MURCOTT_HOUSE_2
 	warp_def 23, 35, 1, MURCOTT_HOUSE_3
-	warp_def 17, 25, 1, MURCOTT_POKE_CENTER
+	warp_def 13, 3, 1, MURCOTT_POKE_CENTER
 	warp_def 17, 37, 2, MURCOTT_POKE_MART
 
 .CoordEvents: db 2
-	xy_trigger 0, 14, 0, CrossBattle3Script1
-	xy_trigger 0, 15, 0, CrossBattle3Script2
+	xy_trigger 0, 14, 4, CrossBattle3Script1
+	xy_trigger 0, 15, 4, CrossBattle3Script2
 
 .BGEvents: db 2
 	signpost 6, 16, SIGNPOST_READ, DayCareSign
-	signpost 13, 5, SIGNPOST_READ, MurcottIslandSign
+	signpost 13, 9, SIGNPOST_READ, MurcottIslandSign
 
 .ObjectEvents: db 8
-	person_event SPRITE_ROCKER, 14, 5, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_MURCOTT_ISLAND_CROSS
+	person_event SPRITE_ROCKER, 14, 9, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_MURCOTT_ISLAND_CROSS
 	person_event SPRITE_GRAMPS, 6, 14, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DayCareManScript_Outside, EVENT_DAYCARE_MAN_OUTSIDE
 	person_event SPRITE_DAYCARE_MON_1, 3, 18, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DaycareMon1Script, EVENT_DAYCARE_MON_1
 	person_event SPRITE_DAYCARE_MON_2, 4, 21, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DaycareMon2Script, EVENT_DAYCARE_MON_2
