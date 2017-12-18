@@ -30,9 +30,11 @@ MAP_NONE EQU 0
 	mapgroup CRYSTAL_CAVE_1F, 14, 17
 	mapgroup CRYSTAL_CAVE_B1, 14, 18
 	mapgroup MANDARIN_DESERT, 25, 25
+	mapgroup SEWER_ENTRANCE, 3, 3
 	mapgroup TROVITOPOLIS_SEWER, 28, 26
 	mapgroup GOLDEN_ISLAND, 16, 14
 	mapgroup ROUTE_60, 32, 28
+	mapgroup SUNRAY_CAVE_MANDARIN_DESERT_1F, 11, 11
 
 	newgroup ; 3
 
@@ -110,6 +112,7 @@ MAP_NONE EQU 0
 	mapgroup MURCOTT_POKE_MART, 4, 6
 	mapgroup UNNAMED_ISLAND_2, 20, 17
 	mapgroup ROUTE_62, 20, 37
+	mapgroup ROUTE_62_MANDARIN_DESERT_GATE, 4, 5
 
 	newgroup ; 7
 

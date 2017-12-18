@@ -101,3 +101,6 @@ TrovitopolisDeptStoreElevator_BlockData:
 
 TrovitopolisDeptStoreRoof_BlockData:
 	INCBIN "maps/TrovitopolisDeptStoreRoof.blk"
+
+SunrayCaveMandarinDesert1F_BlockData:
+	INCBIN "maps/SunrayCaveMandarinDesert1F.blk"

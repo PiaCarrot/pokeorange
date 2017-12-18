@@ -208,6 +208,10 @@
 	map_header_2 TrovitopolisHouse2, TROVITOPOLIS_HOUSE_2, 0, 0
 	map_header_2 TrovitopolisHouse3, TROVITOPOLIS_HOUSE_3, 0, 0
 	map_header_2 TrovitopolisHouse4, TROVITOPOLIS_HOUSE_4, 0, 0
+	map_header_2 SewerEntrance, SEWER_ENTRANCE, 0, 0
+	map_header_2 Route62MandarinDesertGate, ROUTE_62_MANDARIN_DESERT_GATE, 0, 0
+	map_header_2 SunrayCaveMandarinDesert1F, SUNRAY_CAVE_MANDARIN_DESERT_1F, 9, 0
+
 	
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

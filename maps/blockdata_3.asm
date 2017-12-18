@@ -82,3 +82,6 @@ TrovitopolisSewer_BlockData:
 	
 FishingContest_BlockData:
 	INCBIN "maps/FishingContest.blk"
+	
+SewerEntrance_BlockData:
+	INCBIN "maps/SewerEntrance.blk"
