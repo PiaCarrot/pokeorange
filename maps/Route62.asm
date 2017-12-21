@@ -131,9 +131,8 @@ Route62TraceyScript:
 	applymovement ROUTE_62_TRACEY, Tracey62_Movement
 	disappear ROUTE_62_TRACEY
 	playsound SFX_ENTER_DOOR
-	pause 20
 	special Special_FadeOutMusic
-	playmapmusic
+	special RestartMapMusic
 	pause 10
 	setevent EVENT_ROUTE_62_TRACEY
 	end

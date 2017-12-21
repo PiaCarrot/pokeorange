@@ -89,12 +89,12 @@ PokeCommSign:
 PokeCommSignText:
 	text "ADMIN ROOM"
 	
-	para "Warning!"
-	line "Our staff like to"
-	cont "ramble on about"
-	cont "things that don't"
-	
-	para "make sense!"
+    para "Warning!"
+
+    para "Our staff like to"
+    line "ramble on about"
+    cont "things that don't"
+    cont "make sense!"
 	done
 	
 APSign:
@@ -131,7 +131,7 @@ TrovitopolisPokeCommCenter_MapEventHeader::
 
 .BGEvents: db 18
 	signpost 15, 2, SIGNPOST_READ, PokeCommSign
-	signpost 2, 6, SIGNPOST_READ, APSign
+	signpost 2, 5, SIGNPOST_READ, APSign
 	signpost 10, 19, SIGNPOST_READ, PokeCommMachineSign
 	signpost 11, 19, SIGNPOST_READ, PokeCommMachineSign
 	signpost 12, 19, SIGNPOST_READ, PokeCommMachineSign
@@ -154,6 +154,6 @@ TrovitopolisPokeCommCenter_MapEventHeader::
 	person_event SPRITE_LASS, 17, 4, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeCommLassScript, -1
 	person_event SPRITE_ROCKER, 9, 21, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 1, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeCommRockerScript, -1
 	person_event SPRITE_TEACHER, 18, 10, SPRITEMOVEDATA_STANDING_UP, 0, 1, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeCommTeacherScript, -1
-	person_event SPRITE_SCIENTIST, 5, 6, SPRITEMOVEDATA_STANDING_UP, 0, 1, -1, -1, PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeCommScientist1Script, -1
-	person_event SPRITE_SCIENTIST, 3, 3, SPRITEMOVEDATA_STANDING_UP, 0, 1, -1, -1, PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeCommScientist2Script, -1
+	person_event SPRITE_LASS, 5, 5, SPRITEMOVEDATA_STANDING_UP, 0, 1, -1, -1, PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeCommScientist1Script, -1
+	person_event SPRITE_COOLTRAINER_F, 3, 2, SPRITEMOVEDATA_STANDING_UP, 0, 1, -1, -1, PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeCommScientist2Script, -1
 

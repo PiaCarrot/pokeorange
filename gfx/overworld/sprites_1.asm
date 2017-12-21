@@ -24,7 +24,6 @@ JasmineSpriteGFX:      INCBIN "gfx/overworld/022.2bpp" ; c1f80
 PryceSpriteGFX:        INCBIN "gfx/overworld/023.2bpp" ; c2100
 ClairSpriteGFX:        INCBIN "gfx/overworld/024.2bpp" ; c2280
 BrockSpriteGFX:        INCBIN "gfx/overworld/025.2bpp" ; c2400
-KarenSpriteGFX:        INCBIN "gfx/overworld/026.2bpp" ; c2580
 BrunoSpriteGFX:        INCBIN "gfx/overworld/027.2bpp" ; c2640
 MistySpriteGFX:        INCBIN "gfx/overworld/028.2bpp" ; c27c0
 LanceSpriteGFX:        INCBIN "gfx/overworld/029.2bpp" ; c2940

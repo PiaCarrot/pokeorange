@@ -203,6 +203,9 @@ INCLUDE "maps/TrovitopolisHouse2.asm"
 INCLUDE "maps/TrovitopolisHouse3.asm"
 INCLUDE "maps/TrovitopolisHouse4.asm"
 INCLUDE "maps/SewerEntrance.asm"
+INCLUDE "maps/TrovitopolisPort.asm"
+INCLUDE "maps/MayorsOffice.asm"
+INCLUDE "maps/MayorsOfficeMeetingRoom.asm"
 
 SECTION "Map Scripts 12", ROMX, BANK[MAP_SCRIPTS_12]
 

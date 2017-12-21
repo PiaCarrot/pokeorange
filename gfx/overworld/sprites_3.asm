@@ -8,3 +8,5 @@ RocketMeowthSpriteGFX:		INCBIN "gfx/overworld/108.2bpp"
 ChrisDiveSpriteGFX:			INCBIN "gfx/overworld/109.2bpp"
 KrisDiveSpriteGFX:			INCBIN "gfx/overworld/110.2bpp"
 InvisibleSpriteGFX:			INCBIN "gfx/overworld/111.2bpp"
+KarenSpriteGFX:       	    INCBIN "gfx/overworld/026.2bpp" ; c2580
+MayorSpriteGFX:				INCBIN "gfx/overworld/112.2bpp"
