@@ -1,6 +1,7 @@
 # Moves
 
 **Added:**
+Accelerock,
 Aerial Ace,
 Astonish,
 Bug Bite,
@@ -42,6 +43,7 @@ Beat Up,
 Bide,
 Bind,
 Bone Club,
+Constrict,
 Detect,
 Fury Cutter,
 Hidden Power,

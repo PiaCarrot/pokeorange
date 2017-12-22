@@ -36,6 +36,7 @@ ShadowClaw:
 ShadowSneak:
 Psystrike:
 ShellTrap:
+Accelerock:
 NormalHit:
 	checkobedience
 	usedmovetext
@@ -673,7 +674,6 @@ DefenseDownHit:
 	endmove
 
 Bubblebeam:
-Constrict:
 Bubble:
 IcyWind:
 SpeedDownHit:
