@@ -123,8 +123,8 @@ DannyGroup:
 	db 29, ELECTRODE
 		db THUNDERBOLT
 		db EXPLOSION
-		db 0
-		db 0
+		db NO_MOVE
+		db NO_MOVE
 
 	db $ff ; end
 
@@ -359,9 +359,9 @@ DrakeGroup:
 
 	db 60, DITTO
 		db TRANSFORM
-		db 0
-		db 0
-		db 0
+		db NO_MOVE
+		db NO_MOVE
+		db NO_MOVE
 
 	db 62, STEELIX
 		db DIG
@@ -456,15 +456,15 @@ TraceyGroup:
 
 	db 12, VENONAT
 		db TACKLE
-		db 0
-		db 0
-		db 0
+		db NO_MOVE
+		db NO_MOVE
+		db NO_MOVE
 
 	db 9, MARILL
 		db BUBBLE
 		db GROWL
 		db TAIL_WHIP
-		db 0
+		db NO_MOVE
 
 	db $ff ; end
 
@@ -491,8 +491,8 @@ TraceyGroup:
 	db 23, DODUO
 		db PECK
 		db AGILITY
-		db 0
-		db 0
+		db NO_MOVE
+		db NO_MOVE
 
 	db 22, FLAAFFY
 		db THUNDERBOLT
@@ -560,7 +560,7 @@ BrockGroup:
 		db TACKLE
 		db ROCK_THROW
 		db DEFENSE_CURL
-		db 0
+		db NO_MOVE
 
 	db 22, ROCKRUFF
 		db ROCK_THROW
@@ -577,8 +577,8 @@ BrockGroup:
 	db 18, CORSOLA
 		db BUBBLE
 		db HARDEN
-		db 0
-		db 0
+		db NO_MOVE
+		db NO_MOVE
 
 	db $ff ; end
 
@@ -606,7 +606,7 @@ LtSurgeGroup:
 		db EXPLOSION
 		db ENDURE
 		db NASTY_PLOT
-		db 0
+		db NO_MOVE
 
 	db 62, RAICHU
 		db VOLT_TACKLE
@@ -1582,7 +1582,7 @@ BugCatcherFGroup:
 
 	; BUGCATCHERF (1)
 	db "ALIA@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 26, BUTTERFREE
 	db 25, VENONAT
@@ -1598,7 +1598,7 @@ SwimmerMGroup:
 
 	; SWIMMERM (1)
 	db "KOJURO@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 14, POLIWAG
 	db 14, HORSEA
@@ -1679,12 +1679,13 @@ SwimmerMGroup:
 
 	; SWIMMERM (8)
 	db "ATECAIN@"
-	db TRAINERTYPE_NORMAL
+	db TRAINERTYPE_PERSONALITY
 
-	db 6, MAGIKARP
-	db 6, SLOWPOKE
-	db 6, MAGIKARP
-	db 6, CARVANHA
+	db 6, MAGIKARP, MALE_MASK | MAGIKARP_CALICO3_FORM
+	db 6, SLOWPOKE, MALE_MASK
+	db 6, MAGIKARP, MALE_MASK | MAGIKARP_MASK_FORM
+	db 6, CARVANHA, MALE_MASK
+	db 6, MAGIKARP, MALE_MASK | MAGIKARP_TIGER_FORM
 
 	db $ff
 
@@ -1773,7 +1774,7 @@ SwimmerFGroup:
 
 	; SWIMMERF (4)
 	db "MAYUMI@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 22, CORSOLA
 	db 22, SQUIRTLE
@@ -1908,12 +1909,12 @@ FisherGroup:
 
 	; FISHER (3)
 	db "NAT PAGLE@"
-	db TRAINERTYPE_NORMAL
+	db TRAINERTYPE_PERSONALITY
 
 	; party
-	db 14, TENTACOOL
-	db 14, MAGIKARP
-	db 14, CHINCHOU
+	db 14, TENTACOOL, MALE_MASK
+	db 14, MAGIKARP, MALE_MASK | MAGIKARP_ORCA_FORM
+	db 14, CHINCHOU, MALE_MASK
 
 	db $ff ; end
 
@@ -1946,7 +1947,7 @@ FisherGroup:
 
 	; FISHER (6)
 	db "YUUTA@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 28, OCTILLERY
 
@@ -2027,12 +2028,12 @@ SightseerFGroup:
 
 	; SIGHTSEERF (1)
 	db "ASAMI@"
-	db TRAINERTYPE_NORMAL
+	db TRAINERTYPE_PERSONALITY
 
 	; party
-	db 25, JIGGLYPUFF
-	db 25, SPINDA
-	db 24, SKIPLOOM
+	db 25, JIGGLYPUFF, FEMALE_MASK
+	db 25, SPINDA, FEMALE_MASK | SPINDA_J_FORM
+	db 24, SKIPLOOM, FEMALE_MASK
 
 	db $ff ; end
 
@@ -2105,7 +2106,7 @@ CooltrainerMGroup:
 
 	; COOLTRAINERM (1)
 	db "AKIRA@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 26, JYNX
 	db 25, SEEL
@@ -2122,7 +2123,7 @@ CooltrainerFGroup:
 
 	; COOLTRAINERF (1)
 	db "KEIKO@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 26, SKIPLOOM
 	db 26, ESPEON
@@ -2139,7 +2140,7 @@ CatmanGroup:
 
 	; CATMAN (1)
 	db "DAIKON@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 28, ONIX
 	db 28, NIDOKING
@@ -2148,7 +2149,7 @@ CatmanGroup:
 
 	; CATMAN (2)
 	db "KUNIO@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 27, SCYTHER
 	db 27, HAUNTER
@@ -2158,7 +2159,7 @@ CatmanGroup:
 
 	; CATMAN (3)
 	db "YOSHIKAWA@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 26, GOLBAT
 	db 26, GOLDUCK
@@ -2169,17 +2170,17 @@ CatmanGroup:
 
 	; CATMAN (4)
 	db "REN@"
-	db 0
+	db TRAINERTYPE_PERSONALITY
 
-	db 28, KINGLER
-	db 27, GRAVELER
-	db 26, SPINDA
+	db 28, KINGLER, MALE_MASK
+	db 27, GRAVELER, MALE_MASK
+	db 26, SPINDA, MALE_MASK | SPINDA_C_FORM
 
 	db $ff
 
 	; CATMAN (5)
 	db "MIMI@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 30, KECLEON
 
@@ -2193,7 +2194,7 @@ BirdkeeperGroup:
 ; ================
 	; BIRDKEEPER (1)
 	db "TATSUYA@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 29, PIDGEOTTO
 	db 28, TRUMBEAK
@@ -2225,7 +2226,7 @@ CrossGroup:
 		db ROCK_THROW
 		db TACKLE
 		db GROWL
-		db 0
+		db NO_MOVE
 
 	db $ff ; end
 ; ================ (PICK SQUIRTLE)
@@ -2246,7 +2247,7 @@ CrossGroup:
 		db ROCK_THROW
 		db TACKLE
 		db GROWL
-		db 0
+		db NO_MOVE
 
 	db $ff ; end
 ; ================ TANGELO JUNGLE(PICK BULBASAUR)
@@ -2267,7 +2268,7 @@ CrossGroup:
 		db ROCK_THROW
 		db TACKLE
 		db GROWL
-		db 0
+		db NO_MOVE
 
 	db $ff ; end
 	
