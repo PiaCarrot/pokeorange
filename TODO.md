@@ -12,13 +12,12 @@
 
 - Prism DED cry code
 - When releasing Pokemon, make sure it is not last Pokemon you own with Surf
-- NPC trainers with variant-form Magikarp, Spinda, Lycanroc, and Squirtle
 
 ## Graphics
 
 - Finish menu icon sprites
+- Special-case Lycanroc's icon based on form
 - Add clouds to title screen
-- Special Case TR Meowth with one from Yellow2GSC Sheet
 
 ## Moves
 

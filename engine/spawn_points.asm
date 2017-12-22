@@ -18,7 +18,7 @@ ENDM
 	spawn KINNOW_ISLAND,   17, 10
 	spawn NAVEL_ISLAND,    16, 22
 	spawn MORO_ISLAND,     7, 12
-	spawn MURCOTT_ISLAND,  25, 18
+	spawn MURCOTT_ISLAND,  3, 14
 	spawn TROVITOPOLIS,    48, 32
 ;	spawn ASCORBIA_ISLAND, 0,  0
 ;	spawn KUMQUAT_ISLAND,  0,  0

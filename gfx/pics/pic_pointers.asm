@@ -50,7 +50,7 @@
 	add_pics Venomoth
 	add_pics Diglett
 	add_pics Dugtrio
-	add_pics Meowth
+	add_pics Meowth ; unused; see MeowthPicPointers
 	add_pics Persian
 	add_pics Psyduck
 	add_pics Golduck

@@ -5877,9 +5877,13 @@ LoadEnemyMon: ; 3e8eb
 
 ; Trainer DVs
 
-; All trainers have preset DVs, determined by class
-; See GetTrainerDVs for more on that
-	farcall GetTrainerDVs
+; If we're in a trainer battle, the DVs are in the party struct
+	ld a, [CurPartyMon]
+	ld hl, OTPartyMon1DVs
+	call GetPartyLocation
+	ld a, [hli]
+	ld b, a
+	ld c, [hl]
 ; These are the DVs we'll use if we're actually in a trainer battle
 	ld a, [wBattleMode]
 	dec a
@@ -6171,9 +6175,11 @@ LoadEnemyMon: ; 3e8eb
 	jr .Finish
 
 .TrainerPersonality:
-; All trainers have preset personalities, determined by class
-	farcall GetTrainerPersonality
-	ld a, b
+; Get personality from the party struct
+	ld hl, OTPartyMon1Personality
+	ld a, [CurPartyMon]
+	call GetPartyLocation
+	ld a, [hl]
 	ld [EnemyMonPersonality], a
 
 .Finish:

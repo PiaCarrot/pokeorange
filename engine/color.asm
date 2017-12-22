@@ -115,6 +115,9 @@ GetEnemyFrontpicPalettePointer:
 
 
 GetMonPalettePointer:
+	cp LYCANROC
+	jr z, .maybe_special
+.continue
 	ld l, a
 	ld h, $0
 	add hl, hl
@@ -124,6 +127,22 @@ GetMonPalettePointer:
 	add hl, bc
 	ret
 
+.maybe_special
+	push af
+	ld a, [bc]
+	and FORM_MASK
+	cp LYCANROC_MIDNIGHT_FORM
+	ld hl, LycanrocMidnightPalettes
+	jr z, .ok
+	cp LYCANROC_DUSK_FORM
+	ld hl, LycanrocDuskPalettes
+	jr z, .ok
+	pop af
+	jr .continue
+
+.ok
+	pop af
+	ret
 
 GetMonNormalOrShinyPalettePointer:
 	push af

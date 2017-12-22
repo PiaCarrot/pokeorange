@@ -123,8 +123,8 @@ DannyGroup:
 	db 29, ELECTRODE
 		db THUNDERBOLT
 		db EXPLOSION
-		db 0
-		db 0
+		db NO_MOVE
+		db NO_MOVE
 
 	db $ff ; end
 
@@ -359,9 +359,9 @@ DrakeGroup:
 
 	db 60, DITTO
 		db TRANSFORM
-		db 0
-		db 0
-		db 0
+		db NO_MOVE
+		db NO_MOVE
+		db NO_MOVE
 
 	db 62, STEELIX
 		db DIG
@@ -456,15 +456,15 @@ TraceyGroup:
 
 	db 12, VENONAT
 		db TACKLE
-		db 0
-		db 0
-		db 0
+		db NO_MOVE
+		db NO_MOVE
+		db NO_MOVE
 
 	db 9, MARILL
 		db BUBBLE
 		db GROWL
 		db TAIL_WHIP
-		db 0
+		db NO_MOVE
 
 	db $ff ; end
 
@@ -491,8 +491,8 @@ TraceyGroup:
 	db 23, DODUO
 		db PECK
 		db AGILITY
-		db 0
-		db 0
+		db NO_MOVE
+		db NO_MOVE
 
 	db 22, FLAAFFY
 		db THUNDERBOLT
@@ -560,7 +560,7 @@ BrockGroup:
 		db TACKLE
 		db ROCK_THROW
 		db DEFENSE_CURL
-		db 0
+		db NO_MOVE
 
 	db 22, ROCKRUFF
 		db ROCK_THROW
@@ -577,8 +577,8 @@ BrockGroup:
 	db 18, CORSOLA
 		db BUBBLE
 		db HARDEN
-		db 0
-		db 0
+		db NO_MOVE
+		db NO_MOVE
 
 	db $ff ; end
 
@@ -606,7 +606,7 @@ LtSurgeGroup:
 		db EXPLOSION
 		db ENDURE
 		db NASTY_PLOT
-		db 0
+		db NO_MOVE
 
 	db 62, RAICHU
 		db VOLT_TACKLE
@@ -1149,21 +1149,21 @@ JessieGroup:
 ; ================
 
 	; Jessie (1)
-	db TRAINERTYPE_MOVES
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 	
-	db 38, ARBOK
+	db 38, ARBOK, 0
 		db CRUNCH
 		db POISON_STING
 		db MEAN_LOOK
 		db WRAP
 		
-	db 37, LICKITUNG
+	db 37, LICKITUNG, 0
 		db ROLLOUT
 		db DEFENSE_CURL
 		db LICK
 		db TAKE_DOWN
 		
-	db 35, MEOWTH
+	db 35, MEOWTH, MALE_MASK | MEOWTH_ROCKET_FORM
 		db FURY_SWIPES
 		db AGILITY
 		db TAIL_WHIP
@@ -1178,29 +1178,29 @@ JessieJamesGroup:
 ; ================================
 	; J&J (1)
 	db "AND JAMES@"
-	db TRAINERTYPE_MOVES
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 
 	; party
 
-	db 32, WEEZING
+	db 32, WEEZING, MALE_MASK
 		db POISON_GAS
 		db BODY_SLAM
 		db TOXIC
 		db SLUDGE_BOMB
 
-	db 32, ARBOK
+	db 32, ARBOK, FEMALE_MASK
 		db POISON_STING
 		db WRAP
 		db CRUNCH
 		db SWAGGER
 
-	db 33, MEOWTH
+	db 33, MEOWTH, MALE_MASK | MEOWTH_ROCKET_FORM
 		db FURY_SWIPES
 		db AGILITY
 		db TAIL_WHIP
 		db SLASH
 
-	db 31, VICTREEBEL
+	db 31, VICTREEBEL, MALE_MASK
 		db VINE_WHIP
 		db RAZOR_LEAF
 		db SLEEP_POWDER
@@ -1211,35 +1211,35 @@ JessieJamesGroup:
 
 	; J&J (2)
 	db "AND JAMES@"
-	db TRAINERTYPE_MOVES
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 
 	; party
 
-	db 38, WEEZING
+	db 38, WEEZING, MALE_MASK
 		db SLUDGE_BOMB
 		db TOXIC
 		db BODY_SLAM
 		db VENOSHOCK
 		
-	db 37, VICTREEBEL
+	db 37, VICTREEBEL, MALE_MASK
 		db VINE_WHIP
 		db COTTON_SPORE
 		db SLUDGE_BOMB
 		db BITE
 
-	db 38, ARBOK
+	db 38, ARBOK, FEMALE_MASK
 		db CRUNCH
 		db POISON_STING
 		db MEAN_LOOK
 		db WRAP
 		
-	db 37, LICKITUNG
+	db 37, LICKITUNG, FEMALE_MASK
 		db ROLLOUT
 		db DEFENSE_CURL
 		db LICK
 		db TAKE_DOWN
 		
-	db 35, MEOWTH
+	db 35, MEOWTH, MALE_MASK | MEOWTH_ROCKET_FORM
 		db FURY_SWIPES
 		db AGILITY
 		db TAIL_WHIP
@@ -1582,7 +1582,7 @@ BugCatcherFGroup:
 
 	; BUGCATCHERF (1)
 	db "ALIA@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 26, BUTTERFREE
 	db 25, VENONAT
@@ -1598,7 +1598,7 @@ SwimmerMGroup:
 
 	; SWIMMERM (1)
 	db "KOJURO@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 14, POLIWAG
 	db 14, HORSEA
@@ -1679,12 +1679,13 @@ SwimmerMGroup:
 
 	; SWIMMERM (8)
 	db "ATECAIN@"
-	db TRAINERTYPE_NORMAL
+	db TRAINERTYPE_PERSONALITY
 
-	db 6, MAGIKARP
-	db 6, SLOWPOKE
-	db 6, MAGIKARP
-	db 6, CARVANHA
+	db 6, MAGIKARP, MALE_MASK | MAGIKARP_CALICO3_FORM
+	db 6, SLOWPOKE, MALE_MASK
+	db 6, MAGIKARP, MALE_MASK | MAGIKARP_MASK_FORM
+	db 6, CARVANHA, MALE_MASK
+	db 6, MAGIKARP, MALE_MASK | MAGIKARP_TIGER_FORM
 
 	db $ff
 
@@ -1773,7 +1774,7 @@ SwimmerFGroup:
 
 	; SWIMMERF (4)
 	db "MAYUMI@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 22, CORSOLA
 	db 22, SQUIRTLE
@@ -1908,12 +1909,12 @@ FisherGroup:
 
 	; FISHER (3)
 	db "NAT PAGLE@"
-	db TRAINERTYPE_NORMAL
+	db TRAINERTYPE_PERSONALITY
 
 	; party
-	db 14, TENTACOOL
-	db 14, MAGIKARP
-	db 14, CHINCHOU
+	db 14, TENTACOOL, MALE_MASK
+	db 14, MAGIKARP, MALE_MASK | MAGIKARP_ORCA_FORM
+	db 14, CHINCHOU, MALE_MASK
 
 	db $ff ; end
 
@@ -1946,7 +1947,7 @@ FisherGroup:
 
 	; FISHER (6)
 	db "YUUTA@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 28, OCTILLERY
 
@@ -2027,12 +2028,12 @@ SightseerFGroup:
 
 	; SIGHTSEERF (1)
 	db "ASAMI@"
-	db TRAINERTYPE_NORMAL
+	db TRAINERTYPE_PERSONALITY
 
 	; party
-	db 25, JIGGLYPUFF
-	db 25, SPINDA
-	db 24, SKIPLOOM
+	db 25, JIGGLYPUFF, FEMALE_MASK
+	db 25, SPINDA, FEMALE_MASK | SPINDA_J_FORM
+	db 24, SKIPLOOM, FEMALE_MASK
 
 	db $ff ; end
 
@@ -2105,7 +2106,7 @@ CooltrainerMGroup:
 
 	; COOLTRAINERM (1)
 	db "AKIRA@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 26, JYNX
 	db 25, SEEL
@@ -2122,7 +2123,7 @@ CooltrainerFGroup:
 
 	; COOLTRAINERF (1)
 	db "KEIKO@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 26, SKIPLOOM
 	db 26, ESPEON
@@ -2139,7 +2140,7 @@ CatmanGroup:
 
 	; CATMAN (1)
 	db "DAIKON@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 28, ONIX
 	db 28, NIDOKING
@@ -2148,7 +2149,7 @@ CatmanGroup:
 
 	; CATMAN (2)
 	db "KUNIO@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 27, SCYTHER
 	db 27, HAUNTER
@@ -2158,7 +2159,7 @@ CatmanGroup:
 
 	; CATMAN (3)
 	db "YOSHIKAWA@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 26, GOLBAT
 	db 26, GOLDUCK
@@ -2169,17 +2170,17 @@ CatmanGroup:
 
 	; CATMAN (4)
 	db "REN@"
-	db 0
+	db TRAINERTYPE_PERSONALITY
 
-	db 28, KINGLER
-	db 27, GRAVELER
-	db 26, SPINDA
+	db 28, KINGLER, MALE_MASK
+	db 27, GRAVELER, MALE_MASK
+	db 26, SPINDA, MALE_MASK | SPINDA_C_FORM
 
 	db $ff
 
 	; CATMAN (5)
 	db "MIMI@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 30, KECLEON
 
@@ -2193,7 +2194,7 @@ BirdkeeperGroup:
 ; ================
 	; BIRDKEEPER (1)
 	db "TATSUYA@"
-	db 0
+	db TRAINERTYPE_NORMAL
 
 	db 29, PIDGEOTTO
 	db 28, TRUMBEAK
@@ -2225,7 +2226,7 @@ CrossGroup:
 		db ROCK_THROW
 		db TACKLE
 		db GROWL
-		db 0
+		db NO_MOVE
 
 	db $ff ; end
 ; ================ (PICK SQUIRTLE)
@@ -2246,7 +2247,7 @@ CrossGroup:
 		db ROCK_THROW
 		db TACKLE
 		db GROWL
-		db 0
+		db NO_MOVE
 
 	db $ff ; end
 ; ================ TANGELO JUNGLE(PICK BULBASAUR)
@@ -2267,7 +2268,7 @@ CrossGroup:
 		db ROCK_THROW
 		db TACKLE
 		db GROWL
-		db 0
+		db NO_MOVE
 
 	db $ff ; end
 	
@@ -2279,19 +2280,19 @@ CrossGroup:
 
 	; party
 
-	db 27, WARTORTLE, 0
+	db 27, WARTORTLE, MALE_MASK
 		db BUBBLEBEAM
 		db BITE
 		db SURF
 		db NASTY_PLOT
 
-	db 25, LYCANROC, LYCANROC_MIDNIGHT_FORM
+	db 25, LYCANROC, MALE_MASK | LYCANROC_MIDNIGHT_FORM
 		db ROCK_THROW
 		db BITE
 		db FORESIGHT
 		db FRUSTRATION
 		
-	db 24, FLAREON, 0
+	db 24, FLAREON, MALE_MASK
 		db FLAMETHROWER
 		db BITE
 		db QUICK_ATTACK
@@ -2307,19 +2308,19 @@ CrossGroup:
 
 	; party
 
-	db 27, IVYSAUR, 0
+	db 27, IVYSAUR, MALE_MASK
 		db RAZOR_LEAF
 		db LEECH_SEED
 		db SLEEP_POWDER
 		db NASTY_PLOT
 
-	db 25, LYCANROC, LYCANROC_MIDNIGHT_FORM
+	db 25, LYCANROC, MALE_MASK | LYCANROC_MIDNIGHT_FORM
 		db ROCK_THROW
 		db BITE
 		db FORESIGHT
 		db FRUSTRATION
 		
-	db 24, VAPOREON, 0
+	db 24, VAPOREON, MALE_MASK
 		db BUBBLEBEAM
 		db BITE
 		db QUICK_ATTACK
@@ -2335,19 +2336,19 @@ CrossGroup:
 
 	; party
 
-	db 27, CHARMELEON, 0
+	db 27, CHARMELEON, MALE_MASK
 		db FLAMETHROWER
 		db SLASH
 		db SMOKESCREEN
 		db NASTY_PLOT
 
-	db 25, LYCANROC, LYCANROC_MIDNIGHT_FORM
+	db 25, LYCANROC, MALE_MASK | LYCANROC_MIDNIGHT_FORM
 		db ROCK_THROW
 		db BITE
 		db FORESIGHT
 		db FRUSTRATION
 		
-	db 24, LEAFEON, 0
+	db 24, LEAFEON, MALE_MASK
 		db RAZOR_LEAF
 		db BITE
 		db QUICK_ATTACK
@@ -2363,25 +2364,25 @@ CrossGroup:
 
 	; party
 
-	db 36, BLASTOISE, 0
+	db 36, BLASTOISE, MALE_MASK
 		db BUBBLEBEAM
 		db BITE
 		db SURF
 		db NASTY_PLOT
 
-	db 32, LYCANROC, LYCANROC_MIDNIGHT_FORM
+	db 32, LYCANROC, MALE_MASK | LYCANROC_MIDNIGHT_FORM
 		db ROCK_THROW
 		db CRUNCH
 		db FORESIGHT
 		db ROCK_SMASH
 		
-	db 31, FLAREON, 0
+	db 31, FLAREON, MALE_MASK
 		db FLAMETHROWER
 		db BITE
 		db QUICK_ATTACK
 		db SUNNY_DAY
 		
-	db 29, SKARMORY, 0
+	db 29, SKARMORY, MALE_MASK
 		db STEEL_WING
 		db AERIAL_ACE
 		db SWORDS_DANCE
@@ -2397,25 +2398,25 @@ CrossGroup:
 
 	; party
 
-	db 36, VENUSAUR, 0
+	db 36, VENUSAUR, MALE_MASK
 		db GIGA_DRAIN
 		db LEECH_SEED
 		db PETAL_DANCE
 		db NASTY_PLOT
 
-	db 32, LYCANROC, LYCANROC_MIDNIGHT_FORM
+	db 32, LYCANROC, MALE_MASK | LYCANROC_MIDNIGHT_FORM
 		db ROCK_THROW
 		db CRUNCH
 		db FORESIGHT
 		db ROCK_SMASH
 		
-	db 31, VAPOREON, 0
+	db 31, VAPOREON, MALE_MASK
 		db BUBBLEBEAM
 		db BITE
 		db QUICK_ATTACK
 		db RAIN_DANCE
 		
-	db 29, SKARMORY, 0
+	db 29, SKARMORY, MALE_MASK
 		db STEEL_WING
 		db AERIAL_ACE
 		db SWORDS_DANCE
@@ -2431,25 +2432,25 @@ CrossGroup:
 
 	; party
 
-	db 36, CHARIZARD, 0
+	db 36, CHARIZARD, MALE_MASK
 		db FLAMETHROWER
 		db DRAGON_TAIL
 		db SLASH
 		db SMOKESCREEN
 
-	db 32, LYCANROC, LYCANROC_MIDNIGHT_FORM
+	db 32, LYCANROC, MALE_MASK | LYCANROC_MIDNIGHT_FORM
 		db ROCK_THROW
 		db CRUNCH
 		db FORESIGHT
 		db ROCK_SMASH
 		
-	db 31, LEAFEON, 0
+	db 31, LEAFEON, MALE_MASK
 		db RAZOR_LEAF
 		db BITE
 		db QUICK_ATTACK
 		db GROWTH
 		
-	db 29, SKARMORY, 0
+	db 29, SKARMORY, MALE_MASK
 		db STEEL_WING
 		db AERIAL_ACE
 		db SWORDS_DANCE

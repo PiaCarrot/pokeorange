@@ -1,14 +1,39 @@
 GetVariant: ; 51040
 ; Return MonVariant based on DVs at hl
 	ld a, [CurPartySpecies]
-	cp LYCANROC
-	jr z, .GetLycanrocVariant
+	cp SQUIRTLE
+	jr z, .GetSquirtleVariant
 	cp SPINDA
 	jr z, .GetSpindaVariant
 	cp MAGIKARP
 	jr z, .GetMagikarpVariant
 
-; Squirtle Variant
+; (Lycanroc and Meowth)
+; Get the form from party_struct TempMon or battle_struct
+	push bc
+	ld bc, TempMonDVs
+	ld a, b
+	cp h
+	jr nz, .not_tempmon_form
+	ld a, c
+	cp l
+	jr nz, .not_tempmon_form
+	ld bc, (TempMonForm - TempMonDVs) - (BattleMonForm - BattleMonDVs)
+	add hl, bc
+.not_tempmon_form
+	ld bc, BattleMonForm - BattleMonDVs
+	add hl, bc
+	pop bc
+
+	ld a, [hl]
+	and FORM_MASK ; 0, 1, 2, or 3
+	jr nz, .ok_form
+	ld a, 1 ; default
+.ok_form
+	ld [MonVariant], a
+	ret
+
+.GetSquirtleVariant:
 ; Get the item from party_struct TempMon or battle_struct
 	push bc
 	ld bc, TempMonDVs
@@ -26,48 +51,23 @@ GetVariant: ; 51040
 	pop bc
 
 ; Sunglasses form
-	ld a, 2
+	ld a, SQUIRTLE_GLASSES_FORM
 	ld [MonVariant], a
 	ld a, [hl]
 	cp BLACKGLASSES
 	ret z
 
 ; Normal form
-	ld a, 1
-	ld [MonVariant], a
-	ret
-
-.GetLycanrocVariant:
-; Get the form from party_struct TempMon or battle_struct
-	push bc
-	ld bc, TempMonDVs
-	ld a, b
-	cp h
-	jr nz, .not_tempmon_lycanroc
-	ld a, c
-	cp l
-	jr nz, .not_tempmon_lycanroc
-	ld bc, (TempMonForm - TempMonDVs) - (BattleMonForm - BattleMonDVs)
-	add hl, bc
-.not_tempmon_lycanroc
-	ld bc, BattleMonForm - BattleMonDVs
-	add hl, bc
-	pop bc
-
-	ld a, [hl]
-	and FORM_MASK ; 0, 1, 2, or 3
-	jr nz, .ok_lycanroc
-	ld a, 1 ; 0 -> 1
-.ok_lycanroc
+	ld a, SQUIRTLE_NORMAL_FORM
 	ld [MonVariant], a
 	ret
 
 .GetMagikarpVariant:
-	ld a, 19 ; 14 forms; 255 / 14 + 1 = 19
+	ld a, $ff / NUM_MAGIKARP + 1
 	jr GetVariantFromMiddleDVBits
 
 .GetSpindaVariant:
-	ld a, 10 ; 26 forms; 255 / 26 + 1 = 10
+	ld a, $ff / NUM_SPINDA + 1
 GetVariantFromMiddleDVBits:
 	push af
 ; Take the middle 2 bits of each DV and place them in order:
