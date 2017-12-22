@@ -16,6 +16,7 @@
 ## Graphics
 
 - Finish menu icon sprites
+- Special-case Lycanroc's icon based on form
 - Add clouds to title screen
 
 ## Moves

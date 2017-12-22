@@ -529,3 +529,11 @@ LatiosShinyPalette:     INCLUDE "gfx/pics/latios/shiny.pal"
 	RGB 17, 17, 17
 
 ; b0ce
+
+LycanrocMidnightPalettes:
+LycanrocMidnightPalette:      INCLUDE "gfx/pics/lycanroc_midnight/normal.pal"
+LycanrocMidnightShinyPalette: INCLUDE "gfx/pics/lycanroc_midnight/shiny.pal"
+
+LycanrocDuskPalettes:
+LycanrocDuskPalette:      INCLUDE "gfx/pics/lycanroc_dusk/normal.pal"
+LycanrocDuskShinyPalette: INCLUDE "gfx/pics/lycanroc_dusk/shiny.pal"
