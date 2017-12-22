@@ -132,7 +132,7 @@
 	const SWIFT        ; $81
 	const SIGNAL_BEAM  ; $82
 	const SPIKE_CANNON ; $83
-	const CONSTRICT    ; $84
+	const ACCELEROCK   ; $84
 	const AMNESIA      ; $85
 	const DIVE         ; $86
 	const SOFTBOILED   ; $87

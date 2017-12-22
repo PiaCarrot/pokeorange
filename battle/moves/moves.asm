@@ -153,7 +153,7 @@ endc
 	move SWIFT,        EFFECT_ALWAYS_HIT,         60, SPECIAL,  NORMAL,   100, 20,   0
 	move SIGNAL_BEAM,  EFFECT_CONFUSE_HIT,        75, SPECIAL,  BUG,      100, 15,  10
 	move SPIKE_CANNON, EFFECT_MULTI_HIT,          20, PHYSICAL, NORMAL,   100, 15,   0
-	move CONSTRICT,    EFFECT_SPEED_DOWN_HIT,     10, PHYSICAL, NORMAL,   100, 35,  10
+	move ACCELEROCK,   EFFECT_PRIORITY_HIT,       40, PHYSICAL, ROCK,     100, 20,   0
 	move AMNESIA,      EFFECT_SP_DEF_UP_2,         0, STATUS,   PSYCHIC,  100, 20,   0
 	move DIVE,         EFFECT_FLY,                90, PHYSICAL, WATER,    100, 10,   0
 	move SOFTBOILED,   EFFECT_HEAL,                0, STATUS,   NORMAL,   100, 10,   0

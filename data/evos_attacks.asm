@@ -1025,10 +1025,10 @@ TentacoolEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_STING
 	db 6, SUPERSONIC
-	db 12, CONSTRICT
+	db 12, WRAP ; CONSTRICT
 	db 19, ACID
 	db 25, BUBBLEBEAM
-	db 30, WRAP
+	db 30, POISON_JAB
 	db 36, BARRIER
 	db 43, SCREECH
 	db 49, HYDRO_PUMP
@@ -1038,12 +1038,12 @@ TentacruelEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_STING
 	db 1, SUPERSONIC
-	db 1, CONSTRICT
+	db 1, WRAP ; CONSTRICT
 	db 6, SUPERSONIC
-	db 12, CONSTRICT
+	db 12, WRAP ; CONSTRICT
 	db 19, ACID
 	db 25, BUBBLEBEAM
-	db 30, WRAP
+	db 30, POISON_JAB
 	db 38, BARRIER
 	db 47, SCREECH
 	db 55, HYDRO_PUMP
@@ -1680,7 +1680,7 @@ ChanseyEvosAttacks:
 TangelaEvosAttacks:
 	db EVOLVE_MOVE, ANCIENTPOWER, TANGROWTH
 	db 0 ; no more evolutions
-	db 1, CONSTRICT
+	db 1, TACKLE ; CONSTRICT
 	db 4, SLEEP_POWDER
 	db 10, ABSORB
 	db 13, GROWTH
@@ -2016,9 +2016,9 @@ PorygonEvosAttacks:
 OmanyteEvosAttacks:
 	db EVOLVE_LEVEL, 40, OMASTAR
 	db 0 ; no more evolutions
-	db 1, CONSTRICT
+	db 1, BITE ; CONSTRICT
 	db 1, WITHDRAW
-	db 13, BITE
+	db 13, WRAP
 	db 19, WATER_GUN
 	db 25, MUD_SLAP ; MUD_SHOT
 	db 31, LEER
@@ -2030,10 +2030,10 @@ OmanyteEvosAttacks:
 
 OmastarEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, CONSTRICT
+	db 1, BITE ; CONSTRICT
 	db 1, WITHDRAW
-	db 1, BITE
-	db 13, BITE
+	db 1, WRAP
+	db 13, WRAP
 	db 19, WATER_GUN
 	db 25, MUD_SLAP ; MUD_SHOT
 	db 31, LEER
@@ -2345,11 +2345,11 @@ RockruffEvosAttacks:
 	db 18, FORESIGHT
 	db 23, ROCK_BLAST
 	db 26, ROAR
-	db 34, ROCK_SLIDE
-	db 37, SCARY_FACE
-	db 40, CRUNCH
-	db 45, EARTH_POWER
-	db 48, FISSURE
+	db 31, ROCK_SLIDE
+	db 34, SCARY_FACE
+	db 37, CRUNCH
+	db 42, EARTH_POWER
+	db 45, FISSURE
 	db 0 ; no more level-up moves
 
 LycanrocEvosAttacks:
@@ -2363,7 +2363,8 @@ LycanrocEvosAttacks:
 	db 15, ROCK_THROW
 	db 18, FORESIGHT
 	db 23, ROCK_BLAST
-	db 26, ROAR
+	db 25, ACCELEROCK
+	db 29, ROAR
 	db 34, ROCK_SLIDE
 	db 37, SCARY_FACE
 	db 40, CRUNCH
@@ -3168,7 +3169,7 @@ ScizorEvosAttacks:
 
 ShuckleEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, CONSTRICT
+	db 1, ROLLOUT ; CONSTRICT
 	db 1, WITHDRAW
 	db 9, WRAP
 	db 14, ENCORE
@@ -3335,7 +3336,7 @@ RemoraidEvosAttacks:
 OctilleryEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, WATER_GUN
-	db 11, CONSTRICT
+	db 11, WRAP ; CONSTRICT
 	db 22, PSYBEAM
 	db 22, AURORA_BEAM
 	db 22, BUBBLEBEAM
@@ -3642,7 +3643,7 @@ RibombeeEvosAttacks:
 
 TangrowthEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, CONSTRICT
+	db 1, WRAP ; CONSTRICT
 	db 4, SLEEP_POWDER
 	db 10, ABSORB
 	db 13, GROWTH

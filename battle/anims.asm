@@ -131,7 +131,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_Swift
 	dw BattleAnim_SignalBeam
 	dw BattleAnim_SpikeCannon
-	dw BattleAnim_Constrict
+	dw BattleAnim_Accelerock
 	dw BattleAnim_Amnesia
 	dw BattleAnim_Dive
 	dw BattleAnim_Softboiled
@@ -1769,20 +1769,6 @@ BattleAnim_Confusion: ; ca058
 	anim_call BattleAnim_ShowMon_1
 	anim_ret
 ; ca06c
-
-BattleAnim_Constrict: ; ca06c
-	anim_1gfx ANIM_GFX_ROPE
-	anim_sound 0, 1, SFX_BIND
-	anim_obj ANIM_OBJ_49, -16, 4,   8, 0, $0
-	anim_wait 8
-	anim_obj ANIM_OBJ_48, -16, 4,   6, 0, $0
-	anim_wait 8
-	anim_obj ANIM_OBJ_49, -16, 4,   5, 0, $0
-	anim_wait 8
-	anim_obj ANIM_OBJ_48, -16, 4,   7, 0, $0
-	anim_wait 64
-	anim_ret
-; ca08a
 
 BattleAnim_Earthquake: ; ca08a
 	anim_bgeffect ANIM_BG_1F, $60, $4, $10
@@ -3725,6 +3711,7 @@ BattleAnim_Charm: ; cb2bb
 	anim_ret
 ; cb2d5
 
+BattleAnim_Accelerock: ; TODO: new Accelerock animation
 BattleAnim_Rollout: ; cb2d5
 	anim_1gfx ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_SPARK
@@ -5493,3 +5480,17 @@ BattleAnim_PowerGem: ; from Prism
 ;	anim_call BattleAnim_ShowMon_0
 ;	anim_ret
 ;; ca9ed
+
+;BattleAnim_Constrict: ; ca06c
+;	anim_1gfx ANIM_GFX_ROPE
+;	anim_sound 0, 1, SFX_BIND
+;	anim_obj ANIM_OBJ_49, -16, 4,   8, 0, $0
+;	anim_wait 8
+;	anim_obj ANIM_OBJ_48, -16, 4,   6, 0, $0
+;	anim_wait 8
+;	anim_obj ANIM_OBJ_49, -16, 4,   5, 0, $0
+;	anim_wait 8
+;	anim_obj ANIM_OBJ_48, -16, 4,   7, 0, $0
+;	anim_wait 64
+;	anim_ret
+;; ca08a

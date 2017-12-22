@@ -16,12 +16,11 @@
 ## Graphics
 
 - Finish menu icon sprites
-- Special-case Lycanroc's icon based on form
+- Special-case Lycanroc's party icon based on form
 - Add clouds to title screen
 
 ## Moves
 
-- Replace Constrict with Accelerock
 - Add to learnsets: Giga Impact, Play Rough, Poison Jab, Power Gem, Zen Headbutt
    - Giga Impact: aerodactyl, donphan, electivire, snorlax, tauros
    - Play Rough: marill/azumarill, mimikyu, persian, wigglytuff
@@ -33,6 +32,7 @@
 
 ## Animations
 
+- Accelerock
 - Aerial Ace
 - Bug Bite
 - Bullet Seed

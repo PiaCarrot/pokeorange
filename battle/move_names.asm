@@ -129,7 +129,7 @@
 	db "SWIFT@"
 	db "SIGNAL BEAM@"
 	db "SPIKE CANNON@"
-	db "CONSTRICT@"
+	db "ACCELEROCK@"
 	db "AMNESIA@"
 	db "DIVE@"
 	db "SOFTBOILED@"

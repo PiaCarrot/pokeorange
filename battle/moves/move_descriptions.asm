@@ -130,7 +130,7 @@
 	dw SwiftDescription
 	dw SignalBeamDescription
 	dw SpikeCannonDescription
-	dw ConstrictDescription
+	dw AccelerockDescription
 	dw AmnesiaDescription
 	dw DiveDescription
 	dw SoftboiledDescription
@@ -509,7 +509,6 @@ SignalBeamDescription:
 	next "confuse the foe.@"
 
 BubblebeamDescription:
-ConstrictDescription:
 BubbleDescription:
 	db   "An attack that may"
 	next "lower SPEED.@"
@@ -1040,6 +1039,10 @@ FacadeDescription:
 PowerGemDescription:
 	db   "Attacks with a ray"
 	next "of gem-like light.@"
+
+AccelerockDescription:
+	db   "A high-speed smash"
+	next "that goes first.@"
 
 ShellTrapDescription:
 	db   "Sets a trap for"
