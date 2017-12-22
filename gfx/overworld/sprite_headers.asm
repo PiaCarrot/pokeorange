@@ -115,7 +115,7 @@ BrockSprite: ; 147cc
 ; 147d2
 
 KarenSprite: ; 147d2
-	sprite_header KarenSpriteGFX, 3, STANDING_SPRITE, PAL_OW_BLUE
+	sprite_header KarenSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED
 ; 147d8
 
 BrunoSprite: ; 147d8
@@ -447,3 +447,6 @@ KrisDiveSprite:
 
 InvisibleSprite:
 	sprite_header InvisibleSpriteGFX, 3, STANDING_SPRITE, PAL_OW_GREEN
+	
+MayorSprite:
+	sprite_header MayorSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED

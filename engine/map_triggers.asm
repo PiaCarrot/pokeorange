@@ -26,6 +26,8 @@ ENDM
 	trigger_def ROUTE_61,                     wRoute61Trigger
 	trigger_def GOLDEN_ISLAND,                wGoldenIslandTrigger
 	trigger_def MURCOTT_ISLAND,				  wMurcottIslandTrigger
+	trigger_def TROVITOPOLIS_PORT,			  wTrovitopolisPortTrigger
+	trigger_def MAYORS_OFFICE_MEETING_ROOM,   wMayorsOfficeMeetingRoomTrigger
 
 	db -1
 ; 4d15b

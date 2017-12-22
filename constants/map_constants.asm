@@ -146,6 +146,9 @@ MAP_NONE EQU 0
 	mapgroup TROVITOPOLIS_HOUSE_2, 4, 4
 	mapgroup TROVITOPOLIS_HOUSE_3, 4, 4
 	mapgroup TROVITOPOLIS_HOUSE_4, 4, 4
+	mapgroup TROVITOPOLIS_PORT, 12, 12
+	mapgroup MAYORS_OFFICE, 5, 10
+	mapgroup MAYORS_OFFICE_MEETING_ROOM, 5, 10
 
 	newgroup ; 9
 

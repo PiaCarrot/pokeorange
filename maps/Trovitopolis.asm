@@ -180,7 +180,7 @@ TrovitopolisWaterStone:
 
 Trovitopolis_MapEventHeader::
 
-.Warps: db 10
+.Warps: db 12
 	warp_def 31, 48, 1, TROVITOPOLIS_POKE_COMM_CENTER
 	warp_def 3, 23, 1, SEWER_ENTRANCE
 	warp_def 15, 36, 1, TROVITOPOLIS_DEPT_STORE_1F
@@ -191,6 +191,8 @@ Trovitopolis_MapEventHeader::
 	warp_def 29, 29, 1, TROVITOPOLIS_HOUSE_2
 	warp_def 11, 25, 1, TROVITOPOLIS_HOUSE_3
 	warp_def 17, 15, 1, TROVITOPOLIS_HOUSE_4
+	warp_def 19, 6, 1, TROVITOPOLIS_PORT
+	warp_def 17, 52, 1, MAYORS_OFFICE
 
 .CoordEvents: db 0
 

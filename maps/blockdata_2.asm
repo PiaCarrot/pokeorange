@@ -21,6 +21,7 @@ PinkanIsland_BlockData:
 
 ValenciaPort_BlockData:
 TangeloPort_BlockData:
+TrovitopolisPort_BlockData:
 	INCBIN "maps/ValenciaPort.blk"
 
 TangeloJungle_BlockData:

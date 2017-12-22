@@ -85,3 +85,7 @@ FishingContest_BlockData:
 	
 SewerEntrance_BlockData:
 	INCBIN "maps/SewerEntrance.blk"
+	
+MayorsOffice_BlockData:
+MayorsOfficeMeetingRoom_BlockData:
+	INCBIN "maps/MayorsOffice.blk"
