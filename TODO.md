@@ -18,7 +18,6 @@
 
 - Finish menu icon sprites
 - Add clouds to title screen
-- Special Case TR Meowth with one from Yellow2GSC Sheet
 
 ## Moves
 

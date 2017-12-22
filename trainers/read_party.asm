@@ -102,7 +102,6 @@ ReadTrainerParty: ; 39771
 	ld d, h
 	ld e, l
 	pop hl
-	; TODO: recalculate personality-based data (gender, shiny, variant)
 
 	ld a, [hli]
 	ld [de], a
