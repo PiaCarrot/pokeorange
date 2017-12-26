@@ -47,7 +47,7 @@ UnknownText_0x196cfc:
 	para "Some just aren't"
 	line "habitable. Some"
 	cont "are protected so"
-	cont "WILD #MON can"
+	cont "wild #MON can"
 	cont "live freely."
 	done
 

@@ -9,7 +9,7 @@ ENDM
 
 	spawn KRISS_HOUSE_2F,  3,  3
 	spawn VALENCIA_ISLAND, 15,  6
-	spawn TANGELO_ISLAND,  19,  10
+	spawn TANGELO_ISLAND,  15,  10
 	spawn MIKAN_ISLAND,    11, 30
 	spawn ROUTE_52,        13, 78
 	spawn MANDARIN_NORTH,  7, 16
@@ -25,6 +25,13 @@ ENDM
 ;	spawn PUMMELO_ISLAND,  0,  0
 ;	spawn HAMLIN_ISLAND,   0,  0
 ;	spawn SHAMOUTI_ISLAND, 0,  0
+
+;   spawn VERMILION_CITY,  0,  0
+;   spawn FUSCHIA_CITY,    0,  0
+;   spawn CINNIBAR_ISLAND, 0,  0
+;   spawn PALLET_TOWN,     0,  0
+;   spawn WISTERIA_TOWN,   0,  0
+;   spawn PORTA_VISTA,     0,  0
  	spawn N_A,             -1, -1
 
 

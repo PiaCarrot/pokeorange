@@ -1126,6 +1126,7 @@ JamesGroup:
 ; ================
 
 	; James (1)
+	db "JAMES@"
 	db TRAINERTYPE_MOVES
 	
 	db 38, WEEZING
@@ -1149,6 +1150,7 @@ JessieGroup:
 ; ================
 
 	; Jessie (1)
+	db "JESSIE@"
 	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 	
 	db 38, ARBOK, 0

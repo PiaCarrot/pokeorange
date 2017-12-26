@@ -169,12 +169,12 @@ MAP_NONE EQU 0
 	mapgroup KRISS_HOUSE_2F, 3, 4
 	mapgroup KRISS_NEIGHBORS_HOUSE, 4, 4
 	mapgroup IVYS_HOUSE, 4, 3
-	mapgroup VALENCIA_TANGELO_ROUTE_49, 24, 16
+	mapgroup VALENCIA_TANGELO_ROUTE_49, 27, 16
 
 	newgroup ; 12
 
 	mapgroup ROUTE_50, 27, 10
-	mapgroup ROUTE_51, 15, 20
+	mapgroup ROUTE_51, 20, 20
 	mapgroup ROUTE_51_TANGELO_JUNGLE_GATE, 4, 5
 	mapgroup ROUTE_51_GATE_UPSTAIRS, 4, 5
 	mapgroup TANGELO_ISLAND, 15, 20

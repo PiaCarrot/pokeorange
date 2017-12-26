@@ -57,11 +57,14 @@ KRIS EQU __enum__
 	trainerclass CASSIDY_BUTCH
 
 	trainerclass JAMES
+	const JAMES_1
 
 	trainerclass JESSIE
+	const JESSIE_1
 
 	trainerclass JESSIE_JAMES
 	const JESSIE_AND_JAMES
+	const JESSIE_AND_JAMES_1
 
 	trainerclass MOM
 

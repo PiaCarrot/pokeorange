@@ -85,7 +85,22 @@ TangeloTraceyScript:
 	end
 
 TangeloTeacherScript:
-	jumptextfaceplayer TangeloTeacherText
+	faceplayer
+	opentext
+	checkevent EVENT_TANGELO_HEAL_BALL
+	iftrue .AlreadyGotHealBall
+	writetext TangeloTeacherText
+	waitbutton
+	verbosegiveitem HEAL_BALL
+	closetext
+	setevent EVENT_TANGELO_HEAL_BALL
+	end
+	
+.AlreadyGotHealBall
+	writetext TangeloTeacherText2
+	waitbutton
+	closetext
+	end
 
 TangeloYoungsterScript:
 	jumptextfaceplayer TangeloYoungsterText
@@ -180,25 +195,28 @@ TraceyWinLoss:
 	done
 
 TangeloTeacherText:
-	text "There are lots of"
-	line "TRAINERS on ROUTE"
-	cont "50."
-
-	para "They all plan on"
-	line "taking on the"
-	cont "ORANGE CREW."
+	text "If you want a"
+	line "#MON you caught"
+	cont "to be healthy,"
+	cont "try a HEAL BALL!"
+	done
+	
+TangeloTeacherText2:
+	text "HEAL BALL will"
+	line "bring a wild"
+	cont "#MON back"
+	cont "to full health!"
 	done
 
 TangeloYoungsterText:
-	text "The #MART is"
-	line "all the way over"
-	cont "here on the west"
-	cont "end of town."
-
-	para "What kind of man"
-	line "thought that was"
-	cont "a good place to"
-	cont "put it!?"
+	text "Some people don't"
+	line "like coming out"
+	cont "during the day."
+	
+	para "Same goes for the"
+	line "night. In that"
+	cont "sense, people are"
+	cont "like #MON!"
 	done
 
 TangeloIslandSignText:
@@ -232,22 +250,22 @@ Tracey_Movement:
 TangeloIsland_MapEventHeader::
 
 .Warps: db 5
-	warp_def 23, 7, 2, TANGELO_MART
-	warp_def 9, 19, 1, TANGELO_POKECENTER_1F
+	warp_def 9, 11, 2, TANGELO_MART
+	warp_def 9, 15, 1, TANGELO_POKECENTER_1F
 	warp_def 19, 19, 1, TANGELO_GYM_SPEECH_HOUSE
 	warp_def 19, 29, 1, TANGELO_EVOLUTION_SPEECH_HOUSE
-	warp_def 9, 11, 2, TANGELO_PORT
+	warp_def 11, 31, 2, TANGELO_PORT
 
 .CoordEvents: db 0
 
 .BGEvents: db 2
 	signpost 20, 24, SIGNPOST_READ, TangeloIslandSign
-	signpost 7, 25, SIGNPOST_READ, TangeloCenterSign
+	signpost 7, 21, SIGNPOST_READ, TangeloCenterSign
 
 .ObjectEvents: db 5
-	person_event SPRITE_SURF, 5, 24, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloIslandLaprasScript, EVENT_TANGELO_ISLAND_LAPRAS
-	person_event SPRITE_TRACEY, 7, 24, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TangeloTraceyScript, EVENT_TANGELO_ISLAND_TRACEY
-	person_event SPRITE_COOLTRAINER_M, 11, 26, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloTeacherScript, -1
-	person_event SPRITE_YOUNGSTER, 23, 13, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TangeloYoungsterScript, -1
-	person_event SPRITE_POKE_BALL, 23, 33, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloIslandRareCandy, EVENT_TANGELO_ISLAND_RARE_CANDY
+	person_event SPRITE_SURF, 5, 20, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloIslandLaprasScript, EVENT_TANGELO_ISLAND_LAPRAS
+	person_event SPRITE_TRACEY, 7, 20, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TangeloTraceyScript, EVENT_TANGELO_ISLAND_TRACEY
+	person_event SPRITE_COOLTRAINER_M, 22, 25, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloTeacherScript, -1
+	person_event SPRITE_YOUNGSTER, 12, 27, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TangeloYoungsterScript, -1
+	person_event SPRITE_POKE_BALL, 23, 6, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloIslandRareCandy, EVENT_TANGELO_ISLAND_RARE_CANDY
 
