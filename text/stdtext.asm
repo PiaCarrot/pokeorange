@@ -204,7 +204,7 @@ ContestResults_PlayerWonAPrizeText:
 	text "!"
 	done
 
-ReceivedItemText:
+ReceivedItemText::
 	text "<PLAYER> received"
 	line "@"
 	text_from_ram StringBuffer4

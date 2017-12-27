@@ -1,10 +1,10 @@
 INCLUDE "includes.asm"
 
 
-SECTION "Pic Pointers", ROMX, BANK[PIC_POINTERS]
+SECTION "Pic Pointers", ROMX
 PicPointers:: INCLUDE "gfx/pics/pic_pointers.asm"
 
-SECTION "Spinda Pic Pointers", ROMX, BANK[SPINDA_PIC_POINTERS]
+SECTION "Spinda Pic Pointers", ROMX
 SpindaPicPointers:: INCLUDE "gfx/pics/spinda_pic_pointers.asm"
 
 SECTION "Lycanroc Pic Pointers", ROMX
@@ -19,11 +19,11 @@ MeowthPicPointers:: INCLUDE "gfx/pics/meowth_pic_pointers.asm"
 SECTION "Magikarp Pic Pointers", ROMX
 MagikarpPicPointers:: INCLUDE "gfx/pics/magikarp_pic_pointers.asm"
 
-SECTION "Trainer Pic Pointers", ROMX, BANK[TRAINER_PIC_POINTERS]
+SECTION "Trainer Pic Pointers", ROMX
 TrainerPicPointers:: INCLUDE "gfx/pics/trainer_pic_pointers.asm"
 
 
-SECTION "Pics 1", ROMX, BANK[PICS_1]
+SECTION "Pics 1", ROMX
 
 ArticunoFrontpic:    INCBIN "gfx/pics/articuno/front.2bpp.lz"
 EnteiFrontpic:       INCBIN "gfx/pics/entei/front.2bpp.lz"
@@ -39,7 +39,7 @@ ToucannonFrontpic:   INCBIN "gfx/pics/toucannon/front.2bpp.lz"
 VenusaurFrontpic:    INCBIN "gfx/pics/venusaur/front.2bpp.lz"
 
 
-SECTION "Pics 2", ROMX, BANK[PICS_2]
+SECTION "Pics 2", ROMX
 
 ArbokFrontpic:       INCBIN "gfx/pics/arbok/front.2bpp.lz"
 ArcanineFrontpic:    INCBIN "gfx/pics/arcanine/front.2bpp.lz"
@@ -59,7 +59,7 @@ TyranitarFrontpic:   INCBIN "gfx/pics/tyranitar/front.2bpp.lz"
 ZapdosFrontpic:      INCBIN "gfx/pics/zapdos/front.2bpp.lz"
 
 
-SECTION "Pics 3", ROMX, BANK[PICS_3]
+SECTION "Pics 3", ROMX
 
 AlakazamFrontpic:    INCBIN "gfx/pics/alakazam/front.2bpp.lz"
 CloysterFrontpic:    INCBIN "gfx/pics/cloyster/front.2bpp.lz"
@@ -79,7 +79,7 @@ SteelixFrontpic:     INCBIN "gfx/pics/steelix/front.2bpp.lz"
 WeezingFrontpic:     INCBIN "gfx/pics/weezing/front.2bpp.lz"
 
 
-SECTION "Pics 4", ROMX, BANK[PICS_4]
+SECTION "Pics 4", ROMX
 
 AerodactylFrontpic:  INCBIN "gfx/pics/aerodactyl/front.2bpp.lz"
 BlisseyFrontpic:     INCBIN "gfx/pics/blissey/front.2bpp.lz"
@@ -102,7 +102,7 @@ PoliwagBackpic:      INCBIN "gfx/pics/poliwag/back.2bpp.lz"
 RaikouBackpic:       INCBIN "gfx/pics/raikou/back.2bpp.lz"
 
 
-SECTION "Pics 5", ROMX, BANK[PICS_5]
+SECTION "Pics 5", ROMX
 
 AzumarillFrontpic:   INCBIN "gfx/pics/azumarill/front.2bpp.lz"
 CharmeleonFrontpic:  INCBIN "gfx/pics/charmeleon/front.2bpp.lz"
@@ -128,7 +128,7 @@ NatuBackpic:         INCBIN "gfx/pics/natu/back.2bpp.lz"
 PiloswineBackpic:    INCBIN "gfx/pics/piloswine/back.2bpp.lz"
 
 
-SECTION "Pics 6", ROMX, BANK[PICS_6]
+SECTION "Pics 6", ROMX
 
 AmpharosFrontpic:    INCBIN "gfx/pics/ampharos/front.2bpp.lz"
 AriadosFrontpic:     INCBIN "gfx/pics/ariados/front.2bpp.lz"
@@ -160,7 +160,7 @@ ShuckleBackpic:      INCBIN "gfx/pics/shuckle/back.2bpp.lz"
 SlowpokeBackpic:     INCBIN "gfx/pics/slowpoke/back.2bpp.lz"
 
 
-SECTION "Pics 7", ROMX, BANK[PICS_7]
+SECTION "Pics 7", ROMX
 
 ClefableFrontpic:    INCBIN "gfx/pics/clefable/front.2bpp.lz"
 DragonairFrontpic:   INCBIN "gfx/pics/dragonair/front.2bpp.lz"
@@ -194,7 +194,7 @@ JynxBackpic:         INCBIN "gfx/pics/jynx/back.2bpp.lz"
 MantineBackpic:      INCBIN "gfx/pics/mantine/back.2bpp.lz"
 
 
-SECTION "Pics 8", ROMX, BANK[PICS_8]
+SECTION "Pics 8", ROMX
 
 ChanseyFrontpic:     INCBIN "gfx/pics/chansey/front.2bpp.lz"
 TropiusFrontpic:     INCBIN "gfx/pics/tropius/front.2bpp.lz"
@@ -225,7 +225,7 @@ WobbuffetFrontpic:   INCBIN "gfx/pics/wobbuffet/front.2bpp.lz"
 XatuFrontpic:        INCBIN "gfx/pics/xatu/front.2bpp.lz"
 
 
-SECTION "Pics 9", ROMX, BANK[PICS_9]
+SECTION "Pics 9", ROMX
 
 BrunoPic:           INCBIN "gfx/trainers/bruno.2bpp.lz"
 DrakePic:           INCBIN "gfx/trainers/drake.2bpp.lz"
@@ -255,7 +255,7 @@ MunchlaxFrontpic:   INCBIN "gfx/pics/munchlax/front.2bpp.lz"
 MeowthFrontpic:     INCBIN "gfx/pics/meowth/front.2bpp.lz"
 
 
-SECTION "Pics 10", ROMX, BANK[PICS_10]
+SECTION "Pics 10", ROMX
 
 AbraFrontpic:        INCBIN "gfx/pics/abra/front.2bpp.lz"
 AipomFrontpic:       INCBIN "gfx/pics/aipom/front.2bpp.lz"
@@ -287,7 +287,7 @@ VenonatFrontpic:     INCBIN "gfx/pics/venonat/front.2bpp.lz"
 ZubatFrontpic:       INCBIN "gfx/pics/zubat/front.2bpp.lz"
 
 
-SECTION "Pics 11", ROMX, BANK[PICS_11]
+SECTION "Pics 11", ROMX
 
 BugCatcherPic:       INCBIN "gfx/trainers/bug_catcher.2bpp.lz"
 CelebiBackpic:       INCBIN "gfx/pics/celebi/back.2bpp.lz"
@@ -324,7 +324,7 @@ VenomothBackpic:     INCBIN "gfx/pics/venomoth/back.2bpp.lz"
 YanmaBackpic:        INCBIN "gfx/pics/yanma/back.2bpp.lz"
 
 
-SECTION "Pics 12", ROMX, BANK[PICS_12]
+SECTION "Pics 12", ROMX
 
 ArcanineBackpic:     INCBIN "gfx/pics/arcanine/back.2bpp.lz"
 KecleonBackpic:      INCBIN "gfx/pics/kecleon/back.2bpp.lz"
@@ -367,7 +367,7 @@ VenusaurBackpic:     INCBIN "gfx/pics/venusaur/back.2bpp.lz"
 ZubatBackpic:        INCBIN "gfx/pics/zubat/back.2bpp.lz"
 
 
-SECTION "Pics 13", ROMX, BANK[PICS_13]
+SECTION "Pics 13", ROMX
 
 CharmeleonBackpic:   INCBIN "gfx/pics/charmeleon/back.2bpp.lz"
 EeveeBackpic:        INCBIN "gfx/pics/eevee/back.2bpp.lz"
@@ -410,7 +410,7 @@ BirdkeeperPic:       INCBIN "gfx/trainers/bird_keeper.2bpp.lz"
 CooltrainerFPic:     INCBIN "gfx/trainers/cooltrainer_f.2bpp.lz"
 
 
-SECTION "Pics 14", ROMX, BANK[PICS_14]
+SECTION "Pics 14", ROMX
 
 BlastoiseBackpic:    INCBIN "gfx/pics/blastoise/back.2bpp.lz"
 DannyPic:            INCBIN "gfx/trainers/danny.2bpp.lz"
@@ -453,7 +453,7 @@ WooperFrontpic:      INCBIN "gfx/pics/wooper/front.2bpp.lz"
 CooltrainerMPic:     INCBIN "gfx/trainers/cooltrainer_m.2bpp.lz"
 
 
-SECTION "Pics 15", ROMX, BANK[PICS_15]
+SECTION "Pics 15", ROMX
 
 AbraBackpic:         INCBIN "gfx/pics/abra/back.2bpp.lz"
 AerodactylBackpic:   INCBIN "gfx/pics/aerodactyl/back.2bpp.lz"
@@ -497,7 +497,7 @@ WeezingBackpic:      INCBIN "gfx/pics/weezing/back.2bpp.lz"
 YoungsterPic:        INCBIN "gfx/trainers/youngster.2bpp.lz"
 
 
-SECTION "Pics 16", ROMX, BANK[PICS_16]
+SECTION "Pics 16", ROMX
 
 BlainePic:           INCBIN "gfx/trainers/blaine.2bpp.lz"
 BluePic:             INCBIN "gfx/trainers/blue.2bpp.lz"
@@ -544,7 +544,7 @@ XatuBackpic:         INCBIN "gfx/pics/xatu/back.2bpp.lz"
 ZapdosBackpic:       INCBIN "gfx/pics/zapdos/back.2bpp.lz"
 
 
-SECTION "Pics 17", ROMX, BANK[PICS_17]
+SECTION "Pics 17", ROMX
 
 AmpharosBackpic:     INCBIN "gfx/pics/ampharos/back.2bpp.lz"
 ArbokBackpic:        INCBIN "gfx/pics/arbok/back.2bpp.lz"
@@ -596,7 +596,7 @@ WigglytuffBackpic:   INCBIN "gfx/pics/wigglytuff/back.2bpp.lz"
 WobbuffetBackpic:    INCBIN "gfx/pics/wobbuffet/back.2bpp.lz"
 
 
-SECTION "Pics 18", ROMX, BANK[PICS_18]
+SECTION "Pics 18", ROMX
 
 SpindaABackpic:       INCBIN "gfx/pics/unown_a/back.2bpp.lz"
 SpindaAFrontpic:      INCBIN "gfx/pics/unown_a/front.2bpp.lz"
@@ -652,7 +652,7 @@ SpindaZBackpic:       INCBIN "gfx/pics/unown_z/back.2bpp.lz"
 SpindaZFrontpic:      INCBIN "gfx/pics/unown_z/front.2bpp.lz"
 
 
-SECTION "Pics 19", ROMX, BANK[PICS_19]
+SECTION "Pics 19", ROMX
 
 VileplumeFrontpic:   INCBIN "gfx/pics/vileplume/front.2bpp.lz"
 VileplumeBackpic:    INCBIN "gfx/pics/vileplume/back.2bpp.lz"

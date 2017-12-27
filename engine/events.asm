@@ -1,7 +1,3 @@
-INCLUDE "includes.asm"
-
-SECTION "Events", ROMX, BANK[EVENTS]
-
 OverworldLoop:: ; 966b0
 	xor a
 	ld [MapStatus], a
