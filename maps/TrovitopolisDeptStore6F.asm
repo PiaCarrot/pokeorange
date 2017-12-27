@@ -1,4 +1,5 @@
 const_value set 1
+	const DEPT_STORE_6F_COOLTRAINER
 
 TrovitopolisDeptStore6F_MapScriptHeader:
 
@@ -115,17 +116,29 @@ TrovitopolisDeptStore6FDirectoryText:
 
 	para "6F TRANQUIL SQUARE"
 	done
+	
+DeptStore6FCooltrainerScript:
+	jumptextfaceplayer DeptStore6FCooltrainerText
+	
+DeptStore6FCooltrainerText:
+	text "I bought an EGG"
+	line "off the lady on"
+	cont "the roof."
+	
+	para "I wonder what it"
+	line "will hatch into?"
+	done
 
-TrovitopolisDeptStore6F_MapEventHeader:
+TrovitopolisDeptStore6F_MapEventHeader::
 
 .Warps: db 3
-	warp_def $0, $f, 2, TROVITOPOLIS_DEPT_STORE_5F
-	warp_def $0, $2, 1, TROVITOPOLIS_DEPT_STORE_ELEVATOR
-	warp_def $0, $d, 1, TROVITOPOLIS_DEPT_STORE_ROOF
+	warp_def 0, 15, 2, TROVITOPOLIS_DEPT_STORE_5F
+	warp_def 0, 2, 1, TROVITOPOLIS_DEPT_STORE_ELEVATOR
+	warp_def 0, 13, 1, TROVITOPOLIS_DEPT_STORE_ROOF
 
-.XYTriggers: db 0
+.CoordEvents: db 0
 
-.Signposts: db 6
+.BGEvents: db 6
 	signpost 0, 14, SIGNPOST_READ, TrovitopolisDeptStore6FDirectory
 	signpost 0, 3, SIGNPOST_READ, TrovitopolisDeptStore6FElevatorButton
 	signpost 1, 8, SIGNPOST_UP, TrovitopolisVendingMachine
@@ -133,4 +146,6 @@ TrovitopolisDeptStore6F_MapEventHeader:
 	signpost 1, 10, SIGNPOST_UP, TrovitopolisVendingMachine
 	signpost 1, 11, SIGNPOST_UP, TrovitopolisVendingMachine
 
-.PersonEvents: db 0
+.ObjectEvents: db 1
+	person_event SPRITE_COOLTRAINER_F, 4, 9, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DeptStore6FCooltrainerScript, -1
+

@@ -20,6 +20,12 @@ TrovitopolisDeptStore3FDirectoryText:
 	para "3F BATTLE"
 	line "   COLLECTION"
 	done
+	
+TrovitopolisBattleMartScript:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_SUNBURST3
+	closetext
+	end
 
 TrovitopolisDeptStore3F_MapEventHeader:
 
@@ -35,4 +41,4 @@ TrovitopolisDeptStore3F_MapEventHeader:
 	signpost 0, 3, SIGNPOST_READ, TrovitopolisDeptStore3FElevatorButton
 
 .PersonEvents: db 1
-	person_event SPRITE_CLERK, 1, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ObjectEvent, -1
+	person_event SPRITE_CLERK, 1, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TrovitopolisBattleMartScript, -1

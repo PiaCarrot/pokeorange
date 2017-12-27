@@ -106,8 +106,7 @@ Route56Rock:
 
 Route56East_MapEventHeader::
 
-.Warps: db 1
-	warp_def 21, 12, 3, CRYSTAL_CAVE_1F
+.Warps: db 0
 
 .CoordEvents: db 0
 

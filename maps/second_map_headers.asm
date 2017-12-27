@@ -194,12 +194,12 @@
 	map_header_2 Trovitopolis, TROVITOPOLIS, 53, 0
 	map_header_2 TrovitopolisSewer, TROVITOPOLIS_SEWER, 0, 0
 	map_header_2 TrovitaIsland, TROVITA_ISLAND, 53, 0
-	map_header_2 TrovitopolisDeptStore1F, TROVITOPOLIS_DEPT_STORE_1F, $0, 0
+	map_header_2 TrovitopolisDeptStore1F, TROVITOPOLIS_DEPT_STORE_1F, 0, 0
 	map_header_2 TrovitopolisDeptStore2F, TROVITOPOLIS_DEPT_STORE_2F, $0, 0
 	map_header_2 TrovitopolisDeptStore3F, TROVITOPOLIS_DEPT_STORE_3F, $0, 0
 	map_header_2 TrovitopolisDeptStore4F, TROVITOPOLIS_DEPT_STORE_4F, $0, 0
 	map_header_2 TrovitopolisDeptStore5F, TROVITOPOLIS_DEPT_STORE_5F, $0, 0
-	map_header_2 TrovitopolisDeptStore6F, TROVITOPOLIS_DEPT_STORE_6F, $0, 0
+	map_header_2 TrovitopolisDeptStore6F, TROVITOPOLIS_DEPT_STORE_6F, 0, 0
 	map_header_2 TrovitopolisDeptStoreElevator, TROVITOPOLIS_DEPT_STORE_ELEVATOR, $0, 0
 	map_header_2 TrovitopolisDeptStoreRoof, TROVITOPOLIS_DEPT_STORE_ROOF, $24, 0
 	map_header_2 TrovitopolisPokeCommCenter, TROVITOPOLIS_POKE_COMM_CENTER, 0, 0

@@ -62,8 +62,8 @@ MoroIslandMuseumSignText:
 	text "MORO ISLAND MUSEUM"
 	done
 
-MoroIslandTMWhirlpool:
-	itemball TM_WHIRLPOOL
+MoroIslandTMFacade:
+	itemball TM_FACADE
 
 MoroIslandHiddenNugget:
 	dwb EVENT_MORO_ISLAND_HIDDEN_NUGGET, NUGGET
@@ -92,4 +92,4 @@ MoroIsland_MapEventHeader::
 	person_event SPRITE_COOLTRAINER_M, 22, 22, SPRITEMOVEDATA_WANDER, 0, 1, -1, -2, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MoroCooltrainerMScript, -1
 	person_event SPRITE_COOLTRAINER_F, 19, 9, SPRITEMOVEDATA_WANDER, 0, 1, -1, -2, PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, MoroCooltrainerFScript, -1
 	person_event SPRITE_FISHER, 18, 30, SPRITEMOVEDATA_WANDER, 0, 1, -1, -2, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, MoroFattyScript, -1
-	person_event SPRITE_POKE_BALL, 29, 28, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MoroIslandTMWhirlpool, EVENT_MORO_TM_WHIRLPOOL
+	person_event SPRITE_POKE_BALL, 29, 28, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MoroIslandTMFacade, EVENT_MORO_TM_FACADE

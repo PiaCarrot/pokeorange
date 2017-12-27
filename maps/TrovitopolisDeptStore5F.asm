@@ -19,6 +19,12 @@ TrovitopolisDeptStore5FDirectoryText:
 
 	para "5F TM CORNER"
 	done
+	
+TrovitopolisTMMartScript:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_TROVITOPOLIS_TM
+	closetext
+	end
 
 TrovitopolisDeptStore5F_MapEventHeader:
 
@@ -34,4 +40,4 @@ TrovitopolisDeptStore5F_MapEventHeader:
 	signpost 0, 3, SIGNPOST_READ, TrovitopolisDeptStore5FElevatorButton
 
 .PersonEvents: db 1
-	person_event SPRITE_CLERK, 5, 8, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ObjectEvent, -1
+	person_event SPRITE_CLERK, 5, 8, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TrovitopolisTMMartScript, -1

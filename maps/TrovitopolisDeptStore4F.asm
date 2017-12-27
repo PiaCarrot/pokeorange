@@ -19,6 +19,12 @@ TrovitopolisDeptStore4FDirectoryText:
 
 	para "4F MEDICINE BOX"
 	done
+	
+TrovitopolisMedicineMartScript:
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_TROVITOPOLIS_MEDICINE
+	closetext
+	end
 
 TrovitopolisDeptStore4F_MapEventHeader:
 
@@ -34,4 +40,4 @@ TrovitopolisDeptStore4F_MapEventHeader:
 	signpost 0, 3, SIGNPOST_READ, TrovitopolisDeptStore4FElevatorButton
 
 .PersonEvents: db 1
-	person_event SPRITE_CLERK, 5, 13, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ObjectEvent, -1
+	person_event SPRITE_CLERK, 5, 13, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TrovitopolisMedicineMartScript, -1

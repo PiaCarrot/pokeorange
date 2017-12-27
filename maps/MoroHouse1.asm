@@ -8,21 +8,22 @@ MoroHouse1_MapScriptHeader:
 
 MoroHeadbuttScript:
 	faceplayer
-	checkevent EVENT_HEADBUTT_GUY
-	iftrue .AlreadyHaveHeadbutt
 	opentext
 	writetext GivePlayerHeadbuttText
+	yesorno
+	iffalse .TutorRefused
+	writebyte HEADBUTT
+	writetext Text_HeadbuttTutorClear
+	special Special_MoveTutor
+	if_equal $0, .TeachMove
+.TutorRefused
+	writetext Text_HeadbuttTutorRefused
 	waitbutton
-	; TODO: tutor Headbutt
-	;verbosegiveitem TM_HEADBUTT
 	closetext
-	setevent EVENT_HEADBUTT_GUY
 	end
 
-.AlreadyHaveHeadbutt:
-	opentext
-	faceplayer
-	writetext AlreadyGaveYouHeadbuttText
+.TeachMove
+	writetext Text_HeadbuttTutorTaught
 	waitbutton
 	closetext
 	end
@@ -33,14 +34,26 @@ GivePlayerHeadbuttText:
 
 	para "Sometimes, #MON"
 	line "live inside them."
-	cont "You can use this"
+	cont "You can use a move"
 	cont "to draw them out!"
+	
+	para "Want to learn"
+	line "HEADBUTT?"
 	done
-
-AlreadyGaveYouHeadbuttText:
-	text "HEADBUTT can be"
-	line "used to shake"
-	cont "thick vines."
+	
+Text_HeadbuttTutorTaught:
+	text "Rattle vines with"
+	line "HEADBUTT. Some-"
+	cont "times, sleeping"
+	cont "#mon fall out."
+	done
+	
+Text_HeadbuttTutorRefused:
+	text "Alright then."
+	done
+	
+Text_HeadbuttTutorClear:
+	text ""
 	done
 
 MoroHouse1_MapEventHeader::

@@ -5,6 +5,7 @@ const_value set 1
 	const TROVITA_GYM_AIRI
 	const TROVITA_GYM_KATSUO
 	const TROVITA_GYM_SON
+	const PIA_CARROT_BETA
 
 TrovitaGym_MapScriptHeader:
 
@@ -265,6 +266,27 @@ TrovitaGymGuyWinText:
 	para "Only one badge to"
 	line "go, kid!"
 	done
+	
+PiaCarrotBetaScript:
+	faceplayer
+	opentext
+	writetext PiaCarrotText
+	waitbutton
+	verbosegiveitem HM_DIVE
+	verbosegiveitem HM_ROCK_CLIMB
+	closetext
+	end
+	
+PiaCarrotText:
+	text "PIA CARROT: Thanks"
+	line "for playing the"
+	cont "the beta."
+	
+	para "Not much more to"
+	line "do, but take these"
+	cont "and go have some"
+	cont "more fun!"
+	done
 
 TrovitaGym_MapEventHeader::
 
@@ -278,11 +300,12 @@ TrovitaGym_MapEventHeader::
 	signpost 11, 7, SIGNPOST_READ, TrovitaGymStatue
 	signpost 11, 2, SIGNPOST_READ, TrovitaGymStatue
 
-.ObjectEvents: db 6
+.ObjectEvents: db 7
 	person_event SPRITE_RUDY, 2, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, RudyScript, -1
 	person_event SPRITE_GYM_GUY, 11, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TrovitaGymGuyScript, -1
 	person_event SPRITE_COOLTRAINER_F, 7, 6, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, PERSONTYPE_TRAINER, 3, CooltrainerMorikoScript, -1
 	person_event SPRITE_COOLTRAINER_F, 5, 3, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_TRAINER, 3, CooltrainerAiriScript, -1
 	person_event SPRITE_COOLTRAINER_M, 5, 6, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, PERSONTYPE_TRAINER, 3, CooltrainerKatsuoScript, -1
 	person_event SPRITE_COOLTRAINER_M, 7, 3, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_TRAINER, 3, CooltrainerSonScript, -1
+	person_event SPRITE_PHARMACIST, 13, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, PiaCarrotBetaScript, -1
 

@@ -9,6 +9,10 @@ Marts: ; 160a9
 	dw Route58Mart
 	dw MoroMart
 	dw MurcottMart
+	dw TrovitopolisTrainerMart
+	dw TrovitopolisPokeballMart
+	dw TrovitopolisMedicineMart
+	dw TrovitopolisTMMart
 MartsEnd
 ; 160ed
 
@@ -144,6 +148,55 @@ MurcottMart:
 	db X_ACCURACY
 	db X_ATTACK
 	db X_SPEED
+	db $ff
+	
+TrovitopolisTrainerMart:
+	db 5
+	db ESCAPE_ROPE
+	db REPEL
+	db SUPER_REPEL
+	db MAX_REPEL
+	db ETHER
+	db $ff
+	
+TrovitopolisPokeballMart:
+	db 13
+	db POKE_BALL
+	db HEAL_BALL
+	db GREAT_BALL
+	db ULTRA_BALL
+	db LURE_BALL
+	db FAST_BALL
+	db LOVE_BALL
+	db MOON_BALL
+	db HEAVY_BALL
+	db FRIEND_BALL
+	db LEVEL_BALL
+	db DIVE_BALL
+	db DUSK_BALL
+	db $ff
+	
+TrovitopolisMedicineMart:
+	db 10
+	db POTION
+	db SUPER_POTION
+	db HYPER_POTION
+	db ANTIDOTE
+	db AWAKENING
+	db PARLYZ_HEAL
+	db BURN_HEAL
+	db ICE_HEAL
+	db FULL_HEAL
+	db REVIVE
+	db $ff
+	
+TrovitopolisTMMart:
+	db 5
+	db TM_SUNNY_DAY
+	db TM_PROTECT
+	db TM_DIG
+	db TM_HYPER_BEAM
+	db TM_SWIFT
 	db $ff
 
 DefaultMart: ; 16214

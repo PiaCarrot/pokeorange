@@ -114,6 +114,15 @@ TrovitaMistyText3:
 	cont "Nice to see you"
 	cont "again!"
 	done
+	
+TrovitaIslandSign:
+	jumptext TrovitaIslandSignText
+	
+TrovitaIslandSignText:
+	text "TROVITA ISLAND"
+	
+	para "GYM up ahead!"
+	done
 
 TrovitaIsland_MapEventHeader::
 
@@ -123,7 +132,8 @@ TrovitaIsland_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 1
+	signpost 31, 35, SIGNPOST_READ, TrovitaIslandSign
 
 .ObjectEvents: db 6
 	person_event SPRITE_MISTY, 8, 22, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TrovitaMistyScript, EVENT_GOT_HM_ROCK_SMASH
