@@ -10,7 +10,7 @@ Stack::
 	ds 1
 
 
-SECTION "WRAM Audio", WRAM0
+SECTION "Audio RAM", WRAM0
 wMusic::
 MusicPlaying:: ; c100
 ; nonzero if playing
@@ -215,12 +215,13 @@ TilePermissions:: ; c2fe
 
 	ds 1
 
-SECTION "wSpriteAnims", WRAM0 [$c300]
+SECTION "wSpriteAnims", WRAM0
 ; wc300 - wc313 is a 10x2 dictionary.
 ; keys: taken from third column of SpriteAnimSeqData
 ; values: VTiles
+UNION
 wSpriteAnimDict:: ds 10 * 2
-	ds wSpriteAnimDict - @
+NEXTU
 wc300:: ds 1
 wc301:: ds 1
 wc302:: ds 1
@@ -240,6 +241,7 @@ wc310:: ds 1
 wc311:: ds 1
 wc312:: ds 1
 wc313:: ds 1
+ENDU
 wSpriteAnimationStructs::
 ; Field  0: Index
 ; Fields 1-3: Loaded from SpriteAnimSeqData
@@ -264,8 +266,7 @@ SpriteAnim9:: sprite_anim_struct SpriteAnim9
 wc3a4::
 SpriteAnim10:: sprite_anim_struct SpriteAnim10
 wSpriteAnimationStructsEnd::
-	ds -8
-wc3ac:: ds 8 ; c3ac
+
 wSpriteAnimCount:: ds 1
 wCurrSpriteOAMAddr:: ds 1
 
@@ -309,7 +310,7 @@ wc3fb:: ds 1
 wc3fc:: ds 4
 
 
-SECTION "Sprites", WRAM0 [$c400]
+SECTION "Sprites", WRAM0
 
 Sprites:: ; c400
 ; 4 bytes per sprite
@@ -338,9 +339,10 @@ TileMapEnd::
 
 
 SECTION "Battle", WRAM0
+UNION
 wc608::
 	hall_of_fame wHallOfFameTemp
-	ds wc608 - @
+NEXTU
 
 wMisc:: ; ds (SCREEN_WIDTH + 4) * (SCREEN_HEIGHT + 2)
 	ds 10
@@ -351,7 +353,7 @@ wc618::
 wInitHourBuffer:: ; c61c
 	ds 10
 wc626::
-	ds wc608 - @
+NEXTU
 
 wBattle::
 wEnemyMoveStruct::  move_struct wEnemyMoveStruct ; c608
@@ -550,7 +552,7 @@ PlayerSpdLevel:: ; c6ce
 PlayerSAtkLevel:: ; c6cf
 	ds 1
 
-wc6d0::
+UNION
 PlayerSDefLevel:: ; c6d0
 	ds 1
 PlayerAccLevel:: ; c6d1
@@ -733,7 +735,7 @@ wBattleEnd::
 ; Battle RAM
 
 ; c741
-	ds wc6d0 - @
+NEXTU
 wTrademons::
 wPlayerTrademon:: trademon wPlayerTrademon
 wOTTrademon::     trademon wOTTrademon
@@ -749,8 +751,8 @@ wc7b9:: ds 1
 wc7ba:: ds 1
 wc7bb:: ds 2
 wc7bd::
-	ds wc6d0 - @
 
+NEXTU
 ; naming screen
 wNamingScreenDestinationPointer:: ds 2 ; c6d0
 wNamingScreenCurrNameLength:: ds 1 ; c6d2
@@ -759,8 +761,8 @@ wNamingScreenType:: ds 1 ; c6d4
 wNamingScreenCursorObjectPointer:: ds 2 ; c6d5
 wNamingScreenLastCharacter:: ds 1 ; c6d7
 wNamingScreenStringEntryCoord:: ds 2 ; c6d8
-	ds wc6d0 - @
 
+NEXTU
 wSlots::
 ; Slot Machine
 ; c6d0
@@ -785,8 +787,8 @@ wSlotBuildingMatch:: ds 1
 wSlotsDataEnd::
 	ds 28
 wSlotsEnd::
-	ds wSlots - @
 
+NEXTU
 ; Card Flip
 ; c6d0
 wCardFlip::
@@ -798,10 +800,8 @@ wCardFlipFaceUpCard:: ds 1
 wDiscardPile:: ds 24
 wDiscardPileEnd::
 wCardFlipEnd::
-	ds wCardFlip - @
 
-	ds wc6d0 - @
-
+NEXTU
 wPokedexDataStart::
 wPokedexOrder:: ds NUM_POKEMON +- 1
 wPokedexOrderEnd:: ds 6
@@ -839,20 +839,26 @@ wPokedexDataEnd::
 	ds 2
 
 wMiscEnd::
-
+ENDU
+ENDU
 	ds 22
 
-SECTION "Overworld Map", WRAM0 [$c800]
+SECTION "Overworld Map", WRAM0
 
+UNION
 OverworldMap:: ; c800
 	ds 1300
 OverworldMapEnd::
-	ds OverworldMap - @
 
-wBillsPCPokemonList:: ; c800
+NEXTU
+wBillsPCPokemonList:: ds 3 * 30 ; c800
 ; Pokemon, box number, list index
 
-wLinkData:: ; ds $514
+NEXTU
+wLinkData:: ds $514
+wLinkDataEnd::
+
+NEXTU
 wLinkPlayerName:: ds NAME_LENGTH
 wLinkPartyCount:: ds 1
 wLinkPartySpecies:: ds PARTY_LENGTH
@@ -868,11 +874,8 @@ wLinkPlayerPartyMon6:: party_struct wLinkPlayerPartyMon6
 wLinkPlayerPartyMonOTNames:: ds PARTY_LENGTH * NAME_LENGTH
 wLinkPlayerPartyMonNicks:: ds PARTY_LENGTH * PKMN_NAME_LENGTH
 wLinkPlayerDataEnd::
-	ds $35d
 
-wLinkDataEnd::
-	ds wLinkData - @
-
+NEXTU
 wc800::	ds 1
 wc801:: ds 1
 wc802:: ds 1
@@ -980,6 +983,7 @@ wccb5:: ds 3
 wccb8:: ds 1
 wccb9:: ds 1
 wccba:: ds 102
+ENDU
 
 SECTION "Video", WRAM0
 CreditsPos::
@@ -1124,13 +1128,15 @@ AttrMap:: ; cdd9
 ;		bit 2-0: pal # (cgb only)
 	ds SCREEN_WIDTH * SCREEN_HEIGHT
 AttrMapEnd::
+UNION
 	ds 1
 wcf42:: ds 2
 wcf44:: ds 1
 wcf45::
-	ds AttrMapEnd - @
+NEXTU
 wTileAnimBuffer::
 	ds $10
+ENDU
 ; addresses dealing with serial comms
 wOtherPlayerLinkMode:: ds 1
 wOtherPlayerLinkAction:: ds 4
@@ -1347,22 +1353,23 @@ wDaysSince:: ds 1
 wRAM0End:: ; cfd8
 
 
-SECTION "WRAM 1", WRAMX, BANK [1]
+SECTION "WRAM 1", WRAMX
 
 wd000:: ds 1
 DefaultSpawnpoint::
 wd001:: ds 1
 
 ; d002
+UNION
 wTempMail:: mailmsg wTempMail
-	ds wTempMail - @
+NEXTU
 
 wBufferMonNick:: ds PKMN_NAME_LENGTH ; d002
 wBufferMonOT:: ds NAME_LENGTH ; d00d
 wBufferMon:: party_struct wBufferMon ; d018
 	ds 8
 wMonOrItemNameBuffer::
-	ds wBufferMonNick - @
+NEXTU
 
 wBugContestResults::
 	bugcontestwinner wBugContestFirstPlace
@@ -1373,7 +1380,7 @@ wBugContestWinnersEnd::
 	ds 4
 wBugContestWinnerName:: ds NAME_LENGTH
 
-	ds wBugContestResults - @
+NEXTU
 
 wd002::
 wTempDayOfWeek::
@@ -1513,6 +1520,8 @@ MenuItemsListEnd::
 wTempTrainerHeaderEnd::
 wPlayerTurningDirection:: ; d04e
 	ds 24
+ENDU
+
 wTMHMMoveNameBackup:: ds MOVE_NAME_LENGTH ; d066
 
 StringBuffer1:: ; d073
@@ -1579,9 +1588,10 @@ VramState:: ; d0ed
 
 wBattleResult:: ds 1 ; d0ee
 wUsingItemWithSelect:: ds 1 ; d0ef
+UNION
 CurMart:: ds 16 ; d0f0
 CurMartEnd::
-	ds CurMart - @
+NEXTU
 CurElevator:: ds 1
 wd0f1::
 CurElevatorFloors::
@@ -1591,6 +1601,7 @@ wMailboxCount:: ds 1
 wMailboxItems:: ds MAILBOX_CAPACITY
 wMailboxEnd:: ds 1 ; d0fe
 	ds 2
+ENDU
 
 wListPointer:: dw ; d100
 wd102:: dw ; d102
@@ -1668,9 +1679,11 @@ wPlayerStepDirection:: ds 1 ; d151
 
 wBGMapAnchor:: ds 2 ; d152
 
+UNION
 UsedSprites:: ds 64 ; d154
 UsedSpritesEnd::
-	ds UsedSprites - @
+
+NEXTU
 
 wd154:: ; d154
 	ds 31 ; 64
@@ -1684,6 +1697,7 @@ wd182:: ds 1
 wd191:: ds 1
 wd192:: ds 1
 wd193:: ds 1
+ENDU
 wOverworldMapAnchor:: dw ; d194
 wMetatileStandingY:: ds 1 ; d196
 wMetatileStandingX:: ds 1 ; d197
@@ -1821,6 +1835,7 @@ EvolvableFlags:: ; d1e8
 
 wForceEvolution:: db ; d1e9
 
+UNION
 ; HP bar animations
 wCurHPAnimMaxHP::   dw ; d1ea
 wCurHPAnimOldHP::   dw ; d1ec
@@ -1831,7 +1846,7 @@ wNewHPBarPixels::   db ; d1f2
 wCurHPAnimDeltaHP:: dw ; d1f3
 wCurHPAnimLowHP::   db ; d1f5
 wCurHPAnimHighHP::  db ; d1f6
-	ds wCurHPAnimMaxHP - @
+NEXTU
 
 MagikarpLength::
 wEvolutionOldSpecies::
@@ -1859,6 +1874,7 @@ wd1f3:: ds 1
 wd1f4:: ds 1
 wd1f5:: ds 1
 wd1f6::
+ENDU
 	ds 4
 
 LinkBattleRNs:: ; d1fa
@@ -1984,7 +2000,8 @@ TimeOfDay:: ; d269
 OtherTrainerType::
 	ds 1
 
-SECTION "Enemy Party", WRAMX, BANK [1]
+SECTION "Enemy Party", WRAMX
+UNION
 wPokedexShowPointerAddr::
 wd26b:: ds 1
 wd26c:: ds 1
@@ -1992,11 +2009,12 @@ wPokedexShowPointerBank::
 wd26d:: ds 1
 	ds 3
 wd271:: ds 5
-	ds wd26b - @
+NEXTU
 
 
 ; SECTION "Enemy Party", WRAMX, BANK [1]
 OTPlayerName:: ds NAME_LENGTH ; d26b
+ENDU
 OTPlayerID:: ds 2 ; d276
 	ds 8
 OTPartyCount::   ds 1 ; d280
@@ -2440,7 +2458,7 @@ wScreenSave:: ds 6 * 5
 wMapDataEnd::
 
 
-SECTION "Party", WRAMX, BANK [1]
+SECTION "Party", WRAMX
 
 wPokemonData::
 
@@ -2534,7 +2552,7 @@ wMagikarpRecordHoldersName:: ds NAME_LENGTH
 wPokemonDataEnd::
 wGameDataEnd::
 
-SECTION "Pic Animations", WRAMX, BANK [2]
+SECTION "Pic Animations RAM", WRAMX
 
 TempTileMap::
 ; 20x18 grid of 8x8 tiles
@@ -2553,7 +2571,7 @@ wPokeAnimStructEnd::
 	ds 32
 
 
-SECTION "GBC Video", WRAMX, BANK [5]
+SECTION "GBC Video", WRAMX
 
 ; 8 4-color palettes
 UnknBGPals:: ds 8 palettes ; d000
@@ -2578,7 +2596,7 @@ LYOverridesBackup:: ; d200
 LYOverridesBackupEnd::
 
 
-SECTION "Battle Animations", WRAMX [$d300], BANK [5]
+SECTION "Battle Animations", WRAMX 
 
 wBattleAnimTileDict:: ds 10
 
@@ -2639,10 +2657,9 @@ wBattleAnimTemp8:: ds 1
 
 wSurfWaveBGEffect:: ds $40
 wSurfWaveBGEffectEnd::
-	ds -$e
 wBattleAnimEnd::
 
-SECTION "WRAM 6", WRAMX, BANK [6]
+SECTION "Decompress RAM", WRAMX, BANK [6]
 
 wDecompressScratch::
 wScratchTileMap::
@@ -2652,6 +2669,6 @@ w6_d800::
 
 INCLUDE "sram.asm"
 
-SECTION "WRAM 7", WRAMX, BANK [7]
+SECTION "Window Stack RAM", WRAMX, BANK [7]
 wWindowStack:: ds $1000 - 1
 wWindowStackBottom:: ds 1

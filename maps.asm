@@ -1,28 +1,28 @@
 INCLUDE "includes.asm"
 
 
-SECTION "Map Headers", ROMX, BANK[MAP_HEADERS]
+SECTION "Map Headers", ROMX
 
 INCLUDE "maps/map_headers.asm"
 INCLUDE "maps/second_map_headers.asm"
 
 
-SECTION "Map Blockdata 1", ROMX, BANK[MAPS_1]
+SECTION "Map Blockdata 1", ROMX
 
 INCLUDE "maps/blockdata_1.asm"
 
 
-SECTION "Map Blockdata 2", ROMX, BANK[MAPS_2]
+SECTION "Map Blockdata 2", ROMX
 
 INCLUDE "maps/blockdata_2.asm"
 
 
-SECTION "Map Blockdata 3", ROMX, BANK[MAPS_3]
+SECTION "Map Blockdata 3", ROMX
 
 INCLUDE "maps/blockdata_3.asm"
 
 
-SECTION "Map Scripts 1", ROMX, BANK[MAP_SCRIPTS_1]
+SECTION "Map Scripts 1", ROMX
 
 INCLUDE "maps/PokeCenter2F.asm"
 INCLUDE "maps/TradeCenter.asm"
@@ -38,7 +38,7 @@ INCLUDE "maps/Route49.asm"
 INCLUDE "maps/ValenciaTangeloRoute49.asm"
 
 
-SECTION "Map Scripts 2", ROMX, BANK[MAP_SCRIPTS_2]
+SECTION "Map Scripts 2", ROMX
 
 INCLUDE "maps/TangeloPokeCenter1F.asm"
 INCLUDE "maps/TangeloIsland.asm"
@@ -55,7 +55,7 @@ INCLUDE "maps/Route52TangeloJungleGate.asm"
 INCLUDE "maps/Route51GateUpstairs.asm"
 
 
-SECTION "Map Scripts 3", ROMX, BANK[MAP_SCRIPTS_3]
+SECTION "Map Scripts 3", ROMX
 
 INCLUDE "maps/MikanPokeCenter1F.asm"
 INCLUDE "maps/MikanIsland.asm"
@@ -69,7 +69,7 @@ INCLUDE "maps/Route54.asm"
 INCLUDE "maps/Route53GateUpstairs.asm"
 
 
-SECTION "Map Scripts 4", ROMX, BANK[MAP_SCRIPTS_4]
+SECTION "Map Scripts 4", ROMX
 
 INCLUDE "maps/MandarinNorthPokeCenter.asm"
 INCLUDE "maps/MandarinNorth.asm"
@@ -80,7 +80,7 @@ INCLUDE "maps/MandarinNorthSmallHouse.asm"
 INCLUDE "maps/MandarinUnderground.asm"
 
 
-SECTION "Map Scripts 5", ROMX, BANK[MAP_SCRIPTS_5]
+SECTION "Map Scripts 5", ROMX
 
 INCLUDE "maps/SunburstPokeCenter.asm"
 INCLUDE "maps/SunburstIsland.asm"
@@ -96,7 +96,7 @@ INCLUDE "maps/Route55QuestHouse.asm"
 INCLUDE "maps/PinkanIsland.asm"
 
 
-SECTION "Map Scripts 6", ROMX, BANK[MAP_SCRIPTS_6]
+SECTION "Map Scripts 6", ROMX
 
 INCLUDE "maps/Route56PokeCenter.asm"
 INCLUDE "maps/Route56East.asm"
@@ -111,7 +111,7 @@ INCLUDE "maps/KinnowCafe.asm"
 INCLUDE "maps/KinnowSkateShop.asm"
 
 
-SECTION "Map Scripts 7", ROMX, BANK[MAP_SCRIPTS_7]
+SECTION "Map Scripts 7", ROMX
 
 INCLUDE "maps/Route52PokeCenter1F.asm"
 INCLUDE "maps/DayCare.asm"
@@ -123,7 +123,7 @@ INCLUDE "maps/MtNavelPeak.asm"
 INCLUDE "maps/MtNavelIceRock.asm"
 
 
-SECTION "Map Scripts 8", ROMX, BANK[MAP_SCRIPTS_8]
+SECTION "Map Scripts 8", ROMX
 
 INCLUDE "maps/NationalPark.asm"
 INCLUDE "maps/NationalParkBugContest.asm"
@@ -133,7 +133,7 @@ INCLUDE "maps/RedsHouse2F.asm"
 INCLUDE "maps/BluesHouse.asm"
 
 
-SECTION "Map Scripts 9", ROMX, BANK[MAP_SCRIPTS_9]
+SECTION "Map Scripts 9", ROMX
 
 INCLUDE "maps/Route57.asm"
 INCLUDE "maps/KinnowIslandRoute57Gate.asm"
@@ -154,7 +154,7 @@ INCLUDE "maps/MoroHouse2.asm"
 INCLUDE "maps/MoroPokeCenter.asm"
 INCLUDE "maps/MoroMart.asm"
 
-SECTION "Map Scripts 10", ROMX, BANK[MAP_SCRIPTS_10]
+SECTION "Map Scripts 10", ROMX
 
 INCLUDE "maps/MoroRoute60Gate.asm"
 INCLUDE "maps/Route60GateUpstairs.asm"
@@ -178,7 +178,7 @@ INCLUDE "maps/TrovitaIsland.asm"
 INCLUDE "maps/Route62MandarinDesertGate.asm"
 INCLUDE "maps/SunrayCaveMandarinDesert1F.asm"
 
-SECTION "Map Scripts 11", ROMX, BANK[MAP_SCRIPTS_11]
+SECTION "Map Scripts 11", ROMX
 INCLUDE "maps/GoldenIsland.asm"
 INCLUDE "maps/GoldenIslandHouse1.asm"
 INCLUDE "maps/GoldenIslandHouse2.asm"
@@ -208,47 +208,47 @@ INCLUDE "maps/MayorsOffice.asm"
 INCLUDE "maps/MayorsOfficeMeetingRoom.asm"
 INCLUDE "maps/TrovitopolisPrimaSchool.asm"
 
-SECTION "Map Scripts 12", ROMX, BANK[MAP_SCRIPTS_12]
+SECTION "Map Scripts 12", ROMX
 INCLUDE "maps/TrovitaPort.asm"
 INCLUDE "maps/TrovitaGym.asm"
 
-SECTION "Map Scripts 13", ROMX, BANK[MAP_SCRIPTS_13]
+SECTION "Map Scripts 13", ROMX
 
 
-SECTION "Map Scripts 14", ROMX, BANK[MAP_SCRIPTS_14]
+SECTION "Map Scripts 14", ROMX
 
 
-SECTION "Map Scripts 15", ROMX, BANK[MAP_SCRIPTS_15]
+SECTION "Map Scripts 15", ROMX
 
 
-SECTION "Map Scripts 16", ROMX, BANK[MAP_SCRIPTS_16]
+SECTION "Map Scripts 16", ROMX
 
 
-SECTION "Map Scripts 17", ROMX, BANK[MAP_SCRIPTS_17]
+SECTION "Map Scripts 17", ROMX
 
 
-SECTION "Map Scripts 18", ROMX, BANK[MAP_SCRIPTS_18]
+SECTION "Map Scripts 18", ROMX
 
 
-SECTION "Map Scripts 19", ROMX, BANK[MAP_SCRIPTS_19]
+SECTION "Map Scripts 19", ROMX
 
 
-SECTION "Map Scripts 20", ROMX, BANK[MAP_SCRIPTS_20]
+SECTION "Map Scripts 20", ROMX
 
 
-SECTION "Map Scripts 21", ROMX, BANK[MAP_SCRIPTS_21]
+SECTION "Map Scripts 21", ROMX
 
 
-SECTION "Map Scripts 22", ROMX, BANK[MAP_SCRIPTS_22]
+SECTION "Map Scripts 22", ROMX
 
 
-SECTION "Map Scripts 23", ROMX, BANK[MAP_SCRIPTS_23]
+SECTION "Map Scripts 23", ROMX
 
 
-SECTION "Map Scripts 24", ROMX, BANK[MAP_SCRIPTS_24]
+SECTION "Map Scripts 24", ROMX
 
 
-SECTION "Map Scripts 25", ROMX, BANK[MAP_SCRIPTS_25]
+SECTION "Map Scripts 25", ROMX
 
 INCLUDE "maps/PalletTown.asm"
 INCLUDE "maps/VermilionCity.asm"

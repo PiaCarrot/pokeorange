@@ -53,12 +53,47 @@ SetFacingStepAction: ; 44c1
 	inc a
 	and %00001111
 	ld [hl], a
-
+	ld e, a
+	ld hl, OBJECT_FACING_STEP
+	add hl, bc
+	ld d, [hl]
+	ld hl, OBJECT_DIRECTION_WALKING
+	add hl, bc
+	ld a, [hl]
+	cp $ff
+	jr z, .bitTwoAndThree
+	cp (STEP_SLOW << 2 | RIGHT) + 1
+	jr c, .slowStep
+	cp (3 << 2 | DOWN)
+	jr nc, .runningStep
+; walking speed
+	ld a, e
+	and %111
+	jr nz, .continue
+	inc d
+	jr .continue
+.slowStep
+	ld a, e
+	and %1111
+	jr nz, .continue
+	inc d
+	jr .continue
+.runningStep
+	ld a, e
+	and %11
+	jr nz, .continue
+	inc d
+	jr .continue
+.bitTwoAndThree
+	ld a, e
 	rrca
 	rrca
-	and %00000011
 	ld d, a
 
+.continue
+	ld a, d
+	and %11
+	ld d, a
 	call GetSpriteDirection
 	or d
 	ld hl, OBJECT_FACING_STEP

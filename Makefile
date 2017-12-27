@@ -12,7 +12,7 @@ RGBDS_DIR =
 endif
 
 RGBASM_FLAGS =
-RGBLINK_FLAGS = -n $(ROM_NAME).sym -m $(ROM_NAME).map -p $(FILLER)
+RGBLINK_FLAGS = -n $(ROM_NAME).sym -m $(ROM_NAME).map -l $(ROM_NAME).link -p $(FILLER)
 RGBFIX_FLAGS = -Cjv -t $(TITLE) -i $(MCODE) -n $(ROMVERSION) -p $(FILLER) -k 01 -l 0x33 -m 0x10 -r 3
 
 CFLAGS = -O3
@@ -51,8 +51,6 @@ main.o \
 home.o \
 audio.o \
 maps.o \
-engine/events.o \
-engine/credits.o \
 data/egg_moves.o \
 data/evos_attacks.o \
 data/pokedex/entries.o \

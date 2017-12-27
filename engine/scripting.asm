@@ -37,7 +37,7 @@ WaitScript: ; 96c7a
 	dec [hl]
 	ret nz
 
-	farcall Function58b9
+	farcall ReleaseAllMapObjects
 
 	ld a, SCRIPT_READ
 	ld [ScriptMode], a
@@ -51,7 +51,7 @@ WaitScriptMovement: ; 96c91
 	bit 7, [hl]
 	ret nz
 
-	farcall Function58b9
+	farcall ReleaseAllMapObjects
 
 	ld a, SCRIPT_READ
 	ld [ScriptMode], a
@@ -490,7 +490,7 @@ Script_verbosegiveitem: ; 96f60
 
 
 GiveItemScript: ; 96f77
-	writetext ReceivedItemText
+	farwritetext ReceivedItemText
 	iffalse .Full
 	waitsfx
 	specialsound
@@ -503,12 +503,6 @@ GiveItemScript: ; 96f77
 	pocketisfull
 	end
 ; 96f89
-
-ReceivedItemText: ; 96f89
-	text_jump UnknownText_0x1c4719
-	db "@"
-; 96f8e
-
 
 Script_verbosegiveitem2: ; 96f8e
 ; parameters:
