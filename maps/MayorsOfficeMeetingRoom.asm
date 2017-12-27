@@ -159,8 +159,7 @@ MayorMeetingText1:
 	line "Funny. Those four"
 	cont "behind you look"
 	cont "like the real"
-	
-	para "pests to me."
+	cont "pests to me."
 	
 	para "JAMES: Ooh!"
 	line "That was rude,"
