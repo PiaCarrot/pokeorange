@@ -17,8 +17,9 @@ TrovitopolisDeptStore1FElevatorButton:
 	jumpstd elevatorbutton
 
 UnknownText_0x55993:
-	text "Welcome to GOLDEN-"
-	line "ROD DEPT.STORE."
+	text "Welcome to the"
+	line "TROVITOPOLIS DEPT."
+	cont "STORE."
 	done
 
 TrovitopolisDeptStore1FDirectoryText:
