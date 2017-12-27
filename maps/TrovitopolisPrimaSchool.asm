@@ -46,29 +46,38 @@ TeacherSchoolScript:
 .StrengthQuiz:
 	writetext PrimaQuestion1
 	yesorno
-	iftrue .FailQuiz
+	iffalse .FailQuiz
 	playsound SFX_ELEVATOR_END
 	writetext PrimaQuestionCorrectText
+	waitbutton
 	writetext PrimaQuestion2
 	yesorno
 	iffalse .FailQuiz
+	playsound SFX_ELEVATOR_END
 	writetext PrimaQuestionCorrectText
+	waitbutton
 	writetext PrimaQuestion3
 	yesorno
 	iftrue .FailQuiz
+	playsound SFX_ELEVATOR_END
 	writetext PrimaQuestionCorrectText
+	waitbutton
 	writetext PrimaQuestion4
 	yesorno
 	iffalse .FailQuiz
+	playsound SFX_ELEVATOR_END
 	writetext PrimaQuestionCorrectText
+	waitbutton
 	writetext PrimaQuestion5
 	yesorno
-	iffalse .FailQuiz
+	iftrue .FailQuiz
+	playsound SFX_ELEVATOR_END
 	writetext PrimaQuestionCorrectText
+	waitbutton
 	writetext PrimaStrengthHMPrizeText
+	waitbutton
 	verbosegiveitem HM_STRENGTH
 	setevent EVENT_RECEIVED_HM_STRENGTH
-	waitbutton
 	closetext
 	end
 
