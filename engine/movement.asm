@@ -89,6 +89,10 @@ MovementPointers: ; 5075
 	dw Movement_rock_smash            ; 57
 	dw Movement_return_dig            ; 58
 	dw Movement_skyfall_top           ; 59
+	dw Movement_run_step_down
+	dw Movement_run_step_up
+	dw Movement_run_step_left
+	dw Movement_run_step_right
 ; 5129
 
 
@@ -525,6 +529,21 @@ Movement_big_step_right: ; 5337
 	jp NormalStep
 ; 533c
 
+Movement_run_step_down:
+	ld a, $3 << 2 | DOWN  ; STEP_RUN
+	jp NormalStep
+
+Movement_run_step_up:
+	ld a, $3 << 2 | UP    ; STEP_RUN
+	jp NormalStep
+
+Movement_run_step_left:
+	ld a, $3 << 2 | LEFT  ; STEP_RUN
+	jp NormalStep
+
+Movement_run_step_right:
+	ld a, $3 << 2 | RIGHT ; STEP_RUN
+	jp NormalStep
 
 Movement_turn_away_down: ; 533c
 	ld a, STEP_SLOW << 2 | DOWN

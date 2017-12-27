@@ -107,7 +107,10 @@ HandleMap: ; 96773
 	ld a, [MapStatus]
 	cp 2 ; HandleMap
 	ret nz
+	call DoBackgroundEvents
 
+; fallthrough
+DoBackgroundEvents:
 	call HandleMapObjects
 	call NextOverworldFrame
 	call HandleMapBackground
@@ -116,42 +119,31 @@ HandleMap: ; 96773
 
 MapEvents: ; 96795
 	ld a, [MapEventStatus]
-	ld hl, .jumps
-	rst JumpTable
-	ret
-
-.jumps
-	dw .events
-	dw .no_events
-; 967a1
-
-.events ; 967a1
+	and a
+	ret nz
 	call PlayerEvents
 	call DisableEvents
 	farcall ScriptEvents
 	ret
 ; 967ae
 
-.no_events ; 967ae
-	ret
-; 967af
-
-MaxOverworldDelay: ; 967af
-	db 2
-; 967b0
-
 ResetOverworldDelay: ; 967b0
-	ld a, [MaxOverworldDelay]
-	ld [OverworldDelay], a
+	ld hl, OverworldDelay
+	bit 7, [hl]
+	res 7, [hl]
+	ret nz
+	ld [hl], 2
 	ret
 ; 967b7
 
 NextOverworldFrame: ; 967b7
 	ld a, [OverworldDelay]
 	and a
-	ret z
-	ld c, a
-	jp DelayFrames
+	jp nz, DelayFrame
+; reset overworld delay to leak into the next frame
+	ld a, $82
+	ld [OverworldDelay], a
+	ret
 ; 967c1
 
 HandleMapTimeAndJoypad: ; 967c1
@@ -976,7 +968,7 @@ EdgeWarpScript: ; 4
 ; 96c4f
 
 ChangeDirectionScript: ; 9
-	deactivatefacing 3
+	callasm ReleaseAllMapObjects
 	callasm EnableWildEncounters
 	end
 ; 96c56
