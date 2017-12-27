@@ -1151,23 +1151,16 @@ Copyright: ; 63e2
 	ld hl, VTiles2 tile $60
 	lb bc, BANK(CopyrightGFX), $1d
 	call Request2bpp
-	hlcoord 2, 7
+	hlcoord 0, 8
 	ld de, CopyrightString
 	jp PlaceString
 ; 63fd
 
 CopyrightString: ; 63fd
-	; ©1995-2001 Nintendo
-	db   $60, $61, $62, $63, $64, $65, $66
-	db   $67, $68, $69, $6a, $6b, $6c
-
-	; ©1995-2001 Creatures inc.
-	next $60, $61, $62, $63, $64, $65, $66
-	db   $6d, $6e, $6f, $70, $71, $72, $7a, $7b, $7c
-
-	; ©1995-2001 GAME FREAK inc.
-	next $60, $61, $62, $63, $64, $65, $66
-	db   $73, $74, $75, $76, $77, $78, $79, $7a, $7b, $7c
+	; 2017 HotY Nominee Edition Beta
+	db $60, $61, $62, $63, $64, $65, $66, $67, $68, $69, $6a, $6b, $6c, $6d, $6e, $6f, $70, $71, $72, $73
+	next
+	db $60, $60, $60, $60, $60, $61, $62, $76, $74, $61, $62, $75
 
 	db "@"
 ; 642e
