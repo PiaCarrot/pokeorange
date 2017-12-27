@@ -423,6 +423,7 @@ BugContestResults_CopyContestantsToResults ; 0xbc380
 InitializeEventsScript:
 	setevent EVENT_MORO_TROPHY_MISSING
 	setevent EVENT_TRACEY_TROVITOPOLIS_PORT
+	setevent EVENT_LORELEI_AT_TRAINER_SCHOOL
 	setevent EVENT_GOLDENROD_SALE_OFF
 	setevent EVENT_WAREHOUSE_BLOCKED_OFF
 	setevent EVENT_WAREHOUSE_LAYOUT_1

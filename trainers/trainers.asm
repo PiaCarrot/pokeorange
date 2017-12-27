@@ -2114,6 +2114,28 @@ CooltrainerMGroup:
 	db 25, SEEL
 
 	db $ff
+	
+; ================
+
+	; COOLTRAINERM (2)
+	db "KATSU@"
+	db TRAINERTYPE_NORMAL
+
+	db 36, GRAVELER
+	db 35, HYPNO
+
+	db $ff
+	
+; ================
+
+	; COOLTRAINERM (3)
+	db "SON@"
+	db TRAINERTYPE_NORMAL
+
+	db 38, STEELIX
+	db 34, MAGMAR
+
+	db $ff
 
 ; ================
 ; ================================
@@ -2129,6 +2151,30 @@ CooltrainerFGroup:
 
 	db 26, SKIPLOOM
 	db 26, ESPEON
+
+	db $ff
+
+; ================
+
+	; COOLTRAINERF (2)
+	db "MORI@"
+	db TRAINERTYPE_NORMAL
+
+	db 40, DEWGONG
+
+	db $ff
+
+; ================
+
+	; COOLTRAINERF (3)
+	db "AIRI@"
+	db TRAINERTYPE_NORMAL
+
+	db 34, VILEPLUME
+	db 34, SEADRA
+	db 34, LYCANROC
+	db 34, SALANDIT
+	db 34, CHARMELEON
 
 	db $ff
 

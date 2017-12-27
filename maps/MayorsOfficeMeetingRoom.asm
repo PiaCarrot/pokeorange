@@ -27,6 +27,7 @@ MayorsOfficeMeetingRoom_MapScriptHeader:
 	end
 	
 MayorOfficeMeetingRoomScript:
+	playmusic MUSIC_ROCKET_OVERTURE
 	spriteface MAYORS_OFFICE_BUTCH, DOWN
 	spriteface MAYORS_OFFICE_CASSIDY, DOWN
 	spriteface MAYORS_OFFICE_JESSIE, DOWN
@@ -66,8 +67,9 @@ MayorOfficeMeetingRoomScript:
 	winlosstext JamesWinLoss, 0
 	loadtrainer JAMES, JAMES_1
 	startbattle
-	playmapmusic
+	dontrestartmapmusic
 	reloadmapafterbattle
+	playmusic MUSIC_ROCKET_OVERTURE
 	applymovement MAYORS_OFFICE_JAMES, JamesMovement2
 	applymovement MAYORS_OFFICE_JESSIE, JessieMovement1
 	opentext
@@ -77,8 +79,9 @@ MayorOfficeMeetingRoomScript:
 	winlosstext JessieWinLoss, 0
 	loadtrainer JESSIE, JESSIE_1
 	startbattle
-	playmapmusic
+	dontrestartmapmusic
 	reloadmapafterbattle
+	playmusic MUSIC_ROCKET_OVERTURE
 	applymovement MAYORS_OFFICE_JAMES, JamesMovement3
 	spriteface PLAYER, DOWN
 	opentext
@@ -105,8 +108,9 @@ MayorOfficeMeetingRoomScript:
 	winlosstext JessieJamesOfficeWinLoss, 0
 	loadtrainer JESSIE_JAMES, JESSIE_AND_JAMES_1
 	startbattle
-	playmapmusic
+	dontrestartmapmusic
 	reloadmapafterbattle
+	playmusic MUSIC_ROCKET_OVERTURE
 	disappear MAYORS_OFFICE_CASSIDY
 	disappear MAYORS_OFFICE_BUTCH
 	disappear MAYORS_OFFICE_JESSIE
@@ -139,6 +143,7 @@ MayorOfficeMeetingRoomScript:
 	playsound SFX_EXIT_BUILDING
 	playmapmusic
 	domaptrigger MAYORS_OFFICE_MEETING_ROOM, $1
+	clearevent EVENT_LORELEI_AT_TRAINER_SCHOOL
 	end
 	
 MayorMeetingText1:
@@ -217,7 +222,7 @@ MayorMeetingText3:
 	cont "the ROCKETS while"
 	
 	para "I take care of the"
-	line "mayor. Good luck!"
+	line "MAYOR. Good luck!"
 	done
 	
 MayorMeetingText4:

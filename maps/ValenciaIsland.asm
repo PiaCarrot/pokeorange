@@ -94,6 +94,7 @@ if def(DEBUG)
 	setflag ENGINE_FLYPOINT_MORO
 	setflag ENGINE_FLYPOINT_MURCOTT
 	setflag ENGINE_FLYPOINT_TROVITOPOLIS
+	setflag ENGINE_FLYPOINT_TROVITA
 	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
 	giveitem SKATEBOARD
@@ -131,7 +132,7 @@ if def(DEBUG)
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp TROVITOPOLIS, 37, 20
+	warp TROVITA_PORT, 11, 11
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

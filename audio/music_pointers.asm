@@ -126,4 +126,5 @@
 	dba Music_HoennDewfordTown
 	dba Music_EverGrandeCity
 	dba Music_LookGladion
+	dba Music_HoennChampionBattle
 ; e91a3

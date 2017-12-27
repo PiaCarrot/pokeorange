@@ -40,6 +40,10 @@ LoadSpecialMapPalette: ; 494ac
 	ld hl, TrovitopolisSewerPalette
 	cp TILESET_SEWER
 	jr z, LoadEightBGPalettes
+	
+	ld hl, MayorsOfficePalette
+	cp TILESET_POWER_PLANT
+	jr z, LoadEightBGPalettes
 
 .do_nothing
 	and a
@@ -102,6 +106,9 @@ INCLUDE "tilesets/mandarin_desert.pal"
 
 TrovitopolisSewerPalette:
 INCLUDE "tilesets/trovitopolis_sewer.pal"
+
+MayorsOfficePalette:
+INCLUDE "tilesets/mayors_office.pal"
 
 LoadSpecialMapOBPalette:
 	ld a, [wTileset]

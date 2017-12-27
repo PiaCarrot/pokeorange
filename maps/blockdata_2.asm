@@ -22,6 +22,7 @@ PinkanIsland_BlockData:
 ValenciaPort_BlockData:
 TangeloPort_BlockData:
 TrovitopolisPort_BlockData:
+TrovitaPort_BlockData:
 	INCBIN "maps/ValenciaPort.blk"
 
 TangeloJungle_BlockData:
@@ -105,3 +106,9 @@ TrovitopolisDeptStoreRoof_BlockData:
 
 SunrayCaveMandarinDesert1F_BlockData:
 	INCBIN "maps/SunrayCaveMandarinDesert1F.blk"
+	
+TrovitaGym_BlockData:
+	INCBIN "maps/TrovitaGym.blk"
+	
+TrovitopolisPrimaSchool_BlockData:
+	INCBIN "maps/TrovitopolisPrimaSchool.blk"

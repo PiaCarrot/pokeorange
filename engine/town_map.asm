@@ -491,6 +491,7 @@ ENDM
 	flypoint MORO,			 MORO_ISLAND
 	flypoint MURCOTT,		 MURCOTT_ISLAND
 	flypoint TROVITOPOLIS,   TROVITOPOLIS
+	flypoint TROVITA,		 TROVITA_ISLAND
 ; Kanto
 
 KANTO_FLYPOINT EQU const_value
@@ -526,7 +527,7 @@ FlyMap: ; 91c90
 ; Flypoints begin at Valencia..
 	ld [StartFlypoint], a
 ; ..and end at ...
-	ld a, FLY_TROVITOPOLIS
+	ld a, FLY_TROVITA
 	ld [EndFlypoint], a
 ; Fill out the map
 	call FillOrangeMap
@@ -558,7 +559,7 @@ FlyMap: ; 91c90
 	ld a, FLY_VALENCIA
 	ld [StartFlypoint], a
 ; ...and end at ...
-	ld a, FLY_TROVITOPOLIS
+	ld a, FLY_TROVITA
 	ld [EndFlypoint], a
 ; Because Indigo Plateau is the first flypoint the player
 
@@ -579,7 +580,7 @@ FlyMap: ; 91c90
 ; Flypoints begin at Valencia...
 	ld [StartFlypoint], a
 ; ..and end at ...
-	ld a, FLY_TROVITOPOLIS
+	ld a, FLY_TROVITA
 	ld [EndFlypoint], a
 	call FillOrangeMap
 	pop af

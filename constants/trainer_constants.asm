@@ -174,9 +174,13 @@ KRIS EQU __enum__
 
 	trainerclass COOLTRAINERM
 	const AKIRA
+	const KATSUO
+	const SON
 
 	trainerclass COOLTRAINERF
 	const KEIKO
+	const MORIKO
+	const AIRI
 
 	trainerclass CATMAN
 	const DAIKON

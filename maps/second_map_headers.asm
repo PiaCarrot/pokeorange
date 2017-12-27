@@ -101,10 +101,10 @@
 
 	map_header_2 UnnamedIsland2, UNNAMED_ISLAND_2, 53, NORTH | EAST
 	connection north, ROUTE_61, Route61, 0, 7, 8, UNNAMED_ISLAND_2
-	connection east, FISHING_CONTEST, FishingContest, 0, 0, 40, UNNAMED_ISLAND_2
+	connection east, FISHING_CONTEST, FishingContest, 1, 0, 40, UNNAMED_ISLAND_2
 
 	map_header_2 FishingContest, FISHING_CONTEST, 53, WEST
-	connection west, UNNAMED_ISLAND_2, UnnamedIsland2, 0, 0, 40, FISHING_CONTEST
+	connection west, UNNAMED_ISLAND_2, UnnamedIsland2, -1, 0, 40, FISHING_CONTEST
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
@@ -216,6 +216,9 @@
 	map_header_2 TrovitopolisPort, TROVITOPOLIS_PORT, 10, 0
 	map_header_2 MayorsOffice, MAYORS_OFFICE, 0, 0
 	map_header_2 MayorsOfficeMeetingRoom, MAYORS_OFFICE_MEETING_ROOM, 0, 0
+	map_header_2 TrovitaPort, TROVITA_PORT, 10, 0
+	map_header_2 TrovitaGym, TROVITA_GYM, 0, 0
+	map_header_2 TrovitopolisPrimaSchool, TROVITOPOLIS_PRIMA_SCHOOL, 0, 0
 
 	
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0

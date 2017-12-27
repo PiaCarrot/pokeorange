@@ -1,23 +1,135 @@
 const_value set 1
+	const TROVITA_ISLAND_MISTY
+	const TROVITA_ISLAND_ROCK1
+	const TROVITA_ISLAND_ROCK2
+	const TROVITA_ISLAND_POKEBALL1
+	const TROVITA_ISLAND_POKEBALL2
+	const TROVITA_ISLAND_POKEBALL3
 
 TrovitaIsland_MapScriptHeader::
 
 .Triggers: db 0
 
-.Callbacks: db 1
-	dbw MAPCALLBACK_NEWMAP, .FlyPoint
+.Callbacks: db 0
 
-.FlyPoint:
-	;setflag ENGINE_FLYPOINT_TROVITA
-	return
+TrovitaRock:
+	jumpstd smashrock
+	
+TrovitaRareCandy:
+	itemball RARE_CANDY
+	
+TrovitaMaxRevive:
+	itemball MAX_REVIVE
+	
+TrovitaFullRestore:
+	itemball FULL_RESTORE
+	
+TrovitaMistyScript:
+	opentext
+	writetext TrovitaMistyText1
+	waitbutton
+	closetext
+	faceplayer
+	playmusic MUSIC_LASS_ENCOUNTER
+	showemote EMOTE_SHOCK, TROVITA_ISLAND_MISTY, 15
+	opentext
+	writetext TrovitaMistyText2
+	waitbutton
+	verbosegiveitem HM_ROCK_SMASH
+	writetext TrovitaMistyText3
+	waitbutton
+	closetext
+	checkcode VAR_FACING
+	if_equal UP, .TrovitaMistyWalksAround
+	if_equal RIGHT, .TrovitaMistyWalksDown
+	if_equal LEFT, .TrovitaMistyWalksDown
+	
+.TrovitaMistyWalksAround:
+	applymovement TROVITA_ISLAND_MISTY, TrovitaMistyAroundMovement
+	disappear TROVITA_ISLAND_MISTY
+	setevent EVENT_GOT_HM_ROCK_SMASH
+	special Special_FadeOutMusic
+	playmusic MUSIC_CIANWOOD_CITY
+	end
+	
+.TrovitaMistyWalksDown:
+	applymovement TROVITA_ISLAND_MISTY, TrovitaMistyDownMovement
+	disappear TROVITA_ISLAND_MISTY
+	setevent EVENT_GOT_HM_ROCK_SMASH
+	special Special_FadeOutMusic
+	playmusic MUSIC_CIANWOOD_CITY
+	end
+	
+TrovitaMistyDownMovement:
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step_end	
+
+TrovitaMistyAroundMovement:
+	step LEFT
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step_end
+
+TrovitaMistyText1:
+	text "MISTY: Definitely"
+	line "not my type<...>"
+	done
+	
+TrovitaMistyText2:
+	text "MISTY: Ah, hello!"
+	line "Your name was"
+	cont "<PLAYER>, right?"
+	
+	para "I see you're here"
+	line "to challenge RUDY."
+	
+	para "Well, good luck!"
+	line "Maybe if we meet"
+	cont "again, we can"
+	cont "have a battle!"
+	
+	para "Here, a gift from"
+	line "me to you!"
+	done
+	
+TrovitaMistyText3:
+	text "MISTY: Well, I"
+	line "must be off now!"
+	cont "Nice to see you"
+	cont "again!"
+	done
 
 TrovitaIsland_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 2
+	warp_def 31, 40, 1, TROVITA_PORT
+	warp_def 7, 22, 1, TROVITA_GYM
 
 .CoordEvents: db 0
 
 .BGEvents: db 0
 
-.ObjectEvents: db 0
+.ObjectEvents: db 6
+	person_event SPRITE_MISTY, 8, 22, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TrovitaMistyScript, EVENT_GOT_HM_ROCK_SMASH
+	person_event SPRITE_ROCK, 7, 27, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TrovitaRock, -1
+	person_event SPRITE_ROCK, 8, 26, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TrovitaRock, -1
+	person_event SPRITE_POKE_BALL, 27, 35, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TrovitaRareCandy, EVENT_TROVITA_RARE_CANDY
+	person_event SPRITE_POKE_BALL, 6, 14, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TrovitaMaxRevive, EVENT_TROVITA_MAX_REVIVE
+	person_event SPRITE_POKE_BALL, 15, 10, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TrovitaFullRestore, EVENT_TROVITA_FULL_RESTORE
 

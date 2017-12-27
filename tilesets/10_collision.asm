@@ -32,3 +32,9 @@
 	tilecoll FLOOR, FLOOR, WALL, WALL
 	tilecoll WINDOW, WINDOW, FLOOR, FLOOR
 	tilecoll FLOOR, FLOOR, WALL, WALL
+	tilecoll WALL, WALL, FLOOR, FLOOR
+	tilecoll FLOOR, WALL, FLOOR, FLOOR
+	tilecoll WALL, FLOOR, FLOOR, FLOOR
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR

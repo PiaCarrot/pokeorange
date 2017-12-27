@@ -206,9 +206,11 @@ INCLUDE "maps/SewerEntrance.asm"
 INCLUDE "maps/TrovitopolisPort.asm"
 INCLUDE "maps/MayorsOffice.asm"
 INCLUDE "maps/MayorsOfficeMeetingRoom.asm"
+INCLUDE "maps/TrovitopolisPrimaSchool.asm"
 
 SECTION "Map Scripts 12", ROMX, BANK[MAP_SCRIPTS_12]
-
+INCLUDE "maps/TrovitaPort.asm"
+INCLUDE "maps/TrovitaGym.asm"
 
 SECTION "Map Scripts 13", ROMX, BANK[MAP_SCRIPTS_13]
 

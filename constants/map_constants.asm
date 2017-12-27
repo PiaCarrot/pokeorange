@@ -35,6 +35,7 @@ MAP_NONE EQU 0
 	mapgroup GOLDEN_ISLAND, 16, 14
 	mapgroup ROUTE_60, 32, 28
 	mapgroup SUNRAY_CAVE_MANDARIN_DESERT_1F, 11, 11
+	mapgroup TROVITA_ISLAND, 22, 24
 
 	newgroup ; 3
 
@@ -130,7 +131,6 @@ MAP_NONE EQU 0
 	mapgroup TROVITOPOLIS, 24, 36
 	mapgroup FISHING_CONTEST, 20, 12
 	mapgroup FISHING_CONTEST_LOBBY, 3, 6
-	mapgroup TROVITA_ISLAND, 22, 24
 	mapgroup TROVITOPOLIS_DEPT_STORE_1F,                     4,  8 ; 11
 	mapgroup TROVITOPOLIS_DEPT_STORE_2F,                     4,  8 ; 12
 	mapgroup TROVITOPOLIS_DEPT_STORE_3F,                     4,  8 ; 13
@@ -149,6 +149,9 @@ MAP_NONE EQU 0
 	mapgroup TROVITOPOLIS_PORT, 12, 12
 	mapgroup MAYORS_OFFICE, 5, 10
 	mapgroup MAYORS_OFFICE_MEETING_ROOM, 5, 10
+	mapgroup TROVITA_PORT, 12, 12
+	mapgroup TROVITA_GYM, 7, 5
+	mapgroup TROVITOPOLIS_PRIMA_SCHOOL, 4, 6
 
 	newgroup ; 9
 
@@ -341,6 +344,7 @@ const_value = -1
 	const SPAWN_MORO
 	const SPAWN_MURCOTT
 	const SPAWN_TROVITOPOLIS
+	const SPAWN_TROVITA
 	const SPAWN_ASCORBIA
 	const SPAWN_KUMQUAT
 	const SPAWN_PUMMELO

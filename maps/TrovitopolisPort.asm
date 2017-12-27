@@ -114,7 +114,7 @@ TrovitopolisPortSailorScript:
 	special FadeOutPalettes
 	waitsfx
 	appear TROVITOPOLIS_PORT_SAILOR_1
-	warp TROVITA_ISLAND, 11, 7 ;TROVITA_PORT
+	warp TROVITA_PORT, 11, 7 ;TROVITA_PORT
 	end
 
 TrovitopolisSailorMovement:

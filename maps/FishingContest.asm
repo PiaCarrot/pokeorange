@@ -65,8 +65,8 @@ FishingContestNatPagleText:
 FishingContest_MapEventHeader::
 
 .Warps: db 2
-	warp_def 10, 0, 3, FISHING_CONTEST_LOBBY
-	warp_def 11, 0, 4, FISHING_CONTEST_LOBBY
+	warp_def 6, 0, 3, FISHING_CONTEST_LOBBY
+	warp_def 7, 0, 4, FISHING_CONTEST_LOBBY
 
 .CoordEvents: db 0
 
