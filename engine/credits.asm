@@ -147,9 +147,9 @@ Credits:: ; 109847
 	lb bc, BANK(CreditsBorderGFX), $09
 	call Request2bpp
 
-	ld de, CopyrightGFX
+	ld de, CreditsCopyrightGFX
 	ld hl, VTiles2 tile $60
-	lb bc, BANK(CopyrightGFX), $1d
+	lb bc, BANK(CreditsCopyrightGFX), $1d
 	call Request2bpp
 
 	ld de, TheEndGFX
@@ -786,6 +786,8 @@ Credits_TheEnd: ; 109c11 (42:5c11)
 
 
 CreditsBorderGFX:    INCBIN "gfx/credits/border.2bpp"
+
+CreditsCopyrightGFX: INCBIN "gfx/credits/copyright.2bpp"
 
 CreditsMonsGFX:
 CreditsPichuGFX:     INCBIN "gfx/credits/pichu.2bpp"
