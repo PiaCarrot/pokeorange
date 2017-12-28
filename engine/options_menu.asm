@@ -141,19 +141,19 @@ Options_TextSpeed: ; e42f5
 ; e4331
 
 .Strings:
-	dw .Inst
+	dw .Instant
 	dw .Fast
 	dw .Mid
 	dw .Slow
 
-.Inst:
-	db "INST@"
+.Instant:
+	db "INSTANT@"
 .Fast:
-	db "FAST@"
+	db "FAST   @"
 .Mid:
-	db "MID @"
+	db "MID    @"
 .Slow:
-	db "SLOW@"
+	db "SLOW   @"
 ; e4346
 
 
