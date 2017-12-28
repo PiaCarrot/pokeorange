@@ -47,7 +47,7 @@ TangeloTraceyScript:
 	writetext UnknownText_0x19c4e2
 	pause 10
 	verbosegiveitem GS_BALL
-	waitbutton
+	waitsfx
 	closetext
 	setevent EVENT_GOT_GS_BALL_FROM_TRACEY
 	end
@@ -243,8 +243,10 @@ Tracey_Movement:
 	step DOWN
 	step DOWN
 	step DOWN
-	step DOWN
-	step DOWN
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
 	step_end
 
 TangeloIsland_MapEventHeader::
