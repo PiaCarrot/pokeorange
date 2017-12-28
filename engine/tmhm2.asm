@@ -42,7 +42,7 @@ GetTMHMItemMove: ; 2c7b6 (b:47b6)
 	ret
 
 AskTeachTMHM: ; 2c7bf (b:47bf)
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	res NO_TEXT_SCROLL, [hl]
@@ -67,7 +67,7 @@ AskTeachTMHM: ; 2c7bf (b:47bf)
 .NotTMHM:
 	pop bc
 	ld a, b
-	ld [Options], a
+	ld [wOptions], a
 	ret
 
 ChooseMonToLearnTMHM: ; 2c7fb

@@ -1279,7 +1279,7 @@ MonMenu_Softboiled: ; 12ee6
 ; 12f26
 
 ChooseMoveToDelete: ; 12f5b
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
@@ -1287,7 +1287,7 @@ ChooseMoveToDelete: ; 12f5b
 	call .ChooseMoveToDelete
 	pop bc
 	ld a, b
-	ld [Options], a
+	ld [wOptions], a
 	push af
 	call ClearBGPalettes
 	pop af
@@ -1347,13 +1347,13 @@ ManagePokemonMoves: ; 12fba
 	ld a, [CurPartySpecies]
 	cp EGG
 	jr z, .egg
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
 	call MoveScreenLoop
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	call ClearBGPalettes
 
 .egg

@@ -3,7 +3,7 @@ TrainerCard: ; 25105
 	push af
 	xor a
 	ld [VramState], a
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
@@ -171,7 +171,7 @@ endr
 
 .quit
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	pop af
 	ld [VramState], a
 	ret

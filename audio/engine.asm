@@ -1936,7 +1936,7 @@ Music_StereoPanning: ; e89ba
 ; stereo panning
 ; params: 1
 	; stereo on?
-	ld a, [Options]
+	ld a, [wOptions]
 	bit 5, a ; stereo
 	jr nz, Music_Panning
 	; skip param
@@ -2422,7 +2422,7 @@ _PlayCryHeader:: ; e8b79
 ; Stereo only: Play cry from the monster's side.
 ; This only applies in-battle.
 
-	ld a, [Options]
+	ld a, [wOptions]
 	bit 5, a ; stereo
 	jr z, .next
 
@@ -2565,7 +2565,7 @@ PlayStereoSFX:: ; e8ca6
 	call MusicOff
 
 ; standard procedure if stereo's off
-	ld a, [Options]
+	ld a, [wOptions]
 	bit 5, a
 	jp z, _PlaySFX
 

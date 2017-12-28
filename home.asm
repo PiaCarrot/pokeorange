@@ -247,88 +247,67 @@ SkipNames:: ; 0x30f4
 
 INCLUDE "home/math.asm"
 
-PrintLetterDelay:: ; 313d
+PrintLetterDelay::
 ; Wait before printing the next letter.
 
-; The text speed setting in Options is actually a frame count:
+; The text speed setting in wOptions is actually a frame count:
 ; 	fast: 1 frame
 ; 	mid:  3 frames
 ; 	slow: 5 frames
 
 ; TextBoxFlags[!0] and A or B override text speed with a one-frame delay.
-; Options[4] and TextBoxFlags[!1] disable the delay.
-
-	ld a, [Options]
+; wOptions[4] and TextBoxFlags[!1] disable the delay.
+; non-scrolling text?
+	ld a, [wOptions]
 	bit NO_TEXT_SCROLL, a
 	ret nz
+	and %11
+	ret z
 
-; non-scrolling text?
 	ld a, [TextBoxFlags]
 	bit 1, a
 	ret z
 
+	ld a, 2
+	ld [hBGMapThird], a
 	push hl
 	push de
 	push bc
-
-	ld hl, hOAMUpdate
-	ld a, [hl]
-	push af
-
-; orginally turned oam update off...
-;	ld a, 1
-	ld [hl], a
-
 ; force fast scroll?
 	ld a, [TextBoxFlags]
 	bit 0, a
-	jr z, .fast
-
-; text speed
-	ld a, [Options]
-	and %111
-	jr .updatedelay
-
-.fast
 	ld a, 1
-
-.updatedelay
+	jr z, .updateDelay
+; text speed
+	ld a, [wOptions]
+	and %11
+	dec a
+	ld b, 1
+	jr z, .updateDelay_B
+	dec a
+	ld b, 3
+	jr z, .updateDelay_B
+	ld b, 5
+.updateDelay_B
+	ld a, b
+.updateDelay
 	ld [wTextDelayFrames], a
-
-.checkjoypad
-	call GetJoypad
-
-; input override
-	ld a, [wDisableTextAcceleration]
-	and a
-	jr nz, .wait
-
-; Wait one frame if holding A or B.
-	ld a, [hJoyDown]
-	bit 0, a ; A_BUTTON
-	jr z, .checkb
-	jr .delay
-.checkb
-	bit 1, a ; B_BUTTON
-	jr z, .wait
-
-.delay
-	call DelayFrame
-	jr .end
-
-.wait
+.textDelayLoop
 	ld a, [wTextDelayFrames]
 	and a
-	jr nz, .checkjoypad
-
-.end
-	pop af
-	ld [hOAMUpdate], a
+	jr z, .done
+	call DelayFrame
+	call GetJoypad
+; Finish execution if A or B is pressed
+	ld a, [hJoyDown]
+	and A_BUTTON | B_BUTTON
+	jr z, .textDelayLoop
+.done
 	pop bc
 	pop de
 	pop hl
 	ret
-; 318c
+
 
 CopyDataUntil:: ; 318c
 ; Copy [hl .. bc) to de.

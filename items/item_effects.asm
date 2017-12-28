@@ -210,7 +210,7 @@ DuskBall: ; e8a2
 	cp PARK_BALL
 	call nz, ReturnToBattle_UseBall
 
-	ld hl, Options
+	ld hl, wOptions
 	res NO_TEXT_SCROLL, [hl]
 	ld hl, UsedItemText
 	call PrintText

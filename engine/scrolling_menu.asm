@@ -44,7 +44,7 @@ _ScrollingMenu:: ; 245cb
 ScrollingMenu_InitDisplay: ; 245f1
 	xor a
 	ld [hBGMapMode], a
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
@@ -52,7 +52,7 @@ ScrollingMenu_InitDisplay: ; 245f1
 	call ScrollingMenu_PlaceCursor
 	call ScrollingMenu_CheckCallFunction3
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	ret
 ; 24609
 

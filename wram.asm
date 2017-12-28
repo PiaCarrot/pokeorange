@@ -1306,7 +1306,7 @@ wOBP1:: ds 1
 
 wNumHits:: ds 2
 
-Options:: ; cfcc
+wOptions:: ; cfcc
 ; bit 0-2: number of frames to delay when printing text
 ;   fast 1; mid 3; slow 5
 ; bit 3: ?
@@ -1326,7 +1326,7 @@ TextBoxFlags::
 
 	ds 4
 
-OptionsEnd::
+wOptionsEnd::
 
 ; Time buffer, for counting the amount of time since
 ; an event began.
