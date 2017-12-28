@@ -2306,7 +2306,7 @@ endr
 
 .boxnames ; e3619
 	push de
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	call GetBoxName
 	pop hl
@@ -2326,7 +2326,7 @@ BillsPC_PrintBoxCountAndCapacity: ; e3632
 	hlcoord 11, 7
 	lb bc, 5, 7
 	call TextBox
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	cp -1
 	ret z
 	hlcoord 12, 9
@@ -2357,7 +2357,7 @@ BillsPC_PrintBoxCountAndCapacity: ; e3632
 GetBoxCount: ; e366c (38:766c)
 	ld a, [wCurBox]
 	ld c, a
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	cp c
 	jr z, .activebox
@@ -2445,7 +2445,7 @@ BillsPC_ChangeBoxSubmenu: ; e36f9 (38:76f9)
 	ret
 
 .Switch:
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	ld e, a
 	ld a, [wCurBox]
@@ -2461,7 +2461,7 @@ BillsPC_ChangeBoxSubmenu: ; e36f9 (38:76f9)
 	call ClearTileMap
 	call LoadStandardFont
 	call LoadFontsBattleExtra
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	call GetBoxName
 	ld e, l
@@ -2469,7 +2469,7 @@ BillsPC_ChangeBoxSubmenu: ; e36f9 (38:76f9)
 	ld hl, wd002
 	ld c, BOX_NAME_LENGTH - 1
 	call InitString
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	call GetBoxName
 	ld de, wd002

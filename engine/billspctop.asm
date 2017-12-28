@@ -56,7 +56,7 @@ _BillsPC: ; e3fd
 	jr c, .cancel
 	ld a, [wMenuCursorBuffer]
 	push af
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	ld hl, .Jumptable
 	rst JumpTable
 	pop bc

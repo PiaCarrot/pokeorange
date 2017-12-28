@@ -16,7 +16,7 @@ MainMenu: ; 49cdc
 	call CloseWindow
 	jr c, .quit
 	call ClearTileMap
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	ld hl, .Jumptable
 	rst JumpTable
 	jr MainMenu

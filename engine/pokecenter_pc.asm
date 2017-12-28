@@ -15,7 +15,7 @@ PokemonCenterPC: ; 1559a
 	ld [wWhichIndexSet], a
 	call DoNthMenu
 	jr c, .shutdown
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	ld hl, .JumpTable
 	call MenuJumptable
 	jr nc, .loop

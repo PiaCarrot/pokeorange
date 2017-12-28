@@ -87,7 +87,7 @@ StartMenu:: ; 125cd
 	call .DrawDayTimeBox
 	call SetUpMenu
 	ld a, $ff
-	ld [MenuSelection], a
+	ld [wMenuSelection], a
 .loop
 	call .PrintDayTime
 	call GetScrollingMenuJoypad
@@ -166,7 +166,7 @@ StartMenu:: ; 125cd
 
 .ItemName: ; 127ef
 	push de
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	call .GetMenuItemTextPointer
 	inc hl
 	inc hl
@@ -198,7 +198,7 @@ StartMenu:: ; 125cd
 
 
 .OpenMenu: ; 127e5
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	call .GetMenuItemTextPointer
 	ld a, [hli]
 	ld h, [hl]
@@ -605,7 +605,7 @@ PokemonActionSubmenu: ; 12a88
 	call ClearBox
 	farcall MonSubmenu
 	call GetCurNick
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	ld hl, .Actions
 	ld de, 3
 	call IsInArray
