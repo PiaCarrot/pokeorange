@@ -29,7 +29,7 @@ WaitBGMap:: ; 31f6
 	ld a, 1
 	ld [hBGMapMode], a
 
-Delay3::
+Delay2::
 	ld c, 3
 
 DelayFrames:: ; 468

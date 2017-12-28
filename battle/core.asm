@@ -53,18 +53,18 @@ DoBattle: ; 3c000
 	jp z, LostBattle
 	call Call_LoadTempTileMapToTileMap
 	xor a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 .loop2
 	call CheckIfCurPartyMonIsFitToFight
 	jr nz, .alive2
-	ld hl, CurPartyMon
+	ld hl, wCurPartyMon
 	inc [hl]
 	jr .loop2
 
 .alive2
 	ld a, [CurBattleMon]
 	ld [LastPlayerMon], a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld [CurBattleMon], a
 	inc a
 	ld hl, PartySpecies - 1
@@ -2076,14 +2076,14 @@ DoubleSwitch: ; 3cdca
 	jr .done
 
 .player_1
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	push af
 	ld a, $1
 	call EnemyPartyMonEntrance
 	call ClearSprites
 	call LoadTileMapToTempTileMap
 	pop af
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	call PlayerPartyMonEntrance
 
 .done
@@ -2558,7 +2558,7 @@ PlayerMonFaintHappinessMod: ; 3d1aa
 
 .got_param
 	ld a, [CurBattleMon]
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	farcall ChangeHappiness
 	ld a, [wBattleResult]
 	and %11000000
@@ -2635,7 +2635,7 @@ ForcePlayerMonChoice: ; 3d227
 	call ClearSprites
 	ld a, [CurBattleMon]
 	ld [LastPlayerMon], a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld [CurBattleMon], a
 	call AddBattleParticipant
 	call InitBattleMon
@@ -2663,7 +2663,7 @@ ForcePlayerMonChoice: ; 3d227
 PlayerPartyMonEntrance: ; 3d2b3
 	ld a, [CurBattleMon]
 	ld [LastPlayerMon], a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld [CurBattleMon], a
 	call AddBattleParticipant
 	call InitBattleMon
@@ -2715,7 +2715,7 @@ PickPartyMonInBattle: ; 3d33c
 
 SwitchMonAlreadyOut: ; 3d34f
 	ld hl, CurBattleMon
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	cp [hl]
 	jr nz, .notout
 
@@ -3248,12 +3248,12 @@ ScoreMonTypeMatchups: ; 3d672
 LoadEnemyPkmnToSwitchTo: ; 3d6ca
 	; 'b' contains the PartyNr of the Pkmn the AI will switch to
 	ld a, b
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld hl, OTPartyMon1Level
 	call GetPartyLocation
 	ld a, [hl]
 	ld [CurPartyLevel], a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	inc a
 	ld hl, OTPartyCount
 	ld c, a
@@ -3297,14 +3297,14 @@ CheckWhetherToAskSwitch: ; 3d714
 	ld a, [wOptions]
 	bit BATTLE_SHIFT, a
 	jr nz, .return_nc
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	push af
 	ld a, [CurBattleMon]
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	farcall CheckCurPartyMonFainted
 	pop bc
 	ld a, b
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	jr c, .return_nc
 	scf
 	ret
@@ -3315,7 +3315,7 @@ CheckWhetherToAskSwitch: ; 3d714
 ; 3d74b
 
 OfferSwitch: ; 3d74b
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	push af
 
 	farcall Battle_GetTrainerName
@@ -3336,13 +3336,13 @@ OfferSwitch: ; 3d74b
 	jr c, .canceled_switch
 	ld a, [CurBattleMon]
 	ld [LastPlayerMon], a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld [CurBattleMon], a
 	call ClearPalettes
 	call DelayFrame
 	call _LoadHPBar
 	pop af
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	xor a
 	ld [CurEnemyMove], a
 	ld [CurPlayerMove], a
@@ -3356,7 +3356,7 @@ OfferSwitch: ; 3d74b
 
 .said_no
 	pop af
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	scf
 	ret
 ; 3d7a0
@@ -3481,7 +3481,7 @@ CheckPlayerPartyForFitPkmn: ; 3d873
 ; 3d887
 
 CheckIfCurPartyMonIsFitToFight: ; 3d887
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1HP
 	call GetPartyLocation
 	ld a, [hli]
@@ -3492,7 +3492,7 @@ CheckIfCurPartyMonIsFitToFight: ; 3d887
 	and a
 	jr nz, .finish_fail
 	ld hl, PartySpecies
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld c, a
 	ld b, 0
 	add hl, bc
@@ -3792,7 +3792,7 @@ ResetPlayerStatLevels: ; 3dab1
 ; 3dabd
 
 InitEnemyMon: ; 3dabd
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, OTPartyMon1Species
 	call GetPartyLocation
 	ld de, EnemyMonSpecies
@@ -3814,7 +3814,7 @@ InitEnemyMon: ; 3dabd
 	ld [CurSpecies], a
 	call GetBaseData
 	ld hl, OTPartyMonNicknames
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call SkipNames
 	ld de, EnemyMonNick
 	ld bc, PKMN_NAME_LENGTH
@@ -3840,7 +3840,7 @@ InitEnemyMon: ; 3dabd
 	inc de
 	dec b
 	jr nz, .loop
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld [CurOTMon], a
 	ret
 ; 3db32
@@ -3849,7 +3849,7 @@ SwitchPlayerMon: ; 3db32
 	call ClearSprites
 	ld a, [CurBattleMon]
 	ld [LastPlayerMon], a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld [CurBattleMon], a
 	call AddBattleParticipant
 	call InitBattleMon
@@ -4966,7 +4966,7 @@ Battle_StatsScreen: ; 3e308
 TryPlayerSwitch: ; 3e358
 	ld a, [CurBattleMon]
 	ld d, a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	cp d
 	jr nz, .check_trapped
 	ld hl, BattleText_PkmnIsAlreadyOut
@@ -5000,7 +5000,7 @@ TryPlayerSwitch: ; 3e358
 	call CloseWindow
 	call GetMemSGBLayout
 	call SetPalettes
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld [CurBattleMon], a
 PlayerSwitch: ; 3e3ad
 	ld a, 1
@@ -5077,7 +5077,7 @@ BattleMonEntrance: ; 3e40b
 	call ClearBox
 
 	ld a, [CurBattleMon]
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	call AddBattleParticipant
 	call InitBattleMon
 	call ResetPlayerStatLevels
@@ -5102,7 +5102,7 @@ PassedBattleMonEntrance: ; 3e459
 	lb bc, 5, 11
 	call ClearBox
 
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld [CurBattleMon], a
 	call AddBattleParticipant
 	call InitBattleMon
@@ -5486,7 +5486,7 @@ MoveInfoBox: ; 3e6c8
 	ld [CurPlayerMove], a
 
 	ld a, [CurBattleMon]
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld a, WILDMON
 	ld [MonType], a
 	farcall GetMaxPPOfMove
@@ -5810,9 +5810,9 @@ LoadEnemyMon: ; 3e8eb
 	jr z, .WildItem
 
 ; If we're in a trainer battle, the item is in the party struct
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, OTPartyMon1Item
-	call GetPartyLocation ; bc = PartyMon[CurPartyMon] - PartyMons
+	call GetPartyLocation ; bc = PartyMon[wCurPartyMon] - PartyMons
 	ld a, [hl]
 	jr .UpdateItem
 
@@ -5878,7 +5878,7 @@ LoadEnemyMon: ; 3e8eb
 ; Trainer DVs
 
 ; If we're in a trainer battle, the DVs are in the party struct
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, OTPartyMon1DVs
 	call GetPartyLocation
 	ld a, [hli]
@@ -6089,7 +6089,7 @@ LoadEnemyMon: ; 3e8eb
 .OpponentParty:
 ; Get HP from the party struct
 	ld hl, (OTPartyMon1HP + 1)
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call GetPartyLocation
 	ld a, [hld]
 	ld [EnemyMonHP + 1], a
@@ -6097,7 +6097,7 @@ LoadEnemyMon: ; 3e8eb
 	ld [EnemyMonHP], a
 
 ; Make sure everything knows which monster the opponent is using
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld [CurOTMon], a
 
 ; Get status from the party struct
@@ -6122,7 +6122,7 @@ LoadEnemyMon: ; 3e8eb
 	jr nz, .WildMoves
 ; Then copy moves from the party struct
 	ld hl, OTPartyMon1Moves
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call GetPartyLocation
 	ld bc, NUM_MOVES
 	call CopyBytes
@@ -6157,7 +6157,7 @@ LoadEnemyMon: ; 3e8eb
 .TrainerPP:
 ; Copy PP from the party struct
 	ld hl, OTPartyMon1PP
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call GetPartyLocation
 	ld de, EnemyMonPP
 	ld bc, NUM_MOVES
@@ -6177,7 +6177,7 @@ LoadEnemyMon: ; 3e8eb
 .TrainerPersonality:
 ; Get personality from the party struct
 	ld hl, OTPartyMon1Personality
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call GetPartyLocation
 	ld a, [hl]
 	ld [EnemyMonPersonality], a
@@ -6307,7 +6307,7 @@ BattleWinSlideInEnemyTrainerFrontpic: ; 3ebd8
 	ret z
 	xor a
 	ld [hBGMapMode], a
-	ld [hBGMapThird], a
+	ld [hBGMapHalf], a
 	ld d, $0
 	push bc
 	push hl
@@ -6695,7 +6695,7 @@ GiveExperiencePoints: ; 3ee3b
 	ret nz
 
 	xor a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld bc, PartyMon1Species
 
 .loop
@@ -6712,7 +6712,7 @@ GiveExperiencePoints: ; 3ee3b
 ; if exp all is off, skip non-participants
 	push bc
 	ld hl, wBattleParticipantsNotFainted
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld c, a
 	ld b, CHECK_FLAG
 	ld d, $0
@@ -6782,14 +6782,14 @@ GiveExperiencePoints: ; 3ee3b
 	farcall ScaledExpCalculation
 	pop bc
 	pop hl
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonNicknames
 	call GetNick
 	ld hl, Text_PkmnGainedExpPoint
 	call BattleTextBox
 	pop bc ; value needed inside .ExpAddition
 	call .ExpAddition
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld e, a
 	ld d, $0
 	ld hl, PartySpecies
@@ -6884,7 +6884,7 @@ GiveExperiencePoints: ; 3ee3b
 	ld [hl], a
 	ld a, [CurBattleMon]
 	ld d, a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	cp d
 	jr nz, .skip_animation
 	ld de, BattleMonHP
@@ -6926,7 +6926,7 @@ GiveExperiencePoints: ; 3ee3b
 	farcall LevelUpHappinessMod
 	ld a, [CurBattleMon]
 	ld b, a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	cp b
 	jr z, .skip_animation2
 	ld de, SFX_HIT_END_OF_EXP_BAR
@@ -6973,7 +6973,7 @@ GiveExperiencePoints: ; 3ee3b
 	pop af
 	ld [CurPartyLevel], a
 	ld hl, EvolvableFlags
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld c, a
 	ld b, SET_FLAG
 	predef FlagPredef
@@ -6983,11 +6983,11 @@ GiveExperiencePoints: ; 3ee3b
 .skip_stats
 	ld a, [PartyCount]
 	ld b, a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	inc a
 	cp b
 	jp z, ResetBattleParticipants
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld a, MON_SPECIES
 	call GetPartyParamLocation
 	ld b, h
@@ -7061,7 +7061,7 @@ TextJump_StringBuffer2ExpPoints: ; 3f131
 AnimateExpBar: ; 3f136
 	push bc
 
-	ld hl, CurPartyMon
+	ld hl, wCurPartyMon
 	ld a, [CurBattleMon]
 	cp [hl]
 	jp nz, .finish
@@ -7764,7 +7764,7 @@ InitEnemyTrainer: ; 3f594
 	call IsJohtoGymLeader
 	ret nc
 	xor a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld a, [PartyCount]
 	ld b, a
 .partyloop
@@ -7780,7 +7780,7 @@ InitEnemyTrainer: ; 3f594
 	pop bc
 	dec b
 	ret z
-	ld hl, CurPartyMon
+	ld hl, wCurPartyMon
 	inc [hl]
 	jr .partyloop
 ; 3f607

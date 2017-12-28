@@ -127,13 +127,13 @@ DayCareAskDepositPokemon: ; 16798
 	jr c, .OutOfUsableMons
 	ld hl, PartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	ld d, [hl]
 	farcall ItemIsMail
 	jr c, .HoldingMail
 	ld hl, PartyMonNicknames
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call GetNick
 	and a
 	ret

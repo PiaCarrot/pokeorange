@@ -2,7 +2,7 @@ EvolvePokemon: ; 421d8
 	ld hl, EvolvableFlags
 	xor a
 	ld [hl], a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld c, a
 	ld b, SET_FLAG
 	call EvoFlagAction
@@ -10,7 +10,7 @@ EvolveAfterBattle: ; 421e6
 	xor a
 	ld [wMonTriedToEvolve], a
 	dec a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	push hl
 	push bc
 	push de
@@ -19,7 +19,7 @@ EvolveAfterBattle: ; 421e6
 	push hl
 
 EvolveAfterBattle_MasterLoop
-	ld hl, CurPartyMon
+	ld hl, wCurPartyMon
 	inc [hl]
 
 	pop hl
@@ -32,7 +32,7 @@ EvolveAfterBattle_MasterLoop
 	ld [wEvolutionOldSpecies], a
 
 	push hl
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld c, a
 	ld hl, EvolvableFlags
 	ld b, CHECK_FLAG
@@ -285,7 +285,7 @@ endr
 	and $ff - FORM_MASK
 	or b
 	ld [TempMonForm], a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1Form
 	call GetPartyLocation
 	ld a, [TempMonForm]
@@ -309,7 +309,7 @@ endr
 
 	ld a, [hl]
 	ld [wEvolutionNewSpecies], a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonNicknames
 	call GetNick
 	call CopyName1
@@ -370,7 +370,7 @@ endr
 	ld b, $1
 	predef CalcPkmnStats
 
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMons
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
@@ -462,7 +462,7 @@ UpdateSpeciesNameIfNotNicknamed: ; 42414
 	cp "@"
 	jr nz, .loop
 
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld bc, PKMN_NAME_LENGTH
 	ld hl, PartyMonNicknames
 	call AddNTimes
@@ -486,7 +486,7 @@ CancelEvolution: ; 42454
 
 IsMonHoldingEverstone: ; 42461
 	push hl
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
@@ -553,7 +553,7 @@ LearnLevelMoves: ; 42487
 	push hl
 	ld d, a
 	ld hl, PartyMon1Moves
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
 

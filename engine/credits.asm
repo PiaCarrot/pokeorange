@@ -474,7 +474,7 @@ ParseCredits: ; 1099aa
 	ld [CreditsTimer], a
 
 	xor a
-	ld [hBGMapThird], a
+	ld [hBGMapHalf], a
 	ld a, 1
 	ld [hBGMapMode], a
 

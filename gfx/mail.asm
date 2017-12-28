@@ -1,5 +1,5 @@
 ReadPartyMonMail: ; b9229
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, sPartyMail
 	ld bc, MAIL_STRUCT_LENGTH
 	call AddNTimes

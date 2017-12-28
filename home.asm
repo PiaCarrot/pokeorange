@@ -268,8 +268,8 @@ PrintLetterDelay::
 	bit 1, a
 	ret z
 
-	ld a, 2
-	ld [hBGMapThird], a
+	ld a, 1
+	ld [hBGMapHalf], a
 	push hl
 	push de
 	push bc
@@ -420,13 +420,11 @@ CompareLong:: ; 31e4
 WaitBGMap2:: ; 0x3200
 	ld a, 2
 	ld [hBGMapMode], a
-	ld c, 3
-	call DelayFrames
+	call Delay2
 
 	ld a, 1
 	ld [hBGMapMode], a
-	ld c, 3
-	jp DelayFrames
+	jp Delay2
 ; 0x3218
 
 CGBOnly_LoadEDTile:: ; 3238
@@ -1522,7 +1520,7 @@ GetBaseData:: ; 3856
 ; 389c
 
 GetCurNick:: ; 389c
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonNicknames
 
 GetNick:: ; 38a2
@@ -1627,13 +1625,13 @@ PrintBCDDigit:: ; 38f2
 ; 0x3917
 
 GetPartyParamLocation:: ; 3917
-; Get the location of parameter a from CurPartyMon in hl
+; Get the location of parameter a from wCurPartyMon in hl
 	push bc
 	ld hl, PartyMons
 	ld c, a
 	ld b, 0
 	add hl, bc
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call GetPartyLocation
 	pop bc
 	ret

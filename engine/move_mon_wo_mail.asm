@@ -32,7 +32,7 @@ InsertPokemonIntoBox: ; 51322
 	ld de, TempMonPP
 	ld bc, NUM_MOVES
 	call CopyBytes
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld b, a
 	farcall RestorePPofDepositedPokemon
 	jp CloseSRAM
@@ -65,7 +65,7 @@ InsertPokemonIntoParty: ; 5138b
 InsertSpeciesIntoBoxOrParty: ; 513cb
 	inc [hl]
 	inc hl
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld c, a
 	ld b, 0
 	add hl, bc
@@ -96,7 +96,7 @@ InsertDataIntoBoxOrParty: ; 513e0
 	push bc
 	ld a, [wd265]
 	ld b, a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	cp b
 	pop bc
 	jr z, .insert
@@ -123,7 +123,7 @@ InsertDataIntoBoxOrParty: ; 513e0
 .insert
 	pop bc
 	pop hl
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	ld d, h
 	ld e, l

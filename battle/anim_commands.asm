@@ -146,7 +146,7 @@ BattleAnimClearHud: ; cc1a1
 	call ClearActorHud
 	ld a, $1
 	ld [hBGMapMode], a
-	call Delay3
+	call Delay2
 	jp WaitTop
 ; cc1bb
 
@@ -167,7 +167,7 @@ BattleAnimRestoreHuds: ; cc1bb
 
 	ld a, $1
 	ld [hBGMapMode], a
-	call Delay3
+	call Delay2
 	jp WaitTop
 ; cc1e2
 

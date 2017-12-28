@@ -252,11 +252,11 @@ StatsScreen_JoypadAction: ; 4de54 (13:5e54)
 	ld a, [OTPartyCount]
 .next_mon
 	ld b, a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	inc a
 	cp b
 	jr z, .done
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld b, a
 	ld a, [MonType]
 	and a
@@ -267,11 +267,11 @@ StatsScreen_JoypadAction: ; 4de54 (13:5e54)
 	jr .load_mon
 
 .d_up
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	and a
 	jr z, .done
 	dec a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld b, a
 	ld a, [MonType]
 	and a
@@ -798,7 +798,7 @@ StatsScreen_GetAnimationParam: ; 4e2ad (13:62ad)
 
 
 .PartyMon: ; 4e2bf (13:62bf)
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMons ; wdcdf (aliases: PartyMon1, PartyMon1Species)
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
@@ -813,7 +813,7 @@ StatsScreen_GetAnimationParam: ; 4e2ad (13:62ad)
 .BoxMon: ; 4e2d1 (13:62d1)
 	ld hl, sBoxMons
 	ld bc, PARTYMON_STRUCT_LENGTH
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	ld b, h
 	ld c, l
@@ -1042,7 +1042,7 @@ GetNicknamePointer: ; 4e528 (13:6528)
 	ld a, [MonType]
 	cp TEMPMON
 	ret z
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	jp SkipNames
 
 

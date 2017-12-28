@@ -549,11 +549,11 @@ endr
 	ret
 
 CheckForParticipation::
-; return true if CurPartyMon did not participate
+; return true if wCurPartyMon did not participate
 	push hl
 	push bc
 	ld hl, wBattleParticipantsNotFainted
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld c, a
 	ld b, CHECK_FLAG
 	ld d, $0

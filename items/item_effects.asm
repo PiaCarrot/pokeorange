@@ -550,7 +550,7 @@ DuskBall: ; e8a2
 
 	ld a, [PartyCount]
 	dec a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	farcall HealPartyMon
 .SkipPartyMonHealBall:
 
@@ -566,7 +566,7 @@ DuskBall: ; e8a2
 
 	ld a, [PartyCount]
 	dec a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld hl, PartyMonNicknames
 	ld bc, PKMN_NAME_LENGTH
 	call AddNTimes
@@ -625,7 +625,7 @@ DuskBall: ; e8a2
 	jr c, .SkipBoxMonNickname
 
 	xor a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld a, BOXMON
 	ld [MonType], a
 	ld de, wMonOrItemNameBuffer
@@ -940,7 +940,7 @@ LoveBallMultiplier:
 	xor a ; PARTYMON
 	ld [MonType], a
 	ld a, [CurBattleMon]
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	farcall GetGender
 	jr c, .done1 ; no effect on genderless
 
@@ -1337,7 +1337,7 @@ RareCandy_StatBooster_GetParameters: ; eef5
 	ld a, [hl]
 	ld [CurPartyLevel], a
 	call GetBaseData
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonNicknames
 	jp GetNick
 ; 0xef14
@@ -1642,7 +1642,7 @@ RevivePokemon: ; f0d6
 	and a
 	jr z, .skip_to_revive
 
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld c, a
 	ld d, 0
 	ld hl, wBattleParticipantsIncludingFainted
@@ -1652,7 +1652,7 @@ RevivePokemon: ; f0d6
 	and a
 	jr z, .skip_to_revive
 
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld c, a
 	ld hl, wBattleParticipantsNotFainted
 	ld b, SET_FLAG
@@ -1808,7 +1808,7 @@ HealHP_SFX_GFX: ; f1db (3:71db)
 	ld de, SFX_POTION
 	call WaitPlaySFX
 	pop de
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	hlcoord 11, 0
 	ld bc, SCREEN_WIDTH * 2
 	call AddNTimes
@@ -1861,7 +1861,7 @@ ItemActionText: ; f24a (3:724a)
 	ld [PartyMenuActionText], a
 	ld a, [CurPartySpecies]
 	push af
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	push af
 	push hl
 	push de
@@ -1875,7 +1875,7 @@ ItemActionText: ; f24a (3:724a)
 	pop de
 	pop hl
 	pop af
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	pop af
 	ld [CurPartySpecies], a
 	ret
@@ -1909,7 +1909,7 @@ IsItemUsedOnBattleMon: ; f2a6 (3:72a6)
 	ld a, [wBattleMode]
 	and a
 	ret z
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	push hl
 	ld hl, CurBattleMon
 	cp [hl]
@@ -2119,7 +2119,7 @@ Softboiled_MilkDrinkFunction: ; f3df (3:73df)
 	call .SelectMilkDrinkRecipient ; select pokemon
 	jr c, .skip
 	ld a, b
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	call IsMonFainted
 	call GetOneFifthMaxHP
 	call RemoveHP
@@ -2128,7 +2128,7 @@ Softboiled_MilkDrinkFunction: ; f3df (3:73df)
 	pop bc
 	call GetOneFifthMaxHP
 	ld a, c
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	call IsMonFainted
 	call RestoreHealth
 	call HealHP_SFX_GFX
@@ -2156,7 +2156,7 @@ Softboiled_MilkDrinkFunction: ; f3df (3:73df)
 	cp c
 	jr z, .cant_use ; chose the same mon as user
 	ld a, c
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	call IsMonFainted
 	jr z, .cant_use
 	call IsMonAtFullHealth
@@ -2308,7 +2308,7 @@ XSpclDef:; f4c5
 	farcall BattleCommand_StatUpFailText
 
 	ld a, [CurBattleMon]
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld c, HAPPINESS_USEDXITEM
 	farcall ChangeHappiness
 	ret
@@ -2565,7 +2565,7 @@ BattleRestorePP: ; f652
 	ld a, [wBattleMode]
 	and a
 	jr z, .not_in_battle
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld b, a
 	ld a, [CurBattleMon]
 	cp b
@@ -2582,7 +2582,7 @@ BattleRestorePP: ; f652
 	jr FinishPPRestore
 
 .UpdateBattleMonPP:
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1Moves
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
@@ -3231,7 +3231,7 @@ GetMaxPPOfMove: ; f8ec
 ; f963
 
 GetMthMoveOfNthPartymon: ; f963
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 
 GetMthMoveOfCurrentMon: ; f969

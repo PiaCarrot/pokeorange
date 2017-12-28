@@ -1294,7 +1294,7 @@ LinkTrade: ; 28b87
 	ld a, c
 	ld [wOTTrademonCaughtData], a
 	ld a, [wd002]
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld hl, PartySpecies
 	ld b, $0
 	ld c, a
@@ -1306,7 +1306,7 @@ LinkTrade: ; 28b87
 	farcall RemoveMonFromPartyOrBox
 	ld a, [PartyCount]
 	dec a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld a, $1
 	ld [wForceEvolution], a
 	ld a, [wd003]
@@ -1335,7 +1335,7 @@ LinkTrade: ; 28b87
 .done_animation
 	pop af
 	ld c, a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld hl, OTPartySpecies
 	ld d, $0
 	ld e, a
@@ -1351,7 +1351,7 @@ LinkTrade: ; 28b87
 	predef AddTempmonToParty
 	ld a, [PartyCount]
 	dec a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	farcall EvolvePokemon
 	call ClearScreen
 	call LoadTradeScreenBorder
@@ -1945,7 +1945,7 @@ _LinkBattleSendReceiveAction: ; 100a09
 	jr .use_move
 
 .switch
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	add BATTLEACTION_SWITCH1
 	jr .use_move
 

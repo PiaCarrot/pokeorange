@@ -284,14 +284,14 @@ DoNPCTrade: ; fcc63
 	push bc
 	push de
 	push hl
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	push af
 	ld a, [PartyCount]
 	dec a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	farcall ComputeNPCTrademonStats
 	pop af
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	pop hl
 	pop de
 	pop bc
@@ -317,7 +317,7 @@ GetTradeAttribute: ; 0xfcdc2
 ; 0xfcdd7
 
 Trade_GetAttributeOfCurrentPartymon: ; fcdd7
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	jp AddNTimes
 ; fcdde
 

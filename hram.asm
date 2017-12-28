@@ -102,7 +102,7 @@ hWX                EQU $ffd1
 hWY                EQU $ffd2
 hTilesPerCycle     EQU $ffd3
 hBGMapMode         EQU $ffd4
-hBGMapThird        EQU $ffd5
+hBGMapHalf        EQU $ffd5
 hBGMapAddress      EQU $ffd6
 
 hOAMUpdate         EQU $ffd8

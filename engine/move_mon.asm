@@ -399,7 +399,7 @@ AddTempmonToParty: ; da96
 	ld d, h
 	ld e, l
 	ld hl, OTPartyMonOT
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call SkipNames
 	ld bc, NAME_LENGTH
 	call CopyBytes
@@ -411,7 +411,7 @@ AddTempmonToParty: ; da96
 	ld d, h
 	ld e, l
 	ld hl, OTPartyMonNicknames
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call SkipNames
 	ld bc, PKMN_NAME_LENGTH
 	call CopyBytes
@@ -510,7 +510,7 @@ SentGetPkmnIntoFromBox: ; db3f
 	ld bc, PARTYMON_STRUCT_LENGTH
 
 .okay3
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 
 .okay4
@@ -544,7 +544,7 @@ SentGetPkmnIntoFromBox: ; db3f
 	ld hl, PartyMonOT
 
 .okay7
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call SkipNames
 
 .okay8
@@ -578,7 +578,7 @@ SentGetPkmnIntoFromBox: ; db3f
 	ld hl, PartyMonNicknames
 
 .okay11
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call SkipNames
 
 .okay12
@@ -842,7 +842,7 @@ Functiondd64: ; dd64
 	predef FillMoves
 	ld a, [PartyCount]
 	dec a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	farcall HealPartyMon
 	ld a, [CurPartyLevel]
 	ld d, a
@@ -888,15 +888,15 @@ DepositMonWithDaycareLady: ; de37
 ; de44
 
 DepositBreedmon: ; de44
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonNicknames
 	call SkipNames
 	call CopyBytes
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonOT
 	call SkipNames
 	call CopyBytes
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1Species
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
@@ -1202,7 +1202,7 @@ RemoveMonFromPartyOrBox: ; e039
 	ld a, [hl]
 	dec a
 	ld [hli], a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld c, a
 	ld b, 0
 	add hl, bc
@@ -1226,9 +1226,9 @@ RemoveMonFromPartyOrBox: ; e039
 .party
 	; If this is the last mon in our party (box),
 	; shift all the other mons up to close the gap.
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call SkipNames
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	cp d
 	jr nz, .delete_inside
 	ld [hl], -1
@@ -1256,7 +1256,7 @@ RemoveMonFromPartyOrBox: ; e039
 	ld hl, sBoxMons
 	ld bc, BOXMON_STRUCT_LENGTH
 .party4
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	ld d, h
 	ld e, l
@@ -1282,7 +1282,7 @@ RemoveMonFromPartyOrBox: ; e039
 	ld hl, sBoxMonNicknames
 .party6
 	ld bc, PKMN_NAME_LENGTH
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	ld d, h
 	ld e, l
@@ -1308,7 +1308,7 @@ RemoveMonFromPartyOrBox: ; e039
 	call GetSRAMBank
 	; If this is the last mon in our party, no need to shift mail.
 	ld hl, PartyCount
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	cp [hl]
 	jr z, .close_sram
 	; Shift our mail messages up.
@@ -1318,7 +1318,7 @@ RemoveMonFromPartyOrBox: ; e039
 	push hl
 	add hl, bc
 	pop de
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld b, a
 .loop2
 	push bc
@@ -1599,7 +1599,7 @@ GivePoke:: ; e277
 	ld hl, PartyMonNicknames
 	ld a, [PartyCount]
 	dec a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	call SkipNames
 	ld d, h
 	ld e, l
@@ -1612,7 +1612,7 @@ GivePoke:: ; e277
 	ld a, [wCurItem]
 	and a
 	jr z, .done
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
@@ -1629,7 +1629,7 @@ GivePoke:: ; e277
 	ld a, BOXMON
 	ld [MonType], a
 	xor a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld de, wMonOrItemNameBuffer
 	pop bc
 	ld a, b
@@ -1678,7 +1678,7 @@ GivePoke:: ; e277
 	jr nz, .send_to_box
 
 	push hl
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonOT
 	call SkipNames
 	ld d, h
@@ -1696,7 +1696,7 @@ GivePoke:: ; e277
 	call GetFarByte
 	ld b, a
 	push bc
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1ID
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes

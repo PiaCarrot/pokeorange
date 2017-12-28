@@ -153,38 +153,45 @@ Request2bpp:: ; eba
 	ld a, b
 	rst Bankswitch
 
-	ld a, e
-	ld [hRequestedVTileSource], a
-	ld a, d
-	ld [hRequestedVTileSource + 1], a
-	ld a, l
-	ld [hRequestedVTileDest], a
-	ld a, h
-	ld [hRequestedVTileDest + 1], a
+	call WriteVCopyRegistersToHRAM
 	ld a, [rLY]
 	cp $88
-	call nc, DelayFrame
-	ld a, c
-	ld [hRequested2bpp], a
-	jr .handleLoop
+	jr c, .handleLoop
 .loop
-	ld a, [hRequested2bpp]
-	sub $8
-	jr z, .copyEightTilesAndExit
-	jr nc, .copyEightTiles
-.copyEightTilesAndExit
-	add $8
+	ld a, [hTilesPerCycle]
+	sub 16
+	ld [hTilesPerCycle], a
+	jr c, .copyRemainingTilesAndExit
+	jr nz, .copySixteenTilesAndContinue
+.copyRemainingTilesAndExit
+	add 16
+	ld [hRequested2bpp], a
+	xor a
 	ld [hTilesPerCycle], a
 	call DelayFrame
+	ld a, [hRequested2bpp]
+	and a
+	jr z, .clearTileCountAndFinish
+.addUncopiedTilesToCount
+	ld b, a
+	ld a, [hTilesPerCycle]
+	add b
+	ld [hTilesPerCycle], a
 	xor a
 	ld [hRequested2bpp], a
+	jr .handleLoop
+.clearTileCountAndFinish
+	xor a
+	ld [hTilesPerCycle], a
 	jr .done
-.copyEightTiles
+.copySixteenTilesAndContinue
+	ld a, 16
 	ld [hRequested2bpp], a
 	call DelayFrame
+	ld a, [hRequested2bpp]
+	and a
+	jr nz, .addUncopiedTilesToCount
 .handleLoop
-	ld a, $8
-	ld [hTilesPerCycle], a
 	call HBlankCopy2bpp
 	jr c, .loop
 .done
@@ -237,41 +244,45 @@ Request1bpp:: ; f1e
 	ld a, b
 	rst Bankswitch
 
-	ld a, $8
-	ld [hTilesPerCycle], a
-
-	ld a, e
-	ld [hRequestedVTileSource], a
-	ld a, d
-	ld [hRequestedVTileSource + 1], a
-	ld a, l
-	ld [hRequestedVTileDest], a
-	ld a, h
-	ld [hRequestedVTileDest + 1], a
+	call WriteVCopyRegistersToHRAM
 	ld a, [rLY]
 	cp $88
-	call nc, DelayFrame
-	ld a, c
-	ld [hRequested1bpp], a
-	jr .handleLoop
+	jr c, .handleLoop
 .loop
-	ld a, [hRequested1bpp]
-	sub $8
-	jr z, .copyEightTilesAndExit
-	jr nc, .copyEightTiles
-.copyEightTilesAndExit
-	add $8
+	ld a, [hTilesPerCycle]
+	sub 16
+	ld [hTilesPerCycle], a
+	jr c, .copyRemainingTilesAndExit
+	jr nz, .copySixteenTilesAndContinue
+.copyRemainingTilesAndExit
+	add 16
+	ld [hTilesPerCycle], a
+	xor a
 	ld [hTilesPerCycle], a
 	call DelayFrame
+	ld a, [hRequested1bpp]
+	and a
+	jr z, .clearTileCountAndFinish
+.addUncopiedTilesToCount
+	ld b, a
+	ld a, [hTilesPerCycle]
+	add b
+	ld [hTilesPerCycle], a
 	xor a
 	ld [hRequested1bpp], a
+	jr .handleLoop
+.clearTileCountAndFinish
+	xor a
+	ld [hTilesPerCycle], a
 	jr .done
-.copyEightTiles
+.copySixteenTilesAndContinue
+	ld a, 16
 	ld [hRequested1bpp], a
 	call DelayFrame
+	ld a, [hRequested1bpp]
+	and a
+	jr nz, .addUncopiedTilesToCount
 .handleLoop
-	ld a, $8
-	ld [hTilesPerCycle], a
 	call HBlankCopy1bpp
 	jr c, .loop
 .done
@@ -301,7 +312,7 @@ HBlankCopy1bpp:
 .outerLoop
 	ld a, [rLY]
 	cp $88
-	jr nc, .continueNextFrame
+	jr nc, ContinueHBlankCopy
 .innerLoop
 	pop bc
 	pop de
@@ -325,25 +336,46 @@ HBlankCopy1bpp:
 	ld a, d
 	ld [hli], a
 	ld [hli], a
-	ld a, l
-	and $f
+	rept 2
+	pop de
+	ld a, e
+	ld [hli], a
+	ld [hli], a
+	ld a, d
+	ld [hli], a
+	ld [hli], a
+	endr
 	jr nz, .innerLoop
-	ld a, [hRequested1bpp]
+	ld a, [hTilesPerCycle]
 	dec a
-	ld [hRequested1bpp], a
+	ld [hTilesPerCycle], a
 	jr nz, .outerLoop
-	jr .done
-.continueNextFrame
+	jr DoneHBlankCopy
+
+ContinueHBlankCopy:
 	ld a, l
 	ld [hRequestedVTileDest], a
 	ld a, h
 	ld [hRequestedVTileDest + 1], a
 	ld [hRequestedVTileSource], sp
 	scf
-.done
+DoneHBlankCopy:
 	ld a, [hSPBuffer]
 	ld l, a
 	ld a, [hSPBuffer + 1]
 	ld h, a
 	ld sp, hl
 	reti
+
+WriteVCopyRegistersToHRAM:
+	ld a, e
+	ld [hRequestedVTileSource], a
+	ld a, d
+	ld [hRequestedVTileSource + 1], a
+	ld a, l
+	ld [hRequestedVTileDest], a
+	ld a, h
+	ld [hRequestedVTileDest + 1], a
+	ld a, c
+	ld [hTilesPerCycle], a
+	ret

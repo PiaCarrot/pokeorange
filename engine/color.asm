@@ -231,7 +231,7 @@ ApplyHPBarPals:
 	inc e
 	hlcoord 11, 1, AttrMap
 	ld bc, 2 * SCREEN_WIDTH
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 .loop
 	and a
 	jr z, .done

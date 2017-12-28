@@ -289,65 +289,91 @@ HPBarAnim_PaletteUpdate: ; d7b4
 HPBarAnim_BGMapUpdate: ; d7c9
 	ld a, [wWhichHPBar]
 	and a
-	jr z, .load_0
+	jr z, .enemy_hp_bar
 	cp $1
-	jr z, .load_1
-	ld a, [CurPartyMon]
-	cp $3
-	jr nc, .bottom_half_of_screen
-	ld c, $0
-	jr .got_third
-
-.bottom_half_of_screen
-	ld c, $1
-.got_third
-	push af
-	cp $2
-	jr z, .skip_delay
-	cp $5
-	jr z, .skip_delay
-	ld a, $2
-	ld [hBGMapMode], a
-	ld a, c
-	ld [hBGMapThird], a
-	call DelayFrame
-.skip_delay
+	jr z, .player_hp_bar
+	xor a
+	ld [hCGBPalUpdate], a
 	ld a, $1
 	ld [hBGMapMode], a
-	ld a, c
-	ld [hBGMapThird], a
-	call DelayFrame
-	pop af
-	cp $2
-	jr z, .two_frames
-	cp $5
-	jr z, .two_frames
+
+	ld a, [wCurPartyMon]
+	ld b, a
+	add a
+	inc a
+	ld [hBGMapHalf], a
+	ld a, b
+	ld hl, VBGMap0 + $4d
+	ld bc, BG_MAP_WIDTH * 2
+	call AddNTimes
+	ld a, [wCurHPAnimPal]
+	inc a
+	ld b, a
+	di
+	ld a, 1
+	ld [rVBK], a
+.waitnohb1
+	ld a, [rSTAT]
+	and 3
+	jr z, .waitnohb1
+.waithbl1
+	ld a, [rSTAT]
+	and 3
+	jr nz, .waithbl1
+	ld a, b
+	rept 6
+	ld [hli], a
+	endr
+	xor a
+	ld [rVBK], a
+	ld a, 2
+	ld [hTilesPerCycle], a
+	ld a, 5
+	ld [hBGMapMode], a
+	ei
+	call Delay2
+	xor a
+	ld [hBGMapHalf], a
+	inc a
+	ld [hBGMapMode], a
 	ret
 
-.two_frames
-	inc c
-	ld a, $2
-	ld [hBGMapMode], a
-	ld a, c
-	ld [hBGMapThird], a
-	call DelayFrame
-	ld a, $1
-	ld [hBGMapMode], a
-	ld a, c
-	ld [hBGMapThird], a
-	jp DelayFrame
-
-.load_0
-	ld c, $0
+.enemy_hp_bar
+	lb bc, $94, $0
+	ld hl, BGPals + 2 palettes + 4
 	jr .finish
 
-.load_1
-	ld c, $1
+.player_hp_bar
+	lb bc, $9c, $1
+	ld hl, BGPals + 3 palettes + 4
 .finish
-	call DelayFrame
+	xor a
+	ld [hCGBPalUpdate], a
 	ld a, c
-	ld [hBGMapThird], a
-	jp DelayFrame
+	ld [hBGMapHalf], a
+	ld a, [rSVBK]
+	push af
+	ld a, $5
+	ld [rSVBK], a
+	di
+.waitnohb3
+	ld a, [rSTAT]
+	and 3
+	jr z, .waitnohb3
+.waithb3
+	ld a, [rSTAT]
+	and 3
+	jr nz, .waithb3
+	ld a, b
+	ld [rBGPI], a
+	ld a, [hli]
+	ld [rBGPD], a
+	ld a, [hl]
+	ld [rBGPD], a
+	ei
+	pop af
+	ld [rSVBK], a
+	jp Delay2
 ; d839
 
 ShortHPBar_CalcPixelFrame: ; d839

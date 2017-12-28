@@ -31,7 +31,7 @@ CheckOppositeGender: ; 377f5
 	ld [CurPartySpecies], a
 
 	ld a, [CurBattleMon]
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	xor a
 	ld [MonType], a
 
