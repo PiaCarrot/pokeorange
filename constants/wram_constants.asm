@@ -6,10 +6,12 @@ BOXMON     EQU 2
 TEMPMON   EQU 3
 WILDMON    EQU 4
 
-; Options: ; cfcc
-FAST_TEXT      EQU 0
-MED_TEXT       EQU 1
-SLOW_TEXT      EQU 2
+; wOptions: ; cfcc
+INST_TEXT      EQU 0
+FAST_TEXT      EQU 1
+MED_TEXT       EQU 2
+SLOW_TEXT      EQU 3
+
 NO_TEXT_SCROLL EQU 4
 ; bits
 STEREO         EQU 5

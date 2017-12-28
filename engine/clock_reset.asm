@@ -35,7 +35,7 @@ RestartClock: ; 20021 (8:4021)
 	farcall BlankScreen
 	ld hl, .Text_ClockTimeMayBeWrong
 	call PrintText
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
@@ -46,7 +46,7 @@ RestartClock: ; 20021 (8:4021)
 	call .SetClock
 	call ExitMenu
 	pop bc
-	ld hl, Options
+	ld hl, wOptions
 	ld [hl], b
 	ld c, a
 	ret

@@ -2,6 +2,7 @@ icon_pals: MACRO
 	dn PAL_OW_\1, PAL_OW_\2
 endm
 
+MenuMonIconColors::
 	icon_pals TEAL, YELLOW ; BULBASAUR
 	icon_pals TEAL, YELLOW ; IVYSAUR
 	icon_pals TEAL, YELLOW ; VENUSAUR

@@ -307,11 +307,11 @@ JoyTextDelay:: ; a57
 	and a
 	jr z, .checkframedelay
 	ld a, 15
-	ld [TextDelayFrames], a
+	ld [wTextDelayFrames], a
 	ret
 
 .checkframedelay
-	ld a, [TextDelayFrames]
+	ld a, [wTextDelayFrames]
 	and a
 	jr z, .restartframedelay
 	xor a
@@ -320,7 +320,7 @@ JoyTextDelay:: ; a57
 
 .restartframedelay
 	ld a, 5
-	ld [TextDelayFrames], a
+	ld [wTextDelayFrames], a
 	ret
 ; a80
 

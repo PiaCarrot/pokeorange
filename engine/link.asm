@@ -255,7 +255,7 @@ Gen2ToGen2LinkComms: ; 28177
 	ld [OtherTrainerClass], a
 	call ClearScreen
 	farcall Link_WaitBGMap
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	and $20
@@ -297,7 +297,7 @@ Gen2ToGen2LinkComms: ; 28177
 	pop af
 	ld [wDisableTextAcceleration], a
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	farcall LoadPokemonData
 	jp Function28b22
 

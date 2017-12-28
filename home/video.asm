@@ -63,7 +63,7 @@ rept 2
 	dec c
 
 ; Tiles
-	ld a, 0
+	xor a
 	ld [rVBK], a
 
 	ld a, [de]
@@ -122,6 +122,7 @@ WaitTop:: ; 163a
 
 
 UpdateBGMap:: ; 164c
+THIRD_HEIGHT EQU SCREEN_HEIGHT / 3
 ; Update the BG Map, in thirds, from TileMap and AttrMap.
 
 	ld a, [hBGMapMode]
@@ -130,120 +131,92 @@ UpdateBGMap:: ; 164c
 
 ; BG Map 0
 	dec a ; 1
-	jr z, .Tiles
+	jr z, .DoTiles
 	dec a ; 2
-	jr z, .Attr
-
+	jr z, .DoAttributes
 ; BG Map 1
+	ld hl, VBGMap1
 	dec a
-
-	ld a, [hBGMapAddress]
-	ld l, a
+	jr z, .DoBGMap1Tiles
+	dec a
+	jr z, .DoBGMap1Attributes
+	ret
+.DoAttributes
 	ld a, [hBGMapAddress + 1]
 	ld h, a
-	push hl
-
-	xor a
-	ld [hBGMapAddress], a
-	ld a, VBGMap1 >> 8
-	ld [hBGMapAddress + 1], a
-
-	ld a, [hBGMapMode]
-	push af
-	cp 3
-	call z, .Tiles
-	pop af
-	cp 4
-	call z, .Attr
-
-	pop hl
-	ld a, l
-	ld [hBGMapAddress], a
-	ld a, h
-	ld [hBGMapAddress + 1], a
-	ret
-
-
-.Attr:
+	ld a, [hBGMapAddress]
+	ld l, a
+.DoBGMap1Attributes
 	ld a, 1
 	ld [rVBK], a
-
-	hlcoord 0, 0, AttrMap
-	call .update
-
-	ld a, 0
+	call .CopyAttributes
+	xor	a
 	ld [rVBK], a
 	ret
-
-
-.Tiles:
-	hlcoord 0, 0
-
-
-.update
+	
+.CopyAttributes
 	ld [hSPBuffer], sp
-
+	
 ; Which third?
 	ld a, [hBGMapThird]
 	and a ; 0
-	jr z, .top
+	jr z, .AttributeMapTop
 	dec a ; 1
-	jr z, .middle
-	; 2
-
-
-THIRD_HEIGHT EQU SCREEN_HEIGHT / 3
-
-
-.bottom
-	ld de, 2 * THIRD_HEIGHT * SCREEN_WIDTH
-	add hl, de
-	ld sp, hl
-
-	ld a, [hBGMapAddress + 1]
-	ld h, a
-	ld a, [hBGMapAddress]
-	ld l, a
-
+	jr z, .AttributeMapMiddle
+; bottom row
+	coord sp, 0, 12, AttrMap
 	ld de, 2 * THIRD_HEIGHT * BG_MAP_WIDTH
 	add hl, de
-
 ; Next time: top third
 	xor a
-	jr .start
-
-
-.middle
-	ld de, THIRD_HEIGHT * SCREEN_WIDTH
-	add hl, de
-	ld sp, hl
-
-	ld a, [hBGMapAddress + 1]
-	ld h, a
-	ld a, [hBGMapAddress]
-	ld l, a
-
+	jr .startCopy
+.AttributeMapMiddle
+	coord sp, 0, 6, AttrMap
 	ld de, THIRD_HEIGHT * BG_MAP_WIDTH
 	add hl, de
-
 ; Next time: bottom third
 	ld a, 2
-	jr .start
+	jr .startCopy
+.AttributeMapTop
+	coord sp, 0, 0, AttrMap
+; Next time: middle third
+	jr .AttributeMapTopContinue
 
-
-.top
-	ld sp, hl
-
+.DoTiles
 	ld a, [hBGMapAddress + 1]
 	ld h, a
 	ld a, [hBGMapAddress]
 	ld l, a
-
+	
+.DoBGMap1Tiles
+	ld [hSPBuffer], sp
+	
+; Which third?
+	ld a, [hBGMapThird]
+	and a ; 0
+	jr z, .TileMapTop
+	dec a ; 1
+	jr z, .TileMapMiddle
+; bottom row
+	coord sp, 0, 12
+	ld de, 2 * THIRD_HEIGHT * BG_MAP_WIDTH
+	add hl, de
+; Next time: top third
+	xor a
+	jr .startCopy
+.TileMapMiddle
+	coord sp, 0, 6
+	ld de, THIRD_HEIGHT * BG_MAP_WIDTH
+	add hl, de
+; Next time: bottom third
+	ld a, 2
+	jr .startCopy
+.TileMapTop
+	coord sp, 0, 0
 ; Next time: middle third
-	ld a, 1
-
-
-.start
+.AttributeMapTopContinue
+	inc a
+.startCopy
 ; Which third to update next time
 	ld [hBGMapThird], a
 
@@ -252,17 +225,15 @@ THIRD_HEIGHT EQU SCREEN_HEIGHT / 3
 
 ; Discrepancy between TileMap and BGMap
 	ld bc, BG_MAP_WIDTH - (SCREEN_WIDTH - 1)
-
-
 .row
 ; Copy a row of 20 tiles
-rept SCREEN_WIDTH / 2 - 1
+	rept (SCREEN_WIDTH / 2) - 1
 	pop de
 	ld [hl], e
 	inc l
 	ld [hl], d
 	inc l
-endr
+	endr
 	pop de
 	ld [hl], e
 	inc l
@@ -272,7 +243,6 @@ endr
 	dec a
 	jr nz, .row
 
-
 	ld a, [hSPBuffer]
 	ld l, a
 	ld a, [hSPBuffer + 1]
@@ -281,11 +251,10 @@ endr
 	ret
 ; 170a
 
-
 Serve1bppRequest:: ; 170a
 ; Only call during the first fifth of VBlank
 
-	ld a, [Requested1bpp]
+	ld a, [hRequested1bpp]
 	and a
 	ret z
 
@@ -296,77 +265,54 @@ Serve1bppRequest:: ; 170a
 	cp 146
 	ret nc
 
-; Copy [Requested1bpp] 1bpp tiles from [Requested1bppSource] to [Requested1bppDest]
-
+; Copy [hRequested1bpp] 1bpp tiles from [hRequestedVTileSource] to [hRequestedVTileDest]
 	ld [hSPBuffer], sp
-
-; Source
-	ld hl, Requested1bppSource
+; Destination
+	ld hl, hRequestedVTileDest
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+; Source	
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	ld sp, hl
-
-; Destination
-	ld hl, Requested1bppDest
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-
+	ld h, d
+	ld l, e
+	
 ; # tiles to copy
-	ld a, [Requested1bpp]
+	ld a, [hTilesPerCycle]
 	ld b, a
-
-	xor a
-	ld [Requested1bpp], a
-
 .next
-
-rept 3
+	rept 4
 	pop de
-	ld [hl], e
-	inc l
-	ld [hl], e
-	inc l
-	ld [hl], d
-	inc l
-	ld [hl], d
-	inc l
-endr
-	pop de
-	ld [hl], e
-	inc l
-	ld [hl], e
-	inc l
-	ld [hl], d
-	inc l
-	ld [hl], d
-
-	inc hl
+	ld a, e
+	ld [hli], a
+	ld [hli], a
+	ld a, d
+	ld [hli], a
+	ld [hli], a
+	endr
 	dec b
 	jr nz, .next
+	jp WriteVTileSourceAndDestinationAndReturn
 
 
-	ld a, l
-	ld [Requested1bppDest], a
-	ld a, h
-	ld [Requested1bppDest + 1], a
-
-	ld [Requested1bppSource], sp
-
-	ld a, [hSPBuffer]
-	ld l, a
-	ld a, [hSPBuffer + 1]
-	ld h, a
-	ld sp, hl
+Serve2bppRequest_NoVBlankCheck:: ; 1778
+	ld a, [hRequested2bpp]
+	and a
+	ret z
+	ld [hTilesPerCycle], a
+	call _Serve2bppRequest
+	xor a
+	ld [hRequested2bpp], a
 	ret
-; 1769
-
-
+	
 Serve2bppRequest:: ; 1769
 ; Only call during the first fifth of VBlank
 
-	ld a, [Requested2bpp]
+	ld a, [hRequested2bpp]
 	and a
 	ret z
 
@@ -376,65 +322,46 @@ Serve2bppRequest:: ; 1769
 	ret c
 	cp 146
 	ret nc
-	jr _Serve2bppRequest
-
-
-Serve2bppRequest@VBlank:: ; 1778
-
-	ld a, [Requested2bpp]
-	and a
-	ret z
 
 _Serve2bppRequest:: ; 177d
-; Copy [Requested2bpp] 2bpp tiles from [Requested2bppSource] to [Requested2bppDest]
+; Copy [hRequested2bpp] 2bpp tiles from [hRequestedVTileSource] to [hRequestedVTileDest]
 
 	ld [hSPBuffer], sp
-
-; Source
-	ld hl, Requested2bppSource
+; Destination
+	ld hl, hRequestedVTileDest
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+; Source	
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	ld sp, hl
-
-; Destination
-	ld hl, Requested2bppDest
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-
+	ld h, d
+	ld l, e
+	
 ; # tiles to copy
-	ld a, [Requested2bpp]
+	ld a, [hTilesPerCycle]
 	ld b, a
-
-	xor a
-	ld [Requested2bpp], a
-
 .next
-
-rept 7
+	rept 8
 	pop de
-	ld [hl], e
-	inc l
-	ld [hl], d
-	inc l
-endr
-	pop de
-	ld [hl], e
-	inc l
-	ld [hl], d
-
-	inc hl
+	ld a, e
+	ld [hli], a
+	ld a, d
+	ld [hli], a
+	endr
 	dec b
 	jr nz, .next
 
-
+WriteVTileSourceAndDestinationAndReturn:
 	ld a, l
-	ld [Requested2bppDest], a
+	ld [hRequestedVTileDest], a
 	ld a, h
-	ld [Requested2bppDest + 1], a
+	ld [hRequestedVTileDest + 1], a
 
-	ld [Requested2bppSource], sp
+	ld [hRequestedVTileSource], sp
 
 	ld a, [hSPBuffer]
 	ld l, a
@@ -471,7 +398,7 @@ AnimateTileset:: ; 17d3
 
 	ld a, [rVBK]
 	push af
-	ld a, 0
+	xor a
 	ld [rVBK], a
 
 	call _AnimateTileset

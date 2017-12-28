@@ -231,33 +231,21 @@ _SavingDontTurnOffThePower: ; 14be3
 	call SavingDontTurnOffThePower
 SavedTheGame: ; 14be6
 	call SaveGameData_
-	; wait 32 frames
-	ld c, $20
-	call DelayFrames
-	; copy the original text speed setting to the stack
-	ld a, [Options]
-	push af
-	; set text speed super slow
-	ld a, 3
-	ld [Options], a
-	; <PLAYER> saved the game!
 	ld hl, Text_PlayerSavedTheGame
 	call PrintText
-	; restore the original text speed setting
-	pop af
-	ld [Options], a
 	ld de, SFX_SAVE
 	call WaitPlaySFX
-	call WaitSFX
-	; wait 30 frames
-	ld c, $1e
-	jp DelayFrames
+	jp WaitSFX
 ; 14c10
 
 
 SaveGameData_: ; 14c10
+	ld a, [hVBlank]
+	push af
 	ld a, 1
 	ld [wSaveFileExists], a
+	inc a
+	ld [hVBlank], a
 	farcall StageRTCTimeForSave
 	call ValidateSave
 	call SaveOptions
@@ -272,6 +260,8 @@ SaveGameData_: ; 14c10
 	call SaveBackupChecksum
 	farcall BackupPartyMonMail
 	farcall SaveRTC
+	pop af
+	ld [hVBlank], a
 	ret
 ; 14c6b
 
@@ -282,21 +272,7 @@ SavingDontTurnOffThePower: ; 14c99
 	ld [hJoypadPressed], a
 	ld [hJoypadSum], a
 	ld [hJoypadDown], a
-	; Save the text speed setting to the stack
-	ld a, [Options]
-	push af
-	; Set the text speed to super slow
-	ld a, $3
-	ld [Options], a
-	; SAVING... DON'T TURN OFF THE POWER.
-	ld hl, Text_SavingDontTurnOffThePower
-	call PrintText
-	; Restore the text speed setting
-	pop af
-	ld [Options], a
-	; Wait for 16 frames
-	ld c, $10
-	jp DelayFrames
+	ret
 ; 14cbb
 
 
@@ -354,11 +330,11 @@ ValidateSave: ; 14da9
 SaveOptions: ; 14dbb
 	ld a, BANK(sOptions)
 	call GetSRAMBank
-	ld hl, Options
+	ld hl, wOptions
 	ld de, sOptions
-	ld bc, OptionsEnd - Options
+	ld bc, wOptionsEnd - wOptions
 	call CopyBytes
-	ld a, [Options]
+	ld a, [wOptions]
 	and $ff ^ (1 << NO_TEXT_SCROLL)
 	ld [sOptions], a
 	jp CloseSRAM
@@ -419,9 +395,9 @@ ValidateBackupSave: ; 14e2d
 SaveBackupOptions: ; 14e40
 	ld a, BANK(sBackupOptions)
 	call GetSRAMBank
-	ld hl, Options
+	ld hl, wOptions
 	ld de, sBackupOptions
-	ld bc, OptionsEnd - Options
+	ld bc, wOptionsEnd - wOptions
 	call CopyBytes
 	jp CloseSRAM
 ; 14e55
@@ -495,14 +471,14 @@ TryLoadSaveFile: ; 14ea5 (5:4ea5)
 	ret
 
 .corrupt
-	ld a, [Options]
+	ld a, [wOptions]
 	push af
 	set NO_TEXT_SCROLL, a
-	ld [Options], a
+	ld [wOptions], a
 	ld hl, Text_SaveFileCorrupted
 	call PrintText
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	scf
 	ret
 
@@ -547,14 +523,14 @@ TryLoadSaveData: ; 14f1c
 
 .corrupt
 	ld hl, DefaultOptions
-	ld de, Options
-	ld bc, OptionsEnd - Options
+	ld de, wOptions
+	ld bc, wOptionsEnd - wOptions
 	call CopyBytes
 	jp PanicResetClock
 ; 14f7c
 
 DefaultOptions: ; 14f7c
-	db $01 ; Options: fast text speed
+	db $01 ; wOptions: fast text speed
 	db $00 ; wSaveFileExists
 	db $00 ; TextBoxFrame: frame 0
 	db $01 ; TextBoxFlags
@@ -574,8 +550,8 @@ CheckPrimarySaveFile: ; 14f84
 	cp " "
 	jr nz, .nope
 	ld hl, sOptions
-	ld de, Options
-	ld bc, OptionsEnd - Options
+	ld de, wOptions
+	ld bc, wOptionsEnd - wOptions
 	call CopyBytes
 	call CloseSRAM
 	ld a, $1
@@ -595,8 +571,8 @@ CheckBackupSaveFile: ; 14faf
 	cp " "
 	jr nz, .nope
 	ld hl, sBackupOptions
-	ld de, Options
-	ld bc, OptionsEnd - Options
+	ld de, wOptions
+	ld bc, wOptionsEnd - wOptions
 	call CopyBytes
 	ld a, $2
 	ld [wSaveFileExists], a

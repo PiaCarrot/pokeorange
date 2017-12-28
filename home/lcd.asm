@@ -10,7 +10,7 @@ LCD:: ; 552
 	push bc
 	ld a, [rLY]
 	ld c, a
-	ld b, LYOverrides >> 8
+	ld b, wLYOverrides >> 8
 	ld a, [bc]
 	ld b, a
 	ld a, [hLCDCPointer]

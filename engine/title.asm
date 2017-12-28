@@ -151,17 +151,17 @@ _TitleScreen: ; 10ed67
 
 	ld a, [rSVBK]
 	push af
-	ld a, 5 ; BANK(LYOverrides)
+	ld a, 5 ; BANK(wLYOverrides)
 	ld [rSVBK], a
 
-; Make sure the LYOverrides buffer is empty
-	ld hl, LYOverrides
+; Make sure the wLYOverrides buffer is empty
+	ld hl, wLYOverrides
 	xor a
-	ld bc, LYOverridesEnd - LYOverrides
+	ld bc, wLYOverridesEnd - wLYOverrides
 	call ByteFill
 
 ; Let LCD Stat know we're messing around with SCX
-	ld a, rSCX - $ff00
+	ld a, rSCX & $ff
 	ld [hLCDCPointer], a
 
 	pop af

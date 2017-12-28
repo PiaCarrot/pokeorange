@@ -158,7 +158,7 @@ Init:: ; 17d
 
 	xor a
 	ld [rIF], a
-	ld a, %1111 ; VBlank, LCDStat, Timer, Serial interrupts
+	ld a, 1 << VBLANK | 1 << SERIAL ; VBlank, Serial interrupts
 	ld [rIE], a
 	ei
 

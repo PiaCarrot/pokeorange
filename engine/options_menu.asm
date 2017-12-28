@@ -105,47 +105,35 @@ GetOptionPointer: ; e42d6
 
 
 Options_TextSpeed: ; e42f5
-	call GetTextSpeed
+	ld a, [wOptions]
+	and $3
+	ld c, a
 	ld a, [hJoyPressed]
 	bit D_LEFT_F, a
 	jr nz, .LeftPressed
 	bit D_RIGHT_F, a
 	jr z, .NonePressed
-	ld a, c ; right pressed
-	cp SLOW_TEXT
-	jr c, .Increase
-	ld c, FAST_TEXT +- 1
-
-.Increase:
 	inc c
-	ld a, e
-	jr .Save
-
+	jr .afterPress
 .LeftPressed:
-	ld a, c
-	and a
-	jr nz, .Decrease
-	ld c, SLOW_TEXT + 1
-
-.Decrease:
 	dec c
-	ld a, d
-
-.Save:
-	ld b, a
-	ld a, [Options]
-	and $f0
-	or b
-	ld [Options], a
+.afterPress
+	ld a, c
+	and $3
+	ld c, a
+	ld a, [wOptions]
+	and %11111100
+	or c
+	ld [wOptions], a
 
 .NonePressed:
 	ld b, 0
 	ld hl, .Strings
 	add hl, bc
 	add hl, bc
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
 	ld d, [hl]
+	ld e, a
 	hlcoord 11, 3
 	call PlaceString
 	and a
@@ -153,10 +141,13 @@ Options_TextSpeed: ; e42f5
 ; e4331
 
 .Strings:
+	dw .Inst
 	dw .Fast
 	dw .Mid
 	dw .Slow
 
+.Inst:
+	db "INST@"
 .Fast:
 	db "FAST@"
 .Mid:
@@ -166,31 +157,8 @@ Options_TextSpeed: ; e42f5
 ; e4346
 
 
-GetTextSpeed: ; e4346
-	ld a, [Options] ; This converts the number of frames, to 0, 1, 2 representing speed
-	and 7
-	cp 5 ; 5 frames of delay is slow
-	jr z, .slow
-	cp 1 ; 1 frame of delay is fast
-	jr z, .fast
-	ld c, MED_TEXT ; set it to mid if not one of the above
-	lb de, 1, 5
-	ret
-
-.slow
-	ld c, SLOW_TEXT
-	lb de, 3, 1
-	ret
-
-.fast
-	ld c, FAST_TEXT
-	lb de, 5, 3
-	ret
-; e4365
-
-
 Options_BattleScene: ; e4365
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hJoyPressed]
 	bit D_LEFT_F, a
 	jr nz, .LeftPressed
@@ -229,7 +197,7 @@ Options_BattleScene: ; e4365
 
 
 Options_BattleStyle: ; e43a0
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hJoyPressed]
 	bit D_LEFT_F, a
 	jr nz, .LeftPressed
@@ -268,7 +236,7 @@ Options_BattleStyle: ; e43a0
 
 
 Options_Sound: ; e43dd
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hJoyPressed]
 	bit D_LEFT_F, a
 	jr nz, .LeftPressed

@@ -115,7 +115,7 @@ RunTradeAnimScript: ; 28fa1
 	ld a, [hl]
 	push af
 	res 0, [hl]
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set 4, [hl]
@@ -129,7 +129,7 @@ RunTradeAnimScript: ; 28fa1
 	call DoTradeAnimation
 	jr nc, .anim_loop
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	pop af
 	ld [VramState], a
 	pop af

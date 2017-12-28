@@ -85,7 +85,7 @@ ResetWRAM: ; 5ba7
 _ResetWRAM: ; 5bae
 
 	ld hl, Sprites
-	ld bc, Options - Sprites
+	ld bc, wOptions - Sprites
 	xor a
 	call ByteFill
 
@@ -876,6 +876,8 @@ Intro_PlacePlayerSprite: ; 61cd
 CrystalIntroSequence: ; 620b
 	farcall Copyright_GFPresents
 StartTitleScreen: ; 6219
+	ld hl, rIE
+	set LCD_STAT, [hl]
 	ld a, [rSVBK]
 	push af
 	ld a, $5
@@ -892,7 +894,8 @@ StartTitleScreen: ; 6219
 
 	pop af
 	ld [rSVBK], a
-
+	ld hl, rIE
+	res LCD_STAT, [hl]
 	ld hl, rLCDC
 	res 2, [hl]
 	call ClearScreen
@@ -984,7 +987,7 @@ TitleScreenEntrance: ; 62bc
 
 ; Lay out a base (all lines scrolling together).
 	ld e, a
-	ld hl, LYOverrides
+	ld hl, wLYOverrides
 	ld bc, 8 * 10 ; logo height
 	call ByteFill
 
@@ -995,7 +998,7 @@ TitleScreenEntrance: ; 62bc
 	inc a
 
 	ld b, 8 * 10 / 2 ; logo height / 2
-	ld hl, LYOverrides + 1
+	ld hl, wLYOverrides + 1
 .loop
 	ld [hli], a
 	inc hl

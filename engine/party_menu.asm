@@ -44,7 +44,7 @@ LoadPartyMenuGFX: ; 5004f
 
 
 WritePartyMenuTilemap: ; 0x5005f
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set 4, [hl] ; Disable text delay
@@ -66,7 +66,7 @@ WritePartyMenuTilemap: ; 0x5005f
 	jr .loop ; 0x50082 $f3
 .end
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	ret
 ; 0x50089
 
@@ -701,14 +701,14 @@ PrintPartyMenuText: ; 5049a
 	ld d, [hl]
 	ld e, a
 .gotstring ; 504be
-	ld a, [Options]
+	ld a, [wOptions]
 	push af
 	set 4, a ; disable text delay
-	ld [Options], a
+	ld [wOptions], a
 	hlcoord 1, 16 ; Coord
 	call PlaceString
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	ret
 ; 0x504d2
 
@@ -841,12 +841,12 @@ PrintPartyMenuActionText: ; 50566
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld a, [Options]
+	ld a, [wOptions]
 	push af
 	set NO_TEXT_SCROLL, a
-	ld [Options], a
+	ld [wOptions], a
 	call PrintText
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	ret
 ; 505da

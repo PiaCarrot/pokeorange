@@ -13,13 +13,15 @@ VBlank:: ; 283
 	push de
 	push hl
 
+	ld a, [hROMBank]
+	ld [hROMBankBackup], a
+
 	ld a, [hVBlank]
 	and 7
-
+	add a
 	ld e, a
 	ld d, 0
 	ld hl, .VBlanks
-	add hl, de
 	add hl, de
 	ld a, [hli]
 	ld h, [hl]
@@ -28,6 +30,12 @@ VBlank:: ; 283
 	call _hl_
 
 	call GameTimer
+
+	xor a
+	ld [wVBlankOccurred], a
+	
+	ld a, [hROMBankBackup]
+	rst Bankswitch
 
 	pop hl
 	pop de
@@ -61,26 +69,6 @@ VBlank0:: ; 2b1
 ; oam
 ; joypad
 ; sound
-
-	; inc frame counter
-	ld hl, hVBlankCounter
-	inc [hl]
-
-	; advance random variables
-	ld a, [rDIV]
-	ld b, a
-	ld a, [hRandomAdd]
-	adc b
-	ld [hRandomAdd], a
-
-	ld a, [rDIV]
-	ld b, a
-	ld a, [hRandomSub]
-	sbc b
-	ld [hRandomSub], a
-
-	ld a, [hROMBank]
-	ld [hROMBankBackup], a
 
 	ld a, [hSCX]
 	ld [rSCX], a
@@ -119,56 +107,80 @@ VBlank0:: ; 2b1
 
 	; vblank-sensitive operations are done
 
-	xor a
-	ld [VBlankOccurred], a
+	; inc frame counter
+	ld hl, hVBlankCounter
+	inc [hl]
 
-	ld a, [OverworldDelay]
+	; advance random variables
+	ld a, [rDIV]
+	ld b, a
+	ld a, [hRandomAdd]
+	adc b
+	ld [hRandomAdd], a
+
+	ld a, [rDIV]
+	ld b, a
+	ld a, [hRandomSub]
+	sbc b
+	ld [hRandomSub], a
+
+	ld a, [wOverworldDelay]
 	and a
-	jr z, .ok
+	jr z, .noDelay
 	dec a
-	ld [OverworldDelay], a
-.ok
+	ld [wOverworldDelay], a
+.noDelay
 
-	ld a, [TextDelayFrames]
+	ld a, [wTextDelayFrames]
 	and a
-	jr z, .ok2
+	jr z, .noDelay2
 	dec a
-	ld [TextDelayFrames], a
-.ok2
-
+	ld [wTextDelayFrames], a
+.noDelay2
 	call Joypad
-
-	ld a, BANK(_UpdateSound)
-	rst Bankswitch
-	call _UpdateSound
-	ld a, [hROMBankBackup]
-	rst Bankswitch
 
 	ld a, [hSeconds]
 	ld [hSecondsBackup], a
-
-	ret
-; 325
-
+; fallthrough
 
 VBlank2:: ; 325
-; sound only
-
-	ld a, [hROMBank]
-	ld [hROMBankBackup], a
-
+; sound only	
 	ld a, BANK(_UpdateSound)
 	rst Bankswitch
-	call _UpdateSound
-
-	ld a, [hROMBankBackup]
-	rst Bankswitch
-
-	xor a
-	ld [VBlankOccurred], a
-	ret
+	jp _UpdateSound
 ; 337
 
+VBlank6:: ; 436
+; palettes
+; tiles
+; dma transfer
+; sound
+	; inc frame counter
+	ld hl, hVBlankCounter
+	inc [hl]
+
+	call UpdateCGBPals
+	jr c, VBlank2
+
+	call Serve2bppRequest
+	call Serve1bppRequest
+	call DMATransfer
+	jr VBlank2
+	
+VBlank4:: ; 3df
+; bg map
+; tiles
+; oam
+; joypad
+; serial
+; sound
+	call UpdateBGMap
+	call Serve2bppRequest
+	call hPushOAM
+	call Joypad
+	call AskSerial
+	jr VBlank2
+; 400
 
 VBlank1:: ; 337
 ; scx, scy
@@ -176,11 +188,7 @@ VBlank1:: ; 337
 ; bg map
 ; tiles
 ; oam
-; sound / lcd stat
-
-	ld a, [hROMBank]
-	ld [hROMBankBackup], a
-
+; sound / lcd stat / serial
 	ld a, [hSCX]
 	ld [rSCX], a
 	ld a, [hSCY]
@@ -190,13 +198,10 @@ VBlank1:: ; 337
 	jr c, .done
 
 	call UpdateBGMap
-	call Serve2bppRequest@VBlank
+	call Serve2bppRequest_NoVBlankCheck
 
 	call hPushOAM
 .done
-
-	xor a
-	ld [VBlankOccurred], a
 
 	; get requested ints
 	ld a, [rIF]
@@ -215,11 +220,7 @@ VBlank1:: ; 337
 	ld [rIF], a
 
 	ei
-	ld a, BANK(_UpdateSound)
-	rst Bankswitch
-	call _UpdateSound
-	ld a, [hROMBankBackup]
-	rst Bankswitch
+	call VBlank2
 	di
 
 	; get requested ints
@@ -238,12 +239,6 @@ VBlank1:: ; 337
 ; 37f
 
 
-UpdatePals:: ; 37f
-; update pals for either dmg or cgb
-	jp UpdateCGBPals
-; 396
-
-
 VBlank3:: ; 396
 ; scx, scy
 ; palettes
@@ -251,10 +246,6 @@ VBlank3:: ; 396
 ; tiles
 ; oam
 ; sound / lcd stat
-
-	ld a, [hROMBank]
-	ld [hROMBankBackup], a
-
 	ld a, [hSCX]
 	ld [rSCX], a
 	ld a, [hSCY]
@@ -266,13 +257,10 @@ VBlank3:: ; 396
 	jr c, .done
 
 	call UpdateBGMap
-	call Serve2bppRequest@VBlank
+	call Serve2bppRequest_NoVBlankCheck
 
 	call hPushOAM
 .done
-
-	xor a
-	ld [VBlankOccurred], a
 
 	ld a, [rIF]
 	push af
@@ -283,11 +271,7 @@ VBlank3:: ; 396
 	ld [rIF], a
 
 	ei
-	ld a, BANK(_UpdateSound)
-	rst Bankswitch
-	call _UpdateSound
-	ld a, [hROMBankBackup]
-	rst Bankswitch
+	call VBlank2
 	di
 
 	; request lcdstat
@@ -309,51 +293,12 @@ VBlank3:: ; 396
 	ret
 ; 3df
 
-
-VBlank4:: ; 3df
-; bg map
-; tiles
-; oam
-; joypad
-; serial
-; sound
-
-	ld a, [hROMBank]
-	ld [hROMBankBackup], a
-
-	call UpdateBGMap
-	call Serve2bppRequest
-
-	call hPushOAM
-
-	call Joypad
-
-	xor a
-	ld [VBlankOccurred], a
-
-	call AskSerial
-
-	ld a, BANK(_UpdateSound)
-	rst Bankswitch
-	call _UpdateSound
-
-	ld a, [hROMBankBackup]
-	rst Bankswitch
-	ret
-; 400
-
-
 VBlank5:: ; 400
 ; scx
 ; palettes
 ; bg map
 ; tiles
 ; joypad
-;
-
-	ld a, [hROMBank]
-	ld [hROMBankBackup], a
-
 	ld a, [hSCX]
 	ld [rSCX], a
 
@@ -363,10 +308,6 @@ VBlank5:: ; 400
 	call UpdateBGMap
 	call Serve2bppRequest
 .done
-
-	xor a
-	ld [VBlankOccurred], a
-
 	call Joypad
 
 	xor a
@@ -377,11 +318,7 @@ VBlank5:: ; 400
 	ld [rIF], a
 
 	ei
-	ld a, BANK(_UpdateSound)
-	rst Bankswitch
-	call _UpdateSound
-	ld a, [hROMBankBackup]
-	rst Bankswitch
+	call VBlank2
 	di
 
 	xor a
@@ -392,36 +329,21 @@ VBlank5:: ; 400
 	ret
 ; 436
 
+UpdatePals:: ; 37f
+; update pals for either dmg or cgb
 
-VBlank6:: ; 436
-; palettes
-; tiles
-; dma transfer
-; sound
+	ld a, [hCGB]
+	and a
+	jp nz, UpdateCGBPals
 
-	ld a, [hROMBank]
-	ld [hROMBankBackup], a
+	; update gb pals
+	ld a, [wBGP]
+	ld [rBGP], a
+	ld a, [wOBP0]
+	ld [rOBP0], a
+	ld a, [wOBP1]
+	ld [rOBP1], a
 
-	; inc frame counter
-	ld hl, hVBlankCounter
-	inc [hl]
-
-	call UpdateCGBPals
-	jr c, .done
-
-	call Serve2bppRequest
-	call Serve1bppRequest
-	call DMATransfer
-.done
-
-	xor a
-	ld [VBlankOccurred], a
-
-	ld a, BANK(_UpdateSound)
-	rst Bankswitch
-	call _UpdateSound
-
-	ld a, [hROMBankBackup]
-	rst Bankswitch
+	and a
 	ret
-; 45a
+; 396
