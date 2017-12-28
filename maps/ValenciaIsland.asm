@@ -249,6 +249,9 @@ IvyHouseSignText:
 	para "№.1 BAYVIEW"
 	done
 	
+ValenciaIslandMagnet:
+	itemball MAGNET
+	
 ValenciaIsland_MapEventHeader::
 
 .Warps: db 4
@@ -267,9 +270,10 @@ ValenciaIsland_MapEventHeader::
 	signpost 13, 27, SIGNPOST_READ, MapValenciaIslandSignpost2Script
 	signpost 17, 15, SIGNPOST_READ, ValenciaIvyHouseSignpostScript
 
-.ObjectEvents: db 2
+.ObjectEvents: db 3
 	person_event SPRITE_COOLTRAINER_M, 8, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 1, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ValenciaIslandTeacherScript, -1
 	person_event SPRITE_YOUNGSTER, 8, 13, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, ValenciaIslandFisherScript, -1
+	person_event SPRITE_POKE_BALL, 4, 30, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, ValenciaIslandMagnet, EVENT_VALENCIA_ISLAND_MAGNET
 
 if def(DEBUG)
 CheatFillPokedex:

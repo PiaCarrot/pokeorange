@@ -115,6 +115,7 @@
 	const SPRITE_KRIS_DIVE ;75
 	const SPRITE_INVISIBLE ;76
 	const SPRITE_MAYOR
+	const SPRITE_SCIENTIST_F
 
 const_value SET $90
 SPRITE_POKEMON EQU const_value

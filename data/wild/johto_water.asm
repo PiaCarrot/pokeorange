@@ -179,5 +179,30 @@
 	db 21, POLIWAG
 	db 21, MARILL
 	db 22, POLIWHIRL
+	
+	map TROVITOPOLIS
+	db 3 percent
+	db 20, WAILMER
+	db 20, GOLDEEN
+	db 20, REMORAID
+	
+	map TROVITA_ISLAND
+	db 3 percent
+	db 20, WAILMER
+	db 20, GOLDEEN
+	db 20, REMORAID
+	
+	map TROVITOPOLIS_PORT
+	db 3 percent
+	db 19, WAILMER
+	db 19, REMORAID
+	db 19, TENTACOOL
+	
+	map TROVITA_PORT
+	db 3 percent
+	db 19, WAILMER
+	db 19, REMORAID
+	db 19, TENTACOOL
+
 
 	db -1 ; end

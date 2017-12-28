@@ -449,4 +449,7 @@ InvisibleSprite:
 	sprite_header InvisibleSpriteGFX, 3, STANDING_SPRITE, PAL_OW_GREEN
 	
 MayorSprite:
-	sprite_header MayorSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED
+	sprite_header MayorSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED	
+
+ScientistFSprite:
+	sprite_header ScientistFSpriteGFX, 3, WALKING_SPRITE, PAL_OW_PURPLE
