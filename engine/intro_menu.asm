@@ -1144,26 +1144,41 @@ ResetClock: ; 6392
 	jp Init
 ; 639b
 
-Copyright: ; 63e2
+OpeningLines: ; 63e2
 	call ClearTileMap
 	call LoadFontsExtra
-	ld de, CopyrightGFX
-	ld hl, VTiles2 tile $60
-	lb bc, BANK(CopyrightGFX), $1d
+	ld de, OpeningLinesGFX
+	ld hl, VTiles2 tile $50
+	lb bc, BANK(OpeningLinesGFX), 38
 	call Request2bpp
-	hlcoord 0, 8
-	ld de, CopyrightString
-	jp PlaceString
+	hlcoord 5, 7
+	ld de, .Line1
+	call .PlaceLine
+	hlcoord 0, 9
+	ld de, .Line2
+	call .PlaceLine
+	hlcoord 6, 11
+	ld de, .Line3
+.PlaceLine:
+	ld a, [de]
+	cp $ff
+	ret z
+	ld [hli], a
+	inc de
+	jr .PlaceLine
 ; 63fd
 
-CopyrightString: ; 63fd
-	; 2017 HotY Nominee Edition Beta
-	db $60, $61, $62, $63, $64, $65, $66, $67, $68, $69, $6a, $6b, $6c, $6d, $6e, $6f, $70, $71, $72, $73
-	next
-	db $60, $60, $60, $60, $60, $77, $61, $62, $76, $74, $61, $62, $75
-
-	db "@"
+.Line1: ; Pokémon Orange
+	db $50, $51, $52, $53, $54, $55, $56, $57, $58, $59, $ff
+.Line2: ; 2017 HotY Nominee Edition Beta
+	db $5a, $5b, $5c, $5d, $5e, $5f, $60, $61, $62, $63
+	db $64, $65, $66, $67, $68, $69, $6a, $6b, $6c, $6d, $ff
+.Line3: ; (c) 2016-2018
+	db $6e, $6f, $70, $71, $72, $73, $74, $75, $ff
 ; 642e
+
+OpeningLinesGFX:: ; e4000
+INCBIN "gfx/intro/opening_lines.2bpp"
 
 GameInit:: ; 642e
 	farcall TryLoadSaveData
