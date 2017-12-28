@@ -65,11 +65,11 @@ Special_MagnetTrain: ; 8cc04
 	ld [hLYOverrideStart], a
 	ld [hLYOverrideEnd], a
 	ld [hSCX], a
-	ld [Requested2bppSource], a
-	ld [Requested2bppSource + 1], a
-	ld [Requested2bppDest], a
-	ld [Requested2bppDest + 1], a
-	ld [Requested2bpp], a
+	ld [hRequestedVTileSource], a
+	ld [hRequestedVTileSource + 1], a
+	ld [hRequestedVTileDest], a
+	ld [hRequestedVTileDest + 1], a
+	ld [hRequested2bpp], a
 	call ClearTileMap
 
 	pop af
@@ -241,8 +241,8 @@ MagnetTrainBGTiles: ; 8cd82
 ; 8cda6
 
 MagnetTrain_InitLYOverrides: ; 8cda6
-	ld hl, LYOverrides
-	ld bc, LYOverridesEnd - LYOverrides
+	ld hl, wLYOverrides
+	ld bc, wLYOverridesEnd - wLYOverrides
 	ld a, [wMagnetTrainInitPosition]
 	call ByteFill
 	ld hl, LYOverridesBackup

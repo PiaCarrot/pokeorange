@@ -5,6 +5,7 @@ NULL::
 
 INCLUDE "rst.asm"
 INCLUDE "interrupts.asm"
+INCLUDE "home/highhome.asm"
 
 SECTION "Header", ROM0
 
@@ -292,7 +293,7 @@ PrintLetterDelay:: ; 313d
 	ld a, 1
 
 .updatedelay
-	ld [TextDelayFrames], a
+	ld [wTextDelayFrames], a
 
 .checkjoypad
 	call GetJoypad
@@ -316,7 +317,7 @@ PrintLetterDelay:: ; 313d
 	jr .end
 
 .wait
-	ld a, [TextDelayFrames]
+	ld a, [wTextDelayFrames]
 	and a
 	jr nz, .checkjoypad
 
@@ -437,45 +438,17 @@ CompareLong:: ; 31e4
 	ret
 ; 31f3
 
-ClearBGPalettes:: ; 31f3
-	call ClearPalettes
-WaitBGMap:: ; 31f6
-; Tell VBlank to update BG Map
-	ld a, 1 ; BG Map 0 tiles
-	ld [hBGMapMode], a
-; Wait for it to do its magic
-	ld c, 4
-	jp DelayFrames
-; 3200
-
 WaitBGMap2:: ; 0x3200
 	ld a, 2
 	ld [hBGMapMode], a
-	ld c, 4
+	ld c, 3
 	call DelayFrames
 
 	ld a, 1
 	ld [hBGMapMode], a
-	ld c, 4
+	ld c, 3
 	jp DelayFrames
 ; 0x3218
-
-ApplyTilemap:: ; 321c
-	ld a, [wSpriteUpdatesEnabled]
-	cp 0
-	jr z, .no
-
-	ld a, 1
-	ld [hBGMapMode], a
-	jr LoadEDTile
-
-.no
-; WaitBGMap
-	ld a, 1
-	ld [hBGMapMode], a
-	ld c, 4
-	jp DelayFrames
-; 3238
 
 CGBOnly_LoadEDTile:: ; 3238
 LoadEDTile:: ; 323d
@@ -1702,17 +1675,17 @@ PushLYOverrides:: ; 3b0c
 	ret z
 
 	ld a, LYOverridesBackup % $100
-	ld [Requested2bppSource], a
+	ld [hRequestedVTileSource], a
 	ld a, LYOverridesBackup / $100
-	ld [Requested2bppSource + 1], a
+	ld [hRequestedVTileSource + 1], a
 
-	ld a, LYOverrides % $100
-	ld [Requested2bppDest], a
-	ld a, LYOverrides / $100
-	ld [Requested2bppDest + 1], a
+	ld a, wLYOverrides % $100
+	ld [hRequestedVTileDest], a
+	ld a, wLYOverrides / $100
+	ld [hRequestedVTileDest + 1], a
 
-	ld a, (LYOverridesEnd - LYOverrides) / 16
-	ld [Requested2bpp], a
+	ld a, (wLYOverridesEnd - wLYOverrides) / 16
+	ld [hRequested2bpp], a
 	ret
 ; 3b2a
 

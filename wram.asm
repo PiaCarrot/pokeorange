@@ -1171,21 +1171,7 @@ wTitleScreenTimerHi::
 wCardFlipWhichCard::
 wcf66:: ds 1
 
-Requested2bpp:: ; cf67
-Requested2bppSize::
-	ds 1
-Requested2bppSource:: ; cf68
-	ds 2
-Requested2bppDest:: ; cf6a
-	ds 2
-
-Requested1bpp:: ; cf6c
-Requested1bppSize::
-	ds 1
-Requested1bppSource:: ; cf6d
-	ds 2
-Requested1bppDest:: ; cf6f
-	ds 2
+	ds 10
 
 wWindowStackPointer:: dw ; cf71
 wMenuJoypad:: ds 1   ; cf73
@@ -1267,11 +1253,11 @@ wCursorOffCharacter:: ds 1 ; cfab
 wCursorCurrentTile:: ds 2 ; cfac
 	ds 3
 
-OverworldDelay:: ; cfb1
+wOverworldDelay:: ; cfb1
 	ds 1
-TextDelayFrames:: ; cfb2
+wTextDelayFrames:: ; cfb2
 	ds 1
-VBlankOccurred:: ; cfb3
+wVBlankOccurred:: ; cfb3
 	ds 1
 
 PredefID:: ; cfb4
@@ -2579,9 +2565,9 @@ UnknOBPals:: ds 8 palettes ; d040
 BGPals::     ds 8 palettes ; d080
 OBPals::     ds 8 palettes ; d0c0
 
-LYOverrides:: ; d100
+wLYOverrides:: ; d100
 	ds SCREEN_HEIGHT_PX
-LYOverridesEnd:: ; d190
+wLYOverridesEnd:: ; d190
 
 	ds 1
 wMagnetTrainDirection:: ds 1

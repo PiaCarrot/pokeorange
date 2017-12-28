@@ -984,7 +984,7 @@ TitleScreenEntrance: ; 62bc
 
 ; Lay out a base (all lines scrolling together).
 	ld e, a
-	ld hl, LYOverrides
+	ld hl, wLYOverrides
 	ld bc, 8 * 10 ; logo height
 	call ByteFill
 
@@ -995,7 +995,7 @@ TitleScreenEntrance: ; 62bc
 	inc a
 
 	ld b, 8 * 10 / 2 ; logo height / 2
-	ld hl, LYOverrides + 1
+	ld hl, wLYOverrides + 1
 .loop
 	ld [hli], a
 	inc hl
