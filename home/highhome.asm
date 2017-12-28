@@ -13,16 +13,56 @@ HBlankCopy2bpp::
 	ld h, [hl]
 	ld l, a
 	ld sp, hl
+	ld a, h 
 	ld h, d
 	ld l, e
-	jr .innerLoop
+; vram to vram copy check:
+	cp VTiles0 / $100 ; is source in RAM?
+	jr c, .innerLoop
+	cp SRAM_Begin / $100 ; is source past VRAM
+	jr nc, .innerLoop
+; vram to vram copy
+	lb bc, %11, rSTAT & $ff ; predefine bitmask and rSTAT source for speed and size
+	jr .waitNoHBlank2
+.outerLoop2
+	ld a, [rLY]
+	cp $88
+	jp nc, .continueNextFrame
+.waitNoHBlank2
+	ld a, [$ff00+c]
+	and b
+	jr z, .waitNoHBlank2
+.waitHBlank2
+	ld a, [$ff00+c]
+	and b
+	jr nz, .waitHBlank2
+	rept 3
+	pop de
+	ld a, e
+	ld [hli], a
+	ld a, d
+	ld [hli], a
+	endr
+	pop de
+	ld a, e
+	ld [hli], a
+	ld [hl], d
+	inc hl
+	ld a, l
+	and $f
+	jr nz, .waitNoHBlank2
+	ld a, [hRequested2bpp]
+	dec a
+	ld [hRequested2bpp], a
+	jr nz, .outerLoop2
+	jp .done
 .outerLoop
 	ld a, [rLY]
 	cp $88
 	jr nc, .continueNextFrame
 .innerLoop
-;	pop bc
-;	pop de
+	pop bc
+	pop de
 .waitNoHBlank
 	ld a, [rSTAT]
 	and 3
@@ -31,23 +71,20 @@ HBlankCopy2bpp::
 	ld a, [rSTAT]
 	and 3
 	jr nz, .waitHBlank
-; >vram to vram copies
 ; preloads r us
-;	ld a, c
-;	ld [hli], a
-;	ld a, b
-;	ld [hli], a
-;	ld a, e
-;	ld [hli], a
-;	ld a, d
-;	ld [hli], a
-	rept 3
+	ld a, c
+	ld [hli], a
+	ld a, b
+	ld [hli], a
+	ld a, e
+	ld [hli], a
+	ld a, d
+	ld [hli], a
 	pop de
 	ld a, e
 	ld [hli], a
 	ld a, d
 	ld [hli], a
-	endr
 	pop de
 	ld a, e
 	ld [hli], a

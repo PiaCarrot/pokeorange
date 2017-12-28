@@ -87,7 +87,7 @@ StartMenu:: ; 125cd
 	call .DrawDayTimeBox
 	call SetUpMenu
 	ld a, $ff
-	ld [MenuSelection], a
+	ld [wMenuSelection], a
 .loop
 	call .PrintDayTime
 	call GetScrollingMenuJoypad
@@ -166,7 +166,7 @@ StartMenu:: ; 125cd
 
 .ItemName: ; 127ef
 	push de
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	call .GetMenuItemTextPointer
 	inc hl
 	inc hl
@@ -198,7 +198,7 @@ StartMenu:: ; 125cd
 
 
 .OpenMenu: ; 127e5
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	call .GetMenuItemTextPointer
 	ld a, [hli]
 	ld h, [hl]
@@ -584,7 +584,7 @@ CantUseItemText: ; 12a67
 
 
 PartyMonItemName: ; 12a6c
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld [wd265], a
 	call GetItemName
 	jp CopyName1
@@ -605,7 +605,7 @@ PokemonActionSubmenu: ; 12a88
 	call ClearBox
 	farcall MonSubmenu
 	call GetCurNick
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	ld hl, .Actions
 	ld de, 3
 	call IsInArray
@@ -811,22 +811,22 @@ TryGiveItemToPartymon: ; 12bd9
 	call GiveItemToPokemon
 	ld a, [wd265]
 	push af
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld [wd265], a
 	pop af
-	ld [CurItem], a
+	ld [wCurItem], a
 	call ReceiveItemFromPokemon
 	jr nc, .bag_full
 
 	ld hl, TookAndMadeHoldText
 	call MenuTextBoxBackup
 	ld a, [wd265]
-	ld [CurItem], a
+	ld [wCurItem], a
 	jp GivePartyItem
 
 .bag_full
 	ld a, [wd265]
-	ld [CurItem], a
+	ld [wCurItem], a
 	call ReceiveItemFromPokemon
 	ld hl, ItemStorageIsFullText
 	call MenuTextBoxBackup
@@ -839,7 +839,7 @@ TryGiveItemToPartymon: ; 12bd9
 GivePartyItem: ; 12c4c
 
 	call GetPartyItemLocation
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld [hl], a
 	ld d, a
 	farcall ItemIsMail
@@ -859,7 +859,7 @@ TakePartyItem: ; 12c60
 	and a
 	jr z, .asm_12c8c
 
-	ld [CurItem], a
+	ld [wCurItem], a
 	call ReceiveItemFromPokemon
 	jr nc, .asm_12c94
 
@@ -986,7 +986,7 @@ ComposeMailMessage: ; 12cfe (4:6cfe)
 	ld a, [CurPartySpecies]
 	ld [de], a
 	inc de
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld [de], a
 	ld a, [CurPartyMon]
 	ld hl, sPartyMail
@@ -1052,7 +1052,7 @@ MonMailAction: ; 12d45
 	jr c, .done
 	call GetPartyItemLocation
 	ld a, [hl]
-	ld [CurItem], a
+	ld [wCurItem], a
 	call ReceiveItemFromPokemon
 	jr nc, .BagIsFull
 	call GetPartyItemLocation

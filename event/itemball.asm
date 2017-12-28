@@ -42,7 +42,7 @@ FindItemInBallScript:: ; 0x122ce
 	ld hl, StringBuffer3
 	call CopyName2
 	ld a, [EngineBuffer1]
-	ld [CurItem], a
+	ld [wCurItem], a
 	ld a, [CurFruit]
 	ld [wItemQuantityChangeBuffer], a
 	ld hl, NumItems

@@ -262,7 +262,7 @@ FarReadMart: ; 15bbb
 GetMartItemPrice: ; 15be5
 ; Return the price of item a in BCD at hl and in tiles at StringBuffer1.
 	push hl
-	ld [CurItem], a
+	ld [wCurItem], a
 	farcall GetItemPrice
 	pop hl
 

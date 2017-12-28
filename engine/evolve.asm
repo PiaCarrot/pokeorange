@@ -176,7 +176,7 @@ EvolveAfterBattle_MasterLoop
 .item
 	ld a, [hli]
 	ld b, a
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	cp b
 	jp nz, .dont_evolve_3
 

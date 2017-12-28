@@ -632,12 +632,12 @@ StringBufferPointers:: ; 24000
 INCLUDE "engine/menu.asm"
 
 UpdateItemDescription: ; 0x244c3
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	ld [CurSpecies], a
 	hlcoord 0, 12
 	lb bc, 4, SCREEN_WIDTH - 2
 	call TextBox
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	cp -1
 	ret z
 	decoord 1, 14
@@ -722,7 +722,7 @@ INCLUDE "engine/switch_items.asm"
 
 PlaceMenuItemName: ; 0x24ab4
 	push de
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	ld [wNamedObjectIndexBuffer], a
 	call GetItemName
 	pop hl
@@ -730,8 +730,8 @@ PlaceMenuItemName: ; 0x24ab4
 
 PlaceMenuItemQuantity: ; 0x24ac3
 	push de
-	ld a, [MenuSelection]
-	ld [CurItem], a
+	ld a, [wMenuSelection]
+	ld [wCurItem], a
 	farcall _CheckTossableItem
 	ld a, [wItemAttributeParamBuffer]
 	pop hl

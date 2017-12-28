@@ -50,7 +50,7 @@ MonSubmenu: ; 24d19
 	ld a, 1
 	ld [hBGMapMode], a
 	call MonMenuLoop
-	ld [MenuSelection], a
+	ld [wMenuSelection], a
 
 	jp ExitMenu
 ; 24d3f

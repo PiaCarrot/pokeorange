@@ -202,7 +202,7 @@ Elevator_MenuData2: ; 0x13558
 ; 13568
 
 GetElevatorFlorStrings: ; 13568
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 GetFloorString: ; 1356b
 	push de
 	call FloorToString

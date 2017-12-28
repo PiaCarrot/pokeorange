@@ -375,7 +375,7 @@ MailboxPC_GetMailAuthor: ; 0x447da
 
 MailboxPC_PrintMailAuthor: ; 0x447fb
 	push de
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	call MailboxPC_GetMailAuthor
 	pop hl
 	jp PlaceString
@@ -439,7 +439,7 @@ MailboxPC: ; 0x44806
 
 .ReadMail: ; 0x44869
 	call FadeToMenu
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	ld b, a
 	call ReadMailMessage
@@ -452,7 +452,7 @@ MailboxPC: ; 0x44806
 	call YesNoBox
 	call ExitMenu
 	ret c
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	call .GetMailType
 	ld a, 1
@@ -464,7 +464,7 @@ MailboxPC: ; 0x44806
 	jp MenuTextBoxBackup
 
 .put_in_bag
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	ld b, a
 	call DeleteMailFromPC
@@ -493,7 +493,7 @@ MailboxPC: ; 0x44806
 	ld bc, MAIL_STRUCT_LENGTH
 	call AddNTimes
 	ld a, [hl]
-	ld [CurItem], a
+	ld [wCurItem], a
 	jp CloseSRAM
 ; 0x448d2
 
@@ -531,7 +531,7 @@ MailboxPC: ; 0x44806
 	jr .try_again
 
 .attach_mail
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	ld b, a
 	call MoveMailFromPCToParty

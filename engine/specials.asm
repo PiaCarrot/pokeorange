@@ -261,7 +261,7 @@ Special_CheckCoins: ; c3ae
 	or [hl]
 	jr z, .no_coins
 	ld a, COIN_CASE
-	ld [CurItem], a
+	ld [wCurItem], a
 	ld hl, NumItems
 	call CheckItem
 	jr nc, .no_coin_case

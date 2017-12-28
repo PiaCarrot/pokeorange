@@ -5,7 +5,7 @@ PrintItemDescription: ; 0x1c8955
 	cp TM01
 	jr c, .not_a_tm
 
-	ld [CurItem], a
+	ld [wCurItem], a
 	push de
 	farcall GetTMHMItemMove
 	pop hl

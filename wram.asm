@@ -1175,7 +1175,7 @@ wcf66:: ds 1
 
 wWindowStackPointer:: dw ; cf71
 wMenuJoypad:: ds 1   ; cf73
-MenuSelection:: ds 1 ; cf74
+wMenuSelection:: ds 1 ; cf74
 MenuSelectionQuantity:: ds 1 ; cf75
 wWhichIndexSet:: ds 1 ; cf76
 wScrollingMenuCursorPosition:: ds 1 ; cf77
@@ -1593,7 +1593,7 @@ wListPointer:: dw ; d100
 wd102:: dw ; d102
 wItemAttributesPtr:: dw ; d104
 
-CurItem:: ds 1 ; d106
+wCurItem:: ds 1 ; d106
 CurItemQuantity:: ; d107
 wMartItemID::
 wd107:: ds 1

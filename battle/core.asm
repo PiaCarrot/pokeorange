@@ -4811,7 +4811,7 @@ BattleMenu_Pack: ; 3e1c7
 
 .contest
 	ld a, PARK_BALL
-	ld [CurItem], a
+	ld [wCurItem], a
 	call DoItemEffect
 
 .got_item
@@ -8793,10 +8793,10 @@ GetBattleRandomPersonality:
 	ret
 
 .HaveShinyCharm:
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	push af
 	ld a, SHINY_CHARM
-	ld [CurItem], a
+	ld [wCurItem], a
 	push hl
 	push bc
 	push de
@@ -8807,13 +8807,13 @@ GetBattleRandomPersonality:
 	pop hl
 	jr c, .have_shiny_charm
 	pop af
-	ld [CurItem], a
+	ld [wCurItem], a
 	xor a
 	and a
 	ret
 
 .have_shiny_charm
 	pop af
-	ld [CurItem], a
+	ld [wCurItem], a
 	scf
 	ret
