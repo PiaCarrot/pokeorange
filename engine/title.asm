@@ -33,7 +33,7 @@ _TitleScreen: ; 10ed67
 ; Clear screen palettes
 	hlbgcoord 0, 0
 	ld bc, SCREEN_WIDTH bgrows
-	xor a
+	ld a, 2
 	call ByteFill
 
 
@@ -44,53 +44,48 @@ _TitleScreen: ; 10ed67
 ; line 0 (copyright)
 	hlbgcoord 0, 0, VBGMap1
 	ld bc, 1 bgrows
-	ld a, 7 ; palette
+	ld a, 4
 	call ByteFill
 
 
 ; BG Map 0:
 
-; Apply logo gradient:
-
-; lines 3-4
-	hlbgcoord 0, 1
-	ld bc, 2 bgrows
-	ld a, 2
-	call ByteFill
-; line 5
-	hlbgcoord 0, 3
-	ld bc, 1 bgrows
-	ld a, 3
-	call ByteFill
-; line 6
-	hlbgcoord 0, 4
-	ld bc, 1 bgrows
-	ld a, 4
-	call ByteFill
-; line 7
-	hlbgcoord 0, 5
-	ld bc, 1 bgrows
-	ld a, 5
-	call ByteFill
-; lines 8-9
-	hlbgcoord 0, 6
-	ld bc, 2 bgrows
-	ld a, 6
+; POKéMON
+	hlbgcoord 0, 2
+	ld bc, 7 bgrows
+	ld a, 0
 	call ByteFill
 
-
-; 'CRYSTAL VERSION'
-	hlbgcoord 5, 7
-	ld bc, NAME_LENGTH ; length of version text
+; ORANGE VERSION
+	hlbgcoord 5, 8
+	ld bc, 11
 	ld a, 1
 	call ByteFill
 
-; Suicune gfx
-	hlbgcoord 0, 12
-	ld bc, 6 bgrows ; the rest of the screen
-	ld a, 8
+; top Dragonite rows + cloud top
+	hlbgcoord 6, 11
+	lb bc, 5, 8 ; 8, 5?
+	ld a, 2 | VRAM_BANK_1
+	ld de, BG_MAP_WIDTH
+	call FillTitleBox
+
+; cloud middle
+	hlbgcoord 0, 16
+	ld bc, 1 bgrows
+	ld a, 3
 	call ByteFill
 
+; bottom Dragonite row
+	hlbgcoord 6, 16
+	ld bc, 8
+	ld a, 3 | VRAM_BANK_1
+	call ByteFill
+
+; cloud bottom + copyright
+	hlbgcoord 0, 17
+	ld bc, 2 bgrows
+	ld a, 4
+	call ByteFill
 
 ; Back to VRAM bank 0
 	ld a, $0
@@ -109,15 +104,29 @@ _TitleScreen: ; 10ed67
 	call ByteFill
 
 ; Draw Pokemon logo
-	hlcoord 0, 1
+	hlcoord 0, 2
 	lb bc, 7, SCREEN_WIDTH
 	lb de, $80, SCREEN_WIDTH
 	call DrawTitleGraphic
 
+; Draw cloud top + middle
+	hlcoord 0, 15
+	lb bc, 1, SCREEN_WIDTH * 2
+	ld a, $0c
+	ld de, SCREEN_WIDTH
+	call FillTitleBox
+
+; Draw cloud bottom
+	hlcoord 0, 17
+	lb bc, 1, SCREEN_WIDTH
+	ld a, $0d
+	ld de, SCREEN_WIDTH
+	call FillTitleBox
+
 ; Draw copyright text
-	hlbgcoord 3, 0, VBGMap1
-	lb bc, 1, 13
-	lb de, $0c, 0
+	hlbgcoord 6, 0, VBGMap1
+	lb bc, 1, 9
+	lb de, $0f, 0
 	call DrawTitleGraphic
 
 ; Initialize running Suicune?
@@ -239,7 +248,7 @@ SuicuneFrameIterator: ; 10eea7
 
 
 LoadSuicuneFrame: ; 10eed2
-	hlcoord 6, 12
+	hlcoord 6, 11
 	ld b, 6
 .bgrows
 	ld c, 8
@@ -293,54 +302,76 @@ DrawTitleGraphic: ; 10eeef
 	ret
 ; 10ef06
 
+FillTitleBox:
+; input:
+;   hl: draw location
+;   a: tile to draw
+;   b: height
+;   c: width
+;   de: canvas width
+.row
+	push bc
+	push hl
+.col
+	ld [hli], a
+	dec c
+	jr nz, .col
+	pop hl
+	add hl, de
+	pop bc
+	dec b
+	jr nz, .row
+	ret
+
 TitleDragoniteGFX: ; 10ef46
 INCBIN "gfx/title/dragonite.w128.2bpp.lz"
 ; 10f326
 
 TitleLogoGFX: ; 10f326
-INCBIN "gfx/title/logo.w160.t4.2bpp.lz"
+INCBIN "gfx/title/logo.w160.2bpp.lz"
 ; 10fcee
 
 TitleScreenPalettes:
 ; BG
+	; POKéMON
 	RGB 11, 20, 27
-	RGB 31, 31, 31
-	RGB 07, 06, 03
-	RGB 07, 06, 03
-
+	RGB 31, 24, 08
+	RGB 12, 14, 12
+	RGB 01, 02, 24
+	; ORANGE VERSION
 	RGB 11, 20, 27
 	RGB 31, 31, 31
 	RGB 31, 22, 15
 	RGB 31, 11, 00
-
+	; cloud top + Dragonite
 	RGB 11, 20, 27
-	RGB 06, 14, 11
+	RGB 18, 23, 31
 	RGB 31, 31, 31
-	RGB 02, 03, 30
-
-	RGB 11, 20, 27
-	RGB 06, 14, 11
-	RGB 31, 31, 18
-	RGB 02, 03, 30
-
-	RGB 11, 20, 27
-	RGB 06, 14, 11
-	RGB 29, 28, 12
-	RGB 02, 03, 30
-
-	RGB 11, 20, 27
-	RGB 08, 16, 13
-	RGB 28, 25, 06
-	RGB 02, 03, 30
-
-	RGB 11, 20, 27
-	RGB 08, 16, 13
-	RGB 26, 21, 00
-	RGB 02, 03, 30
-
-	RGB 11, 20, 27
+	RGB 07, 06, 03
+	; cloud middle + Dragonite
+	RGB 18, 23, 31
+	RGB 23, 26, 31
+	RGB 31, 31, 31
+	RGB 07, 06, 03
+	; cloud bottom + copyright
+	RGB 31, 31, 31
+	RGB 23, 26, 31
 	RGB 11, 11, 19
 	RGB 00, 00, 00
+	; unused 5
+	RGB 11, 20, 27
+	RGB 23, 26, 31
+	RGB 31, 31, 31
+	RGB 00, 00, 00
+	; unused 6
+	RGB 11, 20, 27
+	RGB 23, 26, 31
+	RGB 31, 31, 31
+	RGB 00, 00, 00
+	; unused 7
+	RGB 11, 20, 27
+	RGB 23, 26, 31
+	RGB 31, 31, 31
 	RGB 00, 00, 00
 
 ; OBJ
