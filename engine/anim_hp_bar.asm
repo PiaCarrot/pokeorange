@@ -331,7 +331,7 @@ HPBarAnim_BGMapUpdate: ; d7c9
 	ld a, 5
 	ld [hBGMapMode], a
 	ei
-	call DelayFrame
+	call Delay2
 	xor a
 	ld [hBGMapHalf], a
 	inc a
@@ -373,7 +373,7 @@ HPBarAnim_BGMapUpdate: ; d7c9
 	ei
 	pop af
 	ld [rSVBK], a
-	jp DelayFrame
+	jp Delay2
 ; d839
 
 ShortHPBar_CalcPixelFrame: ; d839
