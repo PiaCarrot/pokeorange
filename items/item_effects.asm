@@ -1,11 +1,11 @@
 _DoItemEffect:: ; e722
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld [wd265], a
 	call GetItemName
 	call CopyName1
 	ld a, 1
 	ld [wItemEffectSucceeded], a
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	dec a
 	ld hl, ItemEffects
 	rst JumpTable
@@ -206,21 +206,21 @@ DuskBall: ; e8a2
 .room_in_party
 	xor a
 	ld [wWildMon], a
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	cp PARK_BALL
 	call nz, ReturnToBattle_UseBall
 
-	ld hl, Options
+	ld hl, wOptions
 	res NO_TEXT_SCROLL, [hl]
 	ld hl, UsedItemText
 	call PrintText
 
 	ld a, [EnemyMonCatchRate]
 	ld b, a
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	cp MASTER_BALL
 	jp z, .catch_without_fail
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld c, a
 	ld hl, BallMultiplierFunctionTable
 
@@ -243,7 +243,7 @@ DuskBall: ; e8a2
 	jp hl
 
 .skip_or_return_from_ball_fn
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	cp LEVEL_BALL
 	ld a, b
 	jp z, .skip_hp_calc
@@ -361,7 +361,7 @@ DuskBall: ; e8a2
 	ld c, 20
 	call DelayFrames
 
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	cp POKE_BALL + 1 ; Assumes Master/Ultra/Great come before
 	jr c, .not_kurt_ball
 	ld a, POKE_BALL
@@ -530,7 +530,7 @@ DuskBall: ; e8a2
 
 	farcall SetCaughtData
 
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	cp FRIEND_BALL
 	jr nz, .SkipPartyMonFriendBall
 
@@ -544,7 +544,7 @@ DuskBall: ; e8a2
 	ld [hl], a
 .SkipPartyMonFriendBall:
 
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	cp HEAL_BALL
 	jr nz, .SkipPartyMonHealBall
 
@@ -605,7 +605,7 @@ DuskBall: ; e8a2
 	ld hl, wBattleResult
 	set 7, [hl]
 .BoxNotFullYet:
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	cp FRIEND_BALL
 	jr nz, .SkipBoxMonFriendBall
 	; Bug: overwrites the happiness of the first mon in the box!
@@ -1303,7 +1303,7 @@ StatStrings: ; eeab
 
 
 GetStatExpRelativePointer: ; eed9
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld hl, Table_eeeb
 .next
 	cp [hl]
@@ -1554,7 +1554,7 @@ HealStatus: ; f030 (3:7030)
 
 GetItemHealingAction: ; f058 (3:7058)
 	push hl
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld hl, .healingactions
 	ld bc, 3
 .next
@@ -1661,7 +1661,7 @@ RevivePokemon: ; f0d6
 .skip_to_revive
 	xor a
 	ld [Danger], a
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	cp REVIVE
 	jr z, .revive_half_hp
 
@@ -2069,7 +2069,7 @@ GetOneFifthMaxHP: ; f378 (3:7378)
 
 GetHealingItemAmount: ; f395 (3:7395)
 	push hl
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld hl, .Healing
 	ld d, a
 .next
@@ -2218,7 +2218,7 @@ UseRepel: ; f46c
 	ld a, b
 	ld [wRepelEffect], a
 
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld [wRepelType], a
 
 	jp UseItemText
@@ -2284,7 +2284,7 @@ XSpclAtk:
 XSpclDef:; f4c5
 	call UseItemText
 
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld hl, .x_item_table
 
 .loop
@@ -2481,7 +2481,7 @@ Ether:
 MaxEther:
 Elixer:
 Mysteryberry: ; f5bf
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld [wd002], a
 
 .loop

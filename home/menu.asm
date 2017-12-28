@@ -290,7 +290,7 @@ RunMenuItemPrintingFunction:: ; 1eda
 	ld a, [de]
 	cp -1
 	ret z
-	ld [MenuSelection], a
+	ld [wMenuSelection], a
 	push de
 	push hl
 	ld d, h
@@ -380,7 +380,7 @@ ContinueGettingMenuJoypad:
 	ld h, $0
 	add hl, de
 	ld a, [hl]
-	ld [MenuSelection], a
+	ld [wMenuSelection], a
 	ld a, [wMenuCursorY]
 	ld [wMenuCursorBuffer], a
 	and a
@@ -390,7 +390,7 @@ ContinueGettingMenuJoypad:
 	ld a, B_BUTTON
 	ld [wMenuJoypad], a
 	ld a, -1
-	ld [MenuSelection], a
+	ld [wMenuSelection], a
 	scf
 	ret
 ; 1f79
@@ -401,7 +401,7 @@ PlaceMenuStrings:: ; 1f79
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	call GetNthString
 	ld d, h
 	ld e, l
@@ -411,7 +411,7 @@ PlaceMenuStrings:: ; 1f79
 
 PlaceNthMenuStrings:: ; 1f8d
 	push de
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	call GetMenuDataPointerTableEntry
 	inc hl
 	inc hl
@@ -423,7 +423,7 @@ PlaceNthMenuStrings:: ; 1f8d
 ; 1f9e
 
 MenuJumptable:: ; 1fa7
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	call GetMenuDataPointerTableEntry
 	ld a, [hli]
 	ld h, [hl]

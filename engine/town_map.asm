@@ -136,7 +136,7 @@ TownMap_UpdateCursorPosition: ; 910d4
 ; 910e8
 
 _TownMap: ; 9191c
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
@@ -194,7 +194,7 @@ _TownMap: ; 9191c
 	pop af
 	ld [hInMenu], a
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	jp ClearBGPalettes
 
 .loop

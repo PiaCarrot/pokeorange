@@ -2,7 +2,8 @@
 
 
 PlayBattleAnim: ; cc0d6
-
+	ld hl, rIE
+	set LCD_STAT, [hl]
 	ld a, [rSVBK]
 	push af
 
@@ -13,20 +14,19 @@ PlayBattleAnim: ; cc0d6
 
 	pop af
 	ld [rSVBK], a
+	ld hl, rIE
+	res LCD_STAT, [hl]
 	ret
 ; cc0e4
 
 _PlayBattleAnim: ; cc0e4
 
 	ld c, 6
-.wait
-	call BattleAnimDelayFrame
-	dec c
-	jr nz, .wait
+	call DelayFrames
 
 	call BattleAnimAssignPals
 	call BattleAnimRequestPals
-	call BattleAnimDelayFrame
+	call DelayFrame
 
 	ld c, 1
 	ld a, [rKEY1]
@@ -48,9 +48,8 @@ _PlayBattleAnim: ; cc0e4
 	ld a, $1
 	ld [hBGMapMode], a
 
-	call BattleAnimDelayFrame
-	call BattleAnimDelayFrame
-	call BattleAnimDelayFrame
+	ld c, 3
+	call DelayFrames
 	jp WaitSFX
 ; cc11c
 
@@ -72,7 +71,7 @@ BattleAnimRunScript: ; cc11c
 	xor a
 	ld [hSCX], a
 	ld [hSCY], a
-	call BattleAnimDelayFrame
+	call DelayFrame
 	call BattleAnimRestoreHuds
 
 .disabled
@@ -130,7 +129,7 @@ RunBattleAnimScript: ; cc163
 	jr nz, .find
 
 .not_rollout
-	call BattleAnimDelayFrame
+	call DelayFrame
 
 .done
 	ld a, [BattleAnimFlags]
@@ -142,20 +141,18 @@ RunBattleAnimScript: ; cc163
 
 BattleAnimClearHud: ; cc1a1
 
-	call BattleAnimDelayFrame
+	call DelayFrame
 	call WaitTop
 	call ClearActorHud
 	ld a, $1
 	ld [hBGMapMode], a
-	call BattleAnimDelayFrame
-	call BattleAnimDelayFrame
-	call BattleAnimDelayFrame
+	call Delay3
 	jp WaitTop
 ; cc1bb
 
 BattleAnimRestoreHuds: ; cc1bb
 
-	call BattleAnimDelayFrame
+	call DelayFrame
 	call WaitTop
 
 	ld a, [rSVBK]
@@ -163,18 +160,14 @@ BattleAnimRestoreHuds: ; cc1bb
 	ld a, $1
 	ld [rSVBK], a
 
-	ld hl, UpdateBattleHuds
-	ld a, BANK(UpdatePlayerHUD)
-	rst FarCall ; Why the heck is this a callab?
+	call UpdateBattleHuds
 
 	pop af
 	ld [rSVBK], a
 
 	ld a, $1
 	ld [hBGMapMode], a
-	call BattleAnimDelayFrame
-	call BattleAnimDelayFrame
-	call BattleAnimDelayFrame
+	call Delay3
 	jp WaitTop
 ; cc1e2
 
@@ -189,21 +182,9 @@ BattleAnimRequestPals: ; cc1e2
 	ld b, a
 	ld a, [wOBP0]
 	cp b
-	call nz, BattleAnim_SetOBPals
+	jp nz, BattleAnim_SetOBPals
 	ret
 ; cc1fb
-
-BattleAnimDelayFrame: ; cc1fb
-; Like DelayFrame but wastes battery life.
-
-	ld a, 1
-	ld [VBlankOccurred], a
-.wait
-	ld a, [VBlankOccurred]
-	and a
-	jr nz, .wait
-	ret
-; cc207
 
 ClearActorHud: ; cc207
 
@@ -1193,9 +1174,10 @@ BattleAnimCmd_Cry: ; cc807 (33:4807)
 	ld e, a
 	ld d, 0
 	ld hl, .CryData
-rept 4
 	add hl, de
-endr
+	add hl, de
+	add hl, de
+	add hl, de
 
 	ld a, [rSVBK]
 	push af
@@ -1309,15 +1291,10 @@ BattleAnimAssignPals: ; cc8a4
 
 ClearBattleAnims: ; cc8d3
 ; Clear animation block
-	ld hl, LYOverrides
-	ld bc, wBattleAnimEnd - LYOverrides
-.loop
-	ld [hl], $0
-	inc hl
-	dec bc
-	ld a, c
-	or b
-	jr nz, .loop
+	ld hl, wLYOverrides
+	ld bc, wBattleAnimEnd - wLYOverrides
+	xor a
+	call ByteFill
 
 	ld hl, FXAnimIDLo
 	ld e, [hl]
@@ -1328,7 +1305,7 @@ ClearBattleAnims: ; cc8d3
 	add hl, de
 	call GetBattleAnimPointer
 	call BattleAnimAssignPals
-	jp BattleAnimDelayFrame
+	jp DelayFrame
 ; cc8f6
 
 BattleAnim_RevertPals: ; cc8f6
@@ -1343,7 +1320,7 @@ BattleAnim_RevertPals: ; cc8f6
 	xor a
 	ld [hSCX], a
 	ld [hSCY], a
-	call BattleAnimDelayFrame
+	call DelayFrame
 	ld a, $1
 	ld [hBGMapMode], a
 	ret

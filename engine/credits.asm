@@ -173,14 +173,15 @@ Credits:: ; 109847
 	xor a
 	ld [wCreditsLYOverride], a
 
-	ld hl, LYOverrides
+	ld hl, wLYOverrides
 	ld bc, $100
 	xor a
 	call ByteFill
 
-	ld a, rSCX - $ff00
+	ld a, rSCX & $ff
 	ld [hLCDCPointer], a
-
+	ld hl, rSTAT
+	set LCD_STAT, [hl]
 	call GetCreditsPalette
 	call SetPalettes
 	ld a, [hVBlank]
@@ -209,6 +210,8 @@ Credits:: ; 109847
 	xor a
 	ld [hLCDCPointer], a
 	ld [hBGMapAddress], a
+	ld hl, rSTAT
+	res LCD_STAT, [hl]
 	pop af
 	ld [hVBlank], a
 	pop af
@@ -300,20 +303,20 @@ Credits_PrepBGMapUpdate: ; 10995e (42:595e)
 Credits_UpdateGFXRequestPath: ; 109964 (42:5964)
 	call Credits_LoadBorderGFX
 	ld a, l
-	ld [Requested2bppSource], a
+	ld [hRequestedVTileSource], a
 	ld a, h
-	ld [Requested2bppSource + 1], a
+	ld [hRequestedVTileSource + 1], a
 	ld a, VTiles2 % $100
-	ld [Requested2bppDest], a
+	ld [hRequestedVTileDest], a
 	ld a, VTiles2 / $100
-	ld [Requested2bppDest + 1], a
+	ld [hRequestedVTileDest + 1], a
 	jr Credits_RequestGFX
 
 Credits_RequestGFX: ; 10997b (42:597b)
 	xor a
 	ld [hBGMapMode], a
 	ld a, $8
-	ld [Requested2bpp], a
+	ld [hRequested2bpp], a
 	jp Credits_Next
 
 Credits_LYOverride: ; 109986 (42:5986)
@@ -324,9 +327,9 @@ Credits_LYOverride: ; 109986 (42:5986)
 	dec a
 	dec a
 	ld [wCreditsLYOverride], a
-	ld hl, LYOverrides + $1f
+	ld hl, wLYOverrides + $1f
 	call .Fill
-	ld hl, LYOverrides + $87
+	ld hl, wLYOverrides + $87
 	call .Fill
 	jp Credits_Next
 

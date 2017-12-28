@@ -5,6 +5,7 @@ NULL::
 
 INCLUDE "rst.asm"
 INCLUDE "interrupts.asm"
+INCLUDE "home/highhome.asm"
 
 SECTION "Header", ROM0
 
@@ -246,88 +247,67 @@ SkipNames:: ; 0x30f4
 
 INCLUDE "home/math.asm"
 
-PrintLetterDelay:: ; 313d
+PrintLetterDelay::
 ; Wait before printing the next letter.
 
-; The text speed setting in Options is actually a frame count:
+; The text speed setting in wOptions is actually a frame count:
 ; 	fast: 1 frame
 ; 	mid:  3 frames
 ; 	slow: 5 frames
 
 ; TextBoxFlags[!0] and A or B override text speed with a one-frame delay.
-; Options[4] and TextBoxFlags[!1] disable the delay.
-
-	ld a, [Options]
+; wOptions[4] and TextBoxFlags[!1] disable the delay.
+; non-scrolling text?
+	ld a, [wOptions]
 	bit NO_TEXT_SCROLL, a
 	ret nz
+	and %11
+	ret z
 
-; non-scrolling text?
 	ld a, [TextBoxFlags]
 	bit 1, a
 	ret z
 
+	ld a, 2
+	ld [hBGMapThird], a
 	push hl
 	push de
 	push bc
-
-	ld hl, hOAMUpdate
-	ld a, [hl]
-	push af
-
-; orginally turned oam update off...
-;	ld a, 1
-	ld [hl], a
-
 ; force fast scroll?
 	ld a, [TextBoxFlags]
 	bit 0, a
-	jr z, .fast
-
-; text speed
-	ld a, [Options]
-	and %111
-	jr .updatedelay
-
-.fast
 	ld a, 1
-
-.updatedelay
-	ld [TextDelayFrames], a
-
-.checkjoypad
-	call GetJoypad
-
-; input override
-	ld a, [wDisableTextAcceleration]
+	jr z, .updateDelay
+; text speed
+	ld a, [wOptions]
+	and %11
+	dec a
+	ld b, 1
+	jr z, .updateDelay_B
+	dec a
+	ld b, 3
+	jr z, .updateDelay_B
+	ld b, 5
+.updateDelay_B
+	ld a, b
+.updateDelay
+	ld [wTextDelayFrames], a
+.textDelayLoop
+	ld a, [wTextDelayFrames]
 	and a
-	jr nz, .wait
-
-; Wait one frame if holding A or B.
-	ld a, [hJoyDown]
-	bit 0, a ; A_BUTTON
-	jr z, .checkb
-	jr .delay
-.checkb
-	bit 1, a ; B_BUTTON
-	jr z, .wait
-
-.delay
+	jr z, .done
 	call DelayFrame
-	jr .end
-
-.wait
-	ld a, [TextDelayFrames]
-	and a
-	jr nz, .checkjoypad
-
-.end
-	pop af
-	ld [hOAMUpdate], a
+	call GetJoypad
+; Finish execution if A or B is pressed
+	ld a, [hJoyDown]
+	and A_BUTTON | B_BUTTON
+	jr z, .textDelayLoop
+.done
 	pop bc
 	pop de
 	pop hl
 	ret
-; 318c
+
 
 CopyDataUntil:: ; 318c
 ; Copy [hl .. bc) to de.
@@ -437,45 +417,17 @@ CompareLong:: ; 31e4
 	ret
 ; 31f3
 
-ClearBGPalettes:: ; 31f3
-	call ClearPalettes
-WaitBGMap:: ; 31f6
-; Tell VBlank to update BG Map
-	ld a, 1 ; BG Map 0 tiles
-	ld [hBGMapMode], a
-; Wait for it to do its magic
-	ld c, 4
-	jp DelayFrames
-; 3200
-
 WaitBGMap2:: ; 0x3200
 	ld a, 2
 	ld [hBGMapMode], a
-	ld c, 4
+	ld c, 3
 	call DelayFrames
 
 	ld a, 1
 	ld [hBGMapMode], a
-	ld c, 4
+	ld c, 3
 	jp DelayFrames
 ; 0x3218
-
-ApplyTilemap:: ; 321c
-	ld a, [wSpriteUpdatesEnabled]
-	cp 0
-	jr z, .no
-
-	ld a, 1
-	ld [hBGMapMode], a
-	jr LoadEDTile
-
-.no
-; WaitBGMap
-	ld a, 1
-	ld [hBGMapMode], a
-	ld c, 4
-	jp DelayFrames
-; 3238
 
 CGBOnly_LoadEDTile:: ; 3238
 LoadEDTile:: ; 323d
@@ -1702,17 +1654,17 @@ PushLYOverrides:: ; 3b0c
 	ret z
 
 	ld a, LYOverridesBackup % $100
-	ld [Requested2bppSource], a
+	ld [hRequestedVTileSource], a
 	ld a, LYOverridesBackup / $100
-	ld [Requested2bppSource + 1], a
+	ld [hRequestedVTileSource + 1], a
 
-	ld a, LYOverrides % $100
-	ld [Requested2bppDest], a
-	ld a, LYOverrides / $100
-	ld [Requested2bppDest + 1], a
+	ld a, wLYOverrides % $100
+	ld [hRequestedVTileDest], a
+	ld a, wLYOverrides / $100
+	ld [hRequestedVTileDest + 1], a
 
-	ld a, (LYOverridesEnd - LYOverrides) / 16
-	ld [Requested2bpp], a
+	ld a, (wLYOverridesEnd - wLYOverrides) / 16
+	ld [hRequested2bpp], a
 	ret
 ; 3b2a
 

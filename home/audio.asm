@@ -193,6 +193,8 @@ endr
 	ret
 ; 3c23
 
+WaitPlaySFX::
+	call WaitSFX
 
 PlaySFX:: ; 3c23
 ; Play sound effect de.
@@ -235,19 +237,14 @@ PlaySFX:: ; 3c23
 	ret
 ; 3c4e
 
-
-WaitPlaySFX:: ; 3c4e
-	call WaitSFX
-	jp PlaySFX
-; 3c55
-
-
 WaitSFX:: ; 3c55
 ; infinite loop until sfx is done playing
 
 	push hl
-
+	jr .handleLoop
 .wait
+	call DelayFrame
+.handleLoop
 	ld hl, Channel5Flags
 	bit 0, [hl]
 	jr nz, .wait

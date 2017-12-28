@@ -1,4 +1,4 @@
-MenuMonIconColors::
+
 INCLUDE "data/mon_icon_pals.asm"
 
 LoadOverworldMonIcon: ; 8e82b
@@ -288,14 +288,6 @@ SetPartyMonIconAnimSpeed: ; 8e936 (23:6936)
 	db $00, $40, $80
 ; 8e961
 
-FlyFunction_GetSpecies:
-	push de
-	ld a, [wd265]
-	ld [CurIcon], a
-	pop de
-	ld a, e
-	ret
-
 FlyFunction_GetMonIcon: ; 8e9bc (23:69bc)
 	call FlyFunction_GetSpecies
 	; fallthrough
@@ -320,8 +312,8 @@ endr
 	ld de, IconPointers
 	add hl, de
 	ld a, [hli]
-	ld e, a
 	ld d, [hl]
+	ld e, a
 	pop hl
 
 	call GetMonIconBank
@@ -329,6 +321,14 @@ endr
 	pop hl
 	ret
 ; 8ea3f
+
+FlyFunction_GetSpecies:
+	push de
+	ld a, [wd265]
+	ld [CurIcon], a
+	pop de
+	ld a, e
+	ret
 
 ; Extended icon bank routine by com3tiin
 ; http://www.pokecommunity.com/showthread.php?t=338470

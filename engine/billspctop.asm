@@ -24,14 +24,14 @@ _BillsPC: ; e3fd
 	ld [hBGMapMode], a
 	call LoadStandardMenuDataHeader
 	call ClearPCItemScreen
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
 	ld hl, .Text_What
 	call PrintText
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	jp LoadFontsBattleExtra
 
 .Text_What: ; 0xe43a
@@ -56,7 +56,7 @@ _BillsPC: ; e3fd
 	jr c, .cancel
 	ld a, [wMenuCursorBuffer]
 	push af
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	ld hl, .Jumptable
 	rst JumpTable
 	pop bc

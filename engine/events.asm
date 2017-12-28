@@ -128,7 +128,7 @@ MapEvents: ; 96795
 ; 967ae
 
 ResetOverworldDelay: ; 967b0
-	ld hl, OverworldDelay
+	ld hl, wOverworldDelay
 	bit 7, [hl]
 	res 7, [hl]
 	ret nz
@@ -137,12 +137,12 @@ ResetOverworldDelay: ; 967b0
 ; 967b7
 
 NextOverworldFrame: ; 967b7
-	ld a, [OverworldDelay]
+	ld a, [wOverworldDelay]
 	and a
 	jp nz, DelayFrame
 ; reset overworld delay to leak into the next frame
 	ld a, $82
-	ld [OverworldDelay], a
+	ld [wOverworldDelay], a
 	ret
 ; 967c1
 
@@ -874,7 +874,7 @@ DoRepelStep: ; 96bd7
 	ret nz
 
 	ld a, [wRepelType]
-	ld [CurItem], a
+	ld [wCurItem], a
 	ld hl, NumItems
 	call CheckItem
 

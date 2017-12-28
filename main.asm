@@ -632,12 +632,12 @@ StringBufferPointers:: ; 24000
 INCLUDE "engine/menu.asm"
 
 UpdateItemDescription: ; 0x244c3
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	ld [CurSpecies], a
 	hlcoord 0, 12
 	lb bc, 4, SCREEN_WIDTH - 2
 	call TextBox
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	cp -1
 	ret z
 	decoord 1, 14
@@ -722,7 +722,7 @@ INCLUDE "engine/switch_items.asm"
 
 PlaceMenuItemName: ; 0x24ab4
 	push de
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	ld [wNamedObjectIndexBuffer], a
 	call GetItemName
 	pop hl
@@ -730,8 +730,8 @@ PlaceMenuItemName: ; 0x24ab4
 
 PlaceMenuItemQuantity: ; 0x24ac3
 	push de
-	ld a, [MenuSelection]
-	ld [CurItem], a
+	ld a, [wMenuSelection]
+	ld [wCurItem], a
 	farcall _CheckTossableItem
 	ld a, [wItemAttributeParamBuffer]
 	pop hl
@@ -834,7 +834,7 @@ StartMenu_DrawBugContestStatusBox: ; 24bdc
 	jp TextBox
 
 StartMenu_PrintBugContestStatus: ; 24be7
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
@@ -874,7 +874,7 @@ StartMenu_PrintBugContestStatus: ; 24be7
 
 .skip_level
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	ret
 
 .CAUGHT: ; 24c4b
@@ -2778,7 +2778,7 @@ INCLUDE "battle/sliding_intro.asm"
 
 CheckBattleScene: ; 4ea44
 ; Return carry if battle scene is turned off.
-	ld a, [Options]
+	ld a, [wOptions]
 	bit BATTLE_SCENE, a
 	jr nz, .off
 	and a
@@ -4095,7 +4095,7 @@ DisplayCaughtContestMonStats: ; cc000
 	call ClearSprites
 	call LoadFontsBattleExtra
 
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set 4, [hl]
@@ -4160,7 +4160,7 @@ DisplayCaughtContestMonStats: ; cc000
 	call PrintText
 
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 
 	call WaitBGMap
 	ld b, SCGB_DIPLOMA

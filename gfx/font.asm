@@ -60,14 +60,14 @@ _LoadStandardFont:: ; fb449
 	ld de, Font
 	ld hl, VTiles1
 	lb bc, BANK(Font), $70
-	jp Get1bpp_2
+	jp Get1bpp
 ; fb48a
 
 _LoadFontsBattleExtra:: ; fb4be
 	ld de, FontBattleExtra
 	ld hl, VTiles2 tile $60
 	lb bc, BANK(FontBattleExtra), $19
-	call Get2bpp_2
+	call Get2bpp
 LoadFrame:: ; fb4cc
 	ld a, [TextBoxFrame]
 	ld bc, TILES_PER_FRAME * LEN_1BPP_TILE
@@ -77,37 +77,37 @@ LoadFrame:: ; fb4cc
 	ld e, l
 	ld hl, VTiles1 tile $7a
 	lb bc, BANK(Frames), TILES_PER_FRAME
-	call Get1bpp_2
+	call Get1bpp
 	ld hl, VTiles2 tile $7f
 	ld de, TextBoxSpaceGFX
 	lb bc, BANK(TextBoxSpaceGFX), 1
-	jp Get1bpp_2
+	jp Get1bpp
 ; fb4f2
 
 LoadBattleFontsHPBar: ; fb4f2
 	ld de, FontBattleExtra
 	ld hl, VTiles2 tile $60
 	lb bc, BANK(FontBattleExtra), $c
-	call Get2bpp_2
+	call Get2bpp
 	ld hl, VTiles2 tile $70
 	ld de, FontBattleExtra + $10 * LEN_2BPP_TILE
 	lb bc, BANK(FontBattleExtra), 3
-	call Get2bpp_2
+	call Get2bpp
 	call LoadFrame
 
 LoadHPBar: ; fb50d
 	ld de, EnemyHPBarBorderGFX
 	ld hl, VTiles2 tile $6c
 	lb bc, BANK(EnemyHPBarBorderGFX), 4
-	call Get1bpp_2
+	call Get1bpp
 	ld de, HPExpBarBorderGFX
 	ld hl, VTiles2 tile $73
 	lb bc, BANK(HPExpBarBorderGFX), 6
-	call Get1bpp_2
+	call Get1bpp
 	ld de, ExpBarGFX
 	ld hl, VTiles2 tile $55
 	lb bc, BANK(ExpBarGFX), 9
-	jp Get2bpp_2
+	jp Get2bpp
 ; fb53e
 
 StatsScreen_LoadFont: ; fb53e
@@ -115,22 +115,22 @@ StatsScreen_LoadFont: ; fb53e
 	ld de, EnemyHPBarBorderGFX
 	ld hl, VTiles2 tile $6c
 	lb bc, BANK(EnemyHPBarBorderGFX), 4
-	call Get1bpp_2
+	call Get1bpp
 	ld de, HPExpBarBorderGFX
 	ld hl, VTiles2 tile $78
 	lb bc, BANK(HPExpBarBorderGFX), 1
-	call Get1bpp_2
+	call Get1bpp
 	ld de, HPExpBarBorderGFX + 3 * LEN_1BPP_TILE
 	ld hl, VTiles2 tile $76
 	lb bc, BANK(HPExpBarBorderGFX), 2
-	call Get1bpp_2
+	call Get1bpp
 	ld de, ExpBarGFX
 	ld hl, VTiles2 tile $55
 	lb bc, BANK(ExpBarGFX), 8
-	call Get2bpp_2
+	call Get2bpp
 LoadStatsScreenPageTilesGFX: ; fb571
 	ld de, StatsScreenPageTilesGFX
 	ld hl, VTiles2 tile $31
 	lb bc, BANK(StatsScreenPageTilesGFX), $11
-	jp Get2bpp_2
+	jp Get2bpp
 ; fb57e

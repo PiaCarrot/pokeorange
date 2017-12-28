@@ -1171,25 +1171,11 @@ wTitleScreenTimerHi::
 wCardFlipWhichCard::
 wcf66:: ds 1
 
-Requested2bpp:: ; cf67
-Requested2bppSize::
-	ds 1
-Requested2bppSource:: ; cf68
-	ds 2
-Requested2bppDest:: ; cf6a
-	ds 2
-
-Requested1bpp:: ; cf6c
-Requested1bppSize::
-	ds 1
-Requested1bppSource:: ; cf6d
-	ds 2
-Requested1bppDest:: ; cf6f
-	ds 2
+	ds 10
 
 wWindowStackPointer:: dw ; cf71
 wMenuJoypad:: ds 1   ; cf73
-MenuSelection:: ds 1 ; cf74
+wMenuSelection:: ds 1 ; cf74
 MenuSelectionQuantity:: ds 1 ; cf75
 wWhichIndexSet:: ds 1 ; cf76
 wScrollingMenuCursorPosition:: ds 1 ; cf77
@@ -1267,11 +1253,11 @@ wCursorOffCharacter:: ds 1 ; cfab
 wCursorCurrentTile:: ds 2 ; cfac
 	ds 3
 
-OverworldDelay:: ; cfb1
+wOverworldDelay:: ; cfb1
 	ds 1
-TextDelayFrames:: ; cfb2
+wTextDelayFrames:: ; cfb2
 	ds 1
-VBlankOccurred:: ; cfb3
+wVBlankOccurred:: ; cfb3
 	ds 1
 
 PredefID:: ; cfb4
@@ -1320,7 +1306,7 @@ wOBP1:: ds 1
 
 wNumHits:: ds 2
 
-Options:: ; cfcc
+wOptions:: ; cfcc
 ; bit 0-2: number of frames to delay when printing text
 ;   fast 1; mid 3; slow 5
 ; bit 3: ?
@@ -1340,7 +1326,7 @@ TextBoxFlags::
 
 	ds 4
 
-OptionsEnd::
+wOptionsEnd::
 
 ; Time buffer, for counting the amount of time since
 ; an event began.
@@ -1607,7 +1593,7 @@ wListPointer:: dw ; d100
 wd102:: dw ; d102
 wItemAttributesPtr:: dw ; d104
 
-CurItem:: ds 1 ; d106
+wCurItem:: ds 1 ; d106
 CurItemQuantity:: ; d107
 wMartItemID::
 wd107:: ds 1
@@ -2579,9 +2565,9 @@ UnknOBPals:: ds 8 palettes ; d040
 BGPals::     ds 8 palettes ; d080
 OBPals::     ds 8 palettes ; d0c0
 
-LYOverrides:: ; d100
+wLYOverrides:: ; d100
 	ds SCREEN_HEIGHT_PX
-LYOverridesEnd:: ; d190
+wLYOverridesEnd:: ; d190
 
 	ds 1
 wMagnetTrainDirection:: ds 1

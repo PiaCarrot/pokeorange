@@ -59,7 +59,7 @@ CheckRegisteredItem: ; 13345
 	call IsInArray
 	jr nc, .NoRegisteredItem
 	ld a, [RegisteredItem]
-	ld [CurItem], a
+	ld [wCurItem], a
 	and a
 	ret
 
@@ -108,7 +108,7 @@ CheckRegisteredItem: ; 13345
 	ld a, [RegisteredItem]
 	cp [hl]
 	jr nz, .NotSameItem
-	ld [CurItem], a
+	ld [wCurItem], a
 	and a
 	ret
 

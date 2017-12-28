@@ -1,5 +1,5 @@
 _DepositPKMN: ; e2391 (38:6391)
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set 4, [hl]
@@ -32,7 +32,7 @@ _DepositPKMN: ; e2391 (38:6391)
 	pop af
 	ld [VramState], a
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	ret
 
 .RunJumptable: ; e23d5 (38:63d5)
@@ -244,7 +244,7 @@ BillsPCDepositMenuDataHeader: ; 0xe253d (38:653d)
 ; 0xe2564 (38:6564)
 
 _WithdrawPKMN: ; e2583 (38:6583)
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set 4, [hl]
@@ -277,7 +277,7 @@ _WithdrawPKMN: ; e2583 (38:6583)
 	pop af
 	ld [VramState], a
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	ret
 
 .RunJumptable: ; e25c8 (38:65c8)
@@ -481,7 +481,7 @@ BillsPC_Withdraw: ; e2675 (38:6675)
 ; 0xe2759
 
 _MovePKMNWithoutMail: ; e2759
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	set 4, [hl]
@@ -517,7 +517,7 @@ _MovePKMNWithoutMail: ; e2759
 	pop af
 	ld [VramState], a
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	ret
 ; e27a2
 
@@ -2306,7 +2306,7 @@ endr
 
 .boxnames ; e3619
 	push de
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	call GetBoxName
 	pop hl
@@ -2326,7 +2326,7 @@ BillsPC_PrintBoxCountAndCapacity: ; e3632
 	hlcoord 11, 7
 	lb bc, 5, 7
 	call TextBox
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	cp -1
 	ret z
 	hlcoord 12, 9
@@ -2357,7 +2357,7 @@ BillsPC_PrintBoxCountAndCapacity: ; e3632
 GetBoxCount: ; e366c (38:766c)
 	ld a, [wCurBox]
 	ld c, a
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	cp c
 	jr z, .activebox
@@ -2445,7 +2445,7 @@ BillsPC_ChangeBoxSubmenu: ; e36f9 (38:76f9)
 	ret
 
 .Switch:
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	ld e, a
 	ld a, [wCurBox]
@@ -2461,7 +2461,7 @@ BillsPC_ChangeBoxSubmenu: ; e36f9 (38:76f9)
 	call ClearTileMap
 	call LoadStandardFont
 	call LoadFontsBattleExtra
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	call GetBoxName
 	ld e, l
@@ -2469,7 +2469,7 @@ BillsPC_ChangeBoxSubmenu: ; e36f9 (38:76f9)
 	ld hl, wd002
 	ld c, BOX_NAME_LENGTH - 1
 	call InitString
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	dec a
 	call GetBoxName
 	ld de, wd002

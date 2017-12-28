@@ -7,7 +7,7 @@ TMHMPocket: ; 2c76f (b:476f)
 	ret nc
 	call PlaceHollowCursor
 	call WaitBGMap
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	dec a
 	ld [CurItemQuantity], a
 	ld hl, TMsHMs
@@ -21,15 +21,15 @@ TMHMPocket: ; 2c76f (b:476f)
 	ret
 
 .ConvertItemToTMHMNumber: ; 2c798 (b:4798)
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld c, a
 	farcall GetNumberedTMHM
 	ld a, c
-	ld [CurItem], a
+	ld [wCurItem], a
 	ret
 
 ConvertCurItemIntoCurTMHM: ; 2c7a7 (b:47a7)
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld c, a
 	farcall GetTMHMNumber
 	ld a, c
@@ -42,11 +42,11 @@ GetTMHMItemMove: ; 2c7b6 (b:47b6)
 	ret
 
 AskTeachTMHM: ; 2c7bf (b:47bf)
-	ld hl, Options
+	ld hl, wOptions
 	ld a, [hl]
 	push af
 	res NO_TEXT_SCROLL, [hl]
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	cp TM01
 	jr c, .NotTMHM
 	call GetTMHMItemMove
@@ -55,7 +55,7 @@ AskTeachTMHM: ; 2c7bf (b:47bf)
 	call GetMoveName
 	call CopyName1
 	ld hl, Text_BootedTM ; Booted up a TM
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	cp HM01
 	jr c, .TM
 	ld hl, Text_BootedHM ; Booted up an HM
@@ -67,7 +67,7 @@ AskTeachTMHM: ; 2c7bf (b:47bf)
 .NotTMHM:
 	pop bc
 	ld a, b
-	ld [Options], a
+	ld [wOptions], a
 	ret
 
 ChooseMonToLearnTMHM: ; 2c7fb
@@ -146,7 +146,7 @@ TeachTMHM: ; 2c867
 	and a
 	jr z, .nope
 
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	call IsHM
 	ret c
 
@@ -246,7 +246,7 @@ TMHM_ShowTMMoveDescription: ; 2c946 (b:4946)
 	hlcoord 0, 12
 	lb bc, 4, SCREEN_WIDTH - 2
 	call TextBox
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	cp NUM_TMS + NUM_HMS + 1
 	jr nc, TMHM_JoypadLoop
 	ld [wd265], a
@@ -285,7 +285,7 @@ TMHM_CheckHoveringOverCancel: ; 2c98a (b:498a)
 	jr nz, .loop
 	ld a, c
 .okay
-	ld [CurItem], a
+	ld [wCurItem], a
 	cp -1
 	ret
 

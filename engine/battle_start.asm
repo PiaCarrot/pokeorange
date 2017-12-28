@@ -213,6 +213,8 @@ StartTrainerBattle_Finish: ; 8c393 (23:4393)
 	call ClearSprites
 	ld a, $80
 	ld [wJumptableIndex], a
+	ld hl, rSTAT
+	res LCD_STAT, [hl]
 	ret
 
 StartTrainerBattle_NextScene: ; 8c39c (23:439c)
@@ -277,7 +279,7 @@ StartTrainerBattle_Flash: ; 8c3ab (23:43ab)
 
 StartTrainerBattle_SetUpForWavyOutro: ; 8c3e8 (23:43e8)
 	farcall Function5602
-	ld a, $5 ; BANK(LYOverrides)
+	ld a, $5 ; BANK(wLYOverrides)
 	ld [rSVBK], a
 
 	call StartTrainerBattle_NextScene
@@ -291,6 +293,8 @@ StartTrainerBattle_SetUpForWavyOutro: ; 8c3e8 (23:43e8)
 	xor a
 	ld [wcf64], a
 	ld [wcf65], a
+	ld hl, rSTAT
+	set LCD_STAT, [hl]
 	ret
 
 StartTrainerBattle_SineWave: ; 8c408 (23:4408)
@@ -312,8 +316,8 @@ StartTrainerBattle_SineWave: ; 8c408 (23:4408)
 	ld d, [hl]
 	add [hl]
 	ld [hl], a
-	ld a, LYOverridesEnd - LYOverrides
-	ld bc, LYOverrides
+	ld a, wLYOverridesEnd - wLYOverrides
+	ld bc, wLYOverrides
 	ld e, $0
 
 .loop
@@ -334,7 +338,7 @@ StartTrainerBattle_SineWave: ; 8c408 (23:4408)
 
 StartTrainerBattle_SetUpForSpinOutro: ; 8c43d (23:443d)
 	farcall Function5602
-	ld a, $5 ; BANK(LYOverrides)
+	ld a, $5 ; BANK(wLYOverrides)
 	ld [rSVBK], a
 	call StartTrainerBattle_NextScene
 	xor a
@@ -477,7 +481,7 @@ endr
 
 StartTrainerBattle_SetUpForRandomScatterOutro: ; 8c578 (23:4578)
 	farcall Function5602
-	ld a, $5 ; BANK(LYOverrides)
+	ld a, $5 ; BANK(wLYOverrides)
 	ld [rSVBK], a
 	call StartTrainerBattle_NextScene
 	ld a, $10
@@ -718,7 +722,7 @@ WipeLYOverrides: ; 8c6d8
 	ld a, $5
 	ld [rSVBK], a
 
-	ld hl, LYOverrides
+	ld hl, wLYOverrides
 	call .wipe
 	ld hl, LYOverridesBackup
 	call .wipe

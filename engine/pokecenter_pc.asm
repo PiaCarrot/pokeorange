@@ -15,7 +15,7 @@ PokemonCenterPC: ; 1559a
 	ld [wWhichIndexSet], a
 	call DoNthMenu
 	jr c, .shutdown
-	ld a, [MenuSelection]
+	ld a, [wMenuSelection]
 	ld hl, .JumpTable
 	call MenuJumptable
 	jr nc, .loop
@@ -266,13 +266,13 @@ TURN_OFF      EQU 4
 	db -1
 
 PC_DisplayTextWaitMenu: ; 157bb
-	ld a, [Options]
+	ld a, [wOptions]
 	push af
 	set NO_TEXT_SCROLL, a
-	ld [Options], a
+	ld [wOptions], a
 	call MenuTextBox
 	pop af
-	ld [Options], a
+	ld [wOptions], a
 	ret
 ; 157cc
 

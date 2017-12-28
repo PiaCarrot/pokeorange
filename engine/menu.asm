@@ -232,7 +232,6 @@ _ScrollingMenuJoypad:: ; 241ab
 ; 241ba
 
 MenuJoypadLoop: ; 24216
-.loop
 	call Move2DMenuCursor
 	call .BGMap_OAM
 	call Do2DMenuRTCJoypad
@@ -246,7 +245,7 @@ MenuJoypadLoop: ; 24216
 	ld b, a
 	ld a, [wMenuJoypadFilter]
 	and b
-	jr z, .loop
+	jr z, MenuJoypadLoop
 
 .done
 	ret
@@ -266,7 +265,10 @@ MenuJoypadLoop: ; 24216
 ; 24249
 
 Do2DMenuRTCJoypad: ; 24249
+	jr .handleLoop
 .loopRTC
+	call DelayFrame
+.handleLoop
 	call RTC
 	call Menu_WasButtonPressed
 	ret c
@@ -442,10 +444,10 @@ Place2DMenuCursor: ; 24329
 	ld a, [wMenuCursorY]
 	ld b, a
 	xor a
-	dec b
-	jr z, .got_row
+	jr .handleLoop
 .row_loop
 	add c
+.handleLoop
 	dec b
 	jr nz, .row_loop
 
