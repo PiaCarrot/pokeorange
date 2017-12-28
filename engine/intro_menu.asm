@@ -850,11 +850,11 @@ Intro_PlacePlayerSprite: ; 61cd
 	inc de
 	ld [hli], a
 
-	ld b, 0
+	ld b, PAL_OW_PURPLE
 	ld a, [PlayerGender]
 	bit 0, a
 	jr z, .male
-	ld b, 1
+	ld b, PAL_OW_RED
 .male
 	ld a, b
 
