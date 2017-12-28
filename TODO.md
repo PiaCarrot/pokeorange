@@ -3,10 +3,8 @@
 ## Content
 
 - Unnamed Island 2 Fishing Contest (requires some asm magix)
-- Method to get other starters (with exclusive moves)
+- Method to get last other starter (with exclusive move)
 - Pokémon TCG2-esque credits
-- Running Shoes (if they're slower than the Skateboard)
-- Update to rgbds 0.3.3 with unions
 
 ## Features
 
@@ -17,11 +15,10 @@
 
 - Finish menu icon sprites
 - Special-case Lycanroc's party icon based on form
-- Add clouds to title screen
+- Add G/S animated clouds to title screen
 
 ## Moves
 
-- Fix move tutors, including one for Headbutt on Moro Island
 - Implement Bug Bite move effect
 
 ## Animations
@@ -49,5 +46,5 @@
 
 ## Things that might be added eventually
 
-- Optional Nuzlocke Patch
+- Optional Nuzlocke patch
 - Orange X, a hard-type patch, inspired by Zel's Shiny Gold X
