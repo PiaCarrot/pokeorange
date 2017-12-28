@@ -13,6 +13,7 @@
 
 ## Graphics
 
+- Improve skateboard sprites
 - Finish menu icon sprites
 - Special-case Lycanroc's party icon based on form
 - Add G/S animated clouds to title screen
