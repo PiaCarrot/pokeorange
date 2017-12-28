@@ -562,10 +562,10 @@ GetHPPal:: ; 3353
 
 	ld d, HP_GREEN
 	ld a, e
-	cp (50 * 48 / 100)
+	cp (50 * 48 / 100) * 2
 	ret nc
 	inc d ; yellow
-	cp (21 * 48 / 100)
+	cp (21 * 48 / 100) * 2
 	ret nc
 	inc d ; red
 	ret
@@ -1370,7 +1370,8 @@ DrawBattleHPBar:: ; 3750
 	push hl
 	push de
 	push bc
-
+	srl c
+	srl e
 ; Place 'HP:'
 	ld a, $60
 	ld [hli], a

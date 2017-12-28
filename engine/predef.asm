@@ -92,4 +92,5 @@ PredefPointers:: ; 856b
 	add_predef LoadMonAnimation
 	add_predef AnimateFrontpic
 	add_predef HOF_AnimateFrontpic
+	add_predef DivideLong
 ; 864c

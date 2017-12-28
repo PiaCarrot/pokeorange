@@ -140,7 +140,43 @@ HALF_HEIGHT EQU SCREEN_HEIGHT / 2
 	jr z, .DoBGMap1Tiles
 	dec a
 	jr z, .DoBGMap1Attributes
+; Update from a specific row
+; does not update hBGMapHalf
+	dec a
+	coord bc, 0, 0
+	jr z, .DoCustomSourceTiles
+	dec a
+	ret nz
+	coord bc, 0, 0, AttrMap
+	ld a, 1
+	ld [rVBK], a
+	call .DoCustomSourceTiles
+	xor a
+	ld [rVBK], a
 	ret
+
+.DoCustomSourceTiles
+	ld [hSPBuffer], sp
+	ld hl, 0
+	ld d, h
+	ld e, l
+	ld a, [hBGMapHalf] ; multiply by 20 to get the tilemap offset
+	and a
+	jr z, .first_half
+	ld l, 20
+	ld e, 32
+.first_half
+	add hl, bc
+	ld sp, hl
+	; ld a, [hBGMapHalf] (a is unchanged) ; multiply by 32 to get the bg map offset
+	ld a, [hBGMapAddress]
+	ld l, a
+	ld a, [hBGMapAddress + 1]
+	ld h, a
+	ld a, [hTilesPerCycle]
+	add hl, de
+	jr .startCustomCopy
+
 .DoAttributes
 	ld a, [hBGMapAddress + 1]
 	ld h, a
@@ -201,10 +237,9 @@ HALF_HEIGHT EQU SCREEN_HEIGHT / 2
 .startCopy
 ; Which half to update next time
 	ld [hBGMapHalf], a
-
 ; Rows of tiles in a half
 	ld a, SCREEN_HEIGHT / 2
-
+.startCustomCopy
 ; Discrepancy between TileMap and BGMap
 	ld bc, BG_MAP_WIDTH - (SCREEN_WIDTH - 1)
 .row
