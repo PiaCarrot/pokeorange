@@ -1661,8 +1661,8 @@ SwimmerMGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 23, MAREANIE
-	db 23, WAILMER
+	db 21, MAREANIE
+	db 20, WAILMER
 
 	db $ff ; end
 
@@ -1673,7 +1673,7 @@ SwimmerMGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 25, CLOYSTER
+	db 23, CLOYSTER
 
 	db $ff ; end
 
@@ -1778,9 +1778,9 @@ SwimmerFGroup:
 	db "MAYUMI@"
 	db TRAINERTYPE_NORMAL
 
-	db 22, CORSOLA
-	db 22, SQUIRTLE
-	db 22, POLIWAG
+	db 21, CORSOLA
+	db 21, SQUIRTLE
+	db 21, POLIWAG
 
 	db $ff ; end
 
@@ -1852,9 +1852,9 @@ PinkManiacGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 23, RAICHU
-	db 23, RHYHORN
-	db 23, MACHOP
+	db 21, RAICHU
+	db 22, RHYHORN
+	db 20, MACHOP
 
 	db $ff ; end
 
@@ -1939,9 +1939,9 @@ FisherGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 23, QWILFISH
-	db 23, FINNEON
-	db 23, CHINCHOU
+	db 22, QWILFISH
+	db 21, FINNEON
+	db 22, CHINCHOU
 
 	db $ff ; end
 
@@ -1984,9 +1984,9 @@ AthleteGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 22, DODUO
-	db 22, LICKITUNG
-	db 22, PONYTA
+	db 19, DODUO
+	db 18, LICKITUNG
+	db 18, PONYTA
 
 	db $ff ; end
 
