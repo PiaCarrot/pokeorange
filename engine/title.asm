@@ -161,7 +161,7 @@ _TitleScreen: ; 10ed67
 	call ByteFill
 
 ; Let LCD Stat know we're messing around with SCX
-	ld a, rSCX - $ff00
+	ld a, rSCX & $ff
 	ld [hLCDCPointer], a
 
 	pop af

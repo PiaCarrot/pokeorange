@@ -876,6 +876,8 @@ Intro_PlacePlayerSprite: ; 61cd
 CrystalIntroSequence: ; 620b
 	farcall Copyright_GFPresents
 StartTitleScreen: ; 6219
+	ld hl, rIE
+	set LCD_STAT, [hl]
 	ld a, [rSVBK]
 	push af
 	ld a, $5
@@ -892,7 +894,8 @@ StartTitleScreen: ; 6219
 
 	pop af
 	ld [rSVBK], a
-
+	ld hl, rIE
+	res LCD_STAT, [hl]
 	ld hl, rLCDC
 	res 2, [hl]
 	call ClearScreen
