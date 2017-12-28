@@ -105,7 +105,10 @@ DoBattle: ; 3c000
 	call SpikesDamage
 
 .not_linked_2
+	call AutomaticSunOnSunrayPeak
+	call AutomaticRainOnButwalIsland
 	call AutomaticHailOnMtNavelPeak
+	call AutomaticSandstormInMandarinDesert
 	jp BattleTurn
 
 WildFled_EnemyFled_LinkBattleCanceled: ; 3c0e5
@@ -8646,6 +8649,42 @@ EnemySetAShellTrap:
 	ld hl, EnemySetAShellTrapText
 	jp StdBattleTextBox
 
+AutomaticSunOnSunrayPeak:
+	ret ; TODO
+;	ld a, [MapGroup]
+;	cp GROUP_SUNRAY_PEAK
+;	ret nz
+;	ld a, [MapNumber]
+;	cp MAP_SUNRAY_PEAK
+;	ret nz
+;	ld a, WEATHER_SUN
+;	ld [Weather], a
+;	ld a, 255
+;	ld [WeatherCount], a
+;	ld de, SUNNY_DAY
+;	call Call_PlayBattleAnim
+;	ld hl, SunGotBrightText
+;	call StdBattleTextBox
+;	jp EmptyBattleTextBox
+
+AutomaticRainOnButwalIsland:
+	ret ; TODO
+;	ld a, [MapGroup]
+;	cp GROUP_BUTWAL_ISLAND
+;	ret nz
+;	ld a, [MapNumber]
+;	cp MAP_BUTWAL_ISLAND
+;	ret nz
+;	ld a, WEATHER_RAIN
+;	ld [Weather], a
+;	ld a, 255
+;	ld [WeatherCount], a
+;	ld de, RAIN_DANCE
+;	call Call_PlayBattleAnim
+;	ld hl, DownpourText
+;	call StdBattleTextBox
+;	jp EmptyBattleTextBox
+
 AutomaticHailOnMtNavelPeak:
 	ld a, [MapGroup]
 	cp GROUP_MT_NAVEL_PEAK
@@ -8660,6 +8699,23 @@ AutomaticHailOnMtNavelPeak:
 	ld de, ANIM_IN_HAIL
 	call Call_PlayBattleAnim
 	ld hl, ItStartedToHailText
+	call StdBattleTextBox
+	jp EmptyBattleTextBox
+
+AutomaticSandstormInMandarinDesert:
+	ld a, [MapGroup]
+	cp GROUP_MANDARIN_DESERT
+	ret nz
+	ld a, [MapNumber]
+	cp MAP_MANDARIN_DESERT
+	ret nz
+	ld a, WEATHER_SANDSTORM
+	ld [Weather], a
+	ld a, 255
+	ld [WeatherCount], a
+	ld de, ANIM_IN_SANDSTORM
+	call Call_PlayBattleAnim
+	ld hl, SandstormBrewedText
 	call StdBattleTextBox
 	jp EmptyBattleTextBox
 
