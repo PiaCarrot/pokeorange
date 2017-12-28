@@ -51,6 +51,8 @@ hDivisor           EQU $ffb7 ; 1 byte long
 hQuotient          EQU $ffb4 ; result (3 bytes long)
 hRemainder         EQU $ffb7
 
+hLongQuotient      EQU $ffb3
+
 hMultiplicand      EQU $ffb4 ; 3 bytes long
 hMultiplier        EQU $ffb7 ; 1 byte long
 hProduct           EQU $ffb3 ; result (4 bytes long)
@@ -128,6 +130,7 @@ hDMATransfer       EQU $ffe8
 hMobile            EQU $ffe9
 hFFEA              EQU $ffea
 hClockResetTrigger EQU $ffeb
+hLoopCounter       EQU $ffec
 
 hRequested2bpp         EQU $fff1
 hRequested2bppSize     EQU $fff1

@@ -53,7 +53,7 @@ HealPartyMon: ; c677
 	ret
 
 ComputeHPBarPixels: ; c699
-; e = bc * (6 * 8) / de
+; e = bc * (6 * 8 * 2) / de
 	ld a, b
 	or c
 	jr z, .zero
@@ -64,34 +64,15 @@ ComputeHPBarPixels: ; c699
 	ld [hMultiplicand + 1], a
 	ld a, c
 	ld [hMultiplicand + 2], a
-	ld a, 6 * 8
+	ld a, 6 * 8 * 2
 	ld [hMultiplier], a
 	call Multiply
-	; We need de to be under 256 because hDivisor is only 1 byte.
 	ld a, d
-	and a
-	jr z, .divide
-	; divide de and hProduct by 4
-	srl d
-	rr e
-	srl d
-	rr e
-	ld a, [hProduct + 2]
-	ld b, a
-	ld a, [hProduct + 3]
-	srl b
-	rr a
-	srl b
-	rr a
-	ld [hDividend + 3], a
-	ld a, b
-	ld [hDividend + 2], a
-.divide
-	ld a, e
 	ld [hDivisor], a
-	ld b, 4
-	call Divide
-	ld a, [hQuotient + 2]
+	ld a, e
+	ld [hDivisor + 1], a
+	predef DivideLong
+	ld a, [hLongQuotient + 3]
 	ld e, a
 	pop hl
 	and a

@@ -34,4 +34,7 @@ SECTION "rst28",ROM0
 ; rst30 is midst rst28
 
 SECTION "rst38",ROM0
-	rst $38
+	di
+	ld b, b
+	db $10, $69
+	jr @

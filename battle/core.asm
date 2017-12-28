@@ -4686,38 +4686,11 @@ DrawEnemyHUD: ; 3e043
 	call Multiply
 	ld hl, EnemyMonMaxHP
 	ld a, [hli]
-	ld b, a
-	ld a, [hl]
-	ld [hMultiplier], a
-	ld a, b
-	and a
-	jr z, .less_than_256_max
-	ld a, [hMultiplier]
-	srl b
-	rr a
-	srl b
-	rr a
 	ld [hDivisor], a
-	ld a, [hProduct + 2]
-	ld b, a
-	srl b
-	ld a, [hProduct + 3]
-	rr a
-	srl b
-	rr a
-	ld [hProduct + 3], a
-	ld a, b
-	ld [hProduct + 2], a
-
-.less_than_256_max
-	ld a, [hProduct + 2]
-	ld [hDividend + 0], a
-	ld a, [hProduct + 3]
-	ld [hDividend + 1], a
-	ld a, 2
-	ld b, a
-	call Divide
-	ld a, [hQuotient + 2]
+	ld a, [hl]
+	ld [hDivisor + 1], a
+	predef DivideLong
+	ld a, [hLongQuotient + 3]
 	ld e, a
 	ld a, HP_BAR_LENGTH
 	ld d, a
@@ -7218,11 +7191,7 @@ AnimateExpBar: ; 3f136
 	call PlaceExpBar
 	pop de
 	ld a, $1
-	ld [hBGMapMode], a
-	ld c, d
-	call DelayFrames
-	xor a
-	ld [hBGMapMode], a
+	call .delay
 	pop bc
 	ld a, c
 	cp b
@@ -7233,12 +7202,7 @@ AnimateExpBar: ; 3f136
 	hlcoord 17, 11
 	call PlaceExpBar
 	pop de
-	ld a, $1
-	ld [hBGMapMode], a
-	ld c, d
-	call DelayFrames
-	xor a
-	ld [hBGMapMode], a
+	call .delay
 	dec d
 	jr nz, .min_number_of_frames
 	ld d, 1
@@ -7250,6 +7214,20 @@ AnimateExpBar: ; 3f136
 .end_animation
 	ld a, $1
 	ld [hBGMapMode], a
+	ret
+
+.delay
+	xor a
+	ld [hCGBPalUpdate], a
+	inc a
+	ld [hBGMapMode], a
+	ld [hBGMapHalf], a
+	ld c, d
+	call DelayFrames
+	xor a
+	ld [hBGMapMode], a
+	inc a
+	ld [hCGBPalUpdate], a
 	ret
 
 SendOutPkmnText: ; 3f26d
