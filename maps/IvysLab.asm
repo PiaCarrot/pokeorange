@@ -158,9 +158,13 @@ IvyDirectionsScript:
 	spriteface IVYSLAB_IVY, DOWN
 	opentext
 	writetext IvyDirectionsText3
+	waitbutton
+	writetext PlayerGetDexText
 	playsound SFX_ITEM
 	waitsfx
 	setflag ENGINE_POKEDEX
+	waitbutton
+	writetext IvyDescribesMrPokemonText
 	waitbutton
 	closetext
 	setevent EVENT_GOT_A_POKEMON_FROM_IVY
@@ -518,8 +522,14 @@ IvyDirectionsText2:
 	done
 
 IvyDirectionsText3:
-	text "<PLAYER>, here"
-	line "is your #DEX!"
+	text "One more thing!"
+	line "<PLAYER>, here"
+	cont "is your #DEX!"
+	done
+
+PlayerGetDexText:
+	text "<PLAYER> received"
+	line "#DEX!"
 	done
 
 IvyDescribesMrPokemonText:
