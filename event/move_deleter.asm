@@ -10,7 +10,7 @@ MoveDeletion:
 	ld a, [CurPartySpecies]
 	cp EGG
 	jr z, .egg
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1Moves + 1
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
@@ -111,7 +111,7 @@ MoveDeletion:
 	ld b, 0
 	ld hl, PartyMon1Moves
 	add hl, bc
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
 	pop bc
@@ -140,7 +140,7 @@ MoveDeletion:
 	ld b, 0
 	ld hl, PartyMon1PP
 	add hl, bc
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
 	pop bc

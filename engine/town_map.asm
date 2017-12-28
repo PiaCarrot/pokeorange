@@ -989,7 +989,7 @@ TownMapMon: ; 91f7b
 ; Draw the FlyMon icon at town map location in
 
 ; Get FlyMon species
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartySpecies
 	ld e, a
 	ld d, $0
@@ -1020,14 +1020,17 @@ TownMapPlayerIcon: ; 91fa6
 ; Standing icon
 	ld hl, VTiles0 tile $10
 	ld c, 4 ; # tiles
+	push de
+	push bc
 	call Request2bpp
 ; Walking icon
-	ld hl, $c0
+	pop bc
+	pop de
+	ld hl, 12 tiles
 	add hl, de
 	ld d, h
 	ld e, l
 	ld hl, VTiles0 tile $14
-	ld c, 4 ; # tiles
 	call Request2bpp
 ; Animation/palette
 	depixel 0, 0

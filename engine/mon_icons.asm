@@ -48,7 +48,7 @@ LoadPartyMenuMonIconColors:
 
 	ld a, [PartyCount]
 	sub c
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld d, 0
 	ld e, a
 	ld hl, PartySpecies
@@ -61,7 +61,7 @@ LoadPartyMenuMonIconColors:
 	push af
 
 	ld hl, Sprites + 3
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	swap a
 
 	ld d, 0

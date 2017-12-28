@@ -213,7 +213,7 @@ HatchEggs: ; 16f70 (5:6f70)
 	ld de, PartySpecies
 	ld hl, PartyMon1Happiness
 	xor a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 
 .loop ; 16f7a (5:6f7a)
 	ld a, [de]
@@ -231,7 +231,7 @@ HatchEggs: ; 16f70 (5:6f70)
 
 	push de
 	farcall SetEggMonCaughtData
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMons ; wdcdf (aliases: PartyMon1, PartyMon1Species)
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
@@ -250,7 +250,7 @@ HatchEggs: ; 16f70 (5:6f70)
 	xor a
 	ld [wd26b], a
 	call GetBaseData
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMons ; wdcdf (aliases: PartyMon1, PartyMon1Species)
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
@@ -296,7 +296,7 @@ HatchEggs: ; 16f70 (5:6f70)
 	ld [hli], a
 	ld a, [PlayerID + 1]
 	ld [hl], a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonOT ; wddff (aliases: PartyMonOT)
 	ld bc, NAME_LENGTH
 	call AddNTimes
@@ -306,7 +306,7 @@ HatchEggs: ; 16f70 (5:6f70)
 	call CopyBytes
 	ld hl, .Text_HatchEgg
 	call PrintText
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonNicknames
 	ld bc, PKMN_NAME_LENGTH
 	call AddNTimes
@@ -337,7 +337,7 @@ HatchEggs: ; 16f70 (5:6f70)
 	call CopyBytes
 
 .next ; 1707d (5:707d)
-	ld hl, CurPartyMon
+	ld hl, wCurPartyMon
 	inc [hl]
 	pop hl
 	ld de, PARTYMON_STRUCT_LENGTH

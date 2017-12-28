@@ -121,7 +121,7 @@ TeachTMHM: ; 2c867
 	predef CanLearnTMHMMove
 
 	push bc
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonNicknames
 	call GetNick
 	pop bc

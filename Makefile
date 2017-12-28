@@ -28,7 +28,7 @@ endif
 .SUFFIXES:
 .PHONY: all clean orange pss debug bankfree freespace compare
 .SECONDEXPANSION:
-.PRECIOUS: %.2bpp %.1bpp
+.PRECIOUS: %.2bpp %.1bpp %.o
 
 
 roms_md5      = roms.md5

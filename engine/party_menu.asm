@@ -461,7 +461,7 @@ PlacePartyMonGender: ; 502b1
 	ld [CurPartySpecies], a
 	push hl
 	ld a, b
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	xor a
 	ld [MonType], a
 	call GetGender
@@ -657,7 +657,7 @@ PartyMenuSelect: ; 0x50457
 	jr nz, .exitmenu ; B button
 	ld a, [wMenuCursorY]
 	dec a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld c, a
 	ld b, $0
 	ld hl, PartySpecies
@@ -741,7 +741,7 @@ YouHaveNoPKMNString: ; 0x50556
 
 
 PrintPartyMenuActionText: ; 50566
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonNicknames
 	call GetNick
 	ld a, [PartyMenuActionText]

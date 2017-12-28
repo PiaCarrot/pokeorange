@@ -145,7 +145,7 @@ CheckCurPartyMonFainted: ; e538
 	ld de, PARTYMON_STRUCT_LENGTH
 	ld b, $0
 .loop
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	cp b
 	jr z, .skip
 	ld a, [hli]
@@ -203,7 +203,7 @@ ClearPCItemScreen: ; e58b
 	jp SetPalettes ; load regular palettes?
 
 CopyBoxmonToTempMon: ; e5bb
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, sBoxMon1Species
 	ld bc, BOXMON_STRUCT_LENGTH
 	call AddNTimes

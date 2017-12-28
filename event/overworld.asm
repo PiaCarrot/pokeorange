@@ -19,11 +19,11 @@ FieldMoveJumptable: ; c6f5
 	ret
 
 GetPartyNick: ; c706
-; write CurPartyMon nickname to StringBuffer1-3
+; write wCurPartyMon nickname to StringBuffer1-3
 	ld hl, PartyMonNicknames
 	ld a, BOXMON
 	ld [MonType], a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call GetNick
 	call CopyName1
 ; copy text from StringBuffer2 to StringBuffer3
@@ -36,7 +36,7 @@ CheckPartyMove: ; c742
 
 	ld e, 0
 	xor a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 .loop
 	ld c, e
 	ld b, 0
@@ -68,7 +68,7 @@ CheckPartyMove: ; c742
 
 .yes
 	ld a, e
-	ld [CurPartyMon], a ; which mon has the move
+	ld [wCurPartyMon], a ; which mon has the move
 	xor a
 	ret
 .no
@@ -430,7 +430,7 @@ GetSurfType: ; c9b8
 ; Surfing on Pikachu uses an alternate sprite.
 ; This is done by using a separate movement type.
 
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld e, a
 	ld d, 0
 	ld hl, PartySpecies
@@ -1222,7 +1222,7 @@ StrengthFunction: ; cce5
 SetStrengthFlag: ; cd12
 	ld hl, BikeFlags
 	set 0, [hl]
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld e, a
 	ld d, 0
 	ld hl, PartySpecies

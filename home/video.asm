@@ -101,13 +101,13 @@ endr
 
 
 WaitTop:: ; 163a
-; Wait until the top third of the BG Map is being updated.
+; Wait until the top half of the BG Map is being updated.
 
 	ld a, [hBGMapMode]
 	and a
 	ret z
 
-	ld a, [hBGMapThird]
+	ld a, [hBGMapHalf]
 	and a
 	jr z, .done
 
@@ -122,8 +122,8 @@ WaitTop:: ; 163a
 
 
 UpdateBGMap:: ; 164c
-THIRD_HEIGHT EQU SCREEN_HEIGHT / 3
-; Update the BG Map, in thirds, from TileMap and AttrMap.
+HALF_HEIGHT EQU SCREEN_HEIGHT / 2
+; Update the BG Map, in halves, from TileMap and AttrMap.
 
 	ld a, [hBGMapMode]
 	and a
@@ -157,29 +157,20 @@ THIRD_HEIGHT EQU SCREEN_HEIGHT / 3
 .CopyAttributes
 	ld [hSPBuffer], sp
 	
-; Which third?
-	ld a, [hBGMapThird]
+; Which half?
+	ld a, [hBGMapHalf]
 	and a ; 0
 	jr z, .AttributeMapTop
-	dec a ; 1
-	jr z, .AttributeMapMiddle
 ; bottom row
-	coord sp, 0, 12, AttrMap
-	ld de, 2 * THIRD_HEIGHT * BG_MAP_WIDTH
+	coord sp, 0, 9, AttrMap
+	ld de, HALF_HEIGHT * BG_MAP_WIDTH
 	add hl, de
-; Next time: top third
+; Next time: top half
 	xor a
-	jr .startCopy
-.AttributeMapMiddle
-	coord sp, 0, 6, AttrMap
-	ld de, THIRD_HEIGHT * BG_MAP_WIDTH
-	add hl, de
-; Next time: bottom third
-	ld a, 2
 	jr .startCopy
 .AttributeMapTop
 	coord sp, 0, 0, AttrMap
-; Next time: middle third
+; Next time: bottom half
 	jr .AttributeMapTopContinue
 
 .DoTiles
@@ -191,37 +182,28 @@ THIRD_HEIGHT EQU SCREEN_HEIGHT / 3
 .DoBGMap1Tiles
 	ld [hSPBuffer], sp
 	
-; Which third?
-	ld a, [hBGMapThird]
+; Which half?
+	ld a, [hBGMapHalf]
 	and a ; 0
 	jr z, .TileMapTop
-	dec a ; 1
-	jr z, .TileMapMiddle
 ; bottom row
-	coord sp, 0, 12
-	ld de, 2 * THIRD_HEIGHT * BG_MAP_WIDTH
+	coord sp, 0, 9
+	ld de, HALF_HEIGHT * BG_MAP_WIDTH
 	add hl, de
-; Next time: top third
+; Next time: top half
 	xor a
-	jr .startCopy
-.TileMapMiddle
-	coord sp, 0, 6
-	ld de, THIRD_HEIGHT * BG_MAP_WIDTH
-	add hl, de
-; Next time: bottom third
-	ld a, 2
 	jr .startCopy
 .TileMapTop
 	coord sp, 0, 0
-; Next time: middle third
+; Next time: bottom half
 .AttributeMapTopContinue
 	inc a
 .startCopy
-; Which third to update next time
-	ld [hBGMapThird], a
+; Which half to update next time
+	ld [hBGMapHalf], a
 
-; Rows of tiles in a third
-	ld a, SCREEN_HEIGHT / 3
+; Rows of tiles in a half
+	ld a, SCREEN_HEIGHT / 2
 
 ; Discrepancy between TileMap and BGMap
 	ld bc, BG_MAP_WIDTH - (SCREEN_WIDTH - 1)
@@ -258,12 +240,16 @@ Serve1bppRequest:: ; 170a
 	and a
 	ret z
 
+	ld b, a
 ; Back out if we're too far into VBlank
 	ld a, [rLY]
 	cp 144
 	ret c
 	cp 146
 	ret nc
+
+	xor a
+	ld [hRequested1bpp], a
 
 ; Copy [hRequested1bpp] 1bpp tiles from [hRequestedVTileSource] to [hRequestedVTileDest]
 	ld [hSPBuffer], sp
@@ -282,8 +268,6 @@ Serve1bppRequest:: ; 170a
 	ld l, e
 	
 ; # tiles to copy
-	ld a, [hTilesPerCycle]
-	ld b, a
 .next
 	rept 4
 	pop de
@@ -303,7 +287,7 @@ Serve2bppRequest_NoVBlankCheck:: ; 1778
 	ld a, [hRequested2bpp]
 	and a
 	ret z
-	ld [hTilesPerCycle], a
+	ld b, a
 	call _Serve2bppRequest
 	xor a
 	ld [hRequested2bpp], a
@@ -315,7 +299,7 @@ Serve2bppRequest:: ; 1769
 	ld a, [hRequested2bpp]
 	and a
 	ret z
-
+	ld b, a
 ; Back out if we're too far into VBlank
 	ld a, [rLY]
 	cp 144
@@ -325,7 +309,8 @@ Serve2bppRequest:: ; 1769
 
 _Serve2bppRequest:: ; 177d
 ; Copy [hRequested2bpp] 2bpp tiles from [hRequestedVTileSource] to [hRequestedVTileDest]
-
+	xor a
+	ld [hRequested2bpp], a
 	ld [hSPBuffer], sp
 ; Destination
 	ld hl, hRequestedVTileDest
@@ -342,8 +327,6 @@ _Serve2bppRequest:: ; 177d
 	ld l, e
 	
 ; # tiles to copy
-	ld a, [hTilesPerCycle]
-	ld b, a
 .next
 	rept 8
 	pop de
@@ -356,12 +339,9 @@ _Serve2bppRequest:: ; 177d
 	jr nz, .next
 
 WriteVTileSourceAndDestinationAndReturn:
-	ld a, l
-	ld [hRequestedVTileDest], a
-	ld a, h
-	ld [hRequestedVTileDest + 1], a
-
-	ld [hRequestedVTileSource], sp
+	ld [hRequestedVTileSource], sp	
+	ld sp, hl
+	ld [hRequestedVTileDest], sp
 
 	ld a, [hSPBuffer]
 	ld l, a

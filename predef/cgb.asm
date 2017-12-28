@@ -457,7 +457,7 @@ _CGB_Evolution: ; 91e4
 .pokemon
 	ld hl, PartyMon1Personality
 	ld bc, PARTYMON_STRUCT_LENGTH
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	ld c, l
 	ld b, h

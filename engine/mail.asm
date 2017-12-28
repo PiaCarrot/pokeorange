@@ -12,7 +12,7 @@ SendMailToPC: ; 4456e
 	call AddNTimes
 	ld d, h
 	ld e, l
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld bc, MAIL_STRUCT_LENGTH
 	ld hl, sPartyMail
 	call AddNTimes
@@ -92,7 +92,7 @@ MoveMailFromPCToParty: ; 44607
 	ld hl, sMailbox
 	call AddNTimes
 	push hl
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld bc, MAIL_STRUCT_LENGTH
 	ld hl, sPartyMail
 	call AddNTimes
@@ -106,7 +106,7 @@ MoveMailFromPCToParty: ; 44607
 	ld de, PARTYMON_STRUCT_LENGTH - MON_MOVES
 	add hl, de
 	ld d, [hl]
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
@@ -131,7 +131,7 @@ CheckPokeItem:: ; 44654
 	ld a, $2
 	jr c, .pop_return
 
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
@@ -142,7 +142,7 @@ CheckPokeItem:: ; 44654
 
 	ld a, BANK(sPartyMail)
 	call GetSRAMBank
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, sPartyMail
 	ld bc, MAIL_STRUCT_LENGTH
 	call AddNTimes

@@ -12,13 +12,13 @@ DoPoisonStep:: ; 505da
 	jr nz, .loop_clearEngineBuffer1
 
 	xor a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 .loop_check_poison
 	call .DamageMonIfPoisoned
 	jr nc, .not_poisoned
-; the output flag is stored in c, copy it to the ([CurPartyMon] + 2)nd EngineBuffer
+; the output flag is stored in c, copy it to the ([wCurPartyMon] + 2)nd EngineBuffer
 ; and set the corresponding flag in EngineBuffer1
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld e, a
 	ld d, 0
 	ld hl, EngineBuffer2
@@ -30,7 +30,7 @@ DoPoisonStep:: ; 505da
 
 .not_poisoned
 	ld a, [PartyCount]
-	ld hl, CurPartyMon
+	ld hl, wCurPartyMon
 	inc [hl]
 	cp [hl]
 	jr nz, .loop_check_poison
@@ -123,7 +123,7 @@ DoPoisonStep:: ; 505da
 
 .CheckWhitedOut: ; 5067b
 	xor a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld de, EngineBuffer2
 .party_loop
 	push de
@@ -139,7 +139,7 @@ DoPoisonStep:: ; 505da
 .mon_not_fainted
 	pop de
 	inc de
-	ld hl, CurPartyMon
+	ld hl, wCurPartyMon
 	inc [hl]
 	ld a, [PartyCount]
 	cp [hl]

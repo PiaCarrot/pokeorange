@@ -1601,7 +1601,7 @@ wd107:: ds 1
 CurPartySpecies:: ; d108
 	ds 1
 
-CurPartyMon:: ; d109
+wCurPartyMon:: ; d109
 ; contains which monster in a party
 ; is being dealt with at the moment
 ; 0-5

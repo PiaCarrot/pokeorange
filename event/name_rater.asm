@@ -46,7 +46,7 @@ NameRater: ; fb6ed
 ; Copy the new name from StringBuffer2
 	ld hl, PartyMonNicknames
 	ld bc, PKMN_NAME_LENGTH
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	ld e, l
 	ld d, h
@@ -79,10 +79,10 @@ NameRater: ; fb6ed
 ; fb78a
 
 CheckIfMonIsYourOT: ; fb78a
-; Checks to see if the partymon loaded in [CurPartyMon] has the different OT as you.  Returns carry if not.
+; Checks to see if the partymon loaded in [wCurPartyMon] has the different OT as you.  Returns carry if not.
 	ld hl, PartyMonOT
 	ld bc, NAME_LENGTH
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	ld de, PlayerName
 	ld c, NAME_LENGTH
@@ -91,7 +91,7 @@ CheckIfMonIsYourOT: ; fb78a
 
 	ld hl, PartyMon1ID
 	ld bc, PARTYMON_STRUCT_LENGTH
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	ld de, PlayerID
 	ld c, 2 ; number of bytes in which your ID is stored
@@ -137,7 +137,7 @@ CompareNewToOld: ; fb7d3
 ; Compares the nickname in StringBuffer2 to the previous nickname.  If they are the same, return carry.
 	ld hl, PartyMonNicknames
 	ld bc, PKMN_NAME_LENGTH
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	push hl
 	call GetNicknameLength

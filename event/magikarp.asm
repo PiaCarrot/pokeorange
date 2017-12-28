@@ -12,7 +12,7 @@ Special_CheckMagikarpLength: ; fbb32
 	jr nz, .not_magikarp
 
 	; Now let's compute its length based on its DVs and ID.
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1Species
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
@@ -47,7 +47,7 @@ Special_CheckMagikarpLength: ; fbb32
 	ld a, [hl]
 	ld [de], a
 	inc de
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonOT
 	call SkipNames
 	call CopyBytes

@@ -1,6 +1,6 @@
 HealParty: ; c658
 	xor a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld hl, PartySpecies
 .loop
 	ld a, [hli]
@@ -14,9 +14,9 @@ HealParty: ; c658
 	pop hl
 
 .next
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	inc a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	jr .loop
 
 .done

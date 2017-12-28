@@ -6402,7 +6402,7 @@ BattleCommand_ForceSwitch: ; 3680f
 	jr z, .random_loop_trainer_playeristarget
 
 	ld a, d
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld hl, SwitchPlayerMon
 	call CallBattleCore
 

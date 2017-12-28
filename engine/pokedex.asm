@@ -1824,14 +1824,12 @@ _NewPokedexEntry: ; 41a7f
 Pokedex_SetBGMapMode3: ; 41ad7 (10:5ad7)
 	ld a, $3
 	ld [hBGMapMode], a
-	ld c, 4
-	jp DelayFrames
+	jp Delay2
 
 Pokedex_SetBGMapMode4: ; 41ae1 (10:5ae1)
 	ld a, $4
 	ld [hBGMapMode], a
-	ld c, 4
-	jp DelayFrames
+	jp Delay2
 
 Pokedex_ResetBGMapMode: ; 41af7
 	xor a

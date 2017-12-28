@@ -411,7 +411,7 @@ FlyFunction_InitGFX: ; 8cb9b (23:4b9b)
 	ld hl, VTiles1 tile $00
 	lb bc, BANK(CutGrassGFX), 4
 	call Request2bpp
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartySpecies
 	ld e, a
 	ld d, 0

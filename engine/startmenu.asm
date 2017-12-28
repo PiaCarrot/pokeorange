@@ -654,7 +654,7 @@ SwitchPartyMons: ; 12aec
 	cp 2
 	jr c, .DontSwitch
 
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	inc a
 	ld [wSwitchMon], a
 
@@ -988,7 +988,7 @@ ComposeMailMessage: ; 12cfe (4:6cfe)
 	inc de
 	ld a, [wCurItem]
 	ld [de], a
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, sPartyMail
 	ld bc, MAIL_STRUCT_LENGTH
 	call AddNTimes
@@ -1033,7 +1033,7 @@ MonMailAction: ; 12d45
 	ld hl, .sendmailtopctext
 	call StartMenuYesNo
 	jr c, .RemoveMailToBag
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld b, a
 	farcall SendMailToPC
 	jr c, .MailboxFull
@@ -1362,7 +1362,7 @@ ManagePokemonMoves: ; 12fba
 ; 12fd5
 
 MoveScreenLoop: ; 12fd5
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	inc a
 	ld [wPartyMenuCursor], a
 	call SetUpMoveScreenBG
@@ -1428,12 +1428,12 @@ MoveScreenLoop: ; 12fd5
 	and a
 	jp nz, .joy_loop
 
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld b, a
 	push bc
 	call .cycle_right
 	pop bc
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	cp b
 	jp z, .joy_loop
 	jp MoveScreenLoop
@@ -1442,20 +1442,20 @@ MoveScreenLoop: ; 12fd5
 	ld a, [wMoveSwapBuffer]
 	and a
 	jp nz, .joy_loop
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld b, a
 	push bc
 	call .cycle_left
 	pop bc
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	cp b
 	jp z, .joy_loop
 	jp MoveScreenLoop
 
 .cycle_right
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	inc a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld c, a
 	ld b, 0
 	ld hl, PartySpecies
@@ -1468,13 +1468,13 @@ MoveScreenLoop: ; 12fd5
 	jr .cycle_right
 
 .cycle_left
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	and a
 	ret z
 .cycle_left_loop
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	dec a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld c, a
 	ld b, 0
 	ld hl, PartySpecies
@@ -1482,7 +1482,7 @@ MoveScreenLoop: ; 12fd5
 	ld a, [hl]
 	cp EGG
 	ret nz
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	and a
 	jr z, .cycle_right
 	jr .cycle_left_loop
@@ -1502,7 +1502,7 @@ MoveScreenLoop: ; 12fd5
 .place_move
 	ld hl, PartyMon1Moves
 	ld bc, PARTYMON_STRUCT_LENGTH
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	push hl
 	call .copy_move
@@ -1514,7 +1514,7 @@ MoveScreenLoop: ; 12fd5
 	jr z, .swap_moves
 	ld hl, BattleMonMoves
 	ld bc, $20
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	push hl
 	call .copy_move
@@ -1591,7 +1591,7 @@ SetUpMoveScreenBG: ; 13172
 	ld [hBGMapMode], a
 	farcall LoadStatsScreenPageTilesGFX
 	farcall ClearSpriteAnims2
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld e, a
 	ld d, $0
 	ld hl, PartySpecies
@@ -1611,7 +1611,7 @@ SetUpMoveScreenBG: ; 13172
 	xor a
 	ld [MonType], a
 	ld hl, PartyMonNicknames
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call GetNick
 	hlcoord 5, 1
 	call PlaceString
@@ -1657,7 +1657,7 @@ SetUpMoveList: ; 131ef
 PrepareToPlaceMoveData: ; 13235
 	ld hl, PartyMon1Moves
 	ld bc, PARTYMON_STRUCT_LENGTH
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	ld a, [wMenuCursorY]
 	dec a
@@ -1752,7 +1752,7 @@ Function132d3: ; 132d3
 ; 132da
 
 Function132da: ; 132da
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	and a
 	ret z
 	ld c, a
@@ -1782,7 +1782,7 @@ Function132da: ; 132da
 ; 132fe
 
 Function132fe: ; 132fe
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	inc a
 	ld c, a
 	ld a, [PartyCount]

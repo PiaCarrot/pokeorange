@@ -1,6 +1,6 @@
 LearnMove: ; 6508
 	call LoadTileMapToTempTileMap
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonNicknames
 	call GetNick
 	ld hl, StringBuffer1
@@ -11,7 +11,7 @@ LearnMove: ; 6508
 .loop
 	ld hl, PartyMon1Moves
 	ld bc, PARTYMON_STRUCT_LENGTH
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	ld d, h
 	ld e, l
@@ -79,7 +79,7 @@ LearnMove: ; 6508
 	and a
 	jp z, .learned
 
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld b, a
 	ld a, [CurBattleMon]
 	cp b

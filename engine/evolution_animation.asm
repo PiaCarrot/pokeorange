@@ -256,7 +256,7 @@ EvolutionAnimation: ; 4e5e1
 ; 4e794
 
 .check_statused ; 4e794
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1Species
 	call GetPartyLocation
 	ld b, h

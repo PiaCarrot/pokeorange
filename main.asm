@@ -893,7 +893,7 @@ INCLUDE "engine/trainer_card.asm"
 INCLUDE "engine/prof_oaks_pc.asm"
 
 LevelUpHappinessMod: ; 2709e
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1CaughtLocation
 	call GetPartyLocation
 	ld a, [hl]
@@ -1783,7 +1783,7 @@ CheckCanLearnMoveTutorMove: ; 492b9
 	predef CanLearnTMHMMove
 
 	push bc
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMonNicknames
 	call GetNick
 	pop bc
@@ -2039,10 +2039,10 @@ INCBIN "gfx/shrink2.2bpp.lz"
 LinkMonStatsScreen: ; 4d319
 	ld a, [wMenuCursorY]
 	dec a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	call LowVolume
 	predef StatsScreenInit
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	inc a
 	ld [wMenuCursorY], a
 	call ClearScreen
@@ -2541,7 +2541,7 @@ CheckPartyFullAfterContest: ; 4d9e5
 	jr c, .Party_SkipNickname
 	ld a, [PartyCount]
 	dec a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	xor a
 	ld [MonType], a
 	ld de, wMonOrItemNameBuffer
@@ -2581,7 +2581,7 @@ CheckPartyFullAfterContest: ; 4d9e5
 	call CloseSRAM
 	jr nc, .BoxFull
 	xor a
-	ld [CurPartyMon], a
+	ld [wCurPartyMon], a
 	ld hl, wContestMon
 	ld de, wBufferMon
 	ld bc, BOXMON_STRUCT_LENGTH
@@ -2700,7 +2700,7 @@ SetGiftMonCaughtData: ; 4dbaf
 	ret
 
 SetEggMonCaughtData: ; 4dbb8 (13:5bb8)
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld hl, PartyMon1CaughtData
 	call GetPartyLocation
 	jr SetBoxmonOrEggmonCaughtData
@@ -2815,7 +2815,7 @@ CopyPkmnToTempMon: ; 5084a
 ; gets the BaseData of a Pkmn
 ; and copys the PkmnStructure to TempMon
 
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	ld e, a
 	call GetPkmnSpecies
 	ld a, [CurPartySpecies]
@@ -2836,7 +2836,7 @@ CopyPkmnToTempMon: ; 5084a
 	jr .done
 
 .copywholestruct
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 	ld de, TempMon
 	ld bc, PARTYMON_STRUCT_LENGTH
@@ -2897,7 +2897,7 @@ _TempMonStatsCalculation: ; 50893
 
 GetPkmnSpecies: ; 508d5
 ; [MonType] has the type of the Pkmn
-; e = Nr. of Pkmn (i.e. [CurPartyMon])
+; e = Nr. of Pkmn (i.e. [wCurPartyMon])
 
 	ld a, [MonType]
 	and a ; PARTYMON
@@ -3064,7 +3064,7 @@ PrintTempMonStats: ; 50b7b
 	next "@"
 
 GetGender: ; 50bdd
-; Return the gender of a given monster (CurPartyMon/CurOTMon/CurWildMon).
+; Return the gender of a given monster (wCurPartyMon/CurOTMon/CurWildMon).
 ; When calling this function, a should be set to an appropriate MonType value.
 
 ; return values:
@@ -3108,7 +3108,7 @@ GetGender: ; 50bdd
 
 .PartyMon:
 .sBoxMon
-	ld a, [CurPartyMon]
+	ld a, [wCurPartyMon]
 	call AddNTimes
 
 .Gender:
@@ -3800,7 +3800,7 @@ MovePlayerPic: ; 88266
 	lb bc, 7, 7
 	predef PlaceGraphic
 	xor a
-	ld [hBGMapThird], a
+	ld [hBGMapHalf], a
 	call WaitBGMap
 	call DelayFrame
 	pop de

@@ -7,14 +7,14 @@ HBlankCopy2bpp::
 	ld a, [hli]
 	ld e, a
 	ld a, [hli]
-	ld d, a
+	ld d, a ; destination
 	
-	ld a, [hli]
+	ld a, [hli] ; source
 	ld h, [hl]
 	ld l, a
-	ld sp, hl
-	ld a, h 
-	ld h, d
+	ld sp, hl ; set source to sp
+	ld a, h ; save source high byte for later
+	ld h, d ; exchange hl and de
 	ld l, e
 ; vram to vram copy check:
 	cp VTiles0 / $100 ; is source in RAM?
@@ -27,7 +27,7 @@ HBlankCopy2bpp::
 .outerLoop2
 	ld a, [rLY]
 	cp $88
-	jp nc, .continueNextFrame
+	jp nc, ContinueHBlankCopy
 .waitNoHBlank2
 	ld a, [$ff00+c]
 	and b
@@ -51,15 +51,15 @@ HBlankCopy2bpp::
 	ld a, l
 	and $f
 	jr nz, .waitNoHBlank2
-	ld a, [hRequested2bpp]
+	ld a, [hTilesPerCycle]
 	dec a
-	ld [hRequested2bpp], a
+	ld [hTilesPerCycle], a
 	jr nz, .outerLoop2
-	jp .done
+	jp DoneHBlankCopy
 .outerLoop
 	ld a, [rLY]
 	cp $88
-	jr nc, .continueNextFrame
+	jp nc, ContinueHBlankCopy
 .innerLoop
 	pop bc
 	pop de
@@ -80,35 +80,20 @@ HBlankCopy2bpp::
 	ld [hli], a
 	ld a, d
 	ld [hli], a
+	rept 5
 	pop de
 	ld a, e
 	ld [hli], a
 	ld a, d
 	ld [hli], a
-	pop de
-	ld a, e
-	ld [hli], a
-	ld [hl], d
+	endr ; 47 (12 + 7 * 5)
+	pop de ; 50
+	ld a, e ; 51
+	ld [hli], a ; 53
+	ld [hl], d ; 55
 	inc hl
-	ld a, l
-	and $f
-	jr nz, .innerLoop
-	ld a, [hRequested2bpp]
+	ld a, [hTilesPerCycle]
 	dec a
-	ld [hRequested2bpp], a
+	ld [hTilesPerCycle], a
 	jr nz, .outerLoop
-	jr .done
-.continueNextFrame
-	ld [hRequestedVTileSource], sp
-	ld a, l
-	ld [hRequestedVTileDest], a
-	ld a, h
-	ld [hRequestedVTileDest + 1], a
-	scf
-.done
-	ld a, [hSPBuffer]
-	ld l, a
-	ld a, [hSPBuffer + 1]
-	ld h, a
-	ld sp, hl
-	reti
+	jp DoneHBlankCopy
