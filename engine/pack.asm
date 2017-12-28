@@ -533,7 +533,7 @@ RegisterItem: ; 103c2
 	and $3f
 	or b
 	ld [WhichRegisteredItem], a
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld [RegisteredItem], a
 	call Pack_GetItemName
 	ld de, SFX_FULL_HEAL
@@ -975,8 +975,8 @@ DepositSellPack: ; 106be
 	call InitPocket
 	call WaitBGMap_DrawPackGFX
 	farcall TMHMPocket
-	ld a, [CurItem]
-	ld [CurItem], a
+	ld a, [wCurItem]
+	ld [wCurItem], a
 	ret
 
 .BallsPocket: ; 1073b (4:473b)
@@ -1318,7 +1318,7 @@ DrawPocketName: ; 109bb
 ; 10a1d
 
 Pack_GetItemName: ; 10a1d
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld [wNamedObjectIndexBuffer], a
 	call GetItemName
 	jp CopyName1

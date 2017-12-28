@@ -513,7 +513,7 @@ Script_verbosegiveitem2: ; 96f8e
 	jr nz, .ok
 	ld a, [ScriptVar]
 .ok
-	ld [CurItem], a
+	ld [wCurItem], a
 	call GetScriptByte
 	call GetVarAction
 	ld a, [de]
@@ -596,7 +596,7 @@ GetPocketName: ; 96ffe
 ; 97051
 
 CurItemName: ; 97051
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld [wd265], a
 	jp GetItemName
 ; 9705b
@@ -1942,7 +1942,7 @@ Script_giveitem: ; 977ca
 	jr nz, .ok
 	ld a, [ScriptVar]
 .ok
-	ld [CurItem], a
+	ld [wCurItem], a
 	call GetScriptByte
 	ld [wItemQuantityChangeBuffer], a
 	ld hl, NumItems
@@ -1964,7 +1964,7 @@ Script_takeitem: ; 977f0
 	xor a
 	ld [ScriptVar], a
 	call GetScriptByte
-	ld [CurItem], a
+	ld [wCurItem], a
 	call GetScriptByte
 	ld [wItemQuantityChangeBuffer], a
 	ld a, -1
@@ -1983,7 +1983,7 @@ Script_checkitem: ; 97812
 	xor a
 	ld [ScriptVar], a
 	call GetScriptByte
-	ld [CurItem], a
+	ld [wCurItem], a
 	ld hl, NumItems
 	call CheckItem
 	ret nc
@@ -2135,7 +2135,7 @@ Script_givepoke: ; 97932
 	call GetScriptByte
 	ld [CurPartyLevel], a
 	call GetScriptByte
-	ld [CurItem], a
+	ld [wCurItem], a
 	call GetScriptByte
 	and a
 	ld b, a

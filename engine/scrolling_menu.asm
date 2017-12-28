@@ -8,6 +8,7 @@ _InitScrollingMenu:: ; 245af
 	call ScrollingMenu_InitFlags
 	call ScrollingMenu_ValidateSwitchItem
 	call ScrollingMenu_InitDisplay
+	call Place2DMenuCursor
 	call ApplyTilemap
 	xor a
 	ld [hBGMapMode], a
@@ -76,7 +77,7 @@ ScrollingMenuJoyAction: ; 24609
 	dec a
 	call ScrollingMenu_GetListItemCoordAndFunctionArgs
 	ld a, [wMenuSelection]
-	ld [CurItem], a
+	ld [wCurItem], a
 	ld a, [MenuSelectionQuantity]
 	ld [wItemQuantityBuffer], a
 	call ScrollingMenu_GetCursorPosition
@@ -149,9 +150,9 @@ ScrollingMenuJoyAction: ; 24609
 ; 246c9
 
 .d_up ; 246c9
-	ld a, [wMenuScrollPosition]
-	and a
-	jr z, .unsetZeroFlag
+	call ScrollingMenu_GetCursorPosition
+	dec a
+	jr z, .checkCallFunction3
 	ld a, [w2DMenuFlags2]
 	bit 7, a
 	jr z, .checkCallFunction3
@@ -161,16 +162,15 @@ ScrollingMenuJoyAction: ; 24609
 	ret
 
 .d_down ; 246df
-	ld hl, wMenuScrollPosition
-	ld a, [wMenuData2_ScrollingMenuHeight]
-	add [hl]
+	call ScrollingMenu_GetCursorPosition
 	ld b, a
 	ld a, [wScrollingMenuListSize]
 	cp b
-	jr c, .unsetZeroFlag
+	jr c, .checkCallFunction3
 	ld a, [w2DMenuFlags2]
 	bit 7, a
 	jr z, .checkCallFunction3
+	ld hl, wMenuScrollPosition
 	inc [hl]
 .setZeroFlag
 	xor a
@@ -509,7 +509,7 @@ ScrollingMenu_GetListItemCoordAndFunctionArgs: ; 248d5
 	ld a, [wMenuData2_ItemsPointerBank]
 	call GetFarByte
 	ld [wMenuSelection], a
-	ld [CurItem], a
+	ld [wCurItem], a
 	inc hl
 	ld a, [wMenuData2_ItemsPointerBank]
 	call GetFarByte

@@ -731,7 +731,7 @@ PlaceMenuItemName: ; 0x24ab4
 PlaceMenuItemQuantity: ; 0x24ac3
 	push de
 	ld a, [wMenuSelection]
-	ld [CurItem], a
+	ld [wCurItem], a
 	farcall _CheckTossableItem
 	ld a, [wItemAttributeParamBuffer]
 	pop hl

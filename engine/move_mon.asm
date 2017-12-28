@@ -1609,14 +1609,14 @@ GivePoke:: ; e277
 	push bc
 	push de
 	push af
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	and a
 	jr z, .done
 	ld a, [CurPartyMon]
 	ld hl, PartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld [hl], a
 	jr .done
 
@@ -1637,10 +1637,10 @@ GivePoke:: ; e277
 	push bc
 	push de
 	push af
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	and a
 	jr z, .done
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	ld [sBoxMon1Item], a
 
 .done
@@ -1866,10 +1866,10 @@ GetRandomPersonality:
 	ret
 
 .HaveShinyCharm:
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	push af
 	ld a, SHINY_CHARM
-	ld [CurItem], a
+	ld [wCurItem], a
 	push hl
 	push bc
 	push de
@@ -1880,13 +1880,13 @@ GetRandomPersonality:
 	pop hl
 	jr c, .have_shiny_charm
 	pop af
-	ld [CurItem], a
+	ld [wCurItem], a
 	xor a
 	and a
 	ret
 
 .have_shiny_charm
 	pop af
-	ld [CurItem], a
+	ld [wCurItem], a
 	scf
 	ret

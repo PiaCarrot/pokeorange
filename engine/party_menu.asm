@@ -425,7 +425,7 @@ PlacePartyMonEvoStoneCompatibility: ; 5022f
 	jr nz, .loop2
 	dec hl
 	dec hl
-	ld a, [CurItem]
+	ld a, [wCurItem]
 	cp [hl]
 	inc hl
 	inc hl

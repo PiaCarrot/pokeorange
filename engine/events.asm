@@ -874,7 +874,7 @@ DoRepelStep: ; 96bd7
 	ret nz
 
 	ld a, [wRepelType]
-	ld [CurItem], a
+	ld [wCurItem], a
 	ld hl, NumItems
 	call CheckItem
 

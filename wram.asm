@@ -1593,7 +1593,7 @@ wListPointer:: dw ; d100
 wd102:: dw ; d102
 wItemAttributesPtr:: dw ; d104
 
-CurItem:: ds 1 ; d106
+wCurItem:: ds 1 ; d106
 CurItemQuantity:: ; d107
 wMartItemID::
 wd107:: ds 1

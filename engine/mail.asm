@@ -493,7 +493,7 @@ MailboxPC: ; 0x44806
 	ld bc, MAIL_STRUCT_LENGTH
 	call AddNTimes
 	ld a, [hl]
-	ld [CurItem], a
+	ld [wCurItem], a
 	jp CloseSRAM
 ; 0x448d2
 
