@@ -88,6 +88,28 @@ ReadTrainerParty: ; 39771
 	ld [de], a
 .not_item
 
+; dvs?
+	ld a, [OtherTrainerType]
+	bit TRNTYPE_DVS, a
+	jr z, .not_dvs
+
+	push hl
+	ld a, [OTPartyCount]
+	dec a
+	ld hl, OTPartyMon1DVs
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld d, h
+	ld e, l
+	pop hl
+
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+.not_dvs
+
 ; personality?
 	ld a, [OtherTrainerType]
 	bit TRNTYPE_PERSONALITY, a
@@ -171,7 +193,37 @@ ReadTrainerParty: ; 39771
 .copied_pp
 	pop hl
 .not_moves
-
+	; custom DVs may alter stats
+	ld a, [OtherTrainerType]
+	and TRAINERTYPE_DVS
+	jr z, .no_stat_recalc
+	push hl
+	ld a, [OTPartyCount]
+	dec a
+	ld hl, OTPartyMon1MaxHP
+	ld bc, PARTYMON_STRUCT_LENGTH
+	push af
+	call AddNTimes
+	pop af
+	push hl
+	ld hl, OTPartyMon1StatExp - 1
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	pop de
+	ld b, TRUE
+	push de
+	predef CalcPkmnStats
+	pop hl
+	inc hl
+	ld c, [hl]
+	dec hl
+	ld b, [hl]
+	dec hl
+	ld [hl], c
+	dec hl
+	ld [hl], b
+	pop hl
+.no_stat_recalc
 	jp .loop2
 ; 397e3
 
