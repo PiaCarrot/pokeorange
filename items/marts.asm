@@ -18,18 +18,19 @@ MartsEnd
 
 
 TangeloMart: ; 160ed
-	db 6 ; # items
+	db 7 ; # items
 	db POKE_BALL
 	db HEAL_BALL
 	db POTION
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db AWAKENING
+	db REPEL
 	db $ff
 ; 160f3
 
 MikanMart: ; 160fa
-	db 11 ; # items
+	db 12 ; # items
 	db POKE_BALL
 	db HEAL_BALL
 	db POTION
@@ -38,6 +39,7 @@ MikanMart: ; 160fa
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db AWAKENING
+	db REPEL
 	db X_DEFEND
 	db X_ATTACK
 	db X_SPEED
@@ -45,7 +47,7 @@ MikanMart: ; 160fa
 ; 16106
 
 MandarinNorth: ; 16106
-	db 13 ; # items
+	db 14 ; # items
 	db POKE_BALL
 	db HEAL_BALL
 	db DUSK_BALL
@@ -56,6 +58,7 @@ MandarinNorth: ; 16106
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db AWAKENING
+	db REPEL
 	db X_DEFEND
 	db X_ATTACK
 	db X_SPEED
@@ -99,7 +102,7 @@ SunburstMart3: ; 16121
 ; 1612b
 
 KinnowMart:
-	db 10
+	db 11
 	db HEAL_BALL
 	db DUSK_BALL
 	db GREAT_BALL
@@ -107,21 +110,23 @@ KinnowMart:
 	db ESCAPE_ROPE
 	db FULL_HEAL
 	db REVIVE
+	db SUPER_REPEL
 	db X_DEFEND
 	db X_ACCURACY
 	db X_SPEED
 	db $ff
 
 Route58Mart:
-	db 4
+	db 5
 	db SUPER_POTION
 	db FULL_HEAL
 	db ICE_HEAL
 	db ESCAPE_ROPE
+	db MAX_REPEL
 	db $ff
 
 MoroMart:
-	db 12
+	db 13
 	db HEAL_BALL
 	db DUSK_BALL
 	db GREAT_BALL
@@ -130,6 +135,7 @@ MoroMart:
 	db PARLYZ_HEAL
 	db AWAKENING
 	db FULL_HEAL
+	db SUPER_REPEL
 	db X_DEFEND
 	db X_ATTACK
 	db X_ACCURACY
@@ -137,7 +143,7 @@ MoroMart:
 	db $ff
 	
 MurcottMart:
-	db 8
+	db 9
 	db HEAL_BALL
 	db DUSK_BALL
 	db GREAT_BALL
@@ -145,6 +151,7 @@ MurcottMart:
 	db REVIVE
 	db FULL_HEAL
 	db HEAVY_BALL
+	db MAX_REPEL
 	db X_ACCURACY
 	db X_ATTACK
 	db X_SPEED
