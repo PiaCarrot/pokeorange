@@ -25,6 +25,7 @@ TangeloMart: ; 160ed
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db AWAKENING
+	db REPEL
 	db $ff
 ; 160f3
 
@@ -38,6 +39,7 @@ MikanMart: ; 160fa
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db AWAKENING
+	db REPEL
 	db X_DEFEND
 	db X_ATTACK
 	db X_SPEED
@@ -56,6 +58,7 @@ MandarinNorth: ; 16106
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db AWAKENING
+	db REPEL
 	db X_DEFEND
 	db X_ATTACK
 	db X_SPEED
@@ -107,6 +110,7 @@ KinnowMart:
 	db ESCAPE_ROPE
 	db FULL_HEAL
 	db REVIVE
+	db SUPER_REPEL
 	db X_DEFEND
 	db X_ACCURACY
 	db X_SPEED
@@ -118,6 +122,7 @@ Route58Mart:
 	db FULL_HEAL
 	db ICE_HEAL
 	db ESCAPE_ROPE
+	db MAX_REPEL
 	db $ff
 
 MoroMart:
@@ -130,6 +135,7 @@ MoroMart:
 	db PARLYZ_HEAL
 	db AWAKENING
 	db FULL_HEAL
+	db SUPER_REPEL
 	db X_DEFEND
 	db X_ATTACK
 	db X_ACCURACY
@@ -145,6 +151,7 @@ MurcottMart:
 	db REVIVE
 	db FULL_HEAL
 	db HEAVY_BALL
+	db MAX_REPEL
 	db X_ACCURACY
 	db X_ATTACK
 	db X_SPEED
