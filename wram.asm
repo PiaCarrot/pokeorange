@@ -2393,9 +2393,8 @@ wParkBallsRemaining:: ds 1
 	ds 36
 wLuckyNumberShowFlag:: ds 2 ; dc9d
 wLuckyIDNumber:: ds 2 ; dc9f
-wRepelEffect:: ds 1 ; If a Repel is in use, it contains the nr of steps it's still active
+wRepelEffect:: ds 2 ; If a Repel is in use, it contains the nr of steps it's still active
 wRepelType:: ds 1
-	ds 1
 
 wPlayerDataEnd::
 

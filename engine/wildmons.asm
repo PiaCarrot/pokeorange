@@ -344,8 +344,9 @@ ChooseWildEncounter: ; 2a14f
 
 CheckRepelEffect:: ; 2a1df
 ; If there is no active Repel, there's no need to be here.
-	ld a, [wRepelEffect]
-	and a
+	ld hl, wRepelEffect
+	ld a, [hli]
+	or [hl]
 	jr z, .encounter
 ; Get the first Pokemon in your party that isn't fainted.
 	ld hl, PartyMon1HP
