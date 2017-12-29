@@ -335,6 +335,33 @@ const_value set 1
 	const SPINDA_Z_FORM
 NUM_SPINDA EQU const_value +- 1
 
+SPINDA_A_DVS EQUS "$99, $db"
+SPINDA_B_DVS EQUS "$9b, $9f"
+SPINDA_C_DVS EQUS "$9b, $fb"
+SPINDA_D_DVS EQUS "$9d, $bf"
+SPINDA_E_DVS EQUS "$9f, $9b"
+SPINDA_F_DVS EQUS "$9f, $df"
+SPINDA_G_DVS EQUS "$b9, $bb"
+SPINDA_H_DVS EQUS "$b9, $fe"
+SPINDA_I_DVS EQUS "$bb, $db"
+SPINDA_J_DVS EQUS "$bd, $9f"
+SPINDA_K_DVS EQUS "$bd, $fb"
+SPINDA_L_DVS EQUS "$bf, $bf"
+SPINDA_M_DVS EQUS "$d9, $9b"
+SPINDA_N_DVS EQUS "$d9, $df"
+SPINDA_O_DVS EQUS "$db, $bb"
+SPINDA_P_DVS EQUS "$db, $fe"
+SPINDA_Q_DVS EQUS "$dd, $db"
+SPINDA_R_DVS EQUS "$df, $9f"
+SPINDA_S_DVS EQUS "$df, $fb"
+SPINDA_T_DVS EQUS "$f9, $bf"
+SPINDA_U_DVS EQUS "$fb, $9b"
+SPINDA_V_DVS EQUS "$fb, $df"
+SPINDA_W_DVS EQUS "$fd, $bb"
+SPINDA_X_DVS EQUS "$fd, $fe"
+SPINDA_Y_DVS EQUS "$fe, $db"
+SPINDA_Z_DVS EQUS "$fe, $fe"
+
 const_value set 1
 	const MAGIKARP_PLAIN_FORM
 	const MAGIKARP_SKELLY_FORM
@@ -351,6 +378,21 @@ const_value set 1
 	const MAGIKARP_FOREHEAD_FORM
 	const MAGIKARP_MASK_FORM
 NUM_MAGIKARP EQU const_value +- 1
+
+MAGIKARP_PLAIN_DVS    EQUS "$9b, $9d"
+MAGIKARP_SKELLY_DVS   EQUS "$9d, $bb"
+MAGIKARP_CALICO1_DVS  EQUS "$9f, $d9"
+MAGIKARP_CALICO2_DVS  EQUS "$b9, $df"
+MAGIKARP_CALICO3_DVS  EQUS "$bb, $fd"
+MAGIKARP_TWO_TONE_DVS EQUS "$bf, $9b"
+MAGIKARP_ORCA_DVS     EQUS "$d9, $b9"
+MAGIKARP_DAPPLES_DVS  EQUS "$db, $bf"
+MAGIKARP_TIGER_DVS    EQUS "$dd, $dd"
+MAGIKARP_ZEBRA_DVS    EQUS "$df, $fb"
+MAGIKARP_STRIPE_DVS   EQUS "$fb, $99"
+MAGIKARP_BUBBLES_DVS  EQUS "$fd, $9f"
+MAGIKARP_FOREHEAD_DVS EQUS "$fe, $bd"
+MAGIKARP_MASK_DVS     EQUS "$fe, $fe"
 
 const_value set 1
 	const SQUIRTLE_NORMAL_FORM
