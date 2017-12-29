@@ -1154,10 +1154,10 @@ OpeningLines: ; 63e2
 	ld hl, VTiles2 tile $50
 	lb bc, BANK(OpeningLinesGFX), 38
 	call Request2bpp
-	hlcoord 5, 7
+	hlcoord 3, 7
 	ld de, .Line1
 	call .PlaceLine
-	hlcoord 0, 9
+	hlcoord 2, 9
 	ld de, .Line2
 	call .PlaceLine
 	hlcoord 6, 11
@@ -1171,11 +1171,10 @@ OpeningLines: ; 63e2
 	jr .PlaceLine
 ; 63fd
 
-.Line1: ; Pokémon Orange
-	db $50, $51, $52, $53, $54, $55, $56, $57, $58, $59, $ff
-.Line2: ; 2017 HotY Nominee Edition Beta
-	db $5a, $5b, $5c, $5d, $5e, $5f, $60, $61, $62, $63
-	db $64, $65, $66, $67, $68, $69, $6a, $6b, $6c, $6d, $ff
+.Line1: ; Pokémon Orange Beta
+	db $50, $51, $52, $53, $54, $55, $56, $57, $58, $59, $5a, $5b, $5c, $5d, $ff
+.Line2: ; 2017 HotY Nominee Edition
+	db $5e, $5f, $60, $61, $62, $63, $64, $65, $66, $67, $68, $69, $6a, $6b, $6c, $6d, $ff
 .Line3: ; (c) 2016-2018
 	db $6e, $6f, $70, $71, $72, $73, $74, $75, $ff
 ; 642e
