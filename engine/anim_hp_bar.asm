@@ -101,6 +101,7 @@ HPBarAnim_UpdateVariables: ; d6e2
 	ld a, [hli]
 	dec a
 	cp [hl]
+	jr c, .animdone
 	jr z, .animdone
 	jr .incdecdone
 
@@ -108,7 +109,7 @@ HPBarAnim_UpdateVariables: ; d6e2
 	ld a, [hli]
 	inc a
 	cp [hl]
-	jr z, .animdone
+	jr nc, .animdone
 .incdecdone
 	dec hl
 	ld [hl], a

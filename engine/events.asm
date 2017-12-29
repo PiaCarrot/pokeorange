@@ -865,12 +865,17 @@ CountStep: ; 96b79
 ; 96bd3
 
 DoRepelStep: ; 96bd7
-	ld a, [wRepelEffect]
-	and a
+	ld hl, wRepelEffect
+	ld a, [hli]
+	ld b, a
+	or [hl]
 	ret z
-
-	dec a
-	ld [wRepelEffect], a
+	ld c, [hl]
+	dec bc
+	ld a, c
+	ld [hld], a
+	ld [hl], b
+	or b
 	ret nz
 
 	ld a, [wRepelType]

@@ -2196,28 +2196,32 @@ EscapeRope: ; f44f
 
 
 SuperRepel: ; f462
-	ld b, 200
+	ld b, 200 / 2
 	jr UseRepel
 ; f466
 
 MaxRepel: ; f466
-	ld b, 250
+	ld b, 300 / 2
 	jr UseRepel
 ; f466
 
 Repel: ; f46a
-	ld b, 100
+	ld b, 100 / 2
 ; f46c
 
 UseRepel: ; f46c
-	ld a, [wRepelEffect]
-	and a
+	ld hl, wRepelEffect
+	ld a, [hli]
+	or [hl]
 	ld hl, TextJump_RepelUsedEarlierIsStillInEffect
 	jp nz, PrintText
 
-	ld a, b
+	xor a
+	sla b
+	rla
 	ld [wRepelEffect], a
-
+	ld a, b
+	ld [wRepelEffect + 1], a
 	ld a, [wCurItem]
 	ld [wRepelType], a
 

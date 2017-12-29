@@ -436,8 +436,8 @@ UseAnotherRepelScript::
 	yesorno
 	iffalse .done
 	callasm DoItemEffect
-.done
 	waitbutton
+.done
 	closetext
 	end
 
