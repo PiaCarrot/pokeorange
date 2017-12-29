@@ -193,26 +193,26 @@
 	db 5 percent, 5 percent, 5 percent ; encounter rates: morn/day/nite
 	; morn
 	db 14, GEODUDE
-	db 14, ZUBAT
+	db 14, CHINGLING
 	db 15, GEODUDE
-	db 15, ZUBAT
-	db 16, GEODUDE
+	db 15, MAGBY
+	db 16, PARAS
 	db 16, ZUBAT
 	db 13, MARILL
 	; day
 	db 14, GEODUDE
-	db 14, ZUBAT
+	db 14, CHINGLING
 	db 15, GEODUDE
-	db 15, ZUBAT
-	db 16, GEODUDE
+	db 15, MAGBY
+	db 16, PARAS
 	db 16, ZUBAT
 	db 13, MARILL
 	; nite
 	db 14, GEODUDE
-	db 14, ZUBAT
+	db 14, CHINGLING
 	db 15, GEODUDE
-	db 15, ZUBAT
-	db 16, GEODUDE
+	db 15, MAGBY
+	db 16, PARAS
 	db 16, ZUBAT
 	db 13, MARILL
 
@@ -220,26 +220,26 @@
 	db 5 percent, 5 percent, 5 percent ; encounter rates: morn/day/nite
 	; morn
 	db 14, GEODUDE
-	db 14, ZUBAT
+	db 14, CHINGLING
 	db 15, GEODUDE
-	db 15, ZUBAT
-	db 16, GEODUDE
+	db 15, MAGBY
+	db 16, PARAS
 	db 16, ZUBAT
 	db 13, MARILL
 	; day
 	db 14, GEODUDE
-	db 14, ZUBAT
+	db 14, CHINGLING
 	db 15, GEODUDE
-	db 15, ZUBAT
-	db 16, GEODUDE
+	db 15, MAGBY
+	db 16, PARAS
 	db 16, ZUBAT
 	db 13, MARILL
 	; nite
 	db 14, GEODUDE
-	db 14, ZUBAT
+	db 14, CHINGLING
 	db 15, GEODUDE
-	db 15, ZUBAT
-	db 16, GEODUDE
+	db 15, MAGBY
+	db 16, PARAS
 	db 16, ZUBAT
 	db 13, MARILL
 
