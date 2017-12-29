@@ -200,7 +200,7 @@ Trovitopolis_MapEventHeader::
 .BGEvents: db 8
 	signpost 37, 59, SIGNPOST_READ, TrovitopolisSign
 	signpost 17, 49, SIGNPOST_READ, TrovitopolisMayorSign
-	signpost 15, 33, SIGNPOST_READ, TrovitopolisDeptStoreSign
+	signpost 15, 37, SIGNPOST_READ, TrovitopolisDeptStoreSign
 	signpost 20, 10, SIGNPOST_READ, TrovitopolisPortSign
 	signpost 25, 19, SIGNPOST_READ, TrovitopolisSchoolSign
 	signpost 22, 46, SIGNPOST_READ, TrovitopolisMoveDeleterSign
