@@ -13,11 +13,16 @@ MurcottIsland_MapScriptHeader::
 .Triggers: db 0
 
 .Callbacks:
-	db 1
+	db 2
 
 	; callbacks
 
 	dbw MAPCALLBACK_OBJECTS, .EggCheckCallback
+	dbw MAPCALLBACK_NEWMAP, .FlyPoint
+
+.FlyPoint:
+	setflag ENGINE_FLYPOINT_MURCOTT
+	return
 
 .EggCheckCallback:
 	checkflag ENGINE_DAYCARE_MAN_HAS_EGG

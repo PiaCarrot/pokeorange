@@ -2,7 +2,12 @@ KinnowIsland_MapScriptHeader::
 
 .Triggers: db 0
 
-.Callbacks: db 0
+.Callbacks: db 1
+	dbw MAPCALLBACK_NEWMAP, .FlyPoint
+
+.FlyPoint:
+	setflag ENGINE_FLYPOINT_KINNOW
+	return
 
 KinnowPokeFanMScript:
 	jumptextfaceplayer KinnowPokeFanMText
