@@ -1753,7 +1753,7 @@ Pokedex_LoadSelectedMonTiles: ; 4143b
 	call Pokedex_GetSelectedMon
 	call Pokedex_CheckSeen
 	jr z, .QuestionMark
-	ld a, [wFirstSpindaSeen]
+	ld a, 1;[wFirstSpindaSeen]
 	ld [MonVariant], a
 	ld a, [wd265]
 	ld [CurPartySpecies], a
