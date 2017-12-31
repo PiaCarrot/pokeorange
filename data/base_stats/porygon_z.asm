@@ -1,4 +1,4 @@
-	db PORYGONZ ; 234
+	db PORYGON_Z ; 234
 
 	db  85,  80,  70,  90,  135,  75
 	;   hp  atk  def  spd  sat  sdf

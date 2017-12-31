@@ -16,7 +16,7 @@ DeptOldLadyRoofScript:
 	yesorno
 	iffalse .RefusedDeptStoreRoof
 	checkmoney $0, 2000
-	if_equal $2, NotEnoughMoneyDeptRoofText
+	if_equal $2, .NotEnoughMoney
 	checkcode VAR_PARTYCOUNT
 	if_equal PARTY_LENGTH, .PartyFull
 	giveegg TOGEPI, 5
@@ -30,28 +30,34 @@ DeptOldLadyRoofScript:
 	setevent EVENT_BOUGHT_TOGEPI_EGG
 	closetext
 	end
-	
+
 .SoldOut:
 	writetext AlreadyBoughtTogepiEggText
 	waitbutton
 	closetext
 	end
-	
+
+.NotEnoughMoney:
+	writetext NotEnoughMoneyDeptRoofText
+	waitbutton
+	closetext
+	end
+
 .PartyFull:
 	writetext DeptRoofPartyFullText
 	waitbutton
 	closetext
 	end
-	
+
 .RefusedDeptStoreRoof:
 	writetext RefusedDeptStoreLadyText
 	waitbutton
 	closetext
 	end
-	
+
 .eggname
 	db "EGG@"
-	
+
 AlreadyBoughtTogepiEggText:
 	text "I'm all sold out!"
 	done
@@ -59,27 +65,27 @@ AlreadyBoughtTogepiEggText:
 DeptOldLadyText1:
 	text "I sell very rare"
 	line "#MON EGGs."
-	
+
 	para "I have one more!"
 	line "It can be yours"
 	cont "for only ¥2000!"
 	cont "How about it?"
 	done
-	
+
 NotEnoughMoneyDeptRoofText:
 	text "You don't have"
 	line "enough money!"
 	done
-	
+
 DeptRoofPartyFullText:
 	text "You don't have"
 	line "enough room!"
 	done
-	
+
 RefusedDeptStoreLadyText:
 	text "Very well, then."
 	done
-	
+
 PleasureDoingBusinessDeptStoreText:
 	text "Pleasure doing"
 	line "business with you."
