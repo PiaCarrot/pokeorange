@@ -294,8 +294,8 @@ SpriteAnimFrameData: ; 8d6e6
 .Frameset_25:
 	frame SPRITE_ANIM_FRAME_IDX_50,  2
 	frame SPRITE_ANIM_FRAME_IDX_5B,  2
-	frame SPRITE_ANIM_FRAME_IDX_50,  2
-	frame SPRITE_ANIM_FRAME_IDX_5B,  2, OAM_X_FLIP
+	frame SPRITE_ANIM_FRAME_IDX_1E,  2
+	frame SPRITE_ANIM_FRAME_IDX_5B,  2
 	dorestart
 
 .Frameset_26:
@@ -486,7 +486,7 @@ SpriteAnimOAMData: ; 8d94d
 	dbw $10, .OAMData_1b ; 1b
 	dbw $29, .OAMData_1b ; 1c
 	dbw $42, .OAMData_1b ; 1d
-	dbw $f8, .OAMData_1e ; 1e
+	dbw $08, .OAMData_50 ; 1e
 	dbw $fa, .OAMData_1e ; 1f
 	dbw $00, .OAMData_20 ; 20
 	dbw $00, .OAMData_21 ; 21
