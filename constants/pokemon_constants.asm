@@ -234,7 +234,7 @@ const_value set 1
 	const PHANPY
 	const DONPHAN
 	const PORYGON2
-	const PORYGONZ
+	const PORYGON_Z
 	const LICKILICKY
 	const TYROGUE
 	const HITMONTOP
