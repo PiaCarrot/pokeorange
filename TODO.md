@@ -1,14 +1,20 @@
 # To Do
 
-## Content
+## Bugs
 
 - Unnamed Island 2 Fishing Contest (requires some asm magix)
+- Mistimed battle animations from 60FPS
+- Caught Pokémon may have their personality (gender + shiny + form) changed
+- Sweet Kiss can sometimes cause Poison
+
+## Content
+
 - Method to get last other starter (with exclusive move)
 - Pokémon TCG2-esque credits
 
 ## Features
 
-- Prism DED cry code
+- Prism DED cry code (after content is finished)
 - When releasing Pokemon, make sure it is not last Pokemon you own with Surf
 
 ## Graphics
