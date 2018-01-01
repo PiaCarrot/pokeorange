@@ -153,6 +153,7 @@ INCLUDE "maps/MoroHouse1.asm"
 INCLUDE "maps/MoroHouse2.asm"
 INCLUDE "maps/MoroPokeCenter.asm"
 INCLUDE "maps/MoroMart.asm"
+INCLUDE "maps/CleopatraIsland.asm"
 
 SECTION "Map Scripts 10", ROMX
 

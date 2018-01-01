@@ -58,6 +58,7 @@ MAP_NONE EQU 0
 	mapgroup MORO_HOUSE_2, 4, 4
 	mapgroup MORO_POKE_CENTER, 4, 5
 	mapgroup MORO_MART, 4, 6
+	mapgroup CLEOPATRA_ISLAND, 20, 20
 
 	newgroup ; 4
 

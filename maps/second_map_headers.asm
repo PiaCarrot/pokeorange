@@ -105,6 +105,8 @@
 
 	map_header_2 FishingContest, FISHING_CONTEST, 53, WEST
 	connection west, UNNAMED_ISLAND_2, UnnamedIsland2, -1, 0, 40, FISHING_CONTEST
+	
+	map_header_2 CleopatraIsland, CLEOPATRA_ISLAND, 53, 0
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0

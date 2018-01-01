@@ -112,3 +112,6 @@ TrovitaGym_BlockData:
 	
 TrovitopolisPrimaSchool_BlockData:
 	INCBIN "maps/TrovitopolisPrimaSchool.blk"
+	
+CleopatraIsland_BlockData:
+	INCBIN "maps/CleopatraIsland.blk"
