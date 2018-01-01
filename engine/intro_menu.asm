@@ -1073,11 +1073,13 @@ TitleScreenMain: ; 6304
 .check_start
 	ld a, [hl]
 	and START | A_BUTTON
-	jr nz, .incave
+	jr nz, .main_menu
 	ret
 
-.incave
-	ld a, 0
+.main_menu
+	ld a, DRAGONITE
+	call PlayCry
+	xor a
 	jr .done
 
 .delete_save_data
