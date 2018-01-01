@@ -2,24 +2,22 @@ INCLUDE "includes.asm"
 
 
 SECTION "Pic Pointers", ROMX
+
 PicPointers:: INCLUDE "gfx/pics/pic_pointers.asm"
 
-SECTION "Spinda Pic Pointers", ROMX
-SpindaPicPointers:: INCLUDE "gfx/pics/spinda_pic_pointers.asm"
 
-SECTION "Lycanroc Pic Pointers", ROMX
-LycanrocPicPointers:: INCLUDE "gfx/pics/lycanroc_pic_pointers.asm"
+SECTION "Variant Pic Pointers", ROMX
 
-SECTION "Squirtle Pic Pointers", ROMX
-SquirtlePicPointers:: INCLUDE "gfx/pics/squirtle_pic_pointers.asm"
+SpindaPicPointers::    INCLUDE "gfx/pics/spinda_pic_pointers.asm"
+LycanrocPicPointers::  INCLUDE "gfx/pics/lycanroc_pic_pointers.asm"
+SquirtlePicPointers::  INCLUDE "gfx/pics/squirtle_pic_pointers.asm"
+MeowthPicPointers::    INCLUDE "gfx/pics/meowth_pic_pointers.asm"
+PoliwrathPicPointers:: INCLUDE "gfx/pics/poliwrath_pic_pointers.asm"
+MagikarpPicPointers::  INCLUDE "gfx/pics/magikarp_pic_pointers.asm"
 
-SECTION "Meowth Pic Pointers", ROMX
-MeowthPicPointers:: INCLUDE "gfx/pics/meowth_pic_pointers.asm"
-
-SECTION "Magikarp Pic Pointers", ROMX
-MagikarpPicPointers:: INCLUDE "gfx/pics/magikarp_pic_pointers.asm"
 
 SECTION "Trainer Pic Pointers", ROMX
+
 TrainerPicPointers:: INCLUDE "gfx/pics/trainer_pic_pointers.asm"
 
 
@@ -393,6 +391,7 @@ PersianBackpic:      INCBIN "gfx/pics/persian/back.2bpp.lz"
 PichuFrontpic:       INCBIN "gfx/pics/pichu/front.2bpp.lz"
 PidgeyBackpic:       INCBIN "gfx/pics/pidgey/back.2bpp.lz"
 PoliwagFrontpic:     INCBIN "gfx/pics/poliwag/front.2bpp.lz"
+PoliwrathTadBackpic:
 PoliwrathBackpic:    INCBIN "gfx/pics/poliwrath/back.2bpp.lz"
 PonytaBackpic:       INCBIN "gfx/pics/ponyta/back.2bpp.lz"
 PupitarBackpic:      INCBIN "gfx/pics/pupitar/back.2bpp.lz"
@@ -731,6 +730,7 @@ LycanrocDuskBackpic:      INCBIN "gfx/pics/lycanroc_dusk/back.2bpp.lz"
 SECTION "Pics 22", ROMX
 
 MeowthRocketFrontpic:     INCBIN "gfx/pics/meowth_rocket/front.2bpp.lz"
+PoliwrathTadFrontpic:     INCBIN "gfx/pics/poliwrath_tad/front.2bpp.lz"
 SquirtleGlassesFrontpic:  INCBIN "gfx/pics/squirtle_glasses/front.2bpp.lz"
 SquirtleGlassesBackpic:   INCBIN "gfx/pics/squirtle_glasses/back.2bpp.lz"
 MagikarpSkellyFrontpic:   INCBIN "gfx/pics/magikarp_skelly/front.2bpp.lz"

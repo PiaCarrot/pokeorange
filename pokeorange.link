@@ -129,10 +129,7 @@ ROMX $20
 	"bank20"
 ROMX $21
 	org $4000
-	"Lycanroc Pic Pointers"
-	"Squirtle Pic Pointers"
-	"Meowth Pic Pointers"
-	"Magikarp Pic Pointers"
+	"Variant Pic Pointers"
 ROMX $22
 	org $4000
 	"bank22"
@@ -253,7 +250,6 @@ ROMX $48
 	"Pics 1"
 ROMX $49
 	org $4000
-	"Spinda Pic Pointers"
 	"Pics 2"
 ROMX $4a
 	org $4000
