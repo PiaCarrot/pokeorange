@@ -233,7 +233,7 @@ HPBarAnim_BGMapUpdate: ; d7c9
 	ld a, b
 	ld [hBGMapHalf], a
 	ld a, c
-	ld hl, VBGMap0 + $4d
+	hlbgcoord 13, 2
 	ld bc, BG_MAP_WIDTH * 2
 	call AddNTimes
 	ld a, [wCurHPAnimPal]
@@ -251,22 +251,22 @@ HPBarAnim_BGMapUpdate: ; d7c9
 	and 3
 	jr nz, .waithbl1
 	ld a, b
-	rept 6
+rept 6
 	ld [hli], a
-	endr
+endr
 	xor a
 	ld [rVBK], a
 	ei
 	jp DelayFrame
 
 .enemy_hp_bar
-	lb bc, $94, $0
-	ld hl, BGPals + 2 palettes + 4
+	lb bc, $92, $0
+	ld hl, BGPals + 2 palettes + 2
 	jr .finish
 
 .player_hp_bar
-	lb bc, $9c, $1
-	ld hl, BGPals + 3 palettes + 4
+	lb bc, $9a, $1
+	ld hl, BGPals + 3 palettes + 2
 .finish
 	xor a
 	ld [hCGBPalUpdate], a
@@ -287,8 +287,10 @@ HPBarAnim_BGMapUpdate: ; d7c9
 	jr nz, .waithb3
 	ld a, b
 	ld [rBGPI], a
+rept 3
 	ld a, [hli]
 	ld [rBGPD], a
+endr
 	ld a, [hl]
 	ld [rBGPD], a
 	ei
