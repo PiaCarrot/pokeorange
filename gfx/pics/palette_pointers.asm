@@ -537,3 +537,7 @@ LycanrocMidnightShinyPalette: INCLUDE "gfx/pics/lycanroc_midnight/shiny.pal"
 LycanrocDuskPalettes:
 LycanrocDuskPalette:      INCLUDE "gfx/pics/lycanroc_dusk/normal.pal"
 LycanrocDuskShinyPalette: INCLUDE "gfx/pics/lycanroc_dusk/shiny.pal"
+
+PoliwrathTadPalettes:
+PoliwrathTadPalette:      INCLUDE "gfx/pics/poliwrath_tad/normal.pal"
+PoliwrathTadShinyPalette: INCLUDE "gfx/pics/poliwrath_tad/shiny.pal"

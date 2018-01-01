@@ -534,7 +534,7 @@ TraceyGroup:
 		db THUNDER_WAVE
 		db QUICK_ATTACK
 		db DOUBLE_TEAM
-		
+
 	db 32, SCYTHER
 		db SLASH
 		db SWORDS_DANCE
@@ -984,7 +984,7 @@ ButchGroup:
 	db 21, MANKEY
 
 	db $ff ; end
-	
+
 ; ================
 
 	; EXECUTIVEM (2)
@@ -998,25 +998,25 @@ ButchGroup:
 		db CLAMP
 		db HAIL
 		db SURF
-	
+
 	db 41, PRIMEAPE
 		db DYNAMICPUNCH
 		db ROCK_SMASH
 		db LOCK_ON
 		db DOUBLE_KICK
-		
+
 	db 39, SHUCKLE
 		db TOXIC
 		db WRAP
 		db REST
 		db ENCORE
-		
+
 	db 41, HITMONTOP
 		db TRIPLE_KICK
 		db RAPID_SPIN
 		db DOUBLE_KICK
 		db FOCUS_ENERGY
-	
+
 	db $ff ; end
 
 ; ================
@@ -1052,25 +1052,25 @@ CassidyGroup:
 		db WHIRLPOOL
 		db RAIN_DANCE
 		db WATERFALL
-	
+
 	db 41, HYPNO
 		db HYPNOSIS
 		db PSYCHIC_M
 		db NASTY_PLOT
 		db REST
-		
+
 	db 39, MIMIKYU
 		db SHADOW_SNEAK
 		db ASTONISH
 		db SHADOW_BALL
 		db ENDURE
-		
+
 	db 41, RATICATE
 		db HYPER_FANG
 		db FOCUS_ENERGY
 		db REST
 		db SLEEP_TALK
-	
+
 	db $ff ; end
 ; ================================
 
@@ -1087,37 +1087,37 @@ CassidyButchGroup:
 		db CLAMP
 		db HAIL
 		db SURF
-	
+
 	db 41, PRIMEAPE
 		db DYNAMICPUNCH
 		db ROCK_SMASH
 		db LOCK_ON
 		db DOUBLE_KICK
-		
+
 	db 41, HITMONTOP
 		db TRIPLE_KICK
 		db RAPID_SPIN
 		db DOUBLE_KICK
 		db FOCUS_ENERGY
-		
+
 	db 41, HYPNO
 		db HYPNOSIS
 		db PSYCHIC_M
 		db NASTY_PLOT
 		db REST
-		
+
 	db 39, MIMIKYU
 		db SHADOW_SNEAK
 		db ASTONISH
 		db SHADOW_BALL
 		db ENDURE
-		
+
 	db 41, RATICATE
 		db HYPER_FANG
 		db FOCUS_ENERGY
 		db REST
 		db SLEEP_TALK
-		
+
 	db $ff
 ; ================================
 
@@ -1129,19 +1129,19 @@ JamesGroup:
 	; James (1)
 	db "JAMES@"
 	db TRAINERTYPE_MOVES
-	
+
 	db 38, WEEZING
 		db SLUDGE_BOMB
 		db TOXIC
 		db BODY_SLAM
 		db VENOSHOCK
-		
+
 	db 37, VICTREEBEL
 		db VINE_WHIP
 		db COTTON_SPORE
 		db SLUDGE_BOMB
 		db BITE
-	
+
 	db $ff
 ; ================================
 
@@ -1153,25 +1153,25 @@ JessieGroup:
 	; Jessie (1)
 	db "JESSIE@"
 	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
-	
+
 	db 38, ARBOK, FEMALE_MASK
 		db CRUNCH
 		db POISON_STING
 		db MEAN_LOOK
 		db WRAP
-		
+
 	db 37, LICKITUNG, FEMALE_MASK
 		db ROLLOUT
 		db DEFENSE_CURL
 		db LICK
 		db TAKE_DOWN
-		
+
 	db 35, MEOWTH, MALE_MASK | MEOWTH_ROCKET_FORM
 		db FURY_SWIPES
 		db AGILITY
 		db TAIL_WHIP
 		db SLASH
-	
+
 	db $ff
 ; ================================
 
@@ -1223,7 +1223,7 @@ JessieJamesGroup:
 		db TOXIC
 		db BODY_SLAM
 		db VENOSHOCK
-		
+
 	db 37, VICTREEBEL, MALE_MASK
 		db VINE_WHIP
 		db COTTON_SPORE
@@ -1235,13 +1235,13 @@ JessieJamesGroup:
 		db POISON_STING
 		db MEAN_LOOK
 		db WRAP
-		
+
 	db 37, LICKITUNG, FEMALE_MASK
 		db ROLLOUT
 		db DEFENSE_CURL
 		db LICK
 		db TAKE_DOWN
-		
+
 	db 35, MEOWTH, MALE_MASK | MEOWTH_ROCKET_FORM
 		db FURY_SWIPES
 		db AGILITY
@@ -1258,13 +1258,13 @@ MomGroup:
 
 	; MOM (1)
 	db TRAINERTYPE_MOVES
-	
+
 	db 95, EXEGGUTOR
 		db OUTRAGE
 		db DRAGON_PULSE
 		db SUNNY_DAY
 		db SOLARBEAM
-		
+
 	db 99, CLEFABLE
 		db DAZZLINGLEAM
 		db HEAL_BELL
@@ -1276,26 +1276,26 @@ MomGroup:
 		db FIRE_BLAST
 		db STEEL_WING
 		db GLARE
-		
+
 	db 94, KINGDRA
 		db HYDRO_PUMP
 		db DRAGON_PULSE
 		db SUBSTITUTE
 		db LOCK_ON
-		
+
 	db 96, SALAZZLE
 		db FLAMETHROWER
 		db TOXIC
 		db VENOSHOCK
 		db AGILITY
-		
+
 	db 98, RAICHU
 		db VOLT_TACKLE
 		db DOUBLE_TEAM
 		db ENCORE
 		db NASTY_PLOT
 
-	db $ff ; end	
+	db $ff ; end
 ; ================
 ; ================================
 
@@ -2115,7 +2115,7 @@ CooltrainerMGroup:
 	db 25, SEEL
 
 	db $ff
-	
+
 ; ================
 
 	; COOLTRAINERM (2)
@@ -2126,7 +2126,7 @@ CooltrainerMGroup:
 	db 35, HYPNO
 
 	db $ff
-	
+
 ; ================
 
 	; COOLTRAINERM (3)
@@ -2135,6 +2135,26 @@ CooltrainerMGroup:
 
 	db 38, STEELIX
 	db 34, MAGMAR
+
+	db $ff
+
+; ================
+
+	; COOLTRAINERM (4)
+	db "TAD@"
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
+
+	db 40, HITMONTOP, MALE_MASK
+		db PROTECT
+		db PURSUIT
+		db TRIPLE_KICK
+		db COUNTER
+
+	db 40, POLIWRATH, MALE_MASK | POLIWRATH_TAD_FORM
+		db DOUBLE_TEAM
+		db HYPNOSIS
+		db BODY_SLAM
+		db ICE_BEAM
 
 	db $ff
 
@@ -2320,7 +2340,7 @@ CrossGroup:
 		db NO_MOVE
 
 	db $ff ; end
-	
+
 ; ================ MT NAVEL (PICK CHARMANDER)
 
 	; CROSS (4)
@@ -2340,7 +2360,7 @@ CrossGroup:
 		db BITE
 		db FORESIGHT
 		db FRUSTRATION
-		
+
 	db 24, FLAREON, MALE_MASK
 		db FLAMETHROWER
 		db BITE
@@ -2348,7 +2368,7 @@ CrossGroup:
 		db SUNNY_DAY
 
 	db $ff ; end
-	
+
 ; ================ MT NAVEL (PICK SQUIRTLE)
 
 	; CROSS (5)
@@ -2368,7 +2388,7 @@ CrossGroup:
 		db BITE
 		db FORESIGHT
 		db FRUSTRATION
-		
+
 	db 24, VAPOREON, MALE_MASK
 		db BUBBLEBEAM
 		db BITE
@@ -2376,7 +2396,7 @@ CrossGroup:
 		db RAIN_DANCE
 
 	db $ff ; end
-	
+
 ; ================ MT NAVEL (PICK BULBASAUR)
 
 	; CROSS (6)
@@ -2396,7 +2416,7 @@ CrossGroup:
 		db BITE
 		db FORESIGHT
 		db FRUSTRATION
-		
+
 	db 24, LEAFEON, MALE_MASK
 		db RAZOR_LEAF
 		db BITE
@@ -2404,7 +2424,7 @@ CrossGroup:
 		db GROWTH
 
 	db $ff ; end
-	
+
 ; ================ MURCOTT (PICK CHARMANDER)
 
 	; CROSS (7)
@@ -2424,13 +2444,13 @@ CrossGroup:
 		db CRUNCH
 		db FORESIGHT
 		db ROCK_SMASH
-		
+
 	db 31, FLAREON, MALE_MASK
 		db FLAMETHROWER
 		db BITE
 		db QUICK_ATTACK
 		db SUNNY_DAY
-		
+
 	db 29, SKARMORY, MALE_MASK
 		db STEEL_WING
 		db AERIAL_ACE
@@ -2438,7 +2458,7 @@ CrossGroup:
 		db WHIRLWIND
 
 	db $ff ; end
-	
+
 ; ================ MURCOTT (PICK SQUIRTLE)
 
 	; CROSS (8)
@@ -2458,13 +2478,13 @@ CrossGroup:
 		db CRUNCH
 		db FORESIGHT
 		db ROCK_SMASH
-		
+
 	db 31, VAPOREON, MALE_MASK
 		db BUBBLEBEAM
 		db BITE
 		db QUICK_ATTACK
 		db RAIN_DANCE
-		
+
 	db 29, SKARMORY, MALE_MASK
 		db STEEL_WING
 		db AERIAL_ACE
@@ -2472,7 +2492,7 @@ CrossGroup:
 		db WHIRLWIND
 
 	db $ff ; end
-	
+
 ; ================ MURCOTT (PICK BULBASAUR)
 
 	; CROSS (9)
@@ -2492,13 +2512,13 @@ CrossGroup:
 		db CRUNCH
 		db FORESIGHT
 		db ROCK_SMASH
-		
+
 	db 31, LEAFEON, MALE_MASK
 		db RAZOR_LEAF
 		db BITE
 		db QUICK_ATTACK
 		db GROWTH
-		
+
 	db 29, SKARMORY, MALE_MASK
 		db STEEL_WING
 		db AERIAL_ACE

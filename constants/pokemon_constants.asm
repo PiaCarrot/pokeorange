@@ -403,6 +403,10 @@ const_value set 1
 	const MEOWTH_ROCKET_FORM
 
 const_value set 1
+	const POLIWRATH_NORMAL_FORM
+	const POLIWRATH_TAD_FORM
+
+const_value set 1
 	const LYCANROC_MIDDAY_FORM
 	const LYCANROC_MIDNIGHT_FORM
 	const LYCANROC_DUSK_FORM

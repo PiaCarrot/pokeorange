@@ -37,7 +37,7 @@
 	connection south, ROUTE_53, Route53, 0, 20, 11, ROUTE_54
 
 	map_header_2 SunburstIsland, SUNBURST_ISLAND, 53, NORTH
-	connection north, ROUTE_53, Route53, 10, 20, 9, SUNBURST_ISLAND
+	connection north, ROUTE_53, Route53, 10, 20, 11, SUNBURST_ISLAND
 
 	map_header_2 MandarinNorth, MANDARIN_NORTH, 32, SOUTH
 	connection south, ROUTE_54, Route54, 4, 0, 10, MANDARIN_NORTH

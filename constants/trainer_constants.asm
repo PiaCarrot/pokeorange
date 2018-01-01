@@ -176,6 +176,7 @@ KRIS EQU __enum__
 	const AKIRA
 	const KATSUO
 	const SON
+	const TAD
 
 	trainerclass COOLTRAINERF
 	const KEIKO
