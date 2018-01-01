@@ -669,7 +669,7 @@ AnimateEndOfExpBar: ; 8e79d
 
 	ld a, $0
 	ld [hli], a
-	ld a, $6 ; OBJ 6
+	ld a, PAL_BATTLE_YELLOW
 	ld [hli], a
 	jr .anim_loop
 ; 8e7f4

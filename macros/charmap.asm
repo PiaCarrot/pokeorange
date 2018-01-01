@@ -20,8 +20,8 @@
 	charmap "<USER>",   $5a
 
 ; battle extras
-	charmap "_",        $62
 	charmap "<LV>",     $6e
+	charmap "_",        $76
 
 	charmap " ",        $7f
 
