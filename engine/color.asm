@@ -241,7 +241,7 @@ ApplyHPBarPals:
 .PartyMenu:
 	ld e, c
 	inc e
-	hlcoord 11, 1, AttrMap
+	hlcoord 13, 1, AttrMap
 	ld bc, 2 * SCREEN_WIDTH
 	ld a, [wCurPartyMon]
 .loop
@@ -252,7 +252,7 @@ ApplyHPBarPals:
 	jr .loop
 
 .done
-	lb bc, 2, 8
+	lb bc, 2, 6
 	ld a, e
 	jp FillBoxCGB
 
@@ -538,7 +538,7 @@ CGB_ApplyPartyMenuHPPals: ; 96f3 CGB layout $fc
 	ld a, [de]
 	inc a
 	ld e, a
-	hlcoord 11, 2, AttrMap
+	hlcoord 13, 2, AttrMap
 	ld bc, 2 * SCREEN_WIDTH
 	ld a, [wSGBPals]
 .loop
@@ -548,7 +548,7 @@ CGB_ApplyPartyMenuHPPals: ; 96f3 CGB layout $fc
 	dec a
 	jr .loop
 .done
-	lb bc, 2, 8
+	lb bc, 2, 6
 	ld a, e
 	jp FillBoxCGB
 
@@ -1206,18 +1206,18 @@ PredefPals:
 	RGB 31, 31, 31
 
 HPBarPals:
-	RGB 30, 26, 15
 	RGB 00, 23, 00
+	RGB 00, 19, 00
 
-	RGB 30, 26, 15
-	RGB 31, 21, 00
+	RGB 31, 25, 00
+	RGB 27, 21, 00
 
-	RGB 30, 26, 15
 	RGB 31, 00, 00
+	RGB 23, 00, 00
 
 ExpBarPalette:
-	RGB 30, 26, 15
-	RGB 04, 17, 31
+	RGB 31, 22, 10
+	RGB 31, 16, 04
 
 BattleObjectPals:
 ; gray
