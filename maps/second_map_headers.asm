@@ -105,7 +105,7 @@
 
 	map_header_2 FishingContest, FISHING_CONTEST, 53, WEST
 	connection west, UNNAMED_ISLAND_2, UnnamedIsland2, -1, 0, 40, FISHING_CONTEST
-	
+
 	map_header_2 CleopatraIsland, CLEOPATRA_ISLAND, 53, 0
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
@@ -222,13 +222,9 @@
 	map_header_2 TrovitaGym, TROVITA_GYM, 0, 0
 	map_header_2 TrovitopolisPrimaSchool, TROVITOPOLIS_PRIMA_SCHOOL, 0, 0
 
-	
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0
 	map_header_2 RedsHouse2F, REDS_HOUSE_2F, $0, 0
 	map_header_2 BluesHouse, BLUES_HOUSE, $0, 0
 	map_header_2 OaksLab, OAKS_LAB, $0, 0
 	map_header_2 VermilionCity, VERMILION_CITY, 6, 0
-
-	map_header_2 NationalPark, NATIONAL_PARK, $0, 0
-	map_header_2 NationalParkBugContest, NATIONAL_PARK_BUG_CONTEST, $0, 0

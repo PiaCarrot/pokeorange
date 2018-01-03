@@ -21,8 +21,6 @@ MAP_NONE EQU 0
 	newgroup ; 2
 
 	mapgroup TANGELO_JUNGLE, 27, 25
-	mapgroup NATIONAL_PARK, 27, 20
-	mapgroup NATIONAL_PARK_BUG_CONTEST, 27, 20
 	mapgroup MT_NAVEL_1F, 14, 14
 	mapgroup MT_NAVEL_2F, 12, 12
 	mapgroup MT_NAVEL_PEAK, 10, 10
@@ -133,12 +131,12 @@ MAP_NONE EQU 0
 	mapgroup FISHING_CONTEST, 20, 12
 	mapgroup FISHING_CONTEST_LOBBY, 3, 6
 	mapgroup TROVITOPOLIS_DEPT_STORE_1F, 4, 8
-	mapgroup TROVITOPOLIS_DEPT_STORE_2F,                     4,  8 ; 12
-	mapgroup TROVITOPOLIS_DEPT_STORE_3F,                     4,  8 ; 13
-	mapgroup TROVITOPOLIS_DEPT_STORE_4F,                     4,  8 ; 14
-	mapgroup TROVITOPOLIS_DEPT_STORE_5F,                     4,  8 ; 15
+	mapgroup TROVITOPOLIS_DEPT_STORE_2F, 4,  8 ; 12
+	mapgroup TROVITOPOLIS_DEPT_STORE_3F, 4,  8 ; 13
+	mapgroup TROVITOPOLIS_DEPT_STORE_4F, 4,  8 ; 14
+	mapgroup TROVITOPOLIS_DEPT_STORE_5F, 4,  8 ; 15
 	mapgroup TROVITOPOLIS_DEPT_STORE_6F, 4, 8
-	mapgroup TROVITOPOLIS_DEPT_STORE_ELEVATOR,               2,  2 ; 17
+	mapgroup TROVITOPOLIS_DEPT_STORE_ELEVATOR, 2,  2 ; 17
 	mapgroup TROVITOPOLIS_DEPT_STORE_ROOF, 4, 6
 	mapgroup TROVITOPOLIS_POKE_COMM_CENTER, 11, 11
 	mapgroup TROVITOPOLIS_MR_FLASH_HOUSE, 4, 4
