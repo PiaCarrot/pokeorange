@@ -71,3 +71,5 @@
 	tilecoll WALL, WALL, WALL, WALL
 	tilecoll WALL, WALL, WALL, WALL
 	tilecoll WALL, WALL, STAIRCASE, WALL
+	tilecoll FLOOR, FLOOR, WALL, FLOOR
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR
