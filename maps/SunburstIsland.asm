@@ -152,6 +152,9 @@ CaveSignText:
 	para "Follow right to"
 	line "ROUTE 55."
 	done
+	
+SunburstHiddenNugget:
+	dwb EVENT_ROUTE_SUNBURST_ISLAND_HIDDEN_NUGGET, NUGGET
 
 SunburstIsland_MapEventHeader::
 
@@ -165,7 +168,7 @@ SunburstIsland_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 7
+.BGEvents: db 8
 	signpost 18, 30, SIGNPOST_READ, SunburstSign
 	signpost 26, 18, SIGNPOST_READ, BazaarSign
 	signpost 9, 5, SIGNPOST_READ, IslandSign
@@ -173,6 +176,7 @@ SunburstIsland_MapEventHeader::
 	signpost 42, 28, SIGNPOST_READ, CaveSign
 	signpost 28, 14, SIGNPOST_ITEM, SunburstHiddenIron
 	signpost 28, 20, SIGNPOST_ITEM, SunburstHiddenMoonStone
+	signpost 41, 10, SIGNPOST_ITEM, SunburstHiddenNugget
 
 .ObjectEvents: db 8
 	person_event SPRITE_GRAMPS, 23, 10, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, SunburstGrampsScript, -1

@@ -262,6 +262,9 @@ Route56WestHPUp:
 Route56WestUltraBall:
 	itemball ULTRA_BALL
 
+Route56WestHiddenUltraBall:
+	dwb EVENT_ROUTE_56_WEST_HIDDEN_ULTRA_BALL, ULTRA_BALL
+
 Route56West_MapEventHeader::
 
 .Warps: db 1
@@ -271,8 +274,9 @@ Route56West_MapEventHeader::
 	xy_trigger 0, 20, 50, TraceyScript1
 	xy_trigger 0, 20, 51, TraceyScript2
 
-.BGEvents: db 1
+.BGEvents: db 2
 	signpost 9, 37, SIGNPOST_READ, Route56Sign
+	signpost 25, 43, SIGNPOST_ITEM, Route56WestHiddenUltraBall
 
 .ObjectEvents: db 7
 	person_event SPRITE_FISHER, 22, 19, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerFisherIsao, -1

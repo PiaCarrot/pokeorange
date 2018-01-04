@@ -12,6 +12,7 @@ SunburstGreenLassScript:
 	checkevent EVENT_GOT_SHARP_BEAK
 	iftrue .AlreadyGotSharpBeak
     writetext GiveSharpBeakText
+	waitbutton
 	verbosegiveitem SHARP_BEAK
 	iffalse SunburstGreenLassDoneScript
 	setevent EVENT_GOT_SHARP_BEAK

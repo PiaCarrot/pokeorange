@@ -60,6 +60,7 @@
 	const EVENT_GOT_HM_ROCK_SMASH
 	const EVENT_RECEIVED_HM_STRENGTH
 	const EVENT_BOUGHT_TOGEPI_EGG
+	const EVENT_MURCOTT_LUCKY_EGG
 	
 ; Not yet used
 	const EVENT_WELCOMED_TO_POKECOM_CENTER
@@ -298,6 +299,11 @@
 	const EVENT_GRAPEFRUIT_STARDUST
 	const EVENT_WRECKED_SHIP_HIDDEN_HYPER_POTION
 	const EVENT_WRECKED_SHIP_HIDDEN_RARE_CANDY
+	const EVENT_ROUTE_56_EAST_HIDDEN_HYPER_POTION
+	const EVENT_ROUTE_56_WEST_HIDDEN_ULTRA_BALL
+	const EVENT_ROUTE_49_HIDDEN_ULTRA_BALL
+	const EVENT_ROUTE_SUNBURST_ISLAND_HIDDEN_NUGGET
+	const EVENT_ROUTE_KINNOW_ISLAND_HIDDEN_PP_UP
 
 ; Sprite visibility: When these events are cleared, the sprite becomes visible; when set, the sprite is hidden.
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.
