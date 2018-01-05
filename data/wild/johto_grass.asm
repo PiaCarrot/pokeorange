@@ -810,4 +810,31 @@
 	db 30, MUK
 	db 31, MUK
 	
+	map CLEOPATRA_ISLAND
+	db 6 percent, 6 percent, 6 percent
+	;morn
+	db 25, BELLSPROUT
+	db 25, MACHOP
+	db 25, ABRA
+	db 26, WEEPINBELL
+	db 26, MACHOP
+	db 26, ABRA
+	db 26, CHATOT
+	;day
+	db 25, BELLSPROUT
+	db 25, MACHOP
+	db 25, ABRA
+	db 26, WEEPINBELL
+	db 26, MACHOP
+	db 26, ABRA
+	db 26, CHATOT
+	;nite
+	db 25, BELLSPROUT
+	db 25, MACHOP
+	db 25, ABRA
+	db 26, WEEPINBELL
+	db 26, MACHOP
+	db 26, ABRA
+	db 26, CHATOT
+
 	db -1 ; end

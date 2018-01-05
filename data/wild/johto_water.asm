@@ -204,5 +204,10 @@
 	db 19, REMORAID
 	db 19, TENTACOOL
 
+	map CLEOPATRA_ISLAND
+	db 1 percent
+	db 22, REMORAID
+	db 22, TENTACOOL
+	db 22, GOLDEEN
 
 	db -1 ; end
