@@ -64,7 +64,8 @@
 	connection north, UNNAMED_ISLAND_1, UnnamedIsland1, 0, 0, 12, ROUTE_57
 	connection east, SEVEN_GRAPEFRUITS, SevenGrapefruits, 0, 0, 22, ROUTE_57
 
-	map_header_2 UnnamedIsland1, UNNAMED_ISLAND_1, 53, SOUTH | EAST
+	map_header_2 UnnamedIsland1, UNNAMED_ISLAND_1, 53, SOUTH | EAST | NORTH
+	connection north, ROUTE_57_NORTH, Route57North, 0, 0, 12, UNNAMED_ISLAND_1
 	connection south, ROUTE_57, Route57, 0, 0, 12, UNNAMED_ISLAND_1
 	connection east, ROUTE_58, Route58, 2, 0, 10, UNNAMED_ISLAND_1
 
@@ -105,8 +106,13 @@
 
 	map_header_2 FishingContest, FISHING_CONTEST, 53, WEST
 	connection west, UNNAMED_ISLAND_2, UnnamedIsland2, -1, 0, 40, FISHING_CONTEST
+	
+	map_header_2 Route57North, ROUTE_57_NORTH, 53, NORTH | SOUTH
+	connection north, CLEOPATRA_ISLAND, CleopatraIsland, -2, 1, 16, ROUTE_57_NORTH
+	connection south, UNNAMED_ISLAND_1, UnnamedIsland1, 0, 0, 12, ROUTE_57_NORTH
 
-	map_header_2 CleopatraIsland, CLEOPATRA_ISLAND, 53, 0
+	map_header_2 CleopatraIsland, CLEOPATRA_ISLAND, 53, SOUTH
+	connection south, ROUTE_57_NORTH, Route57North, 3, 0, 12, CLEOPATRA_ISLAND
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0

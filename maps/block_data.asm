@@ -161,7 +161,9 @@ CrystalCave1F_BlockData:
 
 CrystalCaveB1_BlockData:
 	INCBIN "maps/CrystalCaveB1.blk"
-
+	
+Route57North_BlockData:
+	INCBIN "maps/Route57North.blk"
 
 SECTION "Block Data 2", ROMX
 

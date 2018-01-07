@@ -6,12 +6,13 @@ CleopatraIsland_MapScriptHeader:
 
 .MapCallbacks: db 0
 
-CleopatraIsland_MapEventHeader:
+CleopatraIsland_MapEventHeader::
 
 .Warps: db 0
 
-.XYTriggers: db 0
+.CoordEvents: db 0
 
-.Signposts: db 0
+.BGEvents: db 0
 
-.PersonEvents: db 0
+.ObjectEvents: db 0
+
