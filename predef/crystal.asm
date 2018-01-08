@@ -45,6 +45,19 @@ LoadSpecialMapPalette: ; 494ac
 	cp TILESET_POWER_PLANT
 	jr z, LoadEightBGPalettes
 
+	ld a, [wPermission]
+	cp TOWN
+	jr z, .outside
+	cp ROUTE
+	jr nz, .not_outside_dusk
+.outside
+	ld a, [hHours]
+	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	jr nz, .not_outside_dusk
+	ld hl, OutsideDuskPalette
+	jr LoadEightBGPalettes
+.not_outside_dusk
+
 .do_nothing
 	and a
 	ret
@@ -58,8 +71,13 @@ LoadSpecialMapPalette: ; 494ac
 ; 494f2
 
 LoadEightTimeOfDayBGPalettes:
+	ld a, [hHours]
+	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	ld a, $3
+	jr z, .dusk
 	ld a, [TimeOfDayPal]
 	and $3
+.dusk
 	ld bc, 8 palettes
 	call AddNTimes
 LoadEightBGPalettes: ; 494f2
@@ -109,6 +127,9 @@ INCLUDE "tilesets/trovitopolis_sewer.pal"
 
 MayorsOfficePalette:
 INCLUDE "tilesets/mayors_office.pal"
+
+OutsideDuskPalette:
+INCLUDE "tilesets/dusk.pal"
 
 LoadSpecialMapOBPalette:
 	ld a, [wTileset]
