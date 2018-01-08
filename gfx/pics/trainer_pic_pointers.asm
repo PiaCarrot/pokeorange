@@ -1,4 +1,4 @@
-
+TrainerPicPointers::
 	dba CissyPic
 	dba DannyPic
 	dba RudyPic

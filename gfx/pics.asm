@@ -3,22 +3,17 @@ INCLUDE "includes.asm"
 
 SECTION "Pic Pointers", ROMX
 
-PicPointers:: INCLUDE "gfx/pics/pic_pointers.asm"
+INCLUDE "gfx/pics/pic_pointers.asm"
 
 
 SECTION "Variant Pic Pointers", ROMX
 
-SpindaPicPointers::    INCLUDE "gfx/pics/spinda_pic_pointers.asm"
-LycanrocPicPointers::  INCLUDE "gfx/pics/lycanroc_pic_pointers.asm"
-SquirtlePicPointers::  INCLUDE "gfx/pics/squirtle_pic_pointers.asm"
-MeowthPicPointers::    INCLUDE "gfx/pics/meowth_pic_pointers.asm"
-PoliwrathPicPointers:: INCLUDE "gfx/pics/poliwrath_pic_pointers.asm"
-MagikarpPicPointers::  INCLUDE "gfx/pics/magikarp_pic_pointers.asm"
+INCLUDE "gfx/pics/variant_pic_pointers.asm"
 
 
 SECTION "Trainer Pic Pointers", ROMX
 
-TrainerPicPointers:: INCLUDE "gfx/pics/trainer_pic_pointers.asm"
+INCLUDE "gfx/pics/trainer_pic_pointers.asm"
 
 
 SECTION "Pics 1", ROMX
@@ -676,7 +671,9 @@ WeepinbellBackpic:   INCBIN "gfx/pics/weepinbell/back.2bpp.lz"
 BellsproutBackpic:   INCBIN "gfx/pics/bellsprout/back.2bpp.lz"
 VictreebelFrontpic:  INCBIN "gfx/pics/victreebel/front.2bpp.lz"
 VictreebelBackpic:   INCBIN "gfx/pics/victreebel/back.2bpp.lz"
+OnixCrystalFrontpic:
 OnixFrontpic:        INCBIN "gfx/pics/onix/front.2bpp.lz"
+OnixCrystalBackpic:
 OnixBackpic:         INCBIN "gfx/pics/onix/back.2bpp.lz"
 MarowakFrontpic:     INCBIN "gfx/pics/marowak/front.2bpp.lz"
 MarowakBackpic:      INCBIN "gfx/pics/marowak/back.2bpp.lz"

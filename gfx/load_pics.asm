@@ -495,4 +495,4 @@ GetRelevantPicPointers:
 	ret
 
 .VariantPicPointerTable:
-INCLUDE "gfx/pics/variant_pic_pointers.asm"
+INCLUDE "gfx/pics/variant_pic_pointer_table.asm"

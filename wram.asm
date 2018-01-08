@@ -1889,17 +1889,6 @@ OtherTrainerClass:: ; d22f
 	ds 1
 
 BattleType:: ; d230
-; $00 normal
-; $01 can lose
-; $02 fishing
-; $03 roaming
-; $04 contest
-; $05 shiny
-; $06 headbutt/rock smash
-; $07 trap
-; $08 force Item1
-; $09 celebi
-; $0a tangrowth
 	ds 1
 
 OtherTrainerID:: ; d231
