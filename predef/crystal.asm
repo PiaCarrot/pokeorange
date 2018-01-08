@@ -52,7 +52,7 @@ LoadSpecialMapPalette: ; 494ac
 	jr nz, .not_outside_dusk
 .outside
 	ld a, [hHours]
-	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	cp DUSK_HOUR
 	jr nz, .not_outside_dusk
 	ld hl, OutsideDuskPalette
 	jr LoadEightBGPalettes
@@ -72,8 +72,8 @@ LoadSpecialMapPalette: ; 494ac
 
 LoadEightTimeOfDayBGPalettes:
 	ld a, [hHours]
-	cp 17 ; 5:00 PM to 5:59 PM = dusk
-	ld a, $3
+	cp DUSK_HOUR
+	ld a, DARKNESS
 	jr z, .dusk
 	ld a, [TimeOfDayPal]
 	and $3

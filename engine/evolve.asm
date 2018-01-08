@@ -269,7 +269,7 @@ endr
 	push bc
 	; 5:00 PM to 5:59 PM = Dusk Lycanroc
 	ld a, [hHours]
-	cp 17
+	cp DUSK_HOUR
 	ld a, LYCANROC_DUSK_FORM
 	jr z, .got_rockruff_form
 	; night = Midnight Lycanroc

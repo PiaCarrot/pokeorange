@@ -18,7 +18,7 @@ _TimeOfDayPals:: ; 8c011
 
 ; dusk?
 	ld a, [hHours]
-	cp 17 ; 5:00 PM to 5:59 PM = dusk
+	cp DUSK_HOUR
 	jr z, .change
 
 ; do we need to bother updating?
