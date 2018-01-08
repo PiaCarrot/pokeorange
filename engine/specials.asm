@@ -199,9 +199,9 @@ Special_TownMap: ; c2c0
 Special_TownMapItem:
 	call FadeToMenu
 	farcall _TownMap
-	call Call_ExitMenu
-	farcall Pack
-	ret
+	farcall Pack_InitGFX
+	farcall Pack_InitColors
+	jp Call_ExitMenu
 
 Special_DisplayLinkRecord: ; c2da
 	call FadeToMenu
