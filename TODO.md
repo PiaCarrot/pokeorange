@@ -6,7 +6,6 @@
 - Mistimed battle animations from 60FPS
 - Caught Pokémon may have their personality (gender + shiny + form) changed
 - Sweet Kiss can sometimes cause Poison
-- In-battle HP bar animation uses wrong palette
 
 ## Content
 
