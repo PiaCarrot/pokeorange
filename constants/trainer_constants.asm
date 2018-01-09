@@ -152,6 +152,7 @@ KRIS EQU __enum__
 	const NOBU
 	const ISAO
 	const YUUTA
+	const SHINJI
 
 	trainerclass HIKER
 	const TEPPEI
@@ -162,6 +163,7 @@ KRIS EQU __enum__
 
 	trainerclass SIGHTSEERM
 	const MICHIO
+	const KENTA
 
 	trainerclass SIGHTSEERF
 	const ASAMI

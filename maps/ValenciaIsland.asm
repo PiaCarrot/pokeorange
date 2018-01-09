@@ -123,11 +123,11 @@ if def(DEBUG)
 	giveitem SUPER_ROD
 	giveitem MASTER_ROD
 	opentext
-	givepoke LAPRAS, 50
-	givepoke CHARIZARD, 50
-	givepoke PIKACHU, 50, LIGHT_BALL
-	givepoke SPINDA, 49
-	givepoke MEW, 50
+	givepoke LAPRAS, 60
+	givepoke CHARIZARD, 60
+	givepoke PIKACHU, 60, LIGHT_BALL
+	givepoke MEW, 60
+	givepoke MARSHADOW, 60
 	closetext
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves

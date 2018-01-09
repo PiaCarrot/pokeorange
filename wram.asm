@@ -2298,6 +2298,7 @@ wGoldenIslandTrigger::             ds 1
 wMurcottIslandTrigger::            ds 1
 wTrovitopolisPortTrigger::		   ds 1
 wMayorsOfficeMeetingRoomTrigger::  ds 1
+wCleopatraIslandTrigger:: 		   ds 1
 
 	ds 23
 

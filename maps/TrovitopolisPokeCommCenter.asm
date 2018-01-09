@@ -64,6 +64,9 @@ TrovitopolisPokeCommScientist1Text:
 	
 	para "AIZAWA is going to"
 	line "kill me<...>"
+	
+	para "I know! I'll get"
+	line "LUNA to fix this!"
 	done
 	
 TrovitopolisPokeCommScientist2Script:
@@ -74,13 +77,30 @@ TrovitopolisPokeCommScientist2Text:
 	
 	para "RANGI: Hmm<...>"
 	
-	para "Polished Crystal"
-	line "5.0, now with Z"
-	cont "MOVES, MEGAS, and"
-	cont "ASH GRENINJA!"
+	para "MOEMON ORANGE is"
+	line "now live! Nyahaha!"
 	
-	para "Download it off"
-	line "GITHUB!"
+	para "Oops. I just del-"
+	line "eted it. Back to"
+	cont "POLISHED CRYSTAL."
+	done
+	
+TrovitopolisPokeCommLuckyScript:
+	jumptextfaceplayer TrovitopolisPokeCommLuckyText
+	
+TrovitopolisPokeCommLuckyText:
+	text "LUCKY: I ran out"
+	line "of REPEL<...>"
+	
+	para "So. Many. WINGULL."
+	line "It's safe in here."
+	cont "outside is too"
+	cont "scary for me."
+	
+	para "Atleast in here 60"
+	line "FPS can't hurt me."
+	cont "I did work for"
+	cont "PRISM, you know?"
 	done
 	
 PokeCommSign:
@@ -101,8 +121,14 @@ APSign:
 	jumptext APSignText
 	
 APSignText:
-	text "ANCIENT PLATINUM"
-	line "COMING SOON"
+	text "FROM: LINKANDZELDA"
+	line "TO: PIA CARROT"
+
+	para "<...>"
+	
+	para "It would be rude"
+	line "to read someone's"
+	cont "E-MAIL!"
 	done
 	
 PokeCommMachineSign:
@@ -149,11 +175,13 @@ TrovitopolisPokeCommCenter_MapEventHeader::
 	signpost 11, 14, SIGNPOST_READ, PokeCommMachineSign
 	signpost 10, 14, SIGNPOST_READ, PokeCommMachineSign
 
-.ObjectEvents: db 6
+.ObjectEvents: db 7
 	person_event SPRITE_NURSE, 13, 7, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TrovitopolisNurseScript, -1
 	person_event SPRITE_LASS, 17, 4, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeCommLassScript, -1
 	person_event SPRITE_ROCKER, 9, 21, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 1, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeCommRockerScript, -1
 	person_event SPRITE_TEACHER, 18, 10, SPRITEMOVEDATA_STANDING_UP, 0, 1, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeCommTeacherScript, -1
 	person_event SPRITE_LASS, 5, 5, SPRITEMOVEDATA_STANDING_UP, 0, 1, -1, -1, PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeCommScientist1Script, -1
 	person_event SPRITE_COOLTRAINER_F, 3, 2, SPRITEMOVEDATA_STANDING_UP, 0, 1, -1, -1, PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeCommScientist2Script, -1
+	person_event SPRITE_ROCKER, 5, 0, SPRITEMOVEDATA_STANDING_LEFT, 0, 1, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrovitopolisPokeCommLuckyScript, -1
+
 

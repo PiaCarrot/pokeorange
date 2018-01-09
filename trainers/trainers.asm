@@ -1955,6 +1955,32 @@ FisherGroup:
 	db 28, OCTILLERY
 
 	db $ff
+
+; =================
+
+	; FISHER (7)
+	db "SHINJI@"
+	db TRAINERTYPE_MOVES
+
+	db 36, SEAKING
+		db PECK
+		db WHIRLPOOL
+		db WATER_PULSE
+		db AGILITY
+
+	db 36, SHARPEDO
+		db CRUNCH
+		db SCARY_FACE
+		db SURF
+		db SWAGGER
+		
+	db 36, STARMIE
+		db PSYBEAM
+		db RECOVER
+		db BUBBLEBEAM
+		db RAPID_SPIN
+
+	db $ff
 ; ================
 ; ================================
 
@@ -2020,6 +2046,26 @@ SightseerMGroup:
 	db 24, MACHOP
 
 	db $ff ; end
+
+; ================
+
+	; SIGHTSEERM (2)
+	db "KENTA@"
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
+
+	db 38, SALAZZLE, FEMALE_MASK
+		db POISON_JAB
+		db VENOSHOCK
+		db AGILITY
+		db FIRE_PUNCH
+
+	db 39, BELLOSSOM, FEMALE_MASK
+		db PETAL_DANCE
+		db SLEEP_POWDER
+		db LEECH_SEED
+		db RAIN_DANCE
+
+	db $ff
 
 ; ================
 ; ================================

@@ -28,6 +28,7 @@ ENDM
 	trigger_def MURCOTT_ISLAND,				  wMurcottIslandTrigger
 	trigger_def TROVITOPOLIS_PORT,			  wTrovitopolisPortTrigger
 	trigger_def MAYORS_OFFICE_MEETING_ROOM,   wMayorsOfficeMeetingRoomTrigger
+	trigger_def CLEOPATRA_ISLAND,			  wCleopatraIslandTrigger
 
 	db -1
 ; 4d15b
