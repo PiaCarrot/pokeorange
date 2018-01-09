@@ -138,6 +138,29 @@ LoadSpecialMapOBPalette:
 	cp TILESET_UNDERWATER
 	jr z, LoadEightOBPalettes
 
+	ld a, [wPermission]
+	cp TOWN
+	jr z, .outside
+	cp ROUTE
+	jr nz, .not_outside_dusk
+.outside
+	ld a, [hHours]
+	cp DUSK_HOUR
+	jr nz, .not_outside_dusk
+	ld a, $5
+	ld hl, UnknBGPals + PAL_BG_GREEN palettes
+	ld de, UnknOBPals + PAL_OW_TREE palettes
+	ld bc, 1 palettes
+	call FarCopyWRAM
+	ld a, $5
+	ld hl, UnknBGPals + PAL_BG_BROWN palettes
+	ld de, UnknOBPals + PAL_OW_ROCK palettes
+	ld bc, 1 palettes
+	call FarCopyWRAM
+	scf
+	ret
+.not_outside_dusk
+
 .do_nothing
 	and a
 	ret
