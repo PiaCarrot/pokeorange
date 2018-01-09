@@ -55,24 +55,24 @@ landmark: MACRO
 ENDM
 
 	landmark   0,   0,   SpecialMapName
-	landmark   50,  132, ValenciaIslandName
+	landmark   52,  140, ValenciaIslandName
 	landmark   44,  132, Route49Name
-	landmark   16,  132, TangeloIslandName
-	landmark   16,  124, Route50Name
-	landmark   24,  124, Route51Name
-	landmark   24,  120, TangeloJungleName
+	landmark   28,  132, TangeloIslandName
+	landmark   20,  128, Route50Name
+	landmark   28,  124, Route51Name
+	landmark   20,  124, TangeloJungleName
 	landmark   28,  112, Route52Name
 	landmark   28,  100, MikanIslandName
 	landmark   40,  92,  Route53Name
 	landmark   52,  84,  Route54Name
 	landmark   52,  76,  MandarinNorthName
 	landmark   52,  100, SunburstIslandName
-	landmark   56,  114, Route55Name
+	landmark   56,  116, Route55Name
 	landmark   52,  110, CrystalCaveName
 	landmark   72,  120, PinkanIslandName
 	landmark   92,  124, Route56Name
 	landmark   108, 124, Fukuhara4Name
-	landmark   120, 104, KinnowIslandName
+	landmark   116, 108, KinnowIslandName
 	landmark   136,  96, Route57Name
 	landmark   136,  80, UnnamedIsland1Name
 	landmark   148,  76, Route58Name
@@ -82,10 +82,10 @@ ENDM
 	landmark   148, 108, Route59Name
 	landmark   148, 116, MoroIslandName
 	landmark   140, 124, Route60Name
-	landmark   146, 116, WreckedShipName
+	landmark   142, 118, WreckedShipName
 	landmark   128, 128, GoldenIslandName
 	landmark   124, 140, Route61Name
-	landmark   140, 144, MurcottIslandName
+	landmark   140, 148, MurcottIslandName
 	landmark   124, 156, UnnamedIsland2Name
 	landmark   104, 144, Route62Name
 	landmark   96,  144, MandarinDesertName
@@ -93,14 +93,14 @@ ENDM
 	landmark   76,  148, TrovitaIslandName
 	landmark   128,  56, CleopatraIslandName
 	landmark   152,  52, Route63Name
-	landmark   160,  32, AscorbiaIslandName
-	landmark   152,  36, Route64Name
+	landmark   164,  36, AscorbiaIslandName
+	landmark   152,  32, Route64Name
 	landmark   148,  36, Route65Name
 	landmark   136,  32, ButwalIslandName
 	landmark   112,  32, Route66Name
 	landmark   108,  52, KumquatIslandName
 	landmark   82,   60, Route67Name
-	landmark   64,   56, RindIslandName
+	landmark   60,   60, RindIslandName
 	landmark   44,   60, Route68Name
 	landmark   24,   56, UnnamedIsland3Name
 	landmark   20,   36, Route69Name

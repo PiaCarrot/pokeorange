@@ -3521,7 +3521,7 @@ TryToRunAwayFromBattle: ; 3d8b3
 	jp z, .can_escape
 	cp BATTLETYPE_TRAP
 	jp z, .cant_escape
-	cp BATTLETYPE_SHINY
+	cp BATTLETYPE_CRYSTAL_ONIX
 	jp z, .cant_escape
 	cp BATTLETYPE_SNORLAX
 	jp z, .cant_escape
@@ -8759,10 +8759,6 @@ GetBattleRandomPersonality:
 	ld b, a
 
 ; Shiny?
-	; Forced shiny battle type
-	ld a, [BattleType]
-	cp BATTLETYPE_SHINY
-	jr z, .force_shiny
 	; Shiny Charm gives 1/256 chance of a shiny
 	call .HaveShinyCharm
 	jr c, .likely_shiny
@@ -8803,13 +8799,17 @@ GetBattleRandomPersonality:
 	ld b, a
 
 ; Form
+	ld a, [BattleType]
+	cp BATTLETYPE_CRYSTAL_ONIX
+	ld a, ONIX_CRYSTAL_FORM
+	jr z, .got_form
 	ld a, [TempEnemyMonSpecies]
 	cp LYCANROC
 	ld a, 0 ; default form 0
 	jr nz, .got_form
 	; 5:00 PM to 5:59 PM = Dusk Lycanroc
 	ld a, [hHours]
-	cp 17
+	cp DUSK_HOUR
 	ld a, LYCANROC_DUSK_FORM
 	jr z, .got_form
 	; night = Midnight Lycanroc

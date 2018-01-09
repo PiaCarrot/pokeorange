@@ -395,6 +395,10 @@ MAGIKARP_FOREHEAD_DVS EQUS "$fe, $bd"
 MAGIKARP_MASK_DVS     EQUS "$fe, $fe"
 
 const_value set 1
+	const ONIX_NORMAL_FORM
+	const ONIX_CRYSTAL_FORM
+
+const_value set 1
 	const SQUIRTLE_NORMAL_FORM
 	const SQUIRTLE_GLASSES_FORM
 

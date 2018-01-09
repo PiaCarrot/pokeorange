@@ -6,7 +6,6 @@
 - Mistimed battle animations from 60FPS
 - Caught Pokémon may have their personality (gender + shiny + form) changed
 - Sweet Kiss can sometimes cause Poison
-- In-battle HP bar animation uses wrong palette
 
 ## Content
 
@@ -17,12 +16,13 @@
 
 - Prism DED cry code (after content is finished)
 - When releasing Pokemon, make sure it is not last Pokemon you own with Surf
+- Crystal Onix resists Water
 
 ## Graphics
 
 - Improve skateboard sprites
 - Finish menu icon sprites
-- Special-case Lycanroc's party icon based on form
+- Special-case Lycanroc and Crystal Onix party icons based on form
 - Add G/S animated clouds to title screen
 
 ## Moves

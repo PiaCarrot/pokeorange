@@ -44,10 +44,6 @@ NUM_STATS EQU const_value
 STAT_MIN_NORMAL EQU 5
 STAT_MIN_HP EQU 10
 
-; shiny dvs
-ATKDEFDV_SHINY EQU $EA
-SPDSPCDV_SHINY EQU $AA
-
 ; battle classes
 const_value SET 1
 	const WILD_BATTLE
@@ -60,9 +56,9 @@ const_value SET 1
 	const BATTLETYPE_FISH
 	const BATTLETYPE_ROAMING
 	const BATTLETYPE_CONTEST
-	const BATTLETYPE_SHINY
 	const BATTLETYPE_TREE
 	const BATTLETYPE_TRAP
+	const BATTLETYPE_CRYSTAL_ONIX
 	const BATTLETYPE_SNORLAX
 
 ; battle variables

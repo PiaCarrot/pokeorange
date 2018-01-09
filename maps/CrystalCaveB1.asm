@@ -58,7 +58,7 @@ CrystalOnixScript:
 	cry ONIX
 	closetext
 	loadwildmon ONIX, 20
-	writecode VAR_BATTLETYPE, BATTLETYPE_SHINY
+	writecode VAR_BATTLETYPE, BATTLETYPE_CRYSTAL_ONIX
 	startbattle
 	disappear CRYSTAL_CAVE_B1_ONIX
 	reloadmapafterbattle

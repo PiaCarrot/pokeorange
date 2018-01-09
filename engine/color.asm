@@ -95,7 +95,7 @@ GetBattlemonBackpicPalettePointer:
 	pop bc
 	ld a, [hl]
 	and PINK_MASK
-	jr nz, GetNormalOrShinyPinkanPalettePointer
+	jp nz, GetNormalOrShinyPinkanPalettePointer
 	ld a, [TempBattleMonSpecies]
 	jr GetMonNormalOrShinyPalettePointer_NoPinkCheck
 
@@ -117,6 +117,8 @@ GetEnemyFrontpicPalettePointer:
 GetMonPalettePointer:
 	cp LYCANROC
 	jr z, .lycanroc
+	cp ONIX
+	jr z, .onix
 	cp POLIWRATH
 	jr z, .poliwrath
 .continue
@@ -148,6 +150,16 @@ GetMonPalettePointer:
 	and FORM_MASK
 	cp POLIWRATH_TAD_FORM
 	ld hl, PoliwrathTadPalettes
+	jr z, .ok
+	pop af
+	jr .continue
+
+.onix
+	push af
+	ld a, [bc]
+	and FORM_MASK
+	cp ONIX_CRYSTAL_FORM
+	ld hl, OnixCrystalPalettes
 	jr z, .ok
 	pop af
 	jr .continue
