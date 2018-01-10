@@ -34,6 +34,9 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_60, 32, 28
 	mapgroup SUNRAY_CAVE_MANDARIN_DESERT_1F, 11, 11
 	mapgroup TROVITA_ISLAND, 22, 24
+	mapgroup FUKUHARA_NO_4_BF1, 20, 20
+	mapgroup FUKUHARA_NO_4_BF2, 20, 20
+	mapgroup FUKUHARA_NO_4_BF3, 10, 10
 
 	newgroup ; 3
 

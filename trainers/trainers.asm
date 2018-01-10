@@ -988,7 +988,7 @@ ButchGroup:
 ; ================
 
 	; EXECUTIVEM (2)
-	db "BUTCH@"
+	db "BOTCH@"
 	db TRAINERTYPE_MOVES
 
 	; party

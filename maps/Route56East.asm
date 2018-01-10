@@ -162,7 +162,8 @@ Text_MachPunchTutorClear:
 
 Route56East_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 1
+	warp_def 21, 12, 1, FUKUHARA_NO_4_BF1
 
 .CoordEvents: db 0
 

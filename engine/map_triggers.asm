@@ -29,6 +29,7 @@ ENDM
 	trigger_def TROVITOPOLIS_PORT,			  wTrovitopolisPortTrigger
 	trigger_def MAYORS_OFFICE_MEETING_ROOM,   wMayorsOfficeMeetingRoomTrigger
 	trigger_def CLEOPATRA_ISLAND,			  wCleopatraIslandTrigger
+	trigger_def FUKUHARA_NO_4_BF1,			  wFukuharaNo4BF1Trigger
 
 	db -1
 ; 4d15b

@@ -227,6 +227,9 @@
 	map_header_2 TrovitaPort, TROVITA_PORT, 10, 0
 	map_header_2 TrovitaGym, TROVITA_GYM, 0, 0
 	map_header_2 TrovitopolisPrimaSchool, TROVITOPOLIS_PRIMA_SCHOOL, 0, 0
+	map_header_2 FukuharaNo4BF1, FUKUHARA_NO_4_BF1, 9, 0
+	map_header_2 FukuharaNo4BF2, FUKUHARA_NO_4_BF2, 9, 0
+	map_header_2 FukuharaNo4BF3, FUKUHARA_NO_4_BF3, 9, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

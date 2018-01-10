@@ -2299,6 +2299,7 @@ wMurcottIslandTrigger::            ds 1
 wTrovitopolisPortTrigger::		   ds 1
 wMayorsOfficeMeetingRoomTrigger::  ds 1
 wCleopatraIslandTrigger:: 		   ds 1
+wFukuharaNo4BF1Trigger::           ds 1
 
 	ds 23
 

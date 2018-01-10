@@ -247,7 +247,15 @@ GoldenIsland_BlockData:
 
 GoldenIslandGateHouse_BlockData:
 	INCBIN "maps/GoldenIslandGateHouse.blk"
-
+	
+FukuharaNo4BF1_BlockData:
+	INCBIN "maps/FukuharaNo4BF1.blk"
+	
+FukuharaNo4BF2_BlockData:
+	INCBIN "maps/FukuharaNo4BF2.blk"
+	
+FukuharaNo4BF3_BlockData:
+	INCBIN "maps/FukuharaNo4BF3.blk"
 
 SECTION "Block Data 3", ROMX
 
