@@ -8,6 +8,7 @@ const_value set 1
 	const ROUTE_63_NORTH_SOUTH_OTAKU_NIRO
 	const ROUTE_63_NORTH_SOUTH_OTAKU_GODO
 	const ROUTE_63_NORTH_SOUTH_COOLTRAINERM_SEI
+	const ROUTE_63_NORTH_SOUTH_ITEMBALL_LEAF_STONE	
 
 Route63NorthSouth_MapScriptHeader:
 
@@ -236,6 +237,9 @@ Route63GauntletSignText:
 Route63NorthSouthNugget:
 	itemball NUGGET
 	
+Route63NorthSouthLeafStone:
+	itemball LEAF_STONE
+	
 Route63GauntletEventScript:
 	spriteface PLAYER, RIGHT
 	opentext
@@ -273,7 +277,7 @@ Route63NorthSouth_MapEventHeader::
 .BGEvents: db 1
 	signpost 32, 12, SIGNPOST_READ, Route63GauntletSign
 
-.ObjectEvents: db 9
+.ObjectEvents: db 10
 	person_event SPRITE_POKE_BALL, 15, 10, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route63NorthSouthNugget, EVENT_ROUTE_63_NORTH_SOUTH_NUGGET
 	person_event SPRITE_FISHER, 7, 16, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerFisherYamato, -1
 	person_event SPRITE_COOLTRAINER_M, 26, 11, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 2, TrainerCooltrainerMYuuji, -1
@@ -283,3 +287,5 @@ Route63NorthSouth_MapEventHeader::
 	person_event SPRITE_FISHER, 18, 11, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 2, TrainerOtakuNiro, -1
 	person_event SPRITE_FISHER, 22, 14, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 2, TrainerOtakuGodo, -1
 	person_event SPRITE_COOLTRAINER_M, 15, 14, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, CooltrainerRoute63Script, -1
+	person_event SPRITE_POKE_BALL, 50, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route63NorthSouthLeafStone, EVENT_ROUTE_63_NORTH_SOUTH_LEAF_STONE
+

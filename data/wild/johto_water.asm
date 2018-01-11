@@ -209,5 +209,17 @@
 	db 22, REMORAID
 	db 22, TENTACOOL
 	db 22, GOLDEEN
+	
+	map ROUTE_63_EAST_WEST
+	db 1 percent
+	db 23, MANTINE
+	db 23, TENTACOOL
+	db 23, TENTACRUEL
+
+	map ROUTE_63_NORTH_SOUTH
+	db 1 percent
+	db 23, MANTINE
+	db 23, TENTACOOL
+	db 23, TENTACRUEL
 
 	db -1 ; end

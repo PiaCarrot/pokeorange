@@ -837,4 +837,31 @@
 	db 26, ABRA
 	db 26, CHATOT
 
+	map ROUTE_63_EAST_WEST
+	db 6 percent, 6 percent, 6 percent
+	;morn
+	db 25, MANKEY
+	db 25, EXEGGCUTE
+	db 25, HOPPIP
+	db 26, MEOWTH
+	db 26, SKIPLOOM
+	db 26, HOPPIP
+	db 26, MEOWTH
+	;day
+	db 25, MANKEY
+	db 25, EXEGGCUTE
+	db 25, HOPPIP
+	db 26, MEOWTH
+	db 26, SKIPLOOM
+	db 26, HOPPIP
+	db 26, MEOWTH
+	;nite
+	db 25, ODDISH
+	db 25, ODDISH
+	db 25, MEOWTH
+	db 26, ODDISH
+	db 26, ZUBAT
+	db 26, MEOWTH
+	db 26, MEOWTH
+
 	db -1 ; end
