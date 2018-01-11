@@ -251,11 +251,13 @@ CutTreeBlockPointers: ; c862
 
 .johto1 ; Johto OW
 ; Which meta tile are we facing, which should we replace it with, and which animation?
-	db $03, $02, $01 ; grass
+	db $03, $27, $01 ; grass
 	db $5b, $3c, $00 ; tree
 	db $5f, $3d, $00 ; tree
 	db $63, $3f, $00 ; tree
 	db $67, $3e, $00 ; tree
+	db $d8, $3d, $00 ; tree
+	db $d9, $62, $00 ; tree
 	db -1
 
 .johto2 ; Goldenrod area

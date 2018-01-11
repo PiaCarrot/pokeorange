@@ -181,7 +181,7 @@ MAP_NONE EQU 0
 
 	newgroup ; 12
 
-	mapgroup ROUTE_50, 27, 10
+	mapgroup ROUTE_50, 27, 11
 	mapgroup ROUTE_51, 20, 20
 	mapgroup ROUTE_51_TANGELO_JUNGLE_GATE, 4, 5
 	mapgroup ROUTE_51_GATE_UPSTAIRS, 4, 5
