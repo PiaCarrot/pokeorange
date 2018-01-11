@@ -11,11 +11,11 @@
 	connection west, TANGELO_ISLAND, TangeloIsland, -1, 0, 12, VALENCIA_TANGELO_ROUTE_49
 
 	map_header_2 TangeloIsland, TANGELO_ISLAND, 53, NORTH | EAST
-	connection north, ROUTE_50, Route50, 10, 0, 10, TANGELO_ISLAND
+	connection north, ROUTE_50, Route50, 9, 0, 11, TANGELO_ISLAND
 	connection east, VALENCIA_TANGELO_ROUTE_49, ValenciaTangeloRoute49, 1, 0, 12, TANGELO_ISLAND
 
 	map_header_2 Route50, ROUTE_50, 32, SOUTH | EAST
-	connection south, TANGELO_ISLAND, TangeloIsland, -3, 7, 10, ROUTE_50
+	connection south, TANGELO_ISLAND, TangeloIsland, -2, 7, 11, ROUTE_50
 	connection east, ROUTE_51, Route51, 8, 0, 14, ROUTE_50
 
 	map_header_2 Route51, ROUTE_51, 32, SOUTH | WEST
