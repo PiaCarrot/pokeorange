@@ -111,9 +111,17 @@
 	connection north, CLEOPATRA_ISLAND, CleopatraIsland, -2, 1, 16, ROUTE_57_NORTH
 	connection south, UNNAMED_ISLAND_1, UnnamedIsland1, 0, 0, 12, ROUTE_57_NORTH
 
-	map_header_2 CleopatraIsland, CLEOPATRA_ISLAND, 53, SOUTH
+	map_header_2 CleopatraIsland, CLEOPATRA_ISLAND, 53, NORTH | SOUTH
+	connection north, ROUTE_63_EAST_WEST, Route63EastWest, 0, 0, 20, CLEOPATRA_ISLAND
 	connection south, ROUTE_57_NORTH, Route57North, 3, 0, 12, CLEOPATRA_ISLAND
-
+	
+	map_header_2 Route63EastWest, ROUTE_63_EAST_WEST, 53, SOUTH | EAST
+	connection south, CLEOPATRA_ISLAND, CleopatraIsland, 0, 0, 20, ROUTE_63_EAST_WEST
+	connection east, ROUTE_63_NORTH_SOUTH, Route63NorthSouth, 0, 18, 12, ROUTE_63_EAST_WEST
+		
+	map_header_2 Route63NorthSouth, ROUTE_63_NORTH_SOUTH, 53, WEST
+	connection west, ROUTE_63_EAST_WEST, Route63EastWest, 18, 0, 12, ROUTE_63_NORTH_SOUTH
+	
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
 	map_header_2 Colosseum, COLOSSEUM, $0, 0

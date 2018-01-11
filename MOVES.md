@@ -81,7 +81,7 @@ Vicegrip
 - TM05 *Venoshock*
 - TM06 Toxic
 - TM07 *Hail* (Danny)
-- TM08 Whirlpool
+- TM08 Whirlpool (Route 63)
 - TM09 *Bullet Seed* (Pinkan Island)
 - TM10 Fissure
 - TM11 Sunny Day (Trovitopolis Dept. Store)
@@ -96,7 +96,7 @@ Vicegrip
 - TM20 *Dragon Tail*
 - TM21 Frustration (Mandarin Underground)
 - TM22 Solarbeam
-- TM23 Iron Tail
+- TM23 Iron Tail (Route 63)
 - TM24 Thunderbolt
 - TM25 Thunder
 - TM26 Earthquake (Route 62)

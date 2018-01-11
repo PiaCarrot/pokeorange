@@ -99,12 +99,12 @@ CleopatraCrossText3:
 	cont "have a lot of"
 	cont "faith in my ace,"
 	
-	para "POLIWHIRL."
+	para "POLIWRATH."
 	line "We won a contest"
 	cont "back at home in"
 	cont "KANTO, and my"
 	
-	para "POLIWHIRL won a"
+	para "POLIWRATH won a"
 	line "CHAMPION BELT."
 	
 	para "Anyway, let me"

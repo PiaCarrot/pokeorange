@@ -58,6 +58,7 @@ TrainerPicPointers::
 	dba CatmanPic
 	dba BirdkeeperPic
 	dba CrossPic
+	dba OtakuPic
 ;	dba GentlemanPic
 ;	dba TeacherPic
 ;	dba SailorPic

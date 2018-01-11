@@ -1981,6 +1981,66 @@ FisherGroup:
 		db RAPID_SPIN
 
 	db $ff
+
+; =================
+
+	; FISHER (8)
+	db "MIYAGI@"
+	db TRAINERTYPE_MOVES
+
+	db 42, TOXAPEX
+		db SPIKES
+		db POISON_JAB
+		db WATER_PULSE
+		db PROTECT
+
+	db 37, GYARADOS
+		db THRASH
+		db DRAGONBREATH
+		db WHIRLPOOL
+		db SCARY_FACE
+
+	db $ff
+
+; =================
+
+	; FISHER (9)
+	db "KUNAI@"
+	db TRAINERTYPE_MOVES
+
+	db 40, LANTURN
+		db THUNDERBOLT
+		db SURF
+		db FLASH
+		db SLAM
+		
+	db 40, MANTINE
+		db BUBBLEBEAM
+		db AERIAL_ACE
+		db DOUBLE_TEAM
+		db SWAGGER
+
+	db $ff
+
+; =================
+
+	; FISHER (10)
+	db "YAMATO@"
+	db TRAINERTYPE_MOVES
+
+	db 40, RELICANTH
+		db ROCK_THROW
+		db DIVE
+		db BUBBLEBEAM
+		db 0
+		
+	db 42, LUMINEON
+		db BUBBLEBEAM
+		db ATTRACT
+		db GUST
+		db WATER_PULSE
+
+	db $ff
 ; ================
 ; ================================
 
@@ -2068,6 +2128,32 @@ SightseerMGroup:
 	db $ff
 
 ; ================
+
+	; SIGHTSEERM (3)
+	db "HYOU@"
+	db TRAINERTYPE_MOVES
+
+	db 39, MAGMAR
+		db FIRE_PUNCH
+		db POISON_GAS
+		db POISON_JAB
+		db VENOSHOCK
+
+	db 40, ELECTABUZZ
+		db RAIN_DANCE
+		db THUNDER
+		db THUNDER_WAVE
+		db QUICK_ATTACK
+		
+	db 41, JYNX
+		db ICE_PUNCH
+		db SWEET_KISS
+		db PSYBEAM
+		db ATTRACT
+
+	db $ff
+
+; ================
 ; ================================
 
 
@@ -2083,6 +2169,27 @@ SightseerFGroup:
 	db 25, JIGGLYPUFF, $98, $88
 	db 25, SPINDA, SPINDA_J_DVS
 	db 24, SKIPLOOM, $98, $88
+
+	db $ff ; end
+	
+; ================
+
+	; SIGHTSEERF (2)
+	db "ARASHI@"
+	db TRAINERTYPE_MOVES
+
+	; party
+	db 42, WIGGLYTUFF
+		db DAZZLINGLEAM
+		db TAKE_DOWN
+		db ENCORE
+		db DOUBLESLAP
+		
+	db 42, GOLDUCK
+		db PSYBEAM
+		db SURF
+		db REST
+		db SLEEP_TALK
 
 	db $ff ; end
 
@@ -2203,6 +2310,43 @@ CooltrainerMGroup:
 		db ICE_BEAM
 
 	db $ff
+	
+
+; ================
+
+	; COOLTRAINERM (5)
+	db "YUUJI@"
+	db TRAINERTYPE_NORMAL
+
+	db 38, MR__MIME
+	db 37, EXEGGCUTE
+	db 38, PERSIAN
+	db 37, MACHOKE
+	db 38, FEAROW
+	db 36, TENTACRUEL
+
+	db $ff
+	
+
+; ================
+
+	; COOLTRAINERM (6)
+	db "SEI@"
+	db TRAINERTYPE_MOVES
+
+	db 43, DITTO
+		db TRANSFORM
+		db 0
+		db 0
+		db 0
+		
+	db 44, RAPIDASH
+		db STOMP
+		db FIRE_SPIN
+		db AERIAL_ACE
+		db FLAME_WHEEL
+
+	db $ff
 
 ; ================
 ; ================================
@@ -2242,6 +2386,18 @@ CooltrainerFGroup:
 	db 34, LYCANROC
 	db 34, SALANDIT
 	db 34, CHARMELEON
+
+	db $ff
+	
+
+; ================
+
+	; COOLTRAINERF (4)
+	db "REIKA@"
+	db TRAINERTYPE_NORMAL
+
+	db 42, VENUSAUR
+	db 43, CLEFABLE
 
 	db $ff
 
@@ -2572,6 +2728,47 @@ CrossGroup:
 		db WHIRLWIND
 
 	db $ff ; end
+	
+; ================
+; ================================
+
+OtakuGroup:
+; ================
+;=================================
+
+; =================
+
+	; OTAKU (1)
+	db "NIRO@"
+	db TRAINERTYPE_MOVES
+
+	db 41, PORYGON
+		db CONVERSION
+		db CONVERSION2
+		db TRI_ATTACK
+		db PROTECT
+		
+	db 41, PORYGON2
+		db TRI_ATTACK
+		db NASTY_PLOT
+		db SWAGGER
+		db THUNDERBOLT
+
+	db $ff	
+
+; =================
+
+	; OTAKU (2)
+	db "GODO@"
+	db TRAINERTYPE_MOVES
+
+	db 44, MAGNEZONE
+		db HYPER_BEAM
+		db SWAGGER
+		db LOCK_ON
+		db FLASH_CANNON
+
+	db $ff	
 
 ;GentlemanGroup:
 ; ================================

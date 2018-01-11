@@ -80,6 +80,8 @@ TrainerClassDVs: ; 270d6
 	db $D8, $C8 ; cooltrainerf
 	db $98, $88 ; catman
 	db $98, $88 ; birdkeeper
+	db $DD, $DD ; cross
+	db $6D, $88 ; otaku
 ;	db $98, $88 ; gentleman
 ;	db $68, $88 ; teacher
 ;	db $98, $88 ; sailor
@@ -177,3 +179,4 @@ TrainerClassPersonalities:
 	db MALE_MASK   ; catman
 	db MALE_MASK   ; birdkeeper
 	db MALE_MASK   ; cross
+	db MALE_MASK   ; otaku

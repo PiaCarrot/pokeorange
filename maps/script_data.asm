@@ -278,6 +278,8 @@ INCLUDE "maps/Route61.asm"
 INCLUDE "maps/Route62.asm"
 INCLUDE "maps/Route62MandarinDesertGate.asm"
 INCLUDE "maps/Route57North.asm"
+INCLUDE "maps/Route63EastWest.asm"
+INCLUDE "maps/Route63NorthSouth.asm"
 
 SECTION "Fukuhara No 4 Scripts", ROMX
 

@@ -334,7 +334,12 @@ TrovitaGym_BlockData:
 
 CleopatraIsland_BlockData:
 	INCBIN "maps/CleopatraIsland.blk"
-
+	
+Route63EastWest_BlockData:
+	INCBIN "maps/Route63EastWest.blk"
+	
+Route63NorthSouth_BlockData:
+	INCBIN "maps/Route63NorthSouth.blk"
 
 SECTION "Block Data 4", ROMX
 

@@ -61,6 +61,8 @@ MAP_NONE EQU 0
 	mapgroup MORO_MART, 4, 6
 	mapgroup CLEOPATRA_ISLAND, 20, 20
 	mapgroup ROUTE_57_NORTH, 12, 12
+	mapgroup ROUTE_63_EAST_WEST, 12, 40
+	mapgroup ROUTE_63_NORTH_SOUTH, 30, 12
 
 	newgroup ; 4
 
