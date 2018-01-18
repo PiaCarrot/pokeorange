@@ -218,6 +218,9 @@ SECTION "Cleopatra Scripts", ROMX
 
 INCLUDE "maps/CleopatraIsland.asm"
 
+SECTION "Ascorbia Scripts", ROMX
+
+INCLUDE "maps/AscorbiaIsland.asm"
 
 SECTION "Indigo Scripts", ROMX
 

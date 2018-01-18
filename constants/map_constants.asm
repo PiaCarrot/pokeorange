@@ -160,6 +160,7 @@ MAP_NONE EQU 0
 
 	newgroup ; 9
 
+	mapgroup ASCORBIA_ISLAND, 20, 20
 	mapgroup HALL_OF_FAME, 7, 5
 
 	newgroup ; 10
@@ -392,6 +393,7 @@ const_value SET 1
 	const FRUITTREE_PINKAN_ISLAND_4
 	const FRUITTREE_GOLDEN_ISLAND
 	const FRUITTREE_MURCOTT_ISLAND
+	const FRUITTREE_ASCORBIA_ISLAND
 
 NUM_FRUIT_TREES EQU const_value +- 1
 

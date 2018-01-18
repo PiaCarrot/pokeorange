@@ -256,6 +256,9 @@ FukuharaNo4BF2_BlockData:
 	
 FukuharaNo4BF3_BlockData:
 	INCBIN "maps/FukuharaNo4BF3.blk"
+	
+AscorbiaIsland_BlockData:
+	INCBIN "maps/AscorbiaIsland.blk"
 
 SECTION "Block Data 3", ROMX
 

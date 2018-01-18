@@ -119,8 +119,12 @@
 	connection south, CLEOPATRA_ISLAND, CleopatraIsland, 0, 0, 20, ROUTE_63_EAST_WEST
 	connection east, ROUTE_63_NORTH_SOUTH, Route63NorthSouth, 0, 18, 12, ROUTE_63_EAST_WEST
 		
-	map_header_2 Route63NorthSouth, ROUTE_63_NORTH_SOUTH, 53, WEST
+	map_header_2 Route63NorthSouth, ROUTE_63_NORTH_SOUTH, 53, NORTH | WEST
+	connection north, ASCORBIA_ISLAND, AscorbiaIsland, 0, 3, 12, ROUTE_63_NORTH_SOUTH
 	connection west, ROUTE_63_EAST_WEST, Route63EastWest, 18, 0, 12, ROUTE_63_NORTH_SOUTH
+	
+	map_header_2 AscorbiaIsland, ASCORBIA_ISLAND, 32, SOUTH
+	connection south, ROUTE_63_NORTH_SOUTH, Route63NorthSouth, 3, 0, 12, ASCORBIA_ISLAND
 	
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
