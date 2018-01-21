@@ -9,21 +9,22 @@
 
 ## Content
 
-- Method to get last other starter (with exclusive move)
 - Pokémon TCG2-esque credits
+- Safari Zone battletype
 
 ## Features
 
 - Prism DED cry code (after content is finished)
 - When releasing Pokemon, make sure it is not last Pokemon you own with Surf
 - Crystal Onix resists Water
+- Improve Trainer AI
+- Add proper Headbutt encounters
 
 ## Graphics
 
 - Improve skateboard sprites
 - Finish menu icon sprites
 - Special-case Lycanroc and Crystal Onix party icons based on form
-- Add G/S animated clouds to title screen
 
 ## Moves
 
