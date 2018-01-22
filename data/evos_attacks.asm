@@ -1830,9 +1830,10 @@ JynxEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE ; POUND
 	db 1, LICK
-	db 1, LOVELY_KISS
+	db 1, SWEET_KISS ; LOVELY_KISS
 	db 1, ICY_WIND ; POWDER_SNOW
-	db 9, LOVELY_KISS
+	db 5, SWEET_KISS ; LOVELY_KISS
+	db 8, HYPNOSIS
 	db 13, ICY_WIND ; POWDER_SNOW
 	db 21, DOUBLESLAP
 	db 25, ICE_PUNCH

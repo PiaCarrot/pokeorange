@@ -34,6 +34,18 @@ SpecialSquirtle:
 	db WATER_GUN
 	db 0
 
+SpecialIllustratorPikachu:
+	call GetLastPartyMonMoveset
+	ld hl, .Moveset
+	jp GiveSpecialMoveset
+
+.Moveset:
+	db QUICK_ATTACK
+	db DOUBLE_TEAM
+	db SKETCH ; unique
+	db THUNDERBOLT
+	db 0
+
 GetLastPartyMon: ; 0x8b1ce
 	ld bc, PartyCount
 	ld a, [bc]

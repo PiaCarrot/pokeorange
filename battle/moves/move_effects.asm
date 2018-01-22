@@ -60,7 +60,6 @@ NormalHit:
 Sing:
 SleepPowder:
 Hypnosis:
-LovelyKiss:
 Spore:
 DoSleep:
 	checkobedience
@@ -1457,6 +1456,13 @@ LockOn:
 	doturn
 	checkhit
 	lockon
+	endmove
+
+Sketch:
+	checkobedience
+	usedmovetext
+	doturn
+	sketch
 	endmove
 
 DefrostOpponent:

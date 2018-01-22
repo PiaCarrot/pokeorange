@@ -86,6 +86,7 @@
 	dw Facade
 	dw Conversion2
 	dw LockOn
+	dw Sketch
 	dw DefrostOpponent
 	dw SleepTalk
 	dw DestinyBond

@@ -3,12 +3,6 @@ INCLUDE "includes.asm"
 
 SECTION "Egg Moves", ROMX
 
-; All instances of Charm, Steel Wing, Sweet Scent, and Lovely Kiss were
-; removed from egg move lists in Crystal, because they are also TMs.
-
-; Staryu's egg moves were removed in Crystal, because Staryu is genderless
-; and can only breed with Ditto.
-
 
 INCLUDE "data/egg_move_pointers.asm"
 
