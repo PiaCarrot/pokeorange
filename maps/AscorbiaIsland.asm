@@ -25,6 +25,56 @@ AscorbiaMaxRepel:
 	
 AscorbiaPolkadotBow:
 	itemball POLKADOT_BOW
+	
+AscorbiaTeacherScript:
+	jumptextfaceplayer AscorbiaTeacherText
+	
+AscorbiaTeacherText:
+	text "One of my students"
+	line "told me he saw a"
+	cont "black HOPPIP."
+	
+	para "I think he's just"
+	line "telling a fib."
+	done
+	
+AscorbiaLassScript:
+	jumptextfaceplayer AscorbiaLassText
+	
+AscorbiaLassText:
+	text "This is ASCORBIA"
+	line "ISLAND! Isn't it"
+	cont "super pretty?"
+	
+	para "The beach to the"
+	line "west is beautiful!"
+	done
+	
+AscorbiaRockerScript:
+	jumptextfaceplayer AscorbiaRockerText
+	
+AscorbiaRockerText:
+	text "There's a large"
+	line "island west of"
+	cont "here."
+	
+	para "I hear you need a"
+	line "certain HM if you"
+	cont "want to explore it"
+	cont "fully."
+	done
+
+AscorbiaBlackBeltScript:
+	jumptextfaceplayer AscorbiaBlackBeltText
+	
+AscorbiaBlackBeltText:
+	text "Around midnight, I"
+	line "can hear a woman"
+	cont "singing."
+	
+	para "I wonder where it"
+	line "comes from?"
+	done
 
 AscorbiaIsland_MapEventHeader::
 
@@ -35,10 +85,10 @@ AscorbiaIsland_MapEventHeader::
 .BGEvents: db 0
 
 .ObjectEvents: db 8
-	person_event SPRITE_TEACHER, 17, 16, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, ObjectEvent, -1
-	person_event SPRITE_LASS, 26, 17, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, -1
-	person_event SPRITE_ROCKER, 7, 4, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, ObjectEvent, -1
-	person_event SPRITE_BLACK_BELT, 9, 26, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, ObjectEvent, -1
+	person_event SPRITE_TEACHER, 17, 16, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, AscorbiaTeacherScript, -1
+	person_event SPRITE_LASS, 26, 17, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, AscorbiaLassScript, -1
+	person_event SPRITE_ROCKER, 7, 4, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, AscorbiaRockerScript, -1
+	person_event SPRITE_BLACK_BELT, 9, 26, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, AscorbiaBlackBeltScript, -1
 	person_event SPRITE_FRUIT_TREE, 35, 4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, AscorbiaIslandFruitTreeScript, -1
 	person_event SPRITE_POKE_BALL, 26, 35, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, AscorbiaTMDragonPulse, EVENT_ASCORBIA_TM_DRAGON_PULSE
 	person_event SPRITE_POKE_BALL, 4, 22, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, AscorbiaMaxRepel, EVENT_ASCORBIA_MAX_REPEL
