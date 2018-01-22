@@ -163,7 +163,7 @@ endc
 	move POISON_GAS,   EFFECT_POISON,              0, STATUS,   POISON,    90, 40,   0
 	move BARRAGE,      EFFECT_MULTI_HIT,          15, PHYSICAL, NORMAL,    85, 20,   0
 	move LEECH_LIFE,   EFFECT_LEECH_HIT,          80, PHYSICAL, BUG,      100, 10,   0
-	move LOVELY_KISS,  EFFECT_SLEEP,               0, STATUS,   NORMAL,    75, 10,   0
+	move SKETCH,       EFFECT_SKETCH,              0, STATUS,   NORMAL,   100,  1,   0
 	move SKY_ATTACK,   EFFECT_SKY_ATTACK,        140, PHYSICAL, FLYING,    90,  5,   0
 	move TRANSFORM,    EFFECT_TRANSFORM,           0, STATUS,   NORMAL,   100, 10,   0
 	move BUBBLE,       EFFECT_SPEED_DOWN_HIT,     40, SPECIAL,  WATER,    100, 30,  10

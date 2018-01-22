@@ -140,7 +140,7 @@
 	dw PoisonGasDescription
 	dw BarrageDescription
 	dw LeechLifeDescription
-	dw LovelyKissDescription
+	dw SketchDescription
 	dw SkyAttackDescription
 	dw TransformDescription
 	dw BubbleDescription
@@ -447,7 +447,6 @@ DragonTailDescription:
 SingDescription:
 SleepPowderDescription:
 HypnosisDescription:
-LovelyKissDescription:
 	db   "May cause the foe"
 	next "to fall asleep.@"
 
@@ -801,6 +800,10 @@ SubstituteDescription:
 StruggleDescription:
 	db   "Used only if all"
 	next "PP are exhausted.@"
+
+SketchDescription:
+	db   "Copies the foe's"
+	next "move permanently.@"
 
 TripleKickDescription:
 	db   "Hits three times"

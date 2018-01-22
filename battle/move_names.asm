@@ -139,7 +139,7 @@
 	db "POISON GAS@"
 	db "BARRAGE@"
 	db "LEECH LIFE@"
-	db "LOVELY KISS@"
+	db "SKETCH@"
 	db "SKY ATTACK@"
 	db "TRANSFORM@"
 	db "BUBBLE@"

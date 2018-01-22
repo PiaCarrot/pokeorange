@@ -11,6 +11,7 @@
 
 - Pokémon TCG2-esque credits
 - Safari Zone battletype
+- Get special Pikachus
 
 ## Features
 
