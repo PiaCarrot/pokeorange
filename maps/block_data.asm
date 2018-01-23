@@ -343,6 +343,9 @@ Route63EastWest_BlockData:
 	
 Route63NorthSouth_BlockData:
 	INCBIN "maps/Route63NorthSouth.blk"
+	
+PummeloIsland_BlockData:
+	INCBIN "maps/PummeloIsland.blk"
 
 SECTION "Block Data 4", ROMX
 

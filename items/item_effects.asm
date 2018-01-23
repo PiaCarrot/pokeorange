@@ -439,7 +439,7 @@ DuskBall: ; e8a2
 	ld [CurPartySpecies], a
 	ld a, [EnemyMonLevel]
 	ld [CurPartyLevel], a
-	farcall LoadEnemyMon
+;	farcall LoadEnemyMon
 
 	pop af
 	ld [EnemySubStatus5], a

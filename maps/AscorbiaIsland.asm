@@ -68,12 +68,13 @@ AscorbiaBlackBeltScript:
 	jumptextfaceplayer AscorbiaBlackBeltText
 	
 AscorbiaBlackBeltText:
-	text "Around midnight, I"
-	line "can hear a woman"
-	cont "singing."
+	text "I heard there's a"
+	line "beautiful woman"
+	cont "who paints at"
+	cont "night time."
 	
-	para "I wonder where it"
-	line "comes from?"
+	para "I've never seen"
+	line "her, though."
 	done
 
 AscorbiaIsland_MapEventHeader::

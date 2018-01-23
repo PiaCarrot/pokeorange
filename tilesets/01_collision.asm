@@ -230,3 +230,25 @@
 	tilecoll FLOOR, WALL, WALL, WALL
 	tilecoll TOP_WALL, TOP_WALL, FLOOR, FLOOR
 	tilecoll WALL, FLOOR, WALL, FLOOR
+	tilecoll WALL, WALL, CAVE, CAVE
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, FLOOR, WALL
+	tilecoll WALL, WALL, WALL, FLOOR
+	tilecoll WALL, FLOOR, FLOOR, FLOOR
+	tilecoll FLOOR, WALL, FLOOR, FLOOR
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, FLOOR, WALL, FLOOR
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, FLOOR, WALL, FLOOR
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll WALL, WALL, WALL, WALL
+	tilecoll FLOOR, FLOOR, FLOOR, WALL
+	tilecoll WALL, FLOOR, FLOOR, FLOOR
+	tilecoll FLOOR, WALL, FLOOR, FLOOR

@@ -222,8 +222,9 @@ SECTION "Ascorbia Scripts", ROMX
 
 INCLUDE "maps/AscorbiaIsland.asm"
 
-SECTION "Indigo Scripts", ROMX
+SECTION "Pummelo Scripts", ROMX
 
+INCLUDE "maps/PummeloIsland.asm"
 INCLUDE "maps/HallOfFame.asm"
 
 

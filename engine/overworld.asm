@@ -716,6 +716,7 @@ OutdoorSprites: ; 144b8
 	dw Group11Sprites
 	dw Group12Sprites
 	dw Group13Sprites
+	dw Group14Sprites
 ; 144ec
 
 Group1Sprites: ; 146a1
@@ -881,6 +882,11 @@ Group12Sprites: ; 14600
 	db SPRITE_YOUNGSTER
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db 0 ; end
+	
+Group14Sprites: ; 14600
+; Pummelo Island
+	db SPRITE_COOLTRAINER_M
 	db 0 ; end
 
 SpriteHeaders: ; 14736

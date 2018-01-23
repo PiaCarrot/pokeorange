@@ -126,6 +126,8 @@
 	map_header_2 AscorbiaIsland, ASCORBIA_ISLAND, 32, SOUTH
 	connection south, ROUTE_63_NORTH_SOUTH, Route63NorthSouth, 3, 0, 12, ASCORBIA_ISLAND
 	
+	map_header_2 PummeloIsland, PUMMELO_ISLAND, 53, 0
+	
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
 	map_header_2 Colosseum, COLOSSEUM, $0, 0
