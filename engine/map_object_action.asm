@@ -1,20 +1,22 @@
 Pointers445f: ; 445f
-	dw SetFacingStanding,              SetFacingStanding     ; PERSON_ACTION_00
-	dw SetFacingStandAction,           SetFacingCurrent      ; PERSON_ACTION_STAND
-	dw SetFacingStepAction,            SetFacingCurrent      ; PERSON_ACTION_STEP
-	dw SetFacingBumpAction,            SetFacingCurrent      ; PERSON_ACTION_BUMP
-	dw SetFacingCounterclockwiseSpin,  SetFacingCurrent      ; PERSON_ACTION_SPIN
-	dw SetFacingCounterclockwiseSpin2, SetFacingStanding     ; PERSON_ACTION_SPIN_FLICKER
-	dw SetFacingFish,                  SetFacingFish         ; PERSON_ACTION_FISHING
-	dw SetFacingShadow,                SetFacingStanding     ; PERSON_ACTION_SHADOW
-	dw SetFacingEmote,                 SetFacingEmote        ; PERSON_ACTION_EMOTE
-	dw SetFacingBigDollSym,            SetFacingBigDollSym   ; PERSON_ACTION_BIG_SNORLAX
-	dw SetFacingBounce,                SetFacingFreezeBounce ; PERSON_ACTION_BOUNCE
-	dw SetFacingWeirdTree,             SetFacingCurrent      ; PERSON_ACTION_WEIRD_TREE
-	dw SetFacingBigDoll,               SetFacingBigDoll      ; PERSON_ACTION_BIG_DOLL
-	dw SetFacingBoulderDust,           SetFacingStanding     ; PERSON_ACTION_BOULDER_DUST
-	dw SetFacingGrassShake,            SetFacingStanding     ; PERSON_ACTION_GRASS_SHAKE
-	dw SetFacingSkyfall,               SetFacingCurrent      ; PERSON_ACTION_SKYFALL
+	dw SetFacingStanding,              SetFacingStanding       ; PERSON_ACTION_00
+	dw SetFacingStandAction,           SetFacingCurrent        ; PERSON_ACTION_STAND
+	dw SetFacingStepAction,            SetFacingCurrent        ; PERSON_ACTION_STEP
+	dw SetFacingBumpAction,            SetFacingCurrent        ; PERSON_ACTION_BUMP
+	dw SetFacingCounterclockwiseSpin,  SetFacingCurrent        ; PERSON_ACTION_SPIN
+	dw SetFacingCounterclockwiseSpin2, SetFacingStanding       ; PERSON_ACTION_SPIN_FLICKER
+	dw SetFacingFish,                  SetFacingFish           ; PERSON_ACTION_FISHING
+	dw SetFacingShadow,                SetFacingStanding       ; PERSON_ACTION_SHADOW
+	dw SetFacingEmote,                 SetFacingEmote          ; PERSON_ACTION_EMOTE
+	dw SetFacingBigDollSym,            SetFacingBigDollSym     ; PERSON_ACTION_BIG_SNORLAX
+	dw SetFacingBounce,                SetFacingFreezeBounce   ; PERSON_ACTION_BOUNCE
+	dw SetFacingWeirdTree,             SetFacingCurrent        ; PERSON_ACTION_WEIRD_TREE
+	dw SetFacingBigDoll,               SetFacingBigDoll        ; PERSON_ACTION_BIG_DOLL
+	dw SetFacingBoulderDust,           SetFacingStanding       ; PERSON_ACTION_BOULDER_DUST
+	dw SetFacingGrassShake,            SetFacingStanding       ; PERSON_ACTION_GRASS_SHAKE
+	dw SetFacingSkyfall,               SetFacingCurrent        ; PERSON_ACTION_SKYFALL
+	dw SetFacingSailboatTop,           SetFacingSailboatTop    ; PERSON_ACTION_SAILBOAT_TOP
+	dw SetFacingSailboatBottom,        SetFacingSailboatBottom ; PERSON_ACTION_SAILBOAT_BOTTOM
 ; 44a3
 
 SetFacingStanding: ; 44a3
@@ -328,3 +330,15 @@ SetFacingGrassShake: ; 45ed
 	ld [hl], a
 	ret
 ; 4600
+
+SetFacingSailboatTop:
+	ld hl, OBJECT_FACING_STEP
+	add hl, bc
+	ld [hl], FACING_SAILBOAT_TOP
+	ret
+
+SetFacingSailboatBottom:
+	ld hl, OBJECT_FACING_STEP
+	add hl, bc
+	ld [hl], FACING_SAILBOAT_BOTTOM
+	ret
