@@ -774,6 +774,7 @@ Group3Sprites: ; 146fd
 	db SPRITE_ROCK
 	db SPRITE_SAILBOAT_TOP
 	db SPRITE_SAILBOAT_BOTTOM
+	db SPRITE_UMBRELLA
 	db 0
 
 Group4Sprites: ; 146b8

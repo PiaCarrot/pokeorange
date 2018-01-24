@@ -118,6 +118,7 @@
 	const SPRITE_SCIENTIST_F           ; 72
 	const SPRITE_SAILBOAT_TOP          ; 73
 	const SPRITE_SAILBOAT_BOTTOM       ; 74
+	const SPRITE_UMBRELLA              ; 75
 
 const_value SET $90
 SPRITE_POKEMON EQU const_value
@@ -204,6 +205,8 @@ const_value SET PAL_OW_SILVER
 	const SPRITEMOVEDATA_SWIM_LEFT_RIGHT      ; 1e
 	const SPRITEMOVEDATA_SAILBOAT_TOP         ; 1f
 	const SPRITEMOVEDATA_SAILBOAT_BOTTOM      ; 20
+	const SPRITEMOVEDATA_UMBRELLA_LEFT        ; 21
+	const SPRITEMOVEDATA_UMBRELLA_RIGHT       ; 22
 NUM_SPRITEMOVEDATA EQU const_value
 SPRITEMOVEDATA_FIELDS EQU 6
 
@@ -233,6 +236,8 @@ SPRITEMOVEDATA_FIELDS EQU 6
 	const SPRITEMOVEFN_GRASS                 ; 14
 	const SPRITEMOVEFN_SAILBOAT_TOP          ; 15
 	const SPRITEMOVEFN_SAILBOAT_BOTTOM       ; 16
+	const SPRITEMOVEFN_UMBRELLA_LEFT         ; 17
+	const SPRITEMOVEFN_UMBRELLA_RIGHT        ; 18
 
 ; sprite step types
 ; see engine/map_objects.asm:StepTypesJumptable
@@ -280,6 +285,8 @@ SPRITEMOVEDATA_FIELDS EQU 6
 	const PERSON_ACTION_SKYFALL         ; 0f
 	const PERSON_ACTION_SAILBOAT_TOP    ; 10
 	const PERSON_ACTION_SAILBOAT_BOTTOM ; 11
+	const PERSON_ACTION_UMBRELLA_LEFT   ; 12
+	const PERSON_ACTION_UMBRELLA_RIGHT  ; 13
 
 ; see engine/facings.asm:Facings
 	const_def
@@ -317,6 +324,8 @@ SPRITEMOVEDATA_FIELDS EQU 6
 	const FACING_GRASS_2         ; 1f
 	const FACING_SAILBOAT_TOP    ; 20
 	const FACING_SAILBOAT_BOTTOM ; 21
+	const FACING_UMBRELLA_LEFT   ; 22
+	const FACING_UMBRELLA_RIGHT  ; 23
 
 	const_def
 	const SPRITEANIMSTRUCT_INDEX           ; 0
