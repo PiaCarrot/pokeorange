@@ -181,9 +181,11 @@ INCLUDE "audio/music/titlescreen.asm"
 
 SECTION "Songs 13", ROMX
 
-INCLUDE "audio/music/goldsilveropening.asm"
-INCLUDE "audio/music/goldsilveropening2.asm"
-
+INCLUDE "audio/music/hoohbattle.asm"
+INCLUDE "audio/music/kantolegend.asm"
+INCLUDE "audio/music/lilycovecity.asm"
+INCLUDE "audio/music/lugiabattle.asm"
+INCLUDE "audio/music/route103.asm"
 
 SECTION "Songs 14", ROMX
 

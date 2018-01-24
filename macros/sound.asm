@@ -18,6 +18,16 @@ musicheader: macro
 	; number of tracks, track idx, address
 	dbw ((\1 - 1) << 6) + (\2 - 1), \3
 	endm
+	
+channelcount: macro
+nchannels = \1 - 1
+endm
+
+channel: macro
+	dn (nchannels << 2), \1 - 1
+	dw \2
+nchannels = 0
+	endm
 
 cry_header: macro
 	dw \1, \2, \3
@@ -180,29 +190,37 @@ sfxtogglenoise: macro
 	db \1 ; id
 	endm
 
-	enum music0xf1_cmd
-music0xf1: macro
-	db music0xf1_cmd
+	enum customwave_cmd
+customwave: macro
+	db customwave_cmd
+	dd \1
+	dd \2
+	dd \3
+	dd \4
 	endm
 
-	enum music0xf2_cmd
-music0xf2: macro
-	db music0xf2_cmd
+	enum arp_cmd
+arp: macro
+	db arp_cmd
+	dn \1, \2
 	endm
 
-	enum music0xf3_cmd
-music0xf3: macro
-	db music0xf3_cmd
+	enum portaup_cmd
+portaup: macro
+	db portaup_cmd
+	db \1
 	endm
 
-	enum music0xf4_cmd
-music0xf4: macro
-	db music0xf4_cmd
+	enum portadown_cmd
+portadown: macro
+	db portadown_cmd
+	db \1
 	endm
 
-	enum music0xf5_cmd
-music0xf5: macro
-	db music0xf5_cmd
+	enum toneporta_cmd
+toneporta: macro
+	db toneporta_cmd
+	db \1
 	endm
 
 	enum music0xf6_cmd
