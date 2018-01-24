@@ -2174,6 +2174,7 @@ MapObjects:: ; d71e
 	map_object Map16
 	map_object Map17
 	map_object Map18
+	map_object Map19
 	map_object Map20
 	map_object Map21
 MapObjectsEnd::
