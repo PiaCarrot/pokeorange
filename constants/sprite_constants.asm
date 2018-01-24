@@ -1,137 +1,139 @@
 
 ; sprites
 	const_def
-	const SPRITE_NONE ; 00
-	const SPRITE_CHRIS ; 01
-	const SPRITE_CHRIS_BIKE ; 02
-	const SPRITE_GAMEBOY_KID ; 03
-	const SPRITE_TRACEY ; 04
-	const SPRITE_OAK ; 05
-	const SPRITE_RED ; 06
-	const SPRITE_BLUE ; 07
-	const SPRITE_BILL ; 08
-	const SPRITE_ELDER ; 09
-	const SPRITE_JANINE ; 0a
-	const SPRITE_KURT ; 0b
-	const SPRITE_MOM ; 0c
-	const SPRITE_BLAINE ; 0d
-	const SPRITE_REDS_MOM ; 0e
-	const SPRITE_DAISY ; 0f
-	const SPRITE_IVY ; 10
-	const SPRITE_WILL ; 11
-	const SPRITE_CISSY ; 12
-	const SPRITE_DANNY ; 13
-	const SPRITE_RUDY ; 14
-	const SPRITE_LUANA ; 15
-	const SPRITE_DRAKE ; 16
-	const SPRITE_JASMINE ; 17
-	const SPRITE_PRYCE ; 18
-	const SPRITE_CLAIR ; 19
-	const SPRITE_BROCK ; 1a
-	const SPRITE_LORELEI ; 1b
-	const SPRITE_BRUNO ; 1c
-	const SPRITE_MISTY ; 1d
-	const SPRITE_LANCE ; 1e
-	const SPRITE_SURGE ; 1f
-	const SPRITE_ERIKA ; 20
-	const SPRITE_KOGA ; 21
-	const SPRITE_SABRINA ; 22
-	const SPRITE_COOLTRAINER_M ; 23
-	const SPRITE_COOLTRAINER_F ; 24
-	const SPRITE_BUG_CATCHER ; 25
-	const SPRITE_TWIN ; 26
-	const SPRITE_YOUNGSTER ; 27
-	const SPRITE_LASS ; 28
-	const SPRITE_TEACHER ; 29
-	const SPRITE_BUENA ; 2a
-	const SPRITE_SUPER_NERD ; 2b
-	const SPRITE_ROCKER ; 2c
-	const SPRITE_POKEFAN_M ; 2d
-	const SPRITE_POKEFAN_F ; 2e
-	const SPRITE_GRAMPS ; 2f
-	const SPRITE_GRANNY ; 30
-	const SPRITE_SWIMMER_GUY ; 31
-	const SPRITE_SWIMMER_GIRL ; 32
-	const SPRITE_BIG_SNORLAX ; 33
-	const SPRITE_SURFING_PIKACHU ; 34
-	const SPRITE_ROCKET ; 35
-	const SPRITE_ROCKET_GIRL ; 36
-	const SPRITE_NURSE ; 37
-	const SPRITE_LINK_RECEPTIONIST ; 38
-	const SPRITE_CLERK ; 39
-	const SPRITE_FISHER ; 3a
-	const SPRITE_FISHING_GURU ; 3b
-	const SPRITE_SCIENTIST ; 3c
-	const SPRITE_KIMONO_GIRL ; 3d
-	const SPRITE_SAGE ; 3e
-	const SPRITE_UNUSED_GUY ; 3f
-	const SPRITE_GENTLEMAN ; 40
-	const SPRITE_BLACK_BELT ; 41
-	const SPRITE_RECEPTIONIST ; 42
-	const SPRITE_OFFICER ; 43
-	const SPRITE_CAL ; 44
-	const SPRITE_SLOWPOKE ; 45
-	const SPRITE_CAPTAIN ; 46
-	const SPRITE_BIG_LAPRAS ; 47
-	const SPRITE_GYM_GUY ; 48
-	const SPRITE_SAILOR ; 49
-	const SPRITE_BIKER ; 4a
-	const SPRITE_PHARMACIST ; 4b
-	const SPRITE_MONSTER ; 4c
-	const SPRITE_FAIRY ; 4d
-	const SPRITE_BIRD ; 4e
-	const SPRITE_DRAGON ; 4f
-	const SPRITE_BIG_ONIX ; 50
-	const SPRITE_N64 ; 51
-	const SPRITE_MIME__JR ; 52
-	const SPRITE_SURF ; 53
-	const SPRITE_POKE_BALL ; 54
-	const SPRITE_POKEDEX ; 55
-	const SPRITE_PAPER ; 56
-	const SPRITE_VIRTUAL_BOY ; 57
+	const SPRITE_NONE                  ; 00
+	const SPRITE_CHRIS                 ; 01
+	const SPRITE_CHRIS_BIKE            ; 02
+	const SPRITE_GAMEBOY_KID           ; 03
+	const SPRITE_TRACEY                ; 04
+	const SPRITE_OAK                   ; 05
+	const SPRITE_RED                   ; 06
+	const SPRITE_BLUE                  ; 07
+	const SPRITE_BILL                  ; 08
+	const SPRITE_ELDER                 ; 09
+	const SPRITE_JANINE                ; 0a
+	const SPRITE_KURT                  ; 0b
+	const SPRITE_MOM                   ; 0c
+	const SPRITE_BLAINE                ; 0d
+	const SPRITE_REDS_MOM              ; 0e
+	const SPRITE_DAISY                 ; 0f
+	const SPRITE_IVY                   ; 10
+	const SPRITE_WILL                  ; 11
+	const SPRITE_CISSY                 ; 12
+	const SPRITE_DANNY                 ; 13
+	const SPRITE_RUDY                  ; 14
+	const SPRITE_LUANA                 ; 15
+	const SPRITE_DRAKE                 ; 16
+	const SPRITE_JASMINE               ; 17
+	const SPRITE_PRYCE                 ; 18
+	const SPRITE_CLAIR                 ; 19
+	const SPRITE_BROCK                 ; 1a
+	const SPRITE_LORELEI               ; 1b
+	const SPRITE_BRUNO                 ; 1c
+	const SPRITE_MISTY                 ; 1d
+	const SPRITE_LANCE                 ; 1e
+	const SPRITE_SURGE                 ; 1f
+	const SPRITE_ERIKA                 ; 20
+	const SPRITE_KOGA                  ; 21
+	const SPRITE_SABRINA               ; 22
+	const SPRITE_COOLTRAINER_M         ; 23
+	const SPRITE_COOLTRAINER_F         ; 24
+	const SPRITE_BUG_CATCHER           ; 25
+	const SPRITE_TWIN                  ; 26
+	const SPRITE_YOUNGSTER             ; 27
+	const SPRITE_LASS                  ; 28
+	const SPRITE_TEACHER               ; 29
+	const SPRITE_BUENA                 ; 2a
+	const SPRITE_SUPER_NERD            ; 2b
+	const SPRITE_ROCKER                ; 2c
+	const SPRITE_POKEFAN_M             ; 2d
+	const SPRITE_POKEFAN_F             ; 2e
+	const SPRITE_GRAMPS                ; 2f
+	const SPRITE_GRANNY                ; 30
+	const SPRITE_SWIMMER_GUY           ; 31
+	const SPRITE_SWIMMER_GIRL          ; 32
+	const SPRITE_BIG_SNORLAX           ; 33
+	const SPRITE_SURFING_PIKACHU       ; 34
+	const SPRITE_ROCKET                ; 35
+	const SPRITE_ROCKET_GIRL           ; 36
+	const SPRITE_NURSE                 ; 37
+	const SPRITE_LINK_RECEPTIONIST     ; 38
+	const SPRITE_CLERK                 ; 39
+	const SPRITE_FISHER                ; 3a
+	const SPRITE_FISHING_GURU          ; 3b
+	const SPRITE_SCIENTIST             ; 3c
+	const SPRITE_KIMONO_GIRL           ; 3d
+	const SPRITE_SAGE                  ; 3e
+	const SPRITE_UNUSED_GUY            ; 3f
+	const SPRITE_GENTLEMAN             ; 40
+	const SPRITE_BLACK_BELT            ; 41
+	const SPRITE_RECEPTIONIST          ; 42
+	const SPRITE_OFFICER               ; 43
+	const SPRITE_CAL                   ; 44
+	const SPRITE_SLOWPOKE              ; 45
+	const SPRITE_CAPTAIN               ; 46
+	const SPRITE_BIG_LAPRAS            ; 47
+	const SPRITE_GYM_GUY               ; 48
+	const SPRITE_SAILOR                ; 49
+	const SPRITE_BIKER                 ; 4a
+	const SPRITE_PHARMACIST            ; 4b
+	const SPRITE_MONSTER               ; 4c
+	const SPRITE_FAIRY                 ; 4d
+	const SPRITE_BIRD                  ; 4e
+	const SPRITE_DRAGON                ; 4f
+	const SPRITE_BIG_ONIX              ; 50
+	const SPRITE_N64                   ; 51
+	const SPRITE_MIME__JR              ; 52
+	const SPRITE_SURF                  ; 53
+	const SPRITE_POKE_BALL             ; 54
+	const SPRITE_POKEDEX               ; 55
+	const SPRITE_PAPER                 ; 56
+	const SPRITE_VIRTUAL_BOY           ; 57
 	const SPRITE_OLD_LINK_RECEPTIONIST ; 58
-	const SPRITE_ROCK ; 59
-	const SPRITE_BOULDER ; 5a
-	const SPRITE_SNES ; 5b
-	const SPRITE_FAMICOM ; 5c
-	const SPRITE_FRUIT_TREE ; 5d
-	const SPRITE_GOLD_TROPHY ; 5e
-	const SPRITE_SILVER_TROPHY ; 5f
-	const SPRITE_KRIS ; 60
-	const SPRITE_KRIS_BIKE ; 61
-	const SPRITE_KURT_OUTSIDE ; 62
-	const SPRITE_TANGROWTH ; 63
-	const SPRITE_ENTEI ; 64
-	const SPRITE_RAIKOU ; 65
-	const SPRITE_STANDING_YOUNGSTER ; 66
-	const SPRITE_SIGHTSEER_F ; 67
-	const SPRITE_BUG_BOY ; 68
-	const SPRITE_PC_SLOUCH ; 69
-	const SPRITE_JESSIE ;70
-	const SPRITE_JAMES ;71
-	const SPRITE_CAT_MAN ;72
-	const SPRITE_ROCKET_MEOWTH ;72
-	const SPRITE_CHRIS_DIVE ;74
-	const SPRITE_KRIS_DIVE ;75
-	const SPRITE_INVISIBLE ;76
-	const SPRITE_MAYOR
-	const SPRITE_SCIENTIST_F
+	const SPRITE_ROCK                  ; 59
+	const SPRITE_BOULDER               ; 5a
+	const SPRITE_SNES                  ; 5b
+	const SPRITE_FAMICOM               ; 5c
+	const SPRITE_FRUIT_TREE            ; 5d
+	const SPRITE_GOLD_TROPHY           ; 5e
+	const SPRITE_SILVER_TROPHY         ; 5f
+	const SPRITE_KRIS                  ; 60
+	const SPRITE_KRIS_BIKE             ; 61
+	const SPRITE_KURT_OUTSIDE          ; 62
+	const SPRITE_TANGROWTH             ; 63
+	const SPRITE_ENTEI                 ; 64
+	const SPRITE_RAIKOU                ; 65
+	const SPRITE_STANDING_YOUNGSTER    ; 66
+	const SPRITE_SIGHTSEER_F           ; 67
+	const SPRITE_BUG_BOY               ; 68
+	const SPRITE_PC_SLOUCH             ; 69
+	const SPRITE_JESSIE                ; 6a
+	const SPRITE_JAMES                 ; 6b
+	const SPRITE_CAT_MAN               ; 6c
+	const SPRITE_ROCKET_MEOWTH         ; 6d
+	const SPRITE_CHRIS_DIVE            ; 6e
+	const SPRITE_KRIS_DIVE             ; 6f
+	const SPRITE_INVISIBLE             ; 70
+	const SPRITE_MAYOR                 ; 71
+	const SPRITE_SCIENTIST_F           ; 72
+	const SPRITE_SAILBOAT_TOP          ; 73
+	const SPRITE_SAILBOAT_BOTTOM       ; 74
 
 const_value SET $90
 SPRITE_POKEMON EQU const_value
-	const SPRITE_SHELLDER ; 90
-	const SPRITE_PIKACHU ; 91
-	const SPRITE_ONIX ; 92
-	const SPRITE_MACHOP ; 93
-	const SPRITE_AERODACTYL
+	const SPRITE_SHELLDER              ; 90
+	const SPRITE_PIKACHU               ; 91
+	const SPRITE_ONIX                  ; 92
+	const SPRITE_MACHOP                ; 93
+	const SPRITE_AERODACTYL            ; 94
 
 const_value SET $e0
-	const SPRITE_DAYCARE_MON_1 ; e0
-	const SPRITE_DAYCARE_MON_2 ; e1
+	const SPRITE_DAYCARE_MON_1         ; e0
+	const SPRITE_DAYCARE_MON_2         ; e1
 
 const_value SET $f0
 SPRITE_VARS EQU const_value
-	const SPRITE_BIG_DOLL ; f0
+	const SPRITE_BIG_DOLL              ; f0
 
 ; sprite types
 const_value SET 1
@@ -200,6 +202,8 @@ const_value SET PAL_OW_SILVER
 	const SPRITEMOVEDATA_SWIM_AROUND          ; 1c
 	const SPRITEMOVEDATA_SWIM_UP_DOWN         ; 1d
 	const SPRITEMOVEDATA_SWIM_LEFT_RIGHT      ; 1e
+	const SPRITEMOVEDATA_SAILBOAT_TOP         ; 1f
+	const SPRITEMOVEDATA_SAILBOAT_BOTTOM      ; 20
 NUM_SPRITEMOVEDATA EQU const_value
 SPRITEMOVEDATA_FIELDS EQU 6
 
@@ -227,6 +231,8 @@ SPRITEMOVEDATA_FIELDS EQU 6
 	const SPRITEMOVEFN_SPIN_COUNTERCLOCKWISE ; 12
 	const SPRITEMOVEFN_BOULDERDUST           ; 13
 	const SPRITEMOVEFN_GRASS                 ; 14
+	const SPRITEMOVEFN_SAILBOAT_TOP          ; 15
+	const SPRITEMOVEFN_SAILBOAT_BOTTOM       ; 16
 
 ; sprite step types
 ; see engine/map_objects.asm:StepTypesJumptable
@@ -256,57 +262,61 @@ SPRITEMOVEDATA_FIELDS EQU 6
 
 ; see engine/map_object_action.asm:Pointers445f
 	const_def
-	const PERSON_ACTION_00           ; 00
-	const PERSON_ACTION_STAND        ; 01
-	const PERSON_ACTION_STEP         ; 02
-	const PERSON_ACTION_BUMP         ; 03
-	const PERSON_ACTION_SPIN         ; 04
-	const PERSON_ACTION_SPIN_FLICKER ; 05
-	const PERSON_ACTION_FISHING      ; 06
-	const PERSON_ACTION_SHADOW       ; 07
-	const PERSON_ACTION_EMOTE        ; 08
-	const PERSON_ACTION_BIG_SNORLAX  ; 09
-	const PERSON_ACTION_BOUNCE       ; 0a
-	const PERSON_ACTION_WEIRD_TREE   ; 0b
-	const PERSON_ACTION_BIG_DOLL     ; 0c
-	const PERSON_ACTION_BOULDER_DUST ; 0d
-	const PERSON_ACTION_GRASS_SHAKE  ; 0e
-	const PERSON_ACTION_SKYFALL      ; 0f
+	const PERSON_ACTION_00              ; 00
+	const PERSON_ACTION_STAND           ; 01
+	const PERSON_ACTION_STEP            ; 02
+	const PERSON_ACTION_BUMP            ; 03
+	const PERSON_ACTION_SPIN            ; 04
+	const PERSON_ACTION_SPIN_FLICKER    ; 05
+	const PERSON_ACTION_FISHING         ; 06
+	const PERSON_ACTION_SHADOW          ; 07
+	const PERSON_ACTION_EMOTE           ; 08
+	const PERSON_ACTION_BIG_SNORLAX     ; 09
+	const PERSON_ACTION_BOUNCE          ; 0a
+	const PERSON_ACTION_WEIRD_TREE      ; 0b
+	const PERSON_ACTION_BIG_DOLL        ; 0c
+	const PERSON_ACTION_BOULDER_DUST    ; 0d
+	const PERSON_ACTION_GRASS_SHAKE     ; 0e
+	const PERSON_ACTION_SKYFALL         ; 0f
+	const PERSON_ACTION_SAILBOAT_TOP    ; 10
+	const PERSON_ACTION_SAILBOAT_BOTTOM ; 11
 
 ; see engine/facings.asm:Facings
 	const_def
-	const FACING_STEP_DOWN_0    ; 00
-	const FACING_STEP_DOWN_1    ; 01
-	const FACING_STEP_DOWN_2    ; 02
-	const FACING_STEP_DOWN_3    ; 03
-	const FACING_STEP_UP_0      ; 04
-	const FACING_STEP_UP_1      ; 05
-	const FACING_STEP_UP_2      ; 06
-	const FACING_STEP_UP_3      ; 07
-	const FACING_STEP_LEFT_0    ; 08
-	const FACING_STEP_LEFT_1    ; 09
-	const FACING_STEP_LEFT_2    ; 0a
-	const FACING_STEP_LEFT_3    ; 0b
-	const FACING_STEP_RIGHT_0   ; 0c
-	const FACING_STEP_RIGHT_1   ; 0d
-	const FACING_STEP_RIGHT_2   ; 0e
-	const FACING_STEP_RIGHT_3   ; 0f
-	const FACING_FISH_DOWN      ; 10
-	const FACING_FISH_UP        ; 11
-	const FACING_FISH_LEFT      ; 12
-	const FACING_FISH_RIGHT     ; 13
-	const FACING_EMOTE          ; 14
-	const FACING_SHADOW         ; 15
-	const FACING_BIG_DOLL_ASYM  ; 16
-	const FACING_BIG_DOLL_SYM   ; 17
-	const FACING_WEIRD_TREE_0   ; 18
-	const FACING_WEIRD_TREE_1   ; 19
-	const FACING_WEIRD_TREE_2   ; 1a
-	const FACING_WEIRD_TREE_3   ; 1b
-	const FACING_BOULDER_DUST_1 ; 1c
-	const FACING_BOULDER_DUST_2 ; 1d
-	const FACING_GRASS_1        ; 1e
-	const FACING_GRASS_2        ; 1f
+	const FACING_STEP_DOWN_0     ; 00
+	const FACING_STEP_DOWN_1     ; 01
+	const FACING_STEP_DOWN_2     ; 02
+	const FACING_STEP_DOWN_3     ; 03
+	const FACING_STEP_UP_0       ; 04
+	const FACING_STEP_UP_1       ; 05
+	const FACING_STEP_UP_2       ; 06
+	const FACING_STEP_UP_3       ; 07
+	const FACING_STEP_LEFT_0     ; 08
+	const FACING_STEP_LEFT_1     ; 09
+	const FACING_STEP_LEFT_2     ; 0a
+	const FACING_STEP_LEFT_3     ; 0b
+	const FACING_STEP_RIGHT_0    ; 0c
+	const FACING_STEP_RIGHT_1    ; 0d
+	const FACING_STEP_RIGHT_2    ; 0e
+	const FACING_STEP_RIGHT_3    ; 0f
+	const FACING_FISH_DOWN       ; 10
+	const FACING_FISH_UP         ; 11
+	const FACING_FISH_LEFT       ; 12
+	const FACING_FISH_RIGHT      ; 13
+	const FACING_EMOTE           ; 14
+	const FACING_SHADOW          ; 15
+	const FACING_BIG_DOLL_ASYM   ; 16
+	const FACING_BIG_DOLL_SYM    ; 17
+	const FACING_WEIRD_TREE_0    ; 18
+	const FACING_WEIRD_TREE_1    ; 19
+	const FACING_WEIRD_TREE_2    ; 1a
+	const FACING_WEIRD_TREE_3    ; 1b
+	const FACING_BOULDER_DUST_1  ; 1c
+	const FACING_BOULDER_DUST_2  ; 1d
+	const FACING_GRASS_1         ; 1e
+	const FACING_GRASS_2         ; 1f
+	const FACING_SAILBOAT_TOP    ; 20
+	const FACING_SAILBOAT_BOTTOM ; 21
 
 	const_def
 	const SPRITEANIMSTRUCT_INDEX           ; 0

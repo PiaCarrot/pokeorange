@@ -453,3 +453,9 @@ MayorSprite:
 
 ScientistFSprite:
 	sprite_header ScientistFSpriteGFX, 3, WALKING_SPRITE, PAL_OW_PURPLE
+
+SailboatTopSprite:
+	sprite_header SailboatTopSpriteGFX, 3, STANDING_SPRITE, PAL_OW_TREE
+
+SailboatBottomSprite:
+	sprite_header SailboatBottomSpriteGFX, 3, STANDING_SPRITE, PAL_OW_TREE

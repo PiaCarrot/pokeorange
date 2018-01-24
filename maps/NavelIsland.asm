@@ -9,6 +9,9 @@ NavelIsland_MapScriptHeader::
 	setflag ENGINE_FLYPOINT_NAVEL
 	return
 
+NavelIslandSailboatScript:
+	end
+
 NavelIslandSign:
 	jumptext NavelIslandSignText
 
@@ -33,4 +36,6 @@ NavelIsland_MapEventHeader::
 .BGEvents: db 1
 	signpost 24, 16, SIGNPOST_READ, NavelIslandSign
 
-.ObjectEvents: db 0
+.ObjectEvents: db 2
+	person_event SPRITE_SAILBOAT_TOP, 21, 11, SPRITEMOVEDATA_SAILBOAT_TOP, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, NavelIslandSailboatScript, -1
+	person_event SPRITE_SAILBOAT_BOTTOM, 21, 11, SPRITEMOVEDATA_SAILBOAT_BOTTOM, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, NavelIslandSailboatScript, -1
