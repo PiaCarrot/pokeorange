@@ -6,7 +6,7 @@ PummeloIsland_MapScriptHeader:
 
 .MapCallbacks: db 0
 
-PummeloIsland_MapEventHeader:
+PummeloIsland_MapEventHeader::
 
 .Warps: db 0
 
@@ -15,3 +15,4 @@ PummeloIsland_MapEventHeader:
 .BGEvents: db 0
 
 .ObjectEvents: db 0
+

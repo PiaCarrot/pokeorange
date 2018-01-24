@@ -4,8 +4,9 @@
 
 - Unnamed Island 2 Fishing Contest (requires some asm magix)
 - Mistimed battle animations from 60FPS
-- Caught Pokémon may have their personality (gender + shiny + form) changed
+- Ditto needs fixing
 - Sweet Kiss can sometimes cause Poison
+- Fix walking/wall bumping animation bug caused by 60 FPS
 
 ## Content
 
@@ -20,6 +21,11 @@
 - Crystal Onix resists Water
 - Improve Trainer AI
 - Add proper Headbutt encounters
+- Learn on Evolution
+- Held item + Trade Stone to evolve (Magmarizer + Trade Stone, etc)
+- Chain Fishing
+- Invisible Pickup for Meowth/Persian
+- Invisible Flame Body for Magmar/Magmortar
 
 ## Graphics
 
