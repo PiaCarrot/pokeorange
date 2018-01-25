@@ -7,6 +7,7 @@
 - Ditto needs fixing
 - Sweet Kiss can sometimes cause Poison
 - Fix walking/wall bumping animation bug caused by 60 FPS
+- Rocket theme music is broken
 
 ## Content
 
