@@ -17,6 +17,8 @@ Pointers445f: ; 445f
 	dw SetFacingSkyfall,               SetFacingCurrent        ; PERSON_ACTION_SKYFALL
 	dw SetFacingSailboatTop,           SetFacingSailboatTop    ; PERSON_ACTION_SAILBOAT_TOP
 	dw SetFacingSailboatBottom,        SetFacingSailboatBottom ; PERSON_ACTION_SAILBOAT_BOTTOM
+	dw SetFacingUmbrellaLeft,          SetFacingUmbrellaLeft   ; PERSON_ACTION_UMBRELLA_LEFT
+	dw SetFacingUmbrellaRight,         SetFacingUmbrellaRight  ; PERSON_ACTION_UMBRELLA_RIGHT
 ; 44a3
 
 SetFacingStanding: ; 44a3
@@ -341,4 +343,16 @@ SetFacingSailboatBottom:
 	ld hl, OBJECT_FACING_STEP
 	add hl, bc
 	ld [hl], FACING_SAILBOAT_BOTTOM
+	ret
+
+SetFacingUmbrellaLeft:
+	ld hl, OBJECT_FACING_STEP
+	add hl, bc
+	ld [hl], FACING_UMBRELLA_LEFT
+	ret
+
+SetFacingUmbrellaRight:
+	ld hl, OBJECT_FACING_STEP
+	add hl, bc
+	ld [hl], FACING_UMBRELLA_RIGHT
 	ret

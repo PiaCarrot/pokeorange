@@ -560,6 +560,8 @@ MapObjectMovementPattern: ; 47dd
 	dw .MovementShakingGrass ; 14
 	dw .MovementSailboatTop ; 15
 	dw .MovementSailboatBottom ; 16
+	dw .MovementUmbrellaLeft ; 17
+	dw .MovementUmbrellaRight ; 18
 
 .RandomWalkY:
 	call Random
@@ -981,6 +983,32 @@ MapObjectMovementPattern: ; 47dd
 	ld hl, OBJECT_ACTION
 	add hl, bc
 	ld [hl], PERSON_ACTION_SAILBOAT_BOTTOM
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_04
+	ret
+
+.MovementUmbrellaLeft:
+	call EndSpriteMovement
+	ld hl, OBJECT_DIRECTION_WALKING
+	add hl, bc
+	ld [hl], STANDING
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], PERSON_ACTION_UMBRELLA_LEFT
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_04
+	ret
+
+.MovementUmbrellaRight:
+	call EndSpriteMovement
+	ld hl, OBJECT_DIRECTION_WALKING
+	add hl, bc
+	ld [hl], STANDING
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], PERSON_ACTION_UMBRELLA_RIGHT
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
 	ld [hl], STEP_TYPE_04

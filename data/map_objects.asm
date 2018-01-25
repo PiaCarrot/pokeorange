@@ -37,3 +37,5 @@ endm
 	sprite_movement_data SPRITEMOVEFN_RANDOM_WALK_X,         DOWN,   PERSON_ACTION_STAND,           $00,    $00,    %0010 ; 1e
 	sprite_movement_data SPRITEMOVEFN_SAILBOAT_TOP,          DOWN,   PERSON_ACTION_SAILBOAT_TOP,    $2e,    $02,    %1100 ; 1f
 	sprite_movement_data SPRITEMOVEFN_SAILBOAT_BOTTOM,       DOWN,   PERSON_ACTION_SAILBOAT_BOTTOM, $2e,    $01,    %1100 ; 20
+	sprite_movement_data SPRITEMOVEFN_UMBRELLA_LEFT,         DOWN,   PERSON_ACTION_UMBRELLA_LEFT,   $8e,    $02,    %0000 ; 21
+	sprite_movement_data SPRITEMOVEFN_UMBRELLA_RIGHT,        UP,     PERSON_ACTION_UMBRELLA_RIGHT,  $8e,    $02,    %0000 ; 21

@@ -459,3 +459,6 @@ SailboatTopSprite:
 
 SailboatBottomSprite:
 	sprite_header SailboatBottomSpriteGFX, 3, STANDING_SPRITE, PAL_OW_TREE
+
+UmbrellaSprite:
+	sprite_header UmbrellaSpriteGFX, 3, STANDING_SPRITE, PAL_OW_ROCK
