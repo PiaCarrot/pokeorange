@@ -225,7 +225,6 @@
 	map_header_2 TrovitopolisDeptStoreElevator, TROVITOPOLIS_DEPT_STORE_ELEVATOR, $0, 0
 	map_header_2 TrovitopolisDeptStoreRoof, TROVITOPOLIS_DEPT_STORE_ROOF, 36, 0
 	map_header_2 TrovitopolisPokeCommCenter, TROVITOPOLIS_POKE_COMM_CENTER, 0, 0
-	map_header_2 FishingContestLobby, FISHING_CONTEST_LOBBY, 0, 0
 	map_header_2 TrovitopolisMrFlashHouse, TROVITOPOLIS_MR_FLASH_HOUSE, 0, 0
 	map_header_2 TrovitopolisMoveDeleterHouse, TROVITOPOLIS_MOVE_DELETER_HOUSE, 0, 0
 	map_header_2 TrovitopolisHouse1, TROVITOPOLIS_HOUSE_1, 0, 0

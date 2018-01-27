@@ -274,9 +274,6 @@ DayCare_BlockData:
 UnnamedIsland2_BlockData:
 	INCBIN "maps/UnnamedIsland2.blk"
 
-FishingContestLobby_BlockData:
-	INCBIN "maps/FishingContestLobby.blk"
-
 FishingContest_BlockData:
 	INCBIN "maps/FishingContest.blk"
 

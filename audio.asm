@@ -45,6 +45,7 @@ INCLUDE "audio/music/clair.asm"
 INCLUDE "audio/music/contestresults.asm"
 INCLUDE "audio/music/dancinghall.asm"
 INCLUDE "audio/music/wildpokemonvictory.asm"
+INCLUDE "audio/music/successfulcapture.asm"
 
 
 SECTION "Songs 3", ROMX
@@ -161,7 +162,6 @@ INCLUDE "audio/music/ssaqua.asm"
 
 SECTION "Songs 11", ROMX
 
-INCLUDE "audio/music/successfulcapture.asm"
 INCLUDE "audio/music/suicunebattle.asm"
 INCLUDE "audio/music/surf.asm"
 INCLUDE "audio/music/tintower.asm"

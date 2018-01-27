@@ -165,7 +165,6 @@ SECTION "Fishing Contest Scripts", ROMX
 
 INCLUDE "maps/UnnamedIsland2.asm"
 INCLUDE "maps/FishingContest.asm"
-INCLUDE "maps/FishingContestLobby.asm"
 
 
 SECTION "Mandarin South Scripts", ROMX

@@ -1,4 +1,5 @@
 const_value set 1
+	const FISHING_CONTEST_GRAMPS
 
 FishingContest_MapScriptHeader::
 
@@ -10,37 +11,15 @@ FishingContestSign:
 	jumptext FishingContestSignText
 	
 FishingContestSignText:
-	text "FISHING CONTEST"
-	line "RULES"
+	text "NOTICE!"
 	
-	para "1. 20 Minute Time"
-	line "Limit"
+	para "Please capture"
+	line "here with some"
+	cont "restraint!"
 	
-	para "2. Only 20 Contest"
-	line "Balls Allowed"
-	
-	para "3. Biggest Catch"
-	line "Wins!"
-	done
-	
-FishingContestFisher1Script:
-	jumptextfaceplayer FishingContestFisher1Text
-	
-FishingContestFisher1Text:
-	text "Patience<...>"
-	
-	para "I can feel it!"
-	line "A rare #MON!"
-	done
-
-FishingContestFisher2Script:
-	jumptextfaceplayer FishingContestFisher2Text
-	
-FishingContestFisher2Text:
-	text "In my lifetime,"
-	line "I have caught hun-"
-	cont "dreds of #MON"
-	cont "with this ROD!"
+	para "Some #MON"
+	line "only live in this"
+	cont "area!"
 	done
 	
 FishingContestNatPagleScript:
@@ -64,17 +43,13 @@ FishingContestNatPagleText:
 
 FishingContest_MapEventHeader::
 
-.Warps: db 2
-	warp_def 6, 0, 3, FISHING_CONTEST_LOBBY
-	warp_def 7, 0, 4, FISHING_CONTEST_LOBBY
+.Warps: db 0
 
 .CoordEvents: db 0
 
 .BGEvents: db 1
 	signpost 15, 11, SIGNPOST_READ, FishingContestSign
 
-.ObjectEvents: db 3
-	person_event SPRITE_FISHER, 21, 11, SPRITEMOVEDATA_STANDING_DOWN, 0, 1, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, FishingContestFisher1Script, -1
-	person_event SPRITE_FISHER, 14, 17, SPRITEMOVEDATA_STANDING_RIGHT, 0, 1, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, FishingContestNatPagleScript, -1
-	person_event SPRITE_FISHING_GURU, 6, 10, SPRITEMOVEDATA_STANDING_UP, 0, 1, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, FishingContestFisher2Script, -1
+.ObjectEvents: db 1
+	person_event SPRITE_GRAMPS, 14, 17, SPRITEMOVEDATA_STANDING_RIGHT, 0, 1, -1, -1, PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, FishingContestNatPagleScript, -1
 
