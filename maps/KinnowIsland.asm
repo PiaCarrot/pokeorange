@@ -53,6 +53,9 @@ SkateShopSignText:
 	line "Roll around in"
 	cont "style!"
 	done
+	
+KinnowIslandHiddenPPUp:
+	dwb EVENT_ROUTE_KINNOW_ISLAND_HIDDEN_PP_UP, PP_UP
 
 KinnowIsland_MapEventHeader::
 
@@ -69,10 +72,11 @@ KinnowIsland_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 3
+.BGEvents: db 4
 	signpost 18, 18, SIGNPOST_READ, KinnowTownSign
 	signpost 24, 28, SIGNPOST_READ, CafePiaSign
 	signpost 9, 11, SIGNPOST_READ, SkateShopSign
+	signpost 10, 28, SIGNPOST_ITEM, KinnowIslandHiddenPPUp
 
 .ObjectEvents: db 2
 	person_event SPRITE_POKEFAN_M, 22, 16, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, KinnowPokeFanMScript, -1

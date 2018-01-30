@@ -236,7 +236,7 @@ MenuMonIconColors::
 	icon_pals BLUE, BLUE ; PHANPY
 	icon_pals GRAY, BLUE ; DONPHAN
 	icon_pals RED, BLUE ; PORYGON2
-	icon_pals RED, BLUE ; PORYGONZ
+	icon_pals RED, BLUE ; PORYGON_Z
 	icon_pals RED, BLUE ; LICKILICKY
 	icon_pals BROWN, BLUE ; TYROGUE
 	icon_pals BROWN, BLUE ; HITMONTOP

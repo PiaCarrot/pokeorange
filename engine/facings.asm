@@ -31,6 +31,10 @@ Facings: ; 4049
 	dw FacingBoulderDust2
 	dw FacingGrass1
 	dw FacingGrass2
+	dw FacingSailboatTop
+	dw FacingSailboatBottom
+	dw FacingUmbrellaLeft
+	dw FacingUmbrellaRight
 FacingsEnd: dw 0
 
 NUM_FACINGS EQU (FacingsEnd - Facings) / 2
@@ -260,3 +264,49 @@ FacingGrass2: ; 426a
 	db  9, -1, 4, $fe
 	db  9,  9, 4 | X_FLIP, $fe
 ; 4273
+
+FacingSailboatTop:
+	db 12 ; #
+	db  0,   8, 0, $00
+	db  0,  16, 0, $01
+	db  8,   8, 0, $02
+	db  8,  16, 0, $03
+	db  0,  24, 0, $04
+	db  0,  32, 0, $05
+	db  8,  24, 0, $06
+	db  8,  32, 0, $07
+	db -8,  16, 0, $08
+	db -8,  24, 0, $09
+	db  8,  -8, 0, $0a
+	db  8,   0, 0, $0b
+
+FacingSailboatBottom:
+	db 12 ; #
+	db 16,   8, 0, $00
+	db 16,  16, 0, $01
+	db 24,   8, 0, $02
+	db 24,  16, 0, $03
+	db 16,  -8, 0, $04
+	db 16,   0, 0, $05
+	db 24,  -8, 0, $06
+	db 24,   0, 0, $07
+	db 16,  24, 0, $08
+	db 16,  32, 0, $09
+	db 24,  24, 0, $0a
+	db 24,  32, 0, $0b
+
+FacingUmbrellaLeft:
+	db 5 ; #
+	db  0,  8, 0, $08
+	db  8,  0, 0, $00
+	db  8,  8, 0, $01
+	db 16,  0, 0, $02
+	db 16,  8, 0, $03
+
+FacingUmbrellaRight:
+	db 5 ; #
+	db  0,  0, 0, $09
+	db  8,  0, 0, $04
+	db  8,  8, 0, $05
+	db 16,  0, 0, $06
+	db 16,  8, 0, $07

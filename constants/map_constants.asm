@@ -21,8 +21,6 @@ MAP_NONE EQU 0
 	newgroup ; 2
 
 	mapgroup TANGELO_JUNGLE, 27, 25
-	mapgroup NATIONAL_PARK, 27, 20
-	mapgroup NATIONAL_PARK_BUG_CONTEST, 27, 20
 	mapgroup MT_NAVEL_1F, 14, 14
 	mapgroup MT_NAVEL_2F, 12, 12
 	mapgroup MT_NAVEL_PEAK, 10, 10
@@ -36,6 +34,9 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_60, 32, 28
 	mapgroup SUNRAY_CAVE_MANDARIN_DESERT_1F, 11, 11
 	mapgroup TROVITA_ISLAND, 22, 24
+	mapgroup FUKUHARA_NO_4_BF1, 20, 20
+	mapgroup FUKUHARA_NO_4_BF2, 20, 20
+	mapgroup FUKUHARA_NO_4_BF3, 10, 10
 
 	newgroup ; 3
 
@@ -58,6 +59,10 @@ MAP_NONE EQU 0
 	mapgroup MORO_HOUSE_2, 4, 4
 	mapgroup MORO_POKE_CENTER, 4, 5
 	mapgroup MORO_MART, 4, 6
+	mapgroup CLEOPATRA_ISLAND, 20, 20
+	mapgroup ROUTE_57_NORTH, 12, 12
+	mapgroup ROUTE_63_EAST_WEST, 12, 40
+	mapgroup ROUTE_63_NORTH_SOUTH, 30, 12
 
 	newgroup ; 4
 
@@ -112,6 +117,7 @@ MAP_NONE EQU 0
 	mapgroup MURCOTT_POKE_CENTER, 4, 5
 	mapgroup MURCOTT_POKE_MART, 4, 6
 	mapgroup UNNAMED_ISLAND_2, 20, 17
+	mapgroup FISHING_CONTEST, 20, 12
 	mapgroup ROUTE_62, 20, 37
 	mapgroup ROUTE_62_MANDARIN_DESERT_GATE, 4, 5
 
@@ -129,15 +135,13 @@ MAP_NONE EQU 0
 	mapgroup VALENCIA_PORT, 12, 12
 	mapgroup TANGELO_PORT, 12, 12
 	mapgroup TROVITOPOLIS, 24, 36
-	mapgroup FISHING_CONTEST, 20, 12
-	mapgroup FISHING_CONTEST_LOBBY, 3, 6
 	mapgroup TROVITOPOLIS_DEPT_STORE_1F, 4, 8
-	mapgroup TROVITOPOLIS_DEPT_STORE_2F,                     4,  8 ; 12
-	mapgroup TROVITOPOLIS_DEPT_STORE_3F,                     4,  8 ; 13
-	mapgroup TROVITOPOLIS_DEPT_STORE_4F,                     4,  8 ; 14
-	mapgroup TROVITOPOLIS_DEPT_STORE_5F,                     4,  8 ; 15
+	mapgroup TROVITOPOLIS_DEPT_STORE_2F, 4,  8 ; 12
+	mapgroup TROVITOPOLIS_DEPT_STORE_3F, 4,  8 ; 13
+	mapgroup TROVITOPOLIS_DEPT_STORE_4F, 4,  8 ; 14
+	mapgroup TROVITOPOLIS_DEPT_STORE_5F, 4,  8 ; 15
 	mapgroup TROVITOPOLIS_DEPT_STORE_6F, 4, 8
-	mapgroup TROVITOPOLIS_DEPT_STORE_ELEVATOR,               2,  2 ; 17
+	mapgroup TROVITOPOLIS_DEPT_STORE_ELEVATOR, 2,  2 ; 17
 	mapgroup TROVITOPOLIS_DEPT_STORE_ROOF, 4, 6
 	mapgroup TROVITOPOLIS_POKE_COMM_CENTER, 11, 11
 	mapgroup TROVITOPOLIS_MR_FLASH_HOUSE, 4, 4
@@ -155,6 +159,7 @@ MAP_NONE EQU 0
 
 	newgroup ; 9
 
+	mapgroup ASCORBIA_ISLAND, 20, 20
 	mapgroup HALL_OF_FAME, 7, 5
 
 	newgroup ; 10
@@ -176,7 +181,7 @@ MAP_NONE EQU 0
 
 	newgroup ; 12
 
-	mapgroup ROUTE_50, 27, 10
+	mapgroup ROUTE_50, 27, 11
 	mapgroup ROUTE_51, 20, 20
 	mapgroup ROUTE_51_TANGELO_JUNGLE_GATE, 4, 5
 	mapgroup ROUTE_51_GATE_UPSTAIRS, 4, 5
@@ -194,6 +199,10 @@ MAP_NONE EQU 0
 	mapgroup SUNBURST_LARGE_HOUSE, 4, 4
 	mapgroup SUNBURST_SOUTH_HOUSE, 4, 4
 	mapgroup SUNBURST_CRYSTAL_SHOP, 3, 4
+	
+	newgroup ; 14
+	
+	mapgroup PUMMELO_ISLAND, 25, 27
 
 
 ; elevator floors
@@ -387,6 +396,7 @@ const_value SET 1
 	const FRUITTREE_PINKAN_ISLAND_4
 	const FRUITTREE_GOLDEN_ISLAND
 	const FRUITTREE_MURCOTT_ISLAND
+	const FRUITTREE_ASCORBIA_ISLAND
 
 NUM_FRUIT_TREES EQU const_value +- 1
 

@@ -1,4 +1,4 @@
-
+TrainerPicPointers::
 	dba CissyPic
 	dba DannyPic
 	dba RudyPic
@@ -58,6 +58,7 @@
 	dba CatmanPic
 	dba BirdkeeperPic
 	dba CrossPic
+	dba OtakuPic
 ;	dba GentlemanPic
 ;	dba TeacherPic
 ;	dba SailorPic

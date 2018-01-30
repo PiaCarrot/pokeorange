@@ -1,4 +1,4 @@
-
+PicPointers::
 	add_pics Bulbasaur
 	add_pics Ivysaur
 	add_pics Venusaur
@@ -93,7 +93,7 @@
 	add_pics Gastly
 	add_pics Haunter
 	add_pics Gengar
-	add_pics Onix
+	add_pics Onix ; unused; see OnixPicPointers
 	add_pics Drowzee
 	add_pics Hypno
 	add_pics Krabby

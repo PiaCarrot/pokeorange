@@ -141,7 +141,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_PoisonGas
 	dw BattleAnim_Barrage
 	dw BattleAnim_LeechLife
-	dw BattleAnim_LovelyKiss
+	dw BattleAnim_Sketch
 	dw BattleAnim_SkyAttack
 	dw BattleAnim_Transform
 	dw BattleAnim_Bubble
@@ -2414,17 +2414,6 @@ BattleAnim_Mimic: ; ca5ac
 	anim_ret
 ; ca5de
 
-BattleAnim_LovelyKiss: ; ca5de
-	anim_2gfx ANIM_GFX_OBJECTS, ANIM_GFX_ANGELS
-	anim_bgeffect ANIM_BG_07, $0, $2, $0
-	anim_obj ANIM_OBJ_96, -13, 0,   5, 0, $0
-	anim_wait 32
-	anim_sound 0, 1, SFX_LICK
-	anim_obj ANIM_OBJ_HEART,  16, 0,   5, 0, $0
-	anim_wait 40
-	anim_ret
-; ca5f6
-
 BattleAnim_Bonemerang: ; ca5f6
 	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_HIT
 	anim_sound 6, 2, SFX_HYDRO_PUMP
@@ -3105,6 +3094,19 @@ BattleAnim_Struggle: ; cac55
 	anim_wait 16
 	anim_ret
 ; cac61
+
+BattleAnim_Sketch: ; cac61
+	anim_1gfx ANIM_GFX_OBJECTS
+	anim_call BattleAnim_FollowEnemyFeet_0
+	anim_bgeffect ANIM_BG_1A, $0, $1, $20
+	anim_sound 0, 0, SFX_SKETCH
+	anim_obj ANIM_OBJ_98,   9, 0,  10, 0, $0
+	anim_wait 80
+	anim_incbgeffect ANIM_BG_1A
+	anim_call BattleAnim_ShowMon_0
+	anim_wait 1
+	anim_ret
+; cac7b
 
 BattleAnim_TripleKick: ; cac7b
 	anim_1gfx ANIM_GFX_HIT
@@ -5494,3 +5496,14 @@ BattleAnim_PowerGem: ; from Prism
 ;	anim_wait 64
 ;	anim_ret
 ;; ca08a
+
+;BattleAnim_LovelyKiss: ; ca5de
+;	anim_2gfx ANIM_GFX_OBJECTS, ANIM_GFX_ANGELS
+;	anim_bgeffect ANIM_BG_07, $0, $2, $0
+;	anim_obj ANIM_OBJ_96, -13, 0,   5, 0, $0
+;	anim_wait 32
+;	anim_sound 0, 1, SFX_LICK
+;	anim_obj ANIM_OBJ_HEART,  16, 0,   5, 0, $0
+;	anim_wait 40
+;	anim_ret
+;; ca5f6

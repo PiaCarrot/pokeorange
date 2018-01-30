@@ -157,7 +157,7 @@ UnknownText_0x68648:
 	line "act--a TM can be"
 	cont "used only once."
 
-	para "TM32 contains"
+	para "that TM contains"
 	line "BUBBLEBEAM."
 
 	para "It reduces the"

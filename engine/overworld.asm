@@ -716,6 +716,7 @@ OutdoorSprites: ; 144b8
 	dw Group11Sprites
 	dw Group12Sprites
 	dw Group13Sprites
+	dw Group14Sprites
 ; 144ec
 
 Group1Sprites: ; 146a1
@@ -766,11 +767,14 @@ Group3Sprites: ; 146fd
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_FISHER
-	db SPRITE_OFFICER
-	db SPRITE_SWIMMER_GIRL
+	db SPRITE_RED
+	db SPRITE_ROCKER
 	db SPRITE_SWIMMER_GUY
 	db SPRITE_POKE_BALL
 	db SPRITE_ROCK
+	db SPRITE_SAILBOAT_TOP
+	db SPRITE_SAILBOAT_BOTTOM
+	db SPRITE_UMBRELLA
 	db 0
 
 Group4Sprites: ; 146b8
@@ -841,6 +845,16 @@ Group8Sprites: ; 14714
 	db 0 ; end
 
 Group9Sprites: ; 144ec
+; Ascorbia Island
+	db SPRITE_TEACHER
+	db SPRITE_YOUNGSTER
+	db SPRITE_BLACK_BELT
+	db SPRITE_SIGHTSEER_F
+	db SPRITE_BUG_BOY
+	db SPRITE_ROCKER
+	db SPRITE_LASS
+	db SPRITE_POKE_BALL
+	db SPRITE_FRUIT_TREE
 	db 0 ; end
 
 Group10Sprites: ; 1472b
@@ -871,6 +885,11 @@ Group12Sprites: ; 14600
 	db SPRITE_YOUNGSTER
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db 0 ; end
+	
+Group14Sprites: ; 14600
+; Pummelo Island
+	db SPRITE_COOLTRAINER_M
 	db 0 ; end
 
 SpriteHeaders: ; 14736

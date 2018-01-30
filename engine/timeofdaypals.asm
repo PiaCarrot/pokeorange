@@ -16,6 +16,11 @@ _TimeOfDayPals:: ; 8c011
 	bit 7, [hl]
 	jr nz, .dontchange
 
+; dusk?
+	ld a, [hHours]
+	cp DUSK_HOUR
+	jr z, .change
+
 ; do we need to bother updating?
 	ld a, [TimeOfDay]
 	ld hl, CurTimeOfDay
@@ -37,7 +42,7 @@ _TimeOfDayPals:: ; 8c011
 ; update palette id
 	ld [TimeOfDayPal], a
 
-
+.change
 ; save bg palette 8
 	ld hl, UnknBGPals + 8 * 7 ; UnknBGPals + 7 pals
 

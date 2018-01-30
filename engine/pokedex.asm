@@ -1753,10 +1753,14 @@ Pokedex_LoadSelectedMonTiles: ; 4143b
 	call Pokedex_GetSelectedMon
 	call Pokedex_CheckSeen
 	jr z, .QuestionMark
-	ld a, [wFirstSpindaSeen]
-	ld [MonVariant], a
 	ld a, [wd265]
 	ld [CurPartySpecies], a
+	cp SPINDA
+	ld a, 1
+	jr nz, .got_variant
+	ld a, [wFirstSpindaSeen]
+.got_variant
+	ld [MonVariant], a
 	call GetBaseData
 	ld de, VTiles2
 	predef GetFrontpic

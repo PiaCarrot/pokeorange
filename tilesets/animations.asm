@@ -52,28 +52,29 @@ Tileset31Anim: ; 0xfc073
 ; 0xfc047
 
 Tileset01Anim: ; 0xfc0a3
+	dw VTiles2 tile $7e, WriteTileToBuffer
 	dw RSEWaterFrames1, AnimateRSEWaterTile
-    dw RSEWaterFrames2, AnimateRSEWaterTile
-   	dw DiveWaterFrames1, AnimateDiveWaterTile
-    dw DiveWaterFrames2, AnimateDiveWaterTile
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
+	dw RSEWaterFrames2, AnimateRSEWaterTile
+	dw DiveWaterFrames1, AnimateDiveWaterTile
+	dw DiveWaterFrames2, AnimateDiveWaterTile
+	dw wTileAnimBuffer, ScrollTileDown
 	dw NULL,  AnimateFlowerTile
 	dw WhirlpoolFrames1, AnimateWhirlpoolTile
 	dw WhirlpoolFrames2, AnimateWhirlpoolTile
 	dw WhirlpoolFrames3, AnimateWhirlpoolTile
 	dw WhirlpoolFrames4, AnimateWhirlpoolTile
+	dw wTileAnimBuffer, ScrollTileDown
 	dw NULL,  WaitTileAnimation
+	dw VTiles2 tile $7e, WriteTileFromBuffer
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 ; 0xfc0d7
 
 Tileset03Anim: ; 0xfc01b
 	dw RSEWaterFrames1, AnimateRSEWaterTile
-    dw RSEWaterFrames2, AnimateRSEWaterTile
-   	dw DiveWaterFrames1, AnimateDiveWaterTile
-    dw DiveWaterFrames2, AnimateDiveWaterTile
+	dw RSEWaterFrames2, AnimateRSEWaterTile
+	dw DiveWaterFrames1, AnimateDiveWaterTile
+	dw DiveWaterFrames2, AnimateDiveWaterTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -89,9 +90,9 @@ Tileset03Anim: ; 0xfc01b
 
 Tileset19Anim: ; 0xfc2e7
 	dw RSEWaterFrames1, AnimateRSEWaterTile
-    dw RSEWaterFrames2, AnimateRSEWaterTile
-   	dw DiveWaterFrames1, AnimateDiveWaterTile
-    dw DiveWaterFrames2, AnimateDiveWaterTile
+	dw RSEWaterFrames2, AnimateRSEWaterTile
+	dw DiveWaterFrames1, AnimateDiveWaterTile
+	dw DiveWaterFrames2, AnimateDiveWaterTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation

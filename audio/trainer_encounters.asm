@@ -79,7 +79,9 @@ TrainerEncounterMusic: ; e9027
 	db MUSIC_HIKER_ENCOUNTER		; cooltrainerm
 	db MUSIC_BEAUTY_ENCOUNTER		; cooltrainerf
 	db MUSIC_POKEMANIAC_ENCOUNTER	; catman
-;	db MUSIC_YOUNGSTER_ENCOUNTER	; bird_keeper
+	db MUSIC_YOUNGSTER_ENCOUNTER	; bird_keeper
+	db MUSIC_LOOK_GLADION           ; cross
+	db MUSIC_POKEMANIAC_ENCOUNTER   ; otaku
 ;	db MUSIC_HIKER_ENCOUNTER		; gentleman
 ;	db MUSIC_BEAUTY_ENCOUNTER		; teacher
 ;	db MUSIC_HIKER_ENCOUNTER		; sailor

@@ -262,6 +262,9 @@ Route56WestHPUp:
 Route56WestUltraBall:
 	itemball ULTRA_BALL
 
+Route56WestHiddenUltraBall:
+	dwb EVENT_ROUTE_56_WEST_HIDDEN_ULTRA_BALL, ULTRA_BALL
+
 Route56West_MapEventHeader::
 
 .Warps: db 1
@@ -271,14 +274,16 @@ Route56West_MapEventHeader::
 	xy_trigger 0, 20, 50, TraceyScript1
 	xy_trigger 0, 20, 51, TraceyScript2
 
-.BGEvents: db 1
+.BGEvents: db 2
 	signpost 9, 37, SIGNPOST_READ, Route56Sign
+	signpost 25, 43, SIGNPOST_ITEM, Route56WestHiddenUltraBall
 
 .ObjectEvents: db 7
 	person_event SPRITE_FISHER, 22, 19, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerFisherIsao, -1
-	person_event SPRITE_COOLTRAINER_M, 23, 14, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerAthleteKaito, -1
-	person_event SPRITE_SWIMMER_GIRL, 20, 33, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerSakako, -1
-	person_event SPRITE_SWIMMER_GUY, 9, 16, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerNaoya, -1
+	person_event SPRITE_COOLTRAINER_M, 8, 9, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerAthleteKaito, -1
+	person_event SPRITE_SWIMMER_GIRL, 16, 32, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerSakako, -1
+	person_event SPRITE_SWIMMER_GUY, 14, 18, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerNaoya, -1
 	person_event SPRITE_TRACEY, 20, 55, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_56_TRACEY
 	person_event SPRITE_POKE_BALL, 9, 51, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56WestHPUp, EVENT_ROUTE_56_WEST_HP_UP
 	person_event SPRITE_POKE_BALL, 27, 52, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56WestUltraBall, EVENT_ROUTE_56_WEST_ULTRA_BALL
+

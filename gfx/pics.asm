@@ -2,25 +2,18 @@ INCLUDE "includes.asm"
 
 
 SECTION "Pic Pointers", ROMX
-PicPointers:: INCLUDE "gfx/pics/pic_pointers.asm"
 
-SECTION "Spinda Pic Pointers", ROMX
-SpindaPicPointers:: INCLUDE "gfx/pics/spinda_pic_pointers.asm"
+INCLUDE "gfx/pics/pic_pointers.asm"
 
-SECTION "Lycanroc Pic Pointers", ROMX
-LycanrocPicPointers:: INCLUDE "gfx/pics/lycanroc_pic_pointers.asm"
 
-SECTION "Squirtle Pic Pointers", ROMX
-SquirtlePicPointers:: INCLUDE "gfx/pics/squirtle_pic_pointers.asm"
+SECTION "Variant Pic Pointers", ROMX
 
-SECTION "Meowth Pic Pointers", ROMX
-MeowthPicPointers:: INCLUDE "gfx/pics/meowth_pic_pointers.asm"
+INCLUDE "gfx/pics/variant_pic_pointers.asm"
 
-SECTION "Magikarp Pic Pointers", ROMX
-MagikarpPicPointers:: INCLUDE "gfx/pics/magikarp_pic_pointers.asm"
 
 SECTION "Trainer Pic Pointers", ROMX
-TrainerPicPointers:: INCLUDE "gfx/pics/trainer_pic_pointers.asm"
+
+INCLUDE "gfx/pics/trainer_pic_pointers.asm"
 
 
 SECTION "Pics 1", ROMX
@@ -393,6 +386,7 @@ PersianBackpic:      INCBIN "gfx/pics/persian/back.2bpp.lz"
 PichuFrontpic:       INCBIN "gfx/pics/pichu/front.2bpp.lz"
 PidgeyBackpic:       INCBIN "gfx/pics/pidgey/back.2bpp.lz"
 PoliwagFrontpic:     INCBIN "gfx/pics/poliwag/front.2bpp.lz"
+PoliwrathTadBackpic:
 PoliwrathBackpic:    INCBIN "gfx/pics/poliwrath/back.2bpp.lz"
 PonytaBackpic:       INCBIN "gfx/pics/ponyta/back.2bpp.lz"
 PupitarBackpic:      INCBIN "gfx/pics/pupitar/back.2bpp.lz"
@@ -677,7 +671,9 @@ WeepinbellBackpic:   INCBIN "gfx/pics/weepinbell/back.2bpp.lz"
 BellsproutBackpic:   INCBIN "gfx/pics/bellsprout/back.2bpp.lz"
 VictreebelFrontpic:  INCBIN "gfx/pics/victreebel/front.2bpp.lz"
 VictreebelBackpic:   INCBIN "gfx/pics/victreebel/back.2bpp.lz"
+OnixCrystalFrontpic:
 OnixFrontpic:        INCBIN "gfx/pics/onix/front.2bpp.lz"
+OnixCrystalBackpic:
 OnixBackpic:         INCBIN "gfx/pics/onix/back.2bpp.lz"
 MarowakFrontpic:     INCBIN "gfx/pics/marowak/front.2bpp.lz"
 MarowakBackpic:      INCBIN "gfx/pics/marowak/back.2bpp.lz"
@@ -716,6 +712,7 @@ NursePic:            INCBIN "gfx/trainers/nurse.2bpp.lz"
 BugCatcherFPic:      INCBIN "gfx/trainers/bug_catcher_f.2bpp.lz"
 CatmanPic:           INCBIN "gfx/trainers/catman.2bpp.lz"
 CrossPic:            INCBIN "gfx/trainers/cross.2bpp.lz"
+OtakuPic:            INCBIN "gfx/trainers/otaku.2bpp.lz"
 
 
 SECTION "Pics 21", ROMX
@@ -731,6 +728,7 @@ LycanrocDuskBackpic:      INCBIN "gfx/pics/lycanroc_dusk/back.2bpp.lz"
 SECTION "Pics 22", ROMX
 
 MeowthRocketFrontpic:     INCBIN "gfx/pics/meowth_rocket/front.2bpp.lz"
+PoliwrathTadFrontpic:     INCBIN "gfx/pics/poliwrath_tad/front.2bpp.lz"
 SquirtleGlassesFrontpic:  INCBIN "gfx/pics/squirtle_glasses/front.2bpp.lz"
 SquirtleGlassesBackpic:   INCBIN "gfx/pics/squirtle_glasses/back.2bpp.lz"
 MagikarpSkellyFrontpic:   INCBIN "gfx/pics/magikarp_skelly/front.2bpp.lz"

@@ -152,6 +152,10 @@ KRIS EQU __enum__
 	const NOBU
 	const ISAO
 	const YUUTA
+	const SHINJI
+	const MIYAGI
+	const KUNAI
+	const YAMATO
 
 	trainerclass HIKER
 	const TEPPEI
@@ -162,9 +166,12 @@ KRIS EQU __enum__
 
 	trainerclass SIGHTSEERM
 	const MICHIO
+	const KENTA
+	const HYOU
 
 	trainerclass SIGHTSEERF
 	const ASAMI
+	const ARASHI
 
 	trainerclass WAITRESS
 	const SATOMI
@@ -176,11 +183,15 @@ KRIS EQU __enum__
 	const AKIRA
 	const KATSUO
 	const SON
+	const TAD
+	const YUUJI
+	const SEI
 
 	trainerclass COOLTRAINERF
 	const KEIKO
 	const MORIKO
 	const AIRI
+	const REIKA
 
 	trainerclass CATMAN
 	const DAIKON
@@ -193,6 +204,10 @@ KRIS EQU __enum__
 	const TATSUYA
 	
 	trainerclass CROSS
+	
+	trainerclass OTAKU
+	const NIRO
+	const GODO
 
 ;	trainerclass GENTLEMAN
 

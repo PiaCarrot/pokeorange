@@ -6,6 +6,7 @@ const_value set 1
 	const ROUTE_56_SWIMMERF_YAEKO
 	const ROUTE_56_HIKER_TEPPEI
 	const ROUTE_56_ITEMBALL3
+	const ROUTE_56_MACH_PUNCH_TUTOR
 
 Route56East_MapScriptHeader::
 
@@ -103,21 +104,78 @@ Route56EastTMAttract:
 
 Route56Rock:
 	jumpstd smashrock
+	
+Route56EastHiddenHyperPotion:
+	dwb EVENT_ROUTE_56_EAST_HIDDEN_HYPER_POTION, HYPER_POTION
+	
+Route56MachPunchTutor:
+	faceplayer
+	opentext
+	writetext GivePlayerMachPunchText
+	yesorno
+	iffalse .TutorRefused
+	writebyte MACH_PUNCH
+	writetext Text_MachPunchTutorClear
+	special Special_MoveTutor
+	if_equal $0, .TeachMove
+.TutorRefused
+	writetext Text_MachPunchTutorRefused
+	waitbutton
+	closetext
+	end
+
+.TeachMove
+	writetext Text_MachPunchTutorTaught
+	waitbutton
+	closetext
+	end
+
+GivePlayerMachPunchText:
+	text "Wahahaha!"
+	
+	para "You look quite"
+	line "nimble, my young"
+	cont "friend!"
+	
+	para "If you'd like, I"
+	line "can teach your"
+	cont "#MON the move"
+	cont "MACH PUNCH!"
+	
+	para "Want to learn"
+	line "MACH PUNCH?"
+	done
+	
+Text_MachPunchTutorTaught:
+	text "MACH PUNCH is very"
+	line "fast! It usually"
+	cont "strikes first."
+	done
+	
+Text_MachPunchTutorRefused:
+	text "Very well!"
+	done
+	
+Text_MachPunchTutorClear:
+	text ""
+	done
 
 Route56East_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 1
+	warp_def 21, 12, 1, FUKUHARA_NO_4_BF1
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 1
+	signpost 7, 39, SIGNPOST_ITEM, Route56EastHiddenHyperPotion
 
-.ObjectEvents: db 7
+.ObjectEvents: db 8
 	person_event SPRITE_ROCK, 22, 13, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route56Rock, -1
 	person_event SPRITE_ROCK, 22, 11, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route56Rock, -1
 	person_event SPRITE_ROCK, 23, 12, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route56Rock, -1
-	person_event SPRITE_COOLTRAINER_M, 10, 44, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 3, TrainerSightSeerMichio, -1
-	person_event SPRITE_SWIMMER_GIRL, 20, 34, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerYaeko, -1
+	person_event SPRITE_COOLTRAINER_M, 10, 43, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 3, TrainerSightSeerMichio, -1
+	person_event SPRITE_SWIMMER_GIRL, 17, 53, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerYaeko, -1
 	person_event SPRITE_POKEFAN_M, 24, 8, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 1, TrainerHikerTeppei, -1
 	person_event SPRITE_POKE_BALL, 13, 44, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56EastTMAttract, EVENT_ROUTE_56_EAST_TM_ATTRACT
-
+	person_event SPRITE_POKEFAN_M, 6, 22, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 1, Route56MachPunchTutor, -1

@@ -234,7 +234,7 @@ const_value set 1
 	const PHANPY
 	const DONPHAN
 	const PORYGON2
-	const PORYGONZ
+	const PORYGON_Z
 	const LICKILICKY
 	const TYROGUE
 	const HITMONTOP
@@ -395,12 +395,20 @@ MAGIKARP_FOREHEAD_DVS EQUS "$fe, $bd"
 MAGIKARP_MASK_DVS     EQUS "$fe, $fe"
 
 const_value set 1
+	const ONIX_NORMAL_FORM
+	const ONIX_CRYSTAL_FORM
+
+const_value set 1
 	const SQUIRTLE_NORMAL_FORM
 	const SQUIRTLE_GLASSES_FORM
 
 const_value set 1
 	const MEOWTH_NORMAL_FORM
 	const MEOWTH_ROCKET_FORM
+
+const_value set 1
+	const POLIWRATH_NORMAL_FORM
+	const POLIWRATH_TAD_FORM
 
 const_value set 1
 	const LYCANROC_MIDDAY_FORM

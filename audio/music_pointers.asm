@@ -91,8 +91,6 @@
 	dba Music_VictoryRoad ; 0xf6c72
 	dba Music_PokemonLullaby ; 0xf6d79
 	dba Music_PokemonMarch ; 0xf6e23
-	dba Music_GoldSilverOpening ; 0xf7055
-	dba Music_GoldSilverOpening2 ; 0xf7308
 	dba Music_MainMenu ; 0xf78fd
 	dba Music_RuinsOfAlphInterior ; 0xebd9e
 	dba Music_RocketTheme ; 0xf766d
@@ -127,4 +125,9 @@
 	dba Music_EverGrandeCity
 	dba Music_LookGladion
 	dba Music_HoennChampionBattle
+	dba Music_HoOhBattle
+	dba Music_KantoLegend
+	dba Music_LilycoveCity
+	dba Music_LugiaBattle
+	dba Music_Route103
 ; e91a3

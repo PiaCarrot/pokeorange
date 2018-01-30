@@ -4,7 +4,6 @@ const_value set 1
 	const SUNBURST_VENDOR3
 	const SUNBURST_GRAMPS
 	const SUNBURST_COOLTRAINERF
-	const SUNBURST_FISHER
 	const SUNBURST_FISHER2
 	const SUNBURST_SWIFT
 
@@ -18,13 +17,6 @@ SunburstIsland_MapScriptHeader::
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_SUNBURST
 	return
-
-SunburstSleepingManScript:
-	opentext
-	writetext SunburstSleepingManText
-	waitbutton
-	closetext
-	end
 
 SunburstFatManScript:
 	jumptextfaceplayer SunburstFatManText
@@ -79,14 +71,6 @@ SunburstHiddenMoonStone:
 
 SunburstTMSwift:
 	itemball TM_SWIFT
-
-SunburstSleepingManText:
-	text "Zzz<...><...>"
-
-	para "Doesn't seem like"
-	line "he will wake up"
-	cont "any time soon."
-	done
 
 SunburstFatManText:
 	text "This is CRYSTAL"
@@ -152,6 +136,9 @@ CaveSignText:
 	para "Follow right to"
 	line "ROUTE 55."
 	done
+	
+SunburstHiddenNugget:
+	dwb EVENT_ROUTE_SUNBURST_ISLAND_HIDDEN_NUGGET, NUGGET
 
 SunburstIsland_MapEventHeader::
 
@@ -165,7 +152,7 @@ SunburstIsland_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 7
+.BGEvents: db 8
 	signpost 18, 30, SIGNPOST_READ, SunburstSign
 	signpost 26, 18, SIGNPOST_READ, BazaarSign
 	signpost 9, 5, SIGNPOST_READ, IslandSign
@@ -173,13 +160,13 @@ SunburstIsland_MapEventHeader::
 	signpost 42, 28, SIGNPOST_READ, CaveSign
 	signpost 28, 14, SIGNPOST_ITEM, SunburstHiddenIron
 	signpost 28, 20, SIGNPOST_ITEM, SunburstHiddenMoonStone
+	signpost 41, 10, SIGNPOST_ITEM, SunburstHiddenNugget
 
-.ObjectEvents: db 8
+.ObjectEvents: db 7
 	person_event SPRITE_GRAMPS, 23, 10, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, SunburstGrampsScript, -1
 	person_event SPRITE_YOUNGSTER, 27, 15, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SunburstBlueSalesmanScript, -1
 	person_event SPRITE_YOUNGSTER, 25, 21, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, SunburstRedSalesmanScript, -1
 	person_event SPRITE_YOUNGSTER, 23, 17, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SunburstGreenSalesmanScript, -1
 	person_event SPRITE_COOLTRAINER_F, 13, 31, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, SunburstCooltrainerFScript, -1
-	person_event SPRITE_FISHER, 36, 20, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SunburstSleepingManScript, EVENT_MANDARIN_UNDERGROUND_CASSIDY
 	person_event SPRITE_FISHER, 42, 25, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SunburstFatManScript, -1
 	person_event SPRITE_POKE_BALL, 7, 21, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, SunburstTMSwift, EVENT_SUNBURST_TM_SWIFT

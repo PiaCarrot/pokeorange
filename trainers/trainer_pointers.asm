@@ -60,6 +60,7 @@ TrainerGroups: ; 0x39999
 	dw CatmanGroup
 	dw BirdkeeperGroup
 	dw CrossGroup
+	dw OtakuGroup
 ;	dw GentlemanGroup
 ;	dw TeacherGroup
 ;	dw SailorGroup

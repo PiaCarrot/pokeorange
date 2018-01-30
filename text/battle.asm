@@ -703,6 +703,15 @@ TookAimText: ; 0x81136
 	prompt
 ; 0x81143
 
+SketchedText: ; 0x81143
+	text "<USER>"
+	line "SKETCHED"
+	cont "@"
+	text_from_ram StringBuffer1
+	text "!"
+	prompt
+; 0x81156
+
 DestinyBondEffectText: ; 0x81156
 	text "<USER>'s"
 	line "trying to take its"

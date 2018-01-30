@@ -231,7 +231,7 @@
 	db "PHANPY@@@@"
 	db "DONPHAN@@@"
 	db "PORYGON2@@"
-	db "PORYGONZ@@"
+	db "PORYGON-Z@"
 	db "LICKILICKY"
 	db "TYROGUE@@@"
 	db "HITMONTOP@"

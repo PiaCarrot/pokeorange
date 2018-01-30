@@ -1889,17 +1889,6 @@ OtherTrainerClass:: ; d22f
 	ds 1
 
 BattleType:: ; d230
-; $00 normal
-; $01 can lose
-; $02 fishing
-; $03 roaming
-; $04 contest
-; $05 shiny
-; $06 headbutt/rock smash
-; $07 trap
-; $08 force Item1
-; $09 celebi
-; $0a tangrowth
 	ds 1
 
 OtherTrainerID:: ; d231
@@ -2184,12 +2173,15 @@ MapObjects:: ; d71e
 	map_object Map15
 	map_object Map16
 	map_object Map17
+	map_object Map18
+	map_object Map19
+	map_object Map20
+	map_object Map21
 MapObjectsEnd::
 
 wObjectMasks:: ds NUM_OBJECTS ; d81e
 
-VariableSprites:: ; d82e
-	ds $10
+VariableSprites:: ds $100 - SPRITE_VARS ; d82e
 
 wEnteredMapFromContinue:: ds 1 ; d83e
 	ds 2
@@ -2284,8 +2276,6 @@ wTradeFlags:: flag_array PARTY_LENGTH ; d960
 UndergroundSwitchPositions:: ; d963
 	ds 1 ; which positions the switches are in
 
-	ds 16
-
 
 ;SECTION "Map Triggers", WRAMX, BANK [1]
 
@@ -2309,14 +2299,15 @@ wGoldenIslandTrigger::             ds 1
 wMurcottIslandTrigger::            ds 1
 wTrovitopolisPortTrigger::		   ds 1
 wMayorsOfficeMeetingRoomTrigger::  ds 1
-
-	ds 23
+wCleopatraIslandTrigger:: 		   ds 1
+wFukuharaNo4BF1Trigger::           ds 1
+wRoute63NorthSouthTrigger::        ds 1
 
 EventFlags:: ; da72
 	flag_array NUM_EVENTS
 ; db6c
 
-	ds 170
+	ds 200
 
 wCurBox:: ; db72
 	ds 1

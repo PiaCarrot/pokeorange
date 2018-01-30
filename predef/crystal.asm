@@ -45,6 +45,19 @@ LoadSpecialMapPalette: ; 494ac
 	cp TILESET_POWER_PLANT
 	jr z, LoadEightBGPalettes
 
+	ld a, [wPermission]
+	cp TOWN
+	jr z, .outside
+	cp ROUTE
+	jr nz, .not_outside_dusk
+.outside
+	ld a, [hHours]
+	cp DUSK_HOUR
+	jr nz, .not_outside_dusk
+	ld hl, OutsideDuskPalette
+	jr LoadEightBGPalettes
+.not_outside_dusk
+
 .do_nothing
 	and a
 	ret
@@ -58,8 +71,13 @@ LoadSpecialMapPalette: ; 494ac
 ; 494f2
 
 LoadEightTimeOfDayBGPalettes:
+	ld a, [hHours]
+	cp DUSK_HOUR
+	ld a, DARKNESS
+	jr z, .dusk
 	ld a, [TimeOfDayPal]
 	and $3
+.dusk
 	ld bc, 8 palettes
 	call AddNTimes
 LoadEightBGPalettes: ; 494f2
@@ -110,12 +128,38 @@ INCLUDE "tilesets/trovitopolis_sewer.pal"
 MayorsOfficePalette:
 INCLUDE "tilesets/mayors_office.pal"
 
+OutsideDuskPalette:
+INCLUDE "tilesets/dusk.pal"
+
 LoadSpecialMapOBPalette:
 	ld a, [wTileset]
 
 	ld hl, UnderwaterOBPalette
 	cp TILESET_UNDERWATER
 	jr z, LoadEightOBPalettes
+
+	ld a, [wPermission]
+	cp TOWN
+	jr z, .outside
+	cp ROUTE
+	jr nz, .not_outside_dusk
+.outside
+	ld a, [hHours]
+	cp DUSK_HOUR
+	jr nz, .not_outside_dusk
+	ld a, $5
+	ld hl, UnknBGPals + PAL_BG_GREEN palettes
+	ld de, UnknOBPals + PAL_OW_TREE palettes
+	ld bc, 1 palettes
+	call FarCopyWRAM
+	ld a, $5
+	ld hl, UnknBGPals + PAL_BG_BROWN palettes
+	ld de, UnknOBPals + PAL_OW_ROCK palettes
+	ld bc, 1 palettes
+	call FarCopyWRAM
+	scf
+	ret
+.not_outside_dusk
 
 .do_nothing
 	and a

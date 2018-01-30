@@ -11,11 +11,11 @@
 	connection west, TANGELO_ISLAND, TangeloIsland, -1, 0, 12, VALENCIA_TANGELO_ROUTE_49
 
 	map_header_2 TangeloIsland, TANGELO_ISLAND, 53, NORTH | EAST
-	connection north, ROUTE_50, Route50, 10, 0, 10, TANGELO_ISLAND
+	connection north, ROUTE_50, Route50, 9, 0, 11, TANGELO_ISLAND
 	connection east, VALENCIA_TANGELO_ROUTE_49, ValenciaTangeloRoute49, 1, 0, 12, TANGELO_ISLAND
 
 	map_header_2 Route50, ROUTE_50, 32, SOUTH | EAST
-	connection south, TANGELO_ISLAND, TangeloIsland, -3, 7, 10, ROUTE_50
+	connection south, TANGELO_ISLAND, TangeloIsland, -2, 7, 11, ROUTE_50
 	connection east, ROUTE_51, Route51, 8, 0, 14, ROUTE_50
 
 	map_header_2 Route51, ROUTE_51, 32, SOUTH | WEST
@@ -37,7 +37,7 @@
 	connection south, ROUTE_53, Route53, 0, 20, 11, ROUTE_54
 
 	map_header_2 SunburstIsland, SUNBURST_ISLAND, 53, NORTH
-	connection north, ROUTE_53, Route53, 10, 20, 9, SUNBURST_ISLAND
+	connection north, ROUTE_53, Route53, 10, 20, 11, SUNBURST_ISLAND
 
 	map_header_2 MandarinNorth, MANDARIN_NORTH, 32, SOUTH
 	connection south, ROUTE_54, Route54, 4, 0, 10, MANDARIN_NORTH
@@ -64,7 +64,8 @@
 	connection north, UNNAMED_ISLAND_1, UnnamedIsland1, 0, 0, 12, ROUTE_57
 	connection east, SEVEN_GRAPEFRUITS, SevenGrapefruits, 0, 0, 22, ROUTE_57
 
-	map_header_2 UnnamedIsland1, UNNAMED_ISLAND_1, 53, SOUTH | EAST
+	map_header_2 UnnamedIsland1, UNNAMED_ISLAND_1, 53, SOUTH | EAST | NORTH
+	connection north, ROUTE_57_NORTH, Route57North, 0, 0, 12, UNNAMED_ISLAND_1
 	connection south, ROUTE_57, Route57, 0, 0, 12, UNNAMED_ISLAND_1
 	connection east, ROUTE_58, Route58, 2, 0, 10, UNNAMED_ISLAND_1
 
@@ -105,7 +106,28 @@
 
 	map_header_2 FishingContest, FISHING_CONTEST, 53, WEST
 	connection west, UNNAMED_ISLAND_2, UnnamedIsland2, -1, 0, 40, FISHING_CONTEST
+	
+	map_header_2 Route57North, ROUTE_57_NORTH, 53, NORTH | SOUTH
+	connection north, CLEOPATRA_ISLAND, CleopatraIsland, -2, 1, 16, ROUTE_57_NORTH
+	connection south, UNNAMED_ISLAND_1, UnnamedIsland1, 0, 0, 12, ROUTE_57_NORTH
 
+	map_header_2 CleopatraIsland, CLEOPATRA_ISLAND, 53, NORTH | SOUTH
+	connection north, ROUTE_63_EAST_WEST, Route63EastWest, 0, 0, 20, CLEOPATRA_ISLAND
+	connection south, ROUTE_57_NORTH, Route57North, 3, 0, 12, CLEOPATRA_ISLAND
+	
+	map_header_2 Route63EastWest, ROUTE_63_EAST_WEST, 53, SOUTH | EAST
+	connection south, CLEOPATRA_ISLAND, CleopatraIsland, 0, 0, 20, ROUTE_63_EAST_WEST
+	connection east, ROUTE_63_NORTH_SOUTH, Route63NorthSouth, 0, 18, 12, ROUTE_63_EAST_WEST
+		
+	map_header_2 Route63NorthSouth, ROUTE_63_NORTH_SOUTH, 53, NORTH | WEST
+	connection north, ASCORBIA_ISLAND, AscorbiaIsland, 0, 3, 12, ROUTE_63_NORTH_SOUTH
+	connection west, ROUTE_63_EAST_WEST, Route63EastWest, 18, 0, 12, ROUTE_63_NORTH_SOUTH
+	
+	map_header_2 AscorbiaIsland, ASCORBIA_ISLAND, 32, SOUTH
+	connection south, ROUTE_63_NORTH_SOUTH, Route63NorthSouth, 3, 0, 12, ASCORBIA_ISLAND
+	
+	map_header_2 PummeloIsland, PUMMELO_ISLAND, 53, 0
+	
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
 	map_header_2 Colosseum, COLOSSEUM, $0, 0
@@ -203,7 +225,6 @@
 	map_header_2 TrovitopolisDeptStoreElevator, TROVITOPOLIS_DEPT_STORE_ELEVATOR, $0, 0
 	map_header_2 TrovitopolisDeptStoreRoof, TROVITOPOLIS_DEPT_STORE_ROOF, 36, 0
 	map_header_2 TrovitopolisPokeCommCenter, TROVITOPOLIS_POKE_COMM_CENTER, 0, 0
-	map_header_2 FishingContestLobby, FISHING_CONTEST_LOBBY, 0, 0
 	map_header_2 TrovitopolisMrFlashHouse, TROVITOPOLIS_MR_FLASH_HOUSE, 0, 0
 	map_header_2 TrovitopolisMoveDeleterHouse, TROVITOPOLIS_MOVE_DELETER_HOUSE, 0, 0
 	map_header_2 TrovitopolisHouse1, TROVITOPOLIS_HOUSE_1, 0, 0
@@ -219,14 +240,13 @@
 	map_header_2 TrovitaPort, TROVITA_PORT, 10, 0
 	map_header_2 TrovitaGym, TROVITA_GYM, 0, 0
 	map_header_2 TrovitopolisPrimaSchool, TROVITOPOLIS_PRIMA_SCHOOL, 0, 0
+	map_header_2 FukuharaNo4BF1, FUKUHARA_NO_4_BF1, 9, 0
+	map_header_2 FukuharaNo4BF2, FUKUHARA_NO_4_BF2, 9, 0
+	map_header_2 FukuharaNo4BF3, FUKUHARA_NO_4_BF3, 9, 0
 
-	
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0
 	map_header_2 RedsHouse2F, REDS_HOUSE_2F, $0, 0
 	map_header_2 BluesHouse, BLUES_HOUSE, $0, 0
 	map_header_2 OaksLab, OAKS_LAB, $0, 0
 	map_header_2 VermilionCity, VERMILION_CITY, 6, 0
-
-	map_header_2 NationalPark, NATIONAL_PARK, $0, 0
-	map_header_2 NationalParkBugContest, NATIONAL_PARK_BUG_CONTEST, $0, 0

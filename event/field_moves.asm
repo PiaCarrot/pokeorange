@@ -20,20 +20,16 @@ BlindingFlash: ; 8c7e1
 
 ShakeHeadbuttTree: ; 8c80a
 	farcall ClearSpriteAnims
-	ld de, CutGrassGFX
-	ld hl, VTiles1
-	lb bc, BANK(CutGrassGFX), 4
-	call Request2bpp
 	ld de, HeadbuttTreeGFX
-	ld hl, VTiles1 tile $04
-	lb bc, BANK(HeadbuttTreeGFX), 8
+	ld hl, VTiles0 tile $70
+	lb bc, BANK(HeadbuttTreeGFX), 12
 	call Request2bpp
 	call Cut_Headbutt_GetPixelFacing
 	ld a, SPRITE_ANIM_INDEX_1B
 	call _InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
-	ld [hl], $84
+	ld [hl], $70
 	ld a, 36 * 4
 	ld [wCurrSpriteOAMAddr], a
 	farcall DoNextFrameForAllSprites
@@ -65,10 +61,6 @@ ShakeHeadbuttTree: ; 8c80a
 	ld bc, SpritesEnd - (Sprites + 36 * 4)
 	xor a
 	call ByteFill
-	ld de, Font
-	ld hl, VTiles1
-	lb bc, BANK(Font), 12
-	call Get1bpp
 	jp ReplaceKrisSprite
 ; 8c893
 
@@ -90,7 +82,7 @@ HideHeadbuttTree: ; 8c913
 	ld h, [hl]
 	ld l, a
 
-	ld a, $2
+	ld a, $0 ; blank white tile
 	ld [hli], a
 	ld [hld], a
 	ld bc, SCREEN_WIDTH

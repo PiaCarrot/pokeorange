@@ -38,25 +38,24 @@
 	const MANDARIN_DESERT
 	const TROVITOPOLIS
 	const TROVITA_ISLAND
-	const ROUTE_63
 	const CLEOPATRA_ISLAND
-	const ROUTE_64
+	const ROUTE_63
 	const ASCORBIA_ISLAND
+	const ROUTE_64
 	const ROUTE_65
-	const ROUTE_66
 	const BUTWAL_ISLAND
-	const ROUTE_67
+	const ROUTE_66
 	const KUMQUAT_ISLAND
-	const ROUTE_68
+	const ROUTE_67
 	const RIND_ISLAND
-	const ROUTE_69
+	const ROUTE_68
 	const UNNAMED_ISLAND_3
-	const ROUTE_70
+	const ROUTE_69
 	const VICTORY_ROAD
 	const PUMMELO_ISLAND
-	const ROUTE_71
+	const ROUTE_70
 	const TARROCO_ISLAND
-	const ROUTE_72
+	const ROUTE_71
 	const HAMLIN_ISLAND
 	const HAMLIN_FIELDS
 	const SHAMOUTI_ISLAND

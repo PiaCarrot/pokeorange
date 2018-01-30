@@ -82,8 +82,6 @@
 	const MUSIC_VICTORY_ROAD                 ; 4f
 	const MUSIC_POKEMON_LULLABY              ; 50
 	const MUSIC_POKEMON_MARCH                ; 51
-	const MUSIC_GS_OPENING                   ; 52
-	const MUSIC_GS_OPENING_2                 ; 53
 	const MUSIC_MAIN_MENU                    ; 54
 	const MUSIC_RUINS_OF_ALPH_INTERIOR       ; 55
 	const MUSIC_ROCKET_OVERTURE              ; 56
@@ -115,3 +113,8 @@
 	const MUSIC_EVER_GRANDE_CITY
 	const MUSIC_LOOK_GLADION
 	const MUSIC_HOENN_CHAMPION_BATTLE
+	const MUSIC_HOOH_BATTLE
+	const MUSIC_KANTO_LEGEND
+	const MUSIC_LILYCOVE_CITY
+	const MUSIC_LUGIA_BATTLE
+	const MUSIC_ROUTE_103

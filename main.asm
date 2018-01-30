@@ -602,22 +602,6 @@ INCLUDE "items/marts.asm"
 INCLUDE "event/daycare.asm"
 INCLUDE "engine/breeding.asm"
 
-SECTION "Tileset Data 1", ROMX
-
-INCLUDE "tilesets/data_1.asm"
-
-SECTION "Roofs", ROMX
-
-INCLUDE "tilesets/roofs.asm"
-
-SECTION "Tileset Data 2", ROMX
-
-INCLUDE "tilesets/data_2.asm"
-
-SECTION "Tileset Data 3", ROMX
-
-INCLUDE "tilesets/data_3.asm"
-
 SECTION "bank9", ROMX
 
 StringBufferPointers:: ; 24000
@@ -1413,10 +1397,6 @@ PlaceGraphic: ; 2ef6e
 	dec b
 	jr nz, .x2
 	ret
-
-SECTION "Tileset Data 4", ROMX
-
-INCLUDE "tilesets/data_4.asm"
 
 SECTION "Effect Commands", ROMX
 
@@ -3997,10 +3977,6 @@ SECTION "Events", ROMX
 
 INCLUDE "engine/events.asm"
 
-SECTION "Tileset Data 5", ROMX
-
-INCLUDE "tilesets/data_5.asm"
-
 SECTION "bank2E", ROMX
 
 INCLUDE "engine/events_3.asm"
@@ -4197,10 +4173,6 @@ SECTION "Pic Animations", ROMX
 
 INCLUDE "gfx/pics/animation.asm"
 
-SECTION "Tileset Data 6", ROMX
-
-INCLUDE "tilesets/data_6.asm"
-
 SECTION "bank38", ROMX
 
 INCLUDE "engine/card_flip.asm"
@@ -4361,10 +4333,6 @@ MoveNames::
 INCLUDE "battle/move_names.asm"
 
 INCLUDE "engine/landmarks.asm"
-
-SECTION "Tileset Data 7", ROMX
-
-INCLUDE "tilesets/data_7.asm"
 
 SECTION "bank77", ROMX
 
@@ -4547,10 +4515,9 @@ Bank77_FillColumn: ; 1de27f
 	pop de
 	ret
 
-SECTION "Tileset Data 8", ROMX
-
-INCLUDE "tilesets/data_8.asm"
-
 SECTION "Scaled Experience", ROMX
 
 INCLUDE "battle/scaled_exp.asm"
+
+
+INCLUDE "tilesets/data.asm"

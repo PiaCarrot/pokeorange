@@ -1,22 +1,38 @@
 # To Do
 
-## Content
+## Bugs
 
 - Unnamed Island 2 Fishing Contest (requires some asm magix)
-- Method to get last other starter (with exclusive move)
+- Mistimed battle animations from 60FPS
+- Ditto needs fixing
+- Sweet Kiss can sometimes cause Poison
+- Fix walking/wall bumping animation bug caused by 60 FPS
+- Rocket theme music is broken
+
+## Content
+
 - Pokémon TCG2-esque credits
+- Safari Zone battletype
+- Get special Pikachus
 
 ## Features
 
-- Prism DED cry code
+- Prism DED cry code (after content is finished)
 - When releasing Pokemon, make sure it is not last Pokemon you own with Surf
+- Crystal Onix resists Water
+- Improve Trainer AI
+- Add proper Headbutt encounters
+- Learn on Evolution
+- Held item + Trade Stone to evolve (Magmarizer + Trade Stone, etc)
+- Chain Fishing
+- Invisible Pickup for Meowth/Persian
+- Invisible Flame Body for Magmar/Magmortar
 
 ## Graphics
 
 - Improve skateboard sprites
 - Finish menu icon sprites
-- Special-case Lycanroc's party icon based on form
-- Add G/S animated clouds to title screen
+- Special-case Lycanroc and Crystal Onix party icons based on form
 
 ## Moves
 

@@ -471,7 +471,7 @@ StatsScreen_LoadGFX: ; 4dfb6 (13:5fb6)
 	ld b, $0
 	predef DrawPlayerHP
 	hlcoord 8, 9
-	ld [hl], $41
+	ld [hl], $32
 	ld de, .Status_Type
 	hlcoord 0, 12
 	call PlaceString

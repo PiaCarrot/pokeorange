@@ -14,6 +14,7 @@ TeacherScript_0x693e9:
 	iftrue .GotRod
 	opentext
 	writetext UnknownText_0x693fa
+	waitbutton
 	verbosegiveitem OLD_ROD
 	setevent EVENT_GOT_OLD_ROD
 	closetext

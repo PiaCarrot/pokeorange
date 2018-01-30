@@ -49,6 +49,7 @@ Fury Cutter,
 Hidden Power,
 Jump Kick,
 Kinesis,
+Lovely Kiss,
 Mega Drain,
 Mega Kick,
 Mega Punch,
@@ -64,7 +65,6 @@ Psywave,
 Razor Wind,
 Rolling Kick,
 Sharpen,
-Sketch,
 Skull Bash,
 Snore,
 Spider Web,
@@ -81,7 +81,7 @@ Vicegrip
 - TM05 *Venoshock*
 - TM06 Toxic
 - TM07 *Hail* (Danny)
-- TM08 Whirlpool
+- TM08 Whirlpool (Route 63)
 - TM09 *Bullet Seed* (Pinkan Island)
 - TM10 Fissure
 - TM11 Sunny Day (Trovitopolis Dept. Store)
@@ -96,7 +96,7 @@ Vicegrip
 - TM20 *Dragon Tail*
 - TM21 Frustration (Mandarin Underground)
 - TM22 Solarbeam
-- TM23 Iron Tail
+- TM23 Iron Tail (Route 63)
 - TM24 Thunderbolt
 - TM25 Thunder
 - TM26 Earthquake (Route 62)
@@ -132,7 +132,7 @@ Vicegrip
 - HM05 Rock Smash (Trovita Island)
 - HM06 *Dive* (**TODO:** Ascorbia Island)
 - HM07 Waterfall (**TODO:** Unnamed Island 3)
-- HM08 *Rock Climb* (**TODO:** Tarroco Island)
+- HM08 *Rock Climb* (**TODO:** Kanto)
 
 - MT01 Fire Punch
 - MT02 ThunderPunch

@@ -545,19 +545,23 @@ MapObjectMovementPattern: ; 47dd
 	dw .RandomSpin2 ; 05
 	dw .Standing ; 06
 	dw .ObeyDPad ; 07
-	dw .Follow ; 0f
-	dw .Script ; 10
-	dw .Strength ; 11
-	dw .FollowNotExact ; 12
-	dw .MovementShadow ; 13
-	dw .MovementEmote ; 14
-	dw .MovementBigStanding ; 15
-	dw .MovementBouncing ; 16
-	dw .MovementScreenShake ; 17
-	dw .MovementSpinClockwise ; 18
-	dw .MovementSpinCounterclockwise ; 19
-	dw .MovementBoulderDust ; 1a
-	dw .MovementShakingGrass ; 1b
+	dw .Follow ; 08
+	dw .Script ; 09
+	dw .Strength ; 0a
+	dw .FollowNotExact ; 0b
+	dw .MovementShadow ; 0c
+	dw .MovementEmote ; 0d
+	dw .MovementBigStanding ; 0e
+	dw .MovementBouncing ; 0f
+	dw .MovementScreenShake ; 10
+	dw .MovementSpinClockwise ; 11
+	dw .MovementSpinCounterclockwise ; 12
+	dw .MovementBoulderDust ; 13
+	dw .MovementShakingGrass ; 14
+	dw .MovementSailboatTop ; 15
+	dw .MovementSailboatBottom ; 16
+	dw .MovementUmbrellaLeft ; 17
+	dw .MovementUmbrellaRight ; 18
 
 .RandomWalkY:
 	call Random
@@ -956,6 +960,58 @@ MapObjectMovementPattern: ; 47dd
 	ld [hl], e
 	inc hl
 	ld [hl], d
+	ret
+
+.MovementSailboatTop:
+	call EndSpriteMovement
+	ld hl, OBJECT_DIRECTION_WALKING
+	add hl, bc
+	ld [hl], STANDING
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], PERSON_ACTION_SAILBOAT_TOP
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_04
+	ret
+
+.MovementSailboatBottom:
+	call EndSpriteMovement
+	ld hl, OBJECT_DIRECTION_WALKING
+	add hl, bc
+	ld [hl], STANDING
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], PERSON_ACTION_SAILBOAT_BOTTOM
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_04
+	ret
+
+.MovementUmbrellaLeft:
+	call EndSpriteMovement
+	ld hl, OBJECT_DIRECTION_WALKING
+	add hl, bc
+	ld [hl], STANDING
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], PERSON_ACTION_UMBRELLA_LEFT
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_04
+	ret
+
+.MovementUmbrellaRight:
+	call EndSpriteMovement
+	ld hl, OBJECT_DIRECTION_WALKING
+	add hl, bc
+	ld [hl], STANDING
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], PERSON_ACTION_UMBRELLA_RIGHT
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_04
 	ret
 
 .MovementScreenShake:

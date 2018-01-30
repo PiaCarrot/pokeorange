@@ -8,7 +8,7 @@ GetVariant: ; 51040
 	cp MAGIKARP
 	jr z, .GetMagikarpVariant
 
-; (Lycanroc and Meowth)
+; (Lycanroc, Meowth, Poliwrath)
 ; Get the form from party_struct TempMon or battle_struct
 	push bc
 	ld bc, TempMonDVs
@@ -495,4 +495,4 @@ GetRelevantPicPointers:
 	ret
 
 .VariantPicPointerTable:
-INCLUDE "gfx/pics/variant_pic_pointers.asm"
+INCLUDE "gfx/pics/variant_pic_pointer_table.asm"

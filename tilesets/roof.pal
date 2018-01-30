@@ -46,11 +46,11 @@
 	RGB 07, 08, 22
 	RGB 07, 07, 16
 
-; group 8 (trovitopolis)
-	RGB 24, 18, 07
-	RGB 20, 15, 03
-	RGB 12, 09, 15
-	RGB 08, 04, 05
+; group 8 (Trovitopolis)
+	RGB 22, 14, 07
+	RGB 18, 09, 05
+	RGB 11, 07, 05
+	RGB 09, 04, 03
 
 ; group 9
 	RGB 31, 08, 04
@@ -81,3 +81,9 @@
 	RGB 26, 19, 00
 	RGB 15, 15, 00
 	RGB 13, 09, 00
+
+; group 14
+	RGB 04, 25, 23
+	RGB 00, 17, 17
+	RGB 02, 13, 14
+	RGB 00, 09, 09

@@ -20,10 +20,7 @@ UnnamedIsland2TradeStone:
 
 UnnamedIsland2_MapEventHeader::
 
-.Warps: db 2
-	warp_def 8, 31, 1, FISHING_CONTEST_LOBBY
-	warp_def 9, 31, 2, FISHING_CONTEST_LOBBY
-
+.Warps: db 0
 .CoordEvents: db 0
 
 .BGEvents: db 0
