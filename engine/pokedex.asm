@@ -293,6 +293,9 @@ Pokedex_InitDexEntryScreen: ; 40217 (10:4217)
 	ld [wDexMonPersonality], a
 	ld a, SCGB_POKEDEX
 	call Pokedex_GetSGBLayout
+	ld a, 1
+	ld [hCGBPalUpdate], a
+	call DelayFrame
 	ld a, [CurPartySpecies]
 	call PlayCry
 	jp Pokedex_IncrementDexPointer
@@ -409,10 +412,7 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 .Cry: ; 40340
 	call Pokedex_GetSelectedMon
 	ld a, [wd265]
-	call GetCryIndex
-	ld e, c
-	ld d, b
-	jp PlayCryHeader
+	jp _PlayCry
 
 .Shiny: ; 4034f
 	ld hl, wDexMonPersonality
@@ -1822,6 +1822,7 @@ _NewPokedexEntry: ; 41a7f
 	predef GetFrontpic
 	ld a, SCGB_POKEDEX
 	call Pokedex_GetSGBLayout
+	call DelayFrame
 	ld a, [CurPartySpecies]
 	jp PlayCry
 

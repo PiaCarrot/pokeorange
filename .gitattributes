@@ -8,4 +8,7 @@
 *.1bpp binary diff=hex
 *.bin  binary diff=hex
 *.blk  binary diff=hex
+*.ded  binary diff=hex
+*.wav  binary diff=hex
+*.tilemap binary diff=hex
 

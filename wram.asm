@@ -1336,6 +1336,9 @@ wMinutesSince:: ds 1
 wHoursSince:: ds 1
 wDaysSince:: ds 1
 
+wPokeAnimCoord:: ds 2
+wPokeAnimDestination:: ds 2
+
 wRAM0End:: ; cfd8
 
 
@@ -2540,12 +2543,16 @@ wPokeAnimSpecies:: ds 1
 wPokeAnimVariant:: ds 1
 wPokeAnimSpeciesOrVariant:: ds 1
 wPokeAnimGraphicStartTile:: ds 1
-wPokeAnimCoord:: ds 2
+; wPokeAnimCoord:: ds 2
+; wPokeAnimDestination:: ds 2
 ; PokeAnim Data
 wPokeAnimStructEnd::
 
 	ds 32
 
+wDEDTempSamp:: ds 16
+
+wGetDEDByte:: ds $100
 
 SECTION "GBC Video", WRAMX
 

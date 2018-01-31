@@ -285,9 +285,9 @@ GetBattleAnimByte:: ; 3af0
 	push de
 
 	ld hl, BattleAnimAddress
-	ld e, [hl]
-	inc hl
+	ld a, [hli]
 	ld d, [hl]
+	ld e, a
 
 	ld a, BANK(BattleAnimations)
 	rst Bankswitch
@@ -299,8 +299,8 @@ GetBattleAnimByte:: ; 3af0
 	ld a, BANK(BattleAnimCommands)
 	rst Bankswitch
 
-	ld [hl], d
-	dec hl
+	ld a, d
+	ld [hld], a
 	ld [hl], e
 
 	pop de
@@ -309,3 +309,15 @@ GetBattleAnimByte:: ; 3af0
 	ld a, [BattleAnimByte]
 	ret
 ; 3b0c
+
+CheckBattleScene:: ; 4ea44
+; Return carry if battle scene is turned off.
+	ld a, [wOptions]
+	bit BATTLE_SCENE, a
+	jr nz, .off
+	and a
+	ret
+
+.off
+	scf
+	ret

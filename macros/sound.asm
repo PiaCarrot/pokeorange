@@ -29,9 +29,16 @@ channel: macro
 nchannels = 0
 	endm
 
-cry_header: macro
-	dw \1, \2, \3
-	endm
+cry_header: MACRO
+IF _NARG == 3
+	db \1
+	dw \2, \3
+ELSE
+	db $ff
+	dba \2 ; bank/address
+	db \1 - 1 ; species (padding)
+ENDC
+	ENDM
 
 	enum_start $d8
 	enum notetype_cmd

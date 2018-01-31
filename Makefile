@@ -28,7 +28,7 @@ endif
 .SUFFIXES:
 .PHONY: all clean orange pss debug bankfree freespace compare
 .SECONDEXPANSION:
-.PRECIOUS: %.2bpp %.1bpp %.o
+.PRECIOUS: %.2bpp %.1bpp %.wav %.ded
 
 
 roms_md5      = roms.md5
@@ -116,9 +116,12 @@ $(roms_md5): orange
 gfx/pics/%/normal.pal gfx/pics/%/bitmask.asm gfx/pics/%/frames.asm: gfx/pics/%/front.2bpp ;
 
 %.lz: % ; $(LZ) $< $@
+%.wav: ;
+%.ded: %.wav dedenc.py ; $(PYTHON) dedenc.py $< $@
 
 %.png: ; $(error ERROR: No rule to make '$@')
 %.asm: ; $(error ERROR: No rule to make '$@')
 %.bin: ; $(error ERROR: No rule to make '$@')
 %.blk: ; $(error ERROR: No rule to make '$@')
 %.tilemap: ; $(error ERROR: No rule to make '$@')
+

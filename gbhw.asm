@@ -84,6 +84,7 @@ rNR44       EQU $ff23 ; Channel 4 Counter/consecutive; Inital (R/W)
 rNR50       EQU $ff24 ; Channel control / ON-OFF / Volume (R/W)
 rNR51       EQU $ff25 ; Selection of Sound output terminal (R/W)
 rNR52       EQU $ff26 ; Sound on/off
+rWAVE       EQU $ff30
 rWave_0     EQU $ff30
 rWave_1     EQU $ff31
 rWave_2     EQU $ff32

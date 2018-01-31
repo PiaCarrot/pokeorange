@@ -17,6 +17,8 @@ VBlank:: ; 283
 	ld [hROMBankBackup], a
 
 	ld a, [hVBlank]
+	cp 7
+	jr z, .skipToGameTime
 	and 7
 	add a
 	ld e, a
@@ -29,6 +31,7 @@ VBlank:: ; 283
 
 	call _hl_
 
+.doGameTime
 	call GameTimer
 
 	xor a
@@ -43,6 +46,37 @@ VBlank:: ; 283
 	pop af
 	reti
 ; 2a1
+
+.skipToGameTime
+	ld a, [hROMBank]
+	ld [hROMBankBackup], a
+	ld a, [hDEDVBlankMode]
+	and a
+	jr z, .tryDoMapAnims
+	dec a
+	jr z, .doGrowlOrRoarAnim
+.tryDoMapAnims
+	call AnimateTileset
+	jr .doGameTime
+
+.doGrowlOrRoarAnim
+	ld a, [rSVBK]
+	push af
+	ld a, $5
+	ld [rSVBK], a
+
+	call hPushOAM
+
+	ld a, BANK(CopyGrowlOrRoarPals)
+	call Bankswitch
+
+	ld a, [hCGBPalUpdate]
+	and a
+	call nz, CopyGrowlOrRoarPals
+	call RunOneFrameOfGrowlOrRoarAnim
+	pop af
+	ld [rSVBK], a
+	jr .doGameTime
 
 .VBlanks: ; 2a1
 	dw VBlank0
@@ -98,11 +132,7 @@ VBlank0:: ; 2b1
 
 .done
 
-	ld a, [hOAMUpdate]
-	and a
-	jr nz, .done_oam
-	call hPushOAM
-.done_oam
+	call PushOAM
 
 
 	; vblank-sensitive operations are done
@@ -204,19 +234,14 @@ VBlank1:: ; 337
 .done
 
 	; get requested ints
+	ld a, [rIE]
+	push af
 	ld a, [rIF]
-	ld b, a
-	; discard requested ints
+	push af
 	xor a
 	ld [rIF], a
-	; enable lcd stat
-	ld a, %10 ; lcd stat
+	ld a, 1 << LCD_STAT ; lcd stat
 	ld [rIE], a
-	; rerequest serial int if applicable (still disabled)
-	; request lcd stat
-	ld a, b
-	and %1000 ; serial
-	or %10 ; lcd stat
 	ld [rIF], a
 
 	ei
@@ -227,10 +252,13 @@ VBlank1:: ; 337
 	ld a, [rIF]
 	ld b, a
 	; discard requested ints
+	pop af
+	or b
+	ld b, a
 	xor a
 	ld [rIF], a
 	; enable ints besides joypad
-	ld a, %1111 ; serial timer lcdstat vblank
+	pop af
 	ld [rIE], a
 	; rerequest ints
 	ld a, b
@@ -262,11 +290,14 @@ VBlank3:: ; 396
 	call hPushOAM
 .done
 
+	; get requested ints
+	ld a, [rIE]
+	push af
 	ld a, [rIF]
 	push af
 	xor a
 	ld [rIF], a
-	ld a, %10 ; lcd stat
+	ld a, 1 << LCD_STAT ; lcd stat
 	ld [rIE], a
 	ld [rIF], a
 
@@ -274,20 +305,19 @@ VBlank3:: ; 396
 	call VBlank2
 	di
 
-	; request lcdstat
+	; get requested ints
 	ld a, [rIF]
 	ld b, a
-	; and any other ints
+	; discard requested ints
 	pop af
 	or b
 	ld b, a
-	; reset ints
 	xor a
 	ld [rIF], a
 	; enable ints besides joypad
-	ld a, %1111 ; serial timer lcdstat vblank
+	pop af
 	ld [rIE], a
-	; request ints
+	; rerequest ints
 	ld a, b
 	ld [rIF], a
 	ret
@@ -312,7 +342,9 @@ VBlank5:: ; 400
 
 	xor a
 	ld [rIF], a
-	ld a, %10 ; lcd stat
+	ld a, [rIE]
+	push af
+	ld a, 1 << LCD_STAT ; lcd stat
 	ld [rIE], a
 	; request lcd stat
 	ld [rIF], a
@@ -324,7 +356,7 @@ VBlank5:: ; 400
 	xor a
 	ld [rIF], a
 	; enable ints besides joypad
-	ld a, %1111 ; serial timer lcdstat vblank
+	pop af
 	ld [rIE], a
 	ret
 ; 436

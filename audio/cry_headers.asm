@@ -1,5 +1,4 @@
-; f2787
-;                               index,          pitch, length
+;                               index,            pitch, length
 BulbasaurCryHeader:   cry_header CRY_BULBASAUR,   $080,  $081
 IvysaurCryHeader:     cry_header CRY_BULBASAUR,   $020,  $100
 VenusaurCryHeader:    cry_header CRY_BULBASAUR,   $000,  $140
@@ -28,10 +27,10 @@ PikachuCryHeader:     cry_header CRY_BULBASAUR,   $0ee,  $081
 RaichuCryHeader:      cry_header CRY_RAICHU,      $0ee,  $088
 SandshrewCryHeader:   cry_header CRY_NIDORAN_M,   $020,  $0c0
 SandslashCryHeader:   cry_header CRY_NIDORAN_M,   $0ff,  $17f
-NidoranFCryHeader:    cry_header CRY_NIDORAN_F,   $000,  $100
+Nidoran_FCryHeader:   cry_header CRY_NIDORAN_F,   $000,  $100
 NidorinaCryHeader:    cry_header CRY_NIDORAN_F,   $02c,  $160
 NidoqueenCryHeader:   cry_header CRY_NIDOQUEEN,   $000,  $100
-NidoranMCryHeader:    cry_header CRY_NIDORAN_M,   $000,  $100
+Nidoran_MCryHeader:   cry_header CRY_NIDORAN_M,   $000,  $100
 NidorinoCryHeader:    cry_header CRY_NIDORAN_M,   $02c,  $140
 NidokingCryHeader:    cry_header CRY_RAICHU,      $000,  $100
 ClefairyCryHeader:    cry_header CRY_CLEFAIRY,    $0cc,  $081
@@ -82,7 +81,7 @@ SlowpokeCryHeader:    cry_header CRY_SLOWPOKE,    $000,  $100
 SlowbroCryHeader:     cry_header CRY_GROWLITHE,   $000,  $100
 MagnemiteCryHeader:   cry_header CRY_METAPOD,     $080,  $0e0
 MagnetonCryHeader:    cry_header CRY_METAPOD,     $020,  $140
-FarfetchDCryHeader:   cry_header CRY_SPEAROW,     $0dd,  $081
+Farfetch_DCryHeader:  cry_header CRY_SPEAROW,     $0dd,  $081
 DoduoCryHeader:       cry_header CRY_DIGLETT,     $0bb,  $081
 DodrioCryHeader:      cry_header CRY_DIGLETT,     $099,  $0a0
 SeelCryHeader:        cry_header CRY_SEEL,        $088,  $140
@@ -121,7 +120,7 @@ GoldeenCryHeader:     cry_header CRY_CATERPIE,    $080,  $0c0
 SeakingCryHeader:     cry_header CRY_CATERPIE,    $010,  $17f
 StaryuCryHeader:      cry_header CRY_PARAS,       $002,  $0a0
 StarmieCryHeader:     cry_header CRY_PARAS,       $000,  $100
-MrMimeCryHeader:      cry_header CRY_KRABBY,      $008,  $0c0
+Mr__MimeCryHeader:    cry_header CRY_KRABBY,      $008,  $0c0
 ScytherCryHeader:     cry_header CRY_CATERPIE,    $000,  $100
 JynxCryHeader:        cry_header CRY_DROWZEE,     $0ff,  $17f
 ElectabuzzCryHeader:  cry_header CRY_VOLTORB,     $08f,  $17f
@@ -151,105 +150,105 @@ DragonairCryHeader:   cry_header CRY_BULBASAUR,   $040,  $100
 DragoniteCryHeader:   cry_header CRY_BULBASAUR,   $03c,  $140
 MewtwoCryHeader:      cry_header CRY_PARAS,       $099,  $17f
 MewCryHeader:         cry_header CRY_PARAS,       $0ee,  $17f
-ChikoritaCryHeader:   cry_header CRY_CRYOGONAL,  -$010,  $0b0
-BayleefCryHeader:     cry_header CRY_CRYOGONAL,  -$022,  $120
-MeganiumCryHeader:    cry_header CRY_CRYOGONAL,  -$0b7,  $200
-CyndaquilCryHeader:   cry_header CRY_PIKIPEK,   $347,  $080
-QuilavaCryHeader:     cry_header CRY_PIKIPEK,   $321,  $120
-TyphlosionCryHeader:  cry_header CRY_TOUCANNON,  $f00,  $0d4
-TotodileCryHeader:    cry_header CRY_MUNCHLAX,    $46c,  $0e8
-CroconawCryHeader:    cry_header CRY_CLEFAIRY,    $08a,  $081
-FeraligatrCryHeader:  cry_header CRY_MUNCHLAX,    $3fc,  $180
-SentretCryHeader:     cry_header CRY_SENTRET,     $08a,  $0b8
-FurretCryHeader:      cry_header CRY_SENTRET,     $06b,  $102
-HoothootCryHeader:    cry_header CRY_CHINGLING,    $091,  $0d8
-NoctowlCryHeader:     cry_header CRY_CHINGLING,    $000,  $1a0
-LedybaCryHeader:      cry_header CRY_LEDYBA,      $000,  $0de
-LedianCryHeader:      cry_header CRY_LEDYBA,     -$096,  $138
-SpinarakCryHeader:    cry_header CRY_SPINARAK,    $011,  $200
-AriadosCryHeader:     cry_header CRY_SPINARAK,   -$0ae,  $1e2
+TropiusCryHeader:     cry_header     TROPIUS,     TropiusDEDData
+KecleonCryHeader:     cry_header     KECLEON,     KecleonDEDData
+ChatotCryHeader:      cry_header     CHATOT,      ChatotDEDData
+PikipekCryHeader:     cry_header     PIKIPEK,     PikipekDEDData
+TrumbeakCryHeader:    cry_header     TRUMBEAK,    TrumbeakDEDData
+ToucannonCryHeader:   cry_header     TOUCANNON,   ToucannonDEDData
+MunchlaxCryHeader:    cry_header     MUNCHLAX,    MunchlaxDEDData
+RockruffCryHeader:    cry_header     ROCKRUFF,    RockruffDEDData
+LycanrocCryHeader:    cry_header     LYCANROC,    LycanrocMiddayDEDData
+WingullCryHeader:     cry_header     WINGULL,     WingullDEDData
+PelipperCryHeader:    cry_header     PELIPPER,    PelipperDEDData
+ChinglingCryHeader:   cry_header     CHINGLING,   ChinglingDEDData
+ChimechoCryHeader:    cry_header     CHIMECHO,    ChimechoDEDData
+SalanditCryHeader:    cry_header     SALANDIT,    SalanditDEDData
+SalazzleCryHeader:    cry_header     SALAZZLE,    SalazzleDEDData
+FinneonCryHeader:     cry_header     FINNEON,     FinneonDEDData
+LumineonCryHeader:    cry_header     LUMINEON,    LumineonDEDData
 CrobatCryHeader:      cry_header CRY_SQUIRTLE,   -$010,  $140
-ChinchouCryHeader:    cry_header CRY_PIKIPEK,   $3c9,  $140
-LanturnCryHeader:     cry_header CRY_PIKIPEK,   $2d0,  $110
+ChinchouCryHeader:    cry_header CRY_PIKIPEK,     $3c9,  $140
+LanturnCryHeader:     cry_header CRY_PIKIPEK,     $2d0,  $110
 PichuCryHeader:       cry_header CRY_PICHU,       $000,  $140
 CleffaCryHeader:      cry_header CRY_CLEFFA,      $061,  $091
 IgglybuffCryHeader:   cry_header CRY_CRYOGONAL,   $0e8,  $0e8
 TogepiCryHeader:      cry_header CRY_TOGEPI,      $010,  $100
 TogeticCryHeader:     cry_header CRY_TOGETIC,     $03b,  $038
-NatuCryHeader:        cry_header CRY_TOGEKISS,       -$067,  $100
-XatuCryHeader:        cry_header CRY_TOGEKISS,       -$0a7,  $168
+TogekissCryHeader:    cry_header CRY_TOGEKISS,   -$067,  $100
+AzurillCryHeader:     cry_header CRY_TOGEKISS,   -$0a7,  $168
 MareepCryHeader:      cry_header CRY_MAREEP,      $022,  $0d8
 FlaaffyCryHeader:     cry_header CRY_MAREEP,     -$007,  $180
 AmpharosCryHeader:    cry_header CRY_AMPHAROS,   -$07c,  $0e8
 BellossomCryHeader:   cry_header CRY_CLEFFA,      $084,  $150
 MarillCryHeader:      cry_header CRY_MARILL,      $11b,  $120
 AzumarillCryHeader:   cry_header CRY_MARILL,      $0b6,  $180
-SudowoodoCryHeader:   cry_header CRY_CLEFFA,      $f40,  $180
+Mime__JrCryHeader:    cry_header     MIME__JR,    MimeJrDEDData
 PolitoedCryHeader:    cry_header CRY_CLEFFA,     -$2a3,  $1c8
 HoppipCryHeader:      cry_header CRY_CLEFFA,      $03b,  $0c8
 SkiploomCryHeader:    cry_header CRY_CLEFFA,      $027,  $138
 JumpluffCryHeader:    cry_header CRY_CLEFFA,      $000,  $180
-AipomCryHeader:       cry_header CRY_STUNFISK,      -$051,  $0e8
+StunfiskCryHeader:    cry_header CRY_STUNFISK,   -$051,  $0e8
 SunkernCryHeader:     cry_header CRY_MARILL,      $12b,  $0b8
 SunfloraCryHeader:    cry_header CRY_SUNFLORA,   -$020,  $180
-YanmaCryHeader:       cry_header CRY_MUNCHLAX,    $031,  $0c8
-WooperCryHeader:      cry_header CRY_WOOPER,      $093,  $0af
-QuagsireCryHeader:    cry_header CRY_WOOPER,     -$0c6,  $140
-EspeonCryHeader:      cry_header CRY_STUNFISK,       $0a2,  $140
+LeafeonCryHeader:     cry_header     LEAFEON,     LeafeonDEDData
+GlaceonCryHeader:     cry_header     GLACEON,     GlaceonDEDData
+SylveonCryHeader:     cry_header     SYLVEON,     SylveonDEDData
+EspeonCryHeader:      cry_header CRY_STUNFISK,    $0a2,  $140
 UmbreonCryHeader:     cry_header CRY_VENONAT,    -$0e9,  $0f0
-MurkrowCryHeader:     cry_header CRY_MARILL,     -$01f,  $180
+RelicanthCryHeader:   cry_header     RELICANTH,   RelicanthDEDData
 SlowkingCryHeader:    cry_header CRY_SLOWKING,    $104,  $200
-MisdreavusCryHeader:  cry_header CRY_CHINGLING,    $130,  $0e8
-UnownCryHeader:       cry_header CRY_CHINGLING,    $162,  $100
-WobbuffetCryHeader:   cry_header CRY_AMPHAROS,    $27b,  $144
-GirafarigCryHeader:   cry_header CRY_GIRAFARIG,   $041,  $200
-PinecoCryHeader:      cry_header CRY_SLOWKING,    $080,  $100
-ForretressCryHeader:  cry_header CRY_SLOWKING,    $000,  $180
-DunsparceCryHeader:   cry_header CRY_DUNSPARCE,   $1c4,  $100
-GligarCryHeader:      cry_header CRY_GLIGAR,     -$102,  $100
-SteelixCryHeader:     cry_header CRY_TOUCANNON,  $0ef,  $0f7
-SnubbullCryHeader:    cry_header CRY_DUNSPARCE,   $112,  $0e8
-GranbullCryHeader:    cry_header CRY_DUNSPARCE,   $000,  $180
+MimikyuCryHeader:     cry_header     MIMIKYU,     MimikyuDEDData
+SpindaCryHeader:      cry_header     SPINDA,      SpindaDEDData
+SkrelpCryHeader:      cry_header     SKRELP,      SkrelpDEDData
+DragalgeCryHeader:    cry_header     DRAGALGE,    DragalgeDEDData
+TrapinchCryHeader:    cry_header     TRAPINCH,    TrapinchDEDData
+VibravaCryHeader:     cry_header     VIBRAVA,     VibravaDEDData
+FlygonCryHeader:      cry_header     FLYGON,      FlygonDEDData
+TurtonatorCryHeader:  cry_header     TURTONATOR,  TurtonatorDEDData
+SteelixCryHeader:     cry_header CRY_TOUCANNON,   $0ef,  $0f7
+WailmerCryHeader:     cry_header     WAILMER,     WailmerDEDData
+WailordCryHeader:     cry_header     WAILORD,     WailordDEDData
 QwilfishCryHeader:    cry_header CRY_SLOWKING,    $160,  $0e0
 ScizorCryHeader:      cry_header CRY_AMPHAROS,    $000,  $160
 ShuckleCryHeader:     cry_header CRY_DUNSPARCE,   $290,  $0a8
-HeracrossCryHeader:   cry_header CRY_AMPHAROS,    $035,  $0e0
-SneaselCryHeader:     cry_header CRY_WOOPER,      $053,  $0af
-TeddiursaCryHeader:   cry_header CRY_TEDDIURSA,   $7a2,  $06e
-UrsaringCryHeader:    cry_header CRY_TEDDIURSA,   $640,  $0d8
+MareanieCryHeader:    cry_header     MAREANIE,    MareanieDEDData
+ToxapexCryHeader:     cry_header     TOXAPEX,     ToxapexDEDData
+SandygastCryHeader:   cry_header     SANDYGAST,   SandygastDEDData
+PalossandCryHeader:   cry_header     PALOSSAND,   PalossandDEDData
 SlugmaCryHeader:      cry_header CRY_SLUGMA,     -$1d8,  $140
 MagcargoCryHeader:    cry_header CRY_MAGCARGO,   -$20d,  $1c0
-SwinubCryHeader:      cry_header CRY_PIKIPEK,   $1fe,  $140
-PiloswineCryHeader:   cry_header CRY_MAGCARGO,   -$109,  $100
+CarvanhaCryHeader:    cry_header     CARVANHA,    CarvanhaDEDData
+SharpedoCryHeader:    cry_header     SHARPEDO,    SharpedoDEDData
 CorsolaCryHeader:     cry_header CRY_MAGCARGO,    $0a1,  $0e8
 RemoraidCryHeader:    cry_header CRY_SUNFLORA,    $00d,  $100
 OctilleryCryHeader:   cry_header CRY_MUNCHLAX,    $000,  $180
-DelibirdCryHeader:    cry_header CRY_TEDDIURSA,   $002,  $06a
+MantykeCryHeader:     cry_header     MANTYKE,     MantykeDEDData
 MantineCryHeader:     cry_header CRY_MANTINE,    -$0be,  $0f0
 SkarmoryCryHeader:    cry_header CRY_AMPHAROS,    $8a9,  $180
-HoundourCryHeader:    cry_header CRY_PIKIPEK,   $039,  $140
-HoundoomCryHeader:    cry_header CRY_MUNCHLAX,   -$10a,  $100
+MagmortarCryHeader:   cry_header     MAGMORTAR,   MagmortarDEDData
+ElectivireCryHeader:  cry_header     ELECTIVIRE,  ElectivireDEDData
 KingdraCryHeader:     cry_header CRY_SLUGMA,      $2fb,  $100
 PhanpyCryHeader:      cry_header CRY_SENTRET,     $048,  $230
 DonphanCryHeader:     cry_header CRY_DONPHAN,     $000,  $1a0
 Porygon2CryHeader:    cry_header CRY_GIRAFARIG,   $073,  $240
-StantlerCryHeader:    cry_header CRY_GIRAFARIG,   $073,  $240
-SmeargleCryHeader:    cry_header CRY_PICHU,      -$21a,  $1f0
-TyrogueCryHeader:     cry_header CRY_STUNFISK,       $02c,  $108
+Porygon_ZCryHeader:   cry_header     PORYGON_Z,   PorygonZDEDData
+LickilickyCryHeader:  cry_header     LICKILICKY,  LickilickyDEDData
+TyrogueCryHeader:     cry_header CRY_STUNFISK,    $02c,  $108
 HitmontopCryHeader:   cry_header CRY_SLUGMA,      $000,  $100
 SmoochumCryHeader:    cry_header CRY_MARILL,      $068,  $100
 ElekidCryHeader:      cry_header CRY_SUNFLORA,   -$2d8,  $0b4
 MagbyCryHeader:       cry_header CRY_TEDDIURSA,   $176,  $03a
-MiltankCryHeader:     cry_header CRY_GLIGAR,     -$1cd,  $1a0
+HappinyCryHeader:     cry_header     HAPPINY,     HappinyDEDData
 BlisseyCryHeader:     cry_header CRY_SLOWKING,    $293,  $140
-RaikouCryHeader:      cry_header CRY_RAIKOU,      $22e,  $120
-EnteiCryHeader:       cry_header CRY_ENTEI,       $000,  $1a0
-SuicuneCryHeader:     cry_header CRY_MAGCARGO,    $000,  $180
-LarvitarCryHeader:    cry_header CRY_RAIKOU,      $05f,  $0d0
-PupitarCryHeader:     cry_header CRY_SPINARAK,   -$1db,  $150
-TyranitarCryHeader:   cry_header CRY_RAIKOU,     -$100,  $180
-LugiaCryHeader:       cry_header CRY_TOUCANNON,  $000,  $100
-HoOhCryHeader:        cry_header CRY_STUNFISK,       $000,  $180
+CutieflyCryHeader:    cry_header     CUTIEFLY,    CutieflyDEDData
+RibombeeCryHeader:    cry_header     RIBOMBEE,    RibombeeDEDData
+TangrowthCryHeader:   cry_header     TANGROWTH,   TangrowthDEDData
+RhyperiorCryHeader:   cry_header     RHYPERIOR,   RhyperiorDEDData
+MagnezoneCryHeader:   cry_header     MAGNEZONE,   MagnezoneDEDData
+MarshadowCryHeader:   cry_header     MARSHADOW,   MarshadowDEDData
+LugiaCryHeader:       cry_header CRY_TOUCANNON,   $000,  $100
+Ho_OhCryHeader:       cry_header CRY_STUNFISK,    $000,  $180
 CelebiCryHeader:      cry_header CRY_ENTEI,       $14a,  $111
 LatiasCryHeader:      cry_header CRY_NIDORAN_M,      0,     0
 LatiosCryHeader:      cry_header CRY_NIDORAN_M,      0,     0
