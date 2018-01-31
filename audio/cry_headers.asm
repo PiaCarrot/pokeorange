@@ -175,8 +175,8 @@ CleffaCryHeader:      cry_header CRY_CLEFFA,      $061,  $091
 IgglybuffCryHeader:   cry_header CRY_CRYOGONAL,   $0e8,  $0e8
 TogepiCryHeader:      cry_header CRY_TOGEPI,      $010,  $100
 TogeticCryHeader:     cry_header CRY_TOGETIC,     $03b,  $038
-TogekissCryHeader:    cry_header CRY_TOGEKISS,   -$067,  $100
-AzurillCryHeader:     cry_header CRY_TOGEKISS,   -$0a7,  $168
+TogekissCryHeader:    cry_header     TOGEKISS,    TogekissDEDData
+AzurillCryHeader:     cry_header     AZURILL,     AzurillDEDData
 MareepCryHeader:      cry_header CRY_MAREEP,      $022,  $0d8
 FlaaffyCryHeader:     cry_header CRY_MAREEP,     -$007,  $180
 AmpharosCryHeader:    cry_header CRY_AMPHAROS,   -$07c,  $0e8
@@ -188,7 +188,7 @@ PolitoedCryHeader:    cry_header CRY_CLEFFA,     -$2a3,  $1c8
 HoppipCryHeader:      cry_header CRY_CLEFFA,      $03b,  $0c8
 SkiploomCryHeader:    cry_header CRY_CLEFFA,      $027,  $138
 JumpluffCryHeader:    cry_header CRY_CLEFFA,      $000,  $180
-StunfiskCryHeader:    cry_header CRY_STUNFISK,   -$051,  $0e8
+StunfiskCryHeader:    cry_header     STUNFISK,    StunfiskDEDData
 SunkernCryHeader:     cry_header CRY_MARILL,      $12b,  $0b8
 SunfloraCryHeader:    cry_header CRY_SUNFLORA,   -$020,  $180
 LeafeonCryHeader:     cry_header     LEAFEON,     LeafeonDEDData
@@ -250,8 +250,8 @@ MarshadowCryHeader:   cry_header     MARSHADOW,   MarshadowDEDData
 LugiaCryHeader:       cry_header CRY_TOUCANNON,   $000,  $100
 Ho_OhCryHeader:       cry_header CRY_STUNFISK,    $000,  $180
 CelebiCryHeader:      cry_header CRY_ENTEI,       $14a,  $111
-LatiasCryHeader:      cry_header CRY_NIDORAN_M,      0,     0
-LatiosCryHeader:      cry_header CRY_NIDORAN_M,      0,     0
+LatiasCryHeader:      cry_header     LATIAS,      LatiasDEDData
+LatiosCryHeader:      cry_header     LATIOS,      LatiosDEDData
 CryHeader254:         cry_header CRY_NIDORAN_M,      0,     0
 CryHeader255:         cry_header CRY_NIDORAN_M,      0,     0
 ; f2d81

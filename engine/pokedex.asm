@@ -293,8 +293,6 @@ Pokedex_InitDexEntryScreen: ; 40217 (10:4217)
 	ld [wDexMonPersonality], a
 	ld a, SCGB_POKEDEX
 	call Pokedex_GetSGBLayout
-	ld a, 1
-	ld [hCGBPalUpdate], a
 	call DelayFrame
 	ld a, [CurPartySpecies]
 	call PlayCry
@@ -360,6 +358,7 @@ Pokedex_ReinitDexEntryScreen: ; 402aa (10:42aa)
 	ld [CurPartySpecies], a
 	ld a, SCGB_POKEDEX
 	call Pokedex_GetSGBLayout
+	call DelayFrame
 	ld a, [CurPartySpecies]
 	call PlayCry
 	ld hl, wJumptableIndex

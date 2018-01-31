@@ -3,32 +3,32 @@
 SECTION "DED 1", ROMX
 
 DragalgeDEDData:: INCBIN "audio/ded/dragalge.ded"
-SylveonDEDData:: INCBIN "audio/ded/sylveon.ded"
+Lycanroc_midnightDEDData:: INCBIN "audio/ded/lycanroc_midnight.ded"
 
 SECTION "DED 2", ROMX
 
-TogekissDEDData:: INCBIN "audio/ded/togekiss.ded"
-PorygonZDEDData:: INCBIN "audio/ded/porygon_z.ded"
+SalazzleDEDData:: INCBIN "audio/ded/salazzle.ded"
+RibombeeDEDData:: INCBIN "audio/ded/ribombee.ded"
 
 SECTION "DED 3", ROMX
 
+ToucannonDEDData:: INCBIN "audio/ded/toucannon.ded"
 ElectivireDEDData:: INCBIN "audio/ded/electivire.ded"
-MarshadowDEDData:: INCBIN "audio/ded/marshadow.ded"
 
 SECTION "DED 4", ROMX
 
-SalazzleDEDData:: INCBIN "audio/ded/salazzle.ded"
-PalossandDEDData:: INCBIN "audio/ded/palossand.ded"
+MarshadowDEDData:: INCBIN "audio/ded/marshadow.ded"
+SylveonDEDData:: INCBIN "audio/ded/sylveon.ded"
 
 SECTION "DED 5", ROMX
 
-GlaceonDEDData:: INCBIN "audio/ded/glaceon.ded"
 MagnezoneDEDData:: INCBIN "audio/ded/magnezone.ded"
+LumineonDEDData:: INCBIN "audio/ded/lumineon.ded"
 
 SECTION "DED 6", ROMX
 
-ToucannonDEDData:: INCBIN "audio/ded/toucannon.ded"
-LumineonDEDData:: INCBIN "audio/ded/lumineon.ded"
+GlaceonDEDData:: INCBIN "audio/ded/glaceon.ded"
+PalossandDEDData:: INCBIN "audio/ded/palossand.ded"
 
 SECTION "DED 7", ROMX
 
@@ -37,79 +37,79 @@ ToxapexDEDData:: INCBIN "audio/ded/toxapex.ded"
 
 SECTION "DED 8", ROMX
 
-LycanrocMidnightDEDData:: INCBIN "audio/ded/lycanroc_midnight.ded"
 SandygastDEDData:: INCBIN "audio/ded/sandygast.ded"
-ChimechoDEDData:: INCBIN "audio/ded/chimecho.ded"
+TogekissDEDData:: INCBIN "audio/ded/togekiss.ded"
+KecleonDEDData:: INCBIN "audio/ded/kecleon.ded"
 
 SECTION "DED 9", ROMX
 
 TropiusDEDData:: INCBIN "audio/ded/tropius.ded"
-ChinglingDEDData:: INCBIN "audio/ded/chingling.ded"
-SkrelpDEDData:: INCBIN "audio/ded/skrelp.ded"
+PorygonZDEDData:: INCBIN "audio/ded/porygon_z.ded"
+MantykeDEDData:: INCBIN "audio/ded/mantyke.ded"
 
 SECTION "DED 10", ROMX
 
-RhyperiorDEDData:: INCBIN "audio/ded/rhyperior.ded"
+StunfiskDEDData:: INCBIN "audio/ded/stunfisk.ded"
 FlygonDEDData:: INCBIN "audio/ded/flygon.ded"
-LatiosDEDData:: INCBIN "audio/ded/latios.ded"
+SkrelpDEDData:: INCBIN "audio/ded/skrelp.ded"
 
 SECTION "DED 11", ROMX
 
-RibombeeDEDData:: INCBIN "audio/ded/ribombee.ded"
-FinneonDEDData:: INCBIN "audio/ded/finneon.ded"
-RelicanthDEDData:: INCBIN "audio/ded/relicanth.ded"
+ChinglingDEDData:: INCBIN "audio/ded/chingling.ded"
+LickilickyDEDData:: INCBIN "audio/ded/lickilicky.ded"
+MareanieDEDData:: INCBIN "audio/ded/mareanie.ded"
 
 SECTION "DED 12", ROMX
 
-WailmerDEDData:: INCBIN "audio/ded/wailmer.ded"
 MagmortarDEDData:: INCBIN "audio/ded/magmortar.ded"
-LeafeonDEDData:: INCBIN "audio/ded/leafeon.ded"
+TurtonatorDEDData:: INCBIN "audio/ded/turtonator.ded"
+MimikyuDEDData:: INCBIN "audio/ded/mimikyu.ded"
 
 SECTION "DED 13", ROMX
 
-TurtonatorDEDData:: INCBIN "audio/ded/turtonator.ded"
-LickilickyDEDData:: INCBIN "audio/ded/lickilicky.ded"
 TrumbeakDEDData:: INCBIN "audio/ded/trumbeak.ded"
+WailmerDEDData:: INCBIN "audio/ded/wailmer.ded"
+FinneonDEDData:: INCBIN "audio/ded/finneon.ded"
 
 SECTION "DED 14", ROMX
 
-StunfiskDEDData:: INCBIN "audio/ded/stunfisk.ded"
+RhyperiorDEDData:: INCBIN "audio/ded/rhyperior.ded"
 SharpedoDEDData:: INCBIN "audio/ded/sharpedo.ded"
-TangrowthDEDData:: INCBIN "audio/ded/tangrowth.ded"
+LatiosDEDData:: INCBIN "audio/ded/latios.ded"
+MunchlaxDEDData:: INCBIN "audio/ded/munchlax.ded"
 
 SECTION "DED 15", ROMX
 
-MimikyuDEDData:: INCBIN "audio/ded/mimikyu.ded"
-LycanrocDuskDEDData:: INCBIN "audio/ded/lycanroc_dusk.ded"
+LeafeonDEDData:: INCBIN "audio/ded/leafeon.ded"
 SalanditDEDData:: INCBIN "audio/ded/salandit.ded"
-CarvanhaDEDData:: INCBIN "audio/ded/carvanha.ded"
+LycanrocDuskDEDData:: INCBIN "audio/ded/lycanroc_dusk.ded"
+LatiasDEDData:: INCBIN "audio/ded/latias.ded"
 
 SECTION "DED 16", ROMX
 
-MareanieDEDData:: INCBIN "audio/ded/mareanie.ded"
-VibravaDEDData:: INCBIN "audio/ded/vibrava.ded"
+TangrowthDEDData:: INCBIN "audio/ded/tangrowth.ded"
+RelicanthDEDData:: INCBIN "audio/ded/relicanth.ded"
 LycanrocMiddayDEDData:: INCBIN "audio/ded/lycanroc_midday.ded"
-MimeJrDEDData:: INCBIN "audio/ded/mime__jr.ded"
+CutieflyDEDData:: INCBIN "audio/ded/cutiefly.ded"
 
 SECTION "DED 17", ROMX
 
-SpindaDEDData:: INCBIN "audio/ded/spinda.ded"
 ChatotDEDData:: INCBIN "audio/ded/chatot.ded"
-HappinyDEDData:: INCBIN "audio/ded/happiny.ded"
+VibravaDEDData:: INCBIN "audio/ded/vibrava.ded"
+MimeJrDEDData:: INCBIN "audio/ded/mime__jr.ded"
+SpindaDEDData:: INCBIN "audio/ded/spinda.ded"
 WingullDEDData:: INCBIN "audio/ded/wingull.ded"
-LatiasDEDData:: INCBIN "audio/ded/latias.ded"
 
 SECTION "DED 18", ROMX
 
-CutieflyDEDData:: INCBIN "audio/ded/cutiefly.ded"
-MantykeDEDData:: INCBIN "audio/ded/mantyke.ded"
-AzurillDEDData:: INCBIN "audio/ded/azurill.ded"
-MunchlaxDEDData:: INCBIN "audio/ded/munchlax.ded"
 PelipperDEDData:: INCBIN "audio/ded/pelipper.ded"
-KecleonDEDData:: INCBIN "audio/ded/kecleon.ded"
+AzurillDEDData:: INCBIN "audio/ded/azurill.ded"
+PikipekDEDData:: INCBIN "audio/ded/pikipek.ded"
+ChimechoDEDData:: INCBIN "audio/ded/chimecho.ded"
+HappinyDEDData:: INCBIN "audio/ded/happiny.ded"
+CarvanhaDEDData:: INCBIN "audio/ded/carvanha.ded"
 
 SECTION "DED 19", ROMX
 
 RockruffDEDData:: INCBIN "audio/ded/rockruff.ded"
 TrapinchDEDData:: INCBIN "audio/ded/trapinch.ded"
-PikipekDEDData:: INCBIN "audio/ded/pikipek.ded"
