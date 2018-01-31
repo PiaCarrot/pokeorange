@@ -36,7 +36,7 @@ endc
 	move GUILLOTINE,   EFFECT_OHKO,                1, PHYSICAL, NORMAL,    30,  5,   0
 	move DRAGON_PULSE, EFFECT_NORMAL_HIT,         85, SPECIAL,  DRAGON,   100, 10,   0
 	move SWORDS_DANCE, EFFECT_ATTACK_UP_2,         0, STATUS,   NORMAL,   100, 20,   0
-	move CUT,          EFFECT_NORMAL_HIT,         50, PHYSICAL, NORMAL,   100, 30,   0
+	move CUT,          EFFECT_NORMAL_HIT,         50, PHYSICAL, GRASS,    100, 30,   0
 	move GUST,         EFFECT_GUST,               40, SPECIAL,  FLYING,   100, 35,   0
 	move WING_ATTACK,  EFFECT_NORMAL_HIT,         60, PHYSICAL, FLYING,   100, 35,   0
 	move WHIRLWIND,    EFFECT_WHIRLWIND,           0, STATUS,   NORMAL,   100, 20,   0

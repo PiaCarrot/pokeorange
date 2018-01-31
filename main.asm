@@ -2756,18 +2756,6 @@ ResetDisplayBetweenHallOfFameMons: ; 4e906
 
 INCLUDE "battle/sliding_intro.asm"
 
-CheckBattleScene: ; 4ea44
-; Return carry if battle scene is turned off.
-	ld a, [wOptions]
-	bit BATTLE_SCENE, a
-	jr nz, .off
-	and a
-	ret
-
-.off
-	scf
-	ret
-
 INCLUDE "engine/gbc_only.asm"
 
 SECTION "bank14", ROMX
@@ -4165,9 +4153,11 @@ DisplayAlreadyCaughtText: ; cc0c7
 	text_jump UnknownText_0x1c10dd
 	db "@"
 
+; linked, do not separate
 INCLUDE "battle/anim_commands.asm"
-
 INCLUDE "battle/anim_objects.asm"
+INCLUDE "engine/growl_roar_ded_vblank_hook.asm"
+; end linked section
 
 SECTION "Pic Animations", ROMX
 

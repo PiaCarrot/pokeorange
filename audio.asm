@@ -209,5 +209,6 @@ CryHeaders:: INCLUDE "audio/cry_headers.asm"
 
 INCLUDE "audio/cries.asm"
 
+INCLUDE "audio/ded.asm"
 
 INCLUDE "audio/ded/files.asm"

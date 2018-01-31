@@ -143,7 +143,7 @@ MoroMart:
 	db $ff
 	
 MurcottMart:
-	db 9
+	db 11
 	db HEAL_BALL
 	db DUSK_BALL
 	db GREAT_BALL

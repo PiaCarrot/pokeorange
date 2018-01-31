@@ -64,6 +64,10 @@ hBigDividend       EQU $ffb2
 hBigMultiplicand   EQU $ffb2
 hMultiplierStor    EQU $ffb9
 
+hCurBitStream               EQU $ffb4
+hCurSampVal                 EQU $ffb5
+hDEDNR51Mask                EQU $ffb6
+
 hPrintNum1         EQU $ffb3
 hPrintNum2         EQU $ffb4
 hPrintNum3         EQU $ffb5
@@ -104,7 +108,7 @@ hWX                EQU $ffd1
 hWY                EQU $ffd2
 hTilesPerCycle     EQU $ffd3
 hBGMapMode         EQU $ffd4
-hBGMapHalf        EQU $ffd5
+hBGMapHalf         EQU $ffd5
 hBGMapAddress      EQU $ffd6
 
 hOAMUpdate         EQU $ffd8
@@ -137,5 +141,8 @@ hRequested2bppSize     EQU $fff1
 hRequested1bpp         EQU $fff2
 hRequestedVTileDest    EQU $fff3
 hRequestedVTileSource  EQU $fff5
+
+hDEDCryFlag EQU $fff7
+hDEDVBlankMode EQU $fff8
 
 HRAM_END EQU $ffff

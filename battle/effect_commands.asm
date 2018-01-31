@@ -2165,7 +2165,7 @@ BattleCommand_LowerSub: ; 34eee
 	ret nz
 
 .charge_turn
-	call _CheckBattleScene
+	call CheckBattleScene
 	jr c, .mimic_anims
 
 	xor a
@@ -2344,7 +2344,7 @@ BattleCommand_RaiseSub: ; 35004
 	bit SUBSTATUS_SUBSTITUTE, a
 	ret z
 
-	call _CheckBattleScene
+	call CheckBattleScene
 	jp c, BattleCommand_RaiseSubNoAnim
 
 	xor a
@@ -4735,7 +4735,7 @@ BattleCommand_SleepTarget: ; 35e5c
 	call BattleRandom
 	and b
 	jr z, .random_loop
-	cp 7
+	cp 4
 	jr z, .random_loop
 	inc a
 	ld [de], a
@@ -5443,7 +5443,7 @@ StatUpAnimation: ; 36281
 
 	ld a, $1
 	ld [bc], a
-	call _CheckBattleScene
+	call CheckBattleScene
 	ret nc
 
 	xor a
@@ -7415,7 +7415,7 @@ BattleCommand_Substitute: ; 36e7c
 	xor a
 	ld [hl], a
 	ld [de], a
-	call _CheckBattleScene
+	call CheckBattleScene
 	jr c, .no_anim
 
 	xor a
@@ -8191,7 +8191,7 @@ BattleCommand_SelfDestruct: ; 37380
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
 	call GetBattleVarAddr
 	res SUBSTATUS_DESTINY_BOND, [hl]
-	call _CheckBattleScene
+	call CheckBattleScene
 	ret nc
 	farcall DrawPlayerHUD
 	farcall DrawEnemyHUD
@@ -9451,17 +9451,3 @@ AppearUserRaiseSub: ; 37ece
 	ret
 
 ; 37ed5
-
-
-_CheckBattleScene: ; 37ed5
-; Checks the options.  Returns carry if battle animations are disabled.
-	push hl
-	push de
-	push bc
-	farcall CheckBattleScene
-	pop bc
-	pop de
-	pop hl
-	ret
-
-; 37ee2
