@@ -188,3 +188,6 @@ and tell you that he will do some research on it. After the credits roll
 Hamlin Port will go to Vermillion Port, and after completing several postgame
 events, Samson will inform you he has solved the mystery of the GS Ball. The
 ball is revealed to contain Celebi, which is given to the Player.
+
+**Nuclear Island**
+Poison and exotic psychic types, an island with nuclear waste cemented over (some dangerous leaks).
