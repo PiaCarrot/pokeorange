@@ -85,8 +85,8 @@ AscorbiaBlackBeltText:
 AscorbiaIsland_MapEventHeader::
 
 .Warps: db 8
-	warp_def 37, 17, 1, ASCORBIA_ISLAND_ROUTE_63_GATE
-	warp_def 37, 18, 2, ASCORBIA_ISLAND_ROUTE_63_GATE
+	warp_def 31, 17, 1, ASCORBIA_ISLAND_ROUTE_63_GATE
+	warp_def 31, 18, 2, ASCORBIA_ISLAND_ROUTE_63_GATE
 	warp_def 5, 11, 1, ASCORBIA_ISLAND_FAN_CLUB
 	warp_def 5, 35, 1, ASCORBIA_ISLAND_MOVE_RELEARNER
 	warp_def 29, 5, 1, ASCORBIA_ISLAND_HOUSE_1
