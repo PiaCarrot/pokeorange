@@ -62,7 +62,7 @@
 	db "MAX ETHER@"
 	db "ELIXER@"
 	db "PINK CURE@"
-	db "BANANA@"
+	db "HEART SCALE@"
 	db "QUICK CLAW@"
 	db "PECHA BERRY@"
 	db "SOFT SAND@"

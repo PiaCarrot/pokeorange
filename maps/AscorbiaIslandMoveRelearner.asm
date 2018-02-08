@@ -4,6 +4,14 @@ AscorbiaIslandMoveRelearner_MapScriptHeader::
 
 .Callbacks: db 0
 
+MoveReminderScript:
+	faceplayer
+	opentext
+	special MoveReminder
+	waitbutton
+	closetext
+	end
+
 AscorbiaIslandMoveRelearner_MapEventHeader::
 
 .Warps: db 2
@@ -14,5 +22,6 @@ AscorbiaIslandMoveRelearner_MapEventHeader::
 
 .BGEvents: db 0
 
-.ObjectEvents: db 0
+.ObjectEvents: db 1
+	person_event SPRITE_SUPER_NERD, 4, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MoveReminderScript, -1
 

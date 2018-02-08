@@ -78,7 +78,7 @@ ItemEffects: ; e73c
 	dw MaxEther
 	dw Elixer
 	dw PinkCure
-	dw MoomooMilk
+	dw HeartScale
 	dw QuickClaw
 	dw Psncureberry
 	dw SoftSand
@@ -1741,7 +1741,6 @@ Potion:
 FreshWater:
 SodaPop:
 Lemonade:
-MoomooMilk:
 SweetOrange:
 BerryJuice:
 Berry:
@@ -2101,7 +2100,6 @@ GetHealingItemAmount: ; f395 (3:7395)
 	dbw POTION,        20
 	dbw MAX_POTION,   999
 	dbw FULL_RESTORE, 999
-	dbw MOOMOO_MILK,  100
 	dbw BERRY,         10
 	dbw GOLD_BERRY,    30
 	dbw ENERGYPOWDER,  50
@@ -2895,7 +2893,8 @@ PolkadotBow:
 RainbowWing:
 MoroTrophy:
 ShinyCharm:
-SoulDew: ; f77d
+SoulDew:
+HeartScale: ; f77d
 	jp IsntTheTimeMessage
 ; f780
 

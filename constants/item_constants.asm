@@ -64,7 +64,7 @@
 	const MAX_ETHER    ; $3e
 	const ELIXER       ; $3f
 	const PINK_CURE    ; $40
-	const MOOMOO_MILK  ; $41
+	const HEART_SCALE  ; $41
 	const QUICK_CLAW   ; $42
 	const PSNCUREBERRY ; $43
 	const SOFT_SAND    ; $44

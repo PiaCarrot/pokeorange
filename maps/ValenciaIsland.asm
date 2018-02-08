@@ -108,6 +108,7 @@ if def(DEBUG)
 	giveitem DIVE_BALL, 99
 	giveitem HEAL_BALL, 99
 	giveitem DUSK_BALL, 99
+	giveitem HEART_SCALE, 99
 	giveitem HM_CUT
 	giveitem HM_FLY
 	giveitem HM_SURF

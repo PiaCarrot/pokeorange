@@ -1015,6 +1015,8 @@ INCLUDE "battle/ai/redundant.asm"
 
 INCLUDE "event/move_deleter.asm"
 
+INCLUDE "event/move_reminder.asm"
+
 INCLUDE "engine/tmhm2.asm"
 
 MoveDescriptions:: ; 2cb52

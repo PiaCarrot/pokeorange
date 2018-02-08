@@ -96,7 +96,7 @@ ItemDescriptions:
 	dw MaxEtherDesc
 	dw ElixerDesc
 	dw PinkCureDesc
-	dw MoomooMilkDesc
+	dw HeartScaleDesc
 	dw QuickClawDesc
 	dw PsnCureBerryDesc
 	dw SoftSandDesc
@@ -449,9 +449,9 @@ SilverWingDesc:
 	db   "A strange, silver-"
 	next "colored feather.@"
 
-MoomooMilkDesc:
-	db   "Restores #MON"
-	next "HP by 100.@"
+HeartScaleDesc:
+	db   "A lovely scale,"
+	next "coveted by many.@"
 
 QuickClawDesc:
 	db   "Raises 1st strike"

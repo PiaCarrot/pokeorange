@@ -116,6 +116,7 @@ SpecialsPointers:: ; c029
 	add_special Special_InitialSetDSTFlag
 	add_special Special_InitialClearDSTFlag
 	add_special ClockResetter
+	add_special MoveReminder
 ; c224
 
 Special_SetPlayerPalette: ; c225
