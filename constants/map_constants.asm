@@ -62,7 +62,7 @@ MAP_NONE EQU 0
 	mapgroup CLEOPATRA_ISLAND, 20, 20
 	mapgroup ROUTE_57_NORTH, 12, 12
 	mapgroup ROUTE_63_EAST_WEST, 12, 40
-	mapgroup ROUTE_63_NORTH_SOUTH, 30, 12
+	mapgroup ROUTE_63_NORTH_SOUTH, 35, 12
 
 	newgroup ; 4
 
@@ -362,10 +362,10 @@ const_value = -1
 	const SPAWN_TROVITOPOLIS
 	const SPAWN_TROVITA
 	const SPAWN_ASCORBIA
-	const SPAWN_KUMQUAT
+;	const SPAWN_KUMQUAT
 	const SPAWN_PUMMELO
-	const SPAWN_HAMLIN
-	const SPAWN_SHAMOUTI
+;	const SPAWN_HAMLIN
+;	const SPAWN_SHAMOUTI
 NUM_SPAWNS EQU const_value
 
 	const_def
