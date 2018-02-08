@@ -243,6 +243,13 @@
 	map_header_2 FukuharaNo4BF1, FUKUHARA_NO_4_BF1, 9, 0
 	map_header_2 FukuharaNo4BF2, FUKUHARA_NO_4_BF2, 9, 0
 	map_header_2 FukuharaNo4BF3, FUKUHARA_NO_4_BF3, 9, 0
+	map_header_2 AscorbiaIslandFanClub, ASCORBIA_ISLAND_FAN_CLUB, 0, 0
+	map_header_2 AscorbiaIslandMoveRelearner, ASCORBIA_ISLAND_MOVE_RELEARNER, 0, 0
+	map_header_2 AscorbiaIslandHouse1, ASCORBIA_ISLAND_HOUSE_1, 0, 0
+	map_header_2 AscorbiaIslandHouse2, ASCORBIA_ISLAND_HOUSE_2, 0, 0
+	map_header_2 AscorbiaIslandRoute63Gate, ASCORBIA_ISLAND_ROUTE_63_GATE, 0, 0
+	map_header_2 AscorbiaIslandMart, ASCORBIA_ISLAND_MART, 0, 0
+	map_header_2 AscorbiaIslandCenter, ASCORBIA_ISLAND_CENTER, 0, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

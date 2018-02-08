@@ -36,7 +36,7 @@ UnknownText_0x1968a0:
 	line "shopping center!"
 
 	para "You can buy TMs,"
-	line "STONES, and even"
+	line "BALLS, and even"
 	cont "#MON!"
 	done
 

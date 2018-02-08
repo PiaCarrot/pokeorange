@@ -4,8 +4,13 @@ PummeloIsland_MapScriptHeader:
 
 .MapTriggers: db 0
 
-.MapCallbacks: db 0
+.MapCallbacks: db 1
+	dbw MAPCALLBACK_NEWMAP, .FlyPoint
 
+.FlyPoint:
+	setflag ENGINE_FLYPOINT_PUMMELO
+	return
+	
 PummeloIsland_MapEventHeader::
 
 .Warps: db 0

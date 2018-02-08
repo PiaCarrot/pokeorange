@@ -21,9 +21,9 @@ ENDM
 	spawn MURCOTT_ISLAND,  3, 14
 	spawn TROVITOPOLIS,    48, 32
 	spawn TROVITA_ISLAND,  22, 8
-;	spawn ASCORBIA_ISLAND, 0,  0
+	spawn ASCORBIA_ISLAND, 26, 13
 ;	spawn KUMQUAT_ISLAND,  0,  0
-;	spawn PUMMELO_ISLAND,  0,  0
+	spawn PUMMELO_ISLAND,  20, 30
 ;	spawn HAMLIN_ISLAND,   0,  0
 ;	spawn SHAMOUTI_ISLAND, 0,  0
 

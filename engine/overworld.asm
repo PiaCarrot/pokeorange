@@ -697,6 +697,8 @@ SpriteMons: ; 14495
 	db PIKACHU
 	db ONIX
 	db MACHOP
+	db AERODACTYL
+	db FEAROW
 ; 144b8
 
 

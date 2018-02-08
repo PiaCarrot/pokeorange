@@ -220,6 +220,13 @@ INCLUDE "maps/CleopatraIsland.asm"
 SECTION "Ascorbia Scripts", ROMX
 
 INCLUDE "maps/AscorbiaIsland.asm"
+INCLUDE "maps/AscorbiaIslandFanClub.asm"
+INCLUDE "maps/AscorbiaIslandMoveRelearner.asm"
+INCLUDE "maps/AscorbiaIslandHouse1.asm"
+INCLUDE "maps/AscorbiaIslandHouse2.asm"
+INCLUDE "maps/AscorbiaIslandRoute63Gate.asm"
+INCLUDE "maps/AscorbiaIslandMart.asm"
+INCLUDE "maps/AscorbiaIslandCenter.asm"
 
 SECTION "Pummelo Scripts", ROMX
 

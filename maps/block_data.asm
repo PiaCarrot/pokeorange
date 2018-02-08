@@ -10,6 +10,7 @@ KinnowPokeCenter_BlockData:
 UnnamedIsland1PokeCenter_BlockData:
 MoroPokeCenter_BlockData:
 MurcottPokeCenter_BlockData:
+AscorbiaIslandCenter_BlockData:
 	INCBIN "maps/PokeCenter1F.blk"
 
 PokeCenter2F_BlockData:
@@ -31,6 +32,7 @@ VermilionMart_BlockData:
 KinnowMart_BlockData:
 MoroMart_BlockData:
 MurcottPokeMart_BlockData:
+AscorbiaIslandMart_BlockData:
 	INCBIN "maps/Mart.blk"
 
 BluesHouse_BlockData:
@@ -58,6 +60,9 @@ TrovitopolisHouse1_BlockData:
 TrovitopolisHouse2_BlockData:
 TrovitopolisHouse3_BlockData:
 TrovitopolisHouse4_BlockData:
+AscorbiaIslandMoveRelearner_BlockData:
+AscorbiaIslandHouse1_BlockData:
+AscorbiaIslandHouse2_BlockData:
 	INCBIN "maps/House1.blk"
 
 MikanNicknameSpeechHouse_BlockData:
@@ -72,6 +77,7 @@ GoldenIslandElderHouse_BlockData:
 
 Route52TangeloJungleGate_BlockData:
 Route62MandarinDesertGate_BlockData:
+AscorbiaIslandRoute63Gate_BlockData:
 	INCBIN "maps/NorthSouthGate.blk"
 
 MikanIslandRoute53Gate_BlockData:
@@ -324,6 +330,7 @@ TrovitopolisPrimaSchool_BlockData:
 
 MayorsOffice_BlockData:
 MayorsOfficeMeetingRoom_BlockData:
+AscorbiaIslandFanClub_BlockData:
 	INCBIN "maps/MayorsOffice.blk"
 
 TrovitaIsland_BlockData:

@@ -269,10 +269,11 @@ CooltrainerRoute63ScriptText:
 
 Route63NorthSouth_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 1
+	warp_def 1, 11, 3, ASCORBIA_ISLAND_ROUTE_63_GATE
 
 .CoordEvents: db 1
-	xy_trigger 0, 15, 13, Route63GauntletEventScript
+	xy_trigger 0, 15, 13, Route63GauntletEventScript 
 
 .BGEvents: db 1
 	signpost 32, 12, SIGNPOST_READ, Route63GauntletSign

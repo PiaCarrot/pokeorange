@@ -127,6 +127,7 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_ONIX                  ; 92
 	const SPRITE_MACHOP                ; 93
 	const SPRITE_AERODACTYL            ; 94
+	const SPRITE_FEAROW
 
 const_value SET $e0
 	const SPRITE_DAYCARE_MON_1         ; e0

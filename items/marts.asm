@@ -13,6 +13,7 @@ Marts: ; 160a9
 	dw TrovitopolisPokeballMart
 	dw TrovitopolisMedicineMart
 	dw TrovitopolisTMMart
+	dw AscorbiaMart
 MartsEnd
 ; 160ed
 
@@ -204,6 +205,18 @@ TrovitopolisTMMart:
 	db TM_DIG
 	db TM_HYPER_BEAM
 	db TM_SWIFT
+	db $ff
+	
+AscorbiaMart:
+	db 8
+	db GREAT_BALL
+	db ULTRA_BALL
+	db SUPER_POTION
+	db HYPER_POTION
+	db REVIVE
+	db FULL_HEAL
+	db MAX_REPEL
+	db ESCAPE_ROPE
 	db $ff
 
 DefaultMart: ; 16214
