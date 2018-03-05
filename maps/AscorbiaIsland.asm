@@ -35,12 +35,11 @@ AscorbiaTeacherScript:
 	jumptextfaceplayer AscorbiaTeacherText
 	
 AscorbiaTeacherText:
-	text "One of my students"
-	line "told me he saw a"
-	cont "black HOPPIP."
+	text "I think I got off"
+	line "on the wrong port!"
 	
-	para "I think he's just"
-	line "telling a fib."
+	para "This isn't KUMQUAT"
+	line "ISLAND!"
 	done
 	
 AscorbiaLassScript:
@@ -99,7 +98,7 @@ AscorbiaIsland_MapEventHeader::
 .BGEvents: db 0
 
 .ObjectEvents: db 8
-	person_event SPRITE_TEACHER, 17, 16, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, AscorbiaTeacherScript, -1
+	person_event SPRITE_SIGHTSEER_F, 17, 16, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, AscorbiaTeacherScript, -1
 	person_event SPRITE_LASS, 26, 17, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, AscorbiaLassScript, -1
 	person_event SPRITE_ROCKER, 7, 4, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, AscorbiaRockerScript, -1
 	person_event SPRITE_BLACK_BELT, 9, 26, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, AscorbiaBlackBeltScript, -1

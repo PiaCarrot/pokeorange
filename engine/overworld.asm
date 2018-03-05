@@ -848,7 +848,7 @@ Group8Sprites: ; 14714
 
 Group9Sprites: ; 144ec
 ; Ascorbia Island
-	db SPRITE_TEACHER
+	db SPRITE_GRANNY
 	db SPRITE_YOUNGSTER
 	db SPRITE_BLACK_BELT
 	db SPRITE_SIGHTSEER_F
@@ -857,6 +857,7 @@ Group9Sprites: ; 144ec
 	db SPRITE_LASS
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_PIKACHU
 	db 0 ; end
 
 Group10Sprites: ; 1472b

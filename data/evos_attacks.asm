@@ -1942,7 +1942,8 @@ LaprasEvosAttacks:
 
 DittoEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, TRANSFORM
+;	db 1, TRANSFORM ;commented out until fixed
+	db 1, CHARM
 	db 0 ; no more level-up moves
 
 EeveeEvosAttacks:

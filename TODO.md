@@ -2,12 +2,12 @@
 
 ## Bugs
 
-- Unnamed Island 2 Fishing Contest (requires some asm magix)
 - Mistimed battle animations from 60FPS
 - Ditto needs fixing
 - Sweet Kiss can sometimes cause Poison
 - Fix walking/wall bumping animation bug caused by 60 FPS
 - Rocket theme music is broken
+- Kinnow to Moro seems to have spawn bugs that put player in Valencia
 
 ## Content
 
@@ -17,7 +17,6 @@
 
 ## Features
 
-- Prism DED cry code (after content is finished)
 - When releasing Pokemon, make sure it is not last Pokemon you own with Surf
 - Crystal Onix resists Water
 - Improve Trainer AI
@@ -27,6 +26,7 @@
 - Chain Fishing
 - Invisible Pickup for Meowth/Persian
 - Invisible Flame Body for Magmar/Magmortar
+- Infinite Use TMs
 
 ## Graphics
 

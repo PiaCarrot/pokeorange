@@ -92,7 +92,7 @@ Vicegrip
 - TM16 Dragonbreath (Crystal Cave)
 - TM17 Protect (Trovitopolis Dept. Store)
 - TM18 Rain Dance (Murcott Island)
-- TM19 Giga Drain
+- TM19 Giga Drain (Ascorbia Island)
 - TM20 *Dragon Tail*
 - TM21 Frustration (Mandarin Underground)
 - TM22 Solarbeam
