@@ -162,7 +162,6 @@
 	db "SUPER FANG@"
 	db "SLASH@"
 	db "SUBSTITUTE@"
-	db "STRUGGLE@"
 	db "ROCK CLIMB@"
 	db "TRIPLE KICK@"
 	db "THIEF@"
@@ -253,3 +252,4 @@
 	db "FAIRY WIND@"
 	db "DAZZLINGLEAM@"
 	db "SHADOW SNEAK@"
+	db "STRUGGLE@"

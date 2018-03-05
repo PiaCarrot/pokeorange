@@ -19,8 +19,8 @@ EvolutionMoves::
 	db NO_MOVE      ; PIDGEOT
 	db NO_MOVE      ; RATTATA
 	db SCARY_FACE   ; RATICATE
-	db NO_MOVE      ; MARILL
-	db NO_MOVE      ; AZUMARILL
+	db NO_MOVE      ; SPEAROW
+	db NO_MOVE      ; FEAROW
 	db NO_MOVE      ; EKANS
 	db CRUNCH       ; ARBOK
 	db NO_MOVE      ; PIKACHU
@@ -106,6 +106,7 @@ EvolutionMoves::
 	db NO_MOVE      ; MAROWAK
 	db DOUBLE_KICK  ; HITMONLEE
 	db DIZZY_PUNCH  ; HITMONCHAN
+	db NO_MOVE      ; LICKITUNG
 	db NO_MOVE      ; KOFFING
 	db NO_MOVE      ; WEEZING
 	db NO_MOVE      ; RHYHORN
@@ -115,9 +116,8 @@ EvolutionMoves::
 	db NO_MOVE      ; KANGASKHAN
 	db NO_MOVE      ; HORSEA
 	db NO_MOVE      ; SEADRA
-	db NO_MOVE      ; TOGEPI
-	db NO_MOVE      ; TOGETIC
-	db NO_MOVE      ; TOGEKISS
+	db NO_MOVE      ; GOLDEEN
+	db NO_MOVE      ; SEAKING
 	db NO_MOVE      ; STARYU
 	db NO_MOVE      ; STARMIE
 	db NO_MOVE      ; MR__MIME
