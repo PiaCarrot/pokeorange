@@ -719,9 +719,10 @@ OutdoorSprites: ; 144b8
 	dw Group12Sprites
 	dw Group13Sprites
 	dw Group14Sprites
+	dw Group15Sprites
 ; 144ec
 
-Group1Sprites: ; 146a1
+Group1Sprites:
 ; Route 53
 ; Route 54
 ; Mandarin North
@@ -740,8 +741,9 @@ Group13Sprites:
 	db 0 ; end
 ; 146b8
 
-Group2Sprites: ; 146cf
+Group2Sprites:
 ; Route 60
+Group14Sprites:
 ; Golden Island
 	db SPRITE_JESSIE
 	db SPRITE_JAMES
@@ -756,7 +758,7 @@ Group2Sprites: ; 146cf
 	db 0 ; end
 ; 146e6
 
-Group3Sprites: ; 146fd
+Group3Sprites:
 ; Route 57
 ; Unnamed Island 1
 ; Route 58
@@ -779,7 +781,7 @@ Group3Sprites: ; 146fd
 	db SPRITE_UMBRELLA
 	db 0
 
-Group4Sprites: ; 146b8
+Group4Sprites:
 ; Route 55
 ; Pinkan Island
 ; Route 56 West
@@ -798,7 +800,7 @@ Group4Sprites: ; 146b8
 	db 0 ; end
 ; 146cf
 
-Group5Sprites: ; 1462e
+Group5Sprites:
 ; Route 52
 ; Mikan Island
 	db SPRITE_FISHER
@@ -811,7 +813,7 @@ Group5Sprites: ; 1462e
 	db SPRITE_FRUIT_TREE
 	db 0 ; end
 
-Group6Sprites: ; 146e6
+Group6Sprites:
 ; Route 61
 ; Murcott Island
 ; Unnamed Island 2
@@ -828,10 +830,10 @@ Group6Sprites: ; 146e6
 	db SPRITE_POKE_BALL
 	db 0 ; end
 
-Group7Sprites: ; 14503
+Group7Sprites:
 	db 0 ; end
 
-Group8Sprites: ; 14714
+Group8Sprites:
 ; Valencia Port
 ; Tangelo Port
 ; Trovitopolis
@@ -846,7 +848,7 @@ Group8Sprites: ; 14714
 	db SPRITE_POKE_BALL
 	db 0 ; end
 
-Group9Sprites: ; 144ec
+Group9Sprites:
 ; Ascorbia Island
 	db SPRITE_TEACHER
 	db SPRITE_YOUNGSTER
@@ -859,10 +861,10 @@ Group9Sprites: ; 144ec
 	db SPRITE_FRUIT_TREE
 	db 0 ; end
 
-Group10Sprites: ; 1472b
+Group10Sprites:
 	db 0 ; end
 
-Group11Sprites: ; 145e9
+Group11Sprites:
 ; Route 49
 ; Valencia Island
 	db SPRITE_BUG_BOY
@@ -875,7 +877,7 @@ Group11Sprites: ; 145e9
 	db SPRITE_FRUIT_TREE
 	db 0 ; end
 
-Group12Sprites: ; 14600
+Group12Sprites:
 ; Route 50
 ; Route 51
 ; Tangelo Island
@@ -888,8 +890,8 @@ Group12Sprites: ; 14600
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
 	db 0 ; end
-	
-Group14Sprites: ; 14600
+
+Group15Sprites:
 ; Pummelo Island
 	db SPRITE_COOLTRAINER_M
 	db 0 ; end
