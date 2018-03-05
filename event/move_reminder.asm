@@ -301,11 +301,13 @@ ChooseMoveToLearn:
 	push de
 	dec a
 
+if DEF(PSS)
 	ld bc, MOVE_LENGTH
 	ld hl, Moves + MOVE_CATEGORY
 	call AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
+	and CATEGORY_MASK
 	; bc = a * 4
 	ld c, a
 	add a
@@ -324,6 +326,7 @@ ChooseMoveToLearn:
 
 	ld a, [wMenuSelection]
 	dec a
+endc
 
 	ld bc, MOVE_LENGTH
 	ld hl, Moves + MOVE_TYPE
@@ -402,7 +405,11 @@ ChooseMoveToLearn:
 .PrintMoveDesc
 	push de
 	push hl
+if DEF(PSS)
 	hlcoord 4, 1
+else
+	hlcoord 8, 1
+endc
 	ld de, .Heading
 	call PlaceString
 	pop hl
@@ -417,7 +424,11 @@ ChooseMoveToLearn:
 	ret
 
 .Heading
+if DEF(PSS)
 	db "CAT/TYP/POW/PP@"
+else
+	db "TYP/POW/PP@"
+endc
 
 
 INCLUDE "data/types/abbreviations.asm"

@@ -163,7 +163,6 @@
 	dw SuperFangDescription
 	dw SlashDescription
 	dw SubstituteDescription
-	dw StruggleDescription
 	dw RockClimbDescription
 	dw TripleKickDescription
 	dw ThiefDescription
@@ -254,6 +253,7 @@
 	dw FairyWindDescription
 	dw DazzlingleamDescription
 	dw ShadowSneakDescription
+	dw StruggleDescription
 	dw Move00Description
 ; 2cd52
 
