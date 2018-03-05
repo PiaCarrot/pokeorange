@@ -30,7 +30,6 @@ MAP_NONE EQU 0
 	mapgroup MANDARIN_DESERT, 25, 25
 	mapgroup SEWER_ENTRANCE, 3, 3
 	mapgroup TROVITOPOLIS_SEWER, 28, 26
-	mapgroup GOLDEN_ISLAND, 16, 14
 	mapgroup ROUTE_60, 32, 28
 	mapgroup SUNRAY_CAVE_MANDARIN_DESERT_1F, 11, 11
 	mapgroup TROVITA_ISLAND, 22, 24
@@ -103,11 +102,6 @@ MAP_NONE EQU 0
 	mapgroup WRECKED_SHIP, 12, 20
 	mapgroup WRECKED_SHIP_UNDERWATER, 12, 18
 	mapgroup WRECKED_SHIP_UNSUNK, 12, 18
-	mapgroup GOLDEN_ISLAND_HOUSE_1, 4, 4
-	mapgroup GOLDEN_ISLAND_HOUSE_2, 4, 4
-	mapgroup GOLDEN_ISLAND_HOUSE_3, 4, 4
-	mapgroup GOLDEN_ISLAND_ELDER_HOUSE, 4, 4
-	mapgroup GOLDEN_ISLAND_GATE_HOUSE, 10, 4
 	mapgroup ROUTE_61, 30, 28
 	mapgroup MURCOTT_ISLAND, 16, 23
 	mapgroup DAYCARE, 4, 4
@@ -167,7 +161,6 @@ MAP_NONE EQU 0
 	mapgroup ASCORBIA_ISLAND_ROUTE_63_GATE, 4, 5
 	mapgroup ASCORBIA_ISLAND_MART, 4, 6
 	mapgroup ASCORBIA_ISLAND_CENTER, 4, 5
-	mapgroup HALL_OF_FAME, 7, 5
 
 	newgroup ; 10
 
@@ -206,10 +199,20 @@ MAP_NONE EQU 0
 	mapgroup SUNBURST_LARGE_HOUSE, 4, 4
 	mapgroup SUNBURST_SOUTH_HOUSE, 4, 4
 	mapgroup SUNBURST_CRYSTAL_SHOP, 3, 4
-	
+
 	newgroup ; 14
-	
+
+	mapgroup GOLDEN_ISLAND, 16, 14
+	mapgroup GOLDEN_ISLAND_HOUSE_1, 4, 4
+	mapgroup GOLDEN_ISLAND_HOUSE_2, 4, 4
+	mapgroup GOLDEN_ISLAND_HOUSE_3, 4, 4
+	mapgroup GOLDEN_ISLAND_ELDER_HOUSE, 4, 4
+	mapgroup GOLDEN_ISLAND_GATE_HOUSE, 10, 4
+
+	newgroup ; 15
+
 	mapgroup PUMMELO_ISLAND, 25, 27
+	mapgroup HALL_OF_FAME, 7, 5
 
 
 ; elevator floors
