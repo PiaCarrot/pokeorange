@@ -361,12 +361,14 @@ GoldenIsland_MapEventHeader::
 	xy_trigger 0, 16, 22, GoldenIslandRocketEvent
 	xy_trigger 0, 16, 23, GoldenIslandRocketEvent
 
-.BGEvents: db 5
-	signpost 8, 14, SIGNPOST_READ, GoldenIslandSign
-	signpost 14, 13, SIGNPOST_READ, GoldenIslandLargeStatue
-	signpost 14, 14, SIGNPOST_READ, GoldenIslandLargeStatue
-	signpost 16, 11, SIGNPOST_UP, GoldenIslandSmallStatue
-	signpost 16, 16, SIGNPOST_UP, GoldenIslandSmallStatue
+.BGEvents: db 7
+	signpost 9, 15, SIGNPOST_READ, GoldenIslandSign
+	signpost 14, 11, SIGNPOST_READ, GoldenIslandLargeStatue
+	signpost 14, 12, SIGNPOST_READ, GoldenIslandLargeStatue
+	signpost 16, 9, SIGNPOST_UP, GoldenIslandSmallStatue
+	signpost 16, 14, SIGNPOST_UP, GoldenIslandSmallStatue
+	signpost 20, 10, SIGNPOST_UP, GoldenIslandSmallStatue
+	signpost 20, 13, SIGNPOST_UP, GoldenIslandSmallStatue
 
 .ObjectEvents: db 10
 	person_event SPRITE_CAT_MAN, 7, 17, SPRITEMOVEDATA_SPINRANDOM_SLOW, 2, 2, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, CatManOutside1Script, -1

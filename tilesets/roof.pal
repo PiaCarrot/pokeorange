@@ -82,7 +82,13 @@
 	RGB 15, 15, 00
 	RGB 13, 09, 00
 
-; group 14
+; group 14 (Golden Island)
+	RGB 25, 25, 00
+	RGB 20, 17, 08
+	RGB 12, 12, 00
+	RGB 10, 08, 06
+
+; group 15 (Pummelo Island)
 	RGB 04, 25, 23
 	RGB 00, 17, 17
 	RGB 02, 13, 14
