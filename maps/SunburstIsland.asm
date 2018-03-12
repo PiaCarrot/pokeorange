@@ -5,7 +5,7 @@ const_value set 1
 	const SUNBURST_GRAMPS
 	const SUNBURST_COOLTRAINERF
 	const SUNBURST_FISHER2
-	const SUNBURST_SWIFT
+	const SUNBURST_SUNNY_DAY
 
 SunburstIsland_MapScriptHeader::
 
@@ -69,8 +69,8 @@ SunburstHiddenIron:
 SunburstHiddenMoonStone:
 	dwb EVENT_SUNBURST_ISLAND_HIDDEN_MOON_STONE, MOON_STONE
 
-SunburstTMSwift:
-	itemball TM_SWIFT
+SunburstTMSunnyDay:
+	itemball TM_SUNNY_DAY
 
 SunburstFatManText:
 	text "This is CRYSTAL"
@@ -169,4 +169,4 @@ SunburstIsland_MapEventHeader::
 	person_event SPRITE_YOUNGSTER, 23, 17, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SunburstGreenSalesmanScript, -1
 	person_event SPRITE_COOLTRAINER_F, 13, 31, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, SunburstCooltrainerFScript, -1
 	person_event SPRITE_FISHER, 42, 25, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, SunburstFatManScript, -1
-	person_event SPRITE_POKE_BALL, 7, 21, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, SunburstTMSwift, EVENT_SUNBURST_TM_SWIFT
+	person_event SPRITE_POKE_BALL, 7, 21, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, SunburstTMSunnyDay, EVENT_SUNBURST_TM_SUNNY_DAY

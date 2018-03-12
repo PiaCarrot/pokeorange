@@ -166,8 +166,8 @@ MandarinUndergroundCassidyScript:
 	special Special_FadeInQuickly
 	end
 
-MandarinUndergroundTMFrustration:
-	itemball HM_CUT
+MandarinUndergroundTMThief:
+	itemball TM_THIEF
 
 MandarinUndergroundPC:
 	jumptext MandarinUndergroundPCText
@@ -302,4 +302,4 @@ MandarinUnderground_MapEventHeader::
 	person_event SPRITE_ROCKET, 18, 17, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MandarinUndergroundButchScript, EVENT_MANDARIN_UNDERGROUND_BUTCH
 	person_event SPRITE_ROCKET_GIRL, 6, 25, SPRITEMOVEDATA_STANDING_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, MandarinUndergroundCassidyScript, EVENT_MANDARIN_UNDERGROUND_CASSIDY
 	person_event SPRITE_OFFICER, 3, 1, SPRITEMOVEDATA_STANDING_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MandarinUndergroundOfficerScript, EVENT_MANDARIN_UNDERGROUND_CASSIDY
-	person_event SPRITE_POKE_BALL, 6, 26, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MandarinUndergroundTMFrustration, EVENT_MANDARIN_UNDERGROUND_TM_FRUSTRATION
+	person_event SPRITE_POKE_BALL, 6, 26, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MandarinUndergroundTMThief, EVENT_MANDARIN_UNDERGROUND_TM_THIEF

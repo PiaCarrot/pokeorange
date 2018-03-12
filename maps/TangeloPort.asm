@@ -1,6 +1,6 @@
 const_value set 1
 	const TANGELOPORT_SAILOR
-	const TANGELOPORT_WATER_GUN
+	const TANGELOPORT_POKE_BALL
 
 TangeloPort_MapScriptHeader:
 
@@ -48,9 +48,9 @@ TangeloPortSailorAhoyText:
 	text "Alright! Off we"
 	line "go!"
 	done
-	
-TangeloPortWaterGun:
-	itemball TM_WATER_GUN
+
+TangeloPortRepel:
+	itemball REPEL
 
 TangeloPort_MapEventHeader::
 
@@ -64,4 +64,4 @@ TangeloPort_MapEventHeader::
 
 .ObjectEvents: db 2
 	person_event SPRITE_SAILOR, 6, 11, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TangeloPortSailorScript, -1
-	person_event SPRITE_POKE_BALL, 9, 14, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloPortWaterGun, EVENT_TANGELO_PORT_WATER_GUN
+	person_event SPRITE_POKE_BALL, 9, 14, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloPortRepel, EVENT_TANGELO_PORT_REPEL

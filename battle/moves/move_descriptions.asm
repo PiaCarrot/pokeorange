@@ -141,7 +141,7 @@
 	dw BarrageDescription
 	dw LeechLifeDescription
 	dw SketchDescription
-	dw SkyAttackDescription
+	dw SeedBombDescription
 	dw TransformDescription
 	dw BubbleDescription
 	dw DizzyPunchDescription
@@ -215,7 +215,7 @@
 	dw HealBellDescription
 	dw ReturnDescription
 	dw AstonishDescription
-	dw FrustrationDescription
+	dw BounceDescription
 	dw SafeguardDescription
 	dw SpectraThiefDescription
 	dw SacredFireDescription
@@ -307,7 +307,6 @@ GuillotineDescription:
 	next "pincer attack.@"
 
 SolarbeamDescription:
-SkyAttackDescription:
 	db   "1st turn: Prepare"
 	next "2nd turn: Attack@"
 
@@ -944,9 +943,9 @@ ReturnDescription:
 	db   "An attack that is"
 	next "based on loyalty.@"
 
-FrustrationDescription:
-	db   "An attack based on"
-	next "lack of loyalty.@"
+BounceDescription:
+	db   "1st turn: Bounce"
+	next "2nd turn: Attack@"
 
 SafeguardDescription:
 	db   "Prevents all"
@@ -1038,6 +1037,10 @@ DragonPulseDescription:
 FacadeDescription:
 	db   "Double damage with"
 	next "PSN, BRN, or PRZ.@"
+
+SeedBombDescription:
+	db   "Slams a barrage of"
+	next "seeds at the foe.@"
 
 PowerGemDescription:
 	db   "Attacks with a ray"

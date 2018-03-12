@@ -15,5 +15,5 @@
 	dn FIELD, HUMANSHAPE ; egg groups
 
 	; tmhm
-	tmhm FACADE, ZEN_HEADBUTT
+	tmhm FACADE, ROCK_SLIDE, ZEN_HEADBUTT, SUBSTITUTE, BODY_SLAM
 	; end

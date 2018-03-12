@@ -2123,7 +2123,7 @@ ArticunoEvosAttacks:
 	db 37, LOCK_ON ; MIND_READER
 	db 49, ICE_BEAM
 	db 61, REFLECT
-	db 73, SKY_ATTACK ; BLIZZARD
+	db 73, FLY ; BLIZZARD
 	db 85, BLIZZARD ; SHEER_COLD
 	db 0 ; no more level-up moves
 
@@ -2136,7 +2136,7 @@ ZapdosEvosAttacks:
 	db 37, PROTECT ; DETECT
 	db 49, DRILL_PECK
 	db 61, LIGHT_SCREEN ; CHARGE
-	db 73, SKY_ATTACK
+	db 73, FLY ; SKY_ATTACK
 	db 85, THUNDER
 	db 0 ; no more level-up moves
 
@@ -2149,7 +2149,7 @@ MoltresEvosAttacks:
 	db 37, ENDURE
 	db 49, FLAMETHROWER
 	db 61, SAFEGUARD
-	db 73, SKY_ATTACK ; HEAT_WAVE
+	db 73, FLY ; HEAT_WAVE
 	db 85, FIRE_BLAST
 	db 0 ; no more level-up moves
 
@@ -2244,7 +2244,7 @@ TropiusEvosAttacks:
 	db 41, BODY_SLAM
 	db 50, SYNTHESIS
 	db 56, SOLARBEAM
-	db 61, SKY_ATTACK
+	db 61, FLY ; SKY_ATTACK
 	db 0 ; no more level-up moves
 
 KecleonEvosAttacks:
@@ -2280,7 +2280,7 @@ ChatotEvosAttacks:
 	db 37, DRILL_PECK
 	db 41, REST
 	db 46, AERIAL_ACE
-	db 55, SKY_ATTACK
+	db 55, FLY ; SKY_ATTACK
 	db 0 ; no more level-up moves
 
 PikipekEvosAttacks:
@@ -2323,7 +2323,7 @@ ToucannonEvosAttacks:
 	db 9, BULLET_SEED
 	db 13, SUPERSONIC
 	db 24, FURY_ATTACK
-	db 28, SKY_ATTACK ;BEAK BLAST?
+	db 28, FIRE_BLAST ; BEAK_BLAST
 	db 30, SCREECH
 	db 40, QUICK_ATTACK
 	db 50, DRILL_PECK
@@ -2616,7 +2616,7 @@ TogekissEvosAttacks:
 	db 25, ENCORE
 	db 31, SAFEGUARD
 	db 38, DOUBLE_EDGE
-	db 42, SKY_ATTACK
+	db 42, FLY ; SKY_ATTACK
 	db 47, EXTREMESPEED
 	db 52, MOONBLAST
 	db 0 ; no more level-up moves

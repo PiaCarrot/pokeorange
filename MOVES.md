@@ -4,6 +4,7 @@
 Accelerock,
 Aerial Ace,
 Astonish,
+Bounce,
 Bug Bite,
 Bullet Seed,
 Dark Pulse,
@@ -27,6 +28,7 @@ Power-Up Punch,
 Psystrike,
 Rock Blast,
 Rock Climb,
+Seed Bomb,
 Shadow Bone,
 Shadow Claw,
 Shadow Sneak,
@@ -45,6 +47,7 @@ Bind,
 Bone Club,
 Constrict,
 Detect,
+Frustration,
 Fury Cutter,
 Hidden Power,
 Jump Kick,
@@ -66,6 +69,7 @@ Razor Wind,
 Rolling Kick,
 Sharpen,
 Skull Bash,
+Sky Attack,
 Snore,
 Spider Web,
 Spite,
@@ -84,45 +88,45 @@ Vicegrip
 - TM08 Whirlpool (Route 63)
 - TM09 *Bullet Seed* (Pinkan Island)
 - TM10 Fissure
-- TM11 Sunny Day (Trovitopolis Dept. Store)
-- TM12 Water Gun (Tangelo Port)
-- TM13 Ice Beam
+- TM11 Sunny Day (Sunburst Island)
+- TM12 Lock-On
+- TM13 Ice Beam (Trovitopolis Dept. Store)
 - TM14 Blizzard
 - TM15 Hyper Beam (Trovitopolis Dept. Store)
-- TM16 Dragonbreath (Crystal Cave)
-- TM17 Protect (Trovitopolis Dept. Store)
+- TM16 Dragonbreath (Route 56)
+- TM17 Protect
 - TM18 Rain Dance (Murcott Island)
 - TM19 Giga Drain (Ascorbia Island)
-- TM20 *Dragon Tail*
-- TM21 Frustration (Mandarin Underground)
-- TM22 Solarbeam
+- TM20 *Dragon Tail* (Crystal Cave)
+- TM21 *Shadow Claw*
+- TM22 Solarbeam (Trovitopolis Dept. Store)
 - TM23 Iron Tail (Route 63)
-- TM24 Thunderbolt
+- TM24 Thunderbolt (Trovitopolis Dept. Store)
 - TM25 Thunder
 - TM26 Earthquake (Route 62)
 - TM27 Return (Unnamed Island 1)
-- TM28 Dig (Trovitopolis Dept. Store)
+- TM28 Dig
 - TM29 Psychic
 - TM30 Shadow Ball (Wrecked Ship)
 - TM31 Bubblebeam (Cissy)
 - TM32 Double Team (Rudy)
 - TM33 *Earth Power*
 - TM34 *Giga Impact*
-- TM35 Flamethrower
+- TM35 Flamethrower (Trovitopolis Dept. Store)
 - TM36 Sludge Bomb (Trovitopolis Sewer)
 - TM37 Sandstorm (Mandarin Desert)
 - TM38 Fire Blast
-- TM39 Swift (Sunburst Island and Trovitopolis Dept. Store)
+- TM39 *Dazzling Gleam*
 - TM40 *Aerial Ace*
 - TM41 *Flash Cannon*
 - TM42 *Facade* (Moro Island)
 - TM43 Zap Cannon
 - TM44 Rest
-- TM45 Attract (Route 56)
-- TM46 Thief
+- TM45 Seed Bomb
+- TM46 Thief (Mandarin Underground)
 - TM47 Steel Wing
-- TM48 *Shadow Claw*
-- TM49 *Dazzling Gleam*
+- TM48 Rock Slide
+- TM49 Tri Attack
 - TM50 Flash (Trovitopolis)
 
 - HM01 Cut (Mandarin North)
@@ -144,7 +148,11 @@ Vicegrip
 - MT08 *Zen Headbutt*
 - MT09 *Poison Jab*
 - MT10 Sleep Talk
-- MT11 Swagger
-- MT12 Endure
-- MT13 *Bug Bite*
-- MT14 *Signal Beam*
+- MT11 Substitute
+- MT12 Body Slam
+- MT13 Play Rough
+- MT14 Attract
+- MT15 Swagger
+- MT16 Endure
+- MT17 *Bug Bite*
+- MT18 *Signal Beam*
