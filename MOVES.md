@@ -76,7 +76,7 @@ Spite,
 Twister,
 Vicegrip
 
-## TMs/HMs and Tutors
+## TMs
 
 - TM01 *Power-Up Punch*
 - TM02 *Dragon Pulse*
@@ -129,6 +129,8 @@ Vicegrip
 - TM49 Tri Attack
 - TM50 Flash (Trovitopolis)
 
+## HMs
+
 - HM01 Cut (Mandarin North)
 - HM02 Fly (Moro Island)
 - HM03 Surf (Tangelo Island)
@@ -137,6 +139,8 @@ Vicegrip
 - HM06 *Dive* (**TODO:** Ascorbia Island)
 - HM07 Waterfall (**TODO:** Unnamed Island 3)
 - HM08 *Rock Climb* (**TODO:** Kanto)
+
+## Tutors
 
 - MT01 Fire Punch
 - MT02 ThunderPunch
@@ -147,12 +151,14 @@ Vicegrip
 - MT07 Headbutt (**TODO:** Moro Island)
 - MT08 *Zen Headbutt*
 - MT09 *Poison Jab*
-- MT10 Sleep Talk
-- MT11 Substitute
-- MT12 Body Slam
-- MT13 Play Rough
-- MT14 Attract
-- MT15 Swagger
-- MT16 Endure
-- MT17 *Bug Bite*
-- MT18 *Signal Beam*
+- MT10 Counter
+- MT11 Swords Dance
+- MT12 Sleep Talk
+- MT13 Substitute
+- MT14 Body Slam
+- MT15 Play Rough
+- MT16 Attract
+- MT17 Swagger
+- MT18 Endure
+- MT19 *Bug Bite*
+- MT20 *Signal Beam*

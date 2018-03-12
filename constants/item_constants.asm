@@ -228,6 +228,8 @@ NUM_HMS = const_value - HM01
 	add_mt HEADBUTT
 	add_mt ZEN_HEADBUTT
 	add_mt POISON_JAB
+	add_mt COUNTER
+	add_mt SWORDS_DANCE
 	add_mt SLEEP_TALK
 	add_mt SUBSTITUTE
 	add_mt BODY_SLAM
