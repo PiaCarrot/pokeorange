@@ -365,13 +365,15 @@ CantMove: ; 341f0
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	cp FLY
-	jr z, .fly_dig_dive
+	jr z, .fly_bounce_dig_dive
+	cp BOUNCE
+	jr z, .fly_bounce_dig_dive
 	cp DIG
-	jr z, .fly_dig_dive
+	jr z, .fly_bounce_dig_dive
 	cp DIVE
 	ret nz
 
-.fly_dig_dive
+.fly_bounce_dig_dive
 	res SUBSTATUS_UNDERWATER, [hl]
 	res SUBSTATUS_UNDERGROUND, [hl]
 	res SUBSTATUS_FLYING, [hl]
@@ -693,6 +695,8 @@ BattleCommand_BeatUp: ; 35461
 ; beatup
 BattleCommand_HiddenPower: ; 37be8
 ; hiddenpower
+BattleCommand_FrustrationPower: ; 3790e
+; frustrationpower
 	ret
 
 
@@ -2252,13 +2256,15 @@ BattleCommand_HitTargetNoSub: ; 34f60
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	cp FLY
-	jr z, .fly_dig_dive
+	jr z, .fly_bounce_dig_dive
+	cp BOUNCE
+	jr z, .fly_bounce_dig_dive
 	cp DIG
-	jr z, .fly_dig_dive
+	jr z, .fly_bounce_dig_dive
 	cp DIVE
 	ret nz
 
-.fly_dig_dive
+.fly_bounce_dig_dive
 ; clear sprite
 	jp AppearUserLowerSub
 
@@ -2372,11 +2378,13 @@ BattleCommand_FailureText: ; 35023
 	call GetBattleVarAddr
 
 	cp FLY
-	jr z, .fly_dig_dive
+	jr z, .fly_bounce_dig_dive
+	cp BOUNCE
+	jr z, .fly_bounce_dig_dive
 	cp DIG
-	jr z, .fly_dig_dive
+	jr z, .fly_bounce_dig_dive
 	cp DIVE
-	jr z, .fly_dig_dive
+	jr z, .fly_bounce_dig_dive
 
 ; Move effect:
 	inc hl
@@ -2394,7 +2402,7 @@ BattleCommand_FailureText: ; 35023
 	call BattleCommand_RaiseSub
 	jp EndMoveEffect
 
-.fly_dig_dive
+.fly_bounce_dig_dive
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
 	res SUBSTATUS_UNDERWATER, [hl]
@@ -6866,6 +6874,8 @@ BattleCommand_Charge: ; 36b4d
 	call GetBattleVar
 	cp FLY
 	jr z, .flying
+	cp BOUNCE
+	jr z, .flying
 	cp DIG
 	jr z, .flying
 	cp DIVE
@@ -6882,6 +6892,8 @@ BattleCommand_Charge: ; 36b4d
 	call GetBattleVar
 	ld b, a
 	cp FLY
+	jr z, .set_flying
+	cp BOUNCE
 	jr z, .set_flying
 	cp DIVE
 	jr z, .set_diving
@@ -6923,12 +6935,12 @@ BattleCommand_Charge: ; 36b4d
 	ld hl, .Solarbeam
 	jr z, .done
 
-	cp SKY_ATTACK
-	ld hl, .SkyAttack
-	jr z, .done
-
 	cp FLY
 	ld hl, .Fly
+	jr z, .done
+
+	cp BOUNCE
+	ld hl, .Bounce
 	jr z, .done
 
 	cp DIG
@@ -6946,14 +6958,14 @@ BattleCommand_Charge: ; 36b4d
 	text_jump UnknownText_0x1c0d26
 	db "@"
 
-.SkyAttack:
-; 'is glowing!'
-	text_jump UnknownText_0x1c0d4e
-	db "@"
-
 .Fly:
 ; 'flew up high!'
 	text_jump UnknownText_0x1c0d5c
+	db "@"
+
+.Bounce:
+; 'sprang up!'
+	text_jump UnknownText_0x1c0d4e
 	db "@"
 
 .Dig:
@@ -8361,37 +8373,6 @@ BattleCommand_HappinessPower: ; 3784b
 	ret
 
 ; 37874
-
-
-BattleCommand_FrustrationPower: ; 3790e
-; frustrationpower
-
-	push bc
-	ld hl, BattleMonHappiness
-	ld a, [hBattleTurn]
-	and a
-	jr z, .got_happiness
-	ld hl, EnemyMonHappiness
-.got_happiness
-	ld a, $ff
-	sub [hl]
-	ld [hMultiplicand + 2], a
-	xor a
-	ld [hMultiplicand + 0], a
-	ld [hMultiplicand + 1], a
-	ld a, 10
-	ld [hMultiplier], a
-	call Multiply
-	ld a, 25
-	ld [hDivisor], a
-	ld b, 4
-	call Divide
-	ld a, [hQuotient + 2]
-	ld d, a
-	pop bc
-	ret
-
-; 37939
 
 
 BattleCommand_Safeguard: ; 37939

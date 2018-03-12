@@ -1314,6 +1314,7 @@ Disable:
 	endmove
 
 Fly:
+Bounce:
 Dig:
 Dive:
 	checkcharge

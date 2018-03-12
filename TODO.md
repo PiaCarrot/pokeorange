@@ -21,12 +21,10 @@
 - Crystal Onix resists Water
 - Improve Trainer AI
 - Add proper Headbutt encounters
-- Learn on Evolution
 - Held item + Trade Stone to evolve (Magmarizer + Trade Stone, etc)
 - Chain Fishing
 - Invisible Pickup for Meowth/Persian
 - Invisible Flame Body for Magmar/Magmortar
-- Infinite Use TMs
 
 ## Graphics
 
@@ -42,6 +40,7 @@
 
 - Accelerock
 - Aerial Ace
+- Bounce
 - Bug Bite
 - Bullet Seed
 - Dive

@@ -64,8 +64,8 @@ CrystalOnixScript:
 	reloadmapafterbattle
 	end
 
-CrystalCaveB1TMDragonbreath:
-	itemball TM_DRAGONBREATH
+CrystalCaveB1TMDragonTail:
+	itemball TM_DRAGON_TAIL
 
 CrystalOnixText:
 	text "Grraaahr!"
@@ -150,6 +150,6 @@ CrystalCaveB1_MapEventHeader::
 
 .ObjectEvents: db 3
 	person_event SPRITE_BROCK, 22, 19, SPRITEMOVEDATA_STANDING_UP, 1, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, CrystalCaveB1BrockScript, EVENT_CRYSTAL_CAVE_B1_BROCK
-	person_event SPRITE_POKE_BALL, 4, 29, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, CrystalCaveB1TMDragonbreath, EVENT_CRYSTAL_CAVE_B1_TM_DRAGONBREATH
+	person_event SPRITE_POKE_BALL, 4, 29, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, CrystalCaveB1TMDragonTail, EVENT_CRYSTAL_CAVE_B1_TM_DRAGON_TAIL
 	person_event SPRITE_ONIX, 19, 19, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_BLUE, 0, 0, CrystalOnixScript, EVENT_CRYSTAL_ONIX_DEFEATED
 

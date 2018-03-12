@@ -846,10 +846,7 @@ Pokedex_DrawDexEntryScreenBG: ; 407fd
 	ld b, 15
 	call Pokedex_FillColumn
 	ld [hl], $48
-	hlcoord 1, 10
-	ld bc, 19
-	ld a, $70
-	call ByteFill
+	farcall DrawPokedexHorizontalDivider
 	hlcoord 1, 17
 	ld bc, 18
 	ld a, " "

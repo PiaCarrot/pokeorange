@@ -152,7 +152,6 @@ TeachTMHM: ; 2c867
 
 	ld c, HAPPINESS_LEARNMOVE
 	farcall ChangeHappiness
-	call ConsumeTM
 	scf
 	ret
 
@@ -385,24 +384,6 @@ TMHM_DisplayPocketItems: ; 2c9e2 (b:49e2)
 	call PlaceString
 	pop hl
 	pop bc
-	ld a, c
-	push bc
-	cp NUM_TMS + 1
-	jr nc, .hm2
-	ld bc, SCREEN_WIDTH + 9
-	add hl, bc
-	ld [hl], "×"
-	inc hl
-	ld a, "0" ; why are we doing this?
-	pop bc
-	push bc
-	ld a, b
-	ld [wd265], a
-	ld de, wd265
-	lb bc, 1, 2
-	call PrintNum
-.hm2
-	pop bc
 	pop de
 	pop hl
 	dec d
@@ -463,27 +444,6 @@ TMHM_PlaySFX_ReadText2: ; 2cad6 (b:4ad6)
 	pop de
 	ret
 ; 2cadf (b:4adf)
-
-ConsumeTM: ; 2cb0c (b:4b0c)
-	call ConvertCurItemIntoCurTMHM
-	ld a, [wd265]
-	dec a
-	ld hl, TMsHMs
-	ld b, 0
-	ld c, a
-	add hl, bc
-	ld a, [hl]
-	and a
-	ret z
-	dec a
-	ld [hl], a
-	ret nz
-	ld a, [wTMHMPocketScrollPosition]
-	and a
-	ret z
-	dec a
-	ld [wTMHMPocketScrollPosition], a
-	ret
 
 CountTMsHMs: ; 2cb2a (b:4b2a)
 	lb bc, 0, NUM_TMS + NUM_HMS

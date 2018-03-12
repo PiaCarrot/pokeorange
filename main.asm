@@ -1650,15 +1650,8 @@ DisplayDexEntry: ; 4424d
 	lb bc, 5, SCREEN_WIDTH - 2
 	hlcoord 2, 11
 	call ClearBox
-	hlcoord 1, 10
-	ld bc, SCREEN_WIDTH - 1
-	ld a, $70 ; horizontal divider
-	call ByteFill
+	call DrawPokedexHorizontalDivider
 	; page number
-	hlcoord 1, 9
-	ld [hl], $64
-	inc hl
-	ld [hl], $64
 	hlcoord 1, 10
 	ld [hl], $65 ; P.
 	inc hl
@@ -1680,15 +1673,8 @@ DisplayDexEntry: ; 4424d
 	lb bc, 5, SCREEN_WIDTH - 2
 	hlcoord 2, 11
 	call ClearBox
-	hlcoord 1, 10
-	ld bc, SCREEN_WIDTH - 1
-	ld a, $70
-	call ByteFill
+	call DrawPokedexHorizontalDivider
 	; page number
-	hlcoord 1, 9
-	ld [hl], $64
-	inc hl
-	ld [hl], $64
 	hlcoord 1, 10
 	ld [hl], $65 ; P.
 	inc hl
@@ -1698,6 +1684,15 @@ DisplayDexEntry: ; 4424d
 	pop af
 	hlcoord 2, 11
 	jp FarString
+
+DrawPokedexHorizontalDivider:
+	hlcoord 0, 9
+	ld a, $70
+	ld [hli], a
+	ld a, $64
+	ld bc, SCREEN_WIDTH - 1
+	call ByteFill
+	ret
 
 INCLUDE "data/pokedex/entry_pointers.asm"
 
@@ -4482,6 +4477,8 @@ DrawDexEntryScreenRightEdge: ; 1de247
 	ld b, 15
 	call Bank77_FillColumn
 	ld [hl], $77
+	hlcoord 19, 9
+	ld [hl], $70
 	hlcoord 19, 17
 	ld [hl], $4b
 	xor a
