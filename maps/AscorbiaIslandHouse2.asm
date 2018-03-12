@@ -52,4 +52,5 @@ AscorbiaIslandHouse2_MapEventHeader::
 .BGEvents: db 0
 
 .ObjectEvents: db 1
-	person_event SPRITE_GRANNY, 3, 3, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, (1 << MORN) | (1 << DAY), 0, PERSONTYPE_SCRIPT, 0, AscorbiaArtistLadyDayScript, -1
+	person_event SPRITE_GRANNY, 3, 2, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, (1 << MORN) | (1 << DAY), 0, PERSONTYPE_SCRIPT, 0, AscorbiaArtistLadyDayScript, -1
+

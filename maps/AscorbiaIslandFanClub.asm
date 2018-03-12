@@ -71,7 +71,7 @@ AscorbiaFanClubPresidentText2:
 	line "magnificent."
 	
 	para "Now, tell me! What"
-	line "about it's fourth"
+	line "about the fourth"
 	cont "head on its tail?"
 	
 	para "Isn't it so cute?"

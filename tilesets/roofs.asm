@@ -31,7 +31,8 @@ MapGroupRoofs: ; 1c021i
 	db  0 ; group 11 (Valencia)
 	db  0 ; group 12 (Tangelo)
 	db  4 ; group 13 (Sunburst)
-	db  0 ; group 14 (Pummelo)
+	db  0 ; group 14 (Golden)
+	db  0 ; group 15 (Pummelo)
 ; 1c03c
 
 Roofs: ; 1c03c

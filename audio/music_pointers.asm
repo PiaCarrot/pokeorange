@@ -130,4 +130,5 @@
 	dba Music_LilycoveCity
 	dba Music_LugiaBattle
 	dba Music_Route103
+	dba Music_XdBattleSimTheme
 ; e91a3
