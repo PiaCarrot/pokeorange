@@ -128,6 +128,7 @@ if def(DEBUG)
 	giveitem GOOD_ROD
 	giveitem SUPER_ROD
 	giveitem MASTER_ROD
+	givemoney 0, 100000
 	opentext
 	givepoke LAPRAS, 60
 	givepoke CHARIZARD, 60

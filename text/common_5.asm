@@ -458,3 +458,8 @@ MoveReminderCancelText::
 	para "move, return with"
 	line "a HEART SCALE."
 	done
+
+AlreadyHaveTMText::
+	text "You already have"
+	line "that TM."
+	done
