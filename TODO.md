@@ -26,7 +26,6 @@
 - Chain Fishing
 - Invisible Pickup for Meowth/Persian
 - Invisible Flame Body for Magmar/Magmortar
-- Infinite Use TMs
 
 ## Graphics
 
