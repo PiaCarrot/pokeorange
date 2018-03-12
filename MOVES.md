@@ -150,15 +150,15 @@ Vicegrip
 - MT06 DynamicPunch
 - MT07 Headbutt (Moro Island)
 - MT08 *Zen Headbutt*
-- MT09 *Poison Jab*
-- MT10 Counter
-- MT11 Swords Dance
-- MT12 Sleep Talk
-- MT13 Substitute
-- MT14 Body Slam
-- MT15 Play Rough
+- MT09 Swords Dance
+- MT10 Body Slam
+- MT11 Counter
+- MT12 Substitute
+- MT13 Endure
+- MT14 Swagger
+- MT15 Sleep Talk
 - MT16 Attract
-- MT17 Swagger
-- MT18 Endure
+- MT17 Play Rough
+- MT18 *Poison Jab*
 - MT19 *Bug Bite* (Route 49)
 - MT20 *Signal Beam*
