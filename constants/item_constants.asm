@@ -168,7 +168,7 @@
 	add_tm BULLET_SEED  ; $a5
 	add_tm FISSURE      ; $a6
 	add_tm SUNNY_DAY    ; $a7
-	add_tm WATER_GUN    ; $a8
+	add_tm LOCK_ON      ; $a8
 	add_tm ICE_BEAM     ; $a9
 	add_tm BLIZZARD     ; $aa
 	add_tm HYPER_BEAM   ; $ab
@@ -177,7 +177,7 @@
 	add_tm RAIN_DANCE   ; $ae
 	add_tm GIGA_DRAIN   ; $af
 	add_tm DRAGON_TAIL  ; $b0
-	add_tm FRUSTRATION  ; $b1
+	add_tm SHADOW_CLAW  ; $b1
 	add_tm SOLARBEAM    ; $b2
 	add_tm IRON_TAIL    ; $b3
 	add_tm THUNDERBOLT  ; $b4
@@ -195,17 +195,17 @@
 	add_tm SLUDGE_BOMB  ; $c0
 	add_tm SANDSTORM    ; $c1
 	add_tm FIRE_BLAST   ; $c2
-	add_tm SWIFT        ; $c3
+	add_tm DAZZLINGLEAM ; $c3
 	add_tm AERIAL_ACE   ; $c4
 	add_tm FLASH_CANNON ; $c5
 	add_tm FACADE       ; $c6
 	add_tm ZAP_CANNON   ; $c7
 	add_tm REST         ; $c8
-	add_tm ATTRACT      ; $c9
+	add_tm SEED_BOMB    ; $c9
 	add_tm THIEF        ; $ca
 	add_tm STEEL_WING   ; $cb
-	add_tm SHADOW_CLAW  ; $cc
-	add_tm DAZZLINGLEAM ; $cd
+	add_tm ROCK_SLIDE   ; $cc
+	add_tm TRI_ATTACK   ; $cd
 	add_tm FLASH        ; $ce
 NUM_TMS = const_value - TM01
 
@@ -229,6 +229,10 @@ NUM_HMS = const_value - HM01
 	add_mt ZEN_HEADBUTT
 	add_mt POISON_JAB
 	add_mt SLEEP_TALK
+	add_mt SUBSTITUTE
+	add_mt BODY_SLAM
+	add_mt PLAY_ROUGH
+	add_mt ATTRACT
 	add_mt SWAGGER
 	add_mt ENDURE
 	add_mt BUG_BITE

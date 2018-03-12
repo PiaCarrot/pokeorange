@@ -42,6 +42,7 @@
 
 - Accelerock
 - Aerial Ace
+- Bounce
 - Bug Bite
 - Bullet Seed
 - Dive

@@ -143,7 +143,7 @@
 	const BARRAGE      ; $8c
 	const LEECH_LIFE   ; $8d
 	const SKETCH       ; $8e
-	const SKY_ATTACK   ; $8f
+	const SEED_BOMB    ; $8f
 	const TRANSFORM    ; $90
 	const BUBBLE       ; $91
 	const DIZZY_PUNCH  ; $92
@@ -217,7 +217,7 @@
 	const HEAL_BELL    ; $d6
 	const RETURN       ; $d7
 	const ASTONISH     ; $d8
-	const FRUSTRATION  ; $d9
+	const BOUNCE       ; $d9
 	const SAFEGUARD    ; $da
 	const SPECTRATHIEF ; $db
 	const SACRED_FIRE  ; $dc

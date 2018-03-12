@@ -456,7 +456,6 @@ HoothootEggMoves:
 	db FAINT_ATTACK
 	db WING_ATTACK
 	db WHIRLWIND
-	db SKY_ATTACK
 	db $ff
 
 LedybaEggMoves:
@@ -572,7 +571,6 @@ MurkrowEggMoves:
 	db QUICK_ATTACK
 	db MIRROR_MOVE
 	db WING_ATTACK
-	db SKY_ATTACK
 	db $ff
 
 MisdreavusEggMoves:
@@ -695,7 +693,6 @@ SkarmoryEggMoves:
 	db DRILL_PECK
 	db PURSUIT
 	db WHIRLWIND
-	db SKY_ATTACK
 	db $ff
 
 HoundourEggMoves:

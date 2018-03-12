@@ -142,7 +142,7 @@ MoroMart:
 	db X_ACCURACY
 	db LURE_BALL
 	db $ff
-	
+
 MurcottMart:
 	db 11
 	db HEAL_BALL
@@ -157,7 +157,7 @@ MurcottMart:
 	db X_ATTACK
 	db X_SPEED
 	db $ff
-	
+
 TrovitopolisTrainerMart:
 	db 5
 	db ESCAPE_ROPE
@@ -166,7 +166,7 @@ TrovitopolisTrainerMart:
 	db MAX_REPEL
 	db ETHER
 	db $ff
-	
+
 TrovitopolisPokeballMart:
 	db 13
 	db POKE_BALL
@@ -183,7 +183,7 @@ TrovitopolisPokeballMart:
 	db DIVE_BALL
 	db DUSK_BALL
 	db $ff
-	
+
 TrovitopolisMedicineMart:
 	db 10
 	db POTION
@@ -197,16 +197,16 @@ TrovitopolisMedicineMart:
 	db FULL_HEAL
 	db REVIVE
 	db $ff
-	
+
 TrovitopolisTMMart:
 	db 5
-	db TM_SUNNY_DAY
-	db TM_PROTECT
-	db TM_DIG
+	db TM_FLAMETHROWER
+	db TM_THUNDERBOLT
+	db TM_ICE_BEAM
+	db TM_SOLARBEAM
 	db TM_HYPER_BEAM
-	db TM_SWIFT
 	db $ff
-	
+
 AscorbiaMart:
 	db 8
 	db GREAT_BALL

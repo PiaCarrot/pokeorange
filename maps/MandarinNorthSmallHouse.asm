@@ -8,7 +8,7 @@ MandarinNorthSmallHouse_MapScriptHeader:
 .MapCallbacks: db 0
 
 MandarinNorthHMCut:
-	itemball TM_FRUSTRATION
+	itemball HM_CUT
 
 MandarinNorthSmallHouse_MapEventHeader::
 

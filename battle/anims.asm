@@ -142,7 +142,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_Barrage
 	dw BattleAnim_LeechLife
 	dw BattleAnim_Sketch
-	dw BattleAnim_SkyAttack
+	dw BattleAnim_SeedBomb
 	dw BattleAnim_Transform
 	dw BattleAnim_Bubble
 	dw BattleAnim_DizzyPunch
@@ -217,7 +217,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_HealBell
 	dw BattleAnim_Return
 	dw BattleAnim_Astonish
-	dw BattleAnim_Frustration
+	dw BattleAnim_Bounce
 	dw BattleAnim_Safeguard
 	dw BattleAnim_SpectraThief
 	dw BattleAnim_SacredFire
@@ -1599,6 +1599,7 @@ BattleAnim_Teleport: ; c9e4f
 	anim_ret
 ; c9e6f
 
+BattleAnim_Bounce: ; TODO: new Bounce animation
 BattleAnim_Fly: ; c9e6f
 	anim_if_param_equal $1, BattleAnim_Fly_branch_c9e89
 	anim_if_param_equal $2, BattleAnim_Fly_branch_c9e82
@@ -1714,7 +1715,6 @@ BattleAnim_Softboiled: ; c9f85
 BattleAnim_FocusEnergy: ; c9fb5
 BattleAnim_RazorWind_branch_c9fb5: ; c9fb5
 BattleAnim_SkullBash_branch_c9fb5: ; c9fb5
-BattleAnim_SkyAttack_branch_c9fb5: ; c9fb5
 	anim_1gfx ANIM_GFX_SPEED
 	anim_call BattleAnim_FollowEnemyFeet_0
 	anim_bgeffect ANIM_BG_16, $0, $1, $40
@@ -2591,26 +2591,6 @@ BattleAnim_Minimize: ; ca78a
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 ; ca7a1
-
-BattleAnim_SkyAttack: ; ca7a1
-	anim_if_param_equal $1, BattleAnim_SkyAttack_branch_c9fb5
-	anim_1gfx ANIM_GFX_SKY_ATTACK
-	anim_bgeffect ANIM_BG_27, $0, $1, $0
-	anim_wait 32
-	anim_sound 0, 0, SFX_HYPER_BEAM
-	anim_obj ANIM_OBJ_SKY_ATTACK_FEAROW,   6, 0,  11, 0, $40
-	anim_wait 64
-	anim_incobj  1
-	anim_wait 21
-	anim_sound 0, 1, SFX_HYPER_BEAM
-	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
-	anim_wait 64
-	anim_incobj  1
-	anim_wait 32
-	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
-	anim_wait 16
-	anim_ret
-; ca7cc
 
 BattleAnim_NightShade: ; ca7cc
 	anim_1gfx ANIM_GFX_HIT
@@ -3880,30 +3860,6 @@ BattleAnim_Return: ; cb464
 	anim_ret
 ; cb488
 
-BattleAnim_Frustration: ; cb4c1
-	anim_1gfx ANIM_GFX_MISC
-	anim_sound 0, 0, SFX_KINESIS_2
-	anim_obj ANIM_OBJ_83,   9, 0,  10, 0, $0
-	anim_wait 40
-	anim_1gfx ANIM_GFX_HIT
-	anim_call BattleAnim_FollowEnemyFeet_0
-	anim_bgeffect ANIM_BG_26, $0, $1, $0
-	anim_wait 8
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_01,  15, 0,   6, 0, $0
-	anim_wait 8
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_01, -13, 0,   6, 0, $0
-	anim_wait 8
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_01, -15, 0,   6, 0, $0
-	anim_wait 8
-	anim_incbgeffect ANIM_BG_26
-	anim_wait 1
-	anim_call BattleAnim_ShowMon_0
-	anim_ret
-; cb4f9
-
 BattleAnim_Safeguard: ; cb4f9
 	anim_1gfx ANIM_GFX_MISC
 	anim_bgeffect ANIM_BG_06, $0, $2, $0
@@ -4975,6 +4931,25 @@ BattleAnim_PowerGem: ; from Prism
 	anim_wait 6
 	anim_ret
 
+BattleAnim_SeedBomb: ; from Prism
+	anim_2gfx ANIM_GFX_PLANT, ANIM_GFX_EXPLOSION
+	anim_sound 16, 2, SFX_VINE_WHIP
+	anim_obj ANIM_OBJ_LEECH_SEED,  6, 0, 10, 0, $20
+	anim_wait 2
+	anim_sound 16, 2, SFX_VINE_WHIP
+	anim_obj ANIM_OBJ_LEECH_SEED,  6, 0, 10, 0, $28
+	anim_wait 2
+	anim_sound 16, 2, SFX_VINE_WHIP
+	anim_obj ANIM_OBJ_LEECH_SEED,  6, 0, 10, 0, $30
+	anim_wait 28
+	anim_bgeffect ANIM_BG_1F, $60, $4, $10
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $24
+	anim_clearobjs
+	anim_call BattleAnim_Explosion_branch_cbb8f
+	anim_wait 16
+	anim_bgp $e4
+	anim_ret
+
 ; unused effects:
 
 ;BattleAnim_Bide: ; c9ffc
@@ -5504,3 +5479,47 @@ BattleAnim_PowerGem: ; from Prism
 ;	anim_wait 40
 ;	anim_ret
 ;; ca5f6
+
+;BattleAnim_Frustration: ; cb4c1
+;	anim_1gfx ANIM_GFX_MISC
+;	anim_sound 0, 0, SFX_KINESIS_2
+;	anim_obj ANIM_OBJ_83,   9, 0,  10, 0, $0
+;	anim_wait 40
+;	anim_1gfx ANIM_GFX_HIT
+;	anim_call BattleAnim_FollowEnemyFeet_0
+;	anim_bgeffect ANIM_BG_26, $0, $1, $0
+;	anim_wait 8
+;	anim_sound 0, 1, SFX_COMET_PUNCH
+;	anim_obj ANIM_OBJ_01,  15, 0,   6, 0, $0
+;	anim_wait 8
+;	anim_sound 0, 1, SFX_COMET_PUNCH
+;	anim_obj ANIM_OBJ_01, -13, 0,   6, 0, $0
+;	anim_wait 8
+;	anim_sound 0, 1, SFX_COMET_PUNCH
+;	anim_obj ANIM_OBJ_01, -15, 0,   6, 0, $0
+;	anim_wait 8
+;	anim_incbgeffect ANIM_BG_26
+;	anim_wait 1
+;	anim_call BattleAnim_ShowMon_0
+;	anim_ret
+;; cb4f9
+
+;BattleAnim_SkyAttack: ; ca7a1
+;	anim_if_param_equal $1, BattleAnim_SkyAttack_branch_c9fb5
+;	anim_1gfx ANIM_GFX_SKY_ATTACK
+;	anim_bgeffect ANIM_BG_27, $0, $1, $0
+;	anim_wait 32
+;	anim_sound 0, 0, SFX_HYPER_BEAM
+;	anim_obj ANIM_OBJ_SKY_ATTACK_FEAROW,   6, 0,  11, 0, $40
+;	anim_wait 64
+;	anim_incobj  1
+;	anim_wait 21
+;	anim_sound 0, 1, SFX_HYPER_BEAM
+;	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
+;	anim_wait 64
+;	anim_incobj  1
+;	anim_wait 32
+;	anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+;	anim_wait 16
+;	anim_ret
+;; ca7cc

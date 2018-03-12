@@ -388,7 +388,7 @@ UnknownText_0x1c0d4e::
 
 UnknownText_0x1c0d5c::
 	text ""
-	line "flew up high!"
+	line "sprang up!"
 	prompt
 
 UnknownText_0x1c0d6c::

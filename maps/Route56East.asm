@@ -99,8 +99,8 @@ HikerTeppeiAfterText:
 	cont "this cave."
 	done
 
-Route56EastTMAttract:
-	itemball TM_ATTRACT
+Route56EastTMDragonbreath:
+	itemball TM_DRAGONBREATH
 
 Route56Rock:
 	jumpstd smashrock
@@ -177,5 +177,5 @@ Route56East_MapEventHeader::
 	person_event SPRITE_COOLTRAINER_M, 10, 43, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 3, TrainerSightSeerMichio, -1
 	person_event SPRITE_SWIMMER_GIRL, 17, 53, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerYaeko, -1
 	person_event SPRITE_POKEFAN_M, 24, 8, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 1, TrainerHikerTeppei, -1
-	person_event SPRITE_POKE_BALL, 13, 44, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56EastTMAttract, EVENT_ROUTE_56_EAST_TM_ATTRACT
+	person_event SPRITE_POKE_BALL, 13, 44, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route56EastTMDragonbreath, EVENT_ROUTE_56_EAST_TM_DRAGONBREATH
 	person_event SPRITE_POKEFAN_M, 6, 22, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 1, Route56MachPunchTutor, -1
