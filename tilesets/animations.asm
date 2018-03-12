@@ -53,16 +53,14 @@ Tileset31Anim: ; 0xfc073
 
 Tileset01Anim: ; 0xfc0a3
 	dw VTiles2 tile $7e, WriteTileToBuffer
-	dw RSEWaterFrames1, AnimateRSEWaterTile
-	dw RSEWaterFrames2, AnimateRSEWaterTile
-	dw DiveWaterFrames1, AnimateDiveWaterTile
-	dw DiveWaterFrames2, AnimateDiveWaterTile
+	dw RSEWaterFrames, AnimateRSEWaterTiles
+	dw DiveWaterFrames, AnimateDiveWaterTiles
 	dw wTileAnimBuffer, ScrollTileDown
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
-	dw WhirlpoolFrames1, AnimateWhirlpoolTile
-	dw WhirlpoolFrames2, AnimateWhirlpoolTile
-	dw WhirlpoolFrames3, AnimateWhirlpoolTile
-	dw WhirlpoolFrames4, AnimateWhirlpoolTile
+	dw WhirlpoolFramesTop, AnimateWhirlpoolTiles
+	dw WhirlpoolFramesBottom, AnimateWhirlpoolTiles
 	dw wTileAnimBuffer, ScrollTileDown
 	dw NULL,  WaitTileAnimation
 	dw VTiles2 tile $7e, WriteTileFromBuffer
@@ -71,28 +69,24 @@ Tileset01Anim: ; 0xfc0a3
 ; 0xfc0d7
 
 Tileset03Anim: ; 0xfc01b
-	dw RSEWaterFrames1, AnimateRSEWaterTile
-	dw RSEWaterFrames2, AnimateRSEWaterTile
-	dw DiveWaterFrames1, AnimateDiveWaterTile
-	dw DiveWaterFrames2, AnimateDiveWaterTile
+	dw RSEWaterFrames, AnimateRSEWaterTiles
+	dw DiveWaterFrames, AnimateDiveWaterTiles
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateKantoFlowerTile
-	dw WhirlpoolFrames1, AnimateWhirlpoolTile
-	dw WhirlpoolFrames2, AnimateWhirlpoolTile
-	dw WhirlpoolFrames3, AnimateWhirlpoolTile
-	dw WhirlpoolFrames4, AnimateWhirlpoolTile
+	dw WhirlpoolFramesTop, AnimateWhirlpoolTiles
+	dw WhirlpoolFramesBottom, AnimateWhirlpoolTiles
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 ; 0xfc073
 
 Tileset19Anim: ; 0xfc2e7
-	dw RSEWaterFrames1, AnimateRSEWaterTile
-	dw RSEWaterFrames2, AnimateRSEWaterTile
-	dw DiveWaterFrames1, AnimateDiveWaterTile
-	dw DiveWaterFrames2, AnimateDiveWaterTile
+	dw RSEWaterFrames, AnimateRSEWaterTiles
+	dw DiveWaterFrames, AnimateDiveWaterTiles
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -419,19 +413,19 @@ AnimateWaterTile: ; fc402
 ; fc41c
 
 WaterTileFrames: ; fc41c
-	INCBIN "gfx/tilesets/water/1.2bpp"
+	INCBIN "gfx/tilesets/water/johto.2bpp"
 ; fc45c
 
-AnimateRSEWaterTile:
-AnimateDiveWaterTile:
-; Draw a RSE water tile for the current frame in VRAM tile at de.
-; based on AnimateWhirlpoolTile, but with 8 frames
+AnimateRSEWaterTiles:
+AnimateDiveWaterTiles:
+; Draw two RSE water tiles for the current frame in VRAM tile at de.
+; based on AnimateWhirlpoolTiles, but with 8 frames
 
 ; Struct:
 ;     VRAM address
 ;    Address of the first tile
 
-; Only does one of 2 tiles at a time.
+; Does two tiles at a time.
 
 ; Save sp in bc (see WriteTile).
     ld hl, sp+$0
@@ -451,6 +445,7 @@ AnimateDiveWaterTile:
     ld a, [TileAnimationTimer]
     and %111 ; 8 frames x2
     swap a  ; * 16 bytes per tile
+    sla a   ; * 2 tiles
 
     add [hl]
     inc hl
@@ -466,21 +461,15 @@ AnimateDiveWaterTile:
     ld l, e
     ld h, d
 
-    jp WriteTile
+    jp WriteTwoTiles
 
-RSEWaterFrames1: dw VTiles2 tile $14, RSEWaterTiles1
-RSEWaterFrames2: dw VTiles2 tile $15, RSEWaterTiles2
+RSEWaterFrames: dw VTiles2 tile $14, RSEWaterTiles
 
-; each file is just the 8 frames in a row
-RSEWaterTiles1: INCBIN "gfx/tilesets/rse-water/1.2bpp"
-RSEWaterTiles2: INCBIN "gfx/tilesets/rse-water/2.2bpp"
+RSEWaterTiles: INCBIN "gfx/tilesets/water/rse.2bpp"
 
-DiveWaterFrames1: dw VTiles2 tile $24, DiveWaterTiles1
-DiveWaterFrames2: dw VTiles2 tile $25, DiveWaterTiles2
+DiveWaterFrames: dw VTiles2 tile $24, DiveWaterTiles
 
-; each file is just the 8 frames in a row
-DiveWaterTiles1: INCBIN "gfx/tilesets/dive-water/1.2bpp"
-DiveWaterTiles2: INCBIN "gfx/tilesets/dive-water/2.2bpp"
+DiveWaterTiles: INCBIN "gfx/tilesets/water/dive.2bpp"
 
 
 AnimateFlowerTile: ; fc56d
@@ -646,16 +635,16 @@ StandingTileFrame: ; fc673
 ; fc678
 
 
-AnimateWhirlpoolTile: ; fc678
-; Update whirlpool tile using struct at de.
+AnimateWhirlpoolTiles: ; fc678
+; Update both whirlpool tiles using struct at de.
 
 ; Struct:
 ; 	VRAM address
 ;	Address of the first tile
 
-; Only does one of 4 tiles at a time.
+; Does two tiles at a time.
 
-; Save sp in bc (see WriteTile).
+; Save sp in bc (see WriteTwoTiles).
 	ld hl, sp+$0
 	ld b, h
 	ld c, l
@@ -673,6 +662,7 @@ AnimateWhirlpoolTile: ; fc678
 	ld a, [TileAnimationTimer]
 	and %11 ; 4 frames x2
 	swap a  ; * 16 bytes per tile
+	sla a   ; * 2 tiles
 
 	add [hl]
 	inc hl
@@ -688,7 +678,7 @@ AnimateWhirlpoolTile: ; fc678
 	ld l, e
 	ld h, d
 
-	jp WriteTile
+	jp WriteTwoTiles
 ; fc696
 
 
@@ -827,6 +817,7 @@ WriteTile: ; fc6ac
 	inc hl
 	ld [hl], d
 
+_FinishWritingSecondTile:
 rept 7
 	pop de
 	inc hl
@@ -841,6 +832,27 @@ endr
 	ld sp, hl
 	ret
 ; fc6d7
+
+
+WriteTwoTiles:
+; Write two 8x8 tile ($20 bytes) from sp to hl.
+
+; Warning: sp is saved in bc so we can abuse pop.
+; sp is restored to address bc. Save sp in bc before calling.
+
+	pop de
+	ld [hl], e
+	inc hl
+	ld [hl], d
+
+rept 8
+	pop de
+	inc hl
+	ld [hl], e
+	inc hl
+	ld [hl], d
+endr
+	jr _FinishWritingSecondTile
 
 
 FlickeringCaveEntrancePalette: ; fc71e
@@ -905,14 +917,10 @@ SproutPillarTile10: INCBIN "gfx/tilesets/sprout-pillar/10.2bpp"
 ; fca98
 
 
-WhirlpoolFrames1: dw VTiles2 tile $32, WhirlpoolTiles1
-WhirlpoolFrames2: dw VTiles2 tile $33, WhirlpoolTiles2
-WhirlpoolFrames3: dw VTiles2 tile $42, WhirlpoolTiles3
-WhirlpoolFrames4: dw VTiles2 tile $43, WhirlpoolTiles4
+WhirlpoolFramesTop: dw VTiles2 tile $32, WhirlpoolTilesTop
+WhirlpoolFramesBottom: dw VTiles2 tile $42, WhirlpoolTilesBottom
 ; fcaa8
 
-WhirlpoolTiles1: INCBIN "gfx/tilesets/whirlpool/1.2bpp"
-WhirlpoolTiles2: INCBIN "gfx/tilesets/whirlpool/2.2bpp"
-WhirlpoolTiles3: INCBIN "gfx/tilesets/whirlpool/3.2bpp"
-WhirlpoolTiles4: INCBIN "gfx/tilesets/whirlpool/4.2bpp"
+WhirlpoolTilesTop: INCBIN "gfx/tilesets/whirlpool/top.2bpp"
+WhirlpoolTilesBottom: INCBIN "gfx/tilesets/whirlpool/bottom.2bpp"
 ; fcba8
