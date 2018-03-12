@@ -21,7 +21,6 @@
 - Crystal Onix resists Water
 - Improve Trainer AI
 - Add proper Headbutt encounters
-- Learn on Evolution
 - Held item + Trade Stone to evolve (Magmarizer + Trade Stone, etc)
 - Chain Fishing
 - Invisible Pickup for Meowth/Persian

@@ -77,8 +77,8 @@ endc
 	move FLAMETHROWER, EFFECT_BURN_HIT,           90, SPECIAL,  FIRE,     100, 15,  10
 	move MIST,         EFFECT_MIST,                0, STATUS,   ICE,      100, 30,   0
 	move WATER_GUN,    EFFECT_NORMAL_HIT,         40, SPECIAL,  WATER,    100, 25,   0
-	move HYDRO_PUMP,   EFFECT_NORMAL_HIT,        110, SPECIAL,  WATER,     80,  5,   0
-	move SURF,         EFFECT_SURF,               60, SPECIAL,  WATER,    100, 35,   0
+	move HYDRO_PUMP,   EFFECT_NORMAL_HIT,        110, SPECIAL,  WATER,     80, 10,   0
+	move SURF,         EFFECT_SURF,               50, SPECIAL,  WATER,    100, 30,   0
 	move ICE_BEAM,     EFFECT_FREEZE_HIT,         90, SPECIAL,  ICE,      100, 10,  10
 	move BLIZZARD,     EFFECT_BLIZZARD,          110, SPECIAL,  ICE,       70,  5,  10
 	move PSYBEAM,      EFFECT_CONFUSE_HIT,        65, SPECIAL,  PSYCHIC,  100, 20,  10

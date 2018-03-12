@@ -24,7 +24,7 @@ EvolutionMoves::
 	db NO_MOVE      ; EKANS
 	db CRUNCH       ; ARBOK
 	db NO_MOVE      ; PIKACHU
-	db PSYCHIC      ; RAICHU
+	db PSYCHIC_M    ; RAICHU
 	db NO_MOVE      ; SANDSHREW
 	db SLASH        ; SANDSLASH
 	db NO_MOVE      ; NIDORAN_F
@@ -150,105 +150,105 @@ EvolutionMoves::
 	db WING_ATTACK  ; DRAGONITE
 	db NO_MOVE      ; MEWTWO
 	db NO_MOVE      ; MEW
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
-	db NO_MOVE
+	db NO_MOVE      ; TROPIUS
+	db NO_MOVE      ; KECLEON
+	db NO_MOVE      ; CHATOT
+	db NO_MOVE      ; PIKIPEK
+	db NO_MOVE      ; TRUMBEAK
+	db NO_MOVE      ; TOUCANNON
+	db NO_MOVE      ; MUNCHLAX
+	db NO_MOVE      ; ROCKRUFF
+	db NO_MOVE      ; LYCANROC
+	db NO_MOVE      ; WINGULL
+	db NO_MOVE      ; PELIPPER
+	db NO_MOVE      ; CHINGLING
+	db NO_MOVE      ; CHIMECHO
+	db NO_MOVE      ; SALANDIT
+	db NO_MOVE      ; SALAZZLE
+	db NO_MOVE      ; FINNEON
+	db NO_MOVE      ; LUMINEON
+	db NO_MOVE      ; CROBAT
+	db NO_MOVE      ; CHINCHOU
+	db NO_MOVE      ; LANTURN
+	db NO_MOVE      ; PICHU
+	db NO_MOVE      ; CLEFFA
+	db NO_MOVE      ; IGGLYBUFF
+	db NO_MOVE      ; TOGEPI
+	db NO_MOVE      ; TOGETIC
+	db NO_MOVE      ; TOGEKISS
+	db NO_MOVE      ; AZURILL
+	db NO_MOVE      ; MAREEP
+	db NO_MOVE      ; FLAAFFY
+	db NO_MOVE      ; AMPHAROS
+	db NO_MOVE      ; BELLOSSOM
+	db NO_MOVE      ; MARILL
+	db NO_MOVE      ; AZUMARILL
+	db NO_MOVE      ; MIME__JR
+	db NO_MOVE      ; POLITOED
+	db NO_MOVE      ; HOPPIP
+	db NO_MOVE      ; SKIPLOOM
+	db NO_MOVE      ; JUMPLUFF
+	db NO_MOVE      ; STUNFISK
+	db NO_MOVE      ; SUNKERN
+	db NO_MOVE      ; SUNFLORA
+	db NO_MOVE      ; LEAFEON
+	db NO_MOVE      ; GLACEON
+	db NO_MOVE      ; SYLVEON
+	db NO_MOVE      ; ESPEON
+	db NO_MOVE      ; UMBREON
+	db NO_MOVE      ; RELICANTH
+	db NO_MOVE      ; SLOWKING
+	db NO_MOVE      ; MIMIKYU
+	db NO_MOVE      ; SPINDA
+	db NO_MOVE      ; SKRELP
+	db NO_MOVE      ; DRAGALGE
+	db NO_MOVE      ; TRAPINCH
+	db NO_MOVE      ; VIBRAVA
+	db NO_MOVE      ; FLYGON
+	db NO_MOVE      ; TURTONATOR
+	db NO_MOVE      ; STEELIX
+	db NO_MOVE      ; WAILMER
+	db NO_MOVE      ; WAILORD
+	db NO_MOVE      ; QWILFISH
+	db NO_MOVE      ; SCIZOR
+	db NO_MOVE      ; SHUCKLE
+	db NO_MOVE      ; MAREANIE
+	db NO_MOVE      ; TOXAPEX
+	db NO_MOVE      ; SANDYGAST
+	db NO_MOVE      ; PALOSSAND
+	db NO_MOVE      ; SLUGMA
+	db NO_MOVE      ; MAGCARGO
+	db NO_MOVE      ; CARVANHA
+	db NO_MOVE      ; SHARPEDO
+	db NO_MOVE      ; CORSOLA
+	db NO_MOVE      ; REMORAID
+	db NO_MOVE      ; OCTILLERY
+	db NO_MOVE      ; MANTYKE
+	db NO_MOVE      ; MANTINE
+	db NO_MOVE      ; SKARMORY
+	db NO_MOVE      ; MAGMORTAR
+	db NO_MOVE      ; ELECTIVIRE
+	db NO_MOVE      ; KINGDRA
+	db NO_MOVE      ; PHANPY
+	db NO_MOVE      ; DONPHAN
+	db NO_MOVE      ; PORYGON2
+	db NO_MOVE      ; PORYGON_Z
+	db NO_MOVE      ; LICKILICKY
+	db NO_MOVE      ; TYROGUE
+	db NO_MOVE      ; HITMONTOP
+	db NO_MOVE      ; SMOOCHUM
+	db NO_MOVE      ; ELEKID
+	db NO_MOVE      ; MAGBY
+	db NO_MOVE      ; HAPPINY
+	db NO_MOVE      ; BLISSEY
+	db NO_MOVE      ; CUTIEFLY
+	db NO_MOVE      ; RIBOMBEE
+	db NO_MOVE      ; TANGROWTH
+	db NO_MOVE      ; RHYPERIOR
+	db NO_MOVE      ; MAGNEZONE
+	db NO_MOVE      ; MARSHADOW
+	db NO_MOVE      ; LUGIA
+	db NO_MOVE      ; HO_OH
+	db NO_MOVE      ; CELEBI
+	db NO_MOVE      ; LATIAS
+	db NO_MOVE      ; LATIOS
