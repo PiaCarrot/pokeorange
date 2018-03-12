@@ -148,7 +148,7 @@ Vicegrip
 - MT04 Comet Punch
 - MT05 Mach Punch
 - MT06 DynamicPunch
-- MT07 Headbutt (**TODO:** Moro Island)
+- MT07 Headbutt (Moro Island)
 - MT08 *Zen Headbutt*
 - MT09 *Poison Jab*
 - MT10 Counter
@@ -160,5 +160,5 @@ Vicegrip
 - MT16 Attract
 - MT17 Swagger
 - MT18 Endure
-- MT19 *Bug Bite*
+- MT19 *Bug Bite* (Route 49)
 - MT20 *Signal Beam*
