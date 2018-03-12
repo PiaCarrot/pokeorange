@@ -227,14 +227,16 @@ NUM_HMS = const_value - HM01
 	add_mt DYNAMICPUNCH
 	add_mt HEADBUTT
 	add_mt ZEN_HEADBUTT
-	add_mt POISON_JAB
-	add_mt SLEEP_TALK
-	add_mt SUBSTITUTE
+	add_mt SWORDS_DANCE
 	add_mt BODY_SLAM
-	add_mt PLAY_ROUGH
-	add_mt ATTRACT
-	add_mt SWAGGER
+	add_mt COUNTER
+	add_mt SUBSTITUTE
 	add_mt ENDURE
+	add_mt SWAGGER
+	add_mt SLEEP_TALK
+	add_mt ATTRACT
+	add_mt PLAY_ROUGH
+	add_mt POISON_JAB
 	add_mt BUG_BITE
 	add_mt SIGNAL_BEAM
 

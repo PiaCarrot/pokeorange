@@ -1945,7 +1945,7 @@ BaseGrowthRate:: ; d24c
 BaseEggGroups:: ; d24d
 	ds 1
 BaseTMHM:: ; d24e
-	ds 10 ; 50 TMs + 8 HMs + 18 MTs = 76 bits = 10 bytes (room for 4 more MTs)
+	ds 10 ; 50 TMs + 8 HMs + 20 MTs = 78 bits = 10 bytes (room for 2 more)
 
 wExpScratch40_1:: ds 5 ; 40 bits
 wExpScratch40_2:: ds 5 ; 40 bits
