@@ -180,3 +180,7 @@ TrainerClassPersonalities:
 	db MALE_MASK   ; birdkeeper
 	db MALE_MASK   ; cross
 	db MALE_MASK   ; otaku
+	db MALE_MASK   ; Jace
+	db MALE_MASK   ; Kurt
+	db MALE_MASK   ; Jason
+	db FEMALE_MASK   ; Alice

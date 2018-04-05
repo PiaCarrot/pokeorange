@@ -170,6 +170,9 @@ CrystalCaveB1_BlockData:
 	
 Route57North_BlockData:
 	INCBIN "maps/Route57North.blk"
+	
+KinnowShowboat_BlockData:
+	INCBIN "maps/KinnowShowboat.blk"
 
 SECTION "Block Data 2", ROMX
 
@@ -347,6 +350,30 @@ Route63EastWest_BlockData:
 	
 Route63NorthSouth_BlockData:
 	INCBIN "maps/Route63NorthSouth.blk"
+	
+Route64_BlockData:
+	INCBIN "maps/Route64.blk"
+	
+Route65_BlockData:
+	INCBIN "maps/Route65.blk"
+	
+ButwalIslandEast_BlockData:
+	INCBIN "maps/ButwalIslandEast.blk"
+	
+ButwalIslandWest_BlockData:
+	INCBIN "maps/ButwalIslandWest.blk"
+	
+Route66EastWest_BlockData:
+	INCBIN "maps/Route66EastWest.blk"
+
+Route66NorthSouth_BlockData:
+	INCBIN "maps/Route66NorthSouth.blk"
+	
+KumquatIslandEast_BlockData:
+	INCBIN "maps/KumquatIslandEast.blk"
+	
+KumquatIslandWest_BlockData:
+	INCBIN "maps/KumquatIslandWest.blk"
 	
 PummeloIsland_BlockData:
 	INCBIN "maps/PummeloIsland.blk"

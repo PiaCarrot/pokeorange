@@ -1217,13 +1217,13 @@ PlayBattleMusic: ; 2ee6c
 	ld de, MUSIC_BWWILD
 	ld a, [TimeOfDay]
 	cp NITE
-	jr nz, .done
+	jp nz, .done
 	ld de, MUSIC_BWWILD
-	jr .done
+	jp .done
 
 .kantowild
 	ld de, MUSIC_KANTO_WILD_BATTLE
-	jr .done
+	jp .done
 
 .trainermusic
 	ld de, MUSIC_CHAMPION_BATTLE
@@ -1262,6 +1262,16 @@ PlayBattleMusic: ; 2ee6c
 	ld de, MUSIC_HOENN_CHAMPION_BATTLE
 	farcall IsJohtoGymLeader
 	jr c, .done
+	
+	ld de, MUSIC_XD_BATTLE_SIM_THEME
+	cp JACE
+	jr z, .done	
+	cp KURT
+	jr z, .done	
+	cp JASON
+	jr z, .done	
+	cp ALICE
+	jr z, .done
 
 	ld de, MUSIC_RIVAL_BATTLE
 	ld a, [OtherTrainerClass]
@@ -2762,6 +2772,7 @@ INCLUDE "event/poisonstep.asm"
 INCLUDE "event/sweet_scent.asm"
 INCLUDE "event/squirtbottle.asm"
 INCLUDE "event/sacred_ash.asm"
+INCLUDE "event/pokeflute.asm"
 
 CopyPkmnToTempMon: ; 5084a
 ; gets the BaseData of a Pkmn

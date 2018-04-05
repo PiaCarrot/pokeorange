@@ -2324,95 +2324,9 @@ XSpclDef:; f4c5
 	db X_SPCL_DEF, $10 | SP_DEFENSE
 ; f50c
 
-
 PokeFlute: ; f50c
-	xor a
-	ld [wd002], a
-
-	ld b, $ff ^ SLP
-
-	ld hl, PartyMon1Status
-	call .CureSleep
-
-	ld a, [wBattleMode]
-	cp WILD_BATTLE
-	jr z, .skip_otrainer
-	ld hl, OTPartyMon1Status
-	call .CureSleep
-.skip_otrainer
-
-	ld hl, BattleMonStatus
-	ld a, [hl]
-	and b
-	ld [hl], a
-	ld hl, EnemyMonStatus
-	ld a, [hl]
-	and b
-	ld [hl], a
-
-	ld a, [wd002]
-	and a
-	ld hl, .CatchyTune
-	jp z, PrintText
-	ld hl, .PlayedTheFlute
-	call PrintText
-
-	ld hl, .AllSleepingMonWokeUp
-	jp PrintText
-
-
-.CureSleep:
-	ld de, PARTYMON_STRUCT_LENGTH
-	ld c, PARTY_LENGTH
-
-.loop
-	ld a, [hl]
-	push af
-	and SLP
-	jr z, .not_asleep
-	ld a, 1
-	ld [wd002], a
-.not_asleep
-	pop af
-	and b
-	ld [hl], a
-	add hl, de
-	dec c
-	jr nz, .loop
-	ret
-; f56c
-
-
-.CatchyTune: ; 0xf56c
-	; Played the # FLUTE. Now, that's a catchy tune!
-	text_jump UnknownText_0x1c5bf9
-	db "@"
-; 0xf571
-
-.AllSleepingMonWokeUp: ; 0xf571
-	; All sleeping #MON woke up.
-	text_jump UnknownText_0x1c5c28
-	db "@"
-; 0xf576
-
-.PlayedTheFlute: ; 0xf576
-	; played the # FLUTE.@ @
-	text_jump UnknownText_0x1c5c44
-	start_asm
-	ld a, [wBattleMode]
-	and a
-	jr nz, .battle
-
-	push de
-	ld de, SFX_POKEFLUTE
-	call WaitPlaySFX
-	call WaitSFX
-	pop de
-
-.battle
-	jp PokeFluteTerminatorCharacter
-; f58f
-
+    farcall _PokeFlute
+    ret
 
 CoinCase: ; f59a
 	ld hl, .coincasetext

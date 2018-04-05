@@ -493,7 +493,7 @@ ENDM
 	flypoint TROVITOPOLIS,   TROVITOPOLIS
 	flypoint TROVITA,		 TROVITA_ISLAND
 	flypoint ASCORBIA,       ASCORBIA_ISLAND
-;   flypoint KUMQUAT,        KUMQUAT_ISLAND
+    flypoint KUMQUAT,        KUMQUAT_ISLAND
 	flypoint PUMMELO,        PUMMELO_ISLAND
 ;   flypoint HAMLIN,         HAMLIN_ISLAND
 ;   flypoint SHAMOUTI,       SHAMOUTI_ISLAND

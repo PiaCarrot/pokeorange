@@ -19,33 +19,53 @@ SevenGrapefruits_MapScriptHeader::
 
 GrapefruitWarehouseSign:
 	jumptext GrapefruitWarehouseSignText
-
-GrapefruitsSnorlax:
-	opentext
-	checkitem POKE_FLUTE
-	iftrue SnorlaxBattleScript
-	writetext SnorlaxIsSleepingText
-	waitbutton
-	closetext
-	end
-
-SnorlaxBattleScript:
-	writetext PlayPokeFlute
-	waitbutton
-	playmusic MUSIC_POKE_FLUTE_CHANNEL
-	writetext WakingUpSnorlax
-	waitbutton
-	pause 15
-	special Special_FadeOutMusic
+	
+GrapefruitsSnorlax::
+    checkitem POKE_FLUTE
+    iffalse noflute
+    opentext
+    writetext GrapefruitIslandsSnorlaxTextHaveFlute
+    yesorno
+    iffalse dontuseflute
+GrapefruitIslandsPlayedFluteForSnorlax::
+    writetext GrapefruitIslandsSnorlaxTextUseFlute
+    playsound SFX_POKEFLUTE2
+    waitsfx
+    writetext GrapefruitIslandsSnorlaxTextWakeUp
+    waitbutton
 	cry SNORLAX
 	closetext
 	writecode VAR_BATTLETYPE, BATTLETYPE_SNORLAX
 	loadwildmon SNORLAX, 30
-	startbattle
-	disappear SEVENGRAPEFRUITS_BIG_SNORLAX
-	reloadmapafterbattle
-	playmapmusic
-	end
+    startbattle
+    if_equal $2, DidntBeatSnorlaxGrapefruitIslands
+    disappear SEVENGRAPEFRUITS_BIG_SNORLAX
+    reloadmapafterbattle
+    opentext
+    writetext GrapefruitIslandsSnorlaxTextSnorlaxGone
+    waitbutton
+    closetext
+    setevent EVENT_SEVEN_GRAPEFRUITS_SNORLAX
+    end
+    
+dontuseflute:
+    closetext
+    end
+    
+noflute:
+    opentext
+    writetext SnorlaxIsSleepingText
+    waitbutton
+    closetext
+    end
+    
+DidntBeatSnorlaxGrapefruitIslands:
+    reloadmapafterbattle
+    opentext
+    writetext GrapefruitIslandsSnorlaxTextRanAway
+    waitbutton
+    closetext
+    end
 
 GrapefruitsCooltrainer:
 	faceplayer
@@ -62,9 +82,6 @@ GrapefruitsCooltrainer:
 	waitbutton
 	closetext
 	end
-
-GrapefruitGuardScript:
-	jumptextfaceplayer SearchingForSnorlaxText
 
 GrapefruitUltraBall:
 	itemball ULTRA_BALL
@@ -97,12 +114,20 @@ SnorlaxIsSleepingText:
 	line "peacefully<...>"
 	done
 
-PlayPokeFlute:
+GrapefruitIslandsSnorlaxTextHaveFlute:
+	text "SNORLAX is snoring"
+	line "peacefully<...>"
+	
+	para "Want to use the"
+	line "# FLUTE?"
+	done
+	
+GrapefruitIslandsSnorlaxTextUseFlute:
 	text "<PLAYER> used the"
 	line "# FLUTE!"
 	done
 
-WakingUpSnorlax:
+GrapefruitIslandsSnorlaxTextWakeUp:
 	text "<...>"
 
 	para "SNORLAX scratches"
@@ -122,20 +147,14 @@ WakingUpSnorlax:
 
 	para "SNORLAX woke up!"
 	done
+	
+GrapefruitIslandsSnorlaxTextSnorlaxGone:
+	text "The path is now"
+	line "open!"
+	done
 
-SearchingForSnorlaxText:
-	text "Ah, kid!"
-
-	para "You can't be here."
-	line "We're looking for"
-	cont "a fruit thief."
-
-	para "Though, it doesn't"
-	line "seem like we're"
-	cont "getting anywhere."
-
-	para "We might have to"
-	line "call it quits."
+GrapefruitIslandsSnorlaxTextRanAway:
+	text "SNORLAX ran away!"
 	done
 
 GrapefruitWarehouseSignText:
@@ -158,10 +177,8 @@ SevenGrapefruits_MapEventHeader::
 	signpost 22, 7, SIGNPOST_ITEM, GrapefruitHiddenRareCandy
 	signpost 28, 32, SIGNPOST_READ, GrapefruitWarehouseSign
 
-.ObjectEvents: db 6
+.ObjectEvents: db 4
 	person_event SPRITE_BIG_SNORLAX, 38, 20, SPRITEMOVEDATA_SNORLAX, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GrapefruitsSnorlax, EVENT_SEVEN_GRAPEFRUITS_SNORLAX
 	person_event SPRITE_COOLTRAINER_F, 38, 19, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GrapefruitsCooltrainer, -1
-	person_event SPRITE_COOLTRAINER_M, 33, 21, SPRITEMOVEDATA_STANDING_UP, 0, 0, -2, -2, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, GrapefruitGuardScript, EVENT_BEAT_DANNY
-	person_event SPRITE_COOLTRAINER_M, 33, 20, SPRITEMOVEDATA_STANDING_UP, 0, 0, -2, -2, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, GrapefruitGuardScript, EVENT_BEAT_DANNY
 	person_event SPRITE_POKE_BALL, 25, 33, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, GrapefruitUltraBall, EVENT_GRAPEFRUIT_ULTRA_BALL
 	person_event SPRITE_POKE_BALL, 15, 20, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, GrapefruitProtein, EVENT_GRAPEFRUIT_PROTEIN

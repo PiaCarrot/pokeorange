@@ -96,7 +96,7 @@ if def(DEBUG)
 	setflag ENGINE_FLYPOINT_TROVITOPOLIS
 	setflag ENGINE_FLYPOINT_TROVITA
 	setflag ENGINE_FLYPOINT_ASCORBIA
-;	setflag ENGINE_FLYPOINT_KUMQUAT
+	setflag ENGINE_FLYPOINT_KUMQUAT
 	setflag ENGINE_FLYPOINT_PUMMELO
 ;	setflag ENGINE_FLYPOINT_HAMLIN
 ;	setflag ENGINE_FLYPOINT_SHAMOUTI
@@ -133,7 +133,7 @@ if def(DEBUG)
 	givepoke LAPRAS, 60
 	givepoke CHARIZARD, 60
 	givepoke PIKACHU, 60, LIGHT_BALL
-	givepoke MARSHADOW, 60
+	givepoke SALAZZLE, 60
 	givepoke MEW, 60
 	closetext
 	callasm TeachHMSlaveMoves

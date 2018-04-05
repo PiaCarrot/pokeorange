@@ -131,4 +131,6 @@
 	dba Music_LugiaBattle
 	dba Music_Route103
 	dba Music_XdBattleSimTheme
+	dba Music_Route119
+	dba Music_SunnyShore
 ; e91a3

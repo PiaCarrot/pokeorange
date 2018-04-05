@@ -109,6 +109,10 @@ ReadTrainerParty: ; 39771
 	ld a, [hli]
 	ld [de], a
 .not_dvs
+	and a
+    jr nz, .nonzero
+    dec a ; 0 - 1 = $ff
+.nonzero
 
 ; personality?
 	ld a, [OtherTrainerType]

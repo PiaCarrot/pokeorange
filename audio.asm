@@ -187,6 +187,8 @@ INCLUDE "audio/music/lilycovecity.asm"
 INCLUDE "audio/music/lugiabattle.asm"
 INCLUDE "audio/music/route103.asm"
 INCLUDE "audio/music/xdbattlesimtheme.asm"
+INCLUDE "audio/music/route119.asm"
+INCLUDE "audio/music/sunnyshore.asm"
 
 SECTION "Songs 14", ROMX
 

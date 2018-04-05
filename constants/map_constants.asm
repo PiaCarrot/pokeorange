@@ -9,8 +9,8 @@ MAP_NONE EQU 0
 	newgroup ; 1
 
 	mapgroup ROUTE_53, 9, 31
-	mapgroup ROUTE_54, 24, 11
-	mapgroup MANDARIN_NORTH, 18, 18
+	mapgroup ROUTE_54, 17, 11
+	mapgroup MANDARIN_NORTH, 17, 18
 	mapgroup MANDARIN_NORTH_POKECENTER, 4, 5
 	mapgroup MANDARIN_NORTH_NAME_RATER, 4, 4
 	mapgroup MANDARIN_NORTH_SMALL_HOUSE, 4, 4
@@ -59,7 +59,7 @@ MAP_NONE EQU 0
 	mapgroup MORO_POKE_CENTER, 4, 5
 	mapgroup MORO_MART, 4, 6
 	mapgroup CLEOPATRA_ISLAND, 20, 20
-	mapgroup ROUTE_57_NORTH, 12, 12
+	mapgroup ROUTE_57_NORTH, 20, 12
 	mapgroup ROUTE_63_EAST_WEST, 12, 40
 	mapgroup ROUTE_63_NORTH_SOUTH, 35, 12
 
@@ -80,6 +80,7 @@ MAP_NONE EQU 0
 	mapgroup KINNOW_MART, 4, 6
 	mapgroup KINNOW_CAFE, 5, 5
 	mapgroup KINNOW_SKATE_SHOP, 4, 5
+	mapgroup KINNOW_SHOWBOAT, 10, 11
 
 	newgroup ; 5
 
@@ -161,6 +162,9 @@ MAP_NONE EQU 0
 	mapgroup ASCORBIA_ISLAND_ROUTE_63_GATE, 4, 5
 	mapgroup ASCORBIA_ISLAND_MART, 4, 6
 	mapgroup ASCORBIA_ISLAND_CENTER, 4, 5
+	mapgroup ROUTE_64, 14, 20
+	mapgroup ROUTE_65, 14, 22
+	mapgroup BUTWAL_ISLAND_EAST, 22, 12
 
 	newgroup ; 10
 
@@ -212,7 +216,15 @@ MAP_NONE EQU 0
 	newgroup ; 15
 
 	mapgroup PUMMELO_ISLAND, 25, 27
-	mapgroup HALL_OF_FAME, 7, 5
+	mapgroup HALL_OF_FAME, 6, 7
+	
+	newgroup ;16
+	
+	mapgroup BUTWAL_ISLAND_WEST, 22, 18
+	mapgroup ROUTE_66_EAST_WEST, 12, 24
+	mapgroup ROUTE_66_NORTH_SOUTH, 18, 12
+	mapgroup KUMQUAT_ISLAND_EAST, 16, 15
+	mapgroup KUMQUAT_ISLAND_WEST, 16, 15
 
 
 ; elevator floors
@@ -365,7 +377,7 @@ const_value = -1
 	const SPAWN_TROVITOPOLIS
 	const SPAWN_TROVITA
 	const SPAWN_ASCORBIA
-;	const SPAWN_KUMQUAT
+	const SPAWN_KUMQUAT
 	const SPAWN_PUMMELO
 ;	const SPAWN_HAMLIN
 ;	const SPAWN_SHAMOUTI

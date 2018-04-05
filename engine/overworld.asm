@@ -720,6 +720,7 @@ OutdoorSprites: ; 144b8
 	dw Group13Sprites
 	dw Group14Sprites
 	dw Group15Sprites
+	dw Group16Sprites
 ; 144ec
 
 Group1Sprites:
@@ -776,9 +777,6 @@ Group3Sprites:
 	db SPRITE_SWIMMER_GUY
 	db SPRITE_POKE_BALL
 	db SPRITE_ROCK
-	db SPRITE_SAILBOAT_TOP
-	db SPRITE_SAILBOAT_BOTTOM
-	db SPRITE_UMBRELLA
 	db 0
 
 Group4Sprites:
@@ -896,6 +894,14 @@ Group15Sprites:
 ; Pummelo Island
 	db SPRITE_COOLTRAINER_M
 	db 0 ; end
+	
+Group16Sprites:
+; Kumquat Island
+	db SPRITE_SIGHTSEER_F
+	db SPRITE_SAILBOAT_TOP
+	db SPRITE_SAILBOAT_BOTTOM
+	db SPRITE_UMBRELLA
+	db 0 ;end
 
 SpriteHeaders: ; 14736
 INCLUDE "gfx/overworld/sprite_headers.asm"

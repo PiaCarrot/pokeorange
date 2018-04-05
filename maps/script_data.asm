@@ -104,6 +104,7 @@ INCLUDE "maps/KinnowCharcoalHouse.asm"
 INCLUDE "maps/KinnowLoreHouse.asm"
 INCLUDE "maps/KinnowTradeHouse.asm"
 INCLUDE "maps/KinnowIslandRoute57Gate.asm"
+INCLUDE "maps/KinnowShowboat.asm"
 
 
 SECTION "Navel Scripts", ROMX
@@ -228,6 +229,16 @@ INCLUDE "maps/AscorbiaIslandRoute63Gate.asm"
 INCLUDE "maps/AscorbiaIslandMart.asm"
 INCLUDE "maps/AscorbiaIslandCenter.asm"
 
+SECTION "Butwal Scripts", ROMX
+
+INCLUDE "maps/ButwalIslandEast.asm"
+INCLUDE "maps/ButwalIslandWest.asm"
+
+SECTION "Kumquat Scripts", ROMX
+	
+INCLUDE "maps/KumquatIslandEast.asm"
+INCLUDE "maps/KumquatIslandWest.asm"
+
 SECTION "Pummelo Scripts", ROMX
 
 INCLUDE "maps/PummeloIsland.asm"
@@ -290,6 +301,10 @@ INCLUDE "maps/Route62MandarinDesertGate.asm"
 INCLUDE "maps/Route57North.asm"
 INCLUDE "maps/Route63EastWest.asm"
 INCLUDE "maps/Route63NorthSouth.asm"
+INCLUDE "maps/Route64.asm"
+INCLUDE "maps/Route65.asm"
+INCLUDE "maps/Route66EastWest.asm"
+INCLUDE "maps/Route66NorthSouth.asm"
 
 SECTION "Fukuhara No 4 Scripts", ROMX
 

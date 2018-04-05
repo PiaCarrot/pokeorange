@@ -33,6 +33,7 @@ MapGroupRoofs: ; 1c021i
 	db  4 ; group 13 (Sunburst)
 	db  0 ; group 14 (Golden)
 	db  0 ; group 15 (Pummelo)
+	db  4 ; group 16 (Kumquat)
 ; 1c03c
 
 Roofs: ; 1c03c

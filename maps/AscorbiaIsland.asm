@@ -80,6 +80,31 @@ AscorbiaBlackBeltText:
 	para "I've never seen"
 	line "her, though."
 	done
+	
+AscorbiaTownSign:
+	jumptext AscorbiaTownSignText
+	
+AscorbiaTownSignText:
+	text "ASCORBIA ISLAND"
+	
+	para "Taking a turn of"
+	line "fate"
+	done	
+
+AscorbiaFanclubSign:
+	jumptext AscorbiaFanclubSignText
+	
+AscorbiaFanclubSignText:
+	text "ASCORBIA ISLAND"
+	line "FAN CLUB"
+	done
+
+AscorbiaMoveRelearnerSign:
+	jumptext AscorbiaMoveRelearnerSignText
+	
+AscorbiaMoveRelearnerSignText:
+	text "MOVE RELEARNER"
+	done
 
 AscorbiaIsland_MapEventHeader::
 
@@ -95,12 +120,15 @@ AscorbiaIsland_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 3
+	signpost 12, 16, SIGNPOST_READ, AscorbiaTownSign
+	signpost 5, 9, SIGNPOST_READ, AscorbiaFanclubSign
+	signpost 7, 33, SIGNPOST_READ, AscorbiaMoveRelearnerSign
 
 .ObjectEvents: db 8
 	person_event SPRITE_SIGHTSEER_F, 17, 16, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, AscorbiaTeacherScript, -1
 	person_event SPRITE_LASS, 26, 17, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, AscorbiaLassScript, -1
-	person_event SPRITE_ROCKER, 7, 4, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, AscorbiaRockerScript, -1
+	person_event SPRITE_ROCKER, 6, 6, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, AscorbiaRockerScript, -1
 	person_event SPRITE_BLACK_BELT, 9, 26, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, AscorbiaBlackBeltScript, -1
 	person_event SPRITE_FRUIT_TREE, 35, 4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, AscorbiaIslandFruitTreeScript, -1
 	person_event SPRITE_POKE_BALL, 26, 35, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, AscorbiaTMDragonPulse, EVENT_ASCORBIA_TM_DRAGON_PULSE

@@ -66,15 +66,16 @@ FisherShinjiAfterText:
 Route57NorthMaxRevive:
 	itemball MAX_REVIVE
 
-Route57North_MapEventHeader:
+Route57North_MapEventHeader::
 
 .Warps: db 0
 
-.XYTriggers: db 0
+.CoordEvents: db 0
 
-.Signposts: db 0
+.BGEvents: db 0
 
-.PersonEvents: db 3
-	person_event SPRITE_COOLTRAINER_M, 18, 12, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 3, TrainerSightSeerKenta, -1
-	person_event SPRITE_FISHER, 5, 16, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerFisherShinji, -1
-	person_event SPRITE_POKE_BALL, 13, 4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route57NorthMaxRevive, EVENT_ROUTE_57_NORTH_MAX_REVIVE
+.ObjectEvents: db 3
+	person_event SPRITE_COOLTRAINER_M, 20, 14, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 3, TrainerSightSeerKenta, -1
+	person_event SPRITE_FISHER, 7, 10, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerFisherShinji, -1
+	person_event SPRITE_POKE_BALL, 28, 4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route57NorthMaxRevive, EVENT_ROUTE_57_NORTH_MAX_REVIVE
+

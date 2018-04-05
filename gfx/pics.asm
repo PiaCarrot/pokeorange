@@ -713,6 +713,10 @@ BugCatcherFPic:      INCBIN "gfx/trainers/bug_catcher_f.2bpp.lz"
 CatmanPic:           INCBIN "gfx/trainers/catman.2bpp.lz"
 CrossPic:            INCBIN "gfx/trainers/cross.2bpp.lz"
 OtakuPic:            INCBIN "gfx/trainers/otaku.2bpp.lz"
+JacePic:             INCBIN "gfx/trainers/jace.2bpp.lz"
+KurtPic:             INCBIN "gfx/trainers/kurt.2bpp.lz"
+JasonPic:            INCBIN "gfx/trainers/jason.2bpp.lz"
+AlicePic:            INCBIN "gfx/trainers/alice.2bpp.lz"
 
 
 SECTION "Pics 21", ROMX

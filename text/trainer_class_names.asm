@@ -58,6 +58,10 @@
 	db "BIRDKEEPER@" ; BIRD_KEEPER
 	db "<PK><MN> TRAINER@" ; CROSS
 	db "OTAKU@" ;OTAKU
+	db "STAFF@" ;JACE
+	db "STAFF@" ;KURT
+	db "STAFF@" ;JASON
+	db "STAFF@" ;ALICE
 ;	db "GENTLEMAN@" ; GENTLEMAN
 ;	db "TEACHER@" ; TEACHER
 ;	db "SAILOR@" ; SAILOR

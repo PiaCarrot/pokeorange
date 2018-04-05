@@ -208,6 +208,14 @@ KRIS EQU __enum__
 	trainerclass OTAKU
 	const NIRO
 	const GODO
+	
+	trainerclass JACE
+	
+	trainerclass KURT
+	
+	trainerclass JASON
+	
+	trainerclass ALICE
 
 ;	trainerclass GENTLEMAN
 

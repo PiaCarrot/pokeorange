@@ -182,12 +182,13 @@ Route54_MapEventHeader::
 .CoordEvents: db 0
 
 .BGEvents: db 2
-	signpost 36, 4, SIGNPOST_READ, Route54Sign
+	signpost 20, 8, SIGNPOST_READ, Route54Sign
 	signpost 9, 13, SIGNPOST_READ, NicoSign
 
 .ObjectEvents: db 5
 	person_event SPRITE_SWIMMER_GUY, 9, 16, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmermHairo, -1
-	person_event SPRITE_SWIMMER_GUY, 28, 14, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmermDaisuke, -1
-	person_event SPRITE_SWIMMER_GUY, 26, 4, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmermJunpei, -1
+	person_event SPRITE_SWIMMER_GUY, 23, 12, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmermDaisuke, -1
+	person_event SPRITE_SWIMMER_GUY, 20, 7, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmermJunpei, -1
 	person_event SPRITE_SWIMMER_GIRL, 13, 7, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerSwimmerfUmiko, -1
-	person_event SPRITE_SWIMMER_GIRL, 41, 16, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmerfReina, -1
+	person_event SPRITE_SWIMMER_GIRL, 27, 16, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmerfReina, -1
+

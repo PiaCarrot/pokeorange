@@ -122,7 +122,39 @@
 	map_header_2 Route63NorthSouth, ROUTE_63_NORTH_SOUTH, 53, WEST
 	connection west, ROUTE_63_EAST_WEST, Route63EastWest, 23, 0, 12, ROUTE_63_NORTH_SOUTH
 	
-	map_header_2 AscorbiaIsland, ASCORBIA_ISLAND, 32, 0
+	map_header_2 AscorbiaIsland, ASCORBIA_ISLAND, 32, WEST
+	connection west, ROUTE_64, Route64, 0, 0, 14, ASCORBIA_ISLAND
+	
+	map_header_2 Route64, ROUTE_64, 53, WEST | EAST
+	connection west, ROUTE_65, Route65, 0, 0, 14, ROUTE_64
+	connection east, ASCORBIA_ISLAND, AscorbiaIsland, 0, 0, 14, ROUTE_64
+
+	map_header_2 Route65, ROUTE_65, 53, WEST | EAST
+	connection west, BUTWAL_ISLAND_EAST, ButwalIslandEast, -4, 2, 18, ROUTE_65
+	connection east, ROUTE_64, Route64, 0, 0, 14, ROUTE_65
+	
+	map_header_2 ButwalIslandEast, BUTWAL_ISLAND_EAST, 53, WEST | EAST
+	connection west, BUTWAL_ISLAND_WEST, ButwalIslandWest, 0, 0, 22, BUTWAL_ISLAND_EAST
+	connection east, ROUTE_65, Route65, 6, 0, 18, BUTWAL_ISLAND_EAST
+		
+	map_header_2 ButwalIslandWest, BUTWAL_ISLAND_WEST, 32, WEST | EAST
+	connection west, ROUTE_66_EAST_WEST, Route66EastWest, 10, 0, 12, BUTWAL_ISLAND_WEST
+	connection east, BUTWAL_ISLAND_EAST, ButwalIslandEast, 0, 0, 22, BUTWAL_ISLAND_WEST
+	
+	map_header_2 Route66EastWest, ROUTE_66_EAST_WEST, 53, SOUTH | EAST
+	connection south, ROUTE_66_NORTH_SOUTH, Route66NorthSouth, -3, 0, 12, ROUTE_66_EAST_WEST
+	connection east, BUTWAL_ISLAND_WEST, ButwalIslandWest, 0, 10, 12, ROUTE_66_EAST_WEST
+	
+	map_header_2 Route66NorthSouth, ROUTE_66_NORTH_SOUTH, 53, NORTH | SOUTH
+	connection north, ROUTE_66_EAST_WEST, Route66EastWest, 3, 0, 12, ROUTE_66_NORTH_SOUTH
+	connection south, KUMQUAT_ISLAND_EAST, KumquatIslandEast, 0, 5, 12, ROUTE_66_NORTH_SOUTH
+	
+	map_header_2 KumquatIslandEast, KUMQUAT_ISLAND_EAST, 53, NORTH | WEST
+	connection north, ROUTE_66_NORTH_SOUTH, Route66NorthSouth, 5, 0, 12, KUMQUAT_ISLAND_EAST
+	connection west, KUMQUAT_ISLAND_WEST, KumquatIslandWest, 0, 0, 16, KUMQUAT_ISLAND_EAST
+	
+	map_header_2 KumquatIslandWest, KUMQUAT_ISLAND_WEST, 53, EAST
+	connection east, KUMQUAT_ISLAND_EAST, KumquatIslandEast, 0, 0, 16, KUMQUAT_ISLAND_WEST
 	
 	map_header_2 PummeloIsland, PUMMELO_ISLAND, 53, 0
 	
@@ -248,6 +280,7 @@
 	map_header_2 AscorbiaIslandRoute63Gate, ASCORBIA_ISLAND_ROUTE_63_GATE, 0, 0
 	map_header_2 AscorbiaIslandMart, ASCORBIA_ISLAND_MART, 0, 0
 	map_header_2 AscorbiaIslandCenter, ASCORBIA_ISLAND_CENTER, 0, 0
+	map_header_2 KinnowShowboat, KINNOW_SHOWBOAT, 2, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0
