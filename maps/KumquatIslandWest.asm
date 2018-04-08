@@ -4,6 +4,9 @@ KumquatIslandWest_MapScriptHeader::
 
 .Callbacks: db 0
 
+KumquatWestUmbrellas:
+	end
+
 KumquatIslandWest_MapEventHeader::
 
 .Warps: db 0
@@ -12,7 +15,8 @@ KumquatIslandWest_MapEventHeader::
 
 .BGEvents: db 0
 
-.ObjectEvents: db 2
-	person_event SPRITE_SAILBOAT_TOP, 22, 13, SPRITEMOVEDATA_SAILBOAT_TOP, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, ObjectEvent, -1
-	person_event SPRITE_SAILBOAT_BOTTOM, 22, 13, SPRITEMOVEDATA_SAILBOAT_BOTTOM, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, ObjectEvent, -1
-
+.ObjectEvents: db 4
+	person_event SPRITE_SAILBOAT_TOP, 28, 14, SPRITEMOVEDATA_SAILBOAT_TOP, 0, 0, -1, -1, PAL_OW_TREE, PERSONTYPE_SCRIPT, 0, KumquatWestUmbrellas, -1
+	person_event SPRITE_SAILBOAT_BOTTOM, 28, 14, SPRITEMOVEDATA_SAILBOAT_BOTTOM, 0, 0, -1, -1, PAL_OW_TREE, PERSONTYPE_SCRIPT, 0, KumquatWestUmbrellas, -1
+	person_event SPRITE_UMBRELLA, 24, 20, SPRITEMOVEDATA_UMBRELLA_LEFT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, KumquatWestUmbrellas, -1
+	person_event SPRITE_UMBRELLA, 24, 21, SPRITEMOVEDATA_UMBRELLA_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, KumquatWestUmbrellas, -1

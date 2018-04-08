@@ -133,7 +133,7 @@ if def(DEBUG)
 	givepoke LAPRAS, 60
 	givepoke CHARIZARD, 60
 	givepoke PIKACHU, 60, LIGHT_BALL
-	givepoke SALAZZLE, 60
+	givepoke TROPIUS, 60
 	givepoke MEW, 60
 	closetext
 	callasm TeachHMSlaveMoves

@@ -17,9 +17,22 @@ AscorbiaSlouchScript:
 	waitbutton
 	closetext
 	end
+	
+Maya:
+	faceplayer
+	opentext
+	trade 3
+	waitbutton
+	closetext
+	end
 
 AscorbiaSlouchText:
-	text "PLACEHOLDER."
+	text "HEART SCALES can"
+	line "be found on the"
+	cont "beaches and WILD"
+	cont "#MON found"
+	
+	para "underwater."
 	done
 
 AscorbiaIslandCenter_MapEventHeader::
@@ -32,6 +45,7 @@ AscorbiaIslandCenter_MapEventHeader::
 
 .BGEvents: db 0
 
-.ObjectEvents: db 2
+.ObjectEvents: db 3
 	person_event SPRITE_NURSE, 1, 4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, AscorbiaNurseScript, -1
 	person_event SPRITE_PC_SLOUCH, 4, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, AscorbiaSlouchScript, -1
+	person_event SPRITE_COOLTRAINER_F, 5, 8, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, Maya, -1
