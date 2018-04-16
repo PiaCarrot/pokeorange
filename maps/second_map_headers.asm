@@ -153,8 +153,12 @@
 	connection north, ROUTE_66_NORTH_SOUTH, Route66NorthSouth, 5, 0, 12, KUMQUAT_ISLAND_EAST
 	connection west, KUMQUAT_ISLAND_WEST, KumquatIslandWest, 0, 0, 16, KUMQUAT_ISLAND_EAST
 	
-	map_header_2 KumquatIslandWest, KUMQUAT_ISLAND_WEST, 53, EAST
+	map_header_2 KumquatIslandWest, KUMQUAT_ISLAND_WEST, 53, WEST | EAST
+	connection west, ROUTE_67, Route67, 1, 0, 15, KUMQUAT_ISLAND_WEST
 	connection east, KUMQUAT_ISLAND_EAST, KumquatIslandEast, 0, 0, 16, KUMQUAT_ISLAND_WEST
+	
+	map_header_2 Route67, ROUTE_67, 53, EAST
+	connection east, KUMQUAT_ISLAND_WEST, KumquatIslandWest, -1, 0, 16, ROUTE_67
 	
 	map_header_2 PummeloIsland, PUMMELO_ISLAND, 53, 0
 	
@@ -193,7 +197,10 @@
 	map_header_2 MandarinNorthNameRater, MANDARIN_NORTH_NAME_RATER, 0, 0
 	map_header_2 MandarinNorthSmallHouse, MANDARIN_NORTH_SMALL_HOUSE, 0, 0
 	map_header_2 MandarinNorthLargeHouse, MANDARIN_NORTH_LARGE_HOUSE, 0, 0
-	map_header_2 MandarinUnderground, MANDARIN_UNDERGROUND, 0, 0
+	map_header_2 MandarinUndergroundEntrance, MANDARIN_UNDERGROUND_ENTRANCE, 0, 0
+	map_header_2 MandarinUndergroundBF1, MANDARIN_UNDERGROUND_BF1, 0, 0
+	map_header_2 MandarinUndergroundBF2, MANDARIN_UNDERGROUND_BF2, 0, 0
+	map_header_2 MandarinUndergroundBF3, MANDARIN_UNDERGROUND_BF3, 0, 0
 	map_header_2 MandarinNorthMart, MANDARIN_NORTH_MART, 0, 0
 	map_header_2 Route55Underwater, ROUTE_55_UNDERWATER, 9, 0
 	map_header_2 Route55QuestHouse, ROUTE_55_QUEST_HOUSE, 0, 0

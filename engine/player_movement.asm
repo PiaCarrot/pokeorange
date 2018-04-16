@@ -228,6 +228,10 @@ DoPlayerMovement:: ; 80000
 	jr z, .bump
 	cp 2
 	jr z, .bump
+	
+	ld a, [wSpinning]
+	and a
+	jr nz, .spin
 
 	ld a, [PlayerStandingTile]
 	cp COLL_ICE
@@ -270,6 +274,15 @@ DoPlayerMovement:: ; 80000
 	call .DoStep
 	scf
 	ret
+	
+
+.spin
+	ld de, SFX_SQUEAK
+	call PlaySFX
+	ld a, STEP_SPIN
+	call .DoStep
+	scf
+	ret
 
 .run
 	ld a, STEP_RUN
@@ -284,6 +297,7 @@ DoPlayerMovement:: ; 80000
 
 .bump
 	xor a
+	ld [wSpinning], a
 	ret
 ; 801c0
 
@@ -445,6 +459,7 @@ DoPlayerMovement:: ; 80000
 	dw .BackJumpStep
 	dw .FinishFacing
 	dw .RunStep
+	dw .SpinStep
 
 .SlowStep:
 	slow_step DOWN
@@ -491,6 +506,11 @@ DoPlayerMovement:: ; 80000
 	run_step UP
 	run_step LEFT
 	run_step RIGHT
+.SpinStep
+	turn_in DOWN
+	turn_in UP
+	turn_in LEFT
+	turn_in RIGHT
 ; 802b3
 
 .StandInPlace: ; 802b3
@@ -514,6 +534,12 @@ DoPlayerMovement:: ; 80000
 .CheckForced: ; 802cb
 ; When sliding on ice, input is forced to remain in the same direction.
 
+	call CheckSpinning
+	jr z, .not_spinning
+	dec a
+	jr .force
+
+.not_spinning
 	call CheckStandingOnIce
 	ret nc
 
@@ -521,6 +547,7 @@ DoPlayerMovement:: ; 80000
 	cp 0
 	ret z
 
+.force
 	and 3
 	ld e, a
 	ld d, 0
@@ -799,6 +826,29 @@ CheckStandingOnIce:: ; 80404
 	and a
 	ret
 ; 80422
+
+CheckSpinning::
+	ld a, [PlayerStandingTile]
+	call CheckSpinTile
+	jr z, .start_spin
+	call CheckStopSpinTile
+	jr z, .stop_spin
+	ld a, [wSpinning]
+	and a
+	ret
+
+.start_spin
+	ld a, c
+	inc a
+	ld [wSpinning], a
+	and a
+	ret
+
+.stop_spin
+	xor a
+	ld [wSpinning], a
+	ret
+
 
 CheckTrainerRun:
 ; Check if any trainer on the map sees the player.

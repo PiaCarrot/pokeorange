@@ -12,7 +12,7 @@ ENDM
 	spawn TANGELO_ISLAND,  15,  10
 	spawn MIKAN_ISLAND,    11, 30
 	spawn ROUTE_52,        13, 78
-	spawn MANDARIN_NORTH,  7, 16
+	spawn MANDARIN_NORTH,  7, 14
 	spawn SUNBURST_ISLAND, 27, 28
 	spawn ROUTE_56_WEST,   35, 8
 	spawn KINNOW_ISLAND,   17, 10

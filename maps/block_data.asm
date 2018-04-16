@@ -152,9 +152,18 @@ Route54_BlockData:
 MandarinNorth_BlockData:
 	INCBIN "maps/MandarinNorth.blk"
 
-MandarinUnderground_BlockData:
-	INCBIN "maps/MandarinUnderground.blk"
+MandarinUndergroundEntrance_BlockData:
+	INCBIN "maps/MandarinUndergroundEntrance.blk"
 
+MandarinUndergroundBF1_BlockData:
+	INCBIN "maps/MandarinUndergroundBF1.blk"
+	
+MandarinUndergroundBF2_BlockData:
+	INCBIN "maps/MandarinUndergroundBF2.blk"
+	
+MandarinUndergroundBF3_BlockData:
+	INCBIN "maps/MandarinUndergroundBF3.blk"
+	
 SunburstIsland_BlockData:
 	INCBIN "maps/SunburstIsland.blk"
 
@@ -374,6 +383,9 @@ KumquatIslandEast_BlockData:
 	
 KumquatIslandWest_BlockData:
 	INCBIN "maps/KumquatIslandWest.blk"
+	
+Route67_BlockData:
+	INCBIN "maps/Route67.blk"
 	
 PummeloIsland_BlockData:
 	INCBIN "maps/PummeloIsland.blk"

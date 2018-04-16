@@ -94,7 +94,7 @@ MandarinNorth_MapEventHeader::
 	warp_def 9, 27, 1, MANDARIN_NORTH_NAME_RATER
 	warp_def 21, 19, 1, MANDARIN_NORTH_SMALL_HOUSE
 	warp_def 13, 17, 1, MANDARIN_NORTH_LARGE_HOUSE
-	warp_def 5, 11, 1, MANDARIN_UNDERGROUND
+	warp_def 5, 11, 1, MANDARIN_UNDERGROUND_ENTRANCE
 	warp_def 21, 13, 1, MANDARIN_NORTH_MART
 
 .CoordEvents: db 0

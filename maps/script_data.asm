@@ -74,7 +74,10 @@ INCLUDE "maps/MandarinNorthMart.asm"
 INCLUDE "maps/MandarinNorthNameRater.asm"
 INCLUDE "maps/MandarinNorthLargeHouse.asm"
 INCLUDE "maps/MandarinNorthSmallHouse.asm"
-INCLUDE "maps/MandarinUnderground.asm"
+INCLUDE "maps/MandarinUndergroundEntrance.asm"
+INCLUDE "maps/MandarinUndergroundBF1.asm"
+INCLUDE "maps/MandarinUndergroundBF2.asm"
+INCLUDE "maps/MandarinUndergroundBF3.asm"
 
 
 SECTION "Sunburst Scripts", ROMX
@@ -305,6 +308,7 @@ INCLUDE "maps/Route64.asm"
 INCLUDE "maps/Route65.asm"
 INCLUDE "maps/Route66EastWest.asm"
 INCLUDE "maps/Route66NorthSouth.asm"
+INCLUDE "maps/Route67.asm"
 
 SECTION "Fukuhara No 4 Scripts", ROMX
 

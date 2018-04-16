@@ -2293,7 +2293,8 @@ wRoute49Trigger::                  ds 1
 wMikanIslandRoute53GateTrigger::   ds 1
 wValenciaPortTrigger::             ds 1
 wTangeloPortTrigger::              ds 1
-wMandarinUndergroundTrigger::      ds 1
+wMandarinUndergroundBF2Trigger::   ds 1
+wMandarinUndergroundBF3Trigger::   ds 1
 wRoute56WestTrigger::              ds 1
 wUnnamedIsland1PokeCenterTrigger:: ds 1
 wRoute60Trigger::                  ds 1
@@ -2655,3 +2656,7 @@ INCLUDE "sram.asm"
 SECTION "Window Stack RAM", WRAMX, BANK [7]
 wWindowStack:: ds $1000 - 1
 wWindowStackBottom:: ds 1
+
+
+SECTION "Spinners", WRAMX
+wSpinning:: ds 1

@@ -19,7 +19,8 @@ ENDM
 	trigger_def MIKAN_ISLAND_ROUTE_53_GATE,   wMikanIslandRoute53GateTrigger
 	trigger_def VALENCIA_PORT,                wValenciaPortTrigger
 	trigger_def TANGELO_PORT,                 wTangeloPortTrigger
-	trigger_def MANDARIN_UNDERGROUND,         wMandarinUndergroundTrigger
+	trigger_def MANDARIN_UNDERGROUND_BF2,     wMandarinUndergroundBF2Trigger
+	trigger_def MANDARIN_UNDERGROUND_BF3,     wMandarinUndergroundBF3Trigger
 	trigger_def ROUTE_56_WEST,                wRoute56WestTrigger
 	trigger_def UNNAMED_ISLAND_1_POKE_CENTER, wUnnamedIsland1PokeCenterTrigger
 	trigger_def ROUTE_60,                     wRoute60Trigger
