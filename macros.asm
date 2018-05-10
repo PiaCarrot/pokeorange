@@ -106,11 +106,11 @@ add_pics: MACRO ; dba Frontpic, Backpic
 	ENDM
 
 lb: MACRO ; r, hi, lo
-	ld \1, (\2 & $ff) << 8 + (\3 & $ff)
+	ld \1, ((\2) & $ff) << 8 + ((\3) & $ff)
 	ENDM
 
 ln: MACRO ; r, hi, lo
-	ld \1, (\2 & $f) << 4 + (\3 & $f)
+	ld \1, ((\2) & $f) << 4 + ((\3) & $f)
 	ENDM
 
 bccoord equs "coord bc,"
