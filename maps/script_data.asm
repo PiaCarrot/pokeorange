@@ -335,6 +335,7 @@ INCLUDE "maps/Route66NorthSouth.asm"
 INCLUDE "maps/Route67.asm"
 INCLUDE "maps/Route68.asm"
 INCLUDE "maps/Route69South.asm"
+INCLUDE "maps/Route69North.asm"
 
 SECTION "Fukuhara No 4 Scripts", ROMX
 

@@ -226,7 +226,8 @@ MAP_NONE EQU 0
 	mapgroup GOLDEN_ISLAND_GATE_HOUSE, 10, 4
 
 	newgroup ; 15
-
+	
+	mapgroup ROUTE_69_NORTH, 11, 14
 	mapgroup PUMMELO_ISLAND, 25, 27
 	mapgroup HALL_OF_FAME, 6, 7
 	

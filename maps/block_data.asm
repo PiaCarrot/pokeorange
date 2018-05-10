@@ -457,3 +457,6 @@ UnnamedIsland3_BlockData:
 	
 Route69South_BlockData:
 	INCBIN "maps/Route69South.blk"
+	
+Route69North_BlockData:
+	INCBIN "maps/Route69North.blk"
