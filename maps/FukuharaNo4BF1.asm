@@ -33,6 +33,7 @@ FukuharaNo4BF1Script:
 	applymovement FUKUHARA_BF1_CASSIDY, FukuharaNo4BF1ScriptMovement
 	disappear FUKUHARA_BF1_BUTCH
 	disappear FUKUHARA_BF1_CASSIDY
+	domaptrigger FUKUHARA_NO_4_BF1, $1
 	setevent EVENT_FUKUHARA_BF1_EVENT
 	end
 	

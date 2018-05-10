@@ -2306,6 +2306,7 @@ wMayorsOfficeMeetingRoomTrigger::  ds 1
 wCleopatraIslandTrigger:: 		   ds 1
 wFukuharaNo4BF1Trigger::           ds 1
 wRoute63NorthSouthTrigger::        ds 1
+wUnnamedIsland1Trigger::		   ds 1
 
 EventFlags:: ; da72
 	flag_array NUM_EVENTS

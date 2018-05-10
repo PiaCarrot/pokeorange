@@ -418,3 +418,42 @@ UndergroundPathSwitchRoomEntrances_BlockData:
 
 GoldenrodGameCorner_BlockData:
 	INCBIN "maps/GoldenrodGameCorner.blk"
+	
+SafariZone_BlockData:
+	INCBIN "maps/SafariZone.blk"
+	
+FuchsiaCity_BlockData:
+	INCBIN "maps/FuchsiaCity.blk"
+	
+Route15_BlockData:
+	INCBIN "maps/Route15.blk"
+	
+Route14_BlockData:
+	INCBIN "maps/Route14.blk"
+
+Route13_BlockData:
+	INCBIN "maps/Route13.blk"
+
+Route12_BlockData:
+	INCBIN "maps/Route12.blk"
+
+Route11_BlockData:
+	INCBIN "maps/Route11.blk"
+	
+RindIsland_BlockData:
+	INCBIN "maps/RindIsland.blk"
+	
+CyberSpace_BlockData:
+	INCBIN "maps/CyberSpace.blk"
+
+HeartScaleCove_BlockData:
+	INCBIN "maps/HeartScaleCove.blk"
+	
+Route68_BlockData:
+	INCBIN "maps/Route68.blk"
+	
+UnnamedIsland3_BlockData:
+	INCBIN "maps/UnnamedIsland3.blk"
+	
+Route69South_BlockData:
+	INCBIN "maps/Route69South.blk"

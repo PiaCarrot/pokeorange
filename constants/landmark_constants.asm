@@ -72,6 +72,7 @@ KANTO_LANDMARK EQU const_value
 	const ROUTE_14
 	const ROUTE_15
 	const FUCHSIA_CITY
+	const SAFARI_ZONE
 	const ROUTE_19
 	const ROUTE_20
 	const SEAFOAM_ISLANDS

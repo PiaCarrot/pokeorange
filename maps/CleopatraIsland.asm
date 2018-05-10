@@ -57,6 +57,8 @@ CrossCleopatraEventScript:
 	closetext
 	spriteface CLEOPATRA_ISLAND_TAD, UP
 	domaptrigger CLEOPATRA_ISLAND, $1
+	domaptrigger MURCOTT_ISLAND, $1
+	setevent EVENT_MURCOTT_ISLAND_CROSS
 	end
 	
 CleopatraCrossText1:

@@ -13,7 +13,7 @@
 	tilecoll WALL, FLOOR, WALL, WALL
 	tilecoll FLOOR, FLOOR, WALL, WALL
 	tilecoll FLOOR, WALL, WALL, WALL
-	tilecoll WALL, WALL, WALL, WALL
+	tilecoll FLOOR, WALL, FLOOR, WALL
 	tilecoll FLOOR, FLOOR, FLOOR, WALL
 	tilecoll FLOOR, FLOOR, WALL, FLOOR
 	tilecoll FLOOR, FLOOR, WALL, FLOOR
@@ -62,3 +62,11 @@
 	tilecoll FLOOR, FLOOR, WARP_CARPET_DOWN, WARP_CARPET_DOWN
 	tilecoll FLOOR, FLOOR, WALL, WALL
 	tilecoll ICE, ICE, ICE, LADDER
+	tilecoll HOLE, ICE, ICE, ICE
+	tilecoll ICE, ICE, HOLE, ICE
+	tilecoll ICE, ICE, ICE, HOLE
+	tilecoll ICE, HOLE, ICE, ICE
+	tilecoll FLOOR, WALL, FLOOR, WALL
+	tilecoll WALL, WALL, FLOOR, FLOOR
+	tilecoll WALL, FLOOR, WALL, FLOOR
+	tilecoll FLOOR, WALL, FLOOR, WARP_CARPET_DOWN

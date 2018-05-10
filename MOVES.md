@@ -125,7 +125,7 @@ Vicegrip
 - TM45 Seed Bomb
 - TM46 Thief (Mandarin Underground)
 - TM47 Steel Wing
-- TM48 Rock Slide
+- TM48 Rock Slide (TODO: Show Aerodactyl to Blue)
 - TM49 Tri Attack
 - TM50 Flash (Trovitopolis)
 

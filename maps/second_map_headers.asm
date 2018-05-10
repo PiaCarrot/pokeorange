@@ -157,10 +157,52 @@
 	connection west, ROUTE_67, Route67, 1, 0, 15, KUMQUAT_ISLAND_WEST
 	connection east, KUMQUAT_ISLAND_EAST, KumquatIslandEast, 0, 0, 16, KUMQUAT_ISLAND_WEST
 	
-	map_header_2 Route67, ROUTE_67, 53, EAST
+	map_header_2 Route67, ROUTE_67, 53, WEST | EAST
+	connection west, RIND_ISLAND, RindIsland, 0, 7, 15, ROUTE_67
 	connection east, KUMQUAT_ISLAND_WEST, KumquatIslandWest, -1, 0, 16, ROUTE_67
 	
+	map_header_2 RindIsland, RIND_ISLAND, 53, WEST | EAST
+	connection west, ROUTE_68, Route68, 3, 0, 10, RIND_ISLAND
+	connection east, ROUTE_67, Route67, 7, 0, 15, RIND_ISLAND
+	
+	map_header_2 Route68, ROUTE_68, 53, WEST | EAST
+	connection west, UNNAMED_ISLAND_3, UnnamedIsland3, -2, 9, 10, ROUTE_68
+	connection east, RIND_ISLAND, RindIsland, -1, 2, 13, ROUTE_68
+	
+	map_header_2 UnnamedIsland3, UNNAMED_ISLAND_3, 53, NORTH | EAST
+	connection north, ROUTE_69_SOUTH, Route69South, 0, 0, 20, UNNAMED_ISLAND_3
+	connection east, ROUTE_68, Route68, 11, 0, 9, UNNAMED_ISLAND_3
+	
+	map_header_2 Route69South, ROUTE_69_SOUTH, 53, SOUTH
+	connection south, UNNAMED_ISLAND_3, UnnamedIsland3, 0, 0, 20, ROUTE_69_SOUTH
+	
 	map_header_2 PummeloIsland, PUMMELO_ISLAND, 53, 0
+	
+	map_header_2 VermilionCity, VERMILION_CITY, 6, EAST
+	connection east, ROUTE_11, Route11, 1, 0, 11, VERMILION_CITY
+	
+	map_header_2 FuchsiaCity, FUCHSIA_CITY, 6, EAST
+	connection east, ROUTE_15, Route15, 8, 0, 6, FUCHSIA_CITY
+	
+	map_header_2 Route15, ROUTE_15, 6, WEST | EAST
+	connection west, FUCHSIA_CITY, FuchsiaCity, 0, 8, 6, ROUTE_15
+	connection east, ROUTE_14, Route14, -2, 18, 9, ROUTE_15
+	
+	map_header_2 Route14, ROUTE_14, 65, WEST | EAST
+	connection west, ROUTE_15, Route15, 20, 0, 6, ROUTE_14
+	connection east, ROUTE_13, Route13, 0, 0, 9, ROUTE_14
+	
+	map_header_2 Route13, ROUTE_13, 65, NORTH | WEST
+	connection north, ROUTE_12, Route12, 18, 0, 12, ROUTE_13
+	connection west, ROUTE_14, Route14, 0, 0, 9, ROUTE_13
+	
+	map_header_2 Route12, ROUTE_12, 65, SOUTH | WEST
+	connection south, ROUTE_13, Route13, 0, 18, 12, ROUTE_12
+	connection west, ROUTE_11, Route11, 0, 3, 8, ROUTE_12
+	
+	map_header_2 Route11, ROUTE_11, 13, WEST | EAST
+	connection west, VERMILION_CITY, VermilionCity, -1, 0, 14, ROUTE_11
+	connection east, ROUTE_12, Route12, 3, 0, 6, ROUTE_11
 	
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
@@ -288,10 +330,12 @@
 	map_header_2 AscorbiaIslandMart, ASCORBIA_ISLAND_MART, 0, 0
 	map_header_2 AscorbiaIslandCenter, ASCORBIA_ISLAND_CENTER, 0, 0
 	map_header_2 KinnowShowboat, KINNOW_SHOWBOAT, 2, 0
+	map_header_2 HeartScaleCove, HEART_SCALE_COVE, 9, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0
 	map_header_2 RedsHouse2F, REDS_HOUSE_2F, $0, 0
 	map_header_2 BluesHouse, BLUES_HOUSE, $0, 0
 	map_header_2 OaksLab, OAKS_LAB, $0, 0
-	map_header_2 VermilionCity, VERMILION_CITY, 6, 0
+	map_header_2 SafariZone, SAFARI_ZONE, 44, 0
+	map_header_2 CyberSpace, CYBER_SPACE, 0, 0

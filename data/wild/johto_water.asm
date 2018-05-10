@@ -44,26 +44,26 @@
 
 	map ROUTE_52
 	db 1 percent ; encounter rate
-	db 7, TENTACOOL
+	db 7, STARYU
 	db 7, WINGULL
 	db 7, GOLDEEN
 
 	map ROUTE_53
 	db 1 percent
-	db 10, TENTACOOL
+	db 10, STARYU
 	db 10, TENTACOOL
 	db 10, TENTACOOL
 
 	map ROUTE_54
 	db 1 percent
-	db 10, WINGULL
+	db 10, MANTYKE
 	db 10, TENTACOOL
 	db 10, REMORAID
 
 	map TANGELO_ISLAND
 	db 1 percent ; encounter rate
 	db 6, TENTACOOL
-	db 5, TENTACOOL
+	db 5, STARYU
 	db 6, WINGULL
 
 	map MIKAN_ISLAND
@@ -112,7 +112,7 @@
 	db 1 percent
 	db 15, WINGULL
 	db 15, TENTACOOL
-	db 15, TENTACOOL
+	db 15, FINNEON
 
 	map ROUTE_57
 	db 1 percent
@@ -188,13 +188,13 @@
 	
 	map TROVITA_ISLAND
 	db 1 percent
-	db 20, WAILMER
+	db 20, MANTYKE
 	db 20, GOLDEEN
 	db 20, REMORAID
 	
 	map TROVITOPOLIS_PORT
 	db 3 percent
-	db 19, WAILMER
+	db 19, STARYU
 	db 19, REMORAID
 	db 19, TENTACOOL
 	
@@ -221,5 +221,95 @@
 	db 23, MANTINE
 	db 23, TENTACOOL
 	db 23, TENTACRUEL
+	
+	map ROUTE_64
+	db 1 percent
+	db 24, STARYU
+	db 24, STARMIE
+	db 24, TENTACOOL
+	
+	map HEART_SCALE_COVE
+	db 1 percent
+	db 24, GOLBAT
+	db 24, GOLDEEN
+	db 24, SEAKING
+	
+	map ROUTE_65
+	db 1 percent
+	db 24, MANTINE
+	db 24, TENTACRUEL
+	db 24, TENTACOOL
+	
+	map BUTWAL_ISLAND_EAST
+	db 1 percent
+	db 25, MARILL
+	db 25, PSYDUCK
+	db 25, GOLDUCK
+	
+	map BUTWAL_ISLAND_WEST
+	db 1 percent
+	db 25, MARILL
+	db 25, PSYDUCK
+	db 25, GOLDUCK
+	
+	map ROUTE_66_EAST_WEST
+	db 1 percent
+	db 26, KRABBY
+	db 26, GOLDEEN
+	db 26, SEAKING
+	
+	map ROUTE_66_NORTH_SOUTH
+	db 1 percent
+	db 26, KRABBY
+	db 26, GOLDEEN
+	db 26, SEAKING
+	
+	map KUMQUAT_ISLAND_EAST
+	db 1 percent
+	db 26, GOLDEEN
+	db 26, HORSEA
+	db 26, GOLDEEN
+	
+	map KUMQUAT_ISLAND_WEST
+	db 1 percent
+	db 26, GOLDEEN
+	db 26, HORSEA
+	db 26, GOLDEEN
+	
+	map ROUTE_67
+	db 1 percent
+	db 27, MANTINE
+	db 27, SEAKING
+	db 27, TENTACRUEL
+	
+	map RIND_ISLAND
+	db 1 percent
+	db 28, MAGIKARP
+	db 28, MAGIKARP
+	db 28, GYARADOS
+	
+	map FUKUHARA_NO_4_BF1
+	db 3 percent
+	db 25, OMANYTE
+	db 25, OMANYTE
+	db 25, OMANYTE
+	
+	map FUKUHARA_NO_4_BF2
+	db 3 percent
+	db 25, OMANYTE
+	db 25, OMANYTE
+	db 25, OMANYTE
+	
+	map FUKUHARA_NO_4_BF3
+	db 3 percent
+	db 25, OMANYTE
+	db 25, OMANYTE
+	db 25, OMANYTE
+	
+	map PUMMELO_ISLAND
+	db 1 percent
+	db 35, HORSEA
+	db 35, MANTINE
+	db 35, LUMINEON
 
 	db -1 ; end

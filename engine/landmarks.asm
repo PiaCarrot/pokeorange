@@ -116,35 +116,36 @@ ENDM
 	landmark   100,  92, IceIslandName
 	landmark   108,  84, LightningIslandName
 
-	landmark   0,   0, VermilionCityName
-	landmark   0,   0, Route11Name
-	landmark   0,   0, Route12Name
-	landmark   0,   0, Route13Name
-	landmark   0,   0, Route14Name
-	landmark   0,   0, Route15Name
-	landmark   0,   0, FuchsiaCityName
-	landmark   0,   0, Route19Name
-	landmark   0,   0, Route20Name
-	landmark   0,   0, SeafoamIslandsName
-	landmark   0,   0, CinnabarIslandName
-	landmark   0,   0, CinnabarVolcanoName
-	landmark   0,   0, Route21Name
-	landmark   0,   0, PalletTownName
-	landmark   0,   0, CinnabarSeaName
-	landmark   0,   0, SaydaIslandName
-	landmark   0,   0, KantoSea1Name
-	landmark   0,   0, CamomileIslandName
-	landmark   0,   0, VermilionSeaName
-	landmark   0,   0, KantoSea2Name
-	landmark   0,   0, ChrysanthemumName
-	landmark   0,   0, MetallicaIslandName
-	landmark   0,   0, KantoSea3Name
-	landmark   0,   0, WisteriaTownName
-	landmark   0,   0, HutberCityName
-	landmark   0,   0, PortaVistaName
-	landmark   0,   0, AcapulcoTownName
-	landmark   0,   0, NewIslandName
-	landmark   0,   0, RainbowIslandName
+	landmark   116,   28, VermilionCityName
+	landmark   138,   28, Route11Name
+	landmark   156,   36, Route12Name
+	landmark   148,   44, Route13Name
+	landmark   140,   52, Route14Name
+	landmark   132,   60, Route15Name
+	landmark   116,   60, FuchsiaCityName
+	landmark   116,   58, SafariZoneName
+	landmark   116,   72, Route19Name
+	landmark   92,   76, Route20Name
+	landmark   84,   76, SeafoamIslandsName
+	landmark   60,   76, CinnabarIslandName
+	landmark   62,   74, CinnabarVolcanoName
+	landmark   60,   64, Route21Name
+	landmark   60,   52, PalletTownName
+	landmark   42,   68, CinnabarSeaName
+	landmark   20,   60, SaydaIslandName
+	landmark   84,   64, KantoSea1Name
+	landmark   92,   52, CamomileIslandName
+	landmark   100,   36, VermilionSeaName
+	landmark   100,   92, KantoSea2Name
+	landmark   84,   92, ChrysanthemumName
+	landmark   100,   116, MetallicaIslandName
+	landmark   116,   92, KantoSea3Name
+	landmark   132,   92, WisteriaTownName
+	landmark   124,   116, HutberCityName
+	landmark   132,   128, PortaVistaName
+	landmark   116,   132, AcapulcoTownName
+	landmark   36,   116, NewIslandName
+	landmark   68,   140, RainbowIslandName
 	landmark 148, 132, FastShipName
 
 
@@ -217,6 +218,7 @@ Route13Name:         db "ROUTE 13@"
 Route14Name:         db "ROUTE 14@"
 Route15Name:         db "ROUTE 15@"
 FuchsiaCityName:     db "FUCHSIA CITY@"
+SafariZoneName:		 db "SAFARI ZONE@"
 Route19Name:         db "ROUTE 19@"
 Route20Name:         db "ROUTE 20@"
 SeafoamIslandsName:  db "SEAFOAM ISLANDS@"

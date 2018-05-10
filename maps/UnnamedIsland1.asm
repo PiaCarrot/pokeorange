@@ -8,9 +8,17 @@ const_value set 1
 
 UnnamedIsland1_MapScriptHeader::
 
-.Triggers: db 0
+.MapTriggers: db 2
+	maptrigger .Trigger0
+	maptrigger .Trigger1
 
-.Callbacks: db 0
+.MapCallbacks: db 0
+
+.Trigger0:
+	end
+
+.Trigger1:
+	end
 
 UnnamedIsland1Rock:
 	jumpstd smashrock
@@ -48,13 +56,18 @@ CooltrainerKeikoAfterText:
 
 UnnamedIslandTM:
 	itemball TM_RETURN
+	
+UnnamedIsland1BlackOutMod:
+	blackoutmod KINNOW_ISLAND
+	end
 
 UnnamedIsland1_MapEventHeader::
 
 .Warps: db 1
 	warp_def 15, 13, 1, UNNAMED_ISLAND_1_POKE_CENTER
 
-.CoordEvents: db 0
+.CoordEvents: db 1
+	xy_trigger 0, 16, 13, UnnamedIsland1BlackOutMod
 
 .BGEvents: db 0
 

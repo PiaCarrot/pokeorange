@@ -25,9 +25,9 @@ MAP_NONE EQU 0
 
 	mapgroup TANGELO_JUNGLE, 27, 25
 	mapgroup MT_NAVEL_1F, 14, 14
-	mapgroup MT_NAVEL_2F, 12, 12
+	mapgroup MT_NAVEL_2F, 18, 18
 	mapgroup MT_NAVEL_PEAK, 10, 10
-	mapgroup MT_NAVEL_ICE_ROCK, 4, 4
+	mapgroup MT_NAVEL_ICE_ROCK, 3, 3
 	mapgroup CRYSTAL_CAVE_1F, 14, 17
 	mapgroup CRYSTAL_CAVE_B1, 14, 18
 	mapgroup MANDARIN_DESERT, 25, 25
@@ -127,6 +127,14 @@ MAP_NONE EQU 0
 	mapgroup BLUES_HOUSE, 4, 4
 	mapgroup OAKS_LAB, 6, 5
 	mapgroup VERMILION_CITY, 20, 24
+	mapgroup SAFARI_ZONE, 20, 45
+	mapgroup FUCHSIA_CITY, 20, 22
+	mapgroup ROUTE_15, 6, 22
+	mapgroup ROUTE_14, 27, 10
+	mapgroup ROUTE_13, 9, 30
+	mapgroup ROUTE_12, 26, 12
+	mapgroup ROUTE_11, 11, 22
+	mapgroup CYBER_SPACE, 10, 10
 
 	newgroup ; 8
 
@@ -168,6 +176,7 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_64, 14, 20
 	mapgroup ROUTE_65, 14, 22
 	mapgroup BUTWAL_ISLAND_EAST, 22, 12
+	mapgroup HEART_SCALE_COVE, 13, 16
 
 	newgroup ; 10
 
@@ -229,6 +238,10 @@ MAP_NONE EQU 0
 	mapgroup KUMQUAT_ISLAND_EAST, 16, 15
 	mapgroup KUMQUAT_ISLAND_WEST, 16, 15
 	mapgroup ROUTE_67, 15, 30
+	mapgroup RIND_ISLAND, 22, 24
+	mapgroup ROUTE_68, 10, 14
+	mapgroup UNNAMED_ISLAND_3, 20, 20
+	mapgroup ROUTE_69_SOUTH, 45, 20
 
 
 ; elevator floors

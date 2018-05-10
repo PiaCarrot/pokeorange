@@ -16,11 +16,12 @@ NavelIceRockText:
 MtNavelIceRock_MapEventHeader::
 
 .Warps: db 1
-	warp_def 5, 3, 6, MT_NAVEL_2F
+	warp_def 3, 3, 6, MT_NAVEL_2F
 
 .CoordEvents: db 0
 
 .BGEvents: db 1
-	signpost 3, 4, SIGNPOST_READ, NavelIceRock
+	signpost 2, 3, SIGNPOST_READ, NavelIceRock
 
 .ObjectEvents: db 0
+

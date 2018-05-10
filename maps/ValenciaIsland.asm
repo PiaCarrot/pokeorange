@@ -100,6 +100,8 @@ if def(DEBUG)
 	setflag ENGINE_FLYPOINT_PUMMELO
 ;	setflag ENGINE_FLYPOINT_HAMLIN
 ;	setflag ENGINE_FLYPOINT_SHAMOUTI
+	setevent EVENT_BEAT_RED
+	setevent EVENT_BEAT_ORANGE_LEAGUE
 	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
 	giveitem SKATEBOARD
@@ -130,16 +132,16 @@ if def(DEBUG)
 	giveitem MASTER_ROD
 	givemoney 0, 100000
 	opentext
-	givepoke LAPRAS, 60
-	givepoke CHARIZARD, 60
-	givepoke PIKACHU, 60, LIGHT_BALL
-	givepoke TROPIUS, 60
-	givepoke MEW, 60
+	givepoke LAPRAS, 30
+	givepoke CHARIZARD, 30
+	givepoke PIKACHU, 30, LIGHT_BALL
+	givepoke LUGIA, 30
+	givepoke MEW, 30
 	closetext
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp PUMMELO_ISLAND, 17, 17
+	warp SUNBURST_ISLAND, 10, 12
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

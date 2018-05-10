@@ -863,5 +863,302 @@
 	db 26, ZUBAT
 	db 26, MEOWTH
 	db 26, MEOWTH
+	
+	map ROUTE_64
+	db 6 percent, 6 percent, 6 percent
+	;morn
+	db 26, SUNKERN
+	db 27, SUNFLORA
+	db 26, FEAROW
+	db 27, FEAROW
+	db 27, ABRA
+	db 26, ABRA
+	db 28, KADABRA
+	;day
+	db 26, SUNKERN
+	db 27, SUNFLORA
+	db 26, FEAROW
+	db 27, FEAROW
+	db 27, ABRA
+	db 26, ABRA
+	db 28, KADABRA
+	;nite
+	db 26, PARAS
+	db 26, GROWLITHE
+	db 26, ZUBAT
+	db 27, PARASECT
+	db 27, ABRA
+	db 26, ABRA
+	db 28, KADABRA
+	
+	map HEART_SCALE_COVE
+	db 4 percent, 4 percent, 4 percent
+	;morn
+	db 26, PARAS
+	db 26, ZUBAT
+	db 26, PARASECT
+	db 27, GOLBAT
+	db 27, MACHOP
+	db 20, TYROGUE
+	db 28, MACHOKE
+	;day
+	db 26, PARAS
+	db 26, ZUBAT
+	db 26, PARASECT
+	db 27, GOLBAT
+	db 27, MACHOP
+	db 20, TYROGUE
+	db 28, MACHOKE
+	;nite
+	db 26, PARAS
+	db 26, ZUBAT
+	db 26, PARASECT
+	db 27, GOLBAT
+	db 27, MACHOP
+	db 20, TYROGUE
+	db 28, MACHOKE
+	
+	map ROUTE_65
+	db 6 percent, 6 percent, 6 percent
+	;morn
+	db 27, PIDGEOTTO
+	db 27, TRUMBEAK
+	db 27, BELLSPROUT
+	db 28, WEEPINBELL
+	db 28, ODDISH
+	db 27, GLOOM
+	db 29, CHANSEY
+	;day
+	db 27, PIDGEOTTO
+	db 27, TRUMBEAK
+	db 27, BELLSPROUT
+	db 28, WEEPINBELL
+	db 28, BELLSPROUT
+	db 27, WEEPINBELL
+	db 29, CHANSEY
+	;nite
+	db 27, PIDGEOTTO
+	db 27, TRUMBEAK
+	db 27, BELLSPROUT
+	db 28, WEEPINBELL
+	db 28, ODDISH
+	db 27, GLOOM
+	db 29, CHANSEY
+	
+	map BUTWAL_ISLAND_EAST
+	db 6 percent, 6 percent, 6 percent
+	;morn
+	db 28, GOLDUCK
+	db 28, PRIMEAPE
+	db 28, TROPIUS
+	db 28, TROPIUS
+	db 28, BUTTERFREE
+	db 28, GLOOM
+	db 29, TROPIUS
+	;day
+	db 28, GOLDUCK
+	db 28, PRIMEAPE
+	db 28, TROPIUS
+	db 28, TROPIUS
+	db 28, BUTTERFREE
+	db 28, WEEPINBELL
+	db 29, TROPIUS
+	;nite
+	db 28, GOLDUCK
+	db 28, PRIMEAPE
+	db 28, TROPIUS
+	db 28, TROPIUS
+	db 28, VENOMOTH
+	db 28, GLOOM
+	db 29, TROPIUS
+	
+	map BUTWAL_ISLAND_WEST
+	db 6 percent, 6 percent, 6 percent
+	;morn
+	db 28, GOLDUCK
+	db 28, PRIMEAPE
+	db 28, TROPIUS
+	db 28, TROPIUS
+	db 28, BUTTERFREE
+	db 28, GLOOM
+	db 29, TROPIUS
+	;day
+	db 28, GOLDUCK
+	db 28, PRIMEAPE
+	db 28, TROPIUS
+	db 28, TROPIUS
+	db 28, BUTTERFREE
+	db 28, WEEPINBELL
+	db 29, TROPIUS
+	;nite
+	db 28, GOLDUCK
+	db 28, PRIMEAPE
+	db 28, TROPIUS
+	db 28, TROPIUS
+	db 28, VENOMOTH
+	db 28, GLOOM
+	db 29, TROPIUS
+	
+	map ROUTE_66_NORTH_SOUTH
+	db 6 percent, 6 percent, 6 percent
+	;morn
+	db 28, MEOWTH
+	db 28, PERSIAN
+	db 28, ELECTABUZZ
+	db 28, TRUMBEAK
+	db 28, PIKIPEK
+	db 28, TRUMBEAK
+	db 29, ELECTABUZZ
+	;day
+	db 28, MEOWTH
+	db 28, PERSIAN
+	db 28, ELECTABUZZ
+	db 28, TRUMBEAK
+	db 28, PIKIPEK
+	db 28, TRUMBEAK
+	db 29, ELECTABUZZ
+	;nite
+	db 28, MEOWTH
+	db 28, PERSIAN
+	db 28, ELECTABUZZ
+	db 28, RATICATE
+	db 28, RATTATA
+	db 28, RATICATE
+	db 29, ELECTABUZZ
+	
+	map ROUTE_67
+	db 6 percent, 6 percent, 6 percent
+	;morn
+	db 30, TAUROS
+	db 30, MAGNEMITE
+	db 30, MAGNETON
+	db 31, TAUROS
+	db 31, MAGNEMITE
+	db 31, MAGNETON
+	db 31, ELECTABUZZ
+	;day
+	db 30, TAUROS
+	db 30, MAGNEMITE
+	db 30, MAGNETON
+	db 31, TAUROS
+	db 31, MAGNEMITE
+	db 31, MAGNETON
+	db 31, ELECTABUZZ
+	;nite
+	db 30, TAUROS
+	db 30, MAGNEMITE
+	db 30, MAGNETON
+	db 31, TAUROS
+	db 31, MAGNEMITE
+	db 31, MAGNETON
+	db 31, ELECTABUZZ
+	
+	map RIND_ISLAND
+	db 3 percent, 3 percent, 3 percent
+	;morn
+	db 30, PIDGEY
+	db 30, PIDGEOTTO
+	db 30, SLOWPOKE
+	db 31, PIDGEY
+	db 31, PIDGEOTTO
+	db 31, SLOWPOKE
+	db 31, SLOWBRO
+	;day
+	db 30, PIDGEY
+	db 30, PIDGEOTTO
+	db 30, SLOWPOKE
+	db 31, PIDGEY
+	db 31, PIDGEOTTO
+	db 31, SLOWPOKE
+	db 31, SLOWBRO
+	;nite
+	db 30, PIDGEY
+	db 30, PIDGEOTTO
+	db 30, SLOWPOKE
+	db 31, PIDGEY
+	db 31, PIDGEOTTO
+	db 31, SLOWPOKE
+	db 31, SLOWBRO
+	
+	map FUKUHARA_NO_4_BF1
+	db 3 percent, 3 percent, 3 percent
+	;morn
+	db 30, KABUTO
+	db 30, KABUTO
+	db 30, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	;day
+	db 30, KABUTO
+	db 30, KABUTO
+	db 30, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	;nite
+	db 30, KABUTO
+	db 30, KABUTO
+	db 30, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	
+	map FUKUHARA_NO_4_BF2
+	db 3 percent, 3 percent, 3 percent
+	;morn
+	db 30, KABUTO
+	db 30, KABUTO
+	db 30, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	;day
+	db 30, KABUTO
+	db 30, KABUTO
+	db 30, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	;nite
+	db 30, KABUTO
+	db 30, KABUTO
+	db 30, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+
+	map FUKUHARA_NO_4_BF3
+	db 3 percent, 3 percent, 3 percent
+	;morn
+	db 30, KABUTO
+	db 30, KABUTO
+	db 30, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	;day
+	db 30, KABUTO
+	db 30, KABUTO
+	db 30, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	;nite
+	db 30, KABUTO
+	db 30, KABUTO
+	db 30, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
+	db 31, KABUTO
 
 	db -1 ; end

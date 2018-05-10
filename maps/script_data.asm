@@ -231,6 +231,7 @@ INCLUDE "maps/AscorbiaIslandHouse2.asm"
 INCLUDE "maps/AscorbiaIslandRoute63Gate.asm"
 INCLUDE "maps/AscorbiaIslandMart.asm"
 INCLUDE "maps/AscorbiaIslandCenter.asm"
+INCLUDE "maps/HeartScaleCove.asm"
 
 SECTION "Butwal Scripts", ROMX
 
@@ -241,6 +242,14 @@ SECTION "Kumquat Scripts", ROMX
 	
 INCLUDE "maps/KumquatIslandEast.asm"
 INCLUDE "maps/KumquatIslandWest.asm"
+
+SECTION "Rind Scripts", ROMX
+
+INCLUDE "maps/RindIsland.asm"
+
+SECTION "Unnamed Island 3 Scripts", ROMX
+
+INCLUDE "maps/UnnamedIsland3.asm"
 
 SECTION "Pummelo Scripts", ROMX
 
@@ -261,6 +270,19 @@ SECTION "Vermilion Scripts", ROMX
 
 INCLUDE "maps/VermilionCity.asm"
 
+SECTION "Fuschia Scripts", ROMX
+
+INCLUDE "maps/SafariZone.asm"
+INCLUDE "maps/FuchsiaCity.asm"
+INCLUDE "maps/CyberSpace.asm"
+
+SECTION "Kanto Route Scripts", ROMX
+
+INCLUDE "maps/Route15.asm"
+INCLUDE "maps/Route14.asm"
+INCLUDE "maps/Route13.asm"
+INCLUDE "maps/Route12.asm"
+INCLUDE "maps/Route11.asm"
 
 SECTION "Route Scripts 1", ROMX
 
@@ -304,11 +326,15 @@ INCLUDE "maps/Route62MandarinDesertGate.asm"
 INCLUDE "maps/Route57North.asm"
 INCLUDE "maps/Route63EastWest.asm"
 INCLUDE "maps/Route63NorthSouth.asm"
+
+SECTION "Route Scripts 5", ROMX
 INCLUDE "maps/Route64.asm"
 INCLUDE "maps/Route65.asm"
 INCLUDE "maps/Route66EastWest.asm"
 INCLUDE "maps/Route66NorthSouth.asm"
 INCLUDE "maps/Route67.asm"
+INCLUDE "maps/Route68.asm"
+INCLUDE "maps/Route69South.asm"
 
 SECTION "Fukuhara No 4 Scripts", ROMX
 

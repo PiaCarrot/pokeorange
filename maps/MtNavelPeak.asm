@@ -23,6 +23,7 @@ DannyScript:
 	pause 60
 	special Special_FadeInQuickly
 	special RestartMapMusic
+	blackoutmod NAVEL_ISLAND
 	opentext
 	writetext LetsBattleDanny
 	winlosstext DannyWinLossText, 0
