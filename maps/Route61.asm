@@ -100,11 +100,11 @@ Route61_MapEventHeader::
 	warp_def 5, 31, 7, GOLDEN_ISLAND_GATE_HOUSE
 
 .CoordEvents: db 2
-	xy_trigger 1, 35, 42, Route61BridgeOverheadTrigger
-	xy_trigger 0, 35, 43, Route61BridgeUnderfootTrigger
+	xy_trigger 1, 35, 42, Route61BridgeOverheadTrigger, , , 
+	xy_trigger 0, 35, 43, Route61BridgeUnderfootTrigger, , , 
 
 .BGEvents: db 1
-	signpost 46, 32, SIGNPOST_READ, Route61Sign
+	signpost 42, 38, SIGNPOST_READ, Route61Sign
 
 .ObjectEvents: db 4
 	person_event SPRITE_SUPER_NERD, 14, 46, SPRITEMOVEDATA_SPINCLOCKWISE, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 3, TrainerPokemaniacKusato, -1
