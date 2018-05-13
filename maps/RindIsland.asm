@@ -6,12 +6,13 @@ RindIsland_MapScriptHeader:
 
 .MapCallbacks: db 0
 
-RindIsland_MapEventHeader:
+RindIsland_MapEventHeader::
 
 .Warps: db 0
 
-.XYTriggers: db 0
+.CoordEvents: db 0
 
-.Signposts: db 0
+.BGEvents: db 0
 
-.PersonEvents: db 0
+.ObjectEvents: db 0
+

@@ -132,16 +132,16 @@ if def(DEBUG)
 	giveitem MASTER_ROD
 	givemoney 0, 100000
 	opentext
-	givepoke LAPRAS, 30
-	givepoke CHARIZARD, 30
-	givepoke PIKACHU, 30, LIGHT_BALL
-	givepoke LUGIA, 30
-	givepoke MEW, 30
+	givepoke LAPRAS, 60
+	givepoke CHARIZARD, 60
+	givepoke PIKACHU, 60, LIGHT_BALL
+	givepoke LUGIA, 60
+	givepoke MEW, 60
 	closetext
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp SUNBURST_ISLAND, 10, 12
+	warp ROUTE_69_SOUTH, 20, 68
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

@@ -3,19 +3,23 @@ LoadSpecialMapPalette: ; 494ac
 
 	ld hl, PokeComPalette
 	cp TILESET_POKECOM_CENTER
-	jr z, LoadEightBGPalettes
+	jp z, LoadEightBGPalettes
 
 	ld hl, BattleTowerPalette
 	cp TILESET_BATTLE_TOWER
-	jr z, LoadEightBGPalettes
+	jp z, LoadEightBGPalettes
 
 	ld hl, IcePathPalette
 	cp TILESET_ICE_PATH
-	jr z, .ice_path
+	jp z, .ice_path
+	
+	ld hl, CrystalCavePalette
+	cp TILESET_CAVE
+	jp z, .crystal_cave
 
 	ld hl, UnderwaterPalette
 	cp TILESET_UNDERWATER
-	jr z, LoadEightBGPalettes
+	jp z, LoadEightBGPalettes
 
 	ld hl, HousePalette
 	cp TILESET_HOUSE_1
@@ -70,6 +74,19 @@ LoadSpecialMapPalette: ; 494ac
 	jr LoadEightBGPalettes
 ; 494f2
 
+
+.crystal_cave
+	ld a, [MapGroup]
+	cp GROUP_CRYSTAL_CAVE_1F
+	jr nz, .do_nothing
+	ld a, [MapNumber]
+	ld hl, CrystalCavePalette
+	cp MAP_CRYSTAL_CAVE_1F
+	jr z, LoadEightBGPalettes
+	cp MAP_CRYSTAL_CAVE_B1
+	jr z, LoadEightBGPalettes
+	jr .do_nothing
+	
 LoadEightTimeOfDayBGPalettes:
 	ld a, [hHours]
 	cp DUSK_HOUR
@@ -127,6 +144,9 @@ INCLUDE "tilesets/trovitopolis_sewer.pal"
 
 MayorsOfficePalette:
 INCLUDE "tilesets/mayors_office.pal"
+
+CrystalCavePalette:
+INCLUDE "tilesets/crystal_cave.pal"
 
 OutsideDuskPalette:
 INCLUDE "tilesets/dusk.pal"

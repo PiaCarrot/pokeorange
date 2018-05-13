@@ -170,19 +170,17 @@
 	connection east, RIND_ISLAND, RindIsland, -1, 2, 13, ROUTE_68
 	
 	map_header_2 UnnamedIsland3, UNNAMED_ISLAND_3, 53, NORTH | EAST
-	connection north, ROUTE_69_SOUTH, Route69South, 0, 0, 20, UNNAMED_ISLAND_3
+	connection north, ROUTE_69_SOUTH, Route69South, 7, 7, 8, UNNAMED_ISLAND_3
 	connection east, ROUTE_68, Route68, 11, 0, 9, UNNAMED_ISLAND_3
 	
-	map_header_2 Route69South, ROUTE_69_SOUTH, 53, NORTH | SOUTH
-	connection north, ROUTE_69_NORTH, Route69North, 6, 0, 14, ROUTE_69_SOUTH
-	connection south, UNNAMED_ISLAND_3, UnnamedIsland3, 0, 0, 20, ROUTE_69_SOUTH
+	map_header_2 Route69South, ROUTE_69_SOUTH, 53, SOUTH
+	connection south, UNNAMED_ISLAND_3, UnnamedIsland3, 7, 7, 8, ROUTE_69_SOUTH
 	
-	map_header_2 Route69North, ROUTE_69_NORTH, 53, SOUTH | EAST
-	connection south, ROUTE_69_SOUTH, Route69South, 0, 6, 14, ROUTE_69_NORTH
-	connection east, PUMMELO_ISLAND, PummeloIsland, 0, 14, 11, ROUTE_69_NORTH
+	map_header_2 Route69North, ROUTE_69_NORTH, 53, EAST
+	connection east, PUMMELO_ISLAND, PummeloIsland, -1, 13, 12, ROUTE_69_NORTH
 	
 	map_header_2 PummeloIsland, PUMMELO_ISLAND, 53, WEST
-	connection west, ROUTE_69_NORTH, Route69North, 14, 0, 11, PUMMELO_ISLAND
+	connection west, ROUTE_69_NORTH, Route69North, 14, 0, 13, PUMMELO_ISLAND
 	
 	map_header_2 VermilionCity, VERMILION_CITY, 6, EAST
 	connection east, ROUTE_11, Route11, 1, 0, 11, VERMILION_CITY
@@ -239,7 +237,7 @@
 	map_header_2 SunburstLargeHouse, SUNBURST_LARGE_HOUSE, 0, 0
 	map_header_2 SunburstSouthHouse, SUNBURST_SOUTH_HOUSE, 0, 0
 	map_header_2 SunburstCrystalShop, SUNBURST_CRYSTAL_SHOP, 0, 0
-	map_header_2 CrystalCave1F, CRYSTAL_CAVE_1F, $9, 0
+	map_header_2 CrystalCave1F, CRYSTAL_CAVE_1F, 9, 0
 	map_header_2 CrystalCaveB1, CRYSTAL_CAVE_B1, 9, 0
 	map_header_2 MandarinNorthPokeCenter, MANDARIN_NORTH_POKECENTER, 0, 0
 	map_header_2 MandarinNorthNameRater, MANDARIN_NORTH_NAME_RATER, 0, 0

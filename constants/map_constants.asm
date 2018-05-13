@@ -28,7 +28,7 @@ MAP_NONE EQU 0
 	mapgroup MT_NAVEL_2F, 18, 18
 	mapgroup MT_NAVEL_PEAK, 10, 10
 	mapgroup MT_NAVEL_ICE_ROCK, 3, 3
-	mapgroup CRYSTAL_CAVE_1F, 14, 17
+	mapgroup CRYSTAL_CAVE_1F, 16, 18
 	mapgroup CRYSTAL_CAVE_B1, 14, 18
 	mapgroup MANDARIN_DESERT, 25, 25
 	mapgroup SEWER_ENTRANCE, 3, 3
@@ -227,7 +227,7 @@ MAP_NONE EQU 0
 
 	newgroup ; 15
 	
-	mapgroup ROUTE_69_NORTH, 11, 14
+	mapgroup ROUTE_69_NORTH, 16, 14
 	mapgroup PUMMELO_ISLAND, 25, 27
 	mapgroup HALL_OF_FAME, 6, 7
 	
@@ -242,7 +242,7 @@ MAP_NONE EQU 0
 	mapgroup RIND_ISLAND, 22, 24
 	mapgroup ROUTE_68, 10, 14
 	mapgroup UNNAMED_ISLAND_3, 20, 20
-	mapgroup ROUTE_69_SOUTH, 45, 20
+	mapgroup ROUTE_69_SOUTH, 41, 20
 
 
 ; elevator floors

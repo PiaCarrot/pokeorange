@@ -36,7 +36,6 @@ _AnimateTileset:: ; fc000
 ; fc01b
 
 Tileset00Anim: ; 0xfc01b
-Tileset02Anim: ; 0xfc01b
 Tileset31Anim: ; 0xfc073
 	dw VTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
@@ -52,6 +51,7 @@ Tileset31Anim: ; 0xfc073
 ; 0xfc047
 
 Tileset01Anim: ; 0xfc0a3
+Tileset02Anim:
 	dw VTiles2 tile $7e, WriteTileToBuffer
 	dw RSEWaterFrames, AnimateRSEWaterTiles
 	dw DiveWaterFrames, AnimateDiveWaterTiles
