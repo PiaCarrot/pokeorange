@@ -138,7 +138,7 @@ endc
 	move HAZE,         EFFECT_HAZE,                0, STATUS,   ICE,      100, 30,   0
 	move REFLECT,      EFFECT_REFLECT,             0, STATUS,   PSYCHIC,  100, 20,   0
 	move FOCUS_ENERGY, EFFECT_FOCUS_ENERGY,        0, STATUS,   NORMAL,   100, 30,   0
-	move ROCK_BLAST,   EFFECT_MULTI_HIT,          10, PHYSICAL, ROCK,      90, 25,   0
+	move ROCK_BLAST,   EFFECT_MULTI_HIT,          25, PHYSICAL, ROCK,      90, 10,   0
 	move METRONOME,    EFFECT_METRONOME,           0, STATUS,   NORMAL,   100, 10,   0
 	move MIRROR_MOVE,  EFFECT_MIRROR_MOVE,         0, STATUS,   FLYING,   100, 20,   0
 	move SELFDESTRUCT, EFFECT_EXPLOSION,         200, PHYSICAL, NORMAL,   100,  5,   0
