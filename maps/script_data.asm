@@ -237,6 +237,8 @@ SECTION "Butwal Scripts", ROMX
 
 INCLUDE "maps/ButwalIslandEast.asm"
 INCLUDE "maps/ButwalIslandWest.asm"
+INCLUDE "maps/ButwalIslandUnderwaterEast.asm"
+INCLUDE "maps/ButwalIslandUnderwaterWest.asm"
 
 SECTION "Kumquat Scripts", ROMX
 	
@@ -255,6 +257,7 @@ SECTION "Pummelo Scripts", ROMX
 
 INCLUDE "maps/PummeloIsland.asm"
 INCLUDE "maps/HallOfFame.asm"
+INCLUDE "maps/PummeloStadium.asm"
 
 
 SECTION "Pallet Scripts", ROMX
@@ -275,6 +278,10 @@ SECTION "Fuschia Scripts", ROMX
 INCLUDE "maps/SafariZone.asm"
 INCLUDE "maps/FuchsiaCity.asm"
 INCLUDE "maps/CyberSpace.asm"
+
+SECTION "Cinnabar Scripts", ROMX
+
+INCLUDE "maps/CinnabarIsland.asm"
 
 SECTION "Kanto Route Scripts", ROMX
 

@@ -135,6 +135,7 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_12, 26, 12
 	mapgroup ROUTE_11, 11, 22
 	mapgroup CYBER_SPACE, 10, 10
+	mapgroup CINNABAR_ISLAND, 20, 26
 
 	newgroup ; 8
 
@@ -177,6 +178,8 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_65, 14, 22
 	mapgroup BUTWAL_ISLAND_EAST, 22, 12
 	mapgroup HEART_SCALE_COVE, 13, 16
+	mapgroup BUTWAL_ISLAND_UNDERWATER_EAST, 12, 8
+	mapgroup BUTWAL_ISLAND_UNDERWATER_WEST, 12, 10
 
 	newgroup ; 10
 
@@ -230,6 +233,7 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_69_NORTH, 16, 14
 	mapgroup PUMMELO_ISLAND, 25, 27
 	mapgroup HALL_OF_FAME, 6, 7
+	mapgroup PUMMELO_STADIUM, 5, 7
 	
 	newgroup ;16
 	

@@ -49,6 +49,10 @@ LoadSpecialMapPalette: ; 494ac
 	cp TILESET_POWER_PLANT
 	jr z, LoadEightBGPalettes
 
+	ld hl, PummeloStadiumPalette
+	cp TILESET_GYM_1
+	jr z, LoadEightBGPalettes
+
 	ld a, [wPermission]
 	cp TOWN
 	jr z, .outside
@@ -144,6 +148,9 @@ INCLUDE "tilesets/trovitopolis_sewer.pal"
 
 MayorsOfficePalette:
 INCLUDE "tilesets/mayors_office.pal"
+
+PummeloStadiumPalette:
+INCLUDE "tilesets/pummelo_stadium.pal"
 
 CrystalCavePalette:
 INCLUDE "tilesets/crystal_cave.pal"

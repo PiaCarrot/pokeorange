@@ -389,6 +389,9 @@ Route67_BlockData:
 	
 PummeloIsland_BlockData:
 	INCBIN "maps/PummeloIsland.blk"
+	
+PummeloStadium_BlockData:
+	INCBIN "maps/PummeloStadium.blk"
 
 SECTION "Block Data 4", ROMX
 
@@ -460,3 +463,12 @@ Route69South_BlockData:
 	
 Route69North_BlockData:
 	INCBIN "maps/Route69North.blk"
+	
+ButwalIslandUnderwaterEast_BlockData:
+	INCBIN "maps/ButwalIslandUnderwaterEast.blk"
+
+ButwalIslandUnderwaterWest_BlockData:
+	INCBIN "maps/ButwalIslandUnderwaterWest.blk"
+	
+CinnabarIsland_BlockData:
+	INCBIN "maps/CinnabarIsland.blk"

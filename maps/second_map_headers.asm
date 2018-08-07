@@ -208,6 +208,8 @@
 	connection west, VERMILION_CITY, VermilionCity, -1, 0, 14, ROUTE_11
 	connection east, ROUTE_12, Route12, 3, 0, 6, ROUTE_11
 	
+	map_header_2 CinnabarIsland, CINNABAR_ISLAND, 65, 0
+	
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
 	map_header_2 Colosseum, COLOSSEUM, $0, 0
@@ -335,6 +337,9 @@
 	map_header_2 AscorbiaIslandCenter, ASCORBIA_ISLAND_CENTER, 0, 0
 	map_header_2 KinnowShowboat, KINNOW_SHOWBOAT, 2, 0
 	map_header_2 HeartScaleCove, HEART_SCALE_COVE, 9, 0
+	map_header_2 ButwalIslandUnderwaterEast, BUTWAL_ISLAND_UNDERWATER_EAST, 0, 0
+	map_header_2 ButwalIslandUnderwaterWest, BUTWAL_ISLAND_UNDERWATER_WEST, 0, 0
+	map_header_2 PummeloStadium, PUMMELO_STADIUM, 0, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

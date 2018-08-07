@@ -462,3 +462,6 @@ SailboatBottomSprite:
 
 UmbrellaSprite:
 	sprite_header UmbrellaSpriteGFX, 3, STANDING_SPRITE, PAL_OW_ROCK
+
+Spectator1Sprite:
+	sprite_header Spectator1SpriteGFX, 3, STANDING_SPRITE, PAL_OW_GREEN

@@ -119,6 +119,7 @@
 	const SPRITE_SAILBOAT_TOP          ; 73
 	const SPRITE_SAILBOAT_BOTTOM       ; 74
 	const SPRITE_UMBRELLA              ; 75
+	const SPRITE_SPECTATOR_1
 
 const_value SET $90
 SPRITE_POKEMON EQU const_value

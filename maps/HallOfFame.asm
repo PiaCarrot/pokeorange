@@ -3,14 +3,14 @@ const_value set 1
 
 HallOfFame_MapScriptHeader:
 
-.MapTriggers: db 1
-	maptrigger .Trigger0
+.MapTriggers: db 0 ;1
+;	maptrigger .Trigger0
 
 .MapCallbacks: db 0
 
-.Trigger0:
-	priorityjump HallOfFameScript
-	end
+;.Trigger0:
+;	priorityjump HallOfFameScript
+;	end
 
 HallOfFameScript:
 	follow HALLOFFAME_LANCE, PLAYER
@@ -97,7 +97,9 @@ HallOfFame_LanceText:
 
 HallOfFame_MapEventHeader:
 
-.Warps: db 0
+.Warps: db 2
+	warp_def 11, 6, 1, PUMMELO_ISLAND
+	warp_def 11, 7, 2, PUMMELO_ISLAND
 
 .XYTriggers: db 0
 

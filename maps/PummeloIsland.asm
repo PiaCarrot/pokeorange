@@ -92,7 +92,9 @@ PummeloIslandSign2Text:
 
 PummeloIsland_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 2
+	warp_def 21, 26, 1, HALL_OF_FAME
+	warp_def 21, 27, 2, HALL_OF_FAME
 
 .CoordEvents: db 0
 
