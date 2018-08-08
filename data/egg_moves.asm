@@ -13,6 +13,12 @@ BulbasaurEggMoves:
 	db LIGHT_SCREEN
 	db SAFEGUARD
 	db PETAL_DANCE
+	db CURSE
+	db AMNESIA
+	db CHARM
+	db GIGA_DRAIN
+	db SLUDGE
+	db SEED_BOMB
 	db $ff
 
 CharmanderEggMoves:
@@ -21,6 +27,9 @@ CharmanderEggMoves:
 	db ROCK_SLIDE
 	db BITE
 	db OUTRAGE
+	db CRUNCH
+	db DRAGON_PULSE
+	db SLAM
 	db $ff
 
 SquirtleEggMoves:
@@ -30,12 +39,19 @@ SquirtleEggMoves:
 	db CONFUSION
 	db FORESIGHT
 	db FLAIL
+	db DRAGON_PULSE
+	db AURORA_BEAM
+	db IRON_TAIL
 	db $ff
 
 PidgeyEggMoves:
 	db PURSUIT
 	db FAINT_ATTACK
 	db FORESIGHT
+	db STEEL_WING
+	db AERIAL_ACE
+	db PECK
+	db WING_ATTACK
 	db $ff
 
 RattataEggMoves:
@@ -45,6 +61,8 @@ RattataEggMoves:
 	db BITE
 	db COUNTER
 	db REVERSAL
+	db IRON_TAIL
+	db ZEN_HEADBUTT
 	db $ff
 
 SpearowEggMoves:
@@ -59,6 +77,9 @@ EkansEggMoves:
 	db PURSUIT
 	db SLAM
 	db CRUNCH
+	db IRON_TAIL
+	db SLUDGE
+	db SEED_BOMB
 	db $ff
 
 SandshrewEggMoves:
@@ -67,6 +88,9 @@ SandshrewEggMoves:
 	db COUNTER
 	db RAPID_SPIN
 	db METAL_CLAW
+	db ROCK_CLIMB
+	db SUPER_FANG
+	db IRON_TAIL
 	db $ff
 
 NidoranFEggMoves:
@@ -76,6 +100,8 @@ NidoranFEggMoves:
 	db FOCUS_ENERGY
 	db CHARM
 	db COUNTER
+	db IRON_TAIL
+	db SUPER_FANG
 	db $ff
 
 NidoranMEggMoves:
@@ -85,6 +111,8 @@ NidoranMEggMoves:
 	db CONFUSION
 	db AMNESIA
 	db COUNTER
+	db IRON_TAIL
+	db SUPER_FANG
 	db $ff
 
 VulpixEggMoves:
@@ -92,6 +120,8 @@ VulpixEggMoves:
 	db HYPNOSIS
 	db FLAIL
 	db DISABLE
+	db ICY_WIND
+	db CONFUSION
 	db $ff
 
 ZubatEggMoves:
@@ -99,6 +129,8 @@ ZubatEggMoves:
 	db PURSUIT
 	db FAINT_ATTACK
 	db GUST
+	db GIGA_DRAIN
+	db BUG_BITE
 	db WHIRLWIND
 	db $ff
 
@@ -107,6 +139,7 @@ OddishEggMoves:
 	db RAZOR_LEAF
 	db FLAIL
 	db SYNTHESIS
+	db SLUDGE
 	db $ff
 
 ParasEggMoves:
@@ -117,12 +150,15 @@ ParasEggMoves:
 	db FLAIL
 	db LIGHT_SCREEN
 	db PURSUIT
+	db BUG_BITE
 	db $ff
 
 VenonatEggMoves:
 	db BATON_PASS
 	db SCREECH
 	db GIGA_DRAIN
+	db CONFUSION
+	db BUG_BITE
 	db $ff
 
 DiglettEggMoves:
