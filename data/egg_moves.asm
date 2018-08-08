@@ -159,6 +159,7 @@ VenonatEggMoves:
 	db GIGA_DRAIN
 	db CONFUSION
 	db BUG_BITE
+	db SLUDGE_BOMB
 	db $ff
 
 DiglettEggMoves:
@@ -166,12 +167,21 @@ DiglettEggMoves:
 	db SCREECH
 	db ANCIENTPOWER
 	db PURSUIT
+	db ROCK_SLIDE
+	db METAL_CLAW
 	db $ff
 
 MeowthEggMoves:
 	db CHARM
 	db HYPNOSIS
 	db AMNESIA
+	db CRUNCH
+	db SHADOW_CLAW
+	db IRON_TAIL
+	db WATER_PULSE
+	db SEED BOMB
+	db ICY_WIND
+	db DOUBLE_KICK
 	db $ff
 
 PsyduckEggMoves:
@@ -190,6 +200,8 @@ MankeyEggMoves:
 	db FORESIGHT
 	db COUNTER
 	db REVERSAL
+	db OUTRAGE
+	
 	db $ff
 
 GrowlitheEggMoves:
@@ -198,6 +210,8 @@ GrowlitheEggMoves:
 	db CRUNCH
 	db THRASH
 	db FIRE_SPIN
+	db DOUBLE_KICK
+	db IRON_TAIL
 	db $ff
 
 PoliwagEggMoves:
@@ -206,12 +220,17 @@ PoliwagEggMoves:
 	db BUBBLEBEAM
 	db HAZE
 	db LOCK_ON ; MIND_READER
+	db MUD_SLAP
+	db ICY_WIND
+	db ROLLOUT
 	db $ff
 
 AbraEggMoves:
 	db LIGHT_SCREEN
 	db ENCORE
 	db BARRIER
+	db CONFUSION
+	db PSYBEAM
 	db $ff
 
 MachopEggMoves:
