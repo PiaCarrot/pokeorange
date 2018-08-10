@@ -1496,30 +1496,48 @@ DodrioEvosAttacks:
 SeelEvosAttacks:
 	db EVOLVE_LEVEL, 34, DEWGONG
 	db 0 ; no more evolutions
-	db 1, HEADBUTT
-	db 9, GROWL
-	db 17, ICY_WIND
-	db 21, AURORA_BEAM
-	db 29, REST
-	db 37, TAKE_DOWN
-	db 41, ICE_BEAM
-	db 49, SAFEGUARD
+	db 1, TACKLE
+	db 1, BUBBLE
+	db 4, GROWL
+	db 7, WATER_GUN
+	db 10, ICY_WIND
+	db 13, ENCORE
+	db 17, HEADBUTT
+	db 21, REST
+	db 24, AURORA_BEAM
+	db 28, BODY_SLAM
+	db 31, WATER_PULSE
+	db 33, SAFEGUARD
+	db 36, ICE_BEAM
+	db 39, HAIL
+	db 41, TAKE_DOWN
+	db 44, HYDRO_PUMP
+	db 48, BLIZZARD
 	db 0 ; no more level-up moves
 
 DewgongEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, TACKLE
 	db 1, HEADBUTT
 	db 1, GROWL
 	db 1, ICY_WIND
 	db 1, AURORA_BEAM
-	db 9, GROWL
-	db 17, ICY_WIND
-	db 21, AURORA_BEAM
-	db 29, REST
-	db 34, HORN_DRILL ; SHEER_COLD
-	db 42, TAKE_DOWN
-	db 51, ICE_BEAM
-	db 64, SAFEGUARD
+	db 1, HORN_DRILL
+	db 4, GROWL
+	db 7, WATER_GUN
+	db 10, ICY_WIND
+	db 13, ENCORE
+	db 17, HEADBUTT
+	db 21, REST
+	db 24, AURORA_BEAM
+	db 28, BODY_SLAM
+	db 31, WATER_PULSE
+	db 33, SAFEGUARD
+	db 38, ICE_BEAM
+	db 42, HAIL
+	db 44, TAKE_DOWN
+	db 50, HYDRO_PUMP
+	db 55, BLIZZARD
 	db 0 ; no more level-up moves
 
 GrimerEvosAttacks:
@@ -1527,14 +1545,20 @@ GrimerEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
 	db 1, TACKLE ; POUND
-	db 5, HARDEN
-	db 10, DISABLE
-	db 16, SLUDGE
-	db 23, MINIMIZE
-	db 31, SCREECH
-	db 36, FAINT_ATTACK
-	db 40, ACID_ARMOR
-	db 50, SLUDGE_BOMB
+	db 4, HARDEN
+	db 7, DISABLE
+	db 10, BITE
+	db 13, ACID
+	db 16, FAINT_ATTACK
+	db 20, SLUDGE
+	db 24, MINIMIZE
+	db 27, BODY_SLAM
+	db 30, SCREECH
+	db 34, CRUNCH
+	db 37, ACID_ARMOR
+	db 39, POISON_JAB
+	db 43, DARK_PULSE
+	db 46, SLUDGE_BOMB
 	db 0 ; no more level-up moves
 
 MukEvosAttacks:
@@ -1542,27 +1566,41 @@ MukEvosAttacks:
 	db 1, POISON_GAS
 	db 1, TACKLE ; POUND
 	db 1, HARDEN
-	db 33, HARDEN
-	db 37, DISABLE
-	db 45, SLUDGE
-	db 23, MINIMIZE
-	db 31, SCREECH
-	db 39, FAINT_ATTACK
-	db 45, ACID_ARMOR
-	db 60, SLUDGE_BOMB
+	db 4, HARDEN
+	db 7, DISABLE
+	db 10, BITE
+	db 13, ACID
+	db 16, FAINT_ATTACK
+	db 20, SLUDGE
+	db 24, MINIMIZE
+	db 27, BODY_SLAM
+	db 30, SCREECH
+	db 34, CRUNCH
+	db 37, ACID_ARMOR
+	db 43, POISON_JAB
+	db 47, DARK_PULSE
+	db 51, SLUDGE_BOMB
 	db 0 ; no more level-up moves
 
 ShellderEvosAttacks:
 	db EVOLVE_ITEM, WATER_STONE, CLOYSTER
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, WITHDRAW
-	db 9, SUPERSONIC
-	db 17, AURORA_BEAM
-	db 25, PROTECT
-	db 33, LEER
-	db 41, CLAMP
-	db 49, ICE_BEAM
+	db 1, WATER_GUN
+	db 1, VICEGRIP
+	db 4, WITHDRAW
+	db 8, SUPERSONIC
+	db 10, LICK
+	db 13, ICY_WIND
+	db 16, PROTECT
+	db 20, BUBBLEBEAM
+	db 23, MINIMIZE
+	db 25, CLAMP
+	db 28, AURORA_BEAM
+	db 32, MIRROR_COAT
+	db 35, WATER_PULSE
+	db 39, ICE_BEAM
+	db 44, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 CloysterEvosAttacks:
@@ -1570,9 +1608,25 @@ CloysterEvosAttacks:
 	db 1, WITHDRAW
 	db 1, SUPERSONIC
 	db 1, AURORA_BEAM
+	db 1, HYDRO_PUMP
 	db 1, PROTECT
-	db 33, SPIKES
-	db 41, SPIKE_CANNON
+	db 1, VICEGRIP
+	db 1, SPIKE_CANNON
+	db 1, ROCK_BLAST
+	db 4, WITHDRAW
+	db 8, SUPERSONIC
+	db 10, LICK
+	db 13, ICY_WIND
+	db 16, PROTECT
+	db 20, BUBBLEBEAM
+	db 23, MINIMIZE
+	db 25, CLAMP
+	db 28, AURORA_BEAM
+	db 35, MIRROR_COAT
+	db 38, WATER_PULSE
+	db 42, ICE_BEAM
+	db 47, HYDRO_PUMP
+	db 52, BLIZZARD
 	db 0 ; no more level-up moves
 
 GastlyEvosAttacks:

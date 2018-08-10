@@ -324,20 +324,37 @@ SeelEggMoves:
 	db PECK
 	db SLAM
 	db ENCORE
+	db IRON_TAIL
+	db SIGNAL_BEAM
+	db HORN_DRILL
+	db WATER_PULSE
+	db SLEEP_TALK
 	db $ff
 
 GrimerEggMoves:
 	db HAZE
 	db MEAN_LOOK
 	db LICK
+	db POWERUPPUNCH
+	db CURSE
+	db SHADOW_SNEAK
+	db SHADOW_CLAW
+	db CRUNCH
+	db THIEF
 	db $ff
 
 ShellderEggMoves:
 	db BUBBLEBEAM
 	db TAKE_DOWN
 	db BARRIER
+	db ICY_WIND
 	db RAPID_SPIN
-	db SCREECH
+	db CLAMP
+	db AURORA_BEAM
+	db SPIKE_CANNON
+	db ROCK_BLAST
+	db TWINEEDLE
+	db OCTAZOOKA
 	db $ff
 
 GastlyEggMoves:

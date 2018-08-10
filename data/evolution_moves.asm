@@ -85,11 +85,11 @@ EvolutionMoves::
 	db NO_MOVE      ; DODUO
 	db TRI_ATTACK   ; DODRIO
 	db NO_MOVE      ; SEEL
-	db NO_MOVE      ; DEWGONG
+	db HORN_DRILL   ; DEWGONG
 	db NO_MOVE      ; GRIMER
 	db NO_MOVE      ; MUK
 	db NO_MOVE      ; SHELLDER
-	db SPIKES       ; CLOYSTER
+	db SPIKE_CANNON ; CLOYSTER
 	db NO_MOVE      ; GASTLY
 	db SHADOW_CLAW  ; HAUNTER
 	db SHADOW_CLAW  ; GENGAR
