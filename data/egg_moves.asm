@@ -140,6 +140,8 @@ OddishEggMoves:
 	db FLAIL
 	db SYNTHESIS
 	db SLUDGE
+	db SEED_BOMB
+	db MOONLIGHT
 	db $ff
 
 ParasEggMoves:
@@ -159,6 +161,7 @@ VenonatEggMoves:
 	db GIGA_DRAIN
 	db CONFUSION
 	db BUG_BITE
+	db SLUDGE_BOMB
 	db $ff
 
 DiglettEggMoves:
@@ -166,12 +169,21 @@ DiglettEggMoves:
 	db SCREECH
 	db ANCIENTPOWER
 	db PURSUIT
+	db ROCK_SLIDE
+	db METAL_CLAW
 	db $ff
 
 MeowthEggMoves:
 	db CHARM
 	db HYPNOSIS
 	db AMNESIA
+	db CRUNCH
+	db SHADOW_CLAW
+	db IRON_TAIL
+	db WATER_PULSE
+	db SEED BOMB
+	db ICY_WIND
+	db DOUBLE_KICK
 	db $ff
 
 PsyduckEggMoves:
@@ -190,6 +202,8 @@ MankeyEggMoves:
 	db FORESIGHT
 	db COUNTER
 	db REVERSAL
+	db OUTRAGE
+	db MACH_PUNCH
 	db $ff
 
 GrowlitheEggMoves:
@@ -198,6 +212,8 @@ GrowlitheEggMoves:
 	db CRUNCH
 	db THRASH
 	db FIRE_SPIN
+	db DOUBLE_KICK
+	db IRON_TAIL
 	db $ff
 
 PoliwagEggMoves:
@@ -206,17 +222,32 @@ PoliwagEggMoves:
 	db BUBBLEBEAM
 	db HAZE
 	db LOCK_ON ; MIND_READER
+	db MUD_SLAP
+	db ICY_WIND
+	db ROLLOUT
 	db $ff
 
 AbraEggMoves:
 	db LIGHT_SCREEN
 	db ENCORE
 	db BARRIER
+	db CONFUSION
+	db PSYBEAM
+	db ICE_PUNCH
+	db FIRE_PUNCH
+	db THUNDERPUNCH
+	db CONFUSE_RAY
 	db $ff
 
 MachopEggMoves:
 	db LIGHT_SCREEN
 	db ENCORE
+	db FIRE_PUNCH
+	db ICE_PUNCH
+	db THUNDERPUNCH
+	db MACH_PUNCH
+	db KARATE_CHOP
+	db POWERUPPUNCH
 	db $ff
 
 BellsproutEggMoves:
@@ -225,6 +256,8 @@ BellsproutEggMoves:
 	db REFLECT
 	db SYNTHESIS
 	db LEECH_LIFE
+	db GIGA_DRAIN
+	db BULLET_SEED
 	db $ff
 
 TentacoolEggMoves:
@@ -233,10 +266,18 @@ TentacoolEggMoves:
 	db RAPID_SPIN
 	db HAZE
 	db SAFEGUARD
+	db RECOVER
+	db GIGA_DRAIN
+	db CONFUSE_RAY
 	db $ff
 
 GeodudeEggMoves:
 	db ROCK_SLIDE
+	db SPARK
+	db ROCK_CLIMB
+	db DIG
+	db FIRE_PUNCH
+	db THUNDERPUNCH
 	db $ff
 
 PonytaEggMoves:
@@ -245,6 +286,7 @@ PonytaEggMoves:
 	db DOUBLE_KICK
 	db HYPNOSIS
 	db CHARM
+	db MORNING_SUN
 	db QUICK_ATTACK
 	db $ff
 
@@ -253,6 +295,9 @@ SlowpokeEggMoves:
 	db BELLY_DRUM
 	db FUTURE_SIGHT
 	db STOMP
+	db SLEEP_TALK
+	db REST
+	db PSYBEAM
 	db $ff
 
 FarfetchDEggMoves:
@@ -269,6 +314,7 @@ DoduoEggMoves:
 	db HAZE
 	db FAINT_ATTACK
 	db FLAIL
+	db STEEL_WING
 	db $ff
 
 SeelEggMoves:
@@ -278,20 +324,37 @@ SeelEggMoves:
 	db PECK
 	db SLAM
 	db ENCORE
+	db IRON_TAIL
+	db SIGNAL_BEAM
+	db HORN_DRILL
+	db WATER_PULSE
+	db SLEEP_TALK
 	db $ff
 
 GrimerEggMoves:
 	db HAZE
 	db MEAN_LOOK
 	db LICK
+	db POWERUPPUNCH
+	db CURSE
+	db SHADOW_SNEAK
+	db SHADOW_CLAW
+	db CRUNCH
+	db THIEF
 	db $ff
 
 ShellderEggMoves:
 	db BUBBLEBEAM
 	db TAKE_DOWN
 	db BARRIER
+	db ICY_WIND
 	db RAPID_SPIN
-	db SCREECH
+	db CLAMP
+	db AURORA_BEAM
+	db SPIKE_CANNON
+	db ROCK_BLAST
+	db TWINEEDLE
+	db OCTAZOOKA
 	db $ff
 
 GastlyEggMoves:
