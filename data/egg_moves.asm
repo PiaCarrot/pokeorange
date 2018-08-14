@@ -181,7 +181,7 @@ MeowthEggMoves:
 	db SHADOW_CLAW
 	db IRON_TAIL
 	db WATER_PULSE
-	db SEED BOMB
+	db SEED_BOMB
 	db ICY_WIND
 	db DOUBLE_KICK
 	db $ff

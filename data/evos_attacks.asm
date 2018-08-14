@@ -612,7 +612,7 @@ VulpixEvosAttacks:
 	db 23, FAINT_ATTACK
 	db 28, AURORA_BEAM
 	db 31, PSYBEAM
-	db 34, ICE BEAM
+	db 34, ICE_BEAM
 	db 36, SAFEGUARD
 	db 42, BLIZZARD
 	db 0 ; no more level-up moves
@@ -1587,7 +1587,6 @@ ShellderEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, WATER_GUN
-	db 1, VICEGRIP
 	db 4, WITHDRAW
 	db 8, SUPERSONIC
 	db 10, LICK
@@ -1610,7 +1609,6 @@ CloysterEvosAttacks:
 	db 1, AURORA_BEAM
 	db 1, HYDRO_PUMP
 	db 1, PROTECT
-	db 1, VICEGRIP
 	db 1, SPIKE_CANNON
 	db 1, ROCK_BLAST
 	db 4, WITHDRAW
