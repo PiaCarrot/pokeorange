@@ -1432,7 +1432,7 @@ MagnetonEvosAttacks:
 	db 40, THUNDERBOLT
 	db 43, SELFDESTRUCT
 	db 47, SCREECH
-	db , ZAP_CANNON
+	db 52, ZAP_CANNON
 	db 0 ; no more level-up moves
 
 FarfetchDEvosAttacks:
