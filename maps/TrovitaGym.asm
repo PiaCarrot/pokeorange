@@ -267,16 +267,6 @@ TrovitaGymGuyWinText:
 	line "go, kid!"
 	done
 	
-PiaCarrotBetaScript:
-	faceplayer
-	opentext
-	writetext PiaCarrotText
-	waitbutton
-	verbosegiveitem HM_DIVE
-	verbosegiveitem HM_ROCK_CLIMB
-	closetext
-	end
-	
 PiaCarrotText:
 	text "PIA CARROT: Thanks"
 	line "for playing the"
@@ -307,5 +297,3 @@ TrovitaGym_MapEventHeader::
 	person_event SPRITE_COOLTRAINER_F, 5, 3, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_TRAINER, 3, CooltrainerAiriScript, -1
 	person_event SPRITE_COOLTRAINER_M, 5, 6, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, PERSONTYPE_TRAINER, 3, CooltrainerKatsuoScript, -1
 	person_event SPRITE_COOLTRAINER_M, 7, 3, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_TRAINER, 3, CooltrainerSonScript, -1
-	person_event SPRITE_PHARMACIST, 13, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, PiaCarrotBetaScript, -1
-
