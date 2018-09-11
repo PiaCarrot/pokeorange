@@ -289,6 +289,7 @@ SPRITEMOVEDATA_FIELDS EQU 6
 	const PERSON_ACTION_SAILBOAT_BOTTOM ; 11
 	const PERSON_ACTION_UMBRELLA_LEFT   ; 12
 	const PERSON_ACTION_UMBRELLA_RIGHT  ; 13
+	const PERSON_ACTION_RUN             ; 14
 
 ; see engine/facings.asm:Facings
 	const_def

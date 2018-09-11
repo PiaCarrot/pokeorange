@@ -19,6 +19,7 @@ Pointers445f: ; 445f
 	dw SetFacingSailboatBottom,        SetFacingSailboatBottom ; PERSON_ACTION_SAILBOAT_BOTTOM
 	dw SetFacingUmbrellaLeft,          SetFacingUmbrellaLeft   ; PERSON_ACTION_UMBRELLA_LEFT
 	dw SetFacingUmbrellaRight,         SetFacingUmbrellaRight  ; PERSON_ACTION_UMBRELLA_RIGHT
+	dw SetFacingRunAction,             SetFacingCurrent        ; PERSON_ACTION_RUN
 ; 44a3
 
 SetFacingStanding: ; 44a3
@@ -53,49 +54,11 @@ SetFacingStepAction: ; 44c1
 
 	ld hl, OBJECT_STEP_FRAME
 	add hl, bc
+	inc [hl]
 	ld a, [hl]
-	inc a
-	and %00001111
-	ld [hl], a
-	ld e, a
-	ld hl, OBJECT_FACING_STEP
-	add hl, bc
-	ld d, [hl]
-	ld hl, OBJECT_DIRECTION_WALKING
-	add hl, bc
-	ld a, [hl]
-	cp $ff
-	jr z, .bitTwoAndThree
-	cp (STEP_SLOW << 2 | RIGHT) + 1
-	jr c, .slowStep
-	cp (3 << 2 | DOWN)
-	jr nc, .runningStep
-; walking speed
-	ld a, e
-	and %111
-	jr nz, .continue
-	inc d
-	jr .continue
-.slowStep
-	ld a, e
-	and %1111
-	jr nz, .continue
-	inc d
-	jr .continue
-.runningStep
-	ld a, e
-	and %11
-	jr nz, .continue
-	inc d
-	jr .continue
-.bitTwoAndThree
-	ld a, e
 	rrca
 	rrca
-	ld d, a
-
-.continue
-	ld a, d
+	rrca
 	and %11
 	ld d, a
 	call GetSpriteDirection
@@ -355,4 +318,25 @@ SetFacingUmbrellaRight:
 	ld hl, OBJECT_FACING_STEP
 	add hl, bc
 	ld [hl], FACING_UMBRELLA_RIGHT
+	ret
+
+SetFacingRunAction:
+	ld hl, OBJECT_FLAGS1
+	add hl, bc
+	bit SLIDING, [hl]
+	jp nz, SetFacingCurrent
+
+	ld hl, OBJECT_STEP_FRAME
+	add hl, bc
+	inc [hl]
+	ld a, [hl]
+	rrca
+	rrca
+	and %11
+	ld d, a
+	call GetSpriteDirection
+	or d
+	ld hl, OBJECT_FACING_STEP
+	add hl, bc
+	ld [hl], a
 	ret
