@@ -471,79 +471,83 @@ TurnHead: ; 52ee
 
 Movement_slow_step_down: ; 5300
 	ld a, STEP_SLOW << 2 | DOWN
-	jp NormalStep
+	jr Movement_do_step
 ; 5305
 
 Movement_slow_step_up: ; 5305
 	ld a, STEP_SLOW << 2 | UP
-	jp NormalStep
+	jr Movement_do_step
 ; 530a
 
 Movement_slow_step_left: ; 530a
 	ld a, STEP_SLOW << 2 | LEFT
-	jp NormalStep
+	jr Movement_do_step
 ; 530f
 
 Movement_slow_step_right: ; 530f
 	ld a, STEP_SLOW << 2 | RIGHT
-	jp NormalStep
+	jr Movement_do_step
 ; 5314
 
 Movement_step_down: ; 5314
 	ld a, STEP_WALK << 2 | DOWN
-	jp NormalStep
+	jr Movement_do_step
 ; 5319
 
 Movement_step_up: ; 5319
 	ld a, STEP_WALK << 2 | UP
-	jp NormalStep
+	jr Movement_do_step
 ; 531e
 
 Movement_step_left: ; 531e
 	ld a, STEP_WALK << 2 | LEFT
-	jp NormalStep
+	jr Movement_do_step
 ; 5323
 
 Movement_step_right: ; 5323
 	ld a, STEP_WALK << 2 | RIGHT
-	jp NormalStep
+	jr Movement_do_step
 ; 5328
 
 Movement_big_step_down: ; 5328
 	ld a, STEP_BIKE << 2 | DOWN
-	jp NormalStep
+	jr Movement_do_step
 ; 532d
 
 Movement_big_step_up: ; 532d
 	ld a, STEP_BIKE << 2 | UP
-	jp NormalStep
+	jr Movement_do_step
 ; 5332
 
 Movement_big_step_left: ; 5332
 	ld a, STEP_BIKE << 2 | LEFT
-	jp NormalStep
+	jr Movement_do_step
 ; 5337
 
 Movement_big_step_right: ; 5337
 	ld a, STEP_BIKE << 2 | RIGHT
+Movement_do_step:
+	ld d, PERSON_ACTION_STEP
+Movement_normal_step:
 	jp NormalStep
-; 533c
 
 Movement_run_step_down:
 	ld a, $3 << 2 | DOWN  ; STEP_RUN
-	jp NormalStep
+	jr Movement_do_run
 
 Movement_run_step_up:
 	ld a, $3 << 2 | UP    ; STEP_RUN
-	jp NormalStep
+	jr Movement_do_run
 
 Movement_run_step_left:
 	ld a, $3 << 2 | LEFT  ; STEP_RUN
-	jp NormalStep
+	jr Movement_do_run
 
 Movement_run_step_right:
 	ld a, $3 << 2 | RIGHT ; STEP_RUN
-	jp NormalStep
+Movement_do_run:
+	ld d, PERSON_ACTION_RUN
+	jr Movement_normal_step
 
 Movement_turn_away_down: ; 533c
 	ld a, STEP_SLOW << 2 | DOWN
@@ -760,11 +764,13 @@ TurnStep: ; 5400
 ; 5412
 
 NormalStep: ; 5412
+	push de
 	call InitStep
 	call UpdateTallGrassFlags
 	ld hl, OBJECT_ACTION
 	add hl, bc
-	ld [hl], PERSON_ACTION_STEP
+	pop de
+	ld [hl], d
 
 	ld hl, OBJECT_NEXT_TILE
 	add hl, bc
