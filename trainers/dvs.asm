@@ -90,7 +90,7 @@ TrainerClassDVs: ; 270d6
 ;	db $98, $88 ; biker
 ;	db $98, $88 ; firebreather
 ;	db $98, $88 ; juggler
-;	db $98, $88 ; blackbelt
+	db $98, $88 ; blackbelt
 ;	db $98, $88 ; psychic
 ;	db $6A, $A8 ; picnicker
 ;	db $98, $88 ; sage
@@ -184,3 +184,4 @@ TrainerClassPersonalities:
 	db MALE_MASK   ; Kurt
 	db MALE_MASK   ; Jason
 	db FEMALE_MASK   ; Alice
+	db MALE_MASK ;blackbelt

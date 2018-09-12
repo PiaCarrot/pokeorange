@@ -479,15 +479,15 @@ InitRoamMons: ; 2a2a0
 ; initialize wRoamMon structs
 
 ; species
-	ld a, CUTIEFLY
+	ld a, LATIAS
 	ld [wRoamMon1Species], a
-	ld a, RIBOMBEE
+	ld a, LATIOS
 	ld [wRoamMon2Species], a
 ;	ld a, TANGROWTH
 ;	ld [wRoamMon3Species], a
 
 ; level
-	ld a, 40
+	ld a, 70
 	ld [wRoamMon1Level], a
 	ld [wRoamMon2Level], a
 ;	ld [wRoamMon3Level], a

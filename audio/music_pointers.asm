@@ -133,4 +133,5 @@
 	dba Music_XdBattleSimTheme
 	dba Music_Route119
 	dba Music_SunnyShore
+	dba Music_MarineTube
 ; e91a3

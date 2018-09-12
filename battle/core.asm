@@ -773,6 +773,8 @@ OftenFleeMons: ; 3c5a8
 	db -1
 
 AlwaysFleeMons: ; 3c5b1
+	db LATIAS
+	db LATIOS
 	db -1
 ; 3c5b4
 
@@ -5969,10 +5971,10 @@ LoadEnemyMon: ; 3e8eb
 ; Intended behavior enforces a minimum size at Lake of Rage
 ; The real behavior prevents size flooring in the Lake of Rage area
 	ld a, [MapGroup]
-	cp a, GROUP_VALENCIA_ISLAND
+	cp a, GROUP_RIND_ISLAND
 	jr z, .Happiness
 	ld a, [MapNumber]
-	cp a, MAP_VALENCIA_ISLAND
+	cp a, MAP_RIND_ISLAND
 	jr z, .Happiness
 ; 40% chance of not flooring
 	call Random

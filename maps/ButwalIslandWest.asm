@@ -2,7 +2,12 @@ ButwalIslandWest_MapScriptHeader::
 
 .Triggers: db 0
 
-.Callbacks: db 0
+.Callbacks: db 1
+	dbw MAPCALLBACK_NEWMAP, .InitializeDiveMap
+
+.InitializeDiveMap:
+	divemap BUTWAL_ISLAND_UNDERWATER_WEST, -12, 2
+	return
 
 ButwalIslandWest_MapEventHeader::
 

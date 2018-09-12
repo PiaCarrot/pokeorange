@@ -3,6 +3,7 @@ const_value set 1
 	const ROUTE_64_CROSS
 	const ROUTE_64_TRACEY
 	const ROUTE_64_FRUIT_TREE
+	const ROUTE_64_YOUNGSTER
 
 Route64_MapScriptHeader::
 
@@ -141,6 +142,21 @@ ROUTE_64_TRACEY_MOVEMENT:
 	step RIGHT
 	step_end
 
+Route64YoungsterScript:
+	jumptextfaceplayer Route64YoungsterText
+
+Route64YoungsterText:
+	text "There's two weird"
+	line "guys that sit on"
+	cont "BUTWAL ISLAND all"
+	cont "day."
+	
+	para "I'd be careful,"
+	line "they don't like"
+	cont "other trainers"
+	cont "on their turf."
+	done
+	
 Route64_MapEventHeader::
 
 .Warps: db 1
@@ -155,9 +171,10 @@ Route64_MapEventHeader::
 	signpost 7, 20, SIGNPOST_ITEM, Route64_HiddenHeartScale4
 	signpost 19, 23, SIGNPOST_READ, Route64Sign
 
-.ObjectEvents: db 4
+.ObjectEvents: db 5
 	person_event SPRITE_POKE_BALL, 4, 36, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route64UltraBall, EVENT_ROUTE_64_ULTRA_BALL
 	person_event SPRITE_ROCKER, 16, 23, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_64_TRACEYCROSS
 	person_event SPRITE_TRACEY, 16, 24, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, Route64TraceyCrossEvent, EVENT_ROUTE_64_TRACEYCROSS
 	person_event SPRITE_FRUIT_TREE, 7, 24, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route64FruitTree, -1
+	person_event SPRITE_YOUNGSTER, 16, 14, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route64YoungsterScript, -1
 

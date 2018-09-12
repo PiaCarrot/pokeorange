@@ -82,6 +82,10 @@ TrainerEncounterMusic: ; e9027
 	db MUSIC_YOUNGSTER_ENCOUNTER	; bird_keeper
 	db MUSIC_LOOK_GLADION           ; cross
 	db MUSIC_POKEMANIAC_ENCOUNTER   ; otaku
+	db MUSIC_LASS_ENCOUNTER ;jace
+	db MUSIC_LASS_ENCOUNTER ;kurt
+	db MUSIC_LASS_ENCOUNTER ;jason
+	db MUSIC_LASS_ENCOUNTER ;alice
 ;	db MUSIC_HIKER_ENCOUNTER		; gentleman
 ;	db MUSIC_BEAUTY_ENCOUNTER		; teacher
 ;	db MUSIC_HIKER_ENCOUNTER		; sailor
@@ -90,7 +94,7 @@ TrainerEncounterMusic: ; e9027
 ;	db MUSIC_HIKER_ENCOUNTER		; biker
 ;	db MUSIC_HIKER_ENCOUNTER		; firebreather
 ;	db MUSIC_POKEMANIAC_ENCOUNTER	; juggler
-;	db MUSIC_HIKER_ENCOUNTER		; blackbelt_t
+	db MUSIC_HIKER_ENCOUNTER		; blackbelt_t
 ;	db MUSIC_YOUNGSTER_ENCOUNTER	; psychic_t
 ;	db MUSIC_LASS_ENCOUNTER			; picnicker
 ;	db MUSIC_SAGE_ENCOUNTER			; sage

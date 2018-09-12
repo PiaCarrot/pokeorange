@@ -97,6 +97,7 @@ KRIS EQU __enum__
 	const KOUTA
 	const NESS
 	const HIRUMA
+	const ORO
 
 	trainerclass LASS
 	const NICOLE
@@ -144,6 +145,7 @@ KRIS EQU __enum__
 
 	trainerclass POKEMANIAC
 	const KUSATO
+	const MATT
 
 	trainerclass FISHER
 	const SOJIRO
@@ -208,6 +210,7 @@ KRIS EQU __enum__
 	trainerclass OTAKU
 	const NIRO
 	const GODO
+	const JAKE
 	
 	trainerclass JACE
 	
@@ -233,7 +236,8 @@ KRIS EQU __enum__
 
 ;	trainerclass JUGGLER
 
-;	trainerclass BLACKBELT_T
+	trainerclass BLACKBELT_T
+	const KEN
 
 ;	trainerclass PSYCHIC_T
 

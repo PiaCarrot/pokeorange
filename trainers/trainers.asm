@@ -542,6 +542,46 @@ TraceyGroup:
 		db FOCUS_ENERGY
 
 	db $ff ; end
+	
+; ================
+
+	; TRACEY (4)
+	db "TRACEY@"
+	db TRAINERTYPE_MOVES
+
+	; party
+
+	db 53, VENOMOTH
+		db SIGNAL_BEAM
+		db AGILITY
+		db HYPNOSIS
+		db SLUDGE_BOMB
+
+	db 54, AZUMARILL
+		db HYDRO_PUMP
+		db MOONBLAST
+		db DOUBLE_EDGE
+		db RAIN_DANCE
+
+	db 49, DODRIO
+		db FLY
+		db AGILITY
+		db TRI_ATTACK
+		db DRILL_PECK
+
+	db 50, AMPHAROS
+		db THUNDER
+		db POWER_GEM
+		db SUBSTITUTE
+		db DOUBLE_TEAM
+
+	db 48, SCIZOR
+		db FLASH_CANNON
+		db SWORDS_DANCE
+		db SLASH
+		db FOCUS_ENERGY
+
+	db $ff ; end
 
 ; ================
 ; ================================
@@ -590,6 +630,50 @@ BrockGroup:
 MistyGroup:
 ; ================================
 ; ================
+
+	; MISTY (1)
+	db "MISTY@"
+	db TRAINERTYPE_MOVES
+
+	; party
+
+	db 62, STARMIE
+		db HYDRO_PUMP
+		db PSYCHIC_M
+		db LOCK_ON
+		db RECOVER
+		
+	db 64, GYARADOS
+		db DRAGON_TAIL
+		db RAIN_DANCE
+		db HYPER_BEAM
+		db OUTRAGE
+		
+	db 61, TENTACRUEL
+		db POISON_JAB
+		db SWAGGER
+		db REST
+		db WATER_PULSE
+		
+	db 60, STUNFISK
+		db THUNDER
+		db DIG
+		db EARTHQUAKE
+		db DIVE
+		
+	db 63, LUMINEON
+		db AERIAL_ACE
+		db WATER_PULSE
+		db REST
+		db SLEEP_TALK
+		
+	db 65, SEAKING
+		db HORN_DRILL
+		db LOCK_ON
+		db SPLASH
+		db NO_MOVE
+
+	db $ff ; end
 ; ================================
 
 
@@ -613,7 +697,7 @@ LtSurgeGroup:
 		db VOLT_TACKLE
 		db AGILITY
 		db IRON_TAIL
-		db SURF
+		db PSYCHIC_M
 
 	db 61, JOLTEON
 		db AGILITY
@@ -1476,6 +1560,18 @@ YoungsterGroup:
 	db $ff ; end
 
 ; ================
+
+; YOUNGSTER (6)
+	db "ORO@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 41, CHANSEY
+	db 42, MUNCHLAX
+	db 43, FARFETCH_D
+
+	db $ff ; end
+; ================
 ; ================================
 
 
@@ -1880,6 +1976,17 @@ PokemaniacGroup:
 
 	db $ff ; end
 
+; ================
+
+	; POKEMANIAC (2)
+	db "MATT@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 43, SALAZZLE
+	db 45, MUK
+
+	db $ff ; end
 ; ================
 ; ================================
 
@@ -2731,6 +2838,126 @@ CrossGroup:
 
 	db $ff ; end
 	
+; ================ BUTWAL (PICK CHARMANDER)
+
+	; CROSS (10)
+	db "CROSS@"
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
+
+	; party
+
+	db 45, BLASTOISE, MALE_MASK
+		db DIVE
+		db CRUNCH
+		db RAPID_SPIN
+		db NASTY_PLOT
+
+	db 43, LYCANROC, MALE_MASK | LYCANROC_MIDNIGHT_FORM
+		db ACCELEROCK
+		db CRUNCH
+		db FORESIGHT
+		db EARTH_POWER
+
+	db 39, FLAREON, MALE_MASK
+		db FLAMETHROWER
+		db BITE
+		db QUICK_ATTACK
+		db SUNNY_DAY
+
+	db 38, SKARMORY, MALE_MASK
+		db DRILL_PECK
+		db AERIAL_ACE
+		db SWORDS_DANCE
+		db FLY
+		
+	db 34, TANGELA, MALE_MASK
+		db ANCIENTPOWER
+		db LEECH_SEED
+		db GIGA_DRAIN
+		db GROWTH
+
+	db $ff ; end
+
+; ================ BUTWAL (PICK SQUIRTLE)
+
+	; CROSS (11)
+	db "CROSS@"
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
+
+	; party
+
+	db 45, VENUSAUR, MALE_MASK
+		db GIGA_DRAIN
+		db LEECH_SEED
+		db PETAL_DANCE
+		db NASTY_PLOT
+
+	db 43, LYCANROC, MALE_MASK | LYCANROC_MIDNIGHT_FORM
+		db ACCELEROCK
+		db CRUNCH
+		db FORESIGHT
+		db EARTH_POWER
+
+	db 39, VAPOREON, MALE_MASK
+		db DIVE
+		db BITE
+		db SURF
+		db RAIN_DANCE
+
+	db 38, SKARMORY, MALE_MASK
+		db DRILL_PECK
+		db AERIAL_ACE
+		db SWORDS_DANCE
+		db FLY
+		
+	db 34, PONYTA, MALE_MASK
+		db STOMP
+		db FLAME_WHEEL
+		db AGILITY
+		db SUNNY_DAY
+
+	db $ff ; end
+
+; ================ BUTWAL (PICK BULBASAUR)
+
+	; CROSS (12)
+	db "CROSS@"
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
+
+	; party
+
+	db 45, CHARIZARD, MALE_MASK
+		db FLAMETHROWER
+		db DRAGON_TAIL
+		db SLASH
+		db STRENGTH
+
+	db 43, LYCANROC, MALE_MASK | LYCANROC_MIDNIGHT_FORM
+		db ACCELEROCK
+		db CRUNCH
+		db FORESIGHT
+		db EARTH_POWER
+
+	db 39, LEAFEON, MALE_MASK
+		db RAZOR_LEAF
+		db BITE
+		db AGILITY
+		db GROWTH
+
+	db 38, SKARMORY, MALE_MASK
+		db DRILL_PECK
+		db AERIAL_ACE
+		db SWORDS_DANCE
+		db FLY
+		
+	db 34, SLOWBRO, MALE_MASK
+		db DIVE
+		db SURF
+		db REST
+		db AMNESIA
+
+	db $ff ; end
+	
 ; ================
 ; ================================
 
@@ -2772,6 +2999,26 @@ OtakuGroup:
 
 	db $ff	
 	
+; =================
+
+	; OTAKU (3)
+	db "JAKE@"
+	db TRAINERTYPE_MOVES
+
+	db 45, JUMPLUFF
+		db GIGA_DRAIN
+		db SLEEP_POWDER
+		db LEECH_SEED
+		db SPLASH
+		
+	db 44, SANDSLASH
+		db DIG
+		db METAL_CLAW
+		db DEFENSE_CURL
+		db ROLLOUT
+
+	db $ff	
+
 JaceGroup:
 ; ================================
 ; ================
@@ -3020,9 +3267,35 @@ AliceGroup:
 ; ================================
 
 
-;BlackbeltGroup:
+BlackbeltGroup:
 ; ================================
 ; ================
+
+; =================
+
+	; BLACKBELT (1)
+	db "KEN@"
+	db TRAINERTYPE_MOVES
+
+	db 42, MACHOKE
+		db SUBMISSION
+		db FIRE_PUNCH
+		db KARATE_CHOP
+		db NO_MOVE
+		
+	db 42, MACHOKE
+		db THUNDERPUNCH
+		db LOW_KICK
+		db SUBMISSION
+		db NO_MOVE
+		
+	db 42, MACHOKE
+		db ICE_PUNCH
+		db SUBMISSION
+		db SEISMIC_TOSS
+		db NO_MOVE
+
+	db $ff	
 ; ================
 ; ================================
 

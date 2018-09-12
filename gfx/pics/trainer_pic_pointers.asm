@@ -71,7 +71,7 @@ TrainerPicPointers::
 ;	dba BikerPic
 ;	dba FirebreatherPic
 ;	dba JugglerPic
-;	dba BlackbeltTPic
+	dba BlackbeltTPic
 ;	dba PsychicTPic
 ;	dba PicnickerPic
 ;	dba SagePic

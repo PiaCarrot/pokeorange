@@ -73,7 +73,7 @@ TrainerGroups: ; 0x39999
 ;	dw BikerGroup
 ;	dw FirebreatherGroup
 ;	dw JugglerGroup
-;	dw BlackbeltGroup
+	dw BlackbeltGroup
 ;	dw PsychicGroup
 ;	dw PicnickerGroup
 ;	dw SageGroup
