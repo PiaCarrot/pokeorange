@@ -465,3 +465,15 @@ UmbrellaSprite:
 
 Spectator1Sprite:
 	sprite_header Spectator1SpriteGFX, 3, STANDING_SPRITE, PAL_OW_GREEN
+	
+DiverMaleSwimSprite:
+	sprite_header DiverMaleSwimSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BLUE	
+
+DiverMaleUWSprite:
+	sprite_header DiverMaleUWSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BLUE
+	
+DiverFemaleSwimSprite:
+	sprite_header DiverFemaleSwimSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BLUE	
+
+DiverFemaleUWSprite:
+	sprite_header DiverFemaleUWSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BLUE

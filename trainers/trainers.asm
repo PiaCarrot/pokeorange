@@ -3341,3 +3341,60 @@ BlackbeltGroup:
 ; ================
 ; ================================
 
+DiverMaleGroup:
+; ================================
+; ================
+
+	; DIVER_M (1)
+	db "OKABE@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 40, SEADRA
+	db 42, HORSEA
+	db 40, SEAKING
+
+	db $ff ; end
+
+; ================
+
+	; DIVER_M (2)
+	db "HIROSHI@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 43, STUNFISK
+	db 43, GYARADOS
+
+	db $ff ; end
+
+; ================
+
+DiverFemaleGroup:
+; ================================
+; ================
+
+	; DIVER_F (1)
+	db "MAYURI@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 39, STARYU
+	db 40, STARMIE
+	db 39, CORSOLA
+	db 40, DRATINI
+
+	db $ff ; end
+	
+; ================
+
+	; DIVER_F (2)
+	db "AMI@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 46, TOXAPEX
+
+	db $ff ; end
+
+; ================

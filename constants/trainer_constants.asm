@@ -251,6 +251,14 @@ KRIS EQU __enum__
 
 ;	trainerclass POKEFANF
 
+	trainerclass DIVER_MALE
+	const OKABE
+	const HIROSHI
+	
+	trainerclass DIVER_FEMALE
+	const MAYURI
+	const AMI
+
 NUM_TRAINER_CLASSES EQU __enum__
 
 	const_def

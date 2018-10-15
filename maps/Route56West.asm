@@ -153,6 +153,7 @@ TraceyScript1:
 	opentext
 	writetext TraceyLeavingNowText
 	waitbutton
+	verbosegiveitem EXP_ALL
 	closetext
 	applymovement ROUTE_56_TRACEY, Tracey56_Movement
 	disappear ROUTE_56_TRACEY
@@ -183,6 +184,9 @@ TraceyScript2:
 	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
 	opentext
 	writetext TraceyLeavingNowText
+	waitbutton
+	verbosegiveitem EXP_ALL
+    writetext TraceyReallyLeavingNowText
 	waitbutton
 	closetext
 	applymovement ROUTE_56_TRACEY, Tracey56_Movement
@@ -225,8 +229,15 @@ TraceyLeavingNowText:
 	cont "assistant!"
 
 	para "Oh, yeah."
+	
+	para "This should help"
+	line "you out!"
+	cont "It will make your"
+	cont "training easier!"
+	done
 
-	para "<PLAYER>, if you"
+TraceyReallyLeavingNowText:
+	text "<PLAYER>, if you"
 	line "go to KINNOW ISLA-"
 	cont "ND, make sure you"
 	cont "visit the SKATE"

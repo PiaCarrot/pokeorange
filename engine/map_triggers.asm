@@ -33,6 +33,7 @@ ENDM
 	trigger_def FUKUHARA_NO_4_BF1,			  wFukuharaNo4BF1Trigger
 	trigger_def ROUTE_63_NORTH_SOUTH, 		  wRoute63NorthSouthTrigger
 	trigger_def UNNAMED_ISLAND_1,			  wUnnamedIsland1Trigger
+	trigger_def BUTWAL_ISLAND_WEST,			  wButwalIslandWestTrigger
 
 	db -1
 ; 4d15b

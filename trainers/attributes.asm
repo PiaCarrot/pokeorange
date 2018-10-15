@@ -474,4 +474,16 @@ TrainerClassAttributes: ; 3959c
 ;	dw AI_BASIC + AI_TYPES + AI_SMART + AI_STATUS
 ;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
+; diverm
+	db 0, 0 ; items
+	db 2 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_OFFENSIVE + AI_STATUS
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+
+; diverf
+	db 0, 0 ; items
+	db 5 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_CAUTIOUS + AI_STATUS
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+
 ; 39771

@@ -54,7 +54,6 @@ CrossBattle2Script:
 	opentext
 	writetext CrossMtNavelLeavingNowText
 	waitbutton
-	verbosegiveitem EXP_ALL
 	closetext
 	applymovement PLAYER, PlayerMtNavel_Movement
 	applymovement MT_NAVEL_CROSS, CrossMtNavel_Movement
@@ -96,11 +95,6 @@ CrossMtNavelLeavingNowText:
 	line "are going, there"
 	cont "is no way I will"
 	cont "lose next time!"
-
-	para "Until then, loser!"
-	line "Take this, maybe"
-	cont "you can give me a"
-	cont "good challenge!"
 	done
 	
 PlayerMtNavel_Movement:

@@ -78,3 +78,5 @@ TrainerPicPointers::
 ;	dba MediumPic
 ;	dba PokefanMPic
 ;	dba PokefanFPic
+	dba DiverMalePic
+	dba DiverFemalePic

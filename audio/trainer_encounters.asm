@@ -101,4 +101,6 @@ TrainerEncounterMusic: ; e9027
 ;	db MUSIC_SAGE_ENCOUNTER			; medium
 ;	db MUSIC_HIKER_ENCOUNTER		; pokefanm
 ;	db MUSIC_BEAUTY_ENCOUNTER		; pokefanf
+	db MUSIC_HIKER_ENCOUNTER		;diverm
+	db MUSIC_BEAUTY_ENCOUNTER		;diverf
 ; e906e

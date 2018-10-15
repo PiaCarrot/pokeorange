@@ -97,6 +97,8 @@ TrainerClassDVs: ; 270d6
 ;	db $78, $88 ; medium
 ;	db $98, $88 ; pokefanm
 ;	db $6D, $88 ; pokefanf
+	db $98, $88 ; diverm
+	db $98, $88 ; diverf
 ; 2715c
 
 
@@ -185,3 +187,5 @@ TrainerClassPersonalities:
 	db MALE_MASK   ; Jason
 	db FEMALE_MASK   ; Alice
 	db MALE_MASK ;blackbelt
+	db MALE_MASK ;diverm
+	db FEMALE_MASK ;diverf
