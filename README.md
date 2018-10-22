@@ -6,7 +6,7 @@ To patch the ROM, apply [**pokeorange-beta-1.0.ips**](patches/pokeorange-beta-1.
 
 To build the ROM yourself, see [**INSTALL.md**](INSTALL.md).
 
-This hack is not complete. It is currently on V1.0.0 and ends around Route 59.
+This hack is not complete. It is currently on V1.0.0 and ends just after the 3rd gym.
 
 ## Documentation
 
