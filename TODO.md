@@ -3,17 +3,14 @@
 ## Bugs
 
 - Mistimed battle animations from 60FPS
-- Ditto needs fixing
-- Sweet Kiss can sometimes cause Poison
-- Fix walking/wall bumping animation bug caused by 60 FPS
-- Rocket theme music is broken
-- Kinnow to Moro seems to have spawn bugs that put player in Valencia
+- Ditto needs fixing. When using Transform, and then caught, it becomes the Pokemon it transformed into.
+- Confusion moves can sometimes cause Poison instead, Headbutt Pokemons are poisoned sometimes instead of asleep, etc.
+- Pokemon disappear from the Daycare (normally the old man's)
 
 ## Content
 
 - Pokémon TCG2-esque credits
 - Safari Zone battletype
-- Get special Pikachus
 
 ## Features
 
@@ -25,11 +22,11 @@
 - Chain Fishing
 - Invisible Pickup for Meowth/Persian
 - Invisible Flame Body for Magmar/Magmortar
+- Split Kantonian and Alolan Formes so both are obtainable
 
 ## Graphics
 
-- Improve skateboard sprites
-- Finish menu icon sprites
+- Improve skateboard sprites (female)
 - Special-case Lycanroc and Crystal Onix party icons based on form
 
 ## Moves

@@ -118,8 +118,8 @@ endr
 	ld a, c
 	and a
 	jr z, .nostar1
-	ld [hli], a
 	ld a, $26
+	ld [hli], a
 .nostar1
 	push hl
 	ld de, EVENT_BEAT_RED
@@ -129,8 +129,8 @@ endr
 	ld a, c
 	and a
 	jr z, .nostar2
-	ld [hli], a
 	ld a, $26
+	ld [hli], a
 .nostar2
 	push hl
 	ld hl, PokedexCaught
