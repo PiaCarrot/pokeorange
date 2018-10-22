@@ -1587,7 +1587,7 @@ RockSmashScript: ; cf32
 	closetext
 	waitsfx
 	playsound SFX_STRENGTH
-	earthquake 84
+;	earthquake 84
 	applymovement2 MovementData_0xcf55
 	disappear -2
 
