@@ -164,7 +164,6 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_SuperFang
 	dw BattleAnim_Slash
 	dw BattleAnim_Substitute
-	dw BattleAnim_Struggle
 	dw BattleAnim_RockClimb
 	dw BattleAnim_TripleKick
 	dw BattleAnim_Thief
@@ -255,6 +254,7 @@ BattleAnimations:: ; c906f
 	dw BattleAnim_FairyWind
 	dw BattleAnim_Dazzlingleam
 	dw BattleAnim_ShadowSneak
+	dw BattleAnim_Struggle
 ; $100
 	dw BattleAnim_SweetScent2
 	dw BattleAnim_ThrowPokeBall
@@ -1392,7 +1392,20 @@ BattleAnim_Acid: ; c9c96
 	anim_ret
 ; c9c9d
 
-BattleAnim_RockBlast: ; TODO: new Rock Blast animation
+BattleAnim_RockBlast:
+  anim_2gfx ANIM_GFX_ROCKS, ANIM_GFX_HIT
+    anim_sound 6, 2, SFX_SPARK
+    anim_obj ANIM_OBJ_ROCK_BLAST, 64, 92, $4
+    anim_wait 16
+    anim_sound 0, 1, SFX_KARATE_CHOP
+    anim_obj ANIM_OBJ_01, 128, 56, $0
+    anim_obj ANIM_OBJ_B5, 128, 56, $5c
+    anim_obj ANIM_OBJ_B5, 128, 56, $e8
+    anim_obj ANIM_OBJ_B5, 128, 56, $d0
+    anim_obj ANIM_OBJ_B5, 128, 56, $50
+    anim_wait 32
+    anim_ret
+
 BattleAnim_RockThrow: ; c9c9d
 	anim_1gfx ANIM_GFX_ROCKS
 	anim_bgeffect ANIM_BG_1F, $60, $1, $0
@@ -1569,7 +1582,33 @@ BattleAnim_Clamp: ; c9e0d
 	anim_ret
 ; c9e2e
 
-BattleAnim_BugBite: ; TODO: new Bug Bite animation
+BattleAnim_BugBite:
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_ROCKS
+.loop
+    anim_sound 0, 1, SFX_MENU
+    anim_obj ANIM_OBJ_02, 116, 48, $0
+    anim_obj ANIM_OBJ_B5, 132, 60, $5c
+    anim_wait 4
+    anim_sound 0, 1, SFX_MENU
+    anim_obj ANIM_OBJ_02, 148, 56, $0
+     anim_obj ANIM_OBJ_B5, 132, 60, $e8
+    anim_wait 4
+    anim_sound 0, 1, SFX_MENU
+    anim_obj ANIM_OBJ_02, 120, 60, $0
+    anim_obj ANIM_OBJ_B5, 132, 60, $50
+    anim_wait 4
+    anim_sound 0, 1, SFX_MENU
+    anim_obj ANIM_OBJ_02, 140, 40, $0
+    anim_obj ANIM_OBJ_B5, 132, 60, $d0
+    anim_wait 4
+    anim_sound 0, 1, SFX_MENU
+    anim_obj ANIM_OBJ_02, 132, 64, $0
+    anim_obj ANIM_OBJ_B5, 132, 60, $50
+    anim_wait 4
+    anim_loop 4, .loop
+    anim_wait 16
+    anim_ret
+
 BattleAnim_Bite: ; c9e2e
 	anim_2gfx ANIM_GFX_CUT, ANIM_GFX_HIT
 	anim_obj ANIM_OBJ_36, -15, 0,   7, 0, $98
@@ -2371,7 +2410,25 @@ BattleAnim_PetalDance: ; ca564
 	anim_ret
 ; ca580
 
-BattleAnim_BulletSeed: ; TODO: new Bullet Seed animation
+BattleAnim_BulletSeed:
+    anim_2gfx ANIM_GFX_PLANT, ANIM_GFX_HIT
+.loop
+    anim_obj ANIM_OBJ_SEED, 64, 92, $18
+    anim_wait 8
+    anim_obj ANIM_OBJ_SEED, 56, 84, $18
+    anim_sound 0, 1, SFX_VINE_WHIP
+    anim_obj ANIM_OBJ_01, 136, 56, $0
+    anim_wait 8
+    anim_obj ANIM_OBJ_SEED, 52, 88, $18
+    anim_sound 0, 1, SFX_VINE_WHIP
+    anim_obj ANIM_OBJ_01, 128, 48, $0
+    anim_wait 8
+    anim_sound 0, 1, SFX_VINE_WHIP
+    anim_obj ANIM_OBJ_01, 132, 52, $0
+    anim_loop 3, .loop
+    anim_wait 16
+    anim_ret
+
 BattleAnim_Barrage: ; ca580
 	anim_2gfx ANIM_GFX_EGG, ANIM_GFX_EXPLOSION
 	anim_sound 6, 2, SFX_THROW_BALL
@@ -3690,7 +3747,29 @@ BattleAnim_Charm: ; cb2bb
 	anim_ret
 ; cb2d5
 
-BattleAnim_Accelerock: ; TODO: new Accelerock animation
+BattleAnim_Accelerock:
+	anim_3gfx ANIM_GFX_ROCKS, ANIM_GFX_SPEED, ANIM_GFX_HIT
+    anim_sound 0, 0, SFX_MENU
+    anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0
+    anim_obj ANIM_OBJ_77, 24, 88, $2
+    anim_obj ANIM_OBJ_77, 32, 88, $1
+    anim_obj ANIM_OBJ_77, 40, 88, $0
+    anim_obj ANIM_OBJ_77, 48, 88, $80
+    anim_obj ANIM_OBJ_77, 56, 88, $81
+    anim_obj ANIM_OBJ_77, 64, 88, $82
+    anim_wait 12
+    anim_sound 0, 1, SFX_SPARK
+    anim_bgeffect ANIM_BG_1F, $2, $4, $0
+    anim_obj ANIM_OBJ_01, 128, 56, $0
+    anim_obj ANIM_OBJ_B5, 128, 56, $5c
+    anim_obj ANIM_OBJ_B5, 128, 56, $e8
+    anim_obj ANIM_OBJ_B5, 128, 56, $d0
+    anim_obj ANIM_OBJ_B5, 128, 56, $50
+    anim_wait 24
+    anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+    anim_wait 4
+    anim_ret
+
 BattleAnim_Rollout: ; cb2d5
 	anim_1gfx ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_SPARK
