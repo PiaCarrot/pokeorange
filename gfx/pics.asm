@@ -720,6 +720,7 @@ AlicePic:            INCBIN "gfx/trainers/alice.2bpp.lz"
 BlackbeltTPic:		 INCBIN "gfx/trainers/blackbelt_t.2bpp.lz"
 DiverMalePic:		 INCBIN "gfx/trainers/diver_male.2bpp.lz"
 DiverFemalePic:		 INCBIN "gfx/trainers/diver_female.2bpp.lz"
+EngineerPic:		 INCBIN "gfx/trainers/engineer.2bpp.lz"
 
 
 SECTION "Pics 21", ROMX

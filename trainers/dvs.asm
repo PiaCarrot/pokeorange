@@ -99,6 +99,7 @@ TrainerClassDVs: ; 270d6
 ;	db $6D, $88 ; pokefanf
 	db $98, $88 ; diverm
 	db $98, $88 ; diverf
+	db $98, $88 ; engineer
 ; 2715c
 
 
@@ -189,3 +190,4 @@ TrainerClassPersonalities:
 	db MALE_MASK ;blackbelt
 	db MALE_MASK ;diverm
 	db FEMALE_MASK ;diverf
+	db MALE_MASK ;engineer

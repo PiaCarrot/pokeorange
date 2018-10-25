@@ -179,8 +179,9 @@
 	map_header_2 Route69North, ROUTE_69_NORTH, 53, EAST
 	connection east, PUMMELO_ISLAND, PummeloIsland, -1, 13, 12, ROUTE_69_NORTH
 	
-	map_header_2 PummeloIsland, PUMMELO_ISLAND, 53, WEST
+	map_header_2 PummeloIsland, PUMMELO_ISLAND, 53, WEST | EAST
 	connection west, ROUTE_69_NORTH, Route69North, 14, 0, 13, PUMMELO_ISLAND
+	connection east, ROUTE_70, Route70, 13, 5, 6, PUMMELO_ISLAND
 	
 	map_header_2 VermilionCity, VERMILION_CITY, 6, EAST
 	connection east, ROUTE_11, Route11, 1, 0, 11, VERMILION_CITY
@@ -215,6 +216,9 @@
 	
 	map_header_2 ButwalIslandUnderwaterWest, BUTWAL_ISLAND_UNDERWATER_WEST, 9, EAST
 	connection east, BUTWAL_ISLAND_UNDERWATER_EAST, ButwalIslandUnderwaterEast, 0, 0, 12, BUTWAL_ISLAND_UNDERWATER_WEST
+	
+	map_header_2 Route70, ROUTE_70, 53, WEST
+	connection west, PUMMELO_ISLAND, PummeloIsland, 5, 13, 6, ROUTE_70
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0

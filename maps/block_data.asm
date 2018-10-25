@@ -472,3 +472,6 @@ ButwalIslandUnderwaterWest_BlockData:
 	
 CinnabarIsland_BlockData:
 	INCBIN "maps/CinnabarIsland.blk"
+	
+Route70_BlockData:
+	INCBIN "maps/Route70.blk"

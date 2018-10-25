@@ -82,3 +82,4 @@ TrainerGroups: ; 0x39999
 ;	dw PokefanFGroup
 	dw DiverMaleGroup
 	dw DiverFemaleGroup
+	dw EngineerGroup

@@ -100,6 +100,38 @@ MandarinUndergroundStatueText:
 	para "Oh no!"
 	done
 
+; Engineer Kobe
+TrainerEngineerKobe:
+	trainer EVENT_BEAT_ENGINEER_KOBE, ENGINEER, KOBE, EngineerKobeSeenText, EngineerKobeWinText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext EngineerKobeAfterText
+	waitbutton
+	closetext
+	end
+	
+EngineerKobeSeenText:
+	text "Hey, I'm laying"
+	line "out wires there!"
+	done
+	
+EngineerKobeWinText:
+	text "It's dangerous!"
+	done
+	
+EngineerKobeAfterText:
+	text "Kinda weird those"
+	line "SILPH CO. guys had"
+	cont "us add all these"
+	cont "spinning panels."
+	
+	para "Made my head spin"
+	line "installing them,"
+	cont "That's for sure!"
+	done
+
 MandarinUndergroundBF2_MapEventHeader::
 
 .Warps: db 4
@@ -118,4 +150,4 @@ MandarinUndergroundBF2_MapEventHeader::
 	signpost 1, 12, SIGNPOST_READ, MandarinUndergroundStatue
 
 .ObjectEvents: db 1
-	person_event SPRITE_SUPER_NERD, 1, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 4, ObjectEvent, -1
+	person_event SPRITE_SUPER_NERD, 1, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerEngineerKobe, -1

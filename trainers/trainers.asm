@@ -3398,3 +3398,42 @@ DiverFemaleGroup:
 	db $ff ; end
 
 ; ================
+
+EngineerGroup:
+; ================================
+; ================
+
+	; ENGINEER (1)
+	db "TAKE@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 17, MAGNEMITE
+	db 16, VOLTORB
+	db 15, PIKACHU
+
+	db $ff ; end
+; ================
+
+	; ENGINEER (2)
+	db "MURA@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 19, ELEKID
+
+	db $ff ; end
+; ================
+
+	; ENGINEER (3)
+	db "KOBE@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 13, VOLTORB
+	db 14, VOLTORB
+	db 15, VOLTORB
+	db 16, VOLTORB
+
+	db $ff ; end
+; ================

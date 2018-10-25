@@ -80,3 +80,4 @@ TrainerPicPointers::
 ;	dba PokefanFPic
 	dba DiverMalePic
 	dba DiverFemalePic
+	dba EngineerPic

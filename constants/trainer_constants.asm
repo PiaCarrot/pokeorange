@@ -258,6 +258,11 @@ KRIS EQU __enum__
 	trainerclass DIVER_FEMALE
 	const MAYURI
 	const AMI
+	
+	trainerclass ENGINEER
+	const TAKE
+	const MURA
+	const KOBE
 
 NUM_TRAINER_CLASSES EQU __enum__
 

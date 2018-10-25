@@ -84,4 +84,5 @@ BlackbeltPalette:    INCLUDE "gfx/trainers/blackbelt_t.pal"
 ;PokefanFPalette:     INCLUDE "gfx/trainers/pokefan_f.pal"
 DiverMalePalette:	INCLUDE "gfx/trainers/diver_male.pal"
 DiverFemalePalette:	INCLUDE "gfx/trainers/diver_female.pal"
+EngineerPalette:	INCLUDE "gfx/trainers/engineer.pal"
 ; b1de
