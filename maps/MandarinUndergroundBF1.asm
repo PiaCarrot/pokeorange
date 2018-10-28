@@ -32,7 +32,7 @@ EngineerTakeWinText:
 	done
 	
 EngineerTakeAfterText:
-	text "Were building a"
+	text "We're building a"
 	line "RADIO TOWER here"
 	cont "for those SILPH"
 	cont "CO. employees!"

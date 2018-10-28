@@ -4,7 +4,7 @@
 
 - Mistimed battle animations from 60FPS
 - Ditto needs fixing. When using Transform, and then caught, it becomes the Pokemon it transformed into.
-- Confusion moves can sometimes cause Poison instead, Headbutt Pokemons are poisoned sometimes instead of asleep, etc.
+- Sleep moves can sometimes cause Poison instead, Headbutt Pokemons are poisoned sometimes instead of asleep, etc.
 - Pokemon disappear from the Daycare (normally the old man's)
 
 ## Content
@@ -35,18 +35,14 @@
 
 ## Animations
 
-- Accelerock
 - Aerial Ace
 - Bounce
-- Bug Bite
-- Bullet Seed
 - Dive
 - Earth Power
 - Luster Purge
 - Mist Ball
 - Nasty Plot
 - PowerUpPunch
-- Rock Blast
 - Rock Climb
 - Shadow Sneak
 - Shell Trap
@@ -56,8 +52,6 @@
 - Volt Tackle
 - Water Pulse
 - Wood Hammer
+- Rock and Bait for Safari
 
 ## Things that might be added eventually
-
-- Optional Nuzlocke patch
-- Orange X, a hard-type patch, inspired by Zel's Shiny Gold X
