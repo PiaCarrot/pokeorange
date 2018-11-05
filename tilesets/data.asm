@@ -7,7 +7,6 @@ SECTION "Tileset Data 1", ROMX
 
 Tileset00GFX:
 Tileset01GFX:
-Tileset02GFX:
 INCBIN "gfx/tilesets/01.2bpp.lz"
 Tileset00Meta:
 Tileset01Meta:
@@ -68,6 +67,9 @@ Tileset08Meta:
 INCBIN "tilesets/08_metatiles.bin"
 Tileset08Coll:
 INCLUDE "tilesets/08_collision.asm"
+
+Tileset02GFX:
+INCBIN "gfx/tilesets/02.2bpp.lz"
 
 
 SECTION "Tileset Data 4", ROMX

@@ -217,8 +217,14 @@
 	map_header_2 ButwalIslandUnderwaterWest, BUTWAL_ISLAND_UNDERWATER_WEST, 9, EAST
 	connection east, BUTWAL_ISLAND_UNDERWATER_EAST, ButwalIslandUnderwaterEast, 0, 0, 12, BUTWAL_ISLAND_UNDERWATER_WEST
 	
-	map_header_2 Route70, ROUTE_70, 53, WEST
+	map_header_2 Route70, ROUTE_70, 53, WEST | EAST
 	connection west, PUMMELO_ISLAND, PummeloIsland, 5, 13, 6, ROUTE_70
+	connection east, TARROCO_ISLAND, TarrocoIsland, -2, 9, 11, ROUTE_70
+	
+	map_header_2 TarrocoIsland, TARROCO_ISLAND, 53, WEST
+	connection west, ROUTE_70, Route70, 9, -2, 11, TARROCO_ISLAND
+	
+	map_header_2 ShamoutiIsland, SHAMOUTI_ISLAND, 53, 0
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0

@@ -243,7 +243,7 @@ CheckOverworldTileArrays: ; c840
 CutTreeBlockPointers: ; c862
 ; Which tileset are we in?
 	dbw TILESET_JOHTO_1, .johto1
-	dbw TILESET_JOHTO_2, .johto2
+	dbw TILESET_JOHTO_2, .johto1
 	dbw TILESET_KANTO, .kanto
 	dbw TILESET_GOLDEN_ISLAND, .park
 	dbw TILESET_ILEX_FOREST, .ilex
@@ -258,10 +258,6 @@ CutTreeBlockPointers: ; c862
 	db $67, $3e, $00 ; tree
 	db $d8, $3d, $00 ; tree
 	db $d9, $62, $00 ; tree
-	db -1
-
-.johto2 ; Goldenrod area
-	db $03, $02, $01 ; grass
 	db -1
 
 .kanto ; Kanto OW

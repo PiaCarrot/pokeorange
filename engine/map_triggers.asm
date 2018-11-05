@@ -35,6 +35,7 @@ ENDM
 	trigger_def UNNAMED_ISLAND_1,			  wUnnamedIsland1Trigger
 	trigger_def BUTWAL_ISLAND_WEST,			  wButwalIslandWestTrigger
 	trigger_def ROUTE_64,                     wRoute64Trigger
+	trigger_def TARROCO_ISLAND,				  wTarrocoIslandTrigger
 
 	db -1
 ; 4d15b

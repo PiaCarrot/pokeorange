@@ -36,12 +36,11 @@
 ## Animations
 
 - Aerial Ace
-- Bounce
+- Dazzlingleam
 - Dive
 - Earth Power
 - Luster Purge
 - Mist Ball
-- Nasty Plot
 - PowerUpPunch
 - Rock Climb
 - Shadow Sneak
@@ -50,8 +49,6 @@
 - Spectral Thief (attack)
 - Venoshock
 - Volt Tackle
-- Water Pulse
-- Wood Hammer
 - Rock and Bait for Safari
 
 ## Things that might be added eventually

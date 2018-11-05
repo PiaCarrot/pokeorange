@@ -2309,6 +2309,7 @@ wRoute63NorthSouthTrigger::        ds 1
 wUnnamedIsland1Trigger::		   ds 1
 wButwalIslandWestTrigger::		   ds 1
 wRoute64Trigger::				   ds 1
+wTarrocoIslandTrigger::			   ds 1
 
 EventFlags:: ; da72
 	flag_array NUM_EVENTS

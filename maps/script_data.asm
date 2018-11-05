@@ -259,6 +259,13 @@ INCLUDE "maps/PummeloIsland.asm"
 INCLUDE "maps/HallOfFame.asm"
 INCLUDE "maps/PummeloStadium.asm"
 
+SECTION "Tarroco Scripts", ROMX
+
+INCLUDE "maps/TarrocoIsland.asm"
+
+SECTION "Shamouti Scripts", ROMX
+
+INCLUDE "maps/ShamoutiIsland.asm"
 
 SECTION "Pallet Scripts", ROMX
 

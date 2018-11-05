@@ -25,7 +25,7 @@ MapGroupRoofs: ; 1c021i
 	db  4 ; group 5 (Mikan)
 	db  4 ; group 6 (Murcott)
 	db -1 ; group 7
-	db  2 ; group 8
+	db  2 ; group 8 (Trovitopolis)
 	db -1 ; group 9
 	db -1 ; group 10
 	db  0 ; group 11 (Valencia)
@@ -33,7 +33,7 @@ MapGroupRoofs: ; 1c021i
 	db  4 ; group 13 (Sunburst)
 	db  0 ; group 14 (Golden)
 	db  0 ; group 15 (Pummelo)
-	db  4 ; group 16 (Kumquat)
+	db  2 ; group 16 (Kumquat)
 ; 1c03c
 
 Roofs: ; 1c03c

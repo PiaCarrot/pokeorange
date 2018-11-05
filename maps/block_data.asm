@@ -475,3 +475,9 @@ CinnabarIsland_BlockData:
 	
 Route70_BlockData:
 	INCBIN "maps/Route70.blk"
+	
+TarrocoIsland_BlockData:
+	INCBIN "maps/TarrocoIsland.blk"
+	
+ShamoutiIsland_BlockData:
+	INCBIN "maps/ShamoutiIsland.blk"

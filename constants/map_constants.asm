@@ -235,6 +235,8 @@ MAP_NONE EQU 0
 	mapgroup HALL_OF_FAME, 6, 7
 	mapgroup PUMMELO_STADIUM, 5, 7
 	mapgroup ROUTE_70, 14, 24
+	mapgroup TARROCO_ISLAND, 20, 30
+	mapgroup SHAMOUTI_ISLAND, 15, 18
 	
 	newgroup ;16
 	

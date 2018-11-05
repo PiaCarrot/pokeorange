@@ -95,7 +95,7 @@
 	RGB 00, 09, 09
 
 ; group 16 (Kumquat Island)
-	RGB 04, 25, 23
-	RGB 00, 17, 17
-	RGB 02, 13, 14
-	RGB 00, 09, 09
+	RGB 16, 21, 26
+	RGB 07, 14, 21
+	RGB 05, 07, 15
+	RGB 04, 05, 11
