@@ -135,7 +135,7 @@ if def(DEBUG)
 	givepoke LAPRAS, 60
 	givepoke CHARIZARD, 60
 	givepoke PIKACHU, 60, LIGHT_BALL
-	givepoke LUGIA, 60
+	givepoke TURTONATOR, 60
 	givepoke MEW, 60
 	closetext
 	callasm TeachHMSlaveMoves
@@ -319,6 +319,11 @@ TeachHMSlaveMoves:
 	ld a, FLASH
 	ld [hl], a ; SLAM
 	; LYCANROC
+	ld hl, PartyMon4Moves
+	ld a, SHELL_TRAP
+	ld [hli], a 
+	ld [hli], a 
+	ld [hli], a 
 	; MEW
 	ld hl, PartyMon5Moves
 	ld a, ROCK_SMASH

@@ -2088,7 +2088,44 @@ BattleAnim_Splash: ; ca237
 	anim_ret
 ; ca24b
 
-BattleAnim_Dive: ; TODO: new Dive animation
+BattleAnim_Dive:
+	anim_2gfx ANIM_GFX_SAND, ANIM_GFX_WATER
+	anim_if_param_equal $0, .hit
+	anim_if_param_equal $2, .fail
+	anim_call BattleAnim_FollowPlayerHead_0
+	anim_bgeffect ANIM_BG_DIG, $0, $1, $1
+	anim_obj ANIM_OBJ_DIVE_2, 72, 104, $0
+	anim_sound 0, 0, SFX_BUBBLEBEAM
+.loop
+	anim_obj ANIM_OBJ_DIVE_1, 56, 104, $0
+	anim_wait 16
+	anim_loop 6, .loop
+	anim_wait 32
+	anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0
+	anim_wait 8
+	anim_incbgeffect ANIM_BG_DIG
+	anim_call BattleAnim_ShowMon_0
+	anim_ret
+
+.hit
+	anim_bgeffect ANIM_BG_30, $0, $0, $0
+	anim_sound 0, 1, SFX_HYDRO_PUMP
+	anim_obj ANIM_OBJ_25, 124, 72, $0
+	anim_obj ANIM_OBJ_25, 140, 72, $0
+	anim_bgeffect ANIM_BG_31, $30, $0, $0
+	anim_wait 12
+	anim_obj ANIM_OBJ_25, 132, 72, $0
+	anim_bgeffect ANIM_BG_31, $1c, $0, $0
+	anim_wait 24
+	anim_bgeffect ANIM_BG_31, $8, $0, $0
+	anim_wait 24
+	anim_bgeffect ANIM_BG_32, $0, $0, $0
+	anim_wait 16
+.fail
+	anim_bgeffect ANIM_BG_ENTER_MON, $0, $1, $0
+	anim_wait 32
+	anim_ret
+
 BattleAnim_Dig: ; ca24b
 	anim_2gfx ANIM_GFX_SAND, ANIM_GFX_HIT
 	anim_if_param_equal $0, .hit
@@ -3149,7 +3186,30 @@ BattleAnim_Metronome: ; cab52
 	anim_ret
 ; cab69
 
-BattleAnim_ShellTrap: ; TODO: new Shell Trap animation
+BattleAnim_ShellTrap:
+    anim_2gfx ANIM_GFX_FIRE, ANIM_GFX_EXPLOSION
+    anim_sound 6, 2, SFX_EMBER
+    anim_bgeffect ANIM_BG_1F, $60, $4, $10
+.loop
+    anim_obj ANIM_OBJ_17, 24, 64, $0
+    anim_obj ANIM_OBJ_90, 64, 92, $4
+    anim_wait 5
+    anim_obj ANIM_OBJ_17, 56, 104, $0
+    anim_obj ANIM_OBJ_90, 56, 84, $4
+    anim_wait 5
+    anim_obj ANIM_OBJ_17, 24, 104, $0
+    anim_obj ANIM_OBJ_90, 52, 88, $4
+    anim_wait 5
+    anim_obj ANIM_OBJ_17, 56, 64, $0
+    anim_obj ANIM_OBJ_90, 64, 92, $4
+    anim_wait 5
+    anim_obj ANIM_OBJ_17, 40, 84, $0
+    anim_obj ANIM_OBJ_90, 56, 84, $4
+    anim_obj ANIM_OBJ_90, 64, 92, $4
+    anim_wait 16
+    anim_loop 2, .loop
+    anim_ret
+
 BattleAnim_Counter: ; cab69
 	anim_1gfx ANIM_GFX_HIT
 .loop

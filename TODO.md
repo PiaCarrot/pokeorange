@@ -36,7 +36,6 @@
 ## Animations
 
 - Aerial Ace
-- Dazzlingleam
 - Dive
 - Earth Power
 - Luster Purge
@@ -44,7 +43,6 @@
 - PowerUpPunch
 - Rock Climb
 - Shadow Sneak
-- Shell Trap
 - Spectral Thief (steal boosted stats)
 - Spectral Thief (attack)
 - Venoshock
