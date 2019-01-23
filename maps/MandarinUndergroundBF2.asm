@@ -1,5 +1,6 @@
 const_value set 1
 	const MANDARINUNDERGROUND_ENGINEER3
+	const MANDARINUNDERGROUND_SUPER_POTION
 
 MandarinUndergroundBF2_MapScriptHeader::
 
@@ -131,6 +132,9 @@ EngineerKobeAfterText:
 	line "installing them,"
 	cont "That's for sure!"
 	done
+	
+MandarinUndergroundSuperPotion:
+	itemball SUPER_POTION
 
 MandarinUndergroundBF2_MapEventHeader::
 
@@ -149,5 +153,7 @@ MandarinUndergroundBF2_MapEventHeader::
 	signpost 1, 11, SIGNPOST_READ, MandarinUndergroundPC
 	signpost 1, 12, SIGNPOST_READ, MandarinUndergroundStatue
 
-.ObjectEvents: db 1
+.ObjectEvents: db 2
 	person_event SPRITE_SUPER_NERD, 1, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerEngineerKobe, -1
+	person_event SPRITE_POKE_BALL, 16, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MandarinUndergroundSuperPotion, EVENT_MANDARIN_UNDERGROUND_SUPER_POTION
+

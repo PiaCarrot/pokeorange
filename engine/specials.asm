@@ -105,6 +105,7 @@ SpecialsPointers:: ; c029
 	add_special SpecialBulbasaur
 	add_special SpecialCharmander
 	add_special SpecialSquirtle
+	add_special SpecialIllustratorPikachu
 
 	; Crystal
 	add_special Reset

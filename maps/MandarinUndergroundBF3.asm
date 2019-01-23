@@ -139,7 +139,7 @@ MandarinUndergroundCassidyScript:
 	end
 
 MandarinUndergroundTMThief:
-	itemball TM_THIEF
+	itemball HM_CUT
 
 MandarinButchText:
 	text "Well, well."
@@ -171,11 +171,13 @@ MandarinCassidyText:
 	text "Who are you?"
 	line "<...><...><...><...>"
 
-	para "Wait, where is"
-	line "BUTCH?"
-
-	para "I bet you're the"
-	line "one behind this!"
+	para "I just got started"
+	line "building this dumb"
+	cont "RADIO TOWER!"
+	
+	para "We were going to"
+	line "hypnotize #MON"
+	cont "using radio waves!"
 
 	para "How dare you ruin"
 	line "NEO ROCKET's new"
@@ -216,6 +218,7 @@ MandarinUndergroundBF3_MapEventHeader::
 .BGEvents: db 0
 
 .ObjectEvents: db 3
-	person_event SPRITE_ROCKET, 19, 8, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MandarinUndergroundButchScript, EVENT_MANDARIN_UNDERGROUND_BUTCH
-	person_event SPRITE_ROCKET_GIRL, 19, 6, SPRITEMOVEDATA_STANDING_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, MandarinUndergroundCassidyScript, EVENT_MANDARIN_UNDERGROUND_CASSIDY
+	person_event SPRITE_ROCKET, 18, 7, SPRITEMOVEDATA_STANDING_DOWN, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MandarinUndergroundButchScript, EVENT_MANDARIN_UNDERGROUND_BUTCH
+	person_event SPRITE_ROCKET_GIRL, 19, 7, SPRITEMOVEDATA_STANDING_UP, 2, 2, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, MandarinUndergroundCassidyScript, EVENT_MANDARIN_UNDERGROUND_CASSIDY
 	person_event SPRITE_POKE_BALL, 22, 9, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MandarinUndergroundTMThief, EVENT_MANDARIN_UNDERGROUND_TM_THIEF
+

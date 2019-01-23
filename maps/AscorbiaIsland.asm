@@ -149,8 +149,29 @@ AscorbiaArtistLadyNightScript:
 	applymovement ASCORBIA_ISLAND_PIKACHU, IllyPikaJumpMovement2
 	cry PIKACHU
 	writetext AscorbiaGrannyNiteText4
+	checkcode VAR_PARTYCOUNT
+	if_equal 6, .NoRoomForIllyPikachu
 	waitbutton
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	givepoke PIKACHU, 35
+	special SpecialIllustratorPikachu
+	setevent EVENT_GOT_ILLUSTRATOR_PIKACHU
+	writetext AscorbiaGrannyNiteText3
+	waitbutton
+	closetext
 	end
+	
+.NoRoomForIllyPikachu:
+	writetext NoRoomForIllyPikachuText
+	waitbutton
+	closetext
+	end
+	
+NoRoomForIllyPikachuText:
+	text "Your #MON"
+	line "party is full."
+	done
 
 IllyPikaJumpMovement1:
 	fix_facing
@@ -165,19 +186,53 @@ IllyPikaJumpMovement2:
 	step_end
 	
 AscorbiaGrannyNiteText1:
-	text "1"
+	text "Oh, hello there."
+	line "Have you heard of"
+	cont "the famous painter"
+	cont "on this island?"
+	
+	para "Well, this may"
+	line "come as a shock,"
+	cont "but that painter"
+	cont "is this PIKACHU!"
+	
+	para "But, if word were"
+	line "to get out, I'm"
+	cont "worried about"
+	cont "PIKACHU's safety."
+	
+	para "You seem like a"
+	line "capable trainer!"
+	cont "How about it, why"
+	cont "don't you take"
+	
+	para "PIKACHU under your"
+	line "wing, and take it"
+	cont "all around the"
+	cont "world so it can"
+	
+	para "keep doing what it"
+	line "loves?"
 	done
 
 AscorbiaGrannyNiteText2:
-	text "2"
+	text "Oh, I see. I"
+	line "understand. You"
+	cont "must already have"
+	cont "a lot of wonderful"
+	
+	para "#MON."
 	done
 	
 AscorbiaGrannyNiteText3:
-	text "3"
+	text "Safe travels,"
+	line "PIKACHU!"
 	done	
 
 AscorbiaGrannyNiteText4:
-	text "4"
+	text "Why, I dare say it"
+	line "has already taken"
+	cont "a liking to you!"
 	done
 
 AscorbiaIsland_MapEventHeader::
@@ -210,6 +265,6 @@ AscorbiaIsland_MapEventHeader::
 	person_event SPRITE_POKE_BALL, 2, 15, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, AscorbiaTMDragonPulse, EVENT_ASCORBIA_TM_DRAGON_PULSE
 	person_event SPRITE_POKE_BALL, 4, 22, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, AscorbiaMaxRepel, EVENT_ASCORBIA_MAX_REPEL
 	person_event SPRITE_POKE_BALL, 21, 39, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, AscorbiaPolkadotBow, EVENT_ASCORBIA_POLKADOT_BOW
-	person_event SPRITE_PIKACHU, 27, 34, SPRITEMOVEDATA_POKEMON, 0, 0, -1, (1 << NITE), PAL_OW_RED, 0, 0, AscorbiaIllustratorPikachu, -1
+	person_event SPRITE_PIKACHU, 27, 34, SPRITEMOVEDATA_POKEMON, 0, 0, -1, (1 << NITE), PAL_OW_RED, 0, 0, AscorbiaIllustratorPikachu, EVENT_GOT_ILLUSTRATOR_PIKACHU
 	person_event SPRITE_GRANNY, 28, 34, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, (1 << NITE), 0, PERSONTYPE_SCRIPT, 0, AscorbiaArtistLadyNightScript, -1
 

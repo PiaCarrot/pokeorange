@@ -36,7 +36,6 @@
 ## Animations
 
 - Aerial Ace
-- Dive
 - Earth Power
 - Luster Purge
 - Mist Ball
