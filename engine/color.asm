@@ -171,31 +171,31 @@ GetMonPalettePointer:
 	ld a, [bc]
 	and FORM_MASK
 	cp TOGEPI_EGG_FORM
-	ld hl, TogepiEggPalette
+	ld hl, EggTogepiPalette
 	jr z, .ok
 	cp SMOOCHUM_EGG_FORM
-	ld hl, SmoochumEggPalette
+	ld hl, EggSmoochumPalette
 	jr z, .ok
 	cp PICHU_EGG_FORM
-	ld hl, PichuEggPalette
+	ld hl, EggPichuPalette
 	jr z, .ok
 	cp MAGBY_EGG_FORM
-	ld hl, MagbyEggPalette
+	ld hl, EggMagbyPalette
 	jr z, .ok
 	cp IGGLYBUFF_EGG_FORM
-	ld hl, IgglybuffEggPalette
+	ld hl, EggIgglybuffPalette
 	jr z, .ok
 	cp HAPPINY_EGG_FORM
-	ld hl, HappinyEggPalette
+	ld hl, EggHappinyPalette
 	jr z, .ok
 	cp ELEKID_EGG_FORM
-	ld hl, ElekidEggPalette
+	ld hl, EggElekidPalette
 	jr z, .ok
 	cp CLEFFA_EGG_FORM
-	ld hl, CleffaEggPalette
+	ld hl, EggCleffaPalette
 	jr z, .ok
 	cp AZURILL_EGG_FORM
-	ld hl, AzurillEggPalette
+	ld hl, EggAzurillPalette
 	jr z, .ok
 	pop af
 	jp .continue

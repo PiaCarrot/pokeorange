@@ -349,23 +349,23 @@ ChinchouPalette:        INCLUDE "gfx/pics/chinchou/normal.pal"
 ChinchouShinyPalette:   INCLUDE "gfx/pics/chinchou/shiny.pal"
 LanturnPalette:         INCLUDE "gfx/pics/lanturn/normal.pal"
 LanturnShinyPalette:    INCLUDE "gfx/pics/lanturn/shiny.pal"
-PichuEggPalette:
+EggPichuPalette:
 PichuPalette:           INCLUDE "gfx/pics/pichu/normal.pal"
 PichuShinyPalette:      INCLUDE "gfx/pics/pichu/shiny.pal"
-CleffaEggPalette:
+EggCleffaPalette:
 CleffaPalette:          INCLUDE "gfx/pics/cleffa/normal.pal"
 CleffaShinyPalette:     INCLUDE "gfx/pics/cleffa/shiny.pal"
-IgglybuffEggPalette:
+EggIgglybuffPalette:
 IgglybuffPalette:       INCLUDE "gfx/pics/igglybuff/normal.pal"
 IgglybuffShinyPalette:  INCLUDE "gfx/pics/igglybuff/shiny.pal"
-TogepiEggPalette:
+EggTogepiPalette:
 TogepiPalette:          INCLUDE "gfx/pics/togepi/normal.pal"
 TogepiShinyPalette:     INCLUDE "gfx/pics/togepi/shiny.pal"
 TogeticPalette:         INCLUDE "gfx/pics/togetic/normal.pal"
 TogeticShinyPalette:    INCLUDE "gfx/pics/togetic/shiny.pal"
 NatuPalette:            INCLUDE "gfx/pics/natu/normal.pal"
 NatuShinyPalette:       INCLUDE "gfx/pics/natu/shiny.pal"
-AzurillEggPalette:
+EggAzurillPalette:
 XatuPalette:            INCLUDE "gfx/pics/xatu/normal.pal"
 XatuShinyPalette:       INCLUDE "gfx/pics/xatu/shiny.pal"
 MareepPalette:          INCLUDE "gfx/pics/mareep/normal.pal"
@@ -486,16 +486,16 @@ TyroguePalette:         INCLUDE "gfx/pics/tyrogue/normal.pal"
 TyrogueShinyPalette:    INCLUDE "gfx/pics/tyrogue/shiny.pal"
 HitmontopPalette:       INCLUDE "gfx/pics/hitmontop/normal.pal"
 HitmontopShinyPalette:  INCLUDE "gfx/pics/hitmontop/shiny.pal"
-SmoochumEggPalette:
+EggSmoochumPalette:
 SmoochumPalette:        INCLUDE "gfx/pics/smoochum/normal.pal"
 SmoochumShinyPalette:   INCLUDE "gfx/pics/smoochum/shiny.pal"
-ElekidEggPalette:
+EggElekidPalette:
 ElekidPalette:          INCLUDE "gfx/pics/elekid/normal.pal"
 ElekidShinyPalette:     INCLUDE "gfx/pics/elekid/shiny.pal"
-MagbyEggPalette:
+EggMagbyPalette:
 MagbyPalette:           INCLUDE "gfx/pics/magby/normal.pal"
 MagbyShinyPalette:      INCLUDE "gfx/pics/magby/shiny.pal"
-HappinyEggPalette:
+EggHappinyPalette:
 MiltankPalette:         INCLUDE "gfx/pics/miltank/normal.pal"
 MiltankShinyPalette:    INCLUDE "gfx/pics/miltank/shiny.pal"
 BlisseyPalette:         INCLUDE "gfx/pics/blissey/normal.pal"
