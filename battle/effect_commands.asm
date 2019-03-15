@@ -4696,73 +4696,66 @@ UpdateMoveData: ; 35e40
 BattleCommand_SleepTarget: ; 35e5c
 ; sleeptarget
 
-	call GetOpponentItem
-	ld a, b
-	cp HELD_PREVENT_SLEEP
-	jr nz, .not_protected_by_item
+    call GetOpponentItem
+    ld a, b
+    cp HELD_PREVENT_SLEEP
+    jr nz, .not_protected_by_item
 
-	ld a, [hl]
-	ld [wNamedObjectIndexBuffer], a
-	call GetItemName
-	ld hl, ProtectedByText
-	jr .fail
+    ld a, [hl]
+    ld [wNamedObjectIndexBuffer], a
+    call GetItemName
+    ld hl, ProtectedByText
+    jr .fail
 
 .not_protected_by_item
-	ld a, BATTLE_VARS_STATUS_OPP
-	call GetBattleVarAddr
-	ld d, h
-	ld e, l
-	ld a, [de]
-	and SLP
-	ld hl, AlreadyAsleepText
-	jr nz, .fail
+    ld a, BATTLE_VARS_STATUS_OPP
+    call GetBattleVarAddr
+    ld d, h
+    ld e, l
+    ld a, [de]
+    and SLP
+    ld hl, AlreadyAsleepText
+    jr nz, .fail
 
-	ld a, [AttackMissed]
-	and a
-	jp nz, PrintDidntAffect2
+    ld a, [AttackMissed]
+    and a
+    jp nz, PrintDidntAffect2
 
-	ld hl, DidntAffect1Text
-	call .CheckAIRandomFail
-	jr c, .fail
+    ld hl, DidntAffect1Text
+    call .CheckAIRandomFail
+    jr c, .fail
 
-	ld a, [de]
-	and a
-	jr nz, .fail
+    ld a, [de]
+    and a
+    jr nz, .fail
 
-	call CheckSubstituteOpp
-	jr nz, .fail
+    call CheckSubstituteOpp
+    jr nz, .fail
 
-	call AnimateCurrentMove
-	ld b, $7
-	ld a, [InBattleTowerBattle]
-	and a
-	jr z, .random_loop
-	ld b, $3
+    call AnimateCurrentMove
 
 .random_loop
-	call BattleRandom
-	and b
-	jr z, .random_loop
-	cp 4
-	jr z, .random_loop
-	inc a
-	ld [de], a
-	call UpdateOpponentInParty
-	call RefreshBattleHuds
+    call BattleRandom
+    and 3
+    jr z, .random_loop
+    inc a
+    ld [de], a
+    call UpdateOpponentInParty
+    call RefreshBattleHuds
 
-	ld hl, FellAsleepText
-	call StdBattleTextBox
+    ld hl, FellAsleepText
+    call StdBattleTextBox
 
-	farcall UseHeldStatusHealingItem
+    farcall UseHeldStatusHealingItem
 
-	jp z, OpponentCantMove
-	ret
+    jp z, OpponentCantMove
+    ret
 
 .fail
-	push hl
-	call AnimateFailedMove
-	pop hl
-	jp StdBattleTextBox
+    push hl
+    call AnimateFailedMove
+    pop hl
+    jp StdBattleTextBox
 
 ; 35ece
 

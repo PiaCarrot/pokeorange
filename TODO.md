@@ -4,8 +4,7 @@
 
 - Mistimed battle animations from 60FPS
 - Ditto needs fixing. When using Transform, and then caught, it becomes the Pokemon it transformed into.
-- Sleep moves can sometimes cause Poison instead, Headbutt Pokemons are poisoned sometimes instead of asleep, etc.
-- Pokemon disappear from the Daycare (normally the old man's)
+- Pokemon disappear from the Daycare (normally the old man's) EDIT: Cannot reproduce disappearing mons but regardless they do not breed and are bugged in the overworld
 
 ## Content
 
@@ -22,7 +21,7 @@
 - Chain Fishing
 - Invisible Pickup for Meowth/Persian
 - Invisible Flame Body for Magmar/Magmortar
-- Split Kantonian and Alolan Formes so both are obtainable
+- Split Kantonian and Alolan Formes so both are obtainable (Pokemon Brass has done this, might need to be adapted and improved)
 
 ## Graphics
 
