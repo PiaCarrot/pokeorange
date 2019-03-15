@@ -157,6 +157,7 @@ AscorbiaArtistLadyNightScript:
 	givepoke PIKACHU, 35
 	special SpecialIllustratorPikachu
 	setevent EVENT_GOT_ILLUSTRATOR_PIKACHU
+	disappear ASCORBIA_ISLAND_PIKACHU
 	writetext AscorbiaGrannyNiteText3
 	waitbutton
 	closetext

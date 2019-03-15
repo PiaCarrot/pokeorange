@@ -622,6 +622,53 @@ BrockGroup:
 		db NO_MOVE
 
 	db $ff ; end
+	
+; ================================
+; ================
+
+	; BROCK (2) World Tournament
+	db "BROCK@"
+	db TRAINERTYPE_PERSONALITY + TRAINERTYPE_ITEM + TRAINERTYPE_MOVES
+
+	; party
+
+	db 100, STEELIX, LEFTOVERS, MALE_MASK
+		db IRON_TAIL
+		db GIGA_IMPACT
+		db DIG
+		db EARTHQUAKE
+
+	db 100, LYCANROC, HARD_STONE, MALE_MASK | LYCANROC_DUSK_FORM
+		db ACCELEROCK
+		db ROAR
+		db EXTREMESPEED
+		db CRUNCH
+
+	db 100, AERODACTYL, GOLD_BERRY, MALE_MASK
+		db FLY
+		db ANCIENTPOWER
+		db STEEL_WING
+		db ROCK_SLIDE
+
+	db 100, GOLEM, MAGNET, MALE_MASK
+		db THUNDER
+		db FISSURE
+		db LOCK_ON
+		db EARTHQUAKE
+		
+	db 100, RHYPERIOR, QUICK_CLAW, MALE_MASK
+		db HORN_DRILL
+		db EARTHQUAKE
+		db ROCK_SLIDE
+		db ROCK_CLIMB
+		
+	db 100, RELICANTH, MYSTIC_WATER, MALE_MASK
+		db HYDRO_PUMP
+		db RAIN_DANCE
+		db WHIRLPOOL
+		db PROTECT
+
+	db $ff ; end
 
 ; ================
 ; ================================

@@ -3833,7 +3833,7 @@ KrisNameMenuHeader: ; 882e5
 	db "NEW NAME@"
 	db "ORANGE@"
 	db "INDIGO@"
-	db "JESSIE@"
+	db "TERA@"
 	db "MOON@"
 	db 2 ; displacement
 	db " NAME @" ; title

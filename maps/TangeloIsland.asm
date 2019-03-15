@@ -29,7 +29,7 @@ TangeloIslandLaprasScript:
 	writetext GotLaprasText
 	playsound SFX_GET_BADGE
 	waitsfx
-	givepoke LAPRAS, 10, NO_ITEM, 0
+	givepoke LAPRAS, 10, BERRY, 0
 	disappear TANGELOISLAND_LAPRAS
 	special Special_FadeInQuickly
 	writetext LaprasSurf
