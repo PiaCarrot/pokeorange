@@ -2234,8 +2234,7 @@ LaprasEvosAttacks:
 
 DittoEvosAttacks:
 	db 0 ; no more evolutions
-;	db 1, TRANSFORM ;commented out until fixed
-	db 1, STRUGGLE
+	db 1, TRANSFORM ;commented out until fixed
 	db 0 ; no more level-up moves
 
 EeveeEvosAttacks:

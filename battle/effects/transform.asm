@@ -46,15 +46,6 @@ BattleCommand_Transform: ; 371cd
 	inc de
 	ld bc, NUM_MOVES
 	call CopyBytes
-	ld a, [hBattleTurn]
-	and a
-	jr z, .mimic_enemy_backup
-	ld a, [de]
-	ld [wEnemyBackupDVs], a
-	inc de
-	ld a, [de]
-	ld [wEnemyBackupDVs + 1], a
-	dec de
 .mimic_enemy_backup
 ; copy DVs
 	ld a, [hli]

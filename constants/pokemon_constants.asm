@@ -261,6 +261,7 @@ NUM_POKEMON EQU const_value
 
 EGG EQU 254
 
+
 ; pokemon structure in RAM
 MON_SPECIES              EQUS "(PartyMon1Species - PartyMon1)"
 MON_ITEM                 EQUS "(PartyMon1Item - PartyMon1)"
@@ -414,6 +415,17 @@ const_value set 1
 	const LYCANROC_MIDDAY_FORM
 	const LYCANROC_MIDNIGHT_FORM
 	const LYCANROC_DUSK_FORM
+	
+const_value set 1
+	const TOGEPI_EGG_FORM
+	const SMOOCHUM_EGG_FORM
+	const PICHU_EGG_FORM
+	const MAGBY_EGG_FORM
+	const IGGLYBUFF_EGG_FORM
+	const HAPPINY_EGG_FORM
+	const ELEKID_EGG_FORM
+	const CLEFFA_EGG_FORM
+	const AZURILL_EGG_FORM
 
 ; apply to MON_CAUGHTDATA
 CAUGHTGENDER_MASK   EQU %10000000

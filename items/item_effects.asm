@@ -437,9 +437,23 @@ DuskBall: ; e8a2
 .load_data
 	ld a, [TempEnemyMonSpecies]
 	ld [CurPartySpecies], a
+	ld [EnemyMonSpecies], a
 	ld a, [EnemyMonLevel]
 	ld [CurPartyLevel], a
-;	farcall LoadEnemyMon
+    ld hl, wEnemyBackupDVs
+        ld de, EnemyMonDVs
+        ld bc, 2
+        call CopyBytes
+
+        ld hl, wWildMonMoves
+        ld de, EnemyMonMoves
+        ld bc, NUM_MOVES
+        call CopyBytes
+
+        ld hl, wWildMonPP
+        ld de, EnemyMonPP
+        ld bc, NUM_MOVES
+        call CopyBytes
 
 	pop af
 	ld [EnemySubStatus5], a

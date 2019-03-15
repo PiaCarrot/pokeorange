@@ -97,7 +97,7 @@ GetBattlemonBackpicPalettePointer:
 	and PINK_MASK
 	jp nz, GetNormalOrShinyPinkanPalettePointer
 	ld a, [TempBattleMonSpecies]
-	jr GetMonNormalOrShinyPalettePointer_NoPinkCheck
+	jp GetMonNormalOrShinyPalettePointer_NoPinkCheck
 
 
 GetEnemyFrontpicPalettePointer:
@@ -109,9 +109,9 @@ GetEnemyFrontpicPalettePointer:
 	ld b, h
 	ld a, [EnemyMonPink]
 	and PINK_MASK
-	jr nz, GetNormalOrShinyPinkanPalettePointer
+	jp nz, GetNormalOrShinyPinkanPalettePointer
 	ld a, [TempEnemyMonSpecies]
-	jr GetMonNormalOrShinyPalettePointer_NoPinkCheck
+	jp GetMonNormalOrShinyPalettePointer_NoPinkCheck
 
 
 GetMonPalettePointer:
@@ -121,6 +121,8 @@ GetMonPalettePointer:
 	jr z, .onix
 	cp POLIWRATH
 	jr z, .poliwrath
+	cp EGG
+	jr z, .egg
 .continue
 	ld l, a
 	ld h, $0
@@ -163,6 +165,40 @@ GetMonPalettePointer:
 	jr z, .ok
 	pop af
 	jr .continue
+	
+.egg
+	push af
+	ld a, [bc]
+	and FORM_MASK
+	cp TOGEPI_EGG_FORM
+	ld hl, TogepiEggPalette
+	jr z, .ok
+	cp SMOOCHUM_EGG_FORM
+	ld hl, SmoochumEggPalette
+	jr z, .ok
+	cp PICHU_EGG_FORM
+	ld hl, PichuEggPalette
+	jr z, .ok
+	cp MAGBY_EGG_FORM
+	ld hl, MagbyEggPalette
+	jr z, .ok
+	cp IGGLYBUFF_EGG_FORM
+	ld hl, IgglybuffEggPalette
+	jr z, .ok
+	cp HAPPINY_EGG_FORM
+	ld hl, HappinyEggPalette
+	jr z, .ok
+	cp ELEKID_EGG_FORM
+	ld hl, ElekidEggPalette
+	jr z, .ok
+	cp CLEFFA_EGG_FORM
+	ld hl, CleffaEggPalette
+	jr z, .ok
+	cp AZURILL_EGG_FORM
+	ld hl, AzurillEggPalette
+	jr z, .ok
+	pop af
+	jp .continue
 
 .ok
 	pop af

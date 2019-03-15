@@ -6,4 +6,5 @@
 	dbba LYCANROC,  LycanrocPicPointers
 	dbba SQUIRTLE,  SquirtlePicPointers
 	dbba MAGIKARP,  MagikarpPicPointers
+	dbba EGG,       EggPicPointers
 	dbba -1,        PicPointers

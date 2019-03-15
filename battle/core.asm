@@ -7775,6 +7775,10 @@ InitEnemyWildmon: ; 3f607
 	ld de, wWildMonPP
 	ld bc, NUM_MOVES
 	call CopyBytes
+    ld hl, EnemyMonDVs
+    ld de, wEnemyBackupDVs
+    ld bc, 2
+    call CopyBytes
 	ld hl, EnemyMonDVs
 	predef GetVariant
 	ld a, [CurPartySpecies]

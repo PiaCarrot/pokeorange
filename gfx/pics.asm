@@ -731,6 +731,15 @@ LycanrocMidnightFrontpic: INCBIN "gfx/pics/lycanroc_midnight/front.2bpp.lz"
 LycanrocMidnightBackpic:  INCBIN "gfx/pics/lycanroc_midnight/back.2bpp.lz"
 LycanrocDuskFrontpic:     INCBIN "gfx/pics/lycanroc_dusk/front.2bpp.lz"
 LycanrocDuskBackpic:      INCBIN "gfx/pics/lycanroc_dusk/back.2bpp.lz"
+EggTogepiPic:             INCBIN "gfx/pics/egg_togepi/front.2bpp.lz"
+EggSmoochumPic:           INCBIN "gfx/pics/egg_smoochum/front.2bpp.lz"
+EggPichuPic:              INCBIN "gfx/pics/egg_pichu/front.2bpp.lz"
+EggMagbyPic:              INCBIN "gfx/pics/egg_magby/front.2bpp.lz"
+EggIgglybuffPic:          INCBIN "gfx/pics/egg_igglybuff/front.2bpp.lz"
+EggHappinyPic:            INCBIN "gfx/pics/egg_happiny/front.2bpp.lz"
+EggElekidPic:             INCBIN "gfx/pics/egg_elekid/front.2bpp.lz"
+EggCleffaPic:             INCBIN "gfx/pics/egg_cleffa/front.2bpp.lz"
+EggAzurillPic:            INCBIN "gfx/pics/egg_azurill/front.2bpp.lz"
 
 
 SECTION "Pics 22", ROMX
