@@ -123,7 +123,7 @@ SECTION "Seven Grapefruits Scripts", ROMX
 
 INCLUDE "maps/SevenGrapefruits.asm"
 INCLUDE "maps/SevenGrapefruitsUnderwater.asm"
-INCLUDE "Maps/GrapefruitStore.asm"
+INCLUDE "maps/GrapefruitStore.asm"
 
 
 SECTION "Moro Scripts", ROMX
