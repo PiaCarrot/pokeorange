@@ -64,13 +64,13 @@ MagikarpPicPointers::
 	add_pics MagikarpBubbles
 	
 EggPicPointers::
-	add_pics Egg
-	add_pics EggTogepi
-	add_pics EggSmoochum
-	add_pics EggPichu
-	add_pics EggMagby
-	add_pics EggIgglybuff
-	add_pics EggHappiny
-	add_pics EggElekid
-	add_pics EggCleffa
-	add_pics EggAzurill
+	dba EggPic
+	dba EggTogepiPic
+	dba EggSmoochumPic
+	dba EggPichuPic
+	dba EggMagbyPic
+	dba EggIgglybuffPic
+	dba EggHappinyPic
+	dba EggElekidPic
+	dba EggCleffaPic
+	dba EggAzurillPic
