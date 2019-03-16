@@ -7,6 +7,8 @@ GetVariant: ; 51040
 	jr z, .GetSpindaVariant
 	cp MAGIKARP
 	jr z, .GetMagikarpVariant
+	cp EGG
+	jp z, .GetEggVariant
 
 ; (Lycanroc, Meowth, Poliwrath)
 ; Get the form from party_struct TempMon or battle_struct
@@ -32,6 +34,42 @@ GetVariant: ; 51040
 .ok_form
 	ld [MonVariant], a
 	ret
+	
+.GetEggVariant:
+; Get the form from species
+	push bc
+	ld bc, TempMonDVs
+	ld a, b
+	cp h
+	jr nz, .not_tempmon_egg
+	ld a, c
+	cp l
+	jr nz, .not_tempmon_egg
+	ld bc, (TempMonForm - TempMonDVs) - (BattleMonForm - BattleMonDVs)
+	add hl, bc
+.not_tempmon_egg
+	ld bc, BattleMonForm - BattleMonDVs
+	add hl, bc
+	pop bc
+
+; Togepi form
+	ld a, EGG_TOGEPI
+	ld [MonVariant], a
+	ld a, [hl]
+	cp TOGEPI
+	ret z
+	
+; Smoochum form
+	ld a, EGG_SMOOCHUM
+	ld [MonVariant], a
+	ld a, [hl]
+	cp SMOOCHUM
+	ret z
+
+; Normal form
+	ld a, EGG_NORMAL
+	ret
+	ld [MonVariant], a
 
 .GetSquirtleVariant:
 ; Get the item from party_struct TempMon or battle_struct
