@@ -190,6 +190,7 @@ INCLUDE "audio/music/xdbattlesimtheme.asm"
 INCLUDE "audio/music/route119.asm"
 INCLUDE "audio/music/sunnyshore.asm"
 INCLUDE "audio/music/marinetube.asm"
+INCLUDE "audio/music/rslooklass.asm"
 
 SECTION "Songs 14", ROMX
 

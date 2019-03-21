@@ -239,6 +239,7 @@ INCLUDE "maps/ButwalIslandEast.asm"
 INCLUDE "maps/ButwalIslandWest.asm"
 INCLUDE "maps/ButwalIslandUnderwaterEast.asm"
 INCLUDE "maps/ButwalIslandUnderwaterWest.asm"
+INCLUDE "maps/ButwalIslandWestGrotto.asm"
 
 SECTION "Kumquat Scripts", ROMX
 	

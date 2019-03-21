@@ -392,6 +392,9 @@ PummeloIsland_BlockData:
 	
 PummeloStadium_BlockData:
 	INCBIN "maps/PummeloStadium.blk"
+	
+ButwalIslandWestGrotto_BlockData:
+	INCBIN "maps/ButwalIslandWestGrotto.blk"
 
 SECTION "Block Data 4", ROMX
 

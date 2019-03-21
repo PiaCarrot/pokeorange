@@ -188,6 +188,8 @@ KRIS EQU __enum__
 	const TAD
 	const YUUJI
 	const SEI
+	const KUBO
+	const NAGI
 
 	trainerclass COOLTRAINERF
 	const KEIKO

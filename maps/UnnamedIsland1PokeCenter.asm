@@ -21,7 +21,7 @@ UnnamedIsland1PokeCenter_MapScriptHeader:
 .UnnamedIslandMistyScript:
 	applymovement PLAYER, UnnamedPokeCenter1FPlayerMovement1
 	spriteface UNNAMEDISLAND_MISTY, DOWN
-	playmusic MUSIC_LASS_ENCOUNTER
+	playmusic MUSIC_RS_LOOK_LASS
 	showemote EMOTE_SHOCK, UNNAMEDISLAND_MISTY, 15
 	pause 10
 	opentext

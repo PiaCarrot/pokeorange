@@ -30,7 +30,7 @@ TrovitaMistyScript:
 	waitbutton
 	closetext
 	faceplayer
-	playmusic MUSIC_LASS_ENCOUNTER
+	playmusic MUSIC_RS_LOOK_LASS
 	showemote EMOTE_SHOCK, TROVITA_ISLAND_MISTY, 15
 	opentext
 	writetext TrovitaMistyText2

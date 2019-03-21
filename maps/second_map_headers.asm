@@ -354,6 +354,7 @@
 	map_header_2 KinnowShowboat, KINNOW_SHOWBOAT, 2, 0
 	map_header_2 HeartScaleCove, HEART_SCALE_COVE, 9, 0
 	map_header_2 PummeloStadium, PUMMELO_STADIUM, 0, 0
+	map_header_2 ButwalIslandWestGrotto, BUTWAL_ISLAND_WEST_GROTTO, 9, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

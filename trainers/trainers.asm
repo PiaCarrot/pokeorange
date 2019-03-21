@@ -2503,6 +2503,46 @@ CooltrainerMGroup:
 		db FLAME_WHEEL
 
 	db $ff
+	
+; ================
+
+	; COOLTRAINERM (7)
+	db "KUBO@"
+	db TRAINERTYPE_MOVES
+
+	db 44, PINSIR
+		db SLASH
+		db SWORDS_DANCE
+		db LEECH_LIFE
+		db DOUBLE_TEAM
+		
+	db 44, WIGGLYTUFF
+		db SING
+		db FACADE
+		db REST
+		db SLEEP_TALK
+
+	db $ff
+	
+; ================
+
+	; COOLTRAINERM (8)
+	db "NAGI@"
+	db TRAINERTYPE_MOVES
+
+	db 44, PERSIAN
+		db AGILITY
+		db PURSUIT
+		db CRUNCH
+		db ROAR
+		
+	db 44, EXEGGCUTE
+		db SELFDESTRUCT
+		db EGG_BOMB
+		db LEECH_SEED
+		db PROTECT
+
+	db $ff
 
 ; ================
 ; ================================

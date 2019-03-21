@@ -273,6 +273,8 @@
 	const EVENT_BEAT_COOLTRAINERM_TAD
 	const EVENT_BEAT_COOLTRAINERM_YUUJI
 	const EVENT_BEAT_COOLTRAINERM_SEI
+	const EVENT_BEAT_COOLTRAINER_M_KUBO
+	const EVENT_BEAT_COOLTRAINER_M_NAGI
 ; COOLTRAINERF
     const EVENT_BEAT_COOLTRAINERF_KEIKO
     const EVENT_BEAT_COOLTRAINERF_MORIKO
@@ -351,6 +353,7 @@
 	const EVENT_ROUTE_64_HIDDEN_HEART_SCALE_3
 	const EVENT_ROUTE_64_HIDDEN_HEART_SCALE_4
 	const EVENT_BUTWAL_EAST_HIDDEN_FULL_RESTORE
+	const EVENT_BUTWAL_WEST_HIDDEN_ELIXIR
 
 ; Sprite visibility: When these events are cleared, the sprite becomes visible; when set, the sprite is hidden.
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.
@@ -457,6 +460,9 @@
 	const EVENT_BUTWAL_EAST_ZINC
 	const EVENT_BUTWAL_EAST_DIVE_BALL
 	const EVENT_MANDARIN_UNDERGROUND_SUPER_POTION
+	const EVENT_BUTWAL_WEST_PROTECT
+	const EVENT_BUTWAL_WEST_REVIVE
+	const EVENT_BUTWAL_WEST_MAX_POTION
 
 ; People
 	const EVENT_BULBASAUR_POKEBALL_IN_IVYS_LAB

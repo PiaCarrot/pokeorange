@@ -94,7 +94,7 @@ Vicegrip
 - TM14 Blizzard
 - TM15 Hyper Beam (Trovitopolis Dept. Store)
 - TM16 Dragonbreath (Route 56)
-- TM17 Protect
+- TM17 Protect (Butwal West)
 - TM18 Rain Dance (Murcott Island)
 - TM19 Giga Drain (Ascorbia Island)
 - TM20 *Dragon Tail* (Crystal Cave)
