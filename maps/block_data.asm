@@ -277,6 +277,24 @@ FukuharaNo4BF3_BlockData:
 	
 AscorbiaIsland_BlockData:
 	INCBIN "maps/AscorbiaIsland.blk"
+	
+VictoryRoadF1_BlockData:
+	INCBIN "maps/VictoryRoadF1.blk"	
+	
+VictoryRoadF2_BlockData:
+	INCBIN "maps/VictoryRoadF2.blk"	
+		
+VictoryRoadF3_BlockData:
+	INCBIN "maps/VictoryRoadF3.blk"	
+	
+VictoryRoadEast_BlockData:
+	INCBIN "maps/VictoryRoadEast.blk"
+	
+VictoryRoadMysteryRoom_BlockData:
+	INCBIN "maps/VictoryRoadMysteryRoom.blk"
+	
+VictoryRoadExitRoom_BlockData:
+	INCBIN "maps/VictoryRoadExitRoom.blk"
 
 SECTION "Block Data 3", ROMX
 

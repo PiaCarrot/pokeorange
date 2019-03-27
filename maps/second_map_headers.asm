@@ -355,6 +355,12 @@
 	map_header_2 HeartScaleCove, HEART_SCALE_COVE, 9, 0
 	map_header_2 PummeloStadium, PUMMELO_STADIUM, 0, 0
 	map_header_2 ButwalIslandWestGrotto, BUTWAL_ISLAND_WEST_GROTTO, 9, 0
+	map_header_2 VictoryRoadF1, VICTORY_ROAD_F1, 105, 0
+	map_header_2 VictoryRoadF2, VICTORY_ROAD_F2, 105, 0
+	map_header_2 VictoryRoadF3, VICTORY_ROAD_F3, 105, 0
+	map_header_2 VictoryRoadEast, VICTORY_ROAD_EAST, 105, 0
+	map_header_2 VictoryRoadMysteryRoom, VICTORY_ROAD_MYSTERY_ROOM, 105, 0
+	map_header_2 VictoryRoadExitRoom, VICTORY_ROAD_EXIT_ROOM, 105, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

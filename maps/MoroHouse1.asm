@@ -45,7 +45,7 @@ Text_HeadbuttTutorTaught:
 	text "Rattle vines with"
 	line "HEADBUTT. Some-"
 	cont "times, sleeping"
-	cont "#mon fall out."
+	cont "#MON fall out."
 	done
 	
 Text_HeadbuttTutorRefused:

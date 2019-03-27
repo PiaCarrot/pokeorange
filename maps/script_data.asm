@@ -254,6 +254,15 @@ SECTION "Unnamed Island 3 Scripts", ROMX
 
 INCLUDE "maps/UnnamedIsland3.asm"
 
+SECTION "Victory Road Scripts", ROMX
+
+INCLUDE "maps/VictoryRoadF1.asm"
+INCLUDE "maps/VictoryRoadF2.asm"
+INCLUDE "maps/VictoryRoadF3.asm"
+INCLUDE "maps/VictoryRoadEast.asm"
+INCLUDE "maps/VictoryRoadMysteryRoom.asm"
+INCLUDE "maps/VictoryRoadExitRoom.asm"
+
 SECTION "Pummelo Scripts", ROMX
 
 INCLUDE "maps/PummeloIsland.asm"

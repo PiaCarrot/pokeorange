@@ -39,6 +39,13 @@ MAP_NONE EQU 0
 	mapgroup FUKUHARA_NO_4_BF1, 20, 20
 	mapgroup FUKUHARA_NO_4_BF2, 20, 20
 	mapgroup FUKUHARA_NO_4_BF3, 10, 10
+	mapgroup VICTORY_ROAD_F1, 20, 20
+	mapgroup VICTORY_ROAD_F2, 20, 26
+	mapgroup VICTORY_ROAD_F3, 24, 20
+	mapgroup VICTORY_ROAD_EAST, 20, 12
+	mapgroup VICTORY_ROAD_MYSTERY_ROOM, 5, 5
+	mapgroup VICTORY_ROAD_EXIT_ROOM, 18, 15
+	
 
 	newgroup ; 3
 

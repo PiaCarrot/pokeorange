@@ -1160,5 +1160,32 @@
 	db 31, KABUTO
 	db 31, KABUTO
 	db 31, KABUTO
+	
+	map BUTWAL_ISLAND_WEST_GROTTO
+	db 3 percent, 3 percent, 3 percent
+	;morn
+	db 28, ODDISH
+	db 28, ODDISH
+	db 28, GLOOM
+	db 29, ODDISH
+	db 29, GLOOM
+	db 29, GLOOM
+	db 29, TANGELA
+	;day
+	db 28, ODDISH
+	db 28, ODDISH
+	db 28, GLOOM
+	db 29, ODDISH
+	db 29, GLOOM
+	db 29, GLOOM
+	db 29, TANGELA
+	;nite
+	db 28, ODDISH
+	db 28, ODDISH
+	db 28, GLOOM
+	db 29, ODDISH
+	db 29, GLOOM
+	db 29, GLOOM
+	db 29, TANGELA
 
 	db -1 ; end

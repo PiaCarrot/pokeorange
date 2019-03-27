@@ -38,6 +38,7 @@ Route64SignText:
 	
 Route64TraceyCrossEvent:
 	playmusic MUSIC_LOOK_GLADION
+	spriteface PLAYER, LEFT
 	opentext
 	writetext TraceyCrossEventText1
 	waitbutton
@@ -46,6 +47,7 @@ Route64TraceyCrossEvent:
 	applymovement ROUTE_64_CROSS, ROUTE_64_CROSS_MOVEMENT
 	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
 	spriteface ROUTE_64_TRACEY, UP
+	spriteface PLAYER, DOWN
 	opentext
 	writetext TraceyCrossEventText2
 	waitbutton
@@ -68,7 +70,7 @@ TraceyCrossEventText1:
 	
 	para "I happen to be"
 	line "giving that to"
-	cont "someone."
+	cont "<PLAYER>!"
 	
 	para "CROSS: Hmph. That"
 	line "nerd, <PLAYER>?"
@@ -80,9 +82,11 @@ TraceyCrossEventText1:
 	cont "BUTWAL ISLAND"
 	cont "without this HM!"
 	
-	para "Serves him right!"
-	line "After all, I've"
-	cont "been chosen to be"
+	para "Serves you right,"
+	line "<PLAYER>!"
+	
+	para "After all, I've"
+	line "been chosen to be"
 	cont "the greatest!"
 	done
 	
@@ -95,7 +99,7 @@ ROUTE_64_CROSS_MOVEMENT:
 	step_end
 	
 TraceyCrossEventText2:
-	text "TRACEY: <PLAYER>!"
+	text "TRACEY: Agh!"
 	line "I can't believe"
 	cont "that guy! He said"
 	cont "he'd give me that"
@@ -173,8 +177,8 @@ Route64_MapEventHeader::
 
 .ObjectEvents: db 5
 	person_event SPRITE_POKE_BALL, 4, 36, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route64UltraBall, EVENT_ROUTE_64_ULTRA_BALL
-	person_event SPRITE_ROCKER, 17, 23, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_64_TRACEYCROSS
-	person_event SPRITE_TRACEY, 17, 24, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, Route64TraceyCrossEvent, EVENT_ROUTE_64_TRACEYCROSS
+	person_event SPRITE_ROCKER, 16, 23, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_64_TRACEYCROSS
+	person_event SPRITE_TRACEY, 16, 24, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, Route64TraceyCrossEvent, EVENT_ROUTE_64_TRACEYCROSS
 	person_event SPRITE_FRUIT_TREE, 7, 24, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route64FruitTree, -1
 	person_event SPRITE_YOUNGSTER, 16, 14, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route64YoungsterScript, -1
 
