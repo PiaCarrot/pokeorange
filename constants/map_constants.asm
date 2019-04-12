@@ -115,7 +115,7 @@ MAP_NONE EQU 0
 	mapgroup WRECKED_SHIP_UNSUNK, 12, 18
 	mapgroup ROUTE_61, 30, 28
 	mapgroup MURCOTT_ISLAND, 16, 23
-	mapgroup DAYCARE, 4, 4
+	mapgroup DAYCARE, 4, 6
 	mapgroup MURCOTT_HOUSE_1, 4, 4
 	mapgroup MURCOTT_HOUSE_2, 4, 4
 	mapgroup MURCOTT_HOUSE_3, 4, 4
@@ -253,6 +253,13 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_66_NORTH_SOUTH, 18, 12
 	mapgroup KUMQUAT_ISLAND_EAST, 16, 15
 	mapgroup KUMQUAT_ISLAND_WEST, 16, 15
+	mapgroup KUMQUAT_HOTEL_LOBBY, 5, 6
+	mapgroup KUMQUAT_HOTEL_POOL, 8, 7
+	mapgroup KUMQUAT_HOTEL_ELEVATOR, 2, 2
+	mapgroup KUMQUAT_HOTEL_SUITES, 3, 8
+	mapgroup KUMQUAT_HOTEL_BOTTOM_ROOM, 3, 3
+	mapgroup KUMQUAT_HOTEL_TOP_ROOM, 3, 3
+	mapgroup KUMQUAT_HOTEL_GYM, 4, 4
 	mapgroup ROUTE_67, 15, 30
 	mapgroup RIND_ISLAND, 22, 24
 	mapgroup ROUTE_68, 10, 14

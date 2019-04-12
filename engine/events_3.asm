@@ -427,7 +427,34 @@ treemon_map: macro
 	map \1
 	db  \2 ; treemon set
 endm
+	treemon_map VALENCIA_ISLAND, 1
+	treemon_map ROUTE_49, 1
+	treemon_map TANGELO_ISLAND, 1
+	treemon_map ROUTE_50, 1
+	treemon_map TANGELO_JUNGLE, 1
+	treemon_map MIKAN_ISLAND, 1
+	treemon_map MANDARIN_NORTH, 1
+	treemon_map SUNBURST_ISLAND, 1
 	treemon_map UNNAMED_ISLAND_1, 1
+	treemon_map SEVEN_GRAPEFRUITS, 1
+	treemon_map MORO_ISLAND, 1
+	
+	treemon_map MURCOTT_ISLAND, 2
+	treemon_map UNNAMED_ISLAND_2, 2
+	treemon_map TROVITA_ISLAND, 2
+	treemon_map ROUTE_63_EAST_WEST, 2
+	treemon_map ROUTE_63_NORTH_SOUTH, 2
+	treemon_map ASCORBIA_ISLAND, 2
+	
+	treemon_map ROUTE_64, 3
+	treemon_map BUTWAL_ISLAND_WEST, 3
+	treemon_map BUTWAL_ISLAND_EAST, 3
+	treemon_map ROUTE_66_EAST_WEST, 3
+	treemon_map UNNAMED_ISLAND_3, 3
+	treemon_map ROUTE_69_SOUTH, 3
+	
+	treemon_map PUMMELO_ISLAND, 4
+	treemon_map TARROCO_ISLAND, 4
 	db -1
 ; b82c5
 
@@ -481,88 +508,88 @@ TreeMons: ; b82e8
 ;	db  %, species, level
 
 TreeMons1: ; b82fa
-	db 50, KAKUNA,      10
-	db 15, SPEAROW,     10
-	db 15, PIDGEY,      10
-	db 10, BEEDRILL,    10
-	db  5, MANKEY,      10
-	db  5, LICKITUNG,   10
+	db 50, KAKUNA,      20
+	db 15, SPEAROW,     20
+	db 15, PIKIPEK,      20
+	db 10, BEEDRILL,    20
+	db  5, MANKEY,      20
+	db  5, LICKITUNG,   20
 	db -1
 
-	db 50, KAKUNA,      10
-	db 15, SPEAROW,     10
-	db 15, PIDGEY,      10
-	db 10, BEEDRILL,    10
-	db  5, MANKEY,      10
-	db  5, LICKITUNG,   10
+	db 50, KAKUNA,      20
+	db 15, SPEAROW,     20
+	db 15, PIKIPEK,     20
+	db 10, BEEDRILL,    20
+	db  5, MANKEY,      20
+	db  5, MUNCHLAX,    20
 	db -1
 
 TreeMons2: ; b8320
-	db 50, SPEAROW,    10
-	db 15, EKANS,      10
-	db 15, SPEAROW,    10
-	db 10, PIDGEY,      10
-	db  5, PIDGEY,      10
-	db  5, PIDGEY,      10
+	db 50, VENONAT,     30
+	db 15, SPEAROW,     30
+	db 15, TRUMBEAK,    30
+	db 10, EXEGGCUTE,   30
+	db  5, MANKEY,      30
+	db  5, LICKITUNG,   30
 	db -1
 
-	db 50, SPEAROW,    10
-	db 15, MAREANIE,  10
-	db 15, MAREANIE,  10
-	db 10, PIDGEY,      10
-	db  5, PIDGEY,      10
-	db  5, PIDGEY,      10
+	db 50, VENONAT,     30
+	db 15, SPEAROW,     30
+	db 15, TRUMBEAK,    30
+	db 10, EXEGGCUTE,   30
+	db  5, MANKEY,      30
+	db  5, MUNCHLAX,    30
 	db -1
 
 TreeMons3: ; b8346
-	db 50, CHINGLING,   10
-	db 15, FINNEON,   10
-	db 15, SALANDIT,     10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 50, VENOMOTH,    40
+	db 15, FEAROW,      40
+	db 15, TRUMBEAK,    40
+	db 10, EXEGGCUTE,   40
+	db  5, PRIMEAPE,    40
+	db  5, LICKITUNG,   40
 	db -1
 
-	db 50, CHINGLING,   10
-	db 15, TRAPINCH,     10
-	db 15, TRAPINCH,     10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 50, VENOMOTH,    40
+	db 15, FEAROW,      40
+	db 15, TRUMBEAK,    40
+	db 10, EXEGGCUTE,   40
+	db  5, PRIMEAPE,    40
+	db  5, MUNCHLAX,    40
 	db -1
 
 TreeMons4: ; b836c
-	db 50, CHINGLING,   10
-	db 15, EKANS,      10
-	db 15, CHINGLING,   10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 50, VENOMOTH,    50
+	db 15, TRUMBEAK,    50
+	db 15, TOUCANNON,   50
+	db 10, EXEGGCUTE,   50
+	db  5, PRIMEAPE,    50
+	db  5, LICKITUNG,   50
 	db -1
 
-	db 50, CHINGLING,   10
-	db 15, TRAPINCH,     10
-	db 15, TRAPINCH,     10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 50, VENOMOTH,    50
+	db 15, SPEAROW,     50
+	db 15, FEAROW,      50
+	db 10, EXEGGCUTE,   50
+	db  5, PRIMEAPE,    50
+	db  5, MUNCHLAX,    50
 	db -1
 
 TreeMons5: ; b8392
-	db 50, CHINGLING,   10
-	db 15, VENONAT,    10
-	db 15, CHINGLING,   10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 50, PIDGEOTTO,   55
+	db 15, FEAROW,      55
+	db 15, BEEDRILL,    55
+	db 10, BUTTERFREE,  55
+	db  5, PRIMEAPE,    55
+	db  5, PIDGEOT,     55
 	db -1
 
-	db 50, CHINGLING,   10
-	db 15, TRAPINCH,     10
-	db 15, TRAPINCH,     10
-	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db 50, PIDGEOTTO,   55
+	db 15, FEAROW,      55
+	db 15, BEEDRILL,    55
+	db 10, BUTTERFREE,  55
+	db  5, PRIMEAPE,    55
+	db  5, PIDGEOT,     55
 	db -1
 
 RockMons1: ; b83b8

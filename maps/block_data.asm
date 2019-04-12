@@ -295,6 +295,27 @@ VictoryRoadMysteryRoom_BlockData:
 	
 VictoryRoadExitRoom_BlockData:
 	INCBIN "maps/VictoryRoadExitRoom.blk"
+	
+KumquatHotelLobby_BlockData:
+	INCBIN "maps/KumquatHotelLobby.blk"
+	
+KumquatHotelPool_BlockData:
+	INCBIN "maps/KumquatHotelPool.blk"
+	
+KumquatHotelElevator_BlockData:
+	INCBIN "maps/KumquatHotelElevator.blk"
+	
+KumquatHotelSuites_BlockData:
+	INCBIN "maps/KumquatHotelSuites.blk"
+	
+KumquatHotelBottomRoom_BlockData:
+	INCBIN "maps/KumquatHotelBottomRoom.blk"
+	
+KumquatHotelTopRoom_BlockData:
+	INCBIN "maps/KumquatHotelTopRoom.blk"
+	
+KumquatHotelGym_BlockData:
+	INCBIN "maps/KumquatHotelGym.blk"
 
 SECTION "Block Data 3", ROMX
 

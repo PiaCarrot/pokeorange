@@ -312,7 +312,7 @@
 	map_header_2 MurcottHouse3, MURCOTT_HOUSE_3, 0, 0
 	map_header_2 MurcottPokeCenter, MURCOTT_POKE_CENTER, 0, 0
 	map_header_2 MurcottPokeMart, MURCOTT_POKE_MART, 0, 0
-	map_header_2 DayCare, DAYCARE, $0, 0
+	map_header_2 DayCare, DAYCARE, 0, 0
 	map_header_2 MandarinDesert, MANDARIN_DESERT, 21, 0
 	map_header_2 Trovitopolis, TROVITOPOLIS, 53, 0
 	map_header_2 TrovitopolisSewer, TROVITOPOLIS_SEWER, 0, 0
@@ -361,6 +361,13 @@
 	map_header_2 VictoryRoadEast, VICTORY_ROAD_EAST, 105, 0
 	map_header_2 VictoryRoadMysteryRoom, VICTORY_ROAD_MYSTERY_ROOM, 105, 0
 	map_header_2 VictoryRoadExitRoom, VICTORY_ROAD_EXIT_ROOM, 105, 0
+	map_header_2 KumquatHotelLobby, KUMQUAT_HOTEL_LOBBY, 0, 0
+	map_header_2 KumquatHotelPool, KUMQUAT_HOTEL_POOL, 0, 0
+	map_header_2 KumquatHotelElevator, KUMQUAT_HOTEL_ELEVATOR, 0, 0
+	map_header_2 KumquatHotelSuites, KUMQUAT_HOTEL_SUITES, 0, 0
+	map_header_2 KumquatHotelBottomRoom, KUMQUAT_HOTEL_BOTTOM_ROOM, 0, 0
+	map_header_2 KumquatHotelTopRoom, KUMQUAT_HOTEL_TOP_ROOM, 0, 0
+	map_header_2 KumquatHotelGym, KUMQUAT_HOTEL_GYM, 0, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

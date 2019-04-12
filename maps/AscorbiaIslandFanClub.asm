@@ -130,14 +130,6 @@ AscorbiaFanClubRockerText:
 	line "strong FLYING"
 	cont "type move called"
 	cont "DRILL PECK!"
-	
-	para "I heard if you"
-	line "breed FEAROW with"
-	cont "certain #MON,"
-	cont "the offspring can"
-	
-	para "also learn DRILL"
-	line "PECK!"
 	done
 	
 AscorbiaFanClubFisherScript:

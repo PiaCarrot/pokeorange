@@ -245,6 +245,13 @@ SECTION "Kumquat Scripts", ROMX
 	
 INCLUDE "maps/KumquatIslandEast.asm"
 INCLUDE "maps/KumquatIslandWest.asm"
+INCLUDE "maps/KumquatHotelLobby.asm"
+INCLUDE "maps/KumquatHotelPool.asm"
+INCLUDE "maps/KumquatHotelElevator.asm"
+INCLUDE "maps/KumquatHotelSuites.asm"
+INCLUDE "maps/KumquatHotelBottomRoom.asm"
+INCLUDE "maps/KumquatHotelTopRoom.asm"
+INCLUDE "maps/KumquatHotelGym.asm"
 
 SECTION "Rind Scripts", ROMX
 
