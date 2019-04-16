@@ -1,3 +1,9 @@
+const_value set 1
+	const ROUTE61_NERD
+	const ROUTE61_ITEM1
+	const ROUTE61_ITEM2
+	const ROUTE61_ITEM3
+
 Route61_MapScriptHeader::
 
 .Triggers: db 0

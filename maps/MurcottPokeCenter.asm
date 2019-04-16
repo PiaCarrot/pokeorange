@@ -84,8 +84,8 @@ GotLuckyEggText:
 MurcottPokeCenter_MapEventHeader::
 
 .Warps: db 2
-	warp_def 7, 4, 7, MURCOTT_ISLAND
-	warp_def 7, 5, 7, MURCOTT_ISLAND
+	warp_def 7, 4, 5, MURCOTT_ISLAND
+	warp_def 7, 5, 5, MURCOTT_ISLAND
 
 .CoordEvents: db 0
 

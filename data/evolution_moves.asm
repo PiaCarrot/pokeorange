@@ -9,7 +9,7 @@ EvolutionMoves::
 	db NO_MOVE      ; WARTORTLE
 	db FLASH_CANNON ; BLASTOISE
 	db NO_MOVE      ; CATERPIE
-	db DEFENSE_CURL ; METAPOD
+	db HARDEN       ; METAPOD
 	db GUST         ; BUTTERFREE
 	db NO_MOVE      ; WEEDLE
 	db DEFENSE_CURL ; KAKUNA
