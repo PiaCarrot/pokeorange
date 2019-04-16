@@ -13,12 +13,12 @@ Route61_MapScriptHeader::
 
 Route61BridgeCallback:
 	checktriggers
-	iftrue .overhead
-	callasm Route61BridgeUnderfootTrigger
+	iftrue .underfoot
+	callasm Route61_OverheadBridgeAsm
 	return
 
-.overhead:
-	callasm Route61_OverheadBridgeAsm
+.underfoot:
+	callasm Route61_UnderfootBridgeAsm
 	return
 
 Route61BridgeOverheadTrigger:
