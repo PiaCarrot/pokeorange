@@ -9,8 +9,6 @@ TrovitopolisDeptStoreRoof_MapScriptHeader:
 DeptOldLadyRoofScript:
 	faceplayer
 	opentext
-	checkevent EVENT_BOUGHT_TOGEPI_EGG
-	iftrue .SoldOut
 	writetext DeptOldLadyText1
 	special PlaceMoneyTopRight
 	yesorno
@@ -19,6 +17,36 @@ DeptOldLadyRoofScript:
 	if_equal $2, .NotEnoughMoney
 	checkcode VAR_PARTYCOUNT
 	if_equal PARTY_LENGTH, .PartyFull
+    writetext WhichEggText
+	loadmenudata .EggMenuHeader
+	verticalmenu
+	closewindow
+	if_equal 1, .togepi
+	if_equal 2, .smoochum
+	if_equal 3, .pichu
+	if_equal 4, .more1
+	jump .RefusedDeptStoreRoof
+	
+.more1:
+	loadmenudata .EggMenuHeader2
+	verticalmenu
+	closewindow
+	if_equal 1, .magby
+	if_equal 2, .igglybuff
+	if_equal 3, .happiny
+	if_equal 4, .more2
+	jump .RefusedDeptStoreRoof
+	
+.more2:
+	loadmenudata .EggMenuHeader3
+	verticalmenu
+	closewindow
+	if_equal 1, .elekid
+	if_equal 2, .cleffa
+	if_equal 3, .azurill
+	jump .RefusedDeptStoreRoof
+	
+.togepi:
 	giveegg TOGEPI, 5
 	stringtotext .eggname, $1
 	waitsfx
@@ -27,15 +55,149 @@ DeptOldLadyRoofScript:
 	special PlaceMoneyTopRight
 	writetext PleasureDoingBusinessDeptStoreText
 	waitbutton
-	setevent EVENT_BOUGHT_TOGEPI_EGG
 	closetext
 	end
-
-.SoldOut:
-	writetext AlreadyBoughtTogepiEggText
+	
+.smoochum:
+	giveegg SMOOCHUM, 5
+	stringtotext .eggname, $1
+	waitsfx
+	playsound SFX_TRANSACTION
+	takemoney $0, 2000
+	special PlaceMoneyTopRight
+	writetext PleasureDoingBusinessDeptStoreText
 	waitbutton
 	closetext
 	end
+	
+.pichu:
+	giveegg PICHU, 5
+	stringtotext .eggname, $1
+	waitsfx
+	playsound SFX_TRANSACTION
+	takemoney $0, 2000
+	special PlaceMoneyTopRight
+	writetext PleasureDoingBusinessDeptStoreText
+	waitbutton
+	closetext
+	end
+	
+.magby:
+	giveegg MAGBY, 5
+	stringtotext .eggname, $1
+	waitsfx
+	playsound SFX_TRANSACTION
+	takemoney $0, 2000
+	special PlaceMoneyTopRight
+	writetext PleasureDoingBusinessDeptStoreText
+	waitbutton
+	closetext
+	end
+	
+.igglybuff:
+	giveegg IGGLYBUFF, 5
+	stringtotext .eggname, $1
+	waitsfx
+	playsound SFX_TRANSACTION
+	takemoney $0, 2000
+	special PlaceMoneyTopRight
+	writetext PleasureDoingBusinessDeptStoreText
+	waitbutton
+	closetext
+	end
+	
+.happiny:
+	giveegg HAPPINY, 5
+	stringtotext .eggname, $1
+	waitsfx
+	playsound SFX_TRANSACTION
+	takemoney $0, 2000
+	special PlaceMoneyTopRight
+	writetext PleasureDoingBusinessDeptStoreText
+	waitbutton
+	closetext
+	end
+	
+.elekid:
+	giveegg ELEKID, 5
+	stringtotext .eggname, $1
+	waitsfx
+	playsound SFX_TRANSACTION
+	takemoney $0, 2000
+	special PlaceMoneyTopRight
+	writetext PleasureDoingBusinessDeptStoreText
+	waitbutton
+	closetext
+	end
+	
+.cleffa:
+	giveegg CLEFFA, 5
+	stringtotext .eggname, $1
+	waitsfx
+	playsound SFX_TRANSACTION
+	takemoney $0, 2000
+	special PlaceMoneyTopRight
+	writetext PleasureDoingBusinessDeptStoreText
+	waitbutton
+	closetext
+	end
+	
+.azurill:
+	giveegg AZURILL, 5
+	stringtotext .eggname, $1
+	waitsfx
+	playsound SFX_TRANSACTION
+	takemoney $0, 2000
+	special PlaceMoneyTopRight
+	writetext PleasureDoingBusinessDeptStoreText
+	waitbutton
+	closetext
+	end
+	
+.EggMenuHeader:
+	db $40 ; flags
+	db 02, 00 ; start coords
+	db 11, 15 ; end coords
+	dw .MenuData
+	db 1 ; default option
+	
+.EggMenuHeader2:
+	db $40 ; flags
+	db 02, 00 ; start coords
+	db 11, 15 ; end coords
+	dw .MenuData2
+	db 1 ; default option
+	
+.EggMenuHeader3:
+	db $40 ; flags
+	db 02, 00 ; start coords
+	db 11, 15 ; end coords
+	dw .MenuData3
+	db 1 ; default option
+
+.MenuData:
+	db $80 ; flags
+	db 4 ; items
+	db "TOGEPI@"
+	db "SMOOCHUM@"
+	db "PICHU@"
+	db "MORE@"
+
+.MenuData2:
+	db $80 ; flags
+	db 4 ; items
+	db "MAGBY@"
+	db "IGGLYBUFF@"
+	db "HAPPINY@"
+	db "MORE@"
+	
+.MenuData3:
+	db $80 ; flags
+	db 4 ; items
+	db "ELEKID@"
+	db "CLEFFA@"
+	db "AZURILL@"
+	db "CANCEL@"
 
 .NotEnoughMoney:
 	writetext NotEnoughMoneyDeptRoofText
@@ -58,16 +220,16 @@ DeptOldLadyRoofScript:
 .eggname
 	db "EGG@"
 
-AlreadyBoughtTogepiEggText:
-	text "I'm all sold out!"
+WhichEggText:
+	text "Which EGG?"
 	done
 
 DeptOldLadyText1:
 	text "I sell very rare"
 	line "#MON EGGs."
 
-	para "I have one more!"
-	line "It can be yours"
+	para "I have plenty!"
+	line "One can be yours"
 	cont "for only ¥2000!"
 	cont "How about it?"
 	done

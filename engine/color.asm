@@ -121,8 +121,6 @@ GetMonPalettePointer:
 	jr z, .onix
 	cp POLIWRATH
 	jr z, .poliwrath
-	cp EGG
-	jr z, .egg
 .continue
 	ld l, a
 	ld h, $0
@@ -165,40 +163,6 @@ GetMonPalettePointer:
 	jr z, .ok
 	pop af
 	jr .continue
-	
-.egg
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp EGG_TOGEPI
-	ld hl, EggTogepiPalette
-	jr z, .ok
-	cp EGG_SMOOCHUM
-	ld hl, EggSmoochumPalette
-	jr z, .ok
-	cp EGG_PICHU
-	ld hl, EggPichuPalette
-	jr z, .ok
-	cp EGG_MAGBY
-	ld hl, EggMagbyPalette
-	jr z, .ok
-	cp EGG_IGGLYBUFF
-	ld hl, EggIgglybuffPalette
-	jr z, .ok
-	cp EGG_HAPPINY
-	ld hl, EggHappinyPalette
-	jr z, .ok
-	cp EGG_ELEKID
-	ld hl, EggElekidPalette
-	jr z, .ok
-	cp EGG_CLEFFA
-	ld hl, EggCleffaPalette
-	jr z, .ok
-	cp EGG_AZURILL
-	ld hl, EggAzurillPalette
-	jr z, .ok
-	pop af
-	jp .continue
 
 .ok
 	pop af

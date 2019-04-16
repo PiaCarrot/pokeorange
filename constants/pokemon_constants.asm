@@ -416,20 +416,6 @@ const_value set 1
 	const LYCANROC_MIDNIGHT_FORM
 	const LYCANROC_DUSK_FORM
 
-const_value set 1
-	const EGG_NORMAL
-	const EGG_TOGEPI
-	const EGG_SMOOCHUM
-	const EGG_PICHU
-	const EGG_MAGBY
-	const EGG_IGGLYBUFF
-	const EGG_HAPPINY
-	const EGG_ELEKID
-	const EGG_CLEFFA
-	const EGG_AZURILL
-
-NUM_EGG EQU 254 +- 1
-
 
 ; apply to MON_CAUGHTDATA
 CAUGHTGENDER_MASK   EQU %10000000
