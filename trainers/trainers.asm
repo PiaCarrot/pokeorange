@@ -1066,12 +1066,6 @@ RedGroup:
 		db SLEEP_TALK
 		db DOUBLE_EDGE
 
-	db 89, MEWTWO
-		db PSYSTRIKE
-		db DISABLE
-		db SHADOW_BALL
-		db CONFUSE_RAY
-
 	db $ff ; end
 
 ; ================================
@@ -1547,7 +1541,7 @@ YoungsterGroup:
 ; ================
 
 	; YOUNGSTER (1)
-	db "KOJI@"
+	db "MOE@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1559,7 +1553,7 @@ YoungsterGroup:
 ; ================
 
 	; YOUNGSTER (2)
-	db "TOUYA@"
+	db "JERRY@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1571,7 +1565,7 @@ YoungsterGroup:
 ; ================
 
 	; YOUNGSTER (3)
-	db "KOUTA@"
+	db "RYAN@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1596,7 +1590,7 @@ YoungsterGroup:
 ; ================
 
 ; YOUNGSTER (5)
-	db "HIRUMA@"
+	db "CRAIG@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1609,7 +1603,7 @@ YoungsterGroup:
 ; ================
 
 ; YOUNGSTER (6)
-	db "ORO@"
+	db "LENI@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1639,7 +1633,7 @@ LassGroup:
 ; ================
 
 	; LASS (2)
-	db "FUYUMI@"
+	db "RITA@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1664,7 +1658,7 @@ BugCatcherGroup:
 ; ================
 
 	; BUG_CATCHER (1)
-	db "KATTA@"
+	db "BO@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1698,7 +1692,7 @@ BugCatcherGroup:
 ; ================
 
 	; BUG_CATCHER (4)
-	db "MUSHI@"
+	db "ALAN@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1745,7 +1739,7 @@ SwimmerMGroup:
 ; ================
 
 	; SWIMMERM (1)
-	db "KOJURO@"
+	db "ZACH@"
 	db TRAINERTYPE_NORMAL
 
 	db 14, POLIWAG
@@ -1756,7 +1750,7 @@ SwimmerMGroup:
 ; ================
 
 	; SWIMMERM (2)
-	db "YOUTA@"
+	db "MARK@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1767,7 +1761,7 @@ SwimmerMGroup:
 ; ================
 
 	; SWIMMERM (3)
-	db "HAIRO@"
+	db "CLYDE@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1779,7 +1773,7 @@ SwimmerMGroup:
 ; ================
 
 	; SWIMMERM (4)
-	db "DAISUKE@"
+	db "MATT@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1790,7 +1784,7 @@ SwimmerMGroup:
 ; ================
 
 	; SWIMMERM (5)
-	db "JUNPEI@"
+	db "GERALD@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1803,7 +1797,7 @@ SwimmerMGroup:
 ; ================
 
 	; SWIMMERM (6)
-	db "KOSUKE@"
+	db "ABE@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1815,7 +1809,7 @@ SwimmerMGroup:
 ; ================
 
 	; SWIMMERM (7)
-	db "NAOYA@"
+	db "CORY@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1850,7 +1844,7 @@ SwimmerMGroup:
 ; ===========
 
 	; SWIMMERM (10)
-	db "KAZUMA@"
+	db "LLOYD@"
 	db 1
 
 	db 27, NIDOKING
@@ -1870,7 +1864,7 @@ SwimmerMGroup:
 ; ================
 
 	; SWIMMERM (11)
-	db "TAKAO@"
+	db "TERRY@"
 	db TRAINERTYPE_NORMAL
 
 	db 28, STARMIE
@@ -1897,7 +1891,7 @@ SwimmerFGroup:
 ; ================
 
 	; SWIMMERF (2)
-	db "REINA@"
+	db "HALEY@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1908,7 +1902,7 @@ SwimmerFGroup:
 ; ================
 
 	; SWIMMERF (3)
-	db "UMIKO@"
+	db "ALISON@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1921,7 +1915,7 @@ SwimmerFGroup:
 ; ================
 
 	; SWIMMERF (4)
-	db "MAYUMI@"
+	db "STACY@"
 	db TRAINERTYPE_NORMAL
 
 	db 21, CORSOLA
@@ -1933,7 +1927,7 @@ SwimmerFGroup:
 ; ================
 
 	; SWIMMERF (5)
-	db "YAEKO@"
+	db "AMANDA@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1947,7 +1941,7 @@ SwimmerFGroup:
 ; ================
 
 	; SWIMMERF (6)
-	db "SAKAKO@"
+	db "TARYN@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -1959,7 +1953,7 @@ SwimmerFGroup:
 ; ================
 
 	; SWIMMERF (7)
-	db "YUKA@"
+	db "ASIA@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2013,7 +2007,7 @@ PokemaniacGroup:
 ; ================
 
 	; POKEMANIAC (1)
-	db "KUSATO@"
+	db "SID@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2026,7 +2020,7 @@ PokemaniacGroup:
 ; ================
 
 	; POKEMANIAC (2)
-	db "MATT@"
+	db "TOM@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2043,7 +2037,7 @@ FisherGroup:
 ; ================
 
 	; FISHER (1)
-	db "SOJIRO@"
+	db "POPS@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2056,7 +2050,7 @@ FisherGroup:
 ; ================
 
 	; FISHER (2)
-	db "FUGU@"
+	db "DOC@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2080,7 +2074,7 @@ FisherGroup:
 ; ================
 
 	; FISHER (4)
-	db "NOBU@"
+	db "STAN@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2092,7 +2086,7 @@ FisherGroup:
 ; ================
 
 	; FISHER (5)
-	db "ISAO@"
+	db "JOE@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2105,7 +2099,7 @@ FisherGroup:
 ; =================
 
 	; FISHER (6)
-	db "YUUTA@"
+	db "TIM@"
 	db TRAINERTYPE_NORMAL
 
 	db 28, OCTILLERY
@@ -2115,7 +2109,7 @@ FisherGroup:
 ; =================
 
 	; FISHER (7)
-	db "SHINJI@"
+	db "JOHN@"
 	db TRAINERTYPE_MOVES
 
 	db 36, SEAKING
@@ -2141,7 +2135,7 @@ FisherGroup:
 ; =================
 
 	; FISHER (8)
-	db "MIYAGI@"
+	db "ROY@"
 	db TRAINERTYPE_MOVES
 
 	db 42, TOXAPEX
@@ -2161,7 +2155,7 @@ FisherGroup:
 ; =================
 
 	; FISHER (9)
-	db "KUNAI@"
+	db "GUY@"
 	db TRAINERTYPE_MOVES
 
 	db 40, LANTURN
@@ -2181,7 +2175,7 @@ FisherGroup:
 ; =================
 
 	; FISHER (10)
-	db "YAMATO@"
+	db "BUDDY@"
 	db TRAINERTYPE_MOVES
 
 	db 40, RELICANTH
@@ -2206,7 +2200,7 @@ HikerGroup:
 ; ================
 
 	; HIKER (1)
-	db "TEPPEI@"
+	db "BRADY@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2223,7 +2217,7 @@ AthleteGroup:
 ; ================
 
 	; ATHLETE (1)
-	db "HIDEKI@"
+	db "PAUL@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2236,7 +2230,7 @@ AthleteGroup:
 ; ================
 
 	; ATHLETE (2)
-	db "KAITO@"
+	db "JARED@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2254,7 +2248,7 @@ SightseerMGroup:
 ; ================
 
 	; SIGHTSEERM (1)
-	db "MICHIO@"
+	db "MITCH@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2266,7 +2260,7 @@ SightseerMGroup:
 ; ================
 
 	; SIGHTSEERM (2)
-	db "KENTA@"
+	db "LARRY@"
 	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 
 	db 38, SALAZZLE, FEMALE_MASK
@@ -2286,7 +2280,7 @@ SightseerMGroup:
 ; ================
 
 	; SIGHTSEERM (3)
-	db "HYOU@"
+	db "HANK@"
 	db TRAINERTYPE_MOVES
 
 	db 39, MAGMAR
@@ -2318,7 +2312,7 @@ SightseerFGroup:
 ; ================
 
 	; SIGHTSEERF (1)
-	db "ASAMI@"
+	db "CONNIE@"
 	db TRAINERTYPE_DVS
 
 	; party
@@ -2331,7 +2325,7 @@ SightseerFGroup:
 ; ================
 
 	; SIGHTSEERF (2)
-	db "ARASHI@"
+	db "KELLY@"
 	db TRAINERTYPE_MOVES
 
 	; party
@@ -2358,7 +2352,7 @@ WaitressGroup:
 ; ================
 
 	; WAITRESS (1)
-	db "SATOMI@"
+	db "PAIGE@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2371,7 +2365,7 @@ WaitressGroup:
 ; ================
 
 	; WAITRESS (2)
-	db "SAORI@"
+	db "MISSY@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2384,7 +2378,7 @@ WaitressGroup:
 ; ================
 
 	; WAITRESS (3)
-	db "NAOMI@"
+	db "MARIN@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2397,7 +2391,7 @@ WaitressGroup:
 ; ================
 
 	; WAITRESS (4)
-	db "JUN@"
+	db "JUNE@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -2428,7 +2422,7 @@ CooltrainerMGroup:
 ; ================
 
 	; COOLTRAINERM (2)
-	db "KATSU@"
+	db "JAKE@"
 	db TRAINERTYPE_NORMAL
 
 	db 36, GRAVELER
@@ -2439,7 +2433,7 @@ CooltrainerMGroup:
 ; ================
 
 	; COOLTRAINERM (3)
-	db "SON@"
+	db "LOGAN@"
 	db TRAINERTYPE_NORMAL
 
 	db 38, STEELIX
@@ -2471,7 +2465,7 @@ CooltrainerMGroup:
 ; ================
 
 	; COOLTRAINERM (5)
-	db "YUUJI@"
+	db "JEFF@"
 	db TRAINERTYPE_NORMAL
 
 	db 38, MR__MIME
@@ -2487,7 +2481,7 @@ CooltrainerMGroup:
 ; ================
 
 	; COOLTRAINERM (6)
-	db "SEI@"
+	db "HUEY@"
 	db TRAINERTYPE_MOVES
 
 	db 43, DITTO
@@ -2507,7 +2501,7 @@ CooltrainerMGroup:
 ; ================
 
 	; COOLTRAINERM (7)
-	db "KUBO@"
+	db "JACK@"
 	db TRAINERTYPE_MOVES
 
 	db 44, PINSIR
@@ -2527,7 +2521,7 @@ CooltrainerMGroup:
 ; ================
 
 	; COOLTRAINERM (8)
-	db "NAGI@"
+	db "BRAD@"
 	db TRAINERTYPE_MOVES
 
 	db 44, PERSIAN
@@ -2553,7 +2547,7 @@ CooltrainerFGroup:
 ; ================
 
 	; COOLTRAINERF (1)
-	db "KEIKO@"
+	db "KAREN@"
 	db TRAINERTYPE_NORMAL
 
 	db 26, SKIPLOOM
@@ -2564,7 +2558,7 @@ CooltrainerFGroup:
 ; ================
 
 	; COOLTRAINERF (2)
-	db "MORI@"
+	db "PAULA@"
 	db TRAINERTYPE_NORMAL
 
 	db 40, DEWGONG
@@ -2574,7 +2568,7 @@ CooltrainerFGroup:
 ; ================
 
 	; COOLTRAINERF (3)
-	db "AIRI@"
+	db "MAYA@"
 	db TRAINERTYPE_NORMAL
 
 	db 34, VILEPLUME
@@ -2589,7 +2583,7 @@ CooltrainerFGroup:
 ; ================
 
 	; COOLTRAINERF (4)
-	db "REIKA@"
+	db "FREY@"
 	db TRAINERTYPE_NORMAL
 
 	db 42, VENUSAUR
@@ -2606,7 +2600,7 @@ CatmanGroup:
 ; ================
 
 	; CATMAN (1)
-	db "DAIKON@"
+	db "FRED@"
 	db TRAINERTYPE_NORMAL
 
 	db 28, ONIX
@@ -2615,7 +2609,7 @@ CatmanGroup:
 	db $ff
 
 	; CATMAN (2)
-	db "KUNIO@"
+	db "KENT@"
 	db TRAINERTYPE_NORMAL
 
 	db 27, SCYTHER
@@ -2625,7 +2619,7 @@ CatmanGroup:
 	db $ff
 
 	; CATMAN (3)
-	db "YOSHIKAWA@"
+	db "NATE@"
 	db TRAINERTYPE_NORMAL
 
 	db 26, GOLBAT
@@ -2636,7 +2630,7 @@ CatmanGroup:
 	db $ff
 
 	; CATMAN (4)
-	db "REN@"
+	db "NOAH@"
 	db TRAINERTYPE_DVS
 
 	db 28, KINGLER, $98, $88
@@ -2646,7 +2640,7 @@ CatmanGroup:
 	db $ff
 
 	; CATMAN (5)
-	db "MIMI@"
+	db "GRANT@"
 	db TRAINERTYPE_NORMAL
 
 	db 30, KECLEON
@@ -2660,7 +2654,7 @@ BirdkeeperGroup:
 ; ================================
 ; ================
 	; BIRDKEEPER (1)
-	db "TATSUYA@"
+	db "FLOYD@"
 	db TRAINERTYPE_NORMAL
 
 	db 29, PIDGEOTTO
@@ -3055,7 +3049,7 @@ OtakuGroup:
 ; =================
 
 	; OTAKU (1)
-	db "NIRO@"
+	db "CHRIS@"
 	db TRAINERTYPE_MOVES
 
 	db 41, PORYGON
@@ -3075,7 +3069,7 @@ OtakuGroup:
 ; =================
 
 	; OTAKU (2)
-	db "GODO@"
+	db "RALPH@"
 	db TRAINERTYPE_MOVES
 
 	db 44, MAGNEZONE
@@ -3089,7 +3083,7 @@ OtakuGroup:
 ; =================
 
 	; OTAKU (3)
-	db "JAKE@"
+	db "SEAN@"
 	db TRAINERTYPE_MOVES
 
 	db 45, JUMPLUFF
@@ -3433,7 +3427,7 @@ DiverMaleGroup:
 ; ================
 
 	; DIVER_M (1)
-	db "OKABE@"
+	db "VICTOR@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -3446,7 +3440,7 @@ DiverMaleGroup:
 ; ================
 
 	; DIVER_M (2)
-	db "HIROSHI@"
+	db "PHIL@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -3462,7 +3456,7 @@ DiverFemaleGroup:
 ; ================
 
 	; DIVER_F (1)
-	db "MAYURI@"
+	db "ELLEN@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -3476,7 +3470,7 @@ DiverFemaleGroup:
 ; ================
 
 	; DIVER_F (2)
-	db "AMI@"
+	db "HEIDI@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -3491,7 +3485,7 @@ EngineerGroup:
 ; ================
 
 	; ENGINEER (1)
-	db "TAKE@"
+	db "NICK@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -3503,7 +3497,7 @@ EngineerGroup:
 ; ================
 
 	; ENGINEER (2)
-	db "MURA@"
+	db "HENRY@"
 	db TRAINERTYPE_NORMAL
 
 	; party
@@ -3513,7 +3507,7 @@ EngineerGroup:
 ; ================
 
 	; ENGINEER (3)
-	db "KOBE@"
+	db "STEVE@"
 	db TRAINERTYPE_NORMAL
 
 	; party

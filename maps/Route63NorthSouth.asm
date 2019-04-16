@@ -28,17 +28,14 @@ TrainerOtakuNiro:
 	end
 
 OtakuNiroSeenText:
-	text "There are only two"
-	line "things that matter"
-	cont "in this world."
-	
-	para "My 2D waifu and"
-	line "my szechuan sauce!"
+	text "Hnyaah! My perfect"
+	line "collection of"
+	cont "#MON will show"
+	cont "you how it's done!"
 	done
 
 OtakuNiroBeatenText:
-	text "Wubba lubba"
-	line "Dub Dub!"
+	text "Aah! No!"
 	done
 
 OtakuNiroAfterText:
