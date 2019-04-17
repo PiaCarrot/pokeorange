@@ -6,5 +6,5 @@
 	next "people to trans-"
 	next "form SANDYGAST"
 	page "into a castle."
-	next "It's power to"
+	next "Its power to"
 	next "curse is immense.@"
