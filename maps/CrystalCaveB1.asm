@@ -27,6 +27,7 @@ CrystalCaveB1BrockScript:
 	waitbutton
 	closetext
 	setevent EVENT_BEAT_BROCK
+	special HealParty
 	end
 
 .BrockDefeated:

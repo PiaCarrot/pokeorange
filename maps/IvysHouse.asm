@@ -33,6 +33,8 @@ Charity:
 	end
 
 .BattlePrompt:
+	checkevent EVENT_BEAT_CHARITY
+	iftrue .AlreadyBeat
 	writetext CharityText
 	yesorno
 	iftrue .Battle
@@ -44,6 +46,13 @@ Charity:
 	loadtrainer PROF_AIDE, 1
 	startbattle
 	reloadmapafterbattle
+	setevent EVENT_BEAT_CHARITY
+	end
+	
+.AlreadyBeat:
+	writetext CharityHiText
+	waitbutton
+	closetext
 	end
 
 IvysHouseBookshelf:

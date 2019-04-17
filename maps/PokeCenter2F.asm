@@ -419,6 +419,6 @@ PokeCenter2F_MapEventHeader::
 	signpost 2, 9, SIGNPOST_READ, MapPokeCenter2FSignpost0Script
 
 .ObjectEvents: db 2
-	person_event SPRITE_LINK_RECEPTIONIST, 2, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LinkReceptionistScript_Trade, -1
-	person_event SPRITE_LINK_RECEPTIONIST, 2, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, LinkReceptionistScript_Battle, -1
+	person_event SPRITE_LINK_RECEPTIONIST, 2, 0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, Script_TradeCenterClosed, -1
+	person_event SPRITE_LINK_RECEPTIONIST, 2, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, Script_BattleRoomClosed, -1
 
