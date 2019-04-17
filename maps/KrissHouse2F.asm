@@ -87,9 +87,8 @@ KrissHouse2F_MapEventHeader:
 
 .XYTriggers: db 0
 
-.Signposts: db 3
+.Signposts: db 2
 	signpost 1, 2, SIGNPOST_UP, KrissHousePC
-	signpost 1, 3, SIGNPOST_READ, KrissHouseRadio
 	signpost 1, 5, SIGNPOST_READ, KrissHouseBookshelf
 
 .PersonEvents: db 1
