@@ -73,7 +73,7 @@
 	tilecoll WALL, FLOOR, WALL, WALL ; 48
 	tilecoll FLOOR, FLOOR, WALL, WALL ; 49
 	tilecoll FLOOR, WALL, WALL, WALL ; 4a
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 4b
+	tilecoll WALL, WALL, WALL, WALL ; 4b
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 4c
 	tilecoll LEDGE_RIGHT, WALL, LEDGE_RIGHT, WALL ; 4d
 	tilecoll WALL, LEDGE_LEFT, WALL, LEDGE_LEFT ; 4e
@@ -253,4 +253,3 @@
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; fc
 	tilecoll FLOOR, WALL, FLOOR, FLOOR ; fd
 	tilecoll FLOOR, FLOOR, FLOOR, WALL ; fe
-	tilecoll WALL, WALL, WALL, WALL ; ff
