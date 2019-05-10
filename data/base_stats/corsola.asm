@@ -5,8 +5,8 @@
 
 	db WATER, ROCK
 	db 60 ; catch rate
-	db NO_ITEM ; item 1
-	db NO_ITEM ; item 2
+	db HEART_SCALE ; item 1
+	db HEART_SCALE ; item 2
 	db FEMALE_75 ; gender
 	db 20 ; step cycles to hatch
 	dn 6, 6 ; frontpic dimensions

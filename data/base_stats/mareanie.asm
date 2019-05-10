@@ -5,7 +5,7 @@
 
 	db POISON, WATER
 	db 190 ; catch rate
-	db NO_ITEM ; item 1
+	db HEART_SCALE ; item 1
 	db POISON_BARB ; item 2
 	db FEMALE_50 ; gender
 	db 20 ; step cycles to hatch
