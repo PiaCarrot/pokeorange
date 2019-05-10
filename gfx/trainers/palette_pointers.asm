@@ -2,7 +2,6 @@
 TrainerPalettes: ; b0ce
 
 PlayerPalette:       INCLUDE "gfx/trainers/chris.pal"
-KrisPalette:         ; Kris uses Cissy's palette
 CissyPalette:        INCLUDE "gfx/trainers/cissy.pal"
 DannyPalette:        INCLUDE "gfx/trainers/danny.pal"
 RudyPalette:         INCLUDE "gfx/trainers/rudy.pal"
@@ -85,4 +84,5 @@ BlackbeltPalette:    INCLUDE "gfx/trainers/blackbelt_t.pal"
 DiverMalePalette:	INCLUDE "gfx/trainers/diver_male.pal"
 DiverFemalePalette:	INCLUDE "gfx/trainers/diver_female.pal"
 EngineerPalette:	INCLUDE "gfx/trainers/engineer.pal"
+KrisPalette:         INCLUDE "gfx/trainers/kris.pal"
 ; b1de

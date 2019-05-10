@@ -344,6 +344,7 @@ INCLUDE "maps/Route56West.asm"
 INCLUDE "maps/Route57.asm"
 INCLUDE "maps/Route57GateUpstairs.asm"
 INCLUDE "maps/Route58.asm"
+INCLUDE "maps/Route71.asm"
 
 
 SECTION "Route Scripts 4", ROMX

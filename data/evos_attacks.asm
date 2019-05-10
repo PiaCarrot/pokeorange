@@ -1330,7 +1330,7 @@ PonytaEvosAttacks:
 	db 30, AGILITY
 	db 34, FLAMETHROWER
 	db 38, TAKE_DOWN
-	db 41, HI_JUMP_KICK
+	db 41, BOUNCE
 	db 44, FIRE_BLAST
 	db 0 ; no more level-up moves
 
@@ -1353,7 +1353,7 @@ RapidashEvosAttacks:
 	db 30, AGILITY
 	db 34, FLAMETHROWER
 	db 38, TAKE_DOWN
-	db 43, HI_JUMP_KICK
+	db 43, BOUNCE
 	db 50, FIRE_BLAST
 	db 54, HORN_DRILL ; BOUNCE
 	db 0 ; no more level-up moves
@@ -3045,55 +3045,67 @@ HoppipEvosAttacks:
 	db EVOLVE_LEVEL, 18, SKIPLOOM
 	db 0 ; no more evolutions
 	db 1, SPLASH
-	db 5, SYNTHESIS
-	db 5, TAIL_WHIP
-	db 10, TACKLE
-	db 11, FAIRY_WIND
-	db 13, POISONPOWDER
-	db 15, STUN_SPORE
-	db 17, SLEEP_POWDER
-	db 20, LEECH_SEED
-	db 25, COTTON_SPORE
-	db 30, GIGA_DRAIN ; MEGA_DRAIN
+	db 1, ABSORB
+	db 4, SYNTHESIS
+	db 6, TAIL_WHIP
+	db 8, TACKLE
+	db 10, FAIRY_WIND
+	db 12, POISONPOWDER
+	db 14, STUN_SPORE
+	db 16, SLEEP_POWDER
+	db 19, BULLET_SEED
+	db 22, LEECH_SEED
+	db 26, RAZOR_LEAF
+	db 34, COTTON_SPORE
+	db 39, GIGA_DRAIN
+	db 43, SOLARBEAM ; MEGA_DRAIN
+	db 46, BOUNCE
 	db 0 ; no more level-up moves
 
 SkiploomEvosAttacks:
 	db EVOLVE_LEVEL, 27, JUMPLUFF
 	db 0 ; no more evolutions
-	db 1, SPLASH
+	db 1, ABSORB
 	db 1, SYNTHESIS
 	db 1, TAIL_WHIP
 	db 1, TACKLE
 	db 1, FAIRY_WIND
-	db 5, SYNTHESIS
-	db 5, TAIL_WHIP
-	db 10, TACKLE
-	db 11, FAIRY_WIND
-	db 13, POISONPOWDER
-	db 15, STUN_SPORE
-	db 17, SLEEP_POWDER
-	db 22, LEECH_SEED
-	db 29, COTTON_SPORE
-	db 36, GIGA_DRAIN ; MEGA_DRAIN
+	db 4, SYNTHESIS
+	db 6, TAIL_WHIP
+	db 8, TACKLE
+	db 10, FAIRY_WIND
+	db 12, POISONPOWDER
+	db 14, STUN_SPORE
+	db 16, SLEEP_POWDER
+	db 20, BULLET_SEED
+	db 24, LEECH_SEED
+	db 28, RAZOR_LEAF
+	db 40, COTTON_SPORE
+	db 46, GIGA_DRAIN ; MEGA_DRAIN
+	db 52, SOLARBEAM
+	db 56, BOUNCE
 	db 0 ; no more level-up moves
 
 JumpluffEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, SPLASH
+	db 1, ABSORB
 	db 1, SYNTHESIS
 	db 1, TAIL_WHIP
 	db 1, TACKLE
-	db 1, FAIRY_WIND
-	db 5, SYNTHESIS
-	db 5, TAIL_WHIP
-	db 10, TACKLE
-	db 11, FAIRY_WIND
-	db 13, POISONPOWDER
-	db 15, STUN_SPORE
-	db 17, SLEEP_POWDER
-	db 22, LEECH_SEED
-	db 33, COTTON_SPORE
-	db 44, GIGA_DRAIN ; MEGA_DRAIN
+	db 4, SYNTHESIS
+	db 6, TAIL_WHIP
+	db 8, TACKLE
+	db 10, FAIRY_WIND
+	db 12, POISONPOWDER
+	db 14, STUN_SPORE
+	db 16, SLEEP_POWDER
+	db 20, BULLET_SEED
+	db 24, LEECH_SEED
+	db 28, RAZOR_LEAF
+	db 44, COTTON_SPORE
+	db 49, GIGA_DRAIN
+	db 59, SOLARBEAM ; MEGA_DRAIN
+	db 64, BOUNCE
 	db 0 ; no more level-up moves
 
 StunfiskEvosAttacks:

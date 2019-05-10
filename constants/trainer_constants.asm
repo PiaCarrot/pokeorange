@@ -3,7 +3,6 @@
 CHRIS EQU __enum__
 	trainerclass TRAINER_NONE ; 0
 
-KRIS EQU __enum__
 	trainerclass CISSY
 
 	trainerclass DANNY
@@ -265,6 +264,8 @@ KRIS EQU __enum__
 	const TAKE
 	const MURA
 	const KOBE
+	
+KRIS EQU __enum__
 
 NUM_TRAINER_CLASSES EQU __enum__
 

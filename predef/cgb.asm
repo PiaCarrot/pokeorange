@@ -499,6 +499,9 @@ _CGB_TrainerCard: ; 9289
 	xor a ; INDIGO
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
+	ld a, KRIS
+	call GetTrainerPalettePointer
+	call LoadPalette_White_Col1_Col2_Black
 	ld a, CISSY
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
@@ -524,9 +527,9 @@ _CGB_TrainerCard: ; 9289
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, [PlayerGender]
 	and a
-	ld a, $1
-	jr z, .got_gender
 	ld a, $0
+	jr z, .got_gender
+	ld a, $1
 .got_gender
 	call ByteFill
 	; player
@@ -534,44 +537,44 @@ _CGB_TrainerCard: ; 9289
 	lb bc, 7, 5
 	ld a, [PlayerGender]
 	and a
-	ld a, $0
+	ld a, $0 ;indigo
 	jr z, .got_gender2
-	ld a, $1
+	ld a, $1 ;orange
 .got_gender2
 	call FillBoxCGB
 	; top-right corner
 	hlcoord 18, 1, AttrMap
 	ld a, [PlayerGender]
 	and a
-	ld a, $1
-	jr z, .got_gender3
 	ld a, $0
+	jr z, .got_gender3
+	ld a, $1
 .got_gender3
 	ld [hl], a
 	; CISSY
 	hlcoord 3, 13, AttrMap
 	lb bc, 3, 3
-	ld a, $1
+	ld a, $2
 	call FillBoxCGB
 	; DANNY
 	hlcoord 7, 13, AttrMap
 	lb bc, 3, 3
-	ld a, $2
+	ld a, $3
 	call FillBoxCGB
 	; RUDY
 	hlcoord 11, 13, AttrMap
 	lb bc, 3, 3
-	ld a, $3
+	ld a, $4
 	call FillBoxCGB
 	; LUANA
 	hlcoord 15, 13, AttrMap
 	lb bc, 3, 3
-	ld a, $4
+	ld a, $5
 	call FillBoxCGB
 	; stars
 	hlcoord 15, 8, AttrMap
 	lb bc, 3, 3
-	ld a, $5
+	ld a, $6
 	call FillBoxCGB
 	call ApplyAttrMap
 	call ApplyPals

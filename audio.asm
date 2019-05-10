@@ -191,6 +191,7 @@ INCLUDE "audio/music/route119.asm"
 INCLUDE "audio/music/sunnyshore.asm"
 INCLUDE "audio/music/marinetube.asm"
 INCLUDE "audio/music/rslooklass.asm"
+INCLUDE "audio/music/route110.asm"
 
 SECTION "Songs 14", ROMX
 

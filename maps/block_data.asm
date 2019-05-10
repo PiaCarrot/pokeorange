@@ -521,5 +521,8 @@ Route70_BlockData:
 TarrocoIsland_BlockData:
 	INCBIN "maps/TarrocoIsland.blk"
 	
+Route71_BlockData:
+	INCBIN "maps/Route71.blk"
+	
 ShamoutiIsland_BlockData:
 	INCBIN "maps/ShamoutiIsland.blk"
