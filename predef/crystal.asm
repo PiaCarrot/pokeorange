@@ -159,6 +159,17 @@ OutsideDuskPalette:
 INCLUDE "tilesets/dusk.pal"
 
 LoadSpecialMapOBPalette:
+    ld a, [MapGroup]
+    cp GROUP_KUMQUAT_ISLAND_WEST
+    jr nz, .not_kumquat
+    ld a, [MapNumber]
+    cp MAP_KUMQUAT_ISLAND_WEST
+    ld hl, KumquatOBPalette
+	jr z, LoadEightOBPalettes
+    cp MAP_KUMQUAT_ISLAND_EAST
+    ld hl, KumquatOBPalette
+	jr z, LoadEightOBPalettes
+.not_kumquat
 	ld a, [wTileset]
 
 	ld hl, UnderwaterOBPalette
@@ -202,6 +213,9 @@ LoadEightOBPalettes:
 
 UnderwaterOBPalette:
 INCLUDE "tilesets/ob_underwater.pal"
+
+KumquatOBPalette:
+INCLUDE "tilesets/ob_kumquat.pal"
 
 
 LoadOW_BGPal7:: ; 49409

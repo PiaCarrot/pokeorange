@@ -178,7 +178,7 @@ PlayerReceivedSquirtleText:
 TrovitopolisSewer_MapEventHeader::
 
 .Warps: db 7
-	warp_def 3, 1, 2, TROVITOPOLIS
+	warp_def 3, 1, 3, SEWER_ENTRANCE
 	warp_def 5, 19, 3, TROVITOPOLIS_SEWER
 	warp_def 3, 33, 2, TROVITOPOLIS_SEWER
 	warp_def 3, 51, 5, TROVITOPOLIS_SEWER

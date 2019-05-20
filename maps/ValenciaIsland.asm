@@ -130,6 +130,8 @@ if def(DEBUG)
 	giveitem GOOD_ROD
 	giveitem SUPER_ROD
 	giveitem MASTER_ROD
+	giveitem COIN_CASE
+	givecoins 9999
 	givemoney 0, 100000
 	opentext
 	givepoke LAPRAS, 60

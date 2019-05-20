@@ -511,6 +511,7 @@ CoinVendor_IntroScript: ; 0xbcde0
 	closewindow
 	if_equal $1, .Buy50
 	if_equal $2, .Buy500
+	if_equal $3, .Buy1000
 	jump .Cancel
 ; 0xbcdf7
 
@@ -542,6 +543,20 @@ CoinVendor_IntroScript: ; 0xbcde0
 	jump .loop
 ; 0xbce3f
 
+.Buy1000: ; 0xbce1b
+	checkcoins 8999
+	if_equal $0, .CoinCaseFull
+	checkmoney $0, 20000
+	if_equal $2, .NotEnoughMoney
+	givecoins 1000
+	takemoney $0, 20000
+	waitsfx
+	playsound SFX_TRANSACTION
+	farwritetext CoinVendor_Buy500CoinsText
+	waitbutton
+	jump .loop
+; 0xbce3f
+
 .NotEnoughMoney: ; 0xbce3f
 	farwritetext CoinVendor_NotEnoughMoneyText
 	waitbutton
@@ -566,16 +581,17 @@ CoinVendor_IntroScript: ; 0xbcde0
 
 .MenuDataHeader:
 	db $40 ; flags
-	db 04, 00 ; start coords
+	db 02, 00 ; start coords
 	db 11, 15 ; end coords
 	dw .MenuData2
 	db 1 ; default option
 
 .MenuData2:
 	db $80 ; flags
-	db 3 ; items
-	db " 50 :  ¥1000@"
-	db "500 : ¥10000@"
+	db 4 ; items
+	db "  50:  ¥1000@"
+	db " 500: ¥10000@"
+	db "1000: ¥20000@"
 	db "CANCEL@"
 ; 0xbce7f
 

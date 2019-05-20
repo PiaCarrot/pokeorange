@@ -372,6 +372,7 @@
 	map_header_2 KumquatHotelBottomRoom, KUMQUAT_HOTEL_BOTTOM_ROOM, 0, 0
 	map_header_2 KumquatHotelTopRoom, KUMQUAT_HOTEL_TOP_ROOM, 0, 0
 	map_header_2 KumquatHotelGym, KUMQUAT_HOTEL_GYM, 0, 0
+	map_header_2 GameCorner, GAME_CORNER, 0, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

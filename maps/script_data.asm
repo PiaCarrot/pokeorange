@@ -252,6 +252,7 @@ INCLUDE "maps/KumquatHotelSuites.asm"
 INCLUDE "maps/KumquatHotelBottomRoom.asm"
 INCLUDE "maps/KumquatHotelTopRoom.asm"
 INCLUDE "maps/KumquatHotelGym.asm"
+INCLUDE "maps/GameCorner.asm"
 
 SECTION "Rind Scripts", ROMX
 

@@ -246,14 +246,14 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_71, 20, 36
 	mapgroup SHAMOUTI_ISLAND, 15, 18
 	
-	newgroup ;16
+	newgroup ; 16
 	
+	mapgroup KUMQUAT_ISLAND_EAST, 16, 15
+	mapgroup KUMQUAT_ISLAND_WEST, 16, 15
 	mapgroup BUTWAL_ISLAND_WEST, 22, 18
 	mapgroup BUTWAL_ISLAND_WEST_GROTTO, 3, 3
 	mapgroup ROUTE_66_EAST_WEST, 12, 24
 	mapgroup ROUTE_66_NORTH_SOUTH, 18, 12
-	mapgroup KUMQUAT_ISLAND_EAST, 16, 15
-	mapgroup KUMQUAT_ISLAND_WEST, 16, 15
 	mapgroup KUMQUAT_HOTEL_LOBBY, 5, 6
 	mapgroup KUMQUAT_HOTEL_POOL, 8, 7
 	mapgroup KUMQUAT_HOTEL_ELEVATOR, 2, 2
@@ -261,6 +261,7 @@ MAP_NONE EQU 0
 	mapgroup KUMQUAT_HOTEL_BOTTOM_ROOM, 3, 3
 	mapgroup KUMQUAT_HOTEL_TOP_ROOM, 3, 3
 	mapgroup KUMQUAT_HOTEL_GYM, 4, 4
+	mapgroup GAME_CORNER, 6, 7
 	mapgroup ROUTE_67, 15, 30
 	mapgroup RIND_ISLAND, 22, 24
 	mapgroup ROUTE_68, 10, 14

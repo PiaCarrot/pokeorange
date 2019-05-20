@@ -316,6 +316,9 @@ KumquatHotelTopRoom_BlockData:
 	
 KumquatHotelGym_BlockData:
 	INCBIN "maps/KumquatHotelGym.blk"
+	
+GameCorner_BlockData:
+	INCBIN "maps/GameCorner.blk"
 
 SECTION "Block Data 3", ROMX
 
