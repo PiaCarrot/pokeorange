@@ -329,6 +329,109 @@ GameCornerAlreadyHaveTMText:
 	line "already own that"
 	cont "TM."
 	done
+	
+GameCorner10Coins:
+	checkevent EVENT_GAME_CORNER_HIDDEN_10_COINS
+	iftrue .AlreadyGot10Coins
+	opentext
+	writetext GameCorner10CoinsText
+	waitbutton
+	checkitem COIN_CASE
+	iffalse FloorCoinsNoCoinCaseScript
+	waitsfx
+	playsound SFX_TRANSACTION
+	givecoins 10
+	closetext
+	setevent EVENT_GAME_CORNER_HIDDEN_10_COINS
+	end
+	
+.AlreadyGot10Coins
+	end
+	
+GameCorner20Coins:
+	checkevent EVENT_GAME_CORNER_HIDDEN_20_COINS
+	iftrue .AlreadyGot20Coins
+	opentext
+	writetext GameCorner20CoinsText
+	waitbutton
+	checkitem COIN_CASE
+	iffalse FloorCoinsNoCoinCaseScript
+	waitsfx
+	playsound SFX_TRANSACTION
+	givecoins 20
+	closetext
+	setevent EVENT_GAME_CORNER_HIDDEN_20_COINS
+	end
+	
+.AlreadyGot20Coins
+	end
+	
+GameCorner50Coins:
+	checkevent EVENT_GAME_CORNER_HIDDEN_50_COINS
+	iftrue .AlreadyGot50Coins
+	opentext
+	writetext GameCorner50CoinsText
+	waitbutton
+	checkitem COIN_CASE
+	iffalse FloorCoinsNoCoinCaseScript
+	waitsfx
+	playsound SFX_TRANSACTION
+	givecoins 50
+	closetext
+	setevent EVENT_GAME_CORNER_HIDDEN_50_COINS
+	end
+	
+.AlreadyGot50Coins
+	end
+	
+GameCorner100Coins:
+	checkevent EVENT_GAME_CORNER_HIDDEN_100_COINS
+	iftrue .AlreadyGot100Coins
+	opentext
+	writetext GameCorner100CoinsText
+	waitbutton
+	checkitem COIN_CASE
+	iffalse FloorCoinsNoCoinCaseScript
+	waitsfx
+	playsound SFX_TRANSACTION
+	givecoins 100
+	closetext
+	setevent EVENT_GAME_CORNER_HIDDEN_100_COINS
+	end
+	
+.AlreadyGot100Coins
+	end
+	
+FloorCoinsNoCoinCaseScript:
+	writetext FloorCoinsNoCoinCaseText
+	waitbutton
+	closetext
+	end
+	
+FloorCoinsNoCoinCaseText:
+	text "You don't have a"
+	line "COIN CASE!"
+	done
+	
+GameCorner10CoinsText:
+	text "You found 10"
+	line "coins! Nice!"
+	done
+	
+GameCorner20CoinsText:
+	text "You found 20"
+	line "coins! Wow!"
+	done
+	
+GameCorner50CoinsText:
+	text "You found 50"
+	line "coins! Cheers!"
+	done
+	
+GameCorner100CoinsText:
+	text "You found 100"
+	line "coins! Lucky!"
+	done
 
 GameCorner_MapEventHeader::
 
@@ -338,21 +441,24 @@ GameCorner_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 12
+.BGEvents: db 16
 	signpost  8,  1, SIGNPOST_LEFT, GameCornerSlotsMachineScript
 	signpost  9,  1, SIGNPOST_LEFT, GameCornerSlotsMachineScript
-	signpost 10,  1, SIGNPOST_LEFT, GameCornerSlotsMachineScript
 	signpost 11,  1, SIGNPOST_LEFT, GameCornerSlotsMachineScript
 	signpost  5, 10, SIGNPOST_READ, GameCornerLuckySlotsMachineScript
 	signpost  5, 11, SIGNPOST_READ, GameCornerLuckySlotsMachineScript
 	signpost  5, 12, SIGNPOST_READ, GameCornerLuckySlotsMachineScript
 	signpost  5, 13, SIGNPOST_READ, GameCornerLuckySlotsMachineScript
 	signpost  8, 12, SIGNPOST_RIGHT, GameCornerCardFlipMachineScript
-	signpost  9, 12, SIGNPOST_RIGHT, GameCornerCardFlipMachineScript
 	signpost 10, 12, SIGNPOST_RIGHT, GameCornerCardFlipMachineScript
 	signpost 11, 12, SIGNPOST_RIGHT, GameCornerCardFlipMachineScript
-	signpost  0,  8, SIGNPOST_READ, GameCornerTMVendorScript
-	signpost  0,  5, SIGNPOST_READ, GameCornerPrizeMonVendorScript
+	signpost  1,  8, SIGNPOST_READ, GameCornerTMVendorScript
+	signpost  1,  5, SIGNPOST_READ, GameCornerPrizeMonVendorScript
+	signpost 10,  9, SIGNPOST_READ, GameCorner10Coins
+	signpost  7, 13, SIGNPOST_READ, GameCorner20Coins
+	signpost  8,  4, SIGNPOST_READ, GameCorner50Coins
+	signpost  4,  8, SIGNPOST_READ, GameCorner100Coins
+
 
 .ObjectEvents: db 4
 	person_event SPRITE_CLERK,  4,  2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, GameCornerCoinVendorScript, -1

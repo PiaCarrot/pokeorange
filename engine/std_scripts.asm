@@ -552,7 +552,7 @@ CoinVendor_IntroScript: ; 0xbcde0
 	takemoney $0, 20000
 	waitsfx
 	playsound SFX_TRANSACTION
-	farwritetext CoinVendor_Buy500CoinsText
+	farwritetext CoinVendor_Buy1000CoinsText
 	waitbutton
 	jump .loop
 ; 0xbce3f

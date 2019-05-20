@@ -355,6 +355,10 @@
 	const EVENT_ROUTE_64_HIDDEN_HEART_SCALE_4
 	const EVENT_BUTWAL_EAST_HIDDEN_FULL_RESTORE
 	const EVENT_BUTWAL_WEST_HIDDEN_ELIXIR
+	const EVENT_GAME_CORNER_HIDDEN_10_COINS
+	const EVENT_GAME_CORNER_HIDDEN_20_COINS
+	const EVENT_GAME_CORNER_HIDDEN_50_COINS
+	const EVENT_GAME_CORNER_HIDDEN_100_COINS
 
 ; Sprite visibility: When these events are cleared, the sprite becomes visible; when set, the sprite is hidden.
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.
