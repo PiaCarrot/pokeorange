@@ -91,7 +91,7 @@ Vicegrip
 - TM11 Sunny Day (Sunburst Island)
 - TM12 Lock-On
 - TM13 Ice Beam (Trovitopolis Dept. Store)
-- TM14 Blizzard
+- TM14 Blizzard (Game Corner)
 - TM15 Hyper Beam (Trovitopolis Dept. Store)
 - TM16 Dragonbreath (Route 56)
 - TM17 Protect (Butwal West)
@@ -102,7 +102,7 @@ Vicegrip
 - TM22 Solarbeam (Trovitopolis Dept. Store)
 - TM23 Iron Tail (Route 63)
 - TM24 Thunderbolt (Trovitopolis Dept. Store)
-- TM25 Thunder
+- TM25 Thunder (Game Corner)
 - TM26 Earthquake (Route 62)
 - TM27 Return (Unnamed Island 1)
 - TM28 Dig
@@ -115,7 +115,7 @@ Vicegrip
 - TM35 Flamethrower (Trovitopolis Dept. Store)
 - TM36 Sludge Bomb (Trovitopolis Sewer)
 - TM37 Sandstorm (Mandarin Desert)
-- TM38 Fire Blast
+- TM38 Fire Blast (Game Corner)
 - TM39 *Dazzling Gleam*
 - TM40 *Aerial Ace*
 - TM41 *Flash Cannon*
@@ -123,7 +123,7 @@ Vicegrip
 - TM43 Zap Cannon
 - TM44 Rest
 - TM45 Seed Bomb
-- TM46 Thief (Mandarin Underground)
+- TM46 Thief (Mandarin North)
 - TM47 Steel Wing
 - TM48 Rock Slide (TODO: Show Aerodactyl to Blue)
 - TM49 Tri Attack
@@ -131,7 +131,7 @@ Vicegrip
 
 ## HMs
 
-- HM01 Cut (Mandarin North)
+- HM01 Cut (Mandarin Underground)
 - HM02 Fly (Moro Island)
 - HM03 Surf (Tangelo Island)
 - HM04 Strength (Primas School)

@@ -192,11 +192,15 @@ INCLUDE "audio/music/sunnyshore.asm"
 INCLUDE "audio/music/marinetube.asm"
 INCLUDE "audio/music/rslooklass.asm"
 INCLUDE "audio/music/route110.asm"
+INCLUDE "audio/music/route209n.asm"
+INCLUDE "audio/music/canalave.asm"
 
 SECTION "Songs 14", ROMX
 
 INCLUDE "audio/music/credits.asm"
-
+INCLUDE "audio/music/route206.asm"
+INCLUDE "audio/music/seviiislands.asm"
+INCLUDE "audio/music/oreburghgate.asm"
 
 SECTION "Sound Effects", ROMX
 

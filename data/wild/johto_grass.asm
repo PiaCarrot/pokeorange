@@ -927,7 +927,7 @@
 	db 28, WEEPINBELL
 	db 28, ODDISH
 	db 27, GLOOM
-	db 29, CHANSEY
+	db 29, PONYTA
 	;day
 	db 27, PIDGEOTTO
 	db 27, TRUMBEAK
@@ -935,7 +935,7 @@
 	db 28, WEEPINBELL
 	db 28, BELLSPROUT
 	db 27, WEEPINBELL
-	db 29, CHANSEY
+	db 29, PONYTA
 	;nite
 	db 27, PIDGEOTTO
 	db 27, TRUMBEAK
@@ -943,7 +943,7 @@
 	db 28, WEEPINBELL
 	db 28, ODDISH
 	db 27, GLOOM
-	db 29, CHANSEY
+	db 29, PONYTA
 	
 	map BUTWAL_ISLAND_EAST
 	db 6 percent, 6 percent, 6 percent

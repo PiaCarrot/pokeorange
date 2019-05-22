@@ -46,6 +46,8 @@ GameCornerTMVendor_LoopScript: ; 056c36
 	checkcoins 5500
 	if_equal $2, GameCornerPrizeVendor_NotEnoughCoinsScript
 	itemtotext TM_THUNDER, $0
+	writetext PickedThunderText
+	waitbutton
 	scall GameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GameCornerPrizeVendor_CancelPurchaseScript
 	giveitem TM_THUNDER
@@ -59,6 +61,8 @@ GameCornerTMVendor_LoopScript: ; 056c36
 	checkcoins 5500
 	if_equal $2, GameCornerPrizeVendor_NotEnoughCoinsScript
 	itemtotext TM_BLIZZARD, $0
+	writetext PickedBlizzardText
+	waitbutton
 	scall GameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GameCornerPrizeVendor_CancelPurchaseScript
 	giveitem TM_BLIZZARD
@@ -72,6 +76,8 @@ GameCornerTMVendor_LoopScript: ; 056c36
 	checkcoins 5500
 	if_equal $2, GameCornerPrizeVendor_NotEnoughCoinsScript
 	itemtotext TM_FIRE_BLAST, $0
+	writetext PickedFireBlastText
+	waitbutton
 	scall GameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GameCornerPrizeVendor_CancelPurchaseScript
 	giveitem TM_FIRE_BLAST
@@ -221,7 +227,7 @@ GameCornerPrizeMonVendorScript:
 .MenuData2:
 	db $80 ; flags
 	db 4 ; items
-	db "MIME JR    2500@"
+	db "MIME JR.   2500@"
 	db "CUBONE     5000@"
 	db "PORYGON    9999@"
 	db "CANCEL@"
@@ -314,7 +320,7 @@ GameCornerPokefanFText:
 
 GameCornerCooltrainerFText:
 	text "I won a PORYGON"
-	line "with my COINS!"
+	line "with my coins!"
 	done
 
 GameCornerPokefanM3Text:
@@ -432,7 +438,25 @@ GameCorner100CoinsText:
 	text "You found 100"
 	line "coins! Lucky!"
 	done
+	
+PickedFireBlastText:
+	text "Ah, that one con-"
+	line "tains FIRE BLAST."
+	cont "Good choice!"
+	done
 
+PickedBlizzardText:
+	text "Ah, that one con-"
+	line "tains BLIZZARD."
+	cont "Good choice!"
+	done
+	
+PickedThunderText:
+	text "Ah, that one con-"
+	line "tains THUNDER."
+	cont "Good choice!"
+	done
+	
 GameCorner_MapEventHeader::
 
 .Warps: db 2

@@ -92,6 +92,7 @@ ItemDescriptions:
 	dw GoodRodDesc
 	dw SuperRodDesc
 	dw PPUpDesc
+	dw PPMaxDesc
 	dw EtherDesc
 	dw MaxEtherDesc
 	dw ElixerDesc
@@ -188,6 +189,7 @@ ItemDescriptions:
 	dw MewMailDesc
 	dw XSpclDefDesc
 	dw IceStoneDesc
+	dw QuickPowderDesc
 
 MasterBallDesc:
 	db   "The best BALL. It"
@@ -427,6 +429,10 @@ SuperRodDesc:
 
 PPUpDesc:
 	db   "Raises max PP of"
+	next "a selected move.@"
+	
+PPMaxDesc:
+	db   "Maximizes PP of"
 	next "a selected move.@"
 
 EtherDesc:
@@ -812,3 +818,7 @@ XSpclDefDesc:
 IceStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
+	
+QuickPowderDesc:
+	db   "Raises SPEED of"
+	next "DITTO. (HOLD)@"

@@ -74,6 +74,7 @@ ItemEffects: ; e73c
 	dw GoodRod
 	dw SuperRod
 	dw PPUp
+	dw PPMax
 	dw Ether
 	dw MaxEther
 	dw Elixer
@@ -170,6 +171,7 @@ ItemEffects: ; e73c
 	dw FlowerMail
 	dw XSpclDef
 	dw IceStone
+	dw QuickPowder
 ; e8a2
 
 
@@ -1167,7 +1169,15 @@ ReturnToBattle_UseBall: ; edfa (3:6dfa)
 	ret
 
 TownMap: ; ee01
-	farcall Special_TownMapItem
+;	farcall Special_TownMapItem
+	call FadeToMenu
+	farcall _TownMap
+	call Call_ExitMenu
+	xor a
+	ldh [hBGMapMode], a
+	farcall Pack_InitGFX
+	farcall WaitBGMap_DrawPackGFX
+	farcall Pack_InitColors
 	ret
 ; ee08
 
@@ -2407,6 +2417,7 @@ Itemfinder: ; f5b8
 
 MaxElixer:
 PPUp:
+PPMax:
 Ether:
 MaxEther:
 Elixer:
@@ -2430,6 +2441,8 @@ Mysteryberry: ; f5bf
 	ld hl, TextJump_RaiseThePPOfWhichMove
 	ld a, [wd002]
 	cp PP_UP
+	jr z, .ppup
+	cp PP_MAX
 	jr z, .ppup
 	ld hl, TextJump_RestoreThePPOfWhichMove
 
@@ -2461,6 +2474,8 @@ Mysteryberry: ; f5bf
 
 	ld a, [wd002]
 	cp PP_UP
+	jr z, .ppup2
+	cp PP_MAX
 	jp nz, Not_PP_Up
 
 	ld bc, $0015
@@ -2468,15 +2483,35 @@ Mysteryberry: ; f5bf
 	ld a, [hl]
 	cp 3 << 6 ; have 3 PP Ups already been used?
 	jr c, .do_ppup
+	
+.ppup2
+	ld a, [hl]
+	cp SKETCH
+	jr z, .CantUsePPUpOnSketch
 
+	ld bc, MON_PP - MON_MOVES
+	add hl, bc
+	ld a, [hl]
+	cp 3 << 6 ; have 3 PP Ups already been used?
+	jr c, .do_ppup
+
+.CantUsePPUpOnSketch:
 .pp_is_maxed_out
 	ld hl, TextJump_PPIsMaxedOut
 	call PrintText
 	jr .loop2
 
 .do_ppup
+	ld a, [wd002]
+	cp PP_MAX
+	jr nz, .not_pp_max
+	ld a, [hl]
+	or 3 << 6 ; maximize PP Up count
+	jr .raised_pp
+.not_pp_max
 	ld a, [hl]
 	add 1 << 6 ; increase PP Up count by 1
+.raised_pp
 	ld [hl], a
 	ld a, $1
 	ld [wd265], a
@@ -2484,6 +2519,11 @@ Mysteryberry: ; f5bf
 	call Play_SFX_FULL_HEAL
 
 	ld hl, TextJump_PPsIncreased
+	ld a, [wd002]
+	cp PP_UP
+	jr z, .ppup3
+	ld hl, TextJump_PPsMaximized
+.ppup3
 	call PrintText
 
 FinishPPRestore: ; f64c
@@ -2664,6 +2704,11 @@ TextJump_PPsIncreased: ; 0xf734
 	db "@"
 ; 0xf739
 
+TextJump_PPsMaximized:
+	; 's PP maximized.
+	text_jump Text_PPsMaximized
+	db "@"
+
 UnknownText_0xf739: ; 0xf739
 	; PP was restored.
 	text_jump UnknownText_0x1c5cf1
@@ -2822,7 +2867,8 @@ RainbowWing:
 MoroTrophy:
 ShinyCharm:
 SoulDew:
-HeartScale: ; f77d
+HeartScale:
+QuickPowder: ; f77d
 	jp IsntTheTimeMessage
 ; f780
 

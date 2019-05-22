@@ -60,6 +60,7 @@
 	const GOOD_ROD     ; $3a
 	const SUPER_ROD    ; $3b
 	const PP_UP        ; $3c
+	const PP_MAX       ; $3c
 	const ETHER        ; $3d
 	const MAX_ETHER    ; $3e
 	const ELIXER       ; $3f
@@ -156,6 +157,7 @@
 	const MIRAGE_MAIL  ; $9a
 	const X_SPCL_DEF   ; $9b
 	const ICE_STONE    ; $9c
+	const QUICK_POWDER
 
 	add_tm POWERUPPUNCH ; $9d
 	add_tm DRAGON_PULSE ; $9e
@@ -301,6 +303,7 @@ const_value SET 40
 	const HELD_40
 	const HELD_41
 	const HELD_METAL_POWDER
+	const HELD_QUICK_POWDER
 
 const_value SET 50
 	const HELD_NORMAL_BOOST

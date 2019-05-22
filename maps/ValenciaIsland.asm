@@ -124,6 +124,8 @@ if def(DEBUG)
 	giveitem MAX_REPEL, 99
 	giveitem ESCAPE_ROPE, 99
 	giveitem RARE_CANDY, 99
+	giveitem PP_MAX, 99
+	giveitem PP_UP, 99
 	giveitem SHINY_STONE
 	giveitem EVERSTONE
 	giveitem OLD_ROD
@@ -143,7 +145,7 @@ if def(DEBUG)
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp ROUTE_71, 15, 15
+	warp KUMQUAT_ISLAND_WEST, 15, 15
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

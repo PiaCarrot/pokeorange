@@ -5,7 +5,7 @@
 
 	db NORMAL, NORMAL
 	db 35 ; catch rate
-	db NO_ITEM ; item 1
+	db QUICK_POWDER ; item 1
 	db NO_ITEM ; item 2
 	db GENDERLESS ; gender
 	db 20 ; step cycles to hatch

@@ -165,10 +165,10 @@ LoadSpecialMapOBPalette:
     ld a, [MapNumber]
     cp MAP_KUMQUAT_ISLAND_WEST
     ld hl, KumquatOBPalette
-	jr z, LoadEightOBPalettes
+	jr z, LoadEightTimeOfDayOBPalettes
     cp MAP_KUMQUAT_ISLAND_EAST
     ld hl, KumquatOBPalette
-	jr z, LoadEightOBPalettes
+	jr z, LoadEightTimeOfDayOBPalettes
 .not_kumquat
 	ld a, [wTileset]
 
@@ -202,7 +202,17 @@ LoadSpecialMapOBPalette:
 .do_nothing
 	and a
 	ret
-
+	
+LoadEightTimeOfDayOBPalettes:
+	ld a, [hHours]
+	cp DUSK_HOUR
+	ld a, DARKNESS
+	jr z, .dusk
+	ld a, [TimeOfDayPal]
+	and $3
+.dusk
+	ld bc, 8 palettes
+	call AddNTimes
 LoadEightOBPalettes:
 	ld a, $5
 	ld de, UnknOBPals
