@@ -68,6 +68,7 @@ RhydonFrontpic:      INCBIN "gfx/pics/rhydon/front.2bpp.lz"
 RhyhornFrontpic:     INCBIN "gfx/pics/rhyhorn/front.2bpp.lz"
 SkarmoryFrontpic:    INCBIN "gfx/pics/skarmory/front.2bpp.lz"
 SlowbroFrontpic:     INCBIN "gfx/pics/slowbro/front.2bpp.lz"
+SteelixCrystalFrontpic:
 SteelixFrontpic:     INCBIN "gfx/pics/steelix/front.2bpp.lz"
 WeezingFrontpic:     INCBIN "gfx/pics/weezing/front.2bpp.lz"
 
@@ -395,6 +396,7 @@ RaichuBackpic:       INCBIN "gfx/pics/raichu/back.2bpp.lz"
 RemoraidFrontpic:    INCBIN "gfx/pics/remoraid/front.2bpp.lz"
 ProfAidePic:         INCBIN "gfx/trainers/prof_aide.2bpp.lz"
 ShuckleFrontpic:     INCBIN "gfx/pics/shuckle/front.2bpp.lz"
+SteelixCrystalBackpic:
 SteelixBackpic:      INCBIN "gfx/pics/steelix/back.2bpp.lz"
 SunkernFrontpic:     INCBIN "gfx/pics/sunkern/front.2bpp.lz"
 SwimmermPic:         INCBIN "gfx/trainers/swimmer_m.2bpp.lz"

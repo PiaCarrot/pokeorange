@@ -554,3 +554,7 @@ PoliwrathTadShinyPalette: INCLUDE "gfx/pics/poliwrath_tad/shiny.pal"
 OnixCrystalPalettes:
 OnixCrystalPalette:      INCLUDE "gfx/pics/onix_crystal/normal.pal"
 OnixCrystalShinyPalette: INCLUDE "gfx/pics/onix_crystal/shiny.pal"
+
+SteelixCrystalPalettes:
+SteelixCrystalPalette:      INCLUDE "gfx/pics/steelix_crystal/normal.pal"
+SteelixCrystalShinyPalette: INCLUDE "gfx/pics/steelix_crystal/shiny.pal"

@@ -400,6 +400,10 @@ const_value set 1
 	const ONIX_CRYSTAL_FORM
 
 const_value set 1
+	const STEELIX_NORMAL_FORM
+	const STEELIX_CRYSTAL_FORM
+
+const_value set 1
 	const SQUIRTLE_NORMAL_FORM
 	const SQUIRTLE_GLASSES_FORM
 

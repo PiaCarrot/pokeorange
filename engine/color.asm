@@ -119,6 +119,8 @@ GetMonPalettePointer:
 	jr z, .lycanroc
 	cp ONIX
 	jr z, .onix
+	cp STEELIX
+	jr z, .steelix
 	cp POLIWRATH
 	jr z, .poliwrath
 .continue
@@ -160,6 +162,16 @@ GetMonPalettePointer:
 	and FORM_MASK
 	cp ONIX_CRYSTAL_FORM
 	ld hl, OnixCrystalPalettes
+	jr z, .ok
+	pop af
+	jr .continue
+	
+.steelix
+	push af
+	ld a, [bc]
+	and FORM_MASK
+	cp STEELIX_CRYSTAL_FORM
+	ld hl, SteelixCrystalPalettes
 	jr z, .ok
 	pop af
 	jr .continue

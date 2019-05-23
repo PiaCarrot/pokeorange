@@ -127,6 +127,7 @@ if def(DEBUG)
 	giveitem PP_MAX, 99
 	giveitem PP_UP, 99
 	giveitem SHINY_STONE
+	giveitem TRADE_STONE
 	giveitem EVERSTONE
 	giveitem OLD_ROD
 	giveitem GOOD_ROD
@@ -139,7 +140,7 @@ if def(DEBUG)
 	givepoke LAPRAS, 60
 	givepoke CHARIZARD, 60
 	givepoke PIKACHU, 60, LIGHT_BALL
-	givepoke CELEBI, 60
+	givepoke ROCKRUFF, 60
 	givepoke MEW, 60
 	closetext
 	callasm TeachHMSlaveMoves
@@ -322,19 +323,19 @@ TeachHMSlaveMoves:
 	ld [hli], a ; DOUBLE_TEAM
 	ld a, FLASH
 	ld [hl], a ; SLAM
-	; CELEBI
+	; ROCKRUFF
 	ld hl, PartyMon4Moves
-	ld [hli], a 
-	ld [hli], a 
-	ld [hli], a 
-	ld [hli], a 
+	ld a, IRON_TAIL
+	ld [hli], a
+	ld a, DIG
+	ld [hl], a
 	; MEW
 	ld hl, PartyMon5Moves
 	ld a, ROCK_SMASH
 	ld [hli], a ; TRANSFORM
 	ld a, WATERFALL
 	ld [hli], a ; HEADBUTT
-	ld a, ROCK_CLIMB
+	ld a, HEADBUTT
 	ld [hli], a ; METRONOME
 	ld a, WHIRLPOOL
 	ld [hl], a ; PSYCHIC_M
