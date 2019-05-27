@@ -172,6 +172,9 @@ ItemEffects: ; e73c
 	dw XSpclDef
 	dw IceStone
 	dw QuickPowder
+	dw Magmarizer
+	dw Electirizer
+	dw Protector
 ; e8a2
 
 
@@ -1198,7 +1201,10 @@ ShinyStone:
 TradeStone:
 UpGrade:
 DubiousDisc:
-IceStone: ; ee0f
+IceStone:
+Magmarizer:
+Electirizer:
+Protector: ; ee0f
 	ld b, PARTYMENUACTION_EVO_STONE
 	call UseItem_SelectMon
 

@@ -262,28 +262,26 @@ endr
 	jp z, .dont_evolve_3
 
 .proceed
-	ld a, [TempMonSpecies]
-	cp ONIX
-	jr nz, .not_crystal_onix
-	ld a, FORM_MASK
-	cp ONIX_CRYSTAL_FORM
-	jr nz, .not_crystal_onix
-	push hl
-	push bc
-	ld a, STEELIX_CRYSTAL_FORM
-	ld b, a
-	ld a, [TempMonForm]
+    ld a, [TempMonSpecies]
+    cp MEOWTH
+    jr nz, .rockruff
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp MEOWTH_ROCKET_FORM
+	jr nz, .not_rockruff
+    push hl
+    push bc
+    ld a, [wCurPartyMon]
+    ld hl, PartyMon1Form
+    call GetPartyLocation
+    ld a, [hl]
 	and $ff - FORM_MASK
-	or b
-	ld [TempMonForm], a
-	ld a, [wCurPartyMon]
-	ld hl, PartyMon1Form
-	call GetPartyLocation
-	ld a, [TempMonForm]
-	ld [hl], a
-	pop bc
-	pop hl
-.not_crystal_onix
+	or PERSIAN_NORMAL_FORM
+    ld [hl], a
+    pop bc
+    pop hl
+	jr .not_rockruff
+.rockruff
 	cp ROCKRUFF
 	jr nz, .not_rockruff
 	push hl

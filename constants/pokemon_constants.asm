@@ -402,6 +402,74 @@ const_value set 1
 const_value set 1
 	const STEELIX_NORMAL_FORM
 	const STEELIX_CRYSTAL_FORM
+	
+const_value set 1
+	const EXEGGUTOR_NORMAL_FORM
+	const EXEGGUTOR_KANTONESE_FORM
+
+const_value set 1
+	const GRIMER_NORMAL_FORM
+	const GRIMER_KANTONESE_FORM
+
+const_value set 1
+	const MUK_NORMAL_FORM
+	const MUK_KANTONESE_FORM
+
+const_value set 1
+	const PERSIAN_NORMAL_FORM
+	const PERSIAN_ALOLAN_FORM
+
+const_value set 1
+	const VULPIX_NORMAL_FORM
+	const VULPIX_KANTONESE_FORM
+
+const_value set 1
+	const NINETALES_NORMAL_FORM
+	const NINETALES_KANTONESE_FORM
+
+const_value set 1
+	const SANDSHREW_NORMAL_FORM
+	const SANDSHREW_ALOLAN_FORM
+
+const_value set 1
+	const SANDSLASH_NORMAL_FORM
+	const SANDSLASH_ALOLAN_FORM
+
+const_value set 1
+	const RATTATA_NORMAL_FORM
+	const RATTATA_KANTONESE_FORM
+
+const_value set 1
+	const RATICATE_NORMAL_FORM
+	const RATICATE_KANTONESE_FORM
+
+const_value set 1
+	const DIGLETT_NORMAL_FORM
+	const DIGLETT_KANTONESE_FORM
+
+const_value set 1
+	const DUGTRIO_NORMAL_FORM
+	const DUGTRIO_KANTONESE_FORM
+
+const_value set 1
+	const GEODUDE_NORMAL_FORM
+	const GEODUDE_KANTONESE_FORM
+
+const_value set 1
+	const GRAVELER_NORMAL_FORM
+	const GRAVELER_KANTONESE_FORM
+
+const_value set 1
+	const GOLEM_NORMAL_FORM
+	const GOLEM_KANTONESE_FORM
+
+const_value set 1
+	const RAICHU_NORMAL_FORM
+	const RAICHU_KANTONESE_FORM
+
+const_value set 1
+	const MAROWAK_NORMAL_FORM
+	const MAROWAK_KANTONESE_FORM
 
 const_value set 1
 	const SQUIRTLE_NORMAL_FORM
@@ -409,6 +477,7 @@ const_value set 1
 
 const_value set 1
 	const MEOWTH_NORMAL_FORM
+	const MEOWTH_ALOLAN_FORM
 	const MEOWTH_ROCKET_FORM
 
 const_value set 1

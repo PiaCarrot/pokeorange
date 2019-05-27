@@ -420,14 +420,14 @@ RestartMapMusic:: ; 3d47
 
 SpecialMapMusic:: ; 3d62
 	ld a, [PlayerState]
-	cp PLAYER_SURF
-	jr z, .surf
-	cp PLAYER_SURF_PIKA
-	jr z, .surf
+	; cp PLAYER_SURF
+	; jr z, .surf
+	; cp PLAYER_SURF_PIKA
+	; jr z, .surf
 
-	ld a, [StatusFlags2]
-	bit 2, a
-	jr nz, .contest
+	; ld a, [StatusFlags2]
+	; bit 2, a
+	; jr nz, .contest
 
 .no
 	and a
@@ -438,26 +438,26 @@ SpecialMapMusic:: ; 3d62
 	scf
 	ret
 
-.surf
-	ld de, MUSIC_SURF
-	scf
-	ret
+; .surf
+	; ld de, MUSIC_SURF
+	; scf
+	; ret
 
-.contest
-;	ld a, [MapGroup]
-;	cp GROUP_ROUTE_35_NATIONAL_PARK_GATE
-;	jr nz, .no
-;	ld a, [MapNumber]
-;	cp MAP_ROUTE_35_NATIONAL_PARK_GATE
-;	jr z, .ranking
-;	cp MAP_ROUTE_36_NATIONAL_PARK_GATE
-;	jr nz, .no
+; .contest
+	; ld a, [MapGroup]
+	; cp GROUP_ROUTE_35_NATIONAL_PARK_GATE
+	; jr nz, .no
+	; ld a, [MapNumber]
+	; cp MAP_ROUTE_35_NATIONAL_PARK_GATE
+	; jr z, .ranking
+	; cp MAP_ROUTE_36_NATIONAL_PARK_GATE
+	; jr nz, .no
 
-.ranking
-	ld de, MUSIC_BUG_CATCHING_CONTEST_RANKING
-	scf
-	ret
-; 3d97
+; .ranking
+	; ld de, MUSIC_BUG_CATCHING_CONTEST_RANKING
+	; scf
+	; ret
+;3d97
 
 GetMapMusic:: ; 3d97
 	call SpecialMapMusic
