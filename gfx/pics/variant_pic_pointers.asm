@@ -1,78 +1,6 @@
 OnixPicPointers::
 	add_pics Onix
 	add_pics OnixCrystal
-	
-SteelixPicPointers::
-	add_pics Steelix
-	add_pics SteelixCrystal
-	
-ExeggutorPicPointers::
-	add_pics Exeggutor
-	add_pics ExeggutorKantonese
-	
-GrimerPicPointers::
-	add_pics Grimer
-	add_pics GrimerKantonese
-
-MukPicPointers::
-	add_pics Muk
-	add_pics MukKantonese
-
-PersianPicPointers::
-	add_pics Persian
-	add_pics PersianAlolan
-
-VulpixPicPointers::
-	add_pics Vulpix
-	add_pics VulpixKantonese
-
-NinetalesPicPointers::
-	add_pics Ninetales
-	add_pics NinetalesKantonese
-
-SandshrewPicPointers::
-	add_pics Sandshrew
-	add_pics SandshrewAlolan
-
-SandslashPicPointers::
-	add_pics Sandslash
-	add_pics SandslashAlolan
-
-RattataPicPointers::
-	add_pics Rattata
-	add_pics RattataKantonese
-
-RaticatePicPointers::
-	add_pics Raticate
-	add_pics RaticateKantonese
-
-DiglettPicPointers::
-	add_pics Diglett
-	add_pics DiglettKantonese
-
-DugtrioPicPointers::
-	add_pics Dugtrio
-	add_pics DugtrioKantonese
-
-GeodudePicPointers::
-	add_pics Geodude
-	add_pics GeodudeKantonese
-
-GravelerPicPointers::
-	add_pics Graveler
-	add_pics GravelerKantonese
-
-GolemPicPointers::
-	add_pics Golem
-	add_pics GolemKantonese
-
-RaichuPicPointers::
-	add_pics Raichu
-	add_pics RaichuKantonese
-
-MarowakPicPointers::
-	add_pics Marowak
-	add_pics MarowakKantonese
 
 SquirtlePicPointers::
 	add_pics Squirtle
@@ -80,7 +8,6 @@ SquirtlePicPointers::
 
 MeowthPicPointers::
 	add_pics Meowth
-	add_pics MeowthAlolan
 	add_pics MeowthRocket
 
 PoliwrathPicPointers::

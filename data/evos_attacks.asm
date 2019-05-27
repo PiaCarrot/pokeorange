@@ -1942,7 +1942,7 @@ RhyhornEvosAttacks:
 	db 0 ; no more level-up moves
 
 RhydonEvosAttacks:
-	db EVOLVE_ITEM, PROTECTOR, RHYPERIOR
+	db EVOLVE_ITEM, TRADE_STONE, RHYPERIOR
 	db 0 ; no more evolutions
 	db 1, HORN_ATTACK
 	db 1, TAIL_WHIP
@@ -2137,7 +2137,7 @@ JynxEvosAttacks:
 	db 0 ; no more level-up moves
 
 ElectabuzzEvosAttacks:
-	db EVOLVE_ITEM, ELECTIRIZER, ELECTIVIRE
+	db EVOLVE_ITEM, TRADE_STONE, ELECTIVIRE
 	db 0 ; no more evolutions
 	db 1, QUICK_ATTACK
 	db 1, LEER
@@ -2151,7 +2151,7 @@ ElectabuzzEvosAttacks:
 	db 0 ; no more level-up moves
 
 MagmarEvosAttacks:
-	db EVOLVE_ITEM, MAGMARIZER, MAGMORTAR
+	db EVOLVE_ITEM, TRADE_STONE, MAGMORTAR
 	db 0 ; no more evolutions
 	db 1, EMBER
 	db 1, LEER

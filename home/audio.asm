@@ -419,11 +419,11 @@ RestartMapMusic:: ; 3d47
 ; 3d62
 
 SpecialMapMusic:: ; 3d62
-;	ld a, [PlayerState]
-;	cp PLAYER_SURF
-;	jr z, .surf
-;	cp PLAYER_SURF_PIKA
-;	jr z, .surf
+	ld a, [PlayerState]
+	cp PLAYER_SURF
+	jr z, .surf
+	cp PLAYER_SURF_PIKA
+	jr z, .surf
 
 	ld a, [StatusFlags2]
 	bit 2, a
@@ -438,10 +438,10 @@ SpecialMapMusic:: ; 3d62
 	scf
 	ret
 
-;.surf
-;	ld de, MUSIC_SURF
-;	scf
-;	ret
+.surf
+	ld de, MUSIC_SURF
+	scf
+	ret
 
 .contest
 ;	ld a, [MapGroup]

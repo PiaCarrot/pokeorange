@@ -116,49 +116,13 @@ GetEnemyFrontpicPalettePointer:
 
 GetMonPalettePointer:
 	cp LYCANROC
-	jp z, .lycanroc
+	jr z, .lycanroc
 	cp ONIX
-	jp z, .onix
+	jr z, .onix
 	cp STEELIX
-	jp z, .steelix
+	jr z, .steelix
 	cp POLIWRATH
-	jp z, .poliwrath
-	cp EXEGGUTOR
-	jp z, .exeggutor
-	cp GRIMER
-	jp z, .grimer
-	cp MUK
-	jp z, .muk
-	cp MEOWTH
-	jp z, .meowth
-	cp PERSIAN
-	jp z, .persian
-	cp VULPIX
-	jp z, .vulpix
-	cp NINETALES
-	jp z, .ninetales
-	cp SANDSHREW
-	jp z, .sandshrew
-	cp SANDSLASH
-	jp z, .sandslash
-	cp RATTATA
-	jp z, .rattata
-	cp RATICATE
-	jp z, .raticate
-	cp DIGLETT
-	jp z, .diglett
-	cp DUGTRIO
-	jp z, .dugtrio
-	cp GEODUDE
-	jp z, .geodude
-	cp GRAVELER
-	jp z, .graveler
-	cp GOLEM
-	jp z, .golem
-	cp RAICHU
-	jp z, .raichu
-	cp MAROWAK
-	jp z, .marowak
+	jr z, .poliwrath
 .continue
 	ld l, a
 	ld h, $0
@@ -175,12 +139,12 @@ GetMonPalettePointer:
 	and FORM_MASK
 	cp LYCANROC_MIDNIGHT_FORM
 	ld hl, LycanrocMidnightPalettes
-	jp z, .ok
+	jr z, .ok
 	cp LYCANROC_DUSK_FORM
 	ld hl, LycanrocDuskPalettes
-	jp z, .ok
+	jr z, .ok
 	pop af
-	jp .continue
+	jr .continue
 
 .poliwrath
 	push af
@@ -188,9 +152,9 @@ GetMonPalettePointer:
 	and FORM_MASK
 	cp POLIWRATH_TAD_FORM
 	ld hl, PoliwrathTadPalettes
-	jp z, .ok
+	jr z, .ok
 	pop af
-	jp .continue
+	jr .continue
 
 .onix
 	push af
@@ -198,9 +162,9 @@ GetMonPalettePointer:
 	and FORM_MASK
 	cp ONIX_CRYSTAL_FORM
 	ld hl, OnixCrystalPalettes
-	jp z, .ok
+	jr z, .ok
 	pop af
-	jp .continue
+	jr .continue
 	
 .steelix
 	push af
@@ -208,189 +172,9 @@ GetMonPalettePointer:
 	and FORM_MASK
 	cp STEELIX_CRYSTAL_FORM
 	ld hl, SteelixCrystalPalettes
-	jp z, .ok
+	jr z, .ok
 	pop af
-	jp .continue
-	
-.exeggutor
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp EXEGGUTOR_KANTONESE_FORM
-	ld hl, ExeggutorKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.grimer
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp GRIMER_KANTONESE_FORM
-	ld hl, GrimerKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.muk
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp MUK_KANTONESE_FORM
-	ld hl, MukKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.meowth
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp MEOWTH_ALOLAN_FORM
-	ld hl, MeowthAlolanPalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.persian
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp PERSIAN_ALOLAN_FORM
-	ld hl, PersianAlolanPalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.vulpix
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp VULPIX_KANTONESE_FORM
-	ld hl, VulpixKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.ninetales
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp NINETALES_KANTONESE_FORM
-	ld hl, NinetalesKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.sandshrew
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp SANDSHREW_ALOLAN_FORM
-	ld hl, SandshrewAlolanPalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.sandslash
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp SANDSLASH_ALOLAN_FORM
-	ld hl, SandslashAlolanPalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.rattata
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp RATTATA_KANTONESE_FORM
-	ld hl, RattataKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.raticate
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp RATICATE_KANTONESE_FORM
-	ld hl, RaticateKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.diglett
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp DIGLETT_KANTONESE_FORM
-	ld hl, DiglettKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.dugtrio
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp DUGTRIO_KANTONESE_FORM
-	ld hl, DugtrioKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
-
-.geodude
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp GEODUDE_KANTONESE_FORM
-	ld hl, GeodudeKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.graveler
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp GRAVELER_KANTONESE_FORM
-	ld hl, GravelerKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.golem
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp GOLEM_KANTONESE_FORM
-	ld hl, GolemKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.raichu
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp RAICHU_KANTONESE_FORM
-	ld hl, RaichuKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
-	
-.marowak
-	push af
-	ld a, [bc]
-	and FORM_MASK
-	cp MAROWAK_KANTONESE_FORM
-	ld hl, MarowakKantonesePalettes
-	jp z, .ok
-	pop af
-	jp .continue
+	jr .continue
 
 .ok
 	pop af

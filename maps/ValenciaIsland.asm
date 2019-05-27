@@ -128,9 +128,6 @@ if def(DEBUG)
 	giveitem PP_UP, 99
 	giveitem SHINY_STONE
 	giveitem TRADE_STONE
-	giveitem MAGMARIZER
-	giveitem ELECTIRIZER
-	giveitem PROTECTOR
 	giveitem EVERSTONE
 	giveitem OLD_ROD
 	giveitem GOOD_ROD

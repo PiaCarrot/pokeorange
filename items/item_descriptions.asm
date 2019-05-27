@@ -190,9 +190,6 @@ ItemDescriptions:
 	dw XSpclDefDesc
 	dw IceStoneDesc
 	dw QuickPowderDesc
-	dw MagmarizerDesc
-	dw ElectirizerDesc
-	dw ProtectorDesc
 
 MasterBallDesc:
 	db   "The best BALL. It"
@@ -825,15 +822,3 @@ IceStoneDesc:
 QuickPowderDesc:
 	db   "Raises SPEED of"
 	next "DITTO. (HOLD)@"
-	
-MagmarizerDesc:
-	db   "Packed immensely"
-	next "with magma energy.@"
-	
-ElectirizerDesc:
-	db   "Packed with lots"
-	next "of electricity.@"
-	
-ProtectorDesc:
-	db   "Extremely stiff"
-	next "and heavy.@"

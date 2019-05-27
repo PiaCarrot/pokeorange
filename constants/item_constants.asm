@@ -158,9 +158,6 @@
 	const X_SPCL_DEF   ; $9b
 	const ICE_STONE    ; $9c
 	const QUICK_POWDER
-	const MAGMARIZER
-	const ELECTIRIZER
-	const PROTECTOR
 
 	add_tm POWERUPPUNCH ; $9d
 	add_tm DRAGON_PULSE ; $9e
