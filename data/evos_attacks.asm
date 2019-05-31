@@ -4110,3 +4110,24 @@ LatiosEvosAttacks:
 	db 56, DRAGON_PULSE
 	db 61, NASTY_PLOT
 	db 0 ; no more level-up moves
+	
+; ========================================
+; VariantEvosAttacks
+KantoneseExeggutorFormEvosAttacks::
+KantoneseExeggutorEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, WATER_GUN
+	db 10, EXPLOSION
+	db 0 ; no more level-up moves:
+
+KantoneseVulpixFormEvosAttacks::
+KantoneseVulpixEvosAttacks:
+	db EVOLVE_ITEM, FIRE_STONE, NINETALES
+	db 0 ; no more evolutions
+	db 1, EMBER
+	db 1, SMOKESCREEN
+	db 1, ROAR
+	db 1, FLAME_WHEEL
+	db 9, HYPER_BEAM
+	db 0 ; no more level-up moves
+

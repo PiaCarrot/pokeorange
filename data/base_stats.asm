@@ -253,3 +253,7 @@ INCLUDE "data/base_stats/ho_oh.asm"
 INCLUDE "data/base_stats/celebi.asm"
 INCLUDE "data/base_stats/latias.asm"
 INCLUDE "data/base_stats/latios.asm"
+KantoneseExeggutorBaseData::
+INCLUDE "data/base_stats/exeggutor_kanto.asm"
+KantoneseVulpixBaseData::
+INCLUDE "data/base_stats/vulpix_kanto.asm"

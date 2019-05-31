@@ -423,6 +423,7 @@ const_value = -1
 	const SPAWN_PUMMELO
 ;	const SPAWN_HAMLIN
 ;	const SPAWN_SHAMOUTI
+	const SPAWN_VERMILION
 NUM_SPAWNS EQU const_value
 
 	const_def

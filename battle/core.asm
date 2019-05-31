@@ -8791,31 +8791,77 @@ GetBattleRandomPersonality:
 .got_pink
 	or b
 	ld b, a
+	
+; Variant Splits
+	push bc
+    call IsInJohto
+    and a
+    jr z, .is_not_kantonese
+    ld a, [TempEnemyMonSpecies]
+; is kantonese
+    cp VULPIX
+    ld c, VULPIX_KANTONESE_FORM
+    jr z, .got_form
+; no wild ninetales exist
+    cp EXEGGUTOR
+    ld c, EXEGGUTOR_KANTONESE_FORM
+    jr z, .got_form
+    cp GRIMER
+    ld c, GRIMER_KANTONESE_FORM
+    jr z, .got_form
+    cp MUK
+    ld c, MUK_KANTONESE_FORM
+    jr z, .got_form
+    cp GEODUDE
+    ld c, GEODUDE_KANTONESE_FORM
+    jr z, .got_form
+    cp GRAVELER
+    ld c, GRAVELER_KANTONESE_FORM
+    jr z, .got_form
+; no wild golem exist
+    cp RATTATA
+    ld c, RATTATA_KANTONESE_FORM
+    jr z, .got_form
+    cp RATICATE
+    ld c, RATICATE_KANTONESE_FORM
+    jr z, .got_form
+    cp DIGLETT
+    ld c, DIGLETT_KANTONESE_FORM
+    jr z, .got_form
+    cp DUGTRIO
+    ld c, DUGTRIO_KANTONESE_FORM
+    jr z, .got_form
+; no wild raichu exist
+    cp MAROWAK
+    ld c, MAROWAK_KANTONESE_FORM
+    jr z, .got_form
 
-; Form
-	ld a, [BattleType]
-	cp BATTLETYPE_CRYSTAL_ONIX
-	ld a, ONIX_CRYSTAL_FORM
-	jr z, .got_form
-	ld a, [TempEnemyMonSpecies]
-	cp LYCANROC
-	ld a, 0 ; default form 0
-	jr nz, .got_form
-	; 5:00 PM to 5:59 PM = Dusk Lycanroc
-	ld a, [hHours]
-	cp DUSK_HOUR
-	ld a, LYCANROC_DUSK_FORM
-	jr z, .got_form
-	; night = Midnight Lycanroc
-	ld a, [TimeOfDay]
-	cp NITE
-	ld a, LYCANROC_MIDNIGHT_FORM
-	jr z, .got_form
-	; day = Midday Lycanroc
-	ld a, LYCANROC_MIDDAY_FORM
+.is_not_kantonese
+    ld a, [BattleType]
+    cp BATTLETYPE_CRYSTAL_ONIX
+    ld c, ONIX_CRYSTAL_FORM
+    jr z, .got_form
+    ld a, [TempEnemyMonSpecies]
+    cp LYCANROC
+    ld c, 0 ; default form 0
+    jr nz, .got_form
+    ; 5:00 PM to 5:59 PM = Dusk Lycanroc
+    ld a, [hHours]
+    cp DUSK_HOUR
+    ld c, LYCANROC_DUSK_FORM
+    jr z, .got_form
+    ; night = Midnight Lycanroc
+    ld a, [TimeOfDay]
+    cp NITE
+    ld c, LYCANROC_MIDNIGHT_FORM
+    jr z, .got_form
+    ; day = Midday Lycanroc
+    ld c, LYCANROC_MIDDAY_FORM
 .got_form
-	or b
-	ld b, a
+    ld a, c
+	pop bc
+    or b
+    ld b, a
 
 ; Return personality in a and b
 	ret
@@ -8837,7 +8883,6 @@ GetBattleRandomPersonality:
 	pop af
 	ld [wCurItem], a
 	xor a
-	and a
 	ret
 
 .have_shiny_charm

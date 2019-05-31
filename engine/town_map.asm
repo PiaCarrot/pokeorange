@@ -498,6 +498,7 @@ ENDM
 ;   flypoint HAMLIN,         HAMLIN_ISLAND
 ;   flypoint SHAMOUTI,       SHAMOUTI_ISLAND
 ; Kanto
+	flypoint VERMILION, VERMILION_CITY
 
 KANTO_FLYPOINT EQU const_value
 	db -1
@@ -554,17 +555,17 @@ FlyMap: ; 91c90
 
 ; visited and its flypoint enabled
 	push af
-	ld c, SPAWN_VALENCIA
+	ld c, SPAWN_VERMILION
 	call HasVisitedSpawn
 	and a
 	jr z, .NoKanto
 ; Kanto's map is only loaded if we've visited Indigo Plateau
 
 ; Flypoints begin at Valencia...
-	ld a, FLY_VALENCIA
+	ld a, FLY_VERMILION
 	ld [StartFlypoint], a
 ; ...and end at ...
-	ld a, FLY_PUMMELO
+	ld a, FLY_VERMILION
 	ld [EndFlypoint], a
 ; Because Indigo Plateau is the first flypoint the player
 

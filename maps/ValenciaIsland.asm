@@ -126,8 +126,8 @@ if def(DEBUG)
 	giveitem RARE_CANDY, 99
 	giveitem PP_MAX, 99
 	giveitem PP_UP, 99
-	giveitem SHINY_STONE
-	giveitem TRADE_STONE
+	giveitem ICE_STONE
+	giveitem FIRE_STONE
 	giveitem EVERSTONE
 	giveitem OLD_ROD
 	giveitem GOOD_ROD
@@ -140,13 +140,13 @@ if def(DEBUG)
 	givepoke LAPRAS, 60
 	givepoke CHARIZARD, 60
 	givepoke PIKACHU, 60, LIGHT_BALL
-	givepoke ROCKRUFF, 60
+	givepoke VULPIX, 8
 	givepoke MEW, 60
 	closetext
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp KUMQUAT_ISLAND_WEST, 15, 15
+	warp ROUTE_13, 37, 4
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon
@@ -325,7 +325,7 @@ TeachHMSlaveMoves:
 	ld [hl], a ; SLAM
 	; ROCKRUFF
 	ld hl, PartyMon4Moves
-	ld a, IRON_TAIL
+	ld a, FLAMETHROWER
 	ld [hli], a
 	ld a, DIG
 	ld [hl], a

@@ -361,43 +361,66 @@ PlacePartyMonTMHMCompatibility: ; 501e0
 
 
 PlacePartyMonEvoStoneCompatibility: ; 5022f
-	ld a, [PartyCount]
-	and a
-	ret z
-	ld c, a
-	ld b, 0
-	hlcoord 12, 2
+    ld a, [PartyCount]
+    and a
+    ret z
+    ld c, a
+    ld b, 0
+    hlcoord 12, 2
 .loop
-	push bc
-	push hl
-	call PartyMenuCheckEgg
-	jr z, .next
-	push hl
-	ld a, b
-	ld bc, PARTYMON_STRUCT_LENGTH
-	ld hl, PartyMon1Species
-	call AddNTimes
-	ld a, [hl]
-	dec a
-	ld e, a
-	ld d, 0
-	ld hl, EvosAttacksPointers
-	add hl, de
-	add hl, de
-	call .DetermineCompatibility
-	pop hl
-	call PlaceString
+    push bc
+    push hl
+    call PartyMenuCheckEgg
+    jr z, .next
+    push hl
+    ld a, b
+    ld e, b
+    ld bc, PARTYMON_STRUCT_LENGTH
+    ld hl, PartyMon1Species
+    call AddNTimes
+    ld a, [hl]
+    cp VULPIX
+    ld hl, EvosAttacksPointers
+    jr z, .vulpix
+.got_pointers
+    dec a
+    ld e, a
+    ld d, 0
+    add hl, de
+    add hl, de
+.got_form_pointer
+    call .DetermineCompatibility
+    pop hl
+    call PlaceString
 
 .next
-	pop hl
-	ld de, 2 * SCREEN_WIDTH
-	add hl, de
-	pop bc
-	inc b
-	dec c
-	jr nz, .loop
-	ret
+    pop hl
+    ld de, 2 * SCREEN_WIDTH
+    add hl, de
+    pop bc
+    inc b
+    dec c
+    jr nz, .loop
+    ret
 ; 50268
+    
+.vulpix
+    ld d, a
+    push bc
+    push hl
+    ld a, e
+    ld bc, PARTYMON_STRUCT_LENGTH
+    ld hl, PartyMon1Form
+    call AddNTimes
+    ld a, [hl]
+    and FORM_MASK
+    cp VULPIX_KANTONESE_FORM
+    ld a, d
+    pop hl
+    pop bc
+    jr nz, .got_pointers
+    ld hl, KantoneseVulpixFormEvosAttacksPointers
+    jr .got_form_pointer
 
 .DetermineCompatibility: ; 50268
 	ld de, StringBuffer1
@@ -409,8 +432,6 @@ PlacePartyMonEvoStoneCompatibility: ; 5022f
 	ld h, [hl]
 	ld l, a
 	ld de, StringBuffer1
-; Only reads first 4 evolution entries
-; https://hax.iimarck.us/topic/4567/
 	ld a, BANK(EvosAttacks)
 	ld bc, $10
 	call FarCopyBytes

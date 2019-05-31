@@ -1479,45 +1479,73 @@ Print8BitNumRightAlign:: ; 3842
 ; 384d
 
 GetBaseData:: ; 3856
-	push bc
-	push de
-	push hl
-	ld a, [hROMBank]
-	push af
-	ld a, BANK(BaseData)
-	rst Bankswitch
+    push bc
+    push de
+    push hl
+    ld a, [hROMBank]
+    push af
+    ld a, BANK(BaseData)
+    rst Bankswitch
 
 ; Egg doesn't have BaseData
-	ld a, [CurSpecies]
-	cp EGG
-	jr z, .egg
+    ld a, [CurSpecies]
+    cp EGG
+    jr z, .egg
+    cp EXEGGUTOR
+    jr z, .exeggutor
+	cp VULPIX
+	jr z, .vulpix
 
 ; Get BaseData
-	dec a
-	ld bc, BaseData1 - BaseData0
-	ld hl, BaseData
-	call AddNTimes
-	ld de, CurBaseData
-	ld bc, BaseData1 - BaseData0
-	call CopyBytes
-	jr .end
+.got_base_data
+    dec a
+    ld bc, BaseData1 - BaseData0
+    ld hl, BaseData
+    call AddNTimes
+.got_base_data_loc
+    ld de, CurBaseData
+    ld bc, BaseData1 - BaseData0
+    call CopyBytes
+    jr .end
 
 .egg
 ; Sprite dimensions
-	ld a, $55 ; 5x5
-	ld [BasePicSize], a
+    ld a, $55 ; 5x5
+    ld [BasePicSize], a
+    
+.exeggutor
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp EXEGGUTOR_KANTONESE_FORM
+	ld a, EXEGGUTOR
+    jr nz, .got_base_data
+    ld a, BANK(KantoneseExeggutorBaseData)
+    rst Bankswitch
+    ld hl, KantoneseExeggutorBaseData
+    jr .got_base_data_loc
+	
+.vulpix
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp VULPIX_KANTONESE_FORM
+	ld a, VULPIX
+    jr nz, .got_base_data
+    ld a, BANK(KantoneseVulpixBaseData)
+    rst Bankswitch
+    ld hl, KantoneseVulpixBaseData
+    jr .got_base_data_loc
 
 .end
 ; Replace Pokedex # with species
-	ld a, [CurSpecies]
-	ld [BaseDexNo], a
+    ld a, [CurSpecies]
+    ld [BaseDexNo], a
 
-	pop af
-	rst Bankswitch
-	pop hl
-	pop de
-	pop bc
-	ret
+    pop af
+    rst Bankswitch
+    pop hl
+    pop de
+    pop bc
+    ret
 ; 389c
 
 GetCurNick:: ; 389c

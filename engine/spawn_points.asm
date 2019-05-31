@@ -27,7 +27,7 @@ ENDM
 ;	spawn HAMLIN_ISLAND,   0,  0
 ;	spawn SHAMOUTI_ISLAND, 0,  0
 
-;   spawn VERMILION_CITY,  0,  0
+    spawn VERMILION_CITY,  0,  0
 ;   spawn FUSCHIA_CITY,    0,  0
 ;   spawn CINNIBAR_ISLAND, 0,  0
 ;   spawn PALLET_TOWN,     0,  0

@@ -256,3 +256,7 @@ EvosAttacksPointers:: ; 0x425b1
 	dw CelebiEvosAttacks
 	dw LatiasEvosAttacks
 	dw LatiosEvosAttacks
+KantoneseExeggutorFormEvosAttacksPointers::
+	dw KantoneseExeggutorEvosAttacks
+KantoneseVulpixFormEvosAttacksPointers::
+	dw KantoneseVulpixEvosAttacks

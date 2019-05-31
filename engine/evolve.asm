@@ -19,45 +19,68 @@ EvolveAfterBattle: ; 421e6
 	push hl
 
 EvolveAfterBattle_MasterLoop
-	ld hl, wCurPartyMon
-	inc [hl]
+    ld hl, wCurPartyMon
+    inc [hl]
+ 
+    pop hl
+ 
+    inc hl
+    ld a, [hl]
+    cp $ff
+    jp z, .ReturnToMap
+ 
+    ld [wEvolutionOldSpecies], a
+ 
+    push hl
+    ld a, [wCurPartyMon]
+    ld c, a
+    ld hl, EvolvableFlags
+    ld b, CHECK_FLAG
+    call EvoFlagAction
+    ld a, c
+    and a
+    jp z, EvolveAfterBattle_MasterLoop
+ 
+    ld a, [wEvolutionOldSpecies]
+    cp VULPIX
+    ld hl, EvosAttacksPointers
+    jr z, .vulpix
+.got_pointers
+    dec a
+    ld b, 0
+    ld c, a
+    add hl, bc
+    add hl, bc
+.got_form_pointer
+    ld a, [hli]
+    ld h, [hl]
+    ld l, a
+ 
+    push hl
+    xor a
+    ld [MonType], a
+    predef CopyPkmnToTempMon
+    pop hl
+    jr .loop
 
-	pop hl
-
-	inc hl
-	ld a, [hl]
-	cp $ff
-	jp z, .ReturnToMap
-
-	ld [wEvolutionOldSpecies], a
-
-	push hl
-	ld a, [wCurPartyMon]
-	ld c, a
-	ld hl, EvolvableFlags
-	ld b, CHECK_FLAG
-	call EvoFlagAction
-	ld a, c
-	and a
-	jp z, EvolveAfterBattle_MasterLoop
-
-	ld a, [wEvolutionOldSpecies]
-	dec a
-	ld b, 0
-	ld c, a
-	ld hl, EvosAttacksPointers
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-
-	push hl
-	xor a
-	ld [MonType], a
-	predef CopyPkmnToTempMon
-	pop hl
-
+.vulpix
+    ld c, a
+    push bc
+    push hl
+    ld bc, PARTYMON_STRUCT_LENGTH
+    ld a, [wCurPartyMon]
+    ld hl, PartyMon1Form
+    call AddNTimes
+    ld a, [hl]
+    and FORM_MASK
+    cp VULPIX_KANTONESE_FORM
+    pop hl
+    pop bc
+    ld a, c
+    jr nz, .got_pointers
+    ld hl, KantoneseVulpixFormEvosAttacksPointers
+    jr .got_form_pointer
+    
 .loop
 	ld a, [hli]
 	and a
@@ -262,56 +285,63 @@ endr
 	jp z, .dont_evolve_3
 
 .proceed
+    push hl
+    push bc
+    call IsInJohto
     ld a, [TempMonSpecies]
+    jr z, .meowth
+    cp PIKACHU
+    jr nz, .exeggcute
+    ld a, RAICHU_KANTONESE_FORM
+    jr .got_form
+.exeggcute
+    cp EXEGGCUTE
+    jr nz, .cubone
+    ld a, EXEGGUTOR_KANTONESE_FORM
+    jr .got_form
+.cubone
+    cp CUBONE
+    jr nz, .meowth
+    ld a, MAROWAK_KANTONESE_FORM
+    jr .got_form
+.meowth
     cp MEOWTH
     jr nz, .rockruff
     ld a, [TempMonForm]
     and FORM_MASK
     cp MEOWTH_ROCKET_FORM
-	jr nz, .not_rockruff
-    push hl
-    push bc
+    jp nz, .not_rockruff
+    ld a, PERSIAN_NORMAL_FORM
+    jr .got_form
+.rockruff
+    cp ROCKRUFF
+    jr nz, .not_rockruff
+    ; 5:00 PM to 5:59 PM = Dusk Lycanroc
+    ld a, [hHours]
+    cp DUSK_HOUR
+    ld a, LYCANROC_DUSK_FORM
+    jr z, .got_form
+    ; night = Midnight Lycanroc
+    ld a, [TimeOfDay]
+    cp NITE
+    ld a, LYCANROC_MIDNIGHT_FORM
+    jr z, .got_form
+    ; day = Midday Lycanroc
+    ld a, LYCANROC_MIDDAY_FORM
+.got_form
+    ld b, a
+    ld a, [TempMonForm]
+    and $ff - FORM_MASK
+    or b
+    ld [TempMonForm], a
     ld a, [wCurPartyMon]
     ld hl, PartyMon1Form
     call GetPartyLocation
-    ld a, [hl]
-	and $ff - FORM_MASK
-	or PERSIAN_NORMAL_FORM
+    ld a, [TempMonForm]
     ld [hl], a
+.not_rockruff
     pop bc
     pop hl
-	jr .not_rockruff
-.rockruff
-	cp ROCKRUFF
-	jr nz, .not_rockruff
-	push hl
-	push bc
-	; 5:00 PM to 5:59 PM = Dusk Lycanroc
-	ld a, [hHours]
-	cp DUSK_HOUR
-	ld a, LYCANROC_DUSK_FORM
-	jr z, .got_rockruff_form
-	; night = Midnight Lycanroc
-	ld a, [TimeOfDay]
-	cp NITE
-	ld a, LYCANROC_MIDNIGHT_FORM
-	jr z, .got_rockruff_form
-	; day = Midday Lycanroc
-	ld a, LYCANROC_MIDDAY_FORM
-.got_rockruff_form
-	ld b, a
-	ld a, [TempMonForm]
-	and $ff - FORM_MASK
-	or b
-	ld [TempMonForm], a
-	ld a, [wCurPartyMon]
-	ld hl, PartyMon1Form
-	call GetPartyLocation
-	ld a, [TempMonForm]
-	ld [hl], a
-	pop bc
-	pop hl
-.not_rockruff
 
 	push hl
 	ld hl, TempMonDVs
@@ -583,22 +613,49 @@ LearnEvolutionMove:
 
 
 LearnLevelMoves: ; 42487
-	ld a, [wd265]
-	ld [CurPartySpecies], a
-	dec a
-	ld b, 0
-	ld c, a
-	ld hl, EvosAttacksPointers
-	add hl, bc
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-
+    ld a, [wd265]
+    ld [CurPartySpecies], a
+    ld hl, EvosAttacksPointers
+    cp EXEGGUTOR
+    jr z, .exeggutor
+	cp VULPIX
+	jr z, .vulpix
+.got_pointers
+    dec a
+    ld b, 0
+    ld c, a
+    add hl, bc
+    add hl, bc
+.got_form_pointer
+    ld a, [hli]
+    ld h, [hl]
+    ld l, a
+jr .skip_evos
+   
+.exeggutor
+	ld b, a
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp EXEGGUTOR_KANTONESE_FORM
+	ld a, b
+    jr nz, .got_pointers
+    ld hl, KantoneseExeggutorFormEvosAttacksPointers
+    jr .got_form_pointer
+	
+.vulpix
+	ld b, a
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp VULPIX_KANTONESE_FORM
+	ld a, b
+    jr nz, .got_pointers
+    ld hl, KantoneseVulpixFormEvosAttacksPointers
+    jr .got_form_pointer
+ 
 .skip_evos
-	ld a, [hli]
-	and a
-	jr nz, .skip_evos
+    ld a, [hli]
+    and a
+    jr nz, .skip_evos
 
 .find_move
 	ld a, [hli]
@@ -650,26 +707,54 @@ LearnLevelMoves: ; 42487
 
 FillMoves: ; 424e1
 ; Fill in moves at de for CurPartySpecies at CurPartyLevel
-
-	push hl
-	push de
-	push bc
-	ld hl, EvosAttacksPointers
-	ld b, 0
-	ld a, [CurPartySpecies]
-	dec a
-	add a
-	rl b
-	ld c, a
-	add hl, bc
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
+ 
+    push hl
+    push de
+    push bc
+    ld b, 0
+    ld a, [CurPartySpecies]
+    ld hl, EvosAttacksPointers
+    cp EXEGGUTOR
+    jr z, .exeggutor
+    cp VULPIX
+    jr z, .vulpix
+.got_pointers
+    dec a
+    add a
+    rl b
+    ld c, a
+    add hl, bc
+.got_form_pointer
+    ld a, [hli]
+    ld h, [hl]
+    ld l, a
 .GoToAttacks:
-	ld a, [hli]
-	and a
-	jr nz, .GoToAttacks
-	jr .GetLevel
+    ld a, [hli]
+    and a
+    jr nz, .GoToAttacks
+    jr .GetLevel
+   
+.exeggutor
+    ld c, a
+    push bc
+    call IsInJohto
+    and a
+    pop bc
+    ld a, c
+    jr z, .got_pointers
+    ld hl, KantoneseExeggutorFormEvosAttacksPointers
+    jr .got_form_pointer
+   
+.vulpix
+    ld c, a
+    push bc
+    call IsInJohto
+    and a
+    pop bc
+    ld a, c
+    jr z, .got_pointers
+    ld hl, KantoneseVulpixFormEvosAttacksPointers
+    jr .got_form_pointer
 
 .NextMove:
 	pop de
@@ -784,6 +869,7 @@ GetPreEvolution: ; 42581
 
 ; Return carry and the new species in CurPartySpecies
 ; if a pre-evolution is found.
+; necessary for Polished Crystal for Breeding. Orange has no breeding now.
 
 	ld c, 0
 .loop ; For each Pokemon...

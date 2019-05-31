@@ -1,5 +1,5 @@
 Font:
-INCBIN "gfx/font/font.1bpp"
+INCBIN "gfx/font/font.2bpp"
 
 FontBattleExtra:
 INCBIN "gfx/font/battle_extra.2bpp"
@@ -50,17 +50,17 @@ INCBIN "gfx/frames/map_entry_sign.2bpp"
 ; f9424
 
 _LoadStandardFont:: ; fb449
-	ld de, Font
-	ld hl, VTiles1
-	lb bc, BANK(Font), $70
-	ld a, [rLCDC]
-	bit 7, a
-	jp z, Copy1bpp
+    ld de, Font
+    ld hl, VTiles1
+    lb bc, BANK(Font), $70
+    ld a, [rLCDC]
+    bit 7, a
+    jp z, Copy2bpp     ; Load font as 2bpp
 
-	ld de, Font
-	ld hl, VTiles1
-	lb bc, BANK(Font), $70
-	jp Get1bpp
+    ld de, Font
+    ld hl, VTiles1
+    lb bc, BANK(Font), $70
+    jp Get2bpp     ; Load font as 2bpp
 ; fb48a
 
 _LoadFontsBattleExtra:: ; fb4be
