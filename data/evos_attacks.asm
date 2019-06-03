@@ -4116,18 +4116,269 @@ LatiosEvosAttacks:
 KantoneseExeggutorFormEvosAttacks::
 KantoneseExeggutorEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, WATER_GUN
-	db 10, EXPLOSION
-	db 0 ; no more level-up moves:
+	db 1, BARRAGE
+	db 1, HYPNOSIS
+	db 1, CONFUSION
+	db 19, STOMP
+	db 31, EGG_BOMB
+	db 0 ; no more level-up moves
 
 KantoneseVulpixFormEvosAttacks::
 KantoneseVulpixEvosAttacks:
 	db EVOLVE_ITEM, FIRE_STONE, NINETALES
 	db 0 ; no more evolutions
 	db 1, EMBER
-	db 1, SMOKESCREEN
-	db 1, ROAR
-	db 1, FLAME_WHEEL
-	db 9, HYPER_BEAM
+	db 1, TAIL_WHIP
+	db 7, QUICK_ATTACK
+	db 13, ROAR
+	db 19, CONFUSE_RAY
+	db 25, SAFEGUARD
+	db 31, FLAMETHROWER
+	db 37, FIRE_SPIN
+	db 0 ; no more level-up moves
+	
+KantoneseNinetalesFormEvosAttacks::
+KantoneseNinetalesEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, EMBER
+	db 1, QUICK_ATTACK
+	db 1, CONFUSE_RAY
+	db 1, SAFEGUARD
+	db 43, FIRE_SPIN
 	db 0 ; no more level-up moves
 
+KantoneseDiglettFormEvosAttacks::
+KantoneseDiglettEvosAttacks:
+	db EVOLVE_LEVEL, 26, DUGTRIO
+	db 0 ; no more evolutions
+	db 1, SCRATCH
+	db 5, GROWL
+	db 9, MAGNITUDE
+	db 17, DIG
+	db 25, SAND_ATTACK
+	db 33, SLASH
+	db 41, EARTHQUAKE
+	db 49, FISSURE
+	db 0 ; no more level-up moves
+
+KantoneseDugtrioFormEvosAttacks::
+KantoneseDugtrioEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, TRI_ATTACK
+	db 1, SCRATCH
+	db 1, GROWL
+	db 1, MAGNITUDE
+	db 5, GROWL
+	db 9, MAGNITUDE
+	db 17, DIG
+	db 25, SAND_ATTACK
+	db 37, SLASH
+	db 49, EARTHQUAKE
+	db 61, FISSURE
+	db 0 ; no more level-up moves
+
+KantoneseRattataFormEvosAttacks::
+KantoneseRattataEvosAttacks:
+	db EVOLVE_LEVEL, 20, RATICATE
+	db 0 ; no more evolutions
+	db 1, TACKLE
+	db 1, TAIL_WHIP
+	db 7, QUICK_ATTACK
+	db 13, HYPER_FANG
+	db 20, FOCUS_ENERGY
+	db 27, PURSUIT
+	db 34, SUPER_FANG
+	db 0 ; no more level-up moves
+
+KantoneseRaticateFormEvosAttacks::
+KantoneseRaticateEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, TACKLE
+	db 1, TAIL_WHIP
+	db 1, QUICK_ATTACK
+	db 7, QUICK_ATTACK
+	db 13, HYPER_FANG
+	db 20, SCARY_FACE
+	db 30, PURSUIT
+	db 40, SUPER_FANG
+	db 0 ; no more level-up moves
+
+KantoneseMarowakFormEvosAttacks::
+KantoneseMarowakEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, GROWL
+	db 1, TAIL_WHIP
+	db 1, MAGNITUDE
+	db 1, HEADBUTT
+	db 5, TAIL_WHIP
+	db 9, MAGNITUDE
+	db 13, HEADBUTT
+	db 17, LEER
+	db 21, FOCUS_ENERGY
+	db 25, BONEMERANG
+	db 32, RAGE
+	db 39, FALSE_SWIPE
+	db 46, THRASH
+	db 53, BONE_RUSH
+	db 0 ; no more level-up moves
+
+KantoneseGeodudeFormEvosAttacks::
+KantoneseGeodudeEvosAttacks:
+	db EVOLVE_LEVEL, 25, GRAVELER
+	db 0 ; no more evolutions
+	db 1, TACKLE
+	db 6, DEFENSE_CURL
+	db 11, ROCK_THROW
+	db 16, MAGNITUDE
+	db 21, SELFDESTRUCT
+	db 26, HARDEN
+	db 31, ROLLOUT
+	db 36, EARTHQUAKE
+	db 41, EXPLOSION
+	db 0 ; no more level-up moves
+
+KantoneseGravelerFormEvosAttacks::
+KantoneseGravelerEvosAttacks:
+	db EVOLVE_TRADE, -1, GOLEM
+	db 0 ; no more evolutions
+	db 1, TACKLE
+	db 1, DEFENSE_CURL
+	db 1, ROCK_THROW
+	db 6, DEFENSE_CURL
+	db 11, ROCK_THROW
+	db 16, MAGNITUDE
+	db 21, SELFDESTRUCT
+	db 27, HARDEN
+	db 34, ROLLOUT
+	db 41, EARTHQUAKE
+	db 48, EXPLOSION
+	db 0 ; no more level-up moves
+
+KantoneseGolemFormEvosAttacks::
+KantoneseGolemEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, TACKLE
+	db 1, DEFENSE_CURL
+	db 1, ROCK_THROW
+	db 1, MAGNITUDE
+	db 6, DEFENSE_CURL
+	db 11, ROCK_THROW
+	db 16, MAGNITUDE
+	db 21, SELFDESTRUCT
+	db 27, HARDEN
+	db 34, ROLLOUT
+	db 41, EARTHQUAKE
+	db 48, EXPLOSION
+	db 0 ; no more level-up moves
+
+KantoneseRaichuFormEvosAttacks::
+KantoneseRaichuEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, THUNDERSHOCK
+	db 1, TAIL_WHIP
+	db 1, QUICK_ATTACK
+	db 1, THUNDERBOLT
+	db 0 ; no more level-up moves
+
+KantoneseGrimerFormEvosAttacks::
+KantoneseGrimerEvosAttacks:
+	db EVOLVE_LEVEL, 38, MUK
+	db 0 ; no more evolutions
+	db 1, POISON_GAS
+	db 1, TACKLE
+	db 5, HARDEN
+	db 10, DISABLE
+	db 16, SLUDGE
+	db 23, MINIMIZE
+	db 31, SCREECH
+	db 40, ACID_ARMOR
+	db 50, SLUDGE_BOMB
+	db 0 ; no more level-up moves
+
+KantoneseMukFormEvosAttacks::
+KantoneseMukEvosAttacks:
+	db 0 ; no more evolutions
+	db 1, POISON_GAS
+	db 1, TACKLE
+	db 1, HARDEN
+	db 33, HARDEN
+	db 37, DISABLE
+	db 45, SLUDGE
+	db 23, MINIMIZE
+	db 31, SCREECH
+	db 45, ACID_ARMOR
+	db 60, SLUDGE_BOMB
+	db 0 ; no more level-up moves
+
+AlolanMeowthFormEvosAttacks::
+AlolanMeowthEvosAttacks:
+	db EVOLVE_LEVEL, 28, PERSIAN
+	db 0
+	db 1, SCRATCH
+	db 1, GROWL
+	db 3, BITE
+	db 9, FAINT_ATTACK
+	db 12, PAY_DAY
+	db 19, FURY_SWIPES
+	db 23, SCREECH
+	db 27, SLASH
+	db 31, NASTY_PLOT
+	db 35, PLAY_ROUGH
+	db 45, CRUNCH
+	db 0
+
+AlolanPersianFormEvosAttacks::
+AlolanPersianEvosAttacks:
+	db 0
+	db 1, SWIFT
+	db 1, AMNESIA
+	db 1, HYPNOSIS
+	db 1, SCRATCH
+	db 1, GROWL
+	db 3, BITE
+	db 9, FAINT_ATTACK
+	db 12, PAY_DAY
+	db 19, FURY_SWIPES
+	db 23, SCREECH
+	db 27, SLASH
+	db 37, NASTY_PLOT
+	db 47, PLAY_ROUGH
+	db 53, CRUNCH
+	db 0
+
+AlolanSandshrewFormEvosAttacks::
+AlolanSandshrewEvosAttacks:
+	db EVOLVE_ITEM, ICE_STONE, SANDSLASH
+	db 0
+	db 1, SCRATCH
+	db 1, DEFENSE_CURL
+	db 4, ROLLOUT
+	db 8, ICY_WIND
+	db 12, SWIFT
+	db 16, MIRROR_COAT
+	db 20, FURY_SWIPES
+	db 24, ICE_PUNCH
+	db 28, SWORDS_DANCE
+	db 32, SLASH
+	db 36, ICE_BEAM
+	db 44, BLIZZARD
+	db 0
+
+AlolanSandslashFormEvosAttacks::
+AlolanSandslashEvosAttacks:
+	db 0
+	db 1, COUNTER
+	db 1, SCRATCH
+	db 1, DEFENSE_CURL
+	db 1, ICY_WIND
+	db 4, ROLLOUT
+	db 8, ICY_WIND
+	db 12, SWIFT
+	db 16, MIRROR_COAT
+	db 20, FURY_SWIPES
+	db 26, ICE_PUNCH
+	db 30, SWORDS_DANCE
+	db 34, SLASH
+	db 40, ICE_BEAM
+	db 48, BLIZZARD
+	db 0

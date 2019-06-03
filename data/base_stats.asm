@@ -257,3 +257,43 @@ KantoneseExeggutorBaseData::
 INCLUDE "data/base_stats/exeggutor_kanto.asm"
 KantoneseVulpixBaseData::
 INCLUDE "data/base_stats/vulpix_kanto.asm"
+KantoneseRattataBaseData::
+INCLUDE "data/base_stats/rattata_kanto.asm"
+KantoneseRaticateBaseData::
+INCLUDE "data/base_stats/raticate_kanto.asm"
+KantoneseRaichuBaseData::
+INCLUDE "data/base_stats/raichu_kanto.asm"
+KantoneseNinetalesBaseData::
+INCLUDE "data/base_stats/ninetales_kanto.asm"
+KantoneseDiglettBaseData::
+INCLUDE "data/base_stats/diglett_kanto.asm"
+KantoneseDugtrioBaseData::
+INCLUDE "data/base_stats/dugtrio_kanto.asm"
+KantoneseGeodudeBaseData::
+INCLUDE "data/base_stats/geodude_kanto.asm"
+KantoneseGravelerBaseData::
+INCLUDE "data/base_stats/graveler_kanto.asm"
+KantoneseGolemBaseData::
+INCLUDE "data/base_stats/golem_kanto.asm"
+KantoneseGrimerBaseData::
+INCLUDE "data/base_stats/grimer_kanto.asm"
+KantoneseMukBaseData::
+INCLUDE "data/base_stats/muk_kanto.asm"
+KantoneseMarowakBaseData::
+INCLUDE "data/base_stats/marowak_kanto.asm"
+AlolanMeowthBaseData::
+INCLUDE "data/base_stats/meowth_alola.asm"
+AlolanPersianBaseData::
+INCLUDE "data/base_stats/persian_alola.asm"
+AlolanSandshrewBaseData::
+INCLUDE "data/base_stats/sandshrew_alola.asm"
+AlolanSandslashBaseData::
+INCLUDE "data/base_stats/sandslash_alola.asm"
+CrystalOnixBaseData::
+INCLUDE "data/base_stats/onix_crystal.asm"
+CrystalSteelixBaseData::
+INCLUDE "data/base_stats/steelix_crystal.asm"
+MidnightLycanrocBaseData::
+INCLUDE "data/base_stats/lycanroc_midnight.asm"
+DuskLycanrocBaseData::
+INCLUDE "data/base_stats/lycanroc_dusk.asm"

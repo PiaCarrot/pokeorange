@@ -8,6 +8,7 @@
 	const BUG
 	const DARK
 	const STEEL
+	const CRYSTAL
 	const FIRE
 	const WATER
 	const GRASS

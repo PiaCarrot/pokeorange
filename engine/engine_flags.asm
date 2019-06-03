@@ -131,6 +131,8 @@ ENDM
 	engine_flag VisitedSpawns + 2, 0 ; hamlin
 	engine_flag VisitedSpawns + 2, 1 ; shamouti
 
+	engine_flag VisitedSpawns + 2, 3 ; vermilion
+
 	; wDaycareMan, 7 ; daycare 1 on
 	engine_flag wDaycareMan, 6 ; egg is ready
 	; wDaycareMan, 5 ; monster 1 and 2 are compatible

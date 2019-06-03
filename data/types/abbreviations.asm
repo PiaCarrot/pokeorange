@@ -8,6 +8,7 @@ AbbreviatedTypes:
 	db "BUG@"
 	db "GHO@"
 	db "STL@"
+	db "CRS@"
 	db "FIR@"
 	db "WTR@"
 	db "GRS@"

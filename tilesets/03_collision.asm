@@ -151,7 +151,7 @@
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 96
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 97
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 98
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 99
+	tilecoll CUT_TREE, FLOOR, WALL, WALL ; 99
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 9a
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 9b
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 9c

@@ -382,6 +382,9 @@ PlacePartyMonEvoStoneCompatibility: ; 5022f
     cp VULPIX
     ld hl, EvosAttacksPointers
     jr z, .vulpix
+	cp SANDSHREW
+	ld hl, EvosAttacksPointers
+	jr z, .sandshrew
 .got_pointers
     dec a
     ld e, a
@@ -421,6 +424,25 @@ PlacePartyMonEvoStoneCompatibility: ; 5022f
     jr nz, .got_pointers
     ld hl, KantoneseVulpixFormEvosAttacksPointers
     jr .got_form_pointer
+	
+.sandshrew
+    ld d, a
+    push bc
+    push hl
+    ld a, e
+    ld bc, PARTYMON_STRUCT_LENGTH
+    ld hl, PartyMon1Form
+    call AddNTimes
+    ld a, [hl]
+    and FORM_MASK
+    cp SANDSHREW_ALOLAN_FORM
+    ld a, d
+    pop hl
+    pop bc
+    jr nz, .got_pointers
+    ld hl, AlolanSandshrewFormEvosAttacksPointers
+    jr .got_form_pointer
+
 
 .DetermineCompatibility: ; 50268
 	ld de, StringBuffer1

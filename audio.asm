@@ -201,6 +201,7 @@ INCLUDE "audio/music/credits.asm"
 INCLUDE "audio/music/route206.asm"
 INCLUDE "audio/music/seviiislands.asm"
 INCLUDE "audio/music/oreburghgate.asm"
+INCLUDE "audio/music/wcsbattle.asm"
 
 SECTION "Sound Effects", ROMX
 

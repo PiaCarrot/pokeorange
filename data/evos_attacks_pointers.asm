@@ -260,3 +260,35 @@ KantoneseExeggutorFormEvosAttacksPointers::
 	dw KantoneseExeggutorEvosAttacks
 KantoneseVulpixFormEvosAttacksPointers::
 	dw KantoneseVulpixEvosAttacks
+KantoneseNinetalesFormEvosAttacksPointers::
+	dw KantoneseNinetalesEvosAttacks
+KantoneseDiglettFormEvosAttacksPointers::
+	dw KantoneseDiglettEvosAttacks
+KantoneseDugtrioFormEvosAttacksPointers::
+	dw KantoneseDugtrioEvosAttacks
+KantoneseRattataFormEvosAttacksPointers::
+	dw KantoneseRattataEvosAttacks
+KantoneseRaticateFormEvosAttacksPointers::
+	dw KantoneseRaticateEvosAttacks
+KantoneseMarowakFormEvosAttacksPointers::
+	dw KantoneseMarowakEvosAttacks
+KantoneseGeodudeFormEvosAttacksPointers::
+	dw KantoneseGeodudeEvosAttacks
+KantoneseGravelerFormEvosAttacksPointers::
+	dw KantoneseGravelerEvosAttacks
+KantoneseGolemFormEvosAttacksPointers::
+	dw KantoneseGolemEvosAttacks
+KantoneseRaichuFormEvosAttacksPointers::
+	dw KantoneseRaichuEvosAttacks
+KantoneseGrimerFormEvosAttacksPointers::
+	dw KantoneseGrimerEvosAttacks
+KantoneseMukFormEvosAttacksPointers::
+	dw KantoneseMukEvosAttacks
+AlolanMeowthFormEvosAttacksPointers::
+	dw AlolanMeowthEvosAttacks
+AlolanPersianFormEvosAttacksPointers::
+	dw AlolanPersianEvosAttacks
+AlolanSandshrewFormEvosAttacksPointers::
+	dw AlolanSandshrewEvosAttacks
+AlolanSandslashFormEvosAttacksPointers::
+	dw AlolanSandslashEvosAttacks

@@ -1490,11 +1490,49 @@ GetBaseData:: ; 3856
 ; Egg doesn't have BaseData
     ld a, [CurSpecies]
     cp EGG
-    jr z, .egg
+    jp z, .egg
     cp EXEGGUTOR
-    jr z, .exeggutor
+    jp z, .exeggutor
 	cp VULPIX
-	jr z, .vulpix
+	jp z, .vulpix
+	cp RATTATA
+	jp z, .rattata
+	cp RATICATE
+	jp z, .raticate
+	cp RAICHU
+	jp z, .raichu
+	cp SANDSHREW
+	jp z, .sandshrew
+	cp SANDSLASH
+	jp z, .sandslash
+	cp NINETALES
+	jp z, .ninetales
+	cp DIGLETT
+	jp z, .diglett
+	cp DUGTRIO
+	jp z, .dugtrio
+	cp MEOWTH
+	jp z, .meowth
+	cp PERSIAN
+	jp z, .persian
+	cp GEODUDE
+	jp z, .geodude
+	cp GRAVELER
+	jp z, .graveler
+	cp GOLEM
+	jp z, .golem
+	cp GRIMER
+	jp z, .grimer
+	cp MUK
+	jp z, .muk
+	cp MAROWAK
+	jp z, .marowak
+	cp ONIX
+	jp z, .onix
+	cp STEELIX
+	jp z, .steelix
+	cp LYCANROC
+	jp z, .lycanroc
 
 ; Get BaseData
 .got_base_data
@@ -1506,7 +1544,7 @@ GetBaseData:: ; 3856
     ld de, CurBaseData
     ld bc, BaseData1 - BaseData0
     call CopyBytes
-    jr .end
+    jp .end
 
 .egg
 ; Sprite dimensions
@@ -1518,22 +1556,241 @@ GetBaseData:: ; 3856
     and FORM_MASK
     cp EXEGGUTOR_KANTONESE_FORM
 	ld a, EXEGGUTOR
-    jr nz, .got_base_data
+    jp nz, .got_base_data
     ld a, BANK(KantoneseExeggutorBaseData)
     rst Bankswitch
     ld hl, KantoneseExeggutorBaseData
-    jr .got_base_data_loc
+    jp .got_base_data_loc
 	
 .vulpix
     ld a, [TempMonForm]
     and FORM_MASK
     cp VULPIX_KANTONESE_FORM
 	ld a, VULPIX
-    jr nz, .got_base_data
+    jp nz, .got_base_data
     ld a, BANK(KantoneseVulpixBaseData)
     rst Bankswitch
     ld hl, KantoneseVulpixBaseData
-    jr .got_base_data_loc
+    jp .got_base_data_loc
+	
+.rattata
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp RATTATA_KANTONESE_FORM
+	ld a, RATTATA
+    jp nz, .got_base_data
+    ld a, BANK(KantoneseRattataBaseData)
+    rst Bankswitch
+    ld hl, KantoneseRattataBaseData
+    jp .got_base_data_loc
+	
+.raticate
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp RATICATE_KANTONESE_FORM
+	ld a, RATICATE
+    jp nz, .got_base_data
+    ld a, BANK(KantoneseRaticateBaseData)
+    rst Bankswitch
+    ld hl, KantoneseRaticateBaseData
+    jp .got_base_data_loc
+	
+.raichu
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp RAICHU_KANTONESE_FORM
+	ld a, RAICHU
+    jp nz, .got_base_data
+    ld a, BANK(KantoneseRaichuBaseData)
+    rst Bankswitch
+    ld hl, KantoneseRaichuBaseData
+    jp .got_base_data_loc
+	
+.sandshrew
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp SANDSHREW_ALOLAN_FORM
+	ld a, SANDSHREW
+    jp nz, .got_base_data
+    ld a, BANK(AlolanSandshrewBaseData)
+    rst Bankswitch
+    ld hl, AlolanSandshrewBaseData
+    jp .got_base_data_loc
+	
+.sandslash
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp SANDSLASH_ALOLAN_FORM
+	ld a, SANDSLASH
+    jp nz, .got_base_data
+    ld a, BANK(AlolanSandslashBaseData)
+    rst Bankswitch
+    ld hl, AlolanSandslashBaseData
+    jp .got_base_data_loc
+	
+.ninetales
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp NINETALES_KANTONESE_FORM
+	ld a, NINETALES
+    jp nz, .got_base_data
+    ld a, BANK(KantoneseNinetalesBaseData)
+    rst Bankswitch
+    ld hl, KantoneseNinetalesBaseData
+    jp .got_base_data_loc
+	
+.diglett
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp DIGLETT_KANTONESE_FORM
+	ld a, DIGLETT
+    jp nz, .got_base_data
+    ld a, BANK(KantoneseDiglettBaseData)
+    rst Bankswitch
+    ld hl, KantoneseDiglettBaseData
+    jp .got_base_data_loc
+	
+.dugtrio
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp DUGTRIO_KANTONESE_FORM
+	ld a, DUGTRIO
+    jp nz, .got_base_data
+    ld a, BANK(KantoneseDugtrioBaseData)
+    rst Bankswitch
+    ld hl, KantoneseDugtrioBaseData
+    jp .got_base_data_loc
+	
+.meowth
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp MEOWTH_ALOLAN_FORM
+	ld a, MEOWTH
+    jp nz, .got_base_data
+    ld a, BANK(AlolanMeowthBaseData)
+    rst Bankswitch
+    ld hl, AlolanMeowthBaseData
+    jp .got_base_data_loc
+	
+.persian
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp PERSIAN_ALOLAN_FORM
+	ld a, PERSIAN
+    jp nz, .got_base_data
+    ld a, BANK(AlolanPersianBaseData)
+    rst Bankswitch
+    ld hl, AlolanPersianBaseData
+    jp .got_base_data_loc
+	
+.geodude
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp GEODUDE_KANTONESE_FORM
+	ld a, GEODUDE
+    jp nz, .got_base_data
+    ld a, BANK(KantoneseGeodudeBaseData)
+    rst Bankswitch
+    ld hl, KantoneseGeodudeBaseData
+    jp .got_base_data_loc
+	
+.graveler
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp GRAVELER_KANTONESE_FORM
+	ld a, GRAVELER
+    jp nz, .got_base_data
+    ld a, BANK(KantoneseGravelerBaseData)
+    rst Bankswitch
+    ld hl, KantoneseGravelerBaseData
+    jp .got_base_data_loc
+	
+.golem
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp GOLEM_KANTONESE_FORM
+	ld a, GOLEM
+    jp nz, .got_base_data
+    ld a, BANK(KantoneseGolemBaseData)
+    rst Bankswitch
+    ld hl, KantoneseGolemBaseData
+    jp .got_base_data_loc
+	
+.grimer
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp GRIMER_KANTONESE_FORM
+	ld a, GRIMER
+    jp nz, .got_base_data
+    ld a, BANK(KantoneseGrimerBaseData)
+    rst Bankswitch
+    ld hl, KantoneseGrimerBaseData
+    jp .got_base_data_loc
+	
+.muk
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp MUK_KANTONESE_FORM
+	ld a, MUK
+    jp nz, .got_base_data
+    ld a, BANK(KantoneseMukBaseData)
+    rst Bankswitch
+    ld hl, KantoneseMukBaseData
+    jp .got_base_data_loc
+	
+.marowak
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp MAROWAK_KANTONESE_FORM
+	ld a, MAROWAK
+    jp nz, .got_base_data
+    ld a, BANK(KantoneseMarowakBaseData)
+    rst Bankswitch
+    ld hl, KantoneseMarowakBaseData
+    jp .got_base_data_loc
+	
+.onix
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp ONIX_CRYSTAL_FORM
+	ld a, ONIX
+    jp nz, .got_base_data
+    ld a, BANK(CrystalOnixBaseData)
+    rst Bankswitch
+    ld hl, CrystalOnixBaseData
+    jp .got_base_data_loc
+
+.steelix
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp STEELIX_CRYSTAL_FORM
+	ld a, STEELIX
+    jp nz, .got_base_data
+    ld a, BANK(CrystalSteelixBaseData)
+    rst Bankswitch
+    ld hl, CrystalSteelixBaseData
+    jp .got_base_data_loc
+	
+.lycanroc
+    ld a, [TempMonForm]
+    and FORM_MASK
+    cp LYCANROC_MIDNIGHT_FORM
+	jp z, .midnight
+	cp LYCANROC_DUSK_FORM
+	ld a, LYCANROC
+    jp nz, .got_base_data
+    ld a, BANK(DuskLycanrocBaseData)
+    rst Bankswitch
+    ld hl, DuskLycanrocBaseData
+    jp .got_base_data_loc
+	
+.midnight
+	ld a, LYCANROC
+    jp nz, .got_base_data
+    ld a, BANK(MidnightLycanrocBaseData)
+    rst Bankswitch
+    ld hl, MidnightLycanrocBaseData
+    jp .got_base_data_loc
 
 .end
 ; Replace Pokedex # with species

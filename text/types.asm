@@ -97,6 +97,7 @@ TypeNames: ; 5097b
 	dw Bug
 	dw Dark
 	dw Steel
+	dw Crystal
 	dw Fire
 	dw Water
 	dw Grass
@@ -116,6 +117,7 @@ Rock:      db "ROCK@"
 Bug:       db "BUG@"
 Dark:      db "DARK@"
 Steel:     db "STEEL@"
+Crystal:   db "CRYSTAL@"
 Fire:      db "FIRE@"
 Water:     db "WATER@"
 Grass:     db "GRASS@"

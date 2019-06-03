@@ -1,6 +1,6 @@
 	db LYCANROC ; 160
 
-	db  75, 117, 65,  112,  55,  65
+	db  85, 115, 75,  82,  55,  75
 	;   hp  atk  def  spd  sat  sdf
 
 	db ROCK, ROCK

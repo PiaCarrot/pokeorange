@@ -128,6 +128,8 @@ NO_EFFECT          EQU 00
 	db FAIRY,     FIRE,      NOT_VERY_EFFECTIVE
 	db FAIRY,     POISON,    NOT_VERY_EFFECTIVE
 	db FAIRY,     STEEL,     NOT_VERY_EFFECTIVE
+	db WATER,     CRYSTAL,   NOT_VERY_EFFECTIVE
+	db FIRE,      CRYSTAL,   SUPER_EFFECTIVE
 
 
 ; Foresight removes Ghost's immunities.
