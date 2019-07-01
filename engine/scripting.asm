@@ -2127,7 +2127,6 @@ Script_givepoke: ; 97932
 ;     pokemon (PokemonParam)
 ;     level (DecimalParam)
 ;     item (ItemLabelByte)
-;     form
 ;     trainer (DecimalParam)
 ;     trainer_name_pointer (MultiByteParam)
 ;     pkmn_nickname (MultiByteParam)
@@ -2138,7 +2137,7 @@ Script_givepoke: ; 97932
 	call GetScriptByte
 	ld [wCurItem], a
 	call GetScriptByte
-    ld [TempMonForm], a
+	ld [MonVariant], a
 	call GetScriptByte
 	and a
 	ld b, a
