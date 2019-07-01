@@ -3,7 +3,7 @@
 	db  75,  85, 65,  30,  55,  200
 	;   hp  atk  def  spd  sat  sdf
 
-	db CRYSTAL, STEEL
+	db CRYSTAL, CRYSTAL
 	db 25 ; catch rate
 	db NO_ITEM ; item 1
 	db METAL_COAT ; item 2

@@ -274,26 +274,26 @@ checkpoke: macro
 	db \1 ; pkmn
 	endm
 
-	enum givepoke_command
+    enum givepoke_command
 givepoke: macro
-	db givepoke_command
-	db \1 ; pokemon
-	db \2 ; level
-	if _NARG >= 3
-	db \3 ; item
-	if _NARG >= 4
-	db \4 ; trainer
-	if \4
-	dw \5 ; trainer_name_pointer
-	dw \6 ; pkmn_nickname
-	endc
-	else
-	db 0
-	endc
-	else
-	db 0, 0
-	endc
-	endm
+    db givepoke_command
+    db \1 ; pokemon
+    db \2 ; level
+    if _NARG >= 3
+    db \3 ; item
+    if _NARG >= 4
+    db \4 ; trainer
+    if \4
+    dw \5 ; trainer_name_pointer
+    dw \6 ; pkmn_nickname
+    endc
+    else
+    db 0
+    endc
+    else
+    db 0, 0
+    endc
+    endm
 
 	enum giveegg_command
 giveegg: macro

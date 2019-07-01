@@ -141,13 +141,13 @@ if def(DEBUG)
 	givepoke LAPRAS, 60
 	givepoke CHARIZARD, 60
 	givepoke PIKACHU, 60, LIGHT_BALL
-	givepoke VULPIX, 8
+	givepoke VULPIX, 8, BERRY
 	givepoke MEW, 60
 	closetext
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp ROUTE_13, 37, 4
+	warp SUNBURST_ISLAND, 15, 15
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon
