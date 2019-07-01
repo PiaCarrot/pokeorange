@@ -1611,12 +1611,23 @@ GivePoke:: ; e277
 	push af
 	ld a, [wCurItem]
 	and a
-	jr z, .done
+	jr z, .variant
 	ld a, [wCurPartyMon]
 	ld hl, PartyMon1Item
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
 	ld a, [wCurItem]
+	ld [hl], a
+
+.variant
+	ld a, [MonVariant]
+	and a
+	jr z, .done
+	ld a, [wCurPartyMon]
+	ld hl, PartyMon1Form
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [MonVariant]
 	ld [hl], a
 	jr .done
 
@@ -1639,9 +1650,16 @@ GivePoke:: ; e277
 	push af
 	ld a, [wCurItem]
 	and a
-	jr z, .done
+	jr z, .boxvariant
 	ld a, [wCurItem]
 	ld [sBoxMon1Item], a
+
+.boxvariant
+	ld a, [MonVariant]
+	and a
+	jr z, .done
+	ld a, [MonVariant]
+	ld [sBoxMon1Form], a
 
 .done
 	ld a, [CurPartySpecies]
