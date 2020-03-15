@@ -68,6 +68,37 @@ ReadTrainerParty: ; 39771
 	push hl
 	predef TryAddMonToParty
 	pop hl
+	
+; nickname?
+	ld a, [OtherTrainerType]
+	bit TRNTYPE_NICKNAME_F, a
+	jr z, .no_nickname
+
+	push de
+
+	ld de, StringBuffer2
+.copy_nickname
+	ld a, [hli]
+	ld [de], a
+	inc de
+	cp "@"
+	jr nz, .copy_nickname
+
+	push hl
+	ld a, [OTPartyCount]
+	dec a
+	ld hl, OTPartyMonNicknames
+	ld bc, PKMN_NAME_LENGTH
+	call AddNTimes
+	ld d, h
+	ld e, l
+	ld hl, StringBuffer2
+	ld bc, PKMN_NAME_LENGTH
+	call CopyBytes
+	pop hl
+
+	pop de
+.no_nickname
 
 ; item?
 	ld a, [OtherTrainerType]

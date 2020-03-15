@@ -308,10 +308,15 @@ KumquatHotelElevator_BlockData:
 KumquatHotelSuites_BlockData:
 	INCBIN "maps/KumquatHotelSuites.blk"
 	
-KumquatHotelBottomRoom_BlockData:
+KumquatHotelBottomRoom1_BlockData:
+KumquatHotelBottomRoom2_BlockData:
+KumquatHotelBottomRoom3_BlockData:
+KumquatHotelBottomRoom4_BlockData:
 	INCBIN "maps/KumquatHotelBottomRoom.blk"
 	
-KumquatHotelTopRoom_BlockData:
+KumquatHotelTopRoom1_BlockData:
+KumquatHotelTopRoom2_BlockData:
+KumquatHotelTopRoom3_BlockData:
 	INCBIN "maps/KumquatHotelTopRoom.blk"
 	
 KumquatHotelGym_BlockData:

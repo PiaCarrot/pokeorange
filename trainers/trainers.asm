@@ -1034,35 +1034,41 @@ RedGroup:
 
 	; RED (1)
 	db "RED@"
-	db TRAINERTYPE_MOVES
+	db  TRAINERTYPE_NICKNAME_F + TRAINERTYPE_ITEM + TRAINERTYPE_MOVES
 
-	db 88, PIKACHU
+	db 88, PIKACHU, "PIKACHU@", LIGHT_BALL
 		db THUNDERBOLT
 		db AGILITY
 		db IRON_TAIL
 		db VOLT_TACKLE
 
-	db 86, VENUSAUR
-		db PETAL_DANCE
-		db SUNNY_DAY
-		db SOLARBEAM
+	db 86, VENUSAUR, "VENUSAUR@", POISON_BARB
+		db SLUDGE_BOMB
+		db BODY_SLAM
+		db GIGA_DRAIN
 		db NASTY_PLOT
 
-	db 86, CHARIZARD
-		db FIRE_SPIN
-		db FLY
+	db 86, CHARIZARD, "CHARIZARD@", MIRACLEBERRY
+		db FIRE_BLAST
+		db EARTHQUAKE
 		db DRAGON_PULSE
-		db SEISMIC_TOSS
+		db ROCK_SLIDE
 
-	db 86, BLASTOISE
-		db HYDRO_PUMP
-		db RAIN_DANCE
-		db CRUNCH
+	db 86, BLASTOISE, "BLASTOISE@", NEVERMELTICE
+		db SURF
+		db ZAP_CANNON
+		db ICE_BEAM
 		db ROCK_CLIMB
 
-	db 90, SNORLAX
+	db 90, MACHAMP, "RICKY@", BLACKBELT
+		db DOUBLE_EDGE
+		db DYNAMICPUNCH
+		db POISON_JAB
+		db CROSS_CHOP
+		
+	db 92, SNORLAX, "SNORLAX@", LEFTOVERS
 		db REST
-		db BELLY_DRUM
+		db PSYCHIC_M
 		db SLEEP_TALK
 		db DOUBLE_EDGE
 
@@ -1442,6 +1448,66 @@ ImakuniGroup:
 LawrenceGroup:
 ; ================================
 ; ================
+
+	; LAWRENCE (1)
+	db TRAINERTYPE_MOVES
+
+	db 70, ARTICUNO
+		db BLIZZARD
+		db ICE_BEAM
+		db DRILL_PECK
+		db FLY
+
+; ================================
+; ================
+
+	; LAWRENCE (2)
+	db TRAINERTYPE_MOVES
+
+	db 70, MOLTRES
+		db FIRE_BLAST
+		db FLAMETHROWER
+		db DRILL_PECK
+		db FLY
+
+; ================================
+; ================
+
+	; LAWRENCE (3)
+	db TRAINERTYPE_MOVES
+
+	db 70, ZAPDOS
+		db THUNDER
+		db THUNDERBOLT
+		db DRILL_PECK
+		db FLY
+
+; ================================
+; ================
+
+	; LAWRENCE (4)
+	db TRAINERTYPE_MOVES
+
+	db 70, ZAPDOS
+		db THUNDER
+		db THUNDERBOLT
+		db DRILL_PECK
+		db FLY
+		
+	db 70, ARTICUNO
+		db BLIZZARD
+		db ICE_BEAM
+		db DRILL_PECK
+		db FLY
+		
+	db 70, MOLTRES
+		db FIRE_BLAST
+		db FLAMETHROWER
+		db DRILL_PECK
+		db FLY
+
+	db $ff ; end
+	
 ; ================
 ; ================================
 

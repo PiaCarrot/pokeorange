@@ -6,7 +6,11 @@ KumquatHotelLobby_MapScriptHeader::
 
 KumquatHotelLobby_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 4
+	warp_def 9, 5, 1, KUMQUAT_ISLAND_EAST
+	warp_def 9, 6, 1, KUMQUAT_ISLAND_EAST
+	warp_def 0, 1, 1, KUMQUAT_HOTEL_POOL
+	warp_def 0, 11, 1, KUMQUAT_HOTEL_ELEVATOR
 
 .CoordEvents: db 0
 

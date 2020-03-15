@@ -1868,7 +1868,39 @@ BattleAnim_Earthquake: ; ca08a
 	anim_ret
 ; ca098
 
-BattleAnim_EarthPower: ; TODO: new Earth Power animation
+BattleAnim_EarthPower:
+    anim_2gfx ANIM_GFX_FIRE, ANIM_GFX_ROCKS
+    anim_sound 0, 0, SFX_EGG_BOMB
+    anim_bgp $1b
+    anim_bgeffect ANIM_BG_1F, $28, $2, $0
+    anim_obj ANIM_OBJ_ROCK_SMASH, 120, 68, $5c
+    anim_obj ANIM_OBJ_ROCK_SMASH, 120, 68, $e8
+    anim_obj ANIM_OBJ_ROCK_SMASH, 120, 68, $9c
+    anim_obj ANIM_OBJ_ROCK_SMASH, 120, 68, $50
+    anim_obj ANIM_OBJ_EMBER, 120, 68, $30
+    anim_wait 40
+    anim_clearobjs
+    anim_wait 8
+    anim_sound 0, 0, SFX_EGG_BOMB
+    anim_bgeffect ANIM_BG_1F, $28, $2, $0
+    anim_obj ANIM_OBJ_ROCK_SMASH, 144, 68, $5c
+    anim_obj ANIM_OBJ_ROCK_SMASH, 144, 68, $e8
+    anim_obj ANIM_OBJ_ROCK_SMASH, 144, 68, $d0
+    anim_obj ANIM_OBJ_ROCK_SMASH, 144, 68, $10
+    anim_obj ANIM_OBJ_EMBER, 144, 68, $30
+    anim_wait 40
+    anim_clearobjs
+    anim_wait 8
+    anim_sound 0, 0, SFX_EGG_BOMB
+    anim_bgeffect ANIM_BG_1F, $28, $2, $0
+    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 68, $28
+    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 68, $e8
+    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 68, $d0
+    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 68, $50
+    anim_obj ANIM_OBJ_EMBER, 132, 68, $30
+    anim_wait 48
+    anim_ret
+
 BattleAnim_Fissure: ; ca098
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $40
 	anim_bgeffect ANIM_BG_1F, $60, $4, $0
@@ -3115,7 +3147,35 @@ BattleAnim_Barrier: ; caac5
 	anim_ret
 ; caae1
 
-BattleAnim_RockClimb: ; TODO: new Rock Climb animation
+BattleAnim_RockClimb:
+   anim_2gfx ANIM_GFX_ROCKS, ANIM_GFX_HIT
+    anim_call BattleAnim_FollowPlayerHead_0
+    anim_sound 0, 0, SFX_SPARK
+    anim_bgeffect ANIM_BG_25, $0, $1, $0
+    anim_wait 16
+    anim_call BattleAnim_ShowMon_0
+    anim_sound 0, 1, SFX_HEADBUTT
+    anim_obj ANIM_OBJ_ROCK_SMASH, 140, 56, $50
+    anim_obj ANIM_OBJ_01, 136, 56, $0
+    anim_wait 3
+    anim_sound 0, 1, SFX_HEADBUTT
+    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 56, $d0
+    anim_obj ANIM_OBJ_01, 136, 48, $0
+    anim_wait 3
+    anim_sound 0, 1, SFX_HEADBUTT
+    anim_obj ANIM_OBJ_ROCK_SMASH, 140, 40, $50
+    anim_obj ANIM_OBJ_01, 136, 40, $0
+    anim_wait 3
+    anim_sound 0, 1, SFX_HEADBUTT
+    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 56, $d0
+    anim_obj ANIM_OBJ_01, 136, 32, $0
+    anim_wait 3
+    anim_sound 0, 1, SFX_HEADBUTT
+    anim_obj ANIM_OBJ_ROCK_SMASH, 140, 24, $50
+    anim_obj ANIM_OBJ_01, 136, 24, $0
+    anim_wait 8
+    anim_ret
+
 BattleAnim_Waterfall: ; caae1
 	anim_1gfx ANIM_GFX_HIT
 	anim_call BattleAnim_FollowPlayerHead_0
@@ -3163,7 +3223,33 @@ BattleAnim_Sludge: ; cab3b
 	anim_ret
 ; cab42
 
-BattleAnim_Venoshock: ; TODO: new Venoshock animation
+BattleAnim_Venoshock:
+    anim_1gfx ANIM_GFX_POISON
+    anim_call BattleAnim_FollowEnemyFeet_1
+    anim_bgeffect ANIM_BG_BLACK_HUES, $0, $8, $0
+    anim_sound 6, 2, SFX_SLUDGE_BOMB
+    anim_obj ANIM_OBJ_19, 64, 92, $10
+    anim_wait 36
+    anim_sound 0, 1, SFX_THUNDER
+    anim_wait 8
+    anim_bgp $1b
+    anim_obp0 $30    
+    anim_bgeffect ANIM_BG_VIBRATE_MON, $0, $0, $0
+.loop
+    anim_sound 0, 1, SFX_UNKNOWN_7F
+    anim_obj ANIM_OBJ_1A, 132, 72, $0
+    anim_wait 8
+    anim_sound 0, 1, SFX_UNKNOWN_7F
+    anim_obj ANIM_OBJ_1A, 116, 72, $0
+    anim_wait 8
+    anim_sound 0, 1, SFX_UNKNOWN_7F
+    anim_obj ANIM_OBJ_1A, 148, 72, $0
+    anim_wait 8
+    anim_loop 4, .loop
+    anim_wait 16
+    anim_call BattleAnim_ShowMon_1
+    anim_ret
+
 BattleAnim_Toxic: ; cab42
 	anim_1gfx ANIM_GFX_POISON
 	anim_bgeffect ANIM_BG_BLACK_HUES, $0, $8, $0
@@ -4193,7 +4279,33 @@ BattleAnim_Magnitude: ; cb57d
 	anim_ret
 ; cb5aa
 
-BattleAnim_PowerUpPunch: ; TODO: new Power-Up Punch animation
+BattleAnim_PowerUpPunch:
+    anim_2gfx ANIM_GFX_HIT, ANIM_GFX_SPEED
+    anim_sound 0, 1, SFX_KARATE_CHOP
+    anim_obj ANIM_OBJ_P_UP_PUNCH, 136, 56, $0
+    anim_wait 3
+    anim_obj ANIM_OBJ_01, 136, 56, $0
+    anim_wait 4
+    anim_obj ANIM_OBJ_47, 44, 108, $6
+    anim_sound 0, 1, SFX_KARATE_CHOP
+    anim_obj ANIM_OBJ_P_UP_PUNCH, 136, 56, $0
+    anim_wait 2
+    anim_obj ANIM_OBJ_01, 136, 56, $0
+    anim_obj ANIM_OBJ_47, 36, 108, $6
+    anim_wait 2
+    anim_obj ANIM_OBJ_47, 52, 108, $8
+    anim_wait 2
+    anim_obj ANIM_OBJ_47, 28, 108, $8
+    anim_wait 2
+    anim_obj ANIM_OBJ_47, 60, 108, $6
+    anim_wait 2
+    anim_obj ANIM_OBJ_47, 20, 108, $8
+    anim_wait 2
+    anim_obj ANIM_OBJ_47, 68, 108, $8
+    anim_wait 2
+    anim_wait 8
+    anim_ret
+
 BattleAnim_Dynamicpunch: ; cb5aa
 	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_EXPLOSION
 	anim_sound 0, 1, SFX_COMET_PUNCH
@@ -4555,7 +4667,28 @@ BattleAnim_PsychUp: ; cb917
 	anim_ret
 ; cb940
 
-BattleAnim_AerialAce: ; TODO: new Aerial Ace animation
+BattleAnim_AerialAce:
+    anim_2gfx ANIM_GFX_SPEED, ANIM_GFX_CUT
+    anim_sound 0, 0, SFX_MENU
+    anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0
+    anim_obj ANIM_OBJ_SPEED_LINE, 24, 88, $2
+    anim_obj ANIM_OBJ_SPEED_LINE, 32, 88, $1
+    anim_obj ANIM_OBJ_SPEED_LINE, 40, 88, $0
+    anim_obj ANIM_OBJ_SPEED_LINE, 48, 88, $80
+    anim_obj ANIM_OBJ_SPEED_LINE, 56, 88, $81
+    anim_obj ANIM_OBJ_SPEED_LINE, 64, 88, $82
+    anim_wait 12
+    anim_sound 0, 1, SFX_WING_ATTACK
+    anim_obj ANIM_OBJ_3A, 160, 40, $0
+    anim_wait 24
+    anim_sound 0, 1, SFX_CUT
+    anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $2
+    anim_obj ANIM_OBJ_39, 120, 68, $0
+    anim_wait 8
+    anim_bgeffect ANIM_BG_SHOW_MON, $0, $1, $0
+    anim_wait 24
+    anim_ret
+
 BattleAnim_Extremespeed: ; cb940
 	anim_2gfx ANIM_GFX_SPEED, ANIM_GFX_CUT
 	anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0

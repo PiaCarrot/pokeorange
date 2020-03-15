@@ -8,7 +8,6 @@
 	db NO_ITEM ; item 1
 	db NO_ITEM ; item 2
 	db FEMALE_50 ; gender
-	db 100 ; unknown
 	db 20 ; step cycles to hatch
 	dn 5, 5
 

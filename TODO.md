@@ -17,9 +17,7 @@
 - Add proper Headbutt encounters
 - Held item + Trade Stone to evolve (Magmarizer + Trade Stone, etc)
 - Chain Fishing
-- Invisible Pickup for Meowth/Persian
-- Invisible Flame Body for Magmar/Magmortar
-- Split Kantonian and Alolan Formes so both are obtainable (Pokemon Brass has done this, might need to be adapted and improved)
+- Split Kantonian and Alolan Formes so both are obtainable (Still have some major improvements/bugfixes to make)
 - Special Egg Graphics
 
 ## Graphics
@@ -33,16 +31,8 @@
 
 ## Animations
 
-- Aerial Ace
-- Earth Power
-- Luster Purge
-- Mist Ball
-- PowerUpPunch
-- Rock Climb
 - Shadow Sneak
-- Spectral Thief (steal boosted stats)
 - Spectral Thief (attack)
-- Venoshock
 - Volt Tackle
 - Rock and Bait for Safari
 

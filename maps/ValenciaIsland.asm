@@ -101,7 +101,8 @@ if def(DEBUG)
 ;	setflag ENGINE_FLYPOINT_HAMLIN
 ;	setflag ENGINE_FLYPOINT_SHAMOUTI
 	setflag ENGINE_FLYPOINT_VERMILION
-	setevent EVENT_BEAT_RED
+	clearevent EVENT_RED_ON_CLEOPATRA
+;	setevent EVENT_BEAT_RED
 	setevent EVENT_BEAT_ORANGE_LEAGUE
 	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
@@ -138,16 +139,17 @@ if def(DEBUG)
 	givecoins 9999
 	givemoney 0, 100000
 	opentext
-	givepoke LAPRAS, 60
-	givepoke CHARIZARD, 60
-	givepoke PIKACHU, 60, LIGHT_BALL
+	givepoke LAPRAS, 100
+	givepoke CHARIZARD, 100
+	givepoke PIKACHU, 100, LIGHT_BALL
 	givepoke VULPIX, 8, BERRY
+	givepoke VULPIX, 8, BERRY, VULPIX_KANTONESE_FORM
 	givepoke MEW, 60
 	closetext
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp SUNBURST_ISLAND, 15, 15
+	warp CLEOPATRA_ISLAND, 15, 15
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

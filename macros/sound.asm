@@ -84,11 +84,15 @@ soundinput: macro
 	db \1 ; input
 	endm
 
-	enum sound_duty_cmd
-sound_duty: macro
+	enum sound_duty_cmd ; $de
+sound_duty: MACRO
 	db sound_duty_cmd
+if _NARG == 4
 	db \1 | (\2 << 2) | (\3 << 4) | (\4 << 6) ; duty sequence
-	endm
+else
+	db \1 ; LEGACY: Support for one-byte duty value
+endc
+ENDM
 
 	enum togglesfx_cmd
 togglesfx: macro

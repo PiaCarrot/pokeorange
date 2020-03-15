@@ -141,5 +141,8 @@
 	dba Music_Route206
 	dba Music_SeviiIslands
 	dba Music_OreburghGate
-	dba Music_WCSBattleBW
+	dba Music_FourIsland
+	dba Music_Route111
+	dba Music_SirdBattle
+	dba Music_CastleRoute
 ; e91a3

@@ -1,10 +1,10 @@
-KumquatHotelBottomRoom_MapScriptHeader::
+KumquatHotelTopRoom1_MapScriptHeader::
 
 .Triggers: db 0
 
 .Callbacks: db 0
 
-KumquatHotelBottomRoom_MapEventHeader::
+KumquatHotelTopRoom1_MapEventHeader::
 
 .Warps: db 0
 

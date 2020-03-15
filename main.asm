@@ -1228,69 +1228,73 @@ PlayBattleMusic: ; 2ee6c
 .trainermusic
 	ld de, MUSIC_CHAMPION_BATTLE
 	cp DRAKE
-	jr z, .done
+	jp z, .done
 	cp LANCE
-	jr z, .done
+	jp z, .done
 	cp RED
-	jr z, .done
+	jp z, .done
 	cp BLUE
-	jr z, .done
+	jp z, .done
 	cp GREEN
-	jr z, .done
+	jp z, .done
 	cp YELLOW
-	jr z, .done
+	jp z, .done
 
 	; really, they should have included admins and scientists here too...
 	ld de, MUSIC_ROCKET_BATTLE
 	cp BUTCH
-	jr z, .done
+	jp z, .done
 	cp CASSIDY
-	jr z, .done
+	jp z, .done
 	cp CASSIDY_BUTCH
-	jr z, .done
+	jp z, .done
 	cp JAMES
-	jr z, .done
+	jp z, .done
 	cp JESSIE
-	jr z, .done
+	jp z, .done
 	cp JESSIE_JAMES
-	jr z, .done
+	jp z, .done
 
 	ld de, MUSIC_KANTO_GYM_LEADER_BATTLE
 	farcall IsKantoGymLeader
-	jr c, .done
+	jp c, .done
 
 	ld de, MUSIC_HOENN_CHAMPION_BATTLE
 	farcall IsJohtoGymLeader
-	jr c, .done
+	jp c, .done
 	
 	ld de, MUSIC_XD_BATTLE_SIM_THEME
 	cp JACE
-	jr z, .done	
+	jp z, .done	
 	cp KURT
-	jr z, .done	
+	jp z, .done	
 	cp JASON
-	jr z, .done	
+	jp z, .done	
 	cp ALICE
-	jr z, .done
+	jp z, .done
+	
+	ld de, MUSIC_SIRD_BATTLE
+	cp LAWRENCE
+	jp z, .done
 
 	ld de, MUSIC_RIVAL_BATTLE
 	ld a, [OtherTrainerClass]
 	cp TRACEY
-	jr z, .done
+	jp z, .done
 	cp CROSS
-	jr z, .done
+	jp z, .done
 	ld a, [wLinkMode]
 	and a
-	jr nz, .johtotrainer
+	jp nz, .johtotrainer
 
 	farcall RegionCheck
 	ld a, e
 	and a
-	jr nz, .kantotrainer
+	jp nz, .kantotrainer
 
 .johtotrainer
 	ld de, MUSIC_POKEATHELON_FINAL
-	jr .done
+	jp .done
 
 .kantotrainer
 	ld de, MUSIC_KANTO_TRAINER_BATTLE

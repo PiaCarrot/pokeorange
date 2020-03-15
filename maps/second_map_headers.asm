@@ -369,8 +369,13 @@
 	map_header_2 KumquatHotelPool, KUMQUAT_HOTEL_POOL, 0, 0
 	map_header_2 KumquatHotelElevator, KUMQUAT_HOTEL_ELEVATOR, 0, 0
 	map_header_2 KumquatHotelSuites, KUMQUAT_HOTEL_SUITES, 0, 0
-	map_header_2 KumquatHotelBottomRoom, KUMQUAT_HOTEL_BOTTOM_ROOM, 0, 0
-	map_header_2 KumquatHotelTopRoom, KUMQUAT_HOTEL_TOP_ROOM, 0, 0
+	map_header_2 KumquatHotelBottomRoom1, KUMQUAT_HOTEL_BOTTOM_ROOM_1, 0, 0
+	map_header_2 KumquatHotelBottomRoom2, KUMQUAT_HOTEL_BOTTOM_ROOM_2, 0, 0
+	map_header_2 KumquatHotelBottomRoom3, KUMQUAT_HOTEL_BOTTOM_ROOM_3, 0, 0
+	map_header_2 KumquatHotelBottomRoom4, KUMQUAT_HOTEL_BOTTOM_ROOM_4, 0, 0
+	map_header_2 KumquatHotelTopRoom1, KUMQUAT_HOTEL_TOP_ROOM_1, 0, 0
+	map_header_2 KumquatHotelTopRoom2, KUMQUAT_HOTEL_TOP_ROOM_2, 0, 0
+	map_header_2 KumquatHotelTopRoom3, KUMQUAT_HOTEL_TOP_ROOM_3, 0, 0
 	map_header_2 KumquatHotelGym, KUMQUAT_HOTEL_GYM, 0, 0
 	map_header_2 GameCorner, GAME_CORNER, 0, 0
 
