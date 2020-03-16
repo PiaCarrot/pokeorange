@@ -593,29 +593,29 @@ BrockGroup:
 
 	; BROCK (1)
 	db "BROCK@"
-	db TRAINERTYPE_MOVES
+	db TRAINERTYPE_PERSONALITY + TRAINERTYPE_MOVES
 
 	; party
 
-	db 19, GEODUDE
+	db 19, GEODUDE, MALE_MASK | GEODUDE_KANTONESE_FORM
 		db TACKLE
 		db ROCK_THROW
 		db DEFENSE_CURL
 		db NO_MOVE
 
-	db 22, ROCKRUFF
+	db 22, ROCKRUFF, MALE_MASK
 		db ROCK_THROW
 		db GROWL
 		db ROAR
 		db TACKLE
 
-	db 22, ONIX
+	db 22, ONIX, MALE_MASK
 		db TACKLE
 		db ROCK_THROW
 		db SCREECH
 		db DIG
 
-	db 18, CORSOLA
+	db 18, CORSOLA, FEMALE_MASK
 		db BUBBLE
 		db HARDEN
 		db NO_MOVE
@@ -2609,6 +2609,20 @@ CooltrainerMGroup:
 		db DOUBLE_TEAM
 
 	db $ff
+	
+; ================
+
+	; COOLTRAINERM (5)
+	db "TRAD@"
+	db TRAINERTYPE_MOVES
+
+	 db 47, SNORLAX
+		db HYPER_BEAM
+		db REST
+		db SURF
+		db SLEEP_TALK
+
+	db $ff
 
 ; ================
 ; ================================
@@ -2660,6 +2674,19 @@ CooltrainerFGroup:
 
 	db 42, VENUSAUR
 	db 43, CLEFABLE
+
+	db $ff
+	
+; ================
+
+	; COOLTRAINERF (5)
+	db "MARY@"
+	db TRAINERTYPE_PERSONALITY
+
+	db 44, OMASTAR, FEMALE_MASK
+	db 44, SANDSLASH, FEMALE_MASK | SANDSLASH_ALOLAN_FORM
+	db 44, NIDORINA, FEMALE_MASK
+	db 44, JYNX, FEMALE_MASK
 
 	db $ff
 
@@ -2715,7 +2742,7 @@ CatmanGroup:
 	db "GRANT@"
 	db TRAINERTYPE_PERSONALITY
 
-	db 30, MUK, MALE_MASK, MUK_KANTONESE_FORM
+	db 30, MUK, MALE_MASK | MUK_KANTONESE_FORM
 
 	db $ff
 ; ================

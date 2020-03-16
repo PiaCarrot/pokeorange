@@ -1873,31 +1873,31 @@ BattleAnim_EarthPower:
     anim_sound 0, 0, SFX_EGG_BOMB
     anim_bgp $1b
     anim_bgeffect ANIM_BG_1F, $28, $2, $0
-    anim_obj ANIM_OBJ_ROCK_SMASH, 120, 68, $5c
-    anim_obj ANIM_OBJ_ROCK_SMASH, 120, 68, $e8
-    anim_obj ANIM_OBJ_ROCK_SMASH, 120, 68, $9c
-    anim_obj ANIM_OBJ_ROCK_SMASH, 120, 68, $50
-    anim_obj ANIM_OBJ_EMBER, 120, 68, $30
+    anim_obj ANIM_OBJ_B5, 120, 68, $5c
+    anim_obj ANIM_OBJ_B5, 120, 68, $e8
+    anim_obj ANIM_OBJ_B5, 120, 68, $9c
+    anim_obj ANIM_OBJ_B5, 120, 68, $50
+    anim_obj ANIM_OBJ_0B, 120, 68, $30
     anim_wait 40
     anim_clearobjs
     anim_wait 8
     anim_sound 0, 0, SFX_EGG_BOMB
     anim_bgeffect ANIM_BG_1F, $28, $2, $0
-    anim_obj ANIM_OBJ_ROCK_SMASH, 144, 68, $5c
-    anim_obj ANIM_OBJ_ROCK_SMASH, 144, 68, $e8
-    anim_obj ANIM_OBJ_ROCK_SMASH, 144, 68, $d0
-    anim_obj ANIM_OBJ_ROCK_SMASH, 144, 68, $10
-    anim_obj ANIM_OBJ_EMBER, 144, 68, $30
+    anim_obj ANIM_OBJ_B5, 144, 68, $5c
+    anim_obj ANIM_OBJ_B5, 144, 68, $e8
+    anim_obj ANIM_OBJ_B5, 144, 68, $d0
+    anim_obj ANIM_OBJ_B5, 144, 68, $10
+    anim_obj ANIM_OBJ_0B, 144, 68, $30
     anim_wait 40
     anim_clearobjs
     anim_wait 8
     anim_sound 0, 0, SFX_EGG_BOMB
     anim_bgeffect ANIM_BG_1F, $28, $2, $0
-    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 68, $28
-    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 68, $e8
-    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 68, $d0
-    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 68, $50
-    anim_obj ANIM_OBJ_EMBER, 132, 68, $30
+    anim_obj ANIM_OBJ_B5, 132, 68, $28
+    anim_obj ANIM_OBJ_B5, 132, 68, $e8
+    anim_obj ANIM_OBJ_B5, 132, 68, $d0
+    anim_obj ANIM_OBJ_B5, 132, 68, $50
+    anim_obj ANIM_OBJ_0B, 132, 68, $30
     anim_wait 48
     anim_ret
 
@@ -3155,23 +3155,23 @@ BattleAnim_RockClimb:
     anim_wait 16
     anim_call BattleAnim_ShowMon_0
     anim_sound 0, 1, SFX_HEADBUTT
-    anim_obj ANIM_OBJ_ROCK_SMASH, 140, 56, $50
+    anim_obj ANIM_OBJ_B5, 140, 56, $50
     anim_obj ANIM_OBJ_01, 136, 56, $0
     anim_wait 3
     anim_sound 0, 1, SFX_HEADBUTT
-    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 56, $d0
+    anim_obj ANIM_OBJ_B5, 132, 56, $d0
     anim_obj ANIM_OBJ_01, 136, 48, $0
     anim_wait 3
     anim_sound 0, 1, SFX_HEADBUTT
-    anim_obj ANIM_OBJ_ROCK_SMASH, 140, 40, $50
+    anim_obj ANIM_OBJ_B5, 140, 40, $50
     anim_obj ANIM_OBJ_01, 136, 40, $0
     anim_wait 3
     anim_sound 0, 1, SFX_HEADBUTT
-    anim_obj ANIM_OBJ_ROCK_SMASH, 132, 56, $d0
+    anim_obj ANIM_OBJ_B5, 132, 56, $d0
     anim_obj ANIM_OBJ_01, 136, 32, $0
     anim_wait 3
     anim_sound 0, 1, SFX_HEADBUTT
-    anim_obj ANIM_OBJ_ROCK_SMASH, 140, 24, $50
+    anim_obj ANIM_OBJ_B5, 140, 24, $50
     anim_obj ANIM_OBJ_01, 136, 24, $0
     anim_wait 8
     anim_ret
@@ -4671,12 +4671,12 @@ BattleAnim_AerialAce:
     anim_2gfx ANIM_GFX_SPEED, ANIM_GFX_CUT
     anim_sound 0, 0, SFX_MENU
     anim_bgeffect ANIM_BG_HIDE_MON, $0, $1, $0
-    anim_obj ANIM_OBJ_SPEED_LINE, 24, 88, $2
-    anim_obj ANIM_OBJ_SPEED_LINE, 32, 88, $1
-    anim_obj ANIM_OBJ_SPEED_LINE, 40, 88, $0
-    anim_obj ANIM_OBJ_SPEED_LINE, 48, 88, $80
-    anim_obj ANIM_OBJ_SPEED_LINE, 56, 88, $81
-    anim_obj ANIM_OBJ_SPEED_LINE, 64, 88, $82
+    anim_obj ANIM_OBJ_77, 24, 88, $2
+    anim_obj ANIM_OBJ_77, 32, 88, $1
+    anim_obj ANIM_OBJ_77, 40, 88, $0
+    anim_obj ANIM_OBJ_77, 48, 88, $80
+    anim_obj ANIM_OBJ_77, 56, 88, $81
+    anim_obj ANIM_OBJ_77, 64, 88, $82
     anim_wait 12
     anim_sound 0, 1, SFX_WING_ATTACK
     anim_obj ANIM_OBJ_3A, 160, 40, $0

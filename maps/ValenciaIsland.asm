@@ -142,14 +142,14 @@ if def(DEBUG)
 	givepoke LAPRAS, 100
 	givepoke CHARIZARD, 100
 	givepoke PIKACHU, 100, LIGHT_BALL
-	givepoke VULPIX, 8, BERRY
-	givepoke VULPIX, 8, BERRY, VULPIX_KANTONESE_FORM
-	givepoke MEW, 60
+	givepoke EXEGGUTOR, 100, BERRY, EXEGGUTOR_KANTONESE_FORM
+	givepoke EXEGGUTOR, 100
+	givepoke MEW, 100
 	closetext
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp CLEOPATRA_ISLAND, 15, 15
+	warp KUMQUAT_ISLAND_EAST, 15, 15
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

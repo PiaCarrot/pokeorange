@@ -189,12 +189,14 @@ CHRIS EQU __enum__
 	const SEI
 	const KUBO
 	const NAGI
+	const TRAD
 
 	trainerclass COOLTRAINERF
 	const KEIKO
 	const MORIKO
 	const AIRI
 	const REIKA
+	const MARY
 
 	trainerclass CATMAN
 	const DAIKON
