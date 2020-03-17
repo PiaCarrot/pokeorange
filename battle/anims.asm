@@ -3659,7 +3659,24 @@ BattleAnim_ScaryFace: ; caf73
 	anim_ret
 ; caf84
 
-BattleAnim_ShadowSneak: ; TODO: new Shadow Sneak animation
+BattleAnim_ShadowSneak:
+    anim_2gfx ANIM_GFX_WATER, ANIM_GFX_ANGELS
+    anim_bgp $f8
+    anim_obp0 $fc
+    anim_sound 6, 2, SFX_WHIRLWIND
+    anim_obj ANIM_OBJ_9B, 44, 120, $2
+    anim_wait 48
+    anim_sound 0, 1, SFX_RAZOR_WIND
+    anim_obj ANIM_OBJ_LICK, 120, 38, $0
+    anim_wait 8
+    anim_sound 0, 1, SFX_RAZOR_WIND
+    anim_obj ANIM_OBJ_LICK, 148, 46, $0
+    anim_wait 8
+    anim_sound 0, 1, SFX_RAZOR_WIND
+    anim_obj ANIM_OBJ_LICK, 134, 54, $0
+    anim_wait 32
+    anim_ret
+
 BattleAnim_SpectraThief: ; TODO: new Spectral Thief animation
 BattleAnim_FaintAttack: ; caf84
 	anim_1gfx ANIM_GFX_HIT
@@ -3704,26 +3721,6 @@ BattleAnim_BellyDrum: ; cafcf
 	anim_obj ANIM_OBJ_AA,   8, 0,  13, 0, $0
 	anim_obj ANIM_OBJ_AB,   8, 0,  11, 4, $f8
 	anim_wait 24
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_AA,   8, 0,  13, 0, $0
-	anim_obj ANIM_OBJ_AB,   8, 0,  11, 4, $f8
-	anim_wait 12
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_AA,   8, 0,  13, 0, $0
-	anim_obj ANIM_OBJ_AB,   8, 0,  11, 4, $f8
-	anim_wait 12
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_AA,   8, 0,  13, 0, $0
-	anim_obj ANIM_OBJ_AB,   8, 0,  11, 4, $f8
-	anim_wait 24
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_AA,   8, 0,  13, 0, $0
-	anim_obj ANIM_OBJ_AB,   8, 0,  11, 4, $f8
-	anim_wait 12
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_AA,   8, 0,  13, 0, $0
-	anim_obj ANIM_OBJ_AB,   8, 0,  11, 4, $f8
-	anim_wait 12
 	anim_sound 0, 0, SFX_BELLY_DRUM
 	anim_obj ANIM_OBJ_AA,   8, 0,  13, 0, $0
 	anim_obj ANIM_OBJ_AB,   8, 0,  11, 4, $f8
