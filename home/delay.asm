@@ -14,7 +14,7 @@ DelayFrame:: ; 45a
 
 ApplyTilemap:: ; 321c
 	ld a, [wSpriteUpdatesEnabled]
-	cp 0
+	and a
 	jr z, WaitBGMap
 
 	ld a, 1

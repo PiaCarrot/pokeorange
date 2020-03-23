@@ -193,10 +193,9 @@ DoNPCTrade: ; fcc63
 	call GetTradeAttribute
 	ld a, [hl]
 	cp 3
-	ld a, 1
-	jr c, .okay
-	ld a, 2
-.okay
+	; if carry (a < 3) then a = 1, else a = 2
+	sbc a
+	add 2
 	ld [wOTTrademonCaughtData], a
 
 	ld hl, PartyMon1Level

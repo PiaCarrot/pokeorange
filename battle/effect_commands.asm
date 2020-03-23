@@ -77,10 +77,10 @@ DoMove: ; 3402c
 .ReadMoveEffectCommand:
 
 ; ld a, [BattleScriptBufferLoc++]
-	ld a, [BattleScriptBufferLoc]
+	ld hl, BattleScriptBufferLoc
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [BattleScriptBufferLoc + 1]
-	ld h, a
 
 	ld a, [hli]
 
@@ -2810,10 +2810,10 @@ BattleCommand_RageDamage: ; 3527b
 
 
 EndMoveEffect: ; 352a3
-	ld a, [BattleScriptBufferLoc]
+	ld hl, BattleScriptBufferLoc
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [BattleScriptBufferLoc + 1]
-	ld h, a
 	ld a, $ff
 	ld [hli], a
 	ld [hli], a
@@ -3162,8 +3162,7 @@ SpeciesItemBoost: ; 353d1
 	ret nz
 
 ; Double the stat
-	sla l
-	rl h
+	add hl, hl
 	ret
 
 ; 353f6
@@ -3612,7 +3611,7 @@ endc
 	ld [hProduct + 3], a
 
 	ld a, [hQuotient + 1]
-	rl a
+	rla
 	ld [hProduct + 2], a
 
 ; Cap at $ffff.
@@ -3692,7 +3691,7 @@ BattleCommand_ConstantDamage: ; 35726
 	srl a
 	ld b, a
 	ld a, [hl]
-	rr a
+	rra
 	push af
 	ld a, b
 	pop bc
@@ -3702,7 +3701,7 @@ BattleCommand_ConstantDamage: ; 35726
 	ld a, $0
 	jr nz, .got_power
 	ld b, $1
-	jr .got_power
+	; fallthrough
 
 .got_power
 	ld hl, CurDamage
@@ -3737,17 +3736,17 @@ BattleCommand_ConstantDamage: ; 35726
 
 	ld a, [hProduct + 4]
 	srl b
-	rr a
+	rra
 	srl b
-	rr a
+	rra
 	ld [hDivisor], a
 	ld a, [hProduct + 2]
 	ld b, a
 	srl b
 	ld a, [hProduct + 3]
-	rr a
+	rra
 	srl b
-	rr a
+	rra
 	ld [hDividend + 3], a
 	ld a, b
 	ld [hDividend + 2], a
@@ -4997,7 +4996,7 @@ SapHealth: ; 36011
 	ld [hDividend], a
 	ld b, a
 	ld a, [hl]
-	rr a
+	rra
 	ld [hDividend + 1], a
 	or b
 	jr nz, .ok1
@@ -5375,9 +5374,9 @@ CheckIfStatCanBeRaised: ; 361ef
 	ld a, c
 	add e
 	ld e, a
-	jr nc, .no_carry
-	inc d
-.no_carry
+	adc d
+	sub e
+	ld d, a
 	pop bc
 	ld a, [hld]
 	sub 999 % $100
@@ -5755,9 +5754,9 @@ TryLowerStat: ; 3641a
 	ld a, c
 	add e
 	ld e, a
-	jr nc, .no_carry
-	inc d
-.no_carry
+	adc d
+	sub e
+	ld d, a
 	pop bc
 
 ; The lowest possible stat is 1.
@@ -6675,9 +6674,9 @@ BattleCommand_EndLoop: ; 369b6
 
 ; Loop back to the command before 'critical'.
 .loop_back_to_critical
-	ld a, [BattleScriptBufferLoc + 1]
-	ld h, a
-	ld a, [BattleScriptBufferLoc]
+	ld hl, BattleScriptBufferLoc
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
 .not_critical
 	ld a, [hld]
@@ -9358,9 +9357,9 @@ BattleCommand_ClearText: ; 37e85
 
 SkipToBattleCommand: ; 37e8c
 ; Skip over commands until reaching command b.
-	ld a, [BattleScriptBufferLoc + 1]
-	ld h, a
-	ld a, [BattleScriptBufferLoc]
+	ld hl, BattleScriptBufferLoc
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
 .loop
 	ld a, [hli]

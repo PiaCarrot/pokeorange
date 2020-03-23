@@ -513,7 +513,7 @@ FindEnemyMonsWithASuperEffectiveMove: ; 34aa7
 	ld a, d
 	or b
 	ld d, a
-	jr .next ; such a long jump
+	; fallthrough
 
 .next
 	; next pokemon?

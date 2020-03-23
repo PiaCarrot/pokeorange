@@ -189,7 +189,7 @@ DoAnimFrame: ; 8d24b
 	ld a, [hl]
 	add $3
 	ld [hl], a
-	call .Sprites_Sine
+	call Sprites_Sine
 
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
@@ -203,11 +203,9 @@ DoAnimFrame: ; 8d24b
 .twentyfive ; 8d35a (23:535a)
 	ld hl, SPRITEANIMSTRUCT_0C
 	add hl, bc
-	ld a, [hl]
-	inc a
-	ld [hl], a
+	inc [hl]
 	ld d, $2
-	call .Sprites_Sine
+	call Sprites_Sine
 
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
@@ -247,14 +245,14 @@ DoAnimFrame: ; 8d24b
 	ld a, [hl]
 	push af
 	push de
-	call .Sprites_Sine
+	call Sprites_Sine
 
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
 	pop de
 	pop af
-	call .Sprites_Cosine
+	call Sprites_Cosine
 
 	ld hl, SPRITEANIMSTRUCT_XOFFSET
 	add hl, bc
@@ -291,14 +289,14 @@ DoAnimFrame: ; 8d24b
 	ld a, [hl]
 	push af
 	push de
-	call .Sprites_Sine
+	call Sprites_Sine
 
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
 	pop de
 	pop af
-	call .Sprites_Cosine
+	call Sprites_Cosine
 
 	ld hl, SPRITEANIMSTRUCT_XOFFSET
 	add hl, bc
@@ -390,7 +388,7 @@ DoAnimFrame: ; 8d24b
 .move_vertical
 	ld a, e
 	ld d, $20
-	call .Sprites_Sine
+	call Sprites_Sine
 
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
@@ -455,7 +453,7 @@ DoAnimFrame: ; 8d24b
 	jr c, .asm_8d4cd
 	dec [hl]
 	ld d, $28
-	call .Sprites_Sine
+	call Sprites_Sine
 
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
@@ -569,7 +567,7 @@ DoAnimFrame: ; 8d24b
 
 	push af
 	push de
-	call .Sprites_Sine
+	call Sprites_Sine
 
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
@@ -577,7 +575,7 @@ DoAnimFrame: ; 8d24b
 
 	pop de
 	pop af
-	call .Sprites_Cosine
+	call Sprites_Cosine
 
 	ld hl, SPRITEANIMSTRUCT_XOFFSET
 	add hl, bc
@@ -612,14 +610,14 @@ DoAnimFrame: ; 8d24b
 	inc [hl]
 	push af
 	push de
-	call .Sprites_Sine
+	call Sprites_Sine
 
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
 	pop de
 	pop af
-	call .Sprites_Cosine
+	call Sprites_Cosine
 
 	ld hl, SPRITEANIMSTRUCT_XOFFSET
 	add hl, bc
@@ -658,7 +656,7 @@ DoAnimFrame: ; 8d24b
 	add hl, bc
 	ld a, [hl]
 	inc [hl]
-	call .Sprites_Cosine
+	call Sprites_Cosine
 
 	ld hl, SPRITEANIMSTRUCT_XOFFSET
 	add hl, bc
@@ -683,7 +681,7 @@ DoAnimFrame: ; 8d24b
 	add hl, bc
 	ld a, [hl]
 	inc [hl]
-	call .Sprites_Cosine
+	call Sprites_Cosine
 
 	ld hl, SPRITEANIMSTRUCT_XOFFSET
 	add hl, bc
@@ -718,7 +716,7 @@ DoAnimFrame: ; 8d24b
 	add hl, bc
 	ld a, [hl]
 	inc [hl]
-	call .Sprites_Cosine
+	call Sprites_Cosine
 
 	ld hl, SPRITEANIMSTRUCT_XOFFSET
 	add hl, bc
@@ -743,7 +741,7 @@ DoAnimFrame: ; 8d24b
 	cpl
 	inc a
 	ld d, $20
-	call .Sprites_Sine
+	call Sprites_Sine
 
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
@@ -762,7 +760,7 @@ DoAnimFrame: ; 8d24b
 	cpl
 	inc a
 	ld d, $20
-	call .Sprites_Sine
+	call Sprites_Sine
 
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
@@ -783,14 +781,14 @@ DoAnimFrame: ; 8d24b
 	ld a, [hl]
 	push af
 	push de
-	call .Sprites_Sine
+	call Sprites_Sine
 
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
 	pop de
 	pop af
-	call .Sprites_Cosine
+	call Sprites_Cosine
 
 	ld hl, SPRITEANIMSTRUCT_XOFFSET
 	add hl, bc
@@ -843,10 +841,3 @@ DoAnimFrame: ; 8d24b
 	inc [hl]
 	ret
 ; 8d6de
-
-.Sprites_Sine: ; 8d6de (23:56de)
-	jp Sprites_Sine
-
-.Sprites_Cosine: ; 8d6e2 (23:56e2)
-	jp Sprites_Cosine
-; 8d6e6 (23:56e6)

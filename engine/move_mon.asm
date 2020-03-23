@@ -15,14 +15,12 @@ TryAddMonToParty: ; d88c
 	ret nc
 	; Increase the party count
 	ld [de], a
-	ld a, [de] ; Why are we doing this?
 	ld [hMoveMon], a ; HRAM backup
 	add e
 	ld e, a
-	jr nc, .loadspecies
-	inc d
-
-.loadspecies
+	adc d
+	sub e
+	ld d, a
 	; Load the species of the Pokemon into the party list.
 	; The terminator is usually here, but it'll be back.
 	ld a, [CurPartySpecies]
@@ -1506,10 +1504,9 @@ CalcPkmnStatC: ; e17b
 	ld d, 0
 	add e
 	ld e, a
-	jr nc, .no_overflow_1
-	inc d
-
-.no_overflow_1
+	adc d
+	sub e
+	ld d, a
 	sla e
 	rl d
 	srl b

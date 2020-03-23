@@ -298,8 +298,8 @@ TrainerCard_OAMUpdate: ; 25448 (9:5448)
 	ld a, [wcf64]
 	add l
 	ld l, a
-	ld a, 0
 	adc h
+	sub l
 	ld h, a
 	ld a, [hl]
 	ld [wcf65], a

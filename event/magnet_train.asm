@@ -184,8 +184,7 @@ DrawMagnetTrain: ; 8cd27
 	hlbgcoord 0, 9
 	ld de, MagnetTrainTilemap4
 	ld c, 20
-	jp .FillLine
-; 8cd65
+	; fallthrough
 
 .FillLine: ; 8cd65
 	ld a, [de]
@@ -405,8 +404,6 @@ MagnetTrain_Jumptable: ; 8cdf7
 	add d
 	add d
 	ld [hl], a
-	ret
-
 	ret
 
 .PrepareToFinishAnim:

@@ -198,9 +198,9 @@ endr
 	add 6
 	add e
 	ld e, a
-	jr nc, .ok2
-	inc d
-.ok2
+	adc d
+	sub e
+	ld d, a
 	dec b
 	jp nz, .row
 	ret
@@ -282,10 +282,9 @@ GetDestinationWarpNumber:: ; 2252
 	ld a, 5
 	add l
 	ld l, a
-	jr nc, .okay
-	inc h
-
-.okay
+	adc h
+	sub l
+	ld h, a
 	dec c
 	jr nz, .loop
 	xor a
@@ -734,9 +733,9 @@ ChangeMap:: ; 24e4
 	ld a, [hConnectionStripLength]
 	add l
 	ld l, a
-	jr nc, .okay
-	inc h
-.okay
+	adc h
+	sub l
+	ld h, a
 	dec b
 	jr nz, .row
 
@@ -756,10 +755,10 @@ FillMapConnections:: ; 2524
 	ld c, a
 	call GetAnyMapBlockdataBank
 
-	ld a, [NorthConnectionStripPointer]
+	ld hl, NorthConnectionStripPointer
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [NorthConnectionStripPointer + 1]
-	ld h, a
 	ld a, [NorthConnectionStripLocation]
 	ld e, a
 	ld a, [NorthConnectionStripLocation + 1]
@@ -779,10 +778,10 @@ FillMapConnections:: ; 2524
 	ld c, a
 	call GetAnyMapBlockdataBank
 
-	ld a, [SouthConnectionStripPointer]
+	ld hl, SouthConnectionStripPointer
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [SouthConnectionStripPointer + 1]
-	ld h, a
 	ld a, [SouthConnectionStripLocation]
 	ld e, a
 	ld a, [SouthConnectionStripLocation + 1]
@@ -802,10 +801,10 @@ FillMapConnections:: ; 2524
 	ld c, a
 	call GetAnyMapBlockdataBank
 
-	ld a, [WestConnectionStripPointer]
+	ld hl, WestConnectionStripPointer
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [WestConnectionStripPointer + 1]
-	ld h, a
 	ld a, [WestConnectionStripLocation]
 	ld e, a
 	ld a, [WestConnectionStripLocation + 1]
@@ -825,10 +824,10 @@ FillMapConnections:: ; 2524
 	ld c, a
 	call GetAnyMapBlockdataBank
 
-	ld a, [EastConnectionStripPointer]
+	ld hl, EastConnectionStripPointer
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [EastConnectionStripPointer + 1]
-	ld h, a
 	ld a, [EastConnectionStripLocation]
 	ld e, a
 	ld a, [EastConnectionStripLocation + 1]
@@ -868,9 +867,9 @@ FillSouthConnectionStrip:: ; 25d3
 	add 6
 	add e
 	ld e, a
-	jr nc, .okay
-	inc d
-.okay
+	adc d
+	sub e
+	ld d, a
 	dec c
 	jr nz, .y
 	ret
@@ -907,9 +906,9 @@ FillEastConnectionStrip:: ; 25f6
 	ld a, [hConnectedMapWidth]
 	add e
 	ld e, a
-	jr nc, .okay
-	inc d
-.okay
+	adc d
+	sub e
+	ld d, a
 	dec b
 	jr nz, .loop
 	ret
@@ -1184,10 +1183,10 @@ ScrollMapUp:: ; 2748
 	call BackupBGMapRow
 	ld c, 2 * SCREEN_WIDTH
 	call FarCallScrollBGMapPalettes
-	ld a, [wBGMapAnchor]
+	ld hl, wBGMapAnchor
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [wBGMapAnchor + 1]
-	ld h, a
 	ld bc, $0200
 	add hl, bc
 ; cap d at VBGMap1 / $100
@@ -1264,10 +1263,9 @@ BackupBGMapColumn:: ; 27c0
 	ld a, SCREEN_WIDTH - 1
 	add l
 	ld l, a
-	jr nc, .skip
-	inc h
-
-.skip
+	adc h
+	sub l
+	ld h, a
 	dec c
 	jr nz, .loop
 	ret
@@ -1522,8 +1520,8 @@ GetMovementPermissions:: ; 2914
 	ld hl, .MovementPermissionsData
 	add l
 	ld l, a
-	ld a, 0
 	adc h
+	sub l
 	ld h, a
 	ld a, [hl]
 	ld hl, TilePermissions
@@ -1643,7 +1641,6 @@ GetMovementPermissions:: ; 2914
 	ret nz
 	ld a, [TileLeft]
 	and 7
-	cp $0
 	jr z, .ok_left
 	cp $4
 	jr z, .ok_left
@@ -1822,10 +1819,9 @@ CheckIfFacingTileCoordIsSign:: ; 2aaa
 	ld a, 5 ; signpost event length
 	add l
 	ld l, a
-	jr nc, .nocarry
-	inc h
-
-.nocarry
+	adc h
+	sub l
+	ld h, a
 	dec c
 	jr nz, .loop
 	xor a
@@ -1895,10 +1891,9 @@ CheckCurrentMapXYTriggers:: ; 2ad4
 	ld a, 5 ; xy-trigger size
 	add l
 	ld l, a
-	jr nc, .nocarry
-	inc h
-
-.nocarry
+	adc h
+	sub l
+	ld h, a
 	dec c
 	jr nz, .loop
 	xor a

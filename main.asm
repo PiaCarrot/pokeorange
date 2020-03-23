@@ -1705,8 +1705,7 @@ DrawPokedexHorizontalDivider:
 	ld [hli], a
 	ld a, $64
 	ld bc, SCREEN_WIDTH - 1
-	call ByteFill
-	ret
+	jp ByteFill
 
 INCLUDE "data/pokedex/entry_pointers.asm"
 
@@ -1865,7 +1864,7 @@ EmptyAllSRAMBanks: ; 4cf1f
 	ld a, $2
 	call .EmptyBank
 	ld a, $3
-	jp .EmptyBank
+	; fallthrough
 
 .EmptyBank: ; 4cf34
 	call GetSRAMBank
@@ -2163,7 +2162,7 @@ FlagPredef: ; 4d7c1
 
 .check
 	ld a, d
-	cp 0
+	and a
 	jr nz, .farcheck
 
 	ld a, [hl]
@@ -2192,8 +2191,7 @@ GetTrademonFrontpic: ; 4d7fd
 	ld [CurSpecies], a
 	call GetBaseData
 	pop de
-	predef FrontpicPredef
-	ret
+	predef_jump FrontpicPredef
 
 AnimateTrademonFrontpic: ; 4d81e
 	ld a, [wOTTrademonSpecies]
@@ -2215,8 +2213,7 @@ AnimateTrademonFrontpic: ; 4d81e
 	ld [CurPartySpecies], a
 	hlcoord 7, 2
 	lb de, $0, ANIM_MON_TRADE
-	predef AnimateFrontpic
-	ret
+	predef_jump AnimateFrontpic
 
 CheckPokerus: ; 4d860
 ; Return carry if a monster in your party has Pokerus
@@ -2758,8 +2755,7 @@ ResetDisplayBetweenHallOfFameMons: ; 4e906
 	call ByteFill
 	hlbgcoord 0, 0
 	ld de, wDecompressScratch
-	ld b, 0
-	ld c, 4 tiles
+	lb bc, 0, 4 tiles
 	call Request2bpp
 	pop af
 	ld [rSVBK], a
@@ -3139,7 +3135,7 @@ GetGender: ; 50bdd
 ListMovePP: ; 50c50
 	ld a, [wNumMoves]
 	inc a
-	ld c, a
+	ld c, a ; gets used in .load_loop
 	ld a, NUM_MOVES
 	sub c
 	ld b, a
@@ -3869,8 +3865,7 @@ GetPlayerBackpic: ; 88825
 .male
 	ld de, VTiles2 tile $31
 	lb bc, BANK(ChrisBackpic), 6 * 6
-	predef DecompressPredef
-	ret
+	predef_jump DecompressPredef
 
 ChrisBackpic: ; 2ba1a
 INCBIN "gfx/player/chris_back.6x6.2bpp.lz"
@@ -3927,8 +3922,7 @@ DrawIntroPlayerPic: ; 88874
 	ld de, KrisPic
 .GotPic:
 	ld hl, VTiles2
-	ld b, BANK(ChrisPic) ; BANK(KrisPic)
-	ld c, 7 * 7 ; dimensions
+	lb bc, BANK(ChrisPic), 7 * 7 ; BANK(KrisPic), dimensions
 	call Get2bpp
 
 ; Draw
@@ -3936,8 +3930,7 @@ DrawIntroPlayerPic: ; 88874
 	ld [hGraphicStartTile], a
 	hlcoord 6, 4
 	lb bc, 7, 7
-	predef PlaceGraphic
-	ret
+	predef_jump PlaceGraphic
 
 ChrisPic: ; 888a9
 INCBIN "gfx/player/chris.7x7.2bpp"

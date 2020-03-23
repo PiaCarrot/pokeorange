@@ -1196,9 +1196,7 @@ Pokedex_OrderMonsByMode: ; 40bdc
 	ld [hli], a
 	dec c
 	jr nz, .loopnew
-	jp .FindLastSeen
 
-.FindLastSeen: ; 40c18 (10:4c18)
 	ld hl, wPokedexDataStart + NUM_POKEMON - 1
 	ld d, NUM_POKEMON
 	ld e, d
@@ -1759,8 +1757,7 @@ Pokedex_LoadSelectedMonTiles: ; 4143b
 	ld [MonVariant], a
 	call GetBaseData
 	ld de, VTiles2
-	predef GetFrontpic
-	ret
+	predef_jump GetFrontpic
 
 .QuestionMark:
 	ld a, BANK(sScratch)

@@ -946,8 +946,8 @@ TownMapPals: ; 91f13
 ; Even-numbered tile ids take the bottom nybble...
 	add l
 	ld l, a
-	ld a, h
-	adc 0
+	adc h
+	sub l
 	ld h, a
 	ld a, [hl]
 	and %111
@@ -957,8 +957,8 @@ TownMapPals: ; 91f13
 ; ...and odd ids take the top.
 	add l
 	ld l, a
-	ld a, h
-	adc 0
+	adc h
+	sub l
 	ld h, a
 	ld a, [hl]
 	swap a

@@ -154,9 +154,10 @@ EvolveAfterBattle_MasterLoop
 	call StringCmp
 	ld a, ATK_EQ_DEF
 	jr z, .got_tyrogue_evo
-	ld a, ATK_LT_DEF
-	jr c, .got_tyrogue_evo
-	ld a, ATK_GT_DEF
+	; if carry then a = ATK_LT_DEF, else a = ATK_GT_DEF
+	sbc a
+	and ATK_LT_DEF - ATK_GT_DEF
+	add ATK_GT_DEF
 .got_tyrogue_evo
 	pop hl
 

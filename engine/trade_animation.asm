@@ -840,8 +840,7 @@ TradeAnim_GetFrontpic: ; 29491
 	ld [CurSpecies], a
 	call GetBaseData
 	pop de
-	predef GetFrontpic
-	ret
+	predef_jump GetFrontpic
 
 ; 294a9
 

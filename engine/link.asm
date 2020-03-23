@@ -1651,9 +1651,9 @@ Function29dba: ; 29dba
 Link_CheckCommunicationError: ; 29e0c
 	xor a
 	ld [hFFCA], a
-	ld a, [wLinkTimeoutFrames]
-	ld h, a
-	ld a, [wLinkTimeoutFrames + 1]
+	ld hl, wLinkTimeoutFrames + 1
+	ld a, [hld]
+	ld h, [hl]
 	ld l, a
 	push hl
 	call .CheckConnected

@@ -97,9 +97,9 @@ UpdateGameTimer:: ; 20ad
 	ld [hl], a
 
 ; +1 hour
-	ld a, [GameTimeHours]
-	ld h, a
-	ld a, [GameTimeHours + 1]
+	ld hl, GameTimeHours + 1
+	ld a, [hld]
+	ld h, [hl]
 	ld l, a
 	inc hl
 

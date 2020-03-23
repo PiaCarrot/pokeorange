@@ -17,14 +17,8 @@ Predef_LoadSGBLayoutCGB: ; 8d59
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, .ReturnFromJumpTable
-	push de
 	jp hl
 ; 8d79
-
-.ReturnFromJumpTable: ; 8d79
-	ret
-; 8d7a
 
 .dw ; 8d7a
 	dw _CGB_BattleGrayscale

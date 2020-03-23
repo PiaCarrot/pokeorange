@@ -166,8 +166,8 @@ HPBarAnim_RedrawHPBar: ; d771
 	ld a, 2 * SCREEN_WIDTH
 	add l
 	ld l, a
-	ld a, 0
 	adc h
+	sub l
 	ld h, a
 .skip
 	jp DrawBattleHPBar

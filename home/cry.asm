@@ -76,8 +76,7 @@ PlayCry2:: ; 37d5
 	ld [wStereoPanningMask], a
 	ld [CryTracks], a
 	pop af
-	jp _PlayCry
-; 37e2
+	; fallthrough
 
 _PlayCry::
 	push hl

@@ -38,9 +38,8 @@ _PokeFlute: ; f50c
 	jp nz, .sleeping
 
 	ld hl, .CatchyTune
-	call PrintText
-	ret
-	
+	jp PrintText
+
 .sleeping
 	ld hl, .AllSleepingMonWokeUp
 	jp PrintText

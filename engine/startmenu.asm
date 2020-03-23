@@ -464,7 +464,7 @@ StartMenu_Pokemon: ; 12976
 	call PokemonActionSubmenu
 	cp 3
 	jr z, .menu
-	cp 0
+	and a
 	jr z, .choosemenu
 	cp 1
 	jr z, .menunoreload
@@ -1065,7 +1065,7 @@ MonMailAction: ; 12d45
 .BagIsFull:
 	ld hl, .bagfulltext
 	call MenuTextBoxBackup
-	jr .done
+	; fallthrough
 
 .done
 	ld a, $3
@@ -1145,7 +1145,7 @@ OpenPartyStats: ; 12e00
 MonMenu_Fly: ; 12e30
 	farcall FlyFunction
 	ld a, [wFieldMoveSucceeded]
-	cp $0
+	and a
 	jr z, .Error
 	cp $2
 	jr z, _MonMenu_StandardFail

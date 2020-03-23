@@ -562,7 +562,6 @@ StatsScreen_LoadGFX: ; 4dfb6 (13:5fb6)
 	ld d, a
 	farcall CalcExpAtLevel
 	ld hl, TempMonExp + 2
-	ld hl, TempMonExp + 2
 	ld a, [hQuotient + 2]
 	sub [hl]
 	dec hl
@@ -631,8 +630,7 @@ StatsScreen_LoadGFX: ; 4dfb6 (13:5fb6)
 	hlcoord 12, 11
 	ld a, SCREEN_WIDTH * 2
 	ld [Buffer1], a
-	predef ListMovePP
-	ret
+	predef_jump ListMovePP
 
 .GetItemName: ; 4e189 (13:6189)
 	ld de, .ThreeDashes
@@ -668,8 +666,7 @@ StatsScreen_LoadGFX: ; 4dfb6 (13:5fb6)
 	jr nz, .BluePageVerticalDivider
 	hlcoord 11, 8
 	ld bc, 6
-	predef PrintTempMonStats
-	ret
+	predef_jump PrintTempMonStats
 
 .PlaceOTInfo: ; 4e1cc (13:61cc)
 	ld de, IDNoString
@@ -757,12 +754,12 @@ StatsScreen_PlaceFrontpic: ; 4e226 (13:6226)
 	jr z, .spinda_egg
 	ld a, TRUE
 	ld [wBoxAlignment], a
-	jp .get_animation
+	jr .get_animation
 
 .spinda_egg
 	xor a
 	ld [wBoxAlignment], a
-	jp .get_animation
+	; fallthrough
 
 .get_animation ; 4e289 (13:6289)
 	ld a, [CurPartySpecies]

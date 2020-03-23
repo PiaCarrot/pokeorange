@@ -225,7 +225,7 @@ WaitTileAnimation: ; fc2fe
 StandingTileFrame8: ; fc2ff
 	ld a, [TileAnimationTimer]
 	inc a
-	and a, 7
+	and 7
 	ld [TileAnimationTimer], a
 	ret
 ; fc309
@@ -350,9 +350,9 @@ AnimateFountain: ; fc387
 	add a
 	add l
 	ld l, a
-	jr nc, .okay
-	inc h
-.okay
+	adc h
+	sub l
+	ld h, a
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
@@ -596,8 +596,8 @@ AnimateSproutPillarTile: ; fc645
 	ld hl, .frames
 	add l
 	ld l, a
-	ld a, 0
 	adc h
+	sub l
 	ld h, a
 	ld a, [hl]
 

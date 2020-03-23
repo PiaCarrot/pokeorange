@@ -233,9 +233,8 @@ SetFacingFreezeBounce: ; 45a4
 SetFacingWeirdTree: ; 45ab
 	ld hl, OBJECT_STEP_FRAME
 	add hl, bc
+	inc [hl]
 	ld a, [hl]
-	inc a
-	ld [hl], a
 	and %00001100
 	rrca
 	rrca

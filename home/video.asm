@@ -467,15 +467,15 @@ TransferAnimatingPicDuringHBlank::
 	ld a, (BG_MAP_WIDTH - 7)
 	add e
 	ld e, a
-	jr nc, .noCarry
-	inc d
-.noCarry
+	adc d
+	sub e
+	ld d, a
 	ld a, (SCREEN_WIDTH - 7)
 	add l
 	ld l, a
-	jr nc, .noCarry2
-	inc h
-.noCarry2
+	adc h
+	sub l
+	ld h, a
 	dec b
 	jr nz, .loop
 	ret

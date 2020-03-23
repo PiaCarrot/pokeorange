@@ -1056,9 +1056,9 @@ HandleStoneQueue:: ; 3567
 	ld a, 5
 	add l
 	ld l, a
-	jr nc, .no_carry
-	inc h
-.no_carry
+	adc h
+	sub l
+	ld h, a
 
 	pop af
 	dec a
@@ -1881,8 +1881,7 @@ PrintBCDNumber:: ; 38bb
 ; 0x38f2
 
 PrintBCDDigit:: ; 38f2
-	and a, %00001111
-	and a
+	and %00001111
 	jr z, .zeroDigit
 .nonzeroDigit
 	bit 7, b ; have any non-space characters been printed?
@@ -1896,7 +1895,7 @@ PrintBCDDigit:: ; 38f2
 .skipCurrencySymbol
 	res 7, b ; unset 7 to indicate that a nonzero digit has been reached
 .outputDigit
-	add a, "0"
+	add "0"
 	ld [hli], a
 	jp PrintLetterDelay
 
