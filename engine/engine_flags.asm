@@ -12,10 +12,8 @@ EngineFlagAction:: ; 80430
 ; to know that the infrastructure is there.
 
 	ld a, d
-	cp 0
-	jr z, .ceiling
-	jr c, .read ; cp 0 can't set carry!
-	jr .invalid
+	and a
+	jr nz, .invalid
 
 ; There are only $a2 engine flags, so
 ; anything beyond that is invalid too.

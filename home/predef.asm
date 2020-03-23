@@ -20,16 +20,16 @@ Predef:: ; 2d83
 	push hl
 
 ; Call the Predef function
-	ld a, [PredefAddress]
-	ld h, a
-	ld a, [PredefAddress + 1]
+	ld hl, PredefAddress + 1
+	ld a, [hld]
+	ld h, [hl]
 	ld l, a
 	push hl
 
 ; Get hl back
-	ld a, [PredefTemp]
-	ld h, a
-	ld a, [PredefTemp + 1]
+	ld hl, PredefTemp + 1
+	ld a, [hld]
+	ld h, [hl]
 	ld l, a
 	ret
 
@@ -45,9 +45,9 @@ Predef:: ; 2d83
 	ld a, h
 	rst Bankswitch
 
-	ld a, [PredefTemp]
-	ld h, a
-	ld a, [PredefTemp + 1]
+	ld hl, PredefTemp + 1
+	ld a, [hld]
+	ld h, [hl]
 	ld l, a
 	ret
 ; 2dba

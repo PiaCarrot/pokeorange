@@ -323,9 +323,8 @@ BattleAnimFunction_PokeBall: ; cd15c (33:515c)
 	ld [hl], a
 	ld hl, BATTLEANIMSTRUCT_0F
 	add hl, bc
+	dec [hl]
 	ld a, [hl]
-	dec a
-	ld [hl], a
 	and $1f
 	ret nz
 	ld [hl], a
@@ -370,9 +369,8 @@ BattleAnimFunction_PokeBall: ; cd15c (33:515c)
 	ld [hl], a
 	ld hl, BATTLEANIMSTRUCT_0F
 	add hl, bc
+	dec [hl]
 	ld a, [hl]
-	dec a
-	ld [hl], a
 	and $1f
 	jr z, .eleven
 	and $f
@@ -629,11 +627,7 @@ BattleAnimFunction_08: ; cd306 (33:5306)
 	add hl, bc
 	ld a, [hl]
 	cp $b0
-	jr c, .retain
-	jp DeinitBattleAnimation
-
-.retain
-	jp .SetCoords
+	jp nc, DeinitBattleAnimation
 
 .SetCoords:
 	ld hl, BATTLEANIMSTRUCT_0B

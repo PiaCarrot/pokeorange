@@ -35,6 +35,6 @@ SECTION "rst28",ROM0
 
 SECTION "rst38",ROM0
 	di
-	ld b, b
+	ld b, b ; breakpoint
 	db $10, $69
 	jr @

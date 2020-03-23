@@ -386,9 +386,10 @@ ContestScore: ; 13900
 
 	; Remaining HP / 8
 	ld a, [wContestMonHP + 1]
-	srl a
-	srl a
-	srl a
+	rrca
+	rrca
+	rrca
+	and %00011111
 	call .AddContestStat
 
 	; Whether it's holding an item

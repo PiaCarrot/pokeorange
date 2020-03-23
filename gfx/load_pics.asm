@@ -443,7 +443,7 @@ Function512ab: ; 512ab
 	jr nz, .five_loop
 	ld c, 7 tiles
 	xor a
-	jp .Fill
+	; fallthrough
 
 .Fill:
 	ld [hli], a

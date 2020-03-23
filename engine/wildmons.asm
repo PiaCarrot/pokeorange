@@ -117,8 +117,7 @@ FindNest: ; 2a01f
 
 .found
 	pop af
-	jp .AppendNest
-; 2a09c
+	; fallthrough
 
 .AppendNest: ; 2a09c
 	push de

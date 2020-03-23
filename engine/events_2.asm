@@ -134,7 +134,7 @@ RandomEncounter:: ; 97cc0
 .ok_bug_contest
 	ld a, BANK(BugCatchingContestBattleScript)
 	ld hl, BugCatchingContestBattleScript
-	jr .done
+	; fallthrough
 
 .done
 	call CallScript
@@ -444,9 +444,9 @@ CmdQueue_Type4: ; 97ebc
 .one ; 97ecd
 	ld hl, 1
 	add hl, bc
+	dec [hl]
 	ld a, [hl]
-	dec a
-	ld [hl], a
+	and a
 	jr z, .finish
 	and $1
 	jr z, .add

@@ -22,7 +22,7 @@ GetSpriteVTile:: ; 180e
 	ld c, SPRITE_GFX_LIST_CAPACITY - 1
 	ld b, a
 	ld a, [hMapObjectIndexBuffer]
-	cp 0
+	and a
 	jr z, .nope
 	ld a, b
 .loop
@@ -182,10 +182,9 @@ CheckObjectTime:: ; 18f5
 	ld a, [TimeOfDay]
 	add l
 	ld l, a
-	jr nc, .ok
-	inc h
-
-.ok
+	adc h
+	sub l
+	ld h, a
 	ld a, [hl]
 	ld hl, MAPOBJECT_TIMEOFDAY
 	add hl, bc

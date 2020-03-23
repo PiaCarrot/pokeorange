@@ -232,7 +232,7 @@ DuskBall: ; e8a2
 .get_multiplier_loop
 	ld a, [hli]
 	cp $ff
-	jr z, .skip_or_return_from_ball_fn
+	jr z, .skip_ball_fn
 	cp c
 	jr z, .call_ball_function
 	inc hl
@@ -243,11 +243,9 @@ DuskBall: ; e8a2
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, .skip_or_return_from_ball_fn
-	push de
-	jp hl
+	call _hl_
 
-.skip_or_return_from_ball_fn
+.skip_ball_fn
 	ld a, [wCurItem]
 	cp LEVEL_BALL
 	ld a, b
@@ -1078,7 +1076,6 @@ DiveBallMultiplier:
 	ret nc
 	ld b, $ff
 	ret
-	ret
 
 DuskBallMultiplier:
 ; multiply catch rate by 3.5 at night or in caves
@@ -1472,7 +1469,7 @@ HealPowder: ; efad
 
 	call UseStatusHealer
 
-	cp $0
+	and a
 	jr nz, .asm_efc9
 	ld c, HAPPINESS_BITTERPOWDER
 	farcall ChangeHappiness
@@ -1640,7 +1637,7 @@ RevivalHerb: ; f0a9
 	jp c, StatusHealer_ExitMenu
 
 	call RevivePokemon
-	cp 0
+	and a
 	jr nz, .asm_f0c5
 
 	ld c, HAPPINESS_REVIVALHERB
@@ -1793,7 +1790,7 @@ EnergypowderEnergyRootCommon: ; f192
 	push bc
 	call ItemRestoreHP
 	pop bc
-	cp 0
+	and a
 	jr nz, .skip_happiness
 
 	farcall ChangeHappiness

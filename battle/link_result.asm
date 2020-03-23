@@ -93,9 +93,9 @@ DetermineLinkBattleResult: ; 2b930
 	ld b, a
 	ld a, [hld]
 	srl b
-	rr a
+	rra
 	srl b
-	rr a
+	rra
 	ld [hDivisor], a
 	ld b, $4
 	call Divide

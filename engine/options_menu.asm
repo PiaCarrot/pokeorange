@@ -359,7 +359,7 @@ OptionsControl: ; e452a
 
 .UpPressed:
 	ld a, [hl] ; load the cursor position to a
-	cp $0 ; first item
+	and a ; first item
 	jr z, .WrapBottom
 	cp $7 ; after unused $6 and $5
 	jr nz, .noskipup

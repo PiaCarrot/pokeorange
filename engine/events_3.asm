@@ -94,7 +94,6 @@ PlaceMapNameSign:: ; b8098 (2e:4098)
 	call PlaceMapNameCenterAlign
 	farcall HDMATransfer_OnlyTopFourRows
 .skip2
-	ld a, $80
 	ld a, $70
 	ld [rWY], a
 	ld [hWY], a
@@ -634,7 +633,7 @@ GetTreeMon: ; b83e5
 	call RandomRange
 	cp 8
 	jr nc, NoTreeMon
-	jr .skip
+
 .skip
 	ld a, [hli]
 	cp -1

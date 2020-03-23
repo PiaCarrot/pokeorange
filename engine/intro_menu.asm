@@ -79,8 +79,7 @@ AreYouABoyOrAreYouAGirl: ; 5b8f
 ResetWRAM: ; 5ba7
 	xor a
 	ld [hBGMapMode], a
-	jp _ResetWRAM
-; 5bae
+	; fallthrough
 
 _ResetWRAM: ; 5bae
 
@@ -810,8 +809,7 @@ Intro_PrepTrainerPic: ; 619c
 	ld [hGraphicStartTile], a
 	hlcoord 6, 4
 	lb bc, 7, 7
-	predef PlaceGraphic
-	ret
+	predef_jump PlaceGraphic
 ; 61b4
 
 ShrinkFrame: ; 61b4
@@ -822,8 +820,7 @@ ShrinkFrame: ; 61b4
 	ld [hGraphicStartTile], a
 	hlcoord 6, 4
 	lb bc, 7, 7
-	predef PlaceGraphic
-	ret
+	predef_jump PlaceGraphic
 ; 61cd
 
 Intro_PlacePlayerSprite: ; 61cd

@@ -186,7 +186,7 @@ DoPlayerMovement:: ; 80000
 ; the player change facing without moving by tapping a direction.
 
 	ld a, [wPlayerTurningDirection]
-	cp 0
+	and a
 	jr nz, .not_turning
 	ld a, [WalkingDirection]
 	cp STANDING
@@ -544,7 +544,7 @@ DoPlayerMovement:: ; 80000
 	ret nc
 
 	ld a, [wPlayerTurningDirection]
-	cp 0
+	and a
 	ret z
 
 .force
@@ -641,7 +641,6 @@ DoPlayerMovement:: ; 80000
 	add e
 	ld e, a
 ; Find an object struct with coordinates equal to d,e
-	ld bc, ObjectStructs ; redundant
 	farcall IsNPCAtCoord
 	jr nc, .is_npc
 	call .CheckStrengthBoulder
@@ -807,7 +806,7 @@ DoPlayerMovement:: ; 80000
 
 CheckStandingOnIce:: ; 80404
 	ld a, [wPlayerTurningDirection]
-	cp 0
+	and a
 	jr z, .not_ice
 	cp $f0
 	jr z, .not_ice

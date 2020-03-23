@@ -1957,12 +1957,7 @@ MovePKMNWitoutMail_InsertMon: ; e31e7
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, .dw_return
-	push de
-	jp hl
-; e322a
-
-.dw_return ; e322a
+	call _hl_
 	pop af
 	ld e, a
 	farcall MovePkmnWOMail_InsertMon_SaveGame

@@ -1841,9 +1841,10 @@ BattleBGEffect_2a: ; c8a3a (32:4a3a)
 	add hl, bc
 	ld a, [hl]
 	inc [hl]
-	srl a
-	srl a
-	srl a
+	rrca
+	rrca
+	rrca
+	and %00011111
 	ld e, a
 	ld d, 0
 	ld hl, .data
@@ -1881,9 +1882,10 @@ BattleBGEffect_2b: ; c8acc (32:4acc)
 	and a
 	jr z, .done
 	dec [hl]
-	srl a
-	srl a
-	srl a
+	rrca
+	rrca
+	rrca
+	and %00011111
 	and $f
 	ld d, a
 	ld e, a

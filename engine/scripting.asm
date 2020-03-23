@@ -406,10 +406,9 @@ Script_buttonsound: ; 96edc
 
 Script_yesorno: ; 96eed
 	call YesNoBox
-	ld a, FALSE
-	jr c, .no
-	ld a, TRUE
-.no
+	; if carry (no) then a = FALSE, else a = TRUE
+	sbc a
+	add TRUE
 	ld [ScriptVar], a
 	ret
 ; 96efa

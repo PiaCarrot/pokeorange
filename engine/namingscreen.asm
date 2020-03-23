@@ -199,7 +199,7 @@ NamingScreen: ; 116c1
 .StoreBoxIconParams: ; 11889 (4:5889)
 	ld a, BOX_NAME_LENGTH - 1
 	hlcoord 5, 4
-	jr .StoreParams
+	; fallthrough
 
 .StoreParams: ; 11890 (4:5890)
 	ld [wNamingScreenMaxNameLength], a
@@ -755,9 +755,10 @@ NamingScreen_GetLastCharacter: ; 11c11 (4:5c11)
 	add hl, bc
 	add [hl]
 	sub $8
-	srl a
-	srl a
-	srl a
+	rrca
+	rrca
+	rrca
+	and %00011111
 	ld e, a
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
@@ -766,9 +767,10 @@ NamingScreen_GetLastCharacter: ; 11c11 (4:5c11)
 	add hl, bc
 	add [hl]
 	sub $10
-	srl a
-	srl a
-	srl a
+	rrca
+	rrca
+	rrca
+	and %00011111
 	ld d, a
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH

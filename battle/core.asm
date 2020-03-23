@@ -433,7 +433,7 @@ DetermineMoveOrder: ; 3c314
 	farcall AI_Switch
 	call SetEnemyTurn
 	call SpikesDamage
-	jp .enemy_first
+	jr .enemy_first
 
 .use_move
 	ld a, [wPlayerAction]
@@ -441,8 +441,8 @@ DetermineMoveOrder: ; 3c314
 	jp nz, .player_first
 	call CompareMovePriority
 	jr z, .equal_priority
-	jp c, .player_first ; player goes first
-	jp .enemy_first
+	jr c, .player_first
+	jr .enemy_first
 
 .equal_priority
 	call SetPlayerTurn
@@ -459,7 +459,7 @@ DetermineMoveOrder: ; 3c314
 	call BattleRandom
 	cp e
 	jr nc, .speed_check
-	jp .player_first
+	jr .player_first
 
 .player_no_quick_claw
 	ld a, b
@@ -468,7 +468,7 @@ DetermineMoveOrder: ; 3c314
 	call BattleRandom
 	cp c
 	jr nc, .speed_check
-	jp .enemy_first
+	jr .enemy_first
 
 .both_have_quick_claw
 	ld a, [hLinkPlayerNumber]
@@ -476,29 +476,27 @@ DetermineMoveOrder: ; 3c314
 	jr z, .player_2b
 	call BattleRandom
 	cp c
-	jp c, .enemy_first
+	jr c, .enemy_first
 	call BattleRandom
 	cp e
-	jp c, .player_first
+	jr c, .player_first
 	jr .speed_check
 
 .player_2b
 	call BattleRandom
 	cp e
-	jp c, .player_first
+	jr c, .player_first
 	call BattleRandom
 	cp c
-	jp c, .enemy_first
-	jr .speed_check
-
+	jr c, .enemy_first
 .speed_check
 	ld de, BattleMonSpeed
 	ld hl, EnemyMonSpeed
 	ld c, 2
 	call StringCmp
 	jr z, .speed_tie
-	jp nc, .player_first
-	jp .enemy_first
+	jr nc, .player_first
+	jr .enemy_first
 
 .speed_tie
 	ld a, [hLinkPlayerNumber]
@@ -506,22 +504,19 @@ DetermineMoveOrder: ; 3c314
 	jr z, .player_2c
 	call BattleRandom
 	cp 1 + (50 percent)
-	jp c, .player_first
-	jp .enemy_first
+	jr c, .player_first
+.enemy_first ; 3c3f3
+	and a
+	ret
 
 .player_2c
 	call BattleRandom
 	cp 1 + (50 percent)
-	jp c, .enemy_first
+	jr c, .enemy_first
 .player_first
 	scf
 	ret
 ; 3c3f3
-
-.enemy_first ; 3c3f3
-	and a
-	ret
-; 3c3f5
 
 CheckContestBattleOver: ; 3c3f5
 	ld a, [BattleType]
@@ -2575,8 +2570,7 @@ PlayerMonFaintHappinessMod: ; 3d1aa
 	ld [wBattleResult], a
 	ld a, [wWhichMonFaintedFirst]
 	and a
-	ret z
-	ret ; ??????????
+	ret
 ; 3d1f8
 
 AskUseNextPokemon: ; 3d1f8
@@ -3590,9 +3584,9 @@ TryToRunAwayFromBattle: ; 3d8b3
 	ld b, a
 	ld a, [hStringCmpString1 + 1]
 	srl b
-	rr a
+	rra
 	srl b
-	rr a
+	rra
 	and a
 	jr z, .can_escape
 	ld [hDivisor], a
@@ -4141,7 +4135,6 @@ HandleHPHealingItem: ; 3dd2f
 	ld [Buffer4], a
 	adc a
 	ld b, a
-	ld a, b
 	cp [hl]
 	ld a, c
 	pop bc
@@ -4336,17 +4329,14 @@ HandleStatBoostingHeldItems: ; 3de97
 	cp $1
 	jr z, .player_1
 	call .DoEnemy
-	jp .DoPlayer
+	jr .DoPlayer
 
 .player_1
 	call .DoPlayer
-	jp .DoEnemy
-; 3dea9
-
 .DoEnemy: ; 3dea9
 	call GetPartymonItem
 	ld a, $0
-	jp .HandleItem
+	jr .HandleItem
 ; 3deb1
 
 .DoPlayer: ; 3deb1
@@ -5807,13 +5797,13 @@ LoadEnemyMon: ; 3e8eb
 
 ; 25% chance of getting an item
 	call BattleRandom
-	cp a, 1 + (75 percent)
+	cp 1 + (75 percent)
 	ld a, NO_ITEM
 	jr c, .UpdateItem
 
 ; From there, an 8% chance for Item2
 	call BattleRandom
-	cp a, 8 percent ; 8% of 25% = 2% Item2
+	cp 8 percent ; 8% of 25% = 2% Item2
 	ld a, [BaseItems]
 	jr nc, .UpdateItem
 	ld a, [BaseItems+1]
@@ -5868,7 +5858,7 @@ LoadEnemyMon: ; 3e8eb
 ; Roaming monsters (Entei, Raikou) work differently
 ; They have their own structs, which are shorter than normal
 	ld a, [BattleType]
-	cp a, BATTLETYPE_ROAMING
+	cp BATTLETYPE_ROAMING
 	jr nz, .NotRoaming
 
 ; Grab HP
@@ -5929,7 +5919,7 @@ LoadEnemyMon: ; 3e8eb
 ; Magikarp length
 ; Skimming this part recommended
 	ld a, [TempEnemyMonSpecies]
-	cp a, MAGIKARP
+	cp MAGIKARP
 	jr nz, .Happiness
 
 ; Get Magikarp's length
@@ -5939,25 +5929,25 @@ LoadEnemyMon: ; 3e8eb
 
 ; We're clear if the length is < 1536
 	ld a, [MagikarpLength]
-	cp a, $06 ; $600 = 1536
+	cp $06 ; $600 = 1536
 	jr nz, .CheckMagikarpArea
 
 ; 5% chance of skipping size checks
 	call Random
-	cp a, $0c ; / $100
+	cp $0c ; / $100
 	jr c, .CheckMagikarpArea
 ; Try again if > 1614
 	ld a, [MagikarpLength + 1]
-	cp a, $50
+	cp $50
 	jr nc, .GenerateDVs
 
 ; 20% chance of skipping this check
 	call Random
-	cp a, $32 ; / $100
+	cp $32 ; / $100
 	jr c, .CheckMagikarpArea
 ; Try again if > 1598
 	ld a, [MagikarpLength + 1]
-	cp a, $40
+	cp $40
 	jr nc, .GenerateDVs
 
 .CheckMagikarpArea:
@@ -5971,18 +5961,18 @@ LoadEnemyMon: ; 3e8eb
 ; Intended behavior enforces a minimum size at Lake of Rage
 ; The real behavior prevents size flooring in the Lake of Rage area
 	ld a, [MapGroup]
-	cp a, GROUP_RIND_ISLAND
+	cp GROUP_RIND_ISLAND
 	jr z, .Happiness
 	ld a, [MapNumber]
-	cp a, MAP_RIND_ISLAND
+	cp MAP_RIND_ISLAND
 	jr z, .Happiness
 ; 40% chance of not flooring
 	call Random
-	cp a, $64 ; / $100
+	cp $64 ; / $100
 	jr c, .Happiness
 ; Floor at length 1024
 	ld a, [MagikarpLength]
-	cp a, 1024 >> 8
+	cp 1024 >> 8
 	jr c, .GenerateDVs ; try again
 
 ; Finally done with DVs
@@ -6003,7 +5993,7 @@ LoadEnemyMon: ; 3e8eb
 ; If we're in a trainer battle,
 ; get the rest of the parameters from the party struct
 	ld a, [wBattleMode]
-	cp a, TRAINER_BATTLE
+	cp TRAINER_BATTLE
 	jr z, .OpponentParty
 
 ; If we're in a wild battle, check wild-specific stuff
@@ -6038,7 +6028,7 @@ LoadEnemyMon: ; 3e8eb
 
 ; ..unless it's a RoamMon
 	ld a, [BattleType]
-	cp a, BATTLETYPE_ROAMING
+	cp BATTLETYPE_ROAMING
 	jr nz, .Moves
 
 ; Grab HP
@@ -6091,7 +6081,7 @@ LoadEnemyMon: ; 3e8eb
 	ld de, EnemyMonMoves
 ; Are we in a trainer battle?
 	ld a, [wBattleMode]
-	cp a, TRAINER_BATTLE
+	cp TRAINER_BATTLE
 	jr nz, .WildMoves
 ; Then copy moves from the party struct
 	ld hl, OTPartyMon1Moves
@@ -6118,7 +6108,7 @@ LoadEnemyMon: ; 3e8eb
 .PP:
 ; Trainer battle?
 	ld a, [wBattleMode]
-	cp a, TRAINER_BATTLE
+	cp TRAINER_BATTLE
 	jr z, .TrainerPP
 
 ; Fill wild PP
@@ -6139,7 +6129,7 @@ LoadEnemyMon: ; 3e8eb
 .Personality:
 ; Trainer battle?
 	ld a, [wBattleMode]
-	cp a, TRAINER_BATTLE
+	cp TRAINER_BATTLE
 	jr z, .TrainerPersonality
 
 ; Wild personality
@@ -6209,9 +6199,7 @@ LoadEnemyMon: ; 3e8eb
 	ld hl, EnemyMonStats
 	ld de, EnemyStats
 	ld bc, EnemyMonStatsEnd - EnemyMonStats
-	call CopyBytes
-
-	ret
+	jp CopyBytes
 ; 3eb38
 
 CheckSleepingTreeMon: ; 3eb38
@@ -6220,13 +6208,13 @@ CheckSleepingTreeMon: ; 3eb38
 
 ; Don't do anything if this isn't a tree encounter
 	ld a, [BattleType]
-	cp a, BATTLETYPE_TREE
+	cp BATTLETYPE_TREE
 	jr nz, .NotSleeping
 
 ; Get list for the time of day
 	ld hl, .Morn
 	ld a, [TimeOfDay]
-	cp a, DAY
+	cp DAY
 	jr c, .Check
 	ld hl, .Day
 	jr z, .Check
@@ -6468,9 +6456,9 @@ ApplyStatLevelMultiplier: ; 3ecb7
 .got_pointers
 	add c
 	ld c, a
-	jr nc, .okay
-	inc b
-.okay
+	adc b
+	sub c
+	ld b, a
 	ld a, [bc]
 	pop bc
 	ld b, a
@@ -6481,9 +6469,9 @@ ApplyStatLevelMultiplier: ; 3ecb7
 	ld a, c
 	add e
 	ld e, a
-	jr nc, .okay2
-	inc d
-.okay2
+	adc d
+	sub e
+	ld d, a
 	pop bc
 	push hl
 	ld hl, .StatLevelMultipliers
@@ -7514,9 +7502,8 @@ CalcExpBar: ; 3f39c
 	ld b, 4
 	call Divide
 	ld a, [hQuotient + 2]
-	ld b, a
-	ld a, $40
-	sub b
+	cpl ; a = $40 - a
+	add $40 + 1
 	ld b, a
 	ret
 ; 3f41c
@@ -7809,8 +7796,7 @@ InitEnemyWildmon: ; 3f607
 	ld [hGraphicStartTile], a
 	hlcoord 12, 0
 	lb bc, 7, 7
-	predef PlaceGraphic
-	ret
+	predef_jump PlaceGraphic
 ; 3f662
 
 ExitBattle: ; 3f69e
@@ -7929,7 +7915,7 @@ ShowLinkBattleResult: ; 3f77c
 
 .loss
 	ld de, .Lose
-	jr .store_result
+	; fallthrough
 
 .store_result
 	hlcoord 6, 8
@@ -8246,8 +8232,7 @@ AddLastBattleToLinkRecord: ; 3fa42
 	push hl
 	inc hl
 	inc hl
-	ld a, [hl]
-	dec hl
+	ld a, [hld]
 	dec hl
 	and a
 	jr z, .copy
@@ -8307,8 +8292,7 @@ AddLastBattleToLinkRecord: ; 3fa42
 
 .CheckOverflow: ; 3fabe
 	dec hl
-	ld a, [hl]
-	inc hl
+	ld a, [hli]
 	cp 9999 / $100
 	ret c
 	ld a, [hl]
@@ -8529,8 +8513,7 @@ CopyBackpic: ; 3fc30
 	ld [hGraphicStartTile], a
 	hlcoord 2, 6
 	lb bc, 6, 6
-	predef PlaceGraphic
-	ret
+	predef_jump PlaceGraphic
 ; 3fc5b
 
 .LoadTrainerBackpicAsOAM: ; 3fc5b
@@ -8729,7 +8712,7 @@ GetWildPersonality:
 ; Roaming monsters (Entei, Raikou) work differently
 ; They have their own structs, which are shorter than normal
 	ld a, [BattleType]
-	cp a, BATTLETYPE_ROAMING
+	cp BATTLETYPE_ROAMING
 	jr nz, GetBattleRandomPersonality
 
 ; Grab HP

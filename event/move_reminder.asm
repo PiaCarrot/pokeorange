@@ -420,8 +420,7 @@ endc
 	ret z
 	ld [CurSpecies], a
 	hlcoord 1, 14
-	predef PrintMoveDesc
-	ret
+	predef_jump PrintMoveDesc
 
 .Heading
 if DEF(PSS)

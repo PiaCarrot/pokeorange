@@ -118,9 +118,9 @@ _CardFlip: ; e00ee (38:40ee)
 ; 0xe01d2
 
 .DeductCoins: ; e01d2
-	ld a, [Coins]
-	ld h, a
-	ld a, [Coins + 1]
+	ld hl, Coins + 1
+	ld a, [hld]
+	ld h, [hl]
 	ld l, a
 	ld a, h
 	and a
@@ -1148,9 +1148,9 @@ CardFlip_CheckWinCondition: ; e0637
 ; 0xe081b
 
 .AddCoinPlaySFX: ; e081b
-	ld a, [Coins]
-	ld h, a
-	ld a, [Coins + 1]
+	ld hl, Coins + 1
+	ld a, [hld]
+	ld h, [hl]
 	ld l, a
 	inc hl
 	ld a, h

@@ -224,7 +224,7 @@ Pack: ; 10000
 	lb bc, $1, $5
 	call Pack_InterpretJoypad
 	ret c
-	jp .ItemBallsKey_LoadSubmenu
+	; fallthrough
 
 .ItemBallsKey_LoadSubmenu: ; 101c5 (4:41c5)
 	farcall _CheckTossableItem
@@ -976,7 +976,6 @@ DepositSellPack: ; 106be
 	call WaitBGMap_DrawPackGFX
 	farcall TMHMPocket
 	ld a, [wCurItem]
-	ld [wCurItem], a
 	ret
 
 .BallsPocket: ; 1073b (4:473b)

@@ -596,7 +596,7 @@ TryReadSign: ; 96a38
 	jr .checkdir
 .left
 	ld b, OW_LEFT
-	jr .checkdir
+	; fallthrough
 
 .checkdir
 	ld a, [PlayerDirection]

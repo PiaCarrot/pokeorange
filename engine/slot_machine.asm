@@ -218,7 +218,7 @@ Slots_WaitReel1: ; 928d6 (24:68d6)
 	ld [wReel1ReelAction], a
 Slots_WaitStopReel1: ; 928e6 (24:68e6)
 	ld a, [wReel1ReelAction]
-	cp $0
+	and a
 	ret nz
 	ld a, SFX_STOP_SLOT
 	call Slots_PlaySFX
@@ -238,7 +238,7 @@ Slots_WaitReel2: ; 92900 (24:6900)
 	ld [wReel2ReelAction], a
 Slots_WaitStopReel2: ; 92910 (24:6910)
 	ld a, [wReel2ReelAction]
-	cp $0
+	and a
 	ret nz
 	ld a, SFX_STOP_SLOT
 	call Slots_PlaySFX
@@ -258,7 +258,7 @@ Slots_WaitReel3: ; 9292a (24:692a)
 	ld [wReel3ReelAction], a
 Slots_WaitStopReel3: ; 9293a (24:693a)
 	ld a, [wReel3ReelAction]
-	cp $0
+	and a
 	ret nz
 	ld a, SFX_STOP_SLOT
 	call Slots_PlaySFX
@@ -545,7 +545,7 @@ InitReelTiles: ; 92a98 (24:6a98)
 	ld hl, wReel1XCoord - wReel1
 	add hl, bc
 	ld [hl], 14 * 8
-	jp .OAM
+	; fallthrough
 
 .OAM: ; 92af9 (24:6af9)
 	ld hl, wReel1ReelAction - wReel1
@@ -565,7 +565,7 @@ Slots_SpinReels: ; 92b0f (24:6b0f)
 	ld bc, wReel2
 	call .SpinReel
 	ld bc, wReel3
-	jp .SpinReel
+	; fallthrough
 
 .SpinReel: ; 92b22 (24:6b22)
 	ld hl, wReel1SpinDistance - wReel1
@@ -1187,11 +1187,7 @@ Slots_CheckMatchedFirstTwoReels: ; 92e94
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, .return
-	push de
-	jp hl
-
-.return
+	call _hl_
 	ld a, [wFirstTwoReelsMatching]
 	and a
 	ret z
@@ -1298,11 +1294,7 @@ Slots_CheckMatchedAllThreeReels: ; 92f1d
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, .return
-	push de
-	jp hl
-
-.return
+	call _hl_
 	ld a, [wSlotMatched]
 	cp $ff
 	jr nz, .matched_nontrivial
@@ -1568,9 +1560,9 @@ Slots_AskBet: ; 9307c (24:707c)
 	call CloseWindow
 	ret c
 	ld a, [wMenuCursorY]
-	ld b, a
-	ld a, 4
-	sub b
+	; a = 4 - a
+	cpl
+	add 4 + 1
 	ld [wSlotBet], a
 	ld hl, Coins
 	ld c, a
@@ -1728,11 +1720,7 @@ SlotPayoutText: ; 93158 (24:7158)
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, .return
-	push de
-	jp hl
-
-.return
+	call _hl_
 	ld hl, .Text_PrintPayout
 	jp PrintText
 

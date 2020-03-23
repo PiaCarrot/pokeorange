@@ -228,6 +228,7 @@ GameFreakLogoScene1: ; e4707 (39:4707)
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
 	add hl, bc
 	inc [hl]
+GameFreakLogoScene5: ; e47ab (39:47ab)
 	ret
 
 GameFreakLogoScene2: ; e470d (39:470d)
@@ -325,9 +326,7 @@ GameFreakLogoScene4: ; e4776 (39:4776)
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
 	add hl, bc
 	inc [hl]
-	call PlaceGameFreakPresents_AdvanceIndex
-GameFreakLogoScene5: ; e47ab (39:47ab)
-	ret
+	jp PlaceGameFreakPresents_AdvanceIndex
 ; e47ac (39:47ac)
 
 GameFreakLogoPalettes: ; e47ac

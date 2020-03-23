@@ -158,7 +158,6 @@ _TitleScreen: ; 10ed67
 
 ; LY/SCX trickery starts here
 
-	ld a, [rSVBK]
 	push af
 	ld a, 5 ; BANK(wLYOverrides)
 	ld [rSVBK], a
@@ -260,8 +259,8 @@ LoadSuicuneFrame: ; 10eed2
 	ld a, SCREEN_WIDTH - 8
 	add l
 	ld l, a
-	ld a, 0
 	adc h
+	sub l
 	ld h, a
 	ld a, 8
 	add d

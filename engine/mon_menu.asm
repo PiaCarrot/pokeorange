@@ -203,11 +203,10 @@ GetMonSubmenuItems: ; 24dd4
 	ld d, [hl]
 	farcall ItemIsMail
 	pop hl
-	ld a, MONMENU_MAIL
-	jr c, .ok
-	ld a, MONMENU_ITEM
-
-.ok
+	; if carry then a = MONMENU_MAIL, else a = MONMENU_ITEM
+	sbc a
+	and MONMENU_MAIL - MONMENU_ITEM
+	add MONMENU_ITEM
 	call AddMonMenuItem
 
 .skip2

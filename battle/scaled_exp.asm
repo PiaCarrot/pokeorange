@@ -30,10 +30,11 @@ ScaledExpCalculation::
 ; calculate (2L+10)^2.5*(a*L)/(5*s)
 	push bc
 	call CheckForParticipation
-	ld a, 10 ; if mon did not participate, s = 2 (exp all must be on)
-	jr c, .got_s
-	ld a, 5 ; if mon participated, s = 1
-.got_s
+	; if mon did not participate, s = 2 (exp all must be on), so a = 10
+	; if mon participated, s = 1, so a = 5
+	sbc a
+	and 10 - 5
+	add 5
 	ld [hDivisor], a
 	ld b, $4
 	call Divide
