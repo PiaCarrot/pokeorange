@@ -172,9 +172,9 @@ endr
 	ld a, e
 	add WMISC_WIDTH - 4
 	ld e, a
-	jr nc, .next\@
-	inc d
-.next\@
+	adc d
+	sub e
+	ld d, a
 endr
 rept 4
 	ld a, [hli]
@@ -586,11 +586,11 @@ ReadObjectEvents:: ; 241f
 
 ; get NUM_OBJECTS - 1 - [wCurrentMapPersonEventCount]
 	ld a, [wCurrentMapPersonEventCount]
-	ld c, a
-	ld a, NUM_OBJECTS - 1
-	sub c
-	jr z, .skip
-	jr c, .skip
+	cp NUM_OBJECTS - 1
+	jr nc, .skip
+	; a = NUM_OBJECTS - 1 - a
+	cpl
+	add NUM_OBJECTS - 1 + 1
 	inc hl
 ; Fill the remaining sprite IDs and y coords with 0 and -1, respectively.
 	ld bc, OBJECT_LENGTH
@@ -1485,10 +1485,9 @@ SaveScreen_LoadNeighbor:: ; 28f7
 	ld a, e
 	add 6
 	ld e, a
-	jr nc, .okay
-	inc d
-
-.okay
+	adc d
+	sub e
+	ld d, a
 	pop hl
 	ld a, [hConnectionStripLength]
 	ld c, a
