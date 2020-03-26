@@ -1720,10 +1720,9 @@ Special_TryQuickSave: ; 29e66
 	ld a, [wd265]
 	push af
 	farcall Link_SaveGame
-	ld a, $1
-	jr nc, .return_result
-	xor a
-.return_result
+	; a = carry ? 0 : 1
+	sbc a
+	add 1
 	ld [ScriptVar], a
 	ld c, 30
 	call DelayFrames
