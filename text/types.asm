@@ -47,6 +47,7 @@ if DEF(PSS)
 	and TYPE_MASK
 endc
 	ld b, a
+	; fallthrough
 
 
 PrintType: ; 50953

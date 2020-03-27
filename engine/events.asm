@@ -484,7 +484,6 @@ TryObjectEvent: ; 969b5
 	ld a, [hl]
 	ld [hLastTalked], a
 
-	ld a, [hLastTalked]
 	call GetMapObject
 	ld hl, MAPOBJECT_COLOR
 	add hl, bc

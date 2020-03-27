@@ -419,10 +419,9 @@ RetainOldPalettes: ; 1556d
 	ret
 
 RotatePalettesRightMapAndMusic: ; 15574
-	ld e, 0
-	ld a, [MusicFadeIDLo]
-	ld d, 0
-	ld a, [MusicFadeIDHi]
+	xor a
+	ld [MusicFadeIDLo], a
+	ld [MusicFadeIDHi], a
 	ld a, $4
 	ld [MusicFade], a
 	jp RotateThreePalettesRight
