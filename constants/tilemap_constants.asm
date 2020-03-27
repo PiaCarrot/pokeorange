@@ -31,6 +31,7 @@ const_value SET 1
 	const TILESET_UNDERWATER           ; 1e
 	const TILESET_ILEX_FOREST          ; 1f
 	const TILESET_SEWER
+	const TILESET_AIRSHIP_INSIDE
 
 	const_def
 	const PAL_BG_GRAY

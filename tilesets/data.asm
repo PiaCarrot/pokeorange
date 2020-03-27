@@ -256,3 +256,10 @@ Tileset32GFX:
 INCBIN "gfx/tilesets/32.2bpp.lz"
 Tileset32Meta:
 INCBIN "tilesets/32_metatiles.bin"
+
+Tileset33Coll:
+INCLUDE "tilesets/33_collision.asm"
+Tileset33GFX:
+INCBIN "gfx/tilesets/33.2bpp.lz"
+Tileset33Meta:
+INCBIN "tilesets/33_metatiles.bin"
