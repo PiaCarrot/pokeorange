@@ -399,8 +399,8 @@ AnimateWaterTile: ; fc402
 
 	add WaterTileFrames % $100
 	ld l, a
-	ld a, 0
 	adc WaterTileFrames / $100
+	sub l
 	ld h, a
 
 ; Stack now points to the start of the tile for this frame.
@@ -451,8 +451,8 @@ AnimateDiveWaterTiles:
     inc hl
     ld h, [hl]
     ld l, a
-    ld a, 0
     adc h
+    sub l
     ld h, a
 
 ; Stack now points to the desired frame.
@@ -614,8 +614,8 @@ AnimateSproutPillarTile: ; fc645
 	inc hl
 	ld h, [hl]
 	ld l, a
-	ld a, 0
 	adc h
+	sub l
 	ld h, a
 
 	ld sp, hl
@@ -668,8 +668,8 @@ AnimateWhirlpoolTiles: ; fc678
 	inc hl
 	ld h, [hl]
 	ld l, a
-	ld a, 0
 	adc h
+	sub l
 	ld h, a
 
 ; Stack now points to the desired frame.

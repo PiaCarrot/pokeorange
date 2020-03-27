@@ -2747,9 +2747,6 @@ BattleCommand_CheckDestinyBond: ; 351c0
 BattleCommand_BuildOpponentRage: ; 35250
 ; buildopponentrage
 
-	jp .start
-
-.start
 	ld a, [AttackMissed]
 	and a
 	ret nz

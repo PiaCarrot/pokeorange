@@ -638,8 +638,8 @@ GetCreditsPalette: ; 109b2c
 	push hl
 	add UnknBGPals % $100
 	ld e, a
-	ld a, 0
 	adc UnknBGPals / $100
+	sub e
 	ld d, a
 	ld bc, 24
 	call CopyBytes
@@ -648,8 +648,8 @@ GetCreditsPalette: ; 109b2c
 	pop af
 	add BGPals % $100
 	ld e, a
-	ld a, 0
 	adc BGPals / $100
+	sub e
 	ld d, a
 	ld bc, 24
 	jp CopyBytes
