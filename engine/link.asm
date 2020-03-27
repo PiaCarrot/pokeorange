@@ -1722,7 +1722,7 @@ Special_TryQuickSave: ; 29e66
 	farcall Link_SaveGame
 	; a = carry ? 0 : 1
 	sbc a
-	add 1
+	inc a
 	ld [ScriptVar], a
 	ld c, 30
 	call DelayFrames

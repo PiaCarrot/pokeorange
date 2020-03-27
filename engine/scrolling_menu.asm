@@ -261,10 +261,9 @@ ScrollingMenu_InitFlags: ; 24764
 	ld a, [wScrollingMenuListSize]
 	ld b, a
 	ld a, [wMenuBorderTopCoord]
-	add 1
+	inc a
 	ld [w2DMenuCursorInitY], a
 	ld a, [wMenuBorderLeftCoord]
-	add 0
 	ld [w2DMenuCursorInitX], a
 	ld a, [wMenuData2_ScrollingMenuHeight]
 	cp b
@@ -454,13 +453,12 @@ ScrollingMenu_PlaceCursor: ; 2488b
 	sub c
 	dec a
 	add a
-	add $1
+	inc a
 	ld c, a
 	ld a, [wMenuBorderTopCoord]
 	add c
 	ld b, a
 	ld a, [wMenuBorderLeftCoord]
-	add $0
 	ld c, a
 	call Coord2Tile
 	ld [hl], "▷"

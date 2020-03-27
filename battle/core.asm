@@ -2566,7 +2566,7 @@ PlayerMonFaintHappinessMod: ; 3d1aa
 	farcall ChangeHappiness
 	ld a, [wBattleResult]
 	and %11000000
-	add $1
+	inc a
 	ld [wBattleResult], a
 	ld a, [wWhichMonFaintedFirst]
 	and a

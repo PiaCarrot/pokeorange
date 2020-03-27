@@ -244,7 +244,7 @@ InitializeVisibleSprites: ; 8177
 	ld hl, MAPOBJECT_X_COORD
 	add hl, bc
 	ld a, [hl]
-	add 1
+	inc a
 	sub d
 	jr c, .next
 
@@ -254,7 +254,7 @@ InitializeVisibleSprites: ; 8177
 	ld hl, MAPOBJECT_Y_COORD
 	add hl, bc
 	ld a, [hl]
-	add 1
+	inc a
 	sub e
 	jr c, .next
 
@@ -296,7 +296,7 @@ CheckObjectEnteringVisibleRange:: ; 81ca
 
 .Up: ; 81de
 	ld a, [YCoord]
-	sub 1
+	dec a
 	jr .Vertical
 
 .Down: ; 81e5
@@ -328,7 +328,7 @@ CheckObjectEnteringVisibleRange:: ; 81ca
 	ld hl, MAPOBJECT_X_COORD
 	add hl, bc
 	ld a, [hl]
-	add 1
+	inc a
 	sub e
 	jr c, .next_v
 	cp MAPOBJECT_SCREEN_WIDTH
@@ -352,7 +352,7 @@ CheckObjectEnteringVisibleRange:: ; 81ca
 
 .Left: ; 8232
 	ld a, [XCoord]
-	sub 1
+	dec a
 	jr .Horizontal
 
 .Right: ; 8239
@@ -384,7 +384,7 @@ CheckObjectEnteringVisibleRange:: ; 81ca
 	ld hl, MAPOBJECT_Y_COORD
 	add hl, bc
 	ld a, [hl]
-	add 1
+	inc a
 	sub d
 	jr c, .next_h
 	cp MAPOBJECT_SCREEN_HEIGHT

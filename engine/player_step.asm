@@ -216,7 +216,7 @@ UpdateOverworldMap: ; d536 (3:5536)
 .DecrementwOverworldMapAnchor: ; d5f4 (3:55f4)
 	ld hl, wOverworldMapAnchor
 	ld a, [hl]
-	sub 1
+	sub 1 ; dec a can't set carry
 	ld [hli], a
 	ret nc
 	dec [hl]
@@ -245,7 +245,7 @@ UpdateOverworldMap: ; d536 (3:5536)
 .IncrementwOverworldMapAnchor: ; d61d (3:561d)
 	ld hl, wOverworldMapAnchor
 	ld a, [hl]
-	add 1
+	add 1 ; inc a can't set carry
 	ld [hli], a
 	ret nc
 	inc [hl]

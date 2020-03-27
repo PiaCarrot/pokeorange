@@ -52,7 +52,7 @@ ScaledExpCalculation::
 ; calculate (2L+10)^2.5*(a*b*L)/(5*s) - done in two parts
 ; first multiplier - least significant byte
 	ld bc, BaseExpTable
-	ld h, $0
+	ld h, 0
 	ld a, [EnemyMonSpecies]
 	ld l, a
 	add hl, hl
@@ -83,7 +83,7 @@ ScaledExpCalculation::
 	ld [hProduct + 3], a
 ; second multiplier - most significant byte
 	ld bc, BaseExpTable + 1
-	ld h, $0
+	ld h, 0
 	ld a, [EnemyMonSpecies]
 	ld l, a
 	add hl, hl
@@ -155,13 +155,13 @@ ScaledExpCalculation::
 	xor a
 	ld [hProduct], a
 	ld a, c
-	add 1
+	add 1 ; inc a can't set carry
 	ld [hProduct + 3], a
-	ld a, $0
-	adc b
+	ld a, b
+	adc 0
 	ld [hProduct + 2], a
 	ld a, [wExpScratchByte]
-	adc $0
+	adc 0
 	ld [hProduct + 1], a
 ; calculate (ratio+1)*t
 ; now we need that offset into partymon again
@@ -175,7 +175,7 @@ ScaledExpCalculation::
 	ld b, [hl]
 	ld a, [PlayerID + 1]
 	cp b
-	ld a, $0
+	ld a, 0
 	jr z, .writeBoostedFlag
 
 .boostedEXP
@@ -212,7 +212,7 @@ Power25Calculator::
 	pop af
 	push hl
 	ld h, a
-	ld l, $0
+	ld l, 0
 	call SqrtHL
 	pop hl
 	ld [hMultiplier], a
@@ -381,7 +381,7 @@ BigDivision::
 ; hBigMultiplicand: 40bit top
 ; de:hl : 32bit bottom
 ; Initialize result
-	ld bc, $0
+	ld bc, 0
 	xor a
 	ld [wExpScratchByte], a
 ; Check for div/0 and don't divide at all if it happens
@@ -557,7 +557,7 @@ CheckForParticipation::
 	ld a, [wCurPartyMon]
 	ld c, a
 	ld b, CHECK_FLAG
-	ld d, $0
+	ld d, 0
 	predef FlagPredef
 	ld a, c
 	and a
