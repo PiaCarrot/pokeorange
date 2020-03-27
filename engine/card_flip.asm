@@ -626,8 +626,8 @@ CardFlip_BlankDiscardedCardSlot: ; e0534
 	srl a
 	add .Jumptable % $100
 	ld l, a
-	ld a, 0
 	adc .Jumptable / $100
+	sub l
 	ld h, a
 	ld a, [hli]
 	ld h, [hl]

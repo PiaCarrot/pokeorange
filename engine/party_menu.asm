@@ -545,8 +545,8 @@ PartyMenuCheckEgg: ; 50389
 	ld a, PartySpecies % $100
 	add b
 	ld e, a
-	ld a, PartySpecies / $100
-	adc 0
+	adc PartySpecies / $100
+	sub e
 	ld d, a
 	ld a, [de]
 	cp EGG

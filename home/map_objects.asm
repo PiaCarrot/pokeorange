@@ -475,8 +475,8 @@ _GetMovementByte:: ; 1aae
 	add hl, bc
 	add [hl]
 	ld e, a
-	ld a, d
-	adc 0
+	adc d
+	sub e
 	ld d, a
 	inc [hl]
 	ld a, [de]

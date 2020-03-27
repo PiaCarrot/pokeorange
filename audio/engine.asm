@@ -967,11 +967,11 @@ ApplyPitchWheel: ; e84f9
 	add hl, bc
 	add [hl]
 	ld [hl], a
-	ld a, 0
 	adc e
+	sub [hl]
 	ld e, a
-	ld a, 0
 	adc d
+	sub e
 	ld d, a
 	; Compare the dw at [Channel*PitchWheelTarget] to de.
 	; If frequency is greater, we're finished.
