@@ -381,11 +381,11 @@ GetCoordOfUpperLeftCorner:: ; 10486d
 	bit 0, a
 	jr nz, .increment_then_halve1
 	srl a
-	add $1
+	inc a
 	jr .resume
 
 .increment_then_halve1
-	add $1
+	inc a
 	srl a
 
 .resume
@@ -400,11 +400,11 @@ GetCoordOfUpperLeftCorner:: ; 10486d
 	bit 0, a
 	jr nz, .increment_then_halve2
 	srl a
-	add $1
+	inc a
 	jr .resume2
 
 .increment_then_halve2
-	add $1
+	inc a
 	srl a
 
 .resume2

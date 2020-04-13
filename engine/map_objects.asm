@@ -838,7 +838,6 @@ MapObjectMovementPattern: ; 47dd
 	ld a, [hl]
 	inc a
 	add a
-	add 0
 	ld hl, OBJECT_STEP_DURATION
 	add hl, bc
 	ld [hl], a
