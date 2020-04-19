@@ -70,8 +70,7 @@ HandleCurNPCStep: ; 437b
 	sub e
 	jr c, .ok
 	cp MAPOBJECT_SCREEN_HEIGHT
-	jr nc, .ok
-	jr .yes
+	jr c, .yes
 
 .ok
 	ld hl, OBJECT_FLAGS2

@@ -713,10 +713,8 @@ _Area: ; 91d11
 	ret nz
 	ld a, e
 	and $10
-	jr nz, .copy_sprites
-	jp ClearSprites
+	jp z, ClearSprites
 
-.copy_sprites
 	hlcoord 0, 0
 	ld de, Sprites
 	ld bc, SpritesEnd - Sprites

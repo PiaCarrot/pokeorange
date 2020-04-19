@@ -672,8 +672,7 @@ FlyFunction: ; ca3b
 
 	call GetMapPermission
 	call CheckOutdoorMap
-	jr z, .outdoors
-	jr .indoors
+	jr nz, .indoors
 
 .outdoors
 	xor a
@@ -1137,8 +1136,7 @@ TeleportFunction: ; cc61
 .TryTeleport: ; cc78
 	call GetMapPermission
 	call CheckOutdoorMap
-	jr z, .CheckIfSpawnPoint
-	jr .nope
+	jr nz, .nope
 
 .CheckIfSpawnPoint:
 	ld a, [wLastSpawnMapGroup]
@@ -1905,8 +1903,7 @@ BikeFunction: ; d0b3
 	cp CAVE
 	jr z, .ok
 	cp GATE
-	jr z, .ok
-	jr .nope
+	jr nz, .nope
 
 .ok
 	call GetPlayerStandingTile

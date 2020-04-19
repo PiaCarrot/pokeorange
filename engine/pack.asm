@@ -757,7 +757,7 @@ BattlePack: ; 10493
 	lb bc, $1, $5
 	call Pack_InterpretJoypad
 	ret c
-	jp ItemSubmenu
+	; fallthrough
 
 ItemSubmenu: ; 105d3 (4:45d3)
 	farcall CheckItemContext

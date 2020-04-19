@@ -300,10 +300,8 @@ StartTrainerBattle_SetUpForWavyOutro: ; 8c3e8 (23:43e8)
 StartTrainerBattle_SineWave: ; 8c408 (23:4408)
 	ld a, [wcf64]
 	cp $60
-	jr nc, .end
-	jp .DoSineWave
+	jr c, .DoSineWave
 
-.end
 	ld a, $20
 	ld [wJumptableIndex], a
 	ret

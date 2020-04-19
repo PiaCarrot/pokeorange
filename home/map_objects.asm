@@ -228,8 +228,7 @@ CheckObjectTime:: ; 18f5
 	jr c, .no
 	ld a, [hl]
 	cp d
-	jr nc, .yes
-	jr .no
+	jr c, .no
 
 .yes
 	and a

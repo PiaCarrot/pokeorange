@@ -144,7 +144,7 @@ WildFled_EnemyFled_LinkBattleCanceled: ; 3c0e5
 BattleTurn: ; 3c12f
 .loop
 	call CheckContestBattleOver
-	jp c, .quit
+	ret c
 
 	xor a
 	ld [wPlayerIsSwitching], a
@@ -163,19 +163,19 @@ BattleTurn: ; 3c12f
 	jr c, .skip_iteration
 .loop1
 	call BattleMenu
-	jr c, .quit
+	ret c
 	ld a, [BattleEnded]
 	and a
-	jr nz, .quit
+	ret nz
 	ld a, [wForcedSwitch] ; roared/whirlwinded/teleported
 	and a
-	jr nz, .quit
+	ret nz
 .skip_iteration
 	call ParsePlayerAction
 	jr nz, .loop1
 
 	call EnemyTriesToFlee
-	jr c, .quit
+	ret c
 
 	call DetermineMoveOrder
 	jr c, .false
@@ -190,19 +190,16 @@ BattleTurn: ; 3c12f
 .proceed
 	ld a, [wForcedSwitch]
 	and a
-	jr nz, .quit
+	ret nz
 
 	ld a, [BattleEnded]
 	and a
-	jr nz, .quit
+	ret nz
 
 	call HandleBetweenTurnEffects
 	ld a, [BattleEnded]
 	and a
-	jr nz, .quit
-	jp .loop
-
-.quit
+	jp z, .loop
 	ret
 ; 3c1bf
 
@@ -933,14 +930,14 @@ PlayerTurn_EndOpponentProtectEndureDestinyBond: ; 3c6cf
 	call SetPlayerTurn
 	call EndUserDestinyBond
 	farcall DoPlayerTurn
-	jp EndOpponentProtectEndureDestinyBond
+	jr EndOpponentProtectEndureDestinyBond
 ; 3c6de
 
 EnemyTurn_EndOpponentProtectEndureDestinyBond: ; 3c6de
 	call SetEnemyTurn
 	call EndUserDestinyBond
 	farcall DoEnemyTurn
-	jp EndOpponentProtectEndureDestinyBond
+	; fallthrough
 ; 3c6ed
 
 EndOpponentProtectEndureDestinyBond: ; 3c6ed
@@ -2115,10 +2112,8 @@ UpdateBattleStateAndExperienceAfterEnemyFaint: ; 3ce01
 	call BreakAttraction
 	ld a, [wBattleMode]
 	dec a
-	jr z, .wild2
-	jr .trainer
+	jr nz, .trainer
 
-.wild2
 	call StopDangerSound
 	ld a, $1
 	ld [wDanger], a
@@ -2825,13 +2820,13 @@ LostBattle: ; 3d38e
 EnemyMonFaintedAnimation: ; 3d432
 	hlcoord 12, 5
 	decoord 12, 6
-	jp MonFaintedAnimation
+	jr MonFaintedAnimation
 ; 3d43b
 
 PlayerMonFaintedAnimation: ; 3d43b
 	hlcoord 1, 10
 	decoord 1, 11
-	jp MonFaintedAnimation
+	; fallthrough
 ; 3d444
 
 MonFaintedAnimation: ; 3d444
@@ -4486,11 +4481,6 @@ DrawPlayerHUD: ; 3df58
 	ret
 ; 3df98
 
-UpdatePlayerHPPal: ; 3df98
-	ld hl, PlayerHPPal
-	jp UpdateHPPal
-; 3df9e
-
 CheckDanger: ; 3df9e
 	ld hl, BattleMonHP
 	ld a, [hli]
@@ -4694,9 +4684,14 @@ DrawEnemyHUD: ; 3e043
 	jp DrawBattleHPBar
 ; 3e127
 
+UpdatePlayerHPPal: ; 3df98
+	ld hl, PlayerHPPal
+	jr UpdateHPPal
+; 3df9e
+
 UpdateEnemyHPPal: ; 3e127
 	ld hl, EnemyHPPal
-	jp UpdateHPPal
+	; fallthrough
 ; 3e12e
 
 UpdateHPPal: ; 3e12e
@@ -4995,8 +4990,8 @@ PlayerSwitch: ; 3e3ad
 	cp BATTLEACTION_SWITCH1
 	jp c, .switch
 	cp BATTLEACTION_FORFEIT
-	jr nz, .dont_run
-	jp WildFled_EnemyFled_LinkBattleCanceled
+	jp z, WildFled_EnemyFled_LinkBattleCanceled
+	; fallthrough
 
 .dont_run
 	ld a, [hLinkPlayerNumber]

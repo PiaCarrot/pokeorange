@@ -174,7 +174,7 @@ Special_FindThatSpeciesYourTrainerID: ; c284
 	ld b, a
 	farcall _FindThatSpeciesYourTrainerID
 	jr z, FoundNone
-	jr FoundOne
+	; fallthrough
 
 FoundOne: ; c292
 	ld a, TRUE
@@ -232,7 +232,7 @@ Special_SlotMachine: ; c373
 	ret c
 	ld a, BANK(_SlotMachine)
 	ld hl, _SlotMachine
-	jp Special_StartGameCornerGame
+	jr Special_StartGameCornerGame
 ; c380
 
 Special_CardFlip: ; c380
@@ -240,7 +240,7 @@ Special_CardFlip: ; c380
 	ret c
 	ld a, BANK(_CardFlip)
 	ld hl, _CardFlip
-	jp Special_StartGameCornerGame
+	; fallthrough
 ; c38d
 
 Special_StartGameCornerGame: ; c39a

@@ -3134,7 +3134,7 @@ GetGender: ; 50bdd
 ListMovePP: ; 50c50
 	ld a, [wNumMoves]
 	inc a
-	ld c, a ; gets used in .load_loop
+	ld c, a ; no-optimize a = N - a (c gets used in .load_loop)
 	ld a, NUM_MOVES
 	sub c
 	ld b, a

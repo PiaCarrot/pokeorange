@@ -94,8 +94,7 @@ MainMenuJoypadLoop: ; 49de4
 	cp B_BUTTON
 	jr z, .b_button
 	cp A_BUTTON
-	jr z, .a_button
-	jr .loop
+	jr nz, .loop
 
 .a_button
 	call PlayClickSFX

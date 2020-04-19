@@ -645,8 +645,7 @@ Pokedex_NextOrPreviousDexEntry: ; 4066c (10:466c)
 	jr nc, .nope
 	call Pokedex_GetSelectedMon
 	call Pokedex_CheckSeen
-	jr nz, .yep
-	jr .down
+	jr z, .down
 
 .yep
 	scf

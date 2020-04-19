@@ -10,7 +10,7 @@ INCLUDE "home/highhome.asm"
 SECTION "Header", ROM0
 
 Start::
-	nop
+	nop ; no-optimize nops
 	jp _Start
 
 SECTION "Home", ROM0
@@ -1049,8 +1049,7 @@ HandleStoneQueue:: ; 3567
 	inc hl
 	ld a, [hld]
 	cp d
-	jr nz, .not_on_warp
-	jr .found_warp
+	jr z, .found_warp
 
 .not_on_warp
 	ld a, 5

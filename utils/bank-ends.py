@@ -16,7 +16,7 @@ bank_ends = []
 bank_space = []
 rom_name = sys.argv[1]
 
-with open(rom_name + '.gbc', 'rb') as f1, open(rom_name + '-0xff.gbc', 'rb') as f2:
+with open(rom_name + '.gbc', 'rb') as f1, open(rom_name + '-0x00.gbc', 'rb') as f2:
 	for bank in range(num_banks):
 		empty_bank = True
 		for i in range(bank_diff):

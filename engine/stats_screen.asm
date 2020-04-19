@@ -234,8 +234,7 @@ StatsScreen_JoypadAction: ; 4de54 (13:5e54)
 	bit D_UP_F, a
 	jr nz, .d_up
 	bit D_DOWN_F, a
-	jr nz, .d_down
-	jr .done
+	jr z, .done
 
 .d_down
 	ld a, [MonType]
@@ -421,10 +420,7 @@ StatsScreen_LoadGFX: ; 4dfb6 (13:5fb6)
 	call .LoadPals
 	ld hl, wcf64
 	bit 4, [hl]
-	jr nz, .place_frontpic
-	jp SetPalettes
-
-.place_frontpic
+	jp z, SetPalettes
 	jp StatsScreen_PlaceFrontpic
 
 .ClearBox: ; 4dfda (13:5fda)

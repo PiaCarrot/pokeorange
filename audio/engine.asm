@@ -523,10 +523,7 @@ PlayDanger: ; e8307
 	and a
 	jr z, .asm_e8323
 	cp 16 ; halfway
-	jr z, .asm_e831e
-	jr .asm_e8335
-
-.asm_e831e
+	jr nz, .asm_e8335
 	ld hl, Tablee8354
 	jr .updatehw
 
@@ -1938,11 +1935,9 @@ Music_StereoPanning: ; e89ba
 	; stereo on?
 	ld a, [wOptions]
 	bit 5, a ; stereo
-	jr nz, Music_Panning
 	; skip param
-	jp GetMusicByte
-
-; e89c5
+	jp z, GetMusicByte
+	; fallthrough
 
 Music_Panning: ; e89c5
 ; force panning
