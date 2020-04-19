@@ -638,7 +638,7 @@ GetTreeMon: ; b83e5
 	ld a, [hli]
 	cp -1
 	jr nz, .skip
-	jp SelectTreeMon
+	; fallthrough
 ; b841f
 
 SelectTreeMon: ; b841f

@@ -155,7 +155,7 @@ ScaledExpCalculation::
 	xor a
 	ld [hProduct], a
 	ld a, c
-	add 1 ; inc a can't set carry
+	add 1 ; no-optimize a++|a-- (inc a can't set carry)
 	ld [hProduct + 3], a
 	ld a, b
 	adc 0

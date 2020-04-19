@@ -239,20 +239,9 @@ ScrollTileRightLeft: ; fc309
 	and 7
 	ld [TileAnimationTimer], a
 	and 4
-	jr nz, ScrollTileLeft
-	jr ScrollTileRight
+	jr z, ScrollTileRight
+	; fallthrough
 ; fc318
-
-;ScrollTileUpDown: ; fc318
-;; Scroll up for 4 ticks, then down for 4 ticks.
-;	ld a, [TileAnimationTimer]
-;	inc a
-;	and 7
-;	ld [TileAnimationTimer], a
-;	and 4
-;	jr nz, ScrollTileDown
-;	jr ScrollTileUp
-;; fc327
 
 ScrollTileLeft: ; fc327
 	ld h, d
@@ -283,6 +272,17 @@ ScrollTileRight: ; fc33b
 	jr nz, .loop
 	ret
 ; fc34f
+
+;ScrollTileUpDown: ; fc318
+;; Scroll up for 4 ticks, then down for 4 ticks.
+;	ld a, [TileAnimationTimer]
+;	inc a
+;	and 7
+;	ld [TileAnimationTimer], a
+;	and 4
+;	jr nz, ScrollTileDown
+;	; fallthrough
+;; fc327
 
 ScrollTileUp: ; fc34f
 	ld h, d

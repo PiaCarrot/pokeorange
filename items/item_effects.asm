@@ -418,10 +418,8 @@ DuskBall: ; e8a2
 	push af
 	set SUBSTATUS_TRANSFORMED, [hl]
 	bit SUBSTATUS_TRANSFORMED, a
-	jr nz, .ditto
-	jr .not_ditto
+	jr z, .not_ditto
 
-.ditto
 	ld a, DITTO
 	ld [TempEnemyMonSpecies], a
 	jr .load_data
@@ -1220,9 +1218,7 @@ Protector: ; ee0f
 
 	ld a, [wMonTriedToEvolve]
 	and a
-	jr z, .NoEffect
-
-	jp UseDisposableItem
+	jp nz, UseDisposableItem
 
 .NoEffect:
 	call WontHaveAnyEffectMessage
@@ -2404,7 +2400,7 @@ SuperRod: ; f5ad
 
 MasterRod:
 	ld e, $3
-	jr UseRod
+	; fallthrough
 
 UseRod: ; f5b1
 	farcall FishFunction

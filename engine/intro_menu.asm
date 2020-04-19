@@ -283,15 +283,9 @@ Continue: ; 5d65
 	ld c, 20
 	call DelayFrames
 	call ConfirmContinue
-	jr nc, .Check1Pass
-	jp CloseWindow
-
-.Check1Pass:
+	jp c, CloseWindow
 	call Continue_CheckRTC_RestartClock
-	jr nc, .Check2Pass
-	jp CloseWindow
-
-.Check2Pass:
+	jp c, CloseWindow
 	ld a, $8
 	ld [MusicFade], a
 	ld a, MUSIC_NONE % $100
@@ -322,6 +316,7 @@ Continue: ; 5d65
 SpawnAfterRed: ; 5de2
 	ld a, SPAWN_HOME
 	ld [DefaultSpawnpoint], a
+	; fallthrough
 ; 5de7
 
 PostCreditsSpawn: ; 5de7
@@ -374,10 +369,7 @@ FinishContinueFunction: ; 5e5d
 	farcall OverworldLoop
 	ld a, [wSpawnAfterChampion]
 	cp SPAWN_RED
-	jr z, .AfterRed
-	jp Reset
-
-.AfterRed:
+	jp nz, Reset
 	call SpawnAfterRed
 	jr .loop
 ; 5e85
@@ -391,12 +383,12 @@ DisplaySaveInfoOnContinue: ; 5e85
 
 .clock_ok
 	lb de, 4, 8
-	jp DisplayNormalContinueData
+	jr DisplayNormalContinueData
 ; 5e9a
 
 DisplaySaveInfoOnSave: ; 5e9a
 	lb de, 4, 0
-	jr DisplayNormalContinueData
+	; fallthrough
 ; 5e9f
 
 DisplayNormalContinueData: ; 5e9f

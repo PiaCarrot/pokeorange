@@ -267,7 +267,7 @@ WillPersonBumpIntoSomeoneElse: ; 7009
 	ld hl, OBJECT_NEXT_MAP_Y
 	add hl, bc
 	ld e, [hl]
-	jr IsNPCAtCoord
+	; fallthrough
 ; 7015
 
 IsNPCAtCoord: ; 7041

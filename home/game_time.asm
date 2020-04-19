@@ -12,8 +12,6 @@ ResetGameTime:: ; 208a
 
 GameTimer:: ; 209e
 
-	nop
-
 	ld a, [rSVBK]
 	push af
 	ld a, 1

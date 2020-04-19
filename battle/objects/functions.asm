@@ -156,10 +156,8 @@ BattleAnimFunction_04: ; cd0a6 (33:50a6)
 	add hl, bc
 	ld a, [hl]
 	cp $88
-	jr c, .asm_cd0b3
-	jp DeinitBattleAnimation
+	jp nc, DeinitBattleAnimation
 
-.asm_cd0b3
 	add $2
 	ld [hl], a
 	ld hl, BATTLEANIMSTRUCT_YCOORD
@@ -395,10 +393,8 @@ BattleAnimFunction_PokeBallBlocked: ; cd212 (33:5212)
 	add hl, bc
 	ld a, [hl]
 	cp $70
-	jr nc, .next
-	jp BattleAnimFunction_ThrowFromPlayerToEnemy
+	jp c, BattleAnimFunction_ThrowFromPlayerToEnemy
 
-.next
 	call BattleAnim_IncAnonJumptableIndex
 .two
 	ld hl, BATTLEANIMSTRUCT_YCOORD
@@ -559,10 +555,8 @@ BattleAnimFunction_08: ; cd306 (33:5306)
 	add hl, bc
 	ld a, [hl]
 	cp $80
-	jr nc, .next
-	jp .SetCoords
+	jp c, .SetCoords
 
-.next
 	call BattleAnim_IncAnonJumptableIndex
 .one
 	call BattleAnim_IncAnonJumptableIndex
@@ -871,10 +865,8 @@ BattleAnimFunction_RazorLeaf: ; cd478 (33:5478)
 	add hl, bc
 	ld a, [hl]
 	cp $20
-	jr nz, .sine_cosine_2
-	jp DeinitBattleAnimation
+	jp z, DeinitBattleAnimation
 
-.sine_cosine_2
 	ld hl, BATTLEANIMSTRUCT_0F
 	add hl, bc
 	ld a, [hl]
@@ -1000,10 +992,8 @@ BattleAnimFunction_4E: ; cd58a (33:558a)
 	add hl, bc
 	ld a, [hl]
 	cp $30
-	jr nc, .sine_cosine
-	jp DeinitBattleAnimation
+	jp c, DeinitBattleAnimation
 
-.sine_cosine
 	ld hl, BATTLEANIMSTRUCT_0B
 	add hl, bc
 	ld a, [hl]
@@ -1220,10 +1210,8 @@ Functioncd6f7: ; cd6f7 (33:56f7)
 	add hl, bc
 	ld a, [hl]
 	cp $b8
-	jr c, .asm_cd704
-	jp DeinitBattleAnimation
+	jp nc, DeinitBattleAnimation
 
-.asm_cd704
 	ld a, $2
 	call Functionce70a
 	ld hl, BATTLEANIMSTRUCT_0F
@@ -1299,10 +1287,8 @@ BattleAnimFunction_11: ; cd777 (33:5777)
 	add hl, bc
 	ld a, [hl]
 	cp $38
-	jr c, .asm_cd784
-	jp DeinitBattleAnimation
+	jp nc, DeinitBattleAnimation
 
-.asm_cd784
 	ld a, [hl]
 	ld hl, BATTLEANIMSTRUCT_0F
 	add hl, bc
@@ -1357,10 +1343,8 @@ Functioncd7d2: ; cd7d2 (33:57d2)
 	add hl, bc
 	ld a, [hl]
 	and a
-	jr nz, .asm_cd7de
-	jp DeinitBattleAnimation
+	jp z, DeinitBattleAnimation
 
-.asm_cd7de
 	ld hl, BATTLEANIMSTRUCT_0F
 	add hl, bc
 	ld a, [hl]
@@ -1634,8 +1618,7 @@ Functioncd97b: ; cd97b (33:597b)
 	add hl, bc
 	ld a, [hl]
 	cp $b8
-	jr c, asm_cd988
-	jp DeinitBattleAnimation
+	jp nc, DeinitBattleAnimation
 
 asm_cd988: ; cd988 (33:5988)
 	call Functioncd99a
@@ -1729,10 +1712,8 @@ BattleAnimFunction_1C: ; cda0a (33:5a0a)
 	add hl, bc
 	ld a, [hl]
 	cp $30
-	jr nc, .asm_cda17
-	jp DeinitBattleAnimation
+	jp c, DeinitBattleAnimation
 
-.asm_cda17
 	ld hl, BATTLEANIMSTRUCT_0B
 	add hl, bc
 	ld a, [hl]
@@ -1789,10 +1770,8 @@ BattleAnimFunction_LeechSeed: ; cda4d (33:5a4d)
 	add hl, bc
 	ld a, [hl]
 	cp $20
-	jr c, .sprout
-	jp Functioncda8d
+	jp nc, Functioncda8d
 
-.sprout
 	ld [hl], $40
 	ld a, BATTLEANIMFRAMESET_57
 	call ReinitBattleAnimFrameset
@@ -1879,10 +1858,7 @@ Functioncdae9: ; cdae9 (33:5ae9)
 	add hl, bc
 	ld a, [hl]
 	cp $20
-	jr c, .asm_cdaf6
-	jp Functioncda8d
-
-.asm_cdaf6
+	jp nc, Functioncda8d
 	jp BattleAnim_IncAnonJumptableIndex
 
 BattleAnimFunction_1A: ; cdafa (33:5afa)
@@ -2171,8 +2147,7 @@ BattleAnimFunction_1E: ; cdca6 (33:5ca6)
 	and a
 	jr z, .asm_cdcb6
 	cp $d8
-	jr nc, .asm_cdcb6
-	jp DeinitBattleAnimation
+	jp c, DeinitBattleAnimation
 
 .asm_cdcb6
 	ld hl, BATTLEANIMSTRUCT_0B
@@ -2832,8 +2807,8 @@ BattleAnimFunction_Horn: ; ce063 (33:6063)
 	add hl, bc
 	ld a, [hl]
 	cp $20
-	jr c, Functionce09e
-	jp DeinitBattleAnimation
+	jp nc, DeinitBattleAnimation
+	; fallthrough
 
 Functionce09e: ; ce09e (33:609e)
 	ld hl, BATTLEANIMSTRUCT_10
@@ -2899,10 +2874,8 @@ Functionce0f8: ; ce0f8 (33:60f8)
 	add hl, bc
 	ld a, [hl]
 	cp $84
-	jr c, .asm_ce105
-	jp DeinitBattleAnimation
+	jp nc, DeinitBattleAnimation
 
-.asm_ce105
 	ld hl, BATTLEANIMSTRUCT_0B
 	add hl, bc
 	ld a, [hl]
@@ -3378,10 +3351,8 @@ BattleAnimFunction_3A: ; ce3d2 (33:63d2)
 	add hl, bc
 	ld a, [hl]
 	cp $20
-	jr c, .asm_ce3df
-	jp DeinitBattleAnimation
+	jp nc, DeinitBattleAnimation
 
-.asm_ce3df
 	ld hl, BATTLEANIMSTRUCT_0B
 	add hl, bc
 	ld a, [hl]

@@ -2,7 +2,7 @@ ROM_NAME = pokeorange
 TITLE = PKMNORANGE
 MCODE = PKOR
 ROMVERSION = 0x32
-FILLER = 0x00
+FILLER = 0xff
 
 
 ifneq ($(wildcard rgbds/.*),)
@@ -58,7 +58,7 @@ text/common_text.o \
 gfx/pics.o
 
 
-roms := $(ROM_NAME).gbc $(ROM_NAME)-0xff.gbc
+roms := $(ROM_NAME).gbc $(ROM_NAME)-0x00.gbc
 
 all: orange
 
@@ -67,9 +67,9 @@ orange: $(ROM_NAME).gbc ; sort $(ROM_NAME).sym -o $(ROM_NAME).sym
 pss: orange
 debug: orange
 
-bankfree: FILLER = 0xff
+bankfree: FILLER = 0x00
 bankfree: ROM_NAME := $(ROM_NAME)-$(FILLER)
-bankfree: $(ROM_NAME)-0xff.gbc
+bankfree: $(ROM_NAME)-0x00.gbc
 
 freespace: $(bank_ends_txt) $(roms_md5)
 
@@ -89,7 +89,7 @@ $(INCLUDES): $(INCLUDES).c
 
 
 clean:
-	$(RM) $(roms) $(orange_obj) $(roms:.gbc=.map) $(ROM_NAME)-0xff.sym
+	$(RM) $(roms) $(orange_obj) $(roms:.gbc=.map) $(ROM_NAME)-0x00.sym
 
 compare: orange
 	$(MD5) -c $(roms_md5)

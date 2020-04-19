@@ -310,8 +310,6 @@ Credits_UpdateGFXRequestPath: ; 109964 (42:5964)
 	ld [hRequestedVTileDest], a
 	ld a, VTiles2 / $100
 	ld [hRequestedVTileDest + 1], a
-	jr Credits_RequestGFX
-
 Credits_RequestGFX: ; 10997b (42:597b)
 	xor a
 	ld [hBGMapMode], a

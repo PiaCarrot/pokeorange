@@ -762,15 +762,9 @@ LinkTradePartymonMenuLoop: ; 288c5
 	farcall LinkTradeMenu
 	ld a, d
 	and a
-	jr nz, .check_joypad
-	jp LinkTradePartiesMenuMasterLoop
-
-.check_joypad
+	jp z, LinkTradePartiesMenuMasterLoop
 	bit A_BUTTON_F, a
-	jr z, .not_a_button
-	jp Function28926
-
-.not_a_button
+	jp nz, Function28926
 	bit D_DOWN_F, a
 	jr z, .not_d_down
 	ld a, [wMenuCursorY]

@@ -59,10 +59,9 @@ GetMapTrigger:: ; 2147
 	jr nz, .next ; map group did not match
 	ld a, [hli] ; map number
 	cp c
-	jr nz, .next ; map number did not match
-	jr .found ; we found our map
+	jr z, .found ; we found our map
 
-.next
+.next ; map number did not match
 	pop hl
 	ld de, 4 ; size of an entry in the trigger table
 	add hl, de
@@ -274,8 +273,7 @@ GetDestinationWarpNumber:: ; 2252
 	jr nz, .next
 	ld a, [hli]
 	cp d
-	jr nz, .next
-	jr .found_warp
+	jr z, .found_warp
 
 .next
 	pop hl
@@ -1374,8 +1372,7 @@ LoadTileset:: ; 2821
 	cp TILESET_JOHTO_2
 	jr z, .load_roof
 	cp TILESET_BATTLE_TOWER_OUTSIDE
-	jr z, .load_roof
-	jr .skip_roof
+	jr nz, .skip_roof
 
 .load_roof
 	farcall LoadMapGroupRoof
@@ -1810,8 +1807,7 @@ CheckIfFacingTileCoordIsSign:: ; 2aaa
 	jr nz, .next
 	ld a, [hli]
 	cp d
-	jr nz, .next
-	jr .copysign
+	jr z, .copysign
 
 .next
 	pop hl
@@ -1882,8 +1878,7 @@ CheckCurrentMapXYTriggers:: ; 2ad4
 	jr nz, .next
 	ld a, [hli]
 	cp d
-	jr nz, .next
-	jr .copytrigger
+	jr z, .copytrigger
 
 .next
 	pop hl

@@ -82,8 +82,8 @@ UpdateOpponentInParty:: ; 398e
 UpdateUserInParty:: ; 3995
 	ld a, [hBattleTurn]
 	and a
-	jr z, UpdateBattleMonInParty
-	jr UpdateEnemyMonInParty
+	jr nz, UpdateEnemyMonInParty
+	; fallthrough
 ; 399c
 
 UpdateBattleMonInParty:: ; 399c

@@ -35,6 +35,6 @@ SECTION "rst28",ROM0
 
 SECTION "rst38",ROM0
 	di
-	ld b, b ; breakpoint
+	ld b, b ; no-optimize nops (BGB breakpoint)
 	db $10, $69
 	jr @

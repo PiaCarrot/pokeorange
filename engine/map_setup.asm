@@ -363,8 +363,7 @@ CheckReplaceKrisSprite: ; 154f7
 	cp PERM_5
 	jr z, .checkbiking
 	cp DUNGEON
-	jr z, .checkbiking
-	jr .nope
+	jr nz, .nope
 .checkbiking
 	ld a, [PlayerState]
 	cp PLAYER_BIKE

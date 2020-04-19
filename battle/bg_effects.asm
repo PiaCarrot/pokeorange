@@ -209,8 +209,7 @@ BattleBGEffect_FlashContinue: ; c80fb (32:40fb)
 	add hl, bc
 	ld a, [hl]
 	and a
-	jr nz, .apply_pal
-	jp EndBattleBGEffect
+	jp z, EndBattleBGEffect
 
 .apply_pal
 	dec a
@@ -355,8 +354,7 @@ BattleBGEffect_HideMon: ; c81b3 (32:41b3)
 
 BattleBGEffect_ShowMon: ; c81ea (32:41ea)
 	call BGEffect_CheckFlyDigDiveStatus
-	jr z, .not_flying
-	jp EndBattleBGEffect
+	jp nz, EndBattleBGEffect
 
 .not_flying
 	call BGEffect_CheckBattleTurn
@@ -1792,10 +1790,7 @@ BattleBGEffect_2a: ; c8a3a (32:4a3a)
 
 .two
 	call .GetLYOverride
-	jr nc, .next
-	jp .SetLYOverridesBackup
-
-.next
+	jp c, .SetLYOverridesBackup
 	ld hl, BG_EFFECT_STRUCT_03
 	add hl, bc
 	ld [hl], $0
@@ -2275,8 +2270,7 @@ BGEffect_RapidCyclePals: ; c8d77 (32:4d77)
 	or [hl]
 	ld [hl], a
 	call BattleBGEffect_GetFirstDMGPal
-	jr c, .okay_2_cgb
-	jp BGEffects_LoadBGPal0_OBPal1
+	jp nc, BGEffects_LoadBGPal0_OBPal1
 
 .okay_2_cgb
 	ld hl, BG_EFFECT_STRUCT_03
@@ -2304,8 +2298,7 @@ BGEffect_RapidCyclePals: ; c8d77 (32:4d77)
 	or [hl]
 	ld [hl], a
 	call BattleBGEffect_GetFirstDMGPal
-	jr c, .okay_4_cgb
-	jp BGEffects_LoadBGPal1_OBPal0
+	jp nc, BGEffects_LoadBGPal1_OBPal0
 
 .okay_4_cgb
 	ld hl, BG_EFFECT_STRUCT_03

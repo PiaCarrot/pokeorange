@@ -1405,9 +1405,7 @@ endc
 	cp b
 	jr z, .stab
 	cp c
-	jr z, .stab
-
-	jr .SkipStab
+	jr nz, .SkipStab
 
 .stab
 	ld hl, CurDamage + 1
@@ -1461,8 +1459,7 @@ endc
 	cp d
 	jr z, .GotMatchup
 	cp e
-	jr z, .GotMatchup
-	jr .SkipType
+	jr nz, .SkipType
 
 .GotMatchup:
 	push hl
@@ -2395,8 +2392,7 @@ BattleCommand_FailureText: ; 35023
 	cp EFFECT_DOUBLE_HIT
 	jr z, .multihit
 	cp EFFECT_TWINEEDLE
-	jr z, .multihit
-	jp EndMoveEffect
+	jp nz, EndMoveEffect
 
 .multihit
 	call BattleCommand_RaiseSub
@@ -5304,7 +5300,7 @@ BattleCommand_AccuracyUp2: ; 361dc
 BattleCommand_EvasionUp2: ; 361e0
 ; evasionup2
 	ld b, $10 | EVASION
-	jr BattleCommand_StatUp
+	; fallthrough
 
 BattleCommand_StatUp: ; 361e4
 ; statup
@@ -9151,7 +9147,7 @@ GetUserItem: ; 37db2
 	ld hl, EnemyMonItem
 .go
 	ld b, [hl]
-	jp GetItemHeldEffect
+	jr GetItemHeldEffect
 
 ; 37dc1
 
@@ -9165,7 +9161,7 @@ GetOpponentItem: ; 37dc1
 	ld hl, BattleMonItem
 .go
 	ld b, [hl]
-	jp GetItemHeldEffect
+	; fallthrough
 
 ; 37dd0
 

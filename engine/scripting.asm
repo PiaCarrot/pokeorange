@@ -949,7 +949,7 @@ Script_spriteface: ; 97274
 	add a
 	add a
 	ld e, a
-	jp ApplyPersonFacing
+	; fallthrough
 ; 9728b
 
 ApplyPersonFacing: ; 9728b
@@ -1270,7 +1270,7 @@ Script_reloadmapafterbattle: ; 97459
 	ld de, Script_AlertToFullBox
 	farcall LoadScriptBDE
 .done
-	jp Script_reloadmap
+	; fallthrough
 ; 97491
 
 Script_reloadmap: ; 97491
