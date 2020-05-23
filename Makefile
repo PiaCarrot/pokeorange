@@ -81,8 +81,9 @@ endif
 
 tools: $(LZ) $(INCLUDES)
 
-$(LZ): $(LZ).c
-	$(CC) $(CFLAGS) -o $@ $<
+$(LZ): CFLAGS = -O3 -flto -std=c11
+$(LZ): $(wildcard tools/lz/*.c) $(wildcard tools/lz/*.h)
+	$(CC) $(CFLAGS) -o $@ $(wildcard tools/lz/*.c)
 
 $(INCLUDES): $(INCLUDES).c
 	$(CC) $(CFLAGS) -o $@ $<
