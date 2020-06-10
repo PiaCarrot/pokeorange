@@ -311,7 +311,7 @@ ShortHPBar_CalcPixelFrame: ; d839
 	call AddNTimes
 	ld b, 0
 .loop
-	ld a, l
+	ld a, l ; no-optimize hl|bc|de -= N (dec h can't set carry)
 	sub 6 * 8
 	ld l, a
 	ld a, h
@@ -326,7 +326,7 @@ ShortHPBar_CalcPixelFrame: ; d839
 	ld bc, $80
 	add hl, bc
 	pop bc
-	ld a, l
+	ld a, l ; no-optimize hl|bc|de -= N (dec h can't set carry)
 	sub 6 * 8
 	ld l, a
 	ld a, h

@@ -810,7 +810,8 @@ _StatsScreenDPad: ; e2998 (38:6998)
 	and D_DOWN
 	jr nz, BillsPC_PressDown
 .empty
-	jp BillsPC_JoypadDidNothing
+	xor a
+	ret
 
 Withdraw_UpDown: ; e29b5 (38:69b5)
 	ld hl, hJoyLast
@@ -827,7 +828,8 @@ Withdraw_UpDown: ; e29b5 (38:69b5)
 	and D_DOWN
 	jr nz, BillsPC_PressDown
 .empty
-	jp BillsPC_JoypadDidNothing
+	xor a
+	ret
 ; e29d0 (38:69d0)
 
 MovePkmnWithoutMail_DPad: ; e29d0
@@ -852,7 +854,8 @@ MovePkmnWithoutMail_DPad: ; e29d0
 	ld a, [hl]
 	and D_RIGHT
 	jr nz, BillsPC_PressRight
-	jr BillsPC_JoypadDidNothing
+	xor a
+	ret
 
 MovePkmnWithoutMail_DPad_2: ; e29f4
 	ld hl, hJoyLast
@@ -877,7 +880,8 @@ MovePkmnWithoutMail_DPad_2: ; e29f4
 	ld a, [hl]
 	and D_RIGHT
 	jr nz, BillsPC_PressRight
-	jr BillsPC_JoypadDidNothing
+	xor a
+	ret
 
 BillsPC_PressUp: ; e2a18 (38:6a18)
 	ld hl, wBillsPC_CursorPosition
@@ -943,7 +947,6 @@ BillsPC_PressRight: ; e2a56
 
 BillsPC_JoypadDidNothing: ; e2a65 (38:6a65)
 	xor a
-	and a
 	ret
 
 BillsPC_UpDownDidSomething: ; e2a68 (38:6a68)
