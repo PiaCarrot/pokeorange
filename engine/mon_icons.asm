@@ -148,13 +148,9 @@ LoadPartyMenuMonIcon:
 	farcall ItemIsMail
 	pop bc
 	pop hl
-	jr c, .mail
-	ld a, SPRITE_ANIM_FRAMESET_03
-	jr .okay
-
-.mail
-	ld a, SPRITE_ANIM_FRAMESET_02
-.okay
+	; a = carry ? SPRITE_ANIM_FRAMESET_02 (mail) : SPRITE_ANIM_FRAMESET_03 (item)
+	sbc a
+	add SPRITE_ANIM_FRAMESET_03
 	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
 	ld [hl], a

@@ -463,8 +463,7 @@ PromptText:: ; 135a
 
 DoneText:: ; 137c
 	pop hl
-	ld de, .stop
-	dec de
+	ld de, .stop - 1
 	ret
 .stop	db "@"
 ; 1383

@@ -261,13 +261,10 @@ _TownMap: ; 9191c
 .InitTilemap: ; 91a04
 	ld a, [wd002]
 	cp KANTO_LANDMARK
-	jr nc, .kanto2
-	ld e, $0
-	jr .okay_tilemap
-
-.kanto2
-	ld e, $1
-.okay_tilemap
+	; e = carry ? 0 (johto) : 1 (kanto)
+	sbc a
+	inc a
+	ld e, a
 	farcall DoTownMap
 	ld a, $7
 	ld bc, 6

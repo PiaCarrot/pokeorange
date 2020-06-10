@@ -74,12 +74,8 @@ MainMenuItems:
 MainMenu_GetWhichMenu: ; 49da4
 	ld a, [wSaveFileExists]
 	and a
-	jr nz, .next
-	ld a, $0 ; New Game
-	ret
-
-.next
-	ld a, $1 ; Continue
+	ret z ; NewGameMenu
+	ld a, $1 ; ContinueMenu
 	ret
 
 MainMenuJoypadLoop: ; 49de4

@@ -1405,8 +1405,7 @@ CalcPkmnStatC: ; e17b
 	ld a, b
 	ld d, a
 	push hl
-	ld hl, BaseStats
-	dec hl ; has to be decreased, because 'c' begins with 1
+	ld hl, BaseStats - 1 ; has to be decreased, because 'c' begins with 1
 	ld b, $0
 	add hl, bc
 	ld a, [hl]

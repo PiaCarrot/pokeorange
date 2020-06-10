@@ -301,7 +301,7 @@ EvolutionAnimation: ; 4e5e1
 	inc [hl]
 	and $1
 	jr nz, .done_balls
-	ld e, $0
+	ld e, a ; 0
 	call .GenerateBallOfLight
 	ld e, $10
 	call .GenerateBallOfLight
