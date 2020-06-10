@@ -1897,7 +1897,6 @@ GetRandomPersonality:
 	pop af
 	ld [wCurItem], a
 	xor a
-	and a
 	ret
 
 .have_shiny_charm

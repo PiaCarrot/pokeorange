@@ -1892,7 +1892,6 @@ BattleCommand_CheckHit: ; 34d32
 	jr nz, .DiveMoves
 
 	xor a
-	and a
 	ret
 
 .FlyMoves:
@@ -1992,7 +1991,6 @@ endc
 
 .shell_trap_fail
 	xor a
-	and a
 	ret
 
 
