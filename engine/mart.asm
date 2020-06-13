@@ -249,14 +249,11 @@ FarReadMart: ; 15bbb
 	ld a, [de]
 	inc de
 	cp -1
-	jr z, .done
+	ret z
 	push de
 	call GetMartItemPrice
 	pop de
 	jr .ReadMartItem
-
-.done
-	ret
 ; 15be5
 
 GetMartItemPrice: ; 15be5
@@ -864,11 +861,6 @@ SellMenu: ; 15eb3
 	dw .try_sell
 ; 15efc
 
-.cant_buy ; 15efc
-	ret
-; 15efd
-
-
 .try_sell ; 15efd
 	farcall _CheckTossableItem
 	ld a, [wItemAttributeParamBuffer]
@@ -877,6 +869,7 @@ SellMenu: ; 15eb3
 	ld hl, TextMart_CantBuyFromYou
 	call PrintText
 	and a
+.cant_buy ; no-optimize stub function
 	ret
 
 .okay_to_sell

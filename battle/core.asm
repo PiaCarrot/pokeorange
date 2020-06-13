@@ -1293,7 +1293,7 @@ HandleMysteryberry: ; 3c93c
 	call SetPlayerTurn
 	call .do_it
 	call SetEnemyTurn
-	jp .do_it
+	jr .do_it
 
 .DoEnemyFirst:
 	call SetEnemyTurn
@@ -1304,7 +1304,7 @@ HandleMysteryberry: ; 3c93c
 	farcall GetUserItem
 	ld a, b
 	cp HELD_RESTORE_PP
-	jr nz, .quit
+	ret nz
 	ld hl, PartyMon1PP
 	ld a, [CurBattleMon]
 	call GetPartyLocation
@@ -1335,7 +1335,7 @@ HandleMysteryberry: ; 3c93c
 .loop
 	ld a, [hl]
 	and a
-	jr z, .quit
+	ret z
 	ld a, [de]
 	and $3f
 	jr z, .restore
@@ -1345,8 +1345,6 @@ HandleMysteryberry: ; 3c93c
 	ld a, c
 	cp NUM_MOVES
 	jr nz, .loop
-
-.quit
 	ret
 
 .restore
@@ -1835,9 +1833,8 @@ GetSixteenthMaxHP: ; 3cc76
 	; round up
 	ld a, c
 	and a
-	jr nz, .ok
+	ret nz
 	inc c
-.ok
 	ret
 ; 3cc83
 
@@ -1850,9 +1847,8 @@ GetEighthMaxHP: ; 3cc83
 ; round up
 	ld a, c
 	and a
-	jr nz, .end
+	ret nz
 	inc c
-.end
 	ret
 ; 3cc8e
 
@@ -1870,9 +1866,8 @@ GetQuarterMaxHP: ; 3cc8e
 ; round up
 	ld a, c
 	and a
-	jr nz, .end
+	ret nz
 	inc c
-.end
 	ret
 ; 3cc9f
 
@@ -1887,9 +1882,8 @@ GetHalfMaxHP: ; 3cc9f
 ; floor = 1
 	ld a, c
 	or b
-	jr nz, .end
+	ret nz
 	inc c
-.end
 	ret
 ; 3ccac
 
@@ -2781,10 +2775,8 @@ LostBattle: ; 3d38e
 
 	ld a, [wMonStatusFlags]
 	bit 0, a
-	jr nz, .skip_win_loss_text
-	call PrintWinLossText
-.skip_win_loss_text
-	ret
+	ret nz
+	jp PrintWinLossText
 
 .not_canlose
 	ld a, [wLinkMode]
@@ -3205,7 +3197,7 @@ ScoreMonTypeMatchups: ; 3d672
 	inc b
 	sla c
 	jr nc, .loop3
-	jr .quit
+	ret
 
 .okay2
 	ld b, $ff
@@ -3215,7 +3207,7 @@ ScoreMonTypeMatchups: ; 3d672
 	inc b
 	sla c
 	jr c, .loop4
-	jr .quit
+	ret
 
 .loop5
 	ld a, [OTPartyCount]
@@ -3238,8 +3230,6 @@ ScoreMonTypeMatchups: ; 3d672
 	ld a, [hl]
 	or c
 	jr z, .loop5
-
-.quit
 	ret
 ; 3d6ca
 
@@ -7510,7 +7500,7 @@ PlaceExpBar: ; 3f41c
 	ld a, $71 ; full bar
 	ld [hld], a
 	dec c
-	jr z, .finish
+	ret z
 	jr .loop1
 
 .next
@@ -7527,8 +7517,6 @@ PlaceExpBar: ; 3f41c
 	ld a, $70 ; empty bar
 	dec c
 	jr nz, .loop2
-
-.finish
 	ret
 ; 3f43d
 
@@ -8042,7 +8030,7 @@ ReadAndPrintLinkBattleRecord: ; 3f85f
 	hlcoord 6, 4
 	ld de, sLinkBattleWins
 	call .PrintZerosIfNoSaveFileExists
-	jr c, .quit
+	ret c
 
 	lb bc, 2, 4
 	call PrintNum
@@ -8059,10 +8047,7 @@ ReadAndPrintLinkBattleRecord: ; 3f85f
 	call .PrintZerosIfNoSaveFileExists
 
 	lb bc, 2, 4
-	call PrintNum
-
-.quit
-	ret
+	jp PrintNum
 
 .PrintZerosIfNoSaveFileExists:
 	ld a, [wSavedAtLeastOnce]
@@ -8630,8 +8615,8 @@ EnemySetAShellTrap:
 	ld hl, EnemySetAShellTrapText
 	jp StdBattleTextBox
 
-AutomaticSunOnSunrayPeak:
-	ret ; TODO
+AutomaticSunOnSunrayPeak: ; TODO
+	ret ; no-optimize stub function
 ;	ld a, [MapGroup]
 ;	cp GROUP_SUNRAY_PEAK
 ;	ret nz
@@ -8648,8 +8633,8 @@ AutomaticSunOnSunrayPeak:
 ;	call StdBattleTextBox
 ;	jp EmptyBattleTextBox
 
-AutomaticRainOnButwalIsland:
-	ret ; TODO
+AutomaticRainOnButwalIsland: ; TODO
+	ret ; no-optimize stub function
 ;	ld a, [MapGroup]
 ;	cp GROUP_BUTWAL_ISLAND
 ;	ret nz

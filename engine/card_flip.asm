@@ -385,16 +385,11 @@ CollapseCursorPosition: ; e0398
 GetCoordsOfChosenCard: ; e03ac
 	ld a, [wCardFlipWhichCard]
 	and a
-	jr nz, .BottomCard
 	hlcoord 2, 0
 	bcpixel 2, 3
-	jr .done
-
-.BottomCard:
+	ret nz
 	hlcoord 2, 6
 	bcpixel 8, 3
-
-.done
 	ret
 ; e03c1
 

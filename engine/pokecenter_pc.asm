@@ -314,7 +314,7 @@ KrisWithdrawItemMenu: ; 0x157d1
 	farcall SelectQuantityToToss
 	call ExitMenu
 	call ExitMenu
-	jr c, .done
+	ret c
 
 .withdraw
 	ld a, [wItemQuantityChangeBuffer]
@@ -340,9 +340,6 @@ KrisWithdrawItemMenu: ; 0x157d1
 .PackFull:
 	ld hl, .NoRoomText
 	jp MenuTextBoxBackup
-
-.done
-	ret
 
 .HowManyText: ; 0x15850
 	text_jump _KrissPCHowManyWithdrawText
@@ -435,9 +432,6 @@ KrisDepositItemMenu: ; 0x1588b
 	dw .tossable
 	dw .tossable
 
-.no_toss
-	ret
-
 .tossable
 	ld a, [Buffer1]
 	push af
@@ -448,6 +442,7 @@ KrisDepositItemMenu: ; 0x1588b
 	ld [Buffer2], a
 	pop af
 	ld [Buffer1], a
+.no_toss ; no-optimize stub function
 	ret
 
 .DepositItem_:

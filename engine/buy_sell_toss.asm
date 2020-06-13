@@ -165,7 +165,7 @@ BuySell_MultiplyPrice: ; 250a9
 	push hl
 	call Multiply
 	pop hl
-ret_25097: ; 25097
+ret_25097: ; no-optimize stub function
 	ret
 ; 250c1
 

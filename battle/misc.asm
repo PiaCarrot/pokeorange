@@ -88,7 +88,7 @@ DoWeatherModifiers: ; fbda4
 	ld a, [de]
 	inc de
 	cp $ff
-	jr z, .done
+	ret z
 
 	cp b
 	jr nz, .NextWeatherMove
@@ -141,8 +141,6 @@ DoWeatherModifiers: ; fbda4
 	ld [CurDamage], a
 	ld a, c
 	ld [CurDamage + 1], a
-
-.done
 	ret
 
 .WeatherTypeModifiers:

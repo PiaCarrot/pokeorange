@@ -61,13 +61,11 @@ ChangeBoxSaveGame: ; 14a83 (5:4a83)
 
 Link_SaveGame: ; 14ab2
 	call AskOverwriteSaveFile
-	jr c, .refused
+	ret c
 	call PauseGameLogic
 	call _SavingDontTurnOffThePower
 	call ResumeGameLogic
 	and a
-
-.refused
 	ret
 ; 14ac2
 

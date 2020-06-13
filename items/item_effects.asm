@@ -932,10 +932,9 @@ GLOBAL EvosAttacksPointers
 	sla b
 	jr c, .max
 	sla b
-	jr nc, .done
+	ret nc
 .max
 	ld b, $ff
-.done
 	ret
 
 LoveBallMultiplier:
@@ -1983,11 +1982,9 @@ RestoreHealth: ; f2d1 (3:72d1)
 	dec hl
 	ld a, [de]
 	sbc [hl]
-	jr c, .finish
+	ret c
 .full_hp
-	call ReviveFullHP
-.finish
-	ret
+	jp ReviveFullHP
 
 RemoveHP: ; f2f9 (3:72f9)
 	ld a, MON_HP + 1
@@ -2560,7 +2557,7 @@ BattleRestorePP: ; f652
 .loop
 	ld a, [de]
 	and a
-	jr z, .done
+	ret z
 	cp [hl]
 	jr nz, .next
 	push hl
@@ -2582,8 +2579,6 @@ BattleRestorePP: ; f652
 	inc de
 	dec b
 	jr nz, .loop
-
-.done
 	ret
 ; f6a7
 

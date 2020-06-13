@@ -726,7 +726,7 @@ ReelAction_QuadrupleRate: ; 92c17
 	ld hl, wReel1SpinRate - wReel1
 	add hl, bc
 	ld [hl], $10
-ReelAction_DoNothing: ; 92c16
+ReelAction_DoNothing: ; no-optimize stub function
 	ret
 
 ; 92c1e
@@ -1197,7 +1197,7 @@ Slots_CheckMatchedFirstTwoReels: ; 92e94
 
 .Jumptable: ; 92ebd
 
-	dw .zero
+	dw ReelAction_DoNothing
 	dw .one
 	dw .two
 	dw .three
@@ -1212,10 +1212,7 @@ Slots_CheckMatchedFirstTwoReels: ; 92e94
 	call .CheckTopRow
 
 .one ; 92ed1
-	call .CheckMiddleRow
-
-.zero ; 92ed4
-	ret
+	jr .CheckMiddleRow
 
 ; 92ed5
 
@@ -1308,7 +1305,7 @@ Slots_CheckMatchedAllThreeReels: ; 92f1d
 
 .Jumptable: ; 92f48
 
-	dw .zero
+	dw ReelAction_DoNothing
 	dw .one
 	dw .two
 	dw .three
@@ -1323,10 +1320,7 @@ Slots_CheckMatchedAllThreeReels: ; 92f1d
 	call .CheckTopRow
 
 .one ; 92f5c
-	call .CheckMiddleRow
-
-.zero ; 92f5f
-	ret
+	jr .CheckMiddleRow
 
 ; 92f60
 

@@ -322,11 +322,9 @@ InitMenuCursorAndButtonPermissions:: ; 1eff
 .disallow_select
 	ld a, [wMenuData2Flags]
 	bit 2, a
-	jr z, .disallow_left_right
+	ret z
 	set D_LEFT_F, [hl]
 	set D_RIGHT_F, [hl]
-
-.disallow_left_right
 	ret
 ; 1f1a
 

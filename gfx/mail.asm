@@ -72,12 +72,8 @@ ReadAnyMail: ; b9237
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, .done
 	pop bc
-	push de
-	jp hl
-.done
-	ret
+	jp _hl_
 ; b92f8
 
 MailGFXPointers: ; b92f8

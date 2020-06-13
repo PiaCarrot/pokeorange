@@ -36,13 +36,10 @@ HealMachineAnim: ; 12324
 	add hl, de
 	ld a, [hl]
 	cp 5
-	jr z, .finish
+	ret z
 	ld hl, .Jumptable
 	rst JumpTable
 	jr .jumpable_loop
-
-.finish
-	ret
 ; 12365
 
 .Pointers: ; 12365

@@ -104,7 +104,7 @@ Functioncde20: ; cde20 (33:5e20)
 Functioncde88: ; cde88 (33:5e88)
 Functionce254: ; ce254 (33:6254)
 Functionce5b3: ; ce5b3 (33:65b3)
-	ret
+	ret ; no-optimize stub function
 
 BattleAnimFunction_Null: ; cd06e (33:506e)
 	call BattleAnim_AnonJumptable
@@ -345,7 +345,7 @@ BattleAnimFunction_PokeBall: ; cd15c (33:515c)
 .two
 .five
 .nine
-	ret
+	ret ; no-optimize stub function
 
 .seven
 	call GetBallAnimPal
@@ -474,6 +474,7 @@ BattleAnimFunction_10: ; cd284 (33:5284)
 	ld hl, BATTLEANIMSTRUCT_ANON_JT_INDEX
 	add hl, bc
 	ld [hl], a
+.four ; no-optimize stub function
 	ret
 
 .one
@@ -493,9 +494,7 @@ BattleAnimFunction_10: ; cd284 (33:5284)
 .three
 	call BattleAnim_IncAnonJumptableIndex
 	ld a, BATTLEANIMFRAMESET_0F
-	call ReinitBattleAnimFrameset
-.four
-	ret
+	jp ReinitBattleAnimFrameset
 
 BattleAnimFunction_07: ; cd2be (33:52be)
 	call BattleAnim_AnonJumptable
@@ -784,7 +783,7 @@ BattleAnimFunction_0A: ; cd3f2 (33:53f2)
 	ld hl, BATTLEANIMSTRUCT_XOFFSET
 	add hl, bc
 	inc [hl]
-.six
+.six ; no-optimize stub function
 	ret
 
 BattleAnimFunction_RazorLeaf: ; cd478 (33:5478)
@@ -1168,7 +1167,7 @@ BattleAnimFunction_0D: ; cd66a (33:566a)
 	add hl, bc
 	inc [hl]
 	inc [hl]
-.two
+.two ; no-optimize stub function
 	ret
 
 .three
@@ -1784,7 +1783,7 @@ BattleAnimFunction_LeechSeed: ; cda4d (33:5a4d)
 	and a
 	jr z, .flutter
 	dec [hl]
-.three: ; cda8c (33:5a8c)
+.three: ; no-optimize stub function
 	ret
 
 .flutter

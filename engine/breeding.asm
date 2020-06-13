@@ -219,7 +219,7 @@ HatchEggs: ; 16f70 (5:6f70)
 	ld a, [de]
 	inc de
 	cp -1
-	jp z, .done
+	ret z
 	push de
 	push hl
 	cp EGG
@@ -344,9 +344,6 @@ HatchEggs: ; 16f70 (5:6f70)
 	add hl, de
 	pop de
 	jp .loop
-
-.done ; 1708a (5:708a)
-	ret
 ; 1708b (5:708b)
 
 .Text_HatchEgg: ; 0x1708b
@@ -398,7 +395,7 @@ InitEggMoves: ; 170bf
 .loop
 	ld a, [de]
 	and a
-	jr z, .done
+	ret z
 	ld hl, wEggMonMoves
 	ld c, NUM_MOVES
 .next
@@ -416,8 +413,6 @@ InitEggMoves: ; 170bf
 	inc de
 	dec b
 	jr nz, .loop
-
-.done
 	ret
 ; 170e4
 
@@ -918,19 +913,17 @@ DayCareMonCompatibilityText: ; 1746c
 	ld a, [wd265]
 	ld hl, .AllAlone
 	cp -1
-	jr z, .done
+	ret z
 	ld hl, .Incompatible
 	and a
-	jr z, .done
+	ret z
 	ld hl, .HighCompatibility
 	cp 230
-	jr nc, .done
+	ret nc
 	cp 70
 	ld hl, .ModerateCompatibility
-	jr nc, .done
+	ret nc
 	ld hl, .SlightCompatibility
-
-.done
 	ret
 ; 1749c
 

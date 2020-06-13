@@ -854,7 +854,7 @@ HandleTrackVibrato: ; e8466
 	ld hl, Channel1Flags2 - Channel1
 	add hl, bc
 	bit SOUND_VIBRATO, [hl] ; vibrato
-	jr z, .quit
+	ret z
 	; is vibrato active for this note yet?
 	; is the delay over?
 	ld hl, Channel1VibratoDelayCount - Channel1
@@ -867,7 +867,7 @@ HandleTrackVibrato: ; e8466
 	add hl, bc
 	ld a, [hl]
 	and a
-	jr z, .quit
+	ret z
 	; save it for later
 	ld d, a
 	; is it time to toggle vibrato up/down?
@@ -878,7 +878,7 @@ HandleTrackVibrato: ; e8466
 	jr z, .toggle
 .subexit
 	dec [hl]
-	jr .quit
+	ret
 
 .toggle
 	; refresh count
@@ -925,7 +925,6 @@ HandleTrackVibrato: ; e8466
 	ld hl, Channel1NoteFlags - Channel1
 	add hl, bc
 	set NOTE_UNKN_6, [hl]
-.quit
 	ret
 
 ; e84f9
@@ -1092,13 +1091,13 @@ ReadNoiseSample: ; e85af
 	; is it empty?
 	ld a, e
 	or d
-	jr z, .quit
+	ret z
 
 	ld a, [de]
 	inc de
 
 	cp $ff
-	jr z, .quit
+	ret z
 
 	and $f
 	inc a
@@ -1120,9 +1119,6 @@ ReadNoiseSample: ; e85af
 	ld hl, Channel1NoteFlags - Channel1
 	add hl, bc
 	set NOTE_UNKN_4, [hl]
-	ret
-
-.quit
 	ret
 
 ; e85e1
@@ -1433,7 +1429,7 @@ MusicF6: ; e8780
 MusicF7: ; e8780
 MusicF8: ; e8780
 MusicF9: ; e886d
-	ret
+	ret ; no-optimize stub function
 
 ; e8781
 

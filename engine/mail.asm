@@ -421,13 +421,12 @@ MailboxPC: ; 0x44806
 	call LoadMenuDataHeader
 	call VerticalMenu
 	call ExitMenu
-	jr c, .subexit
+	ret c
 	ld a, [wMenuCursorY]
 	dec a
 	ld hl, .JumpTable
 	rst JumpTable
-
-.subexit
+.Cancel ; no-optimize stub function
 	ret
 ; 0x44861
 
@@ -553,9 +552,6 @@ MailboxPC: ; 0x44806
 .MailMovedText: ; 0x44946
 	text_jump MailMovedFromBoxText
 	db "@"
-
-.Cancel:
-	ret
 
 .TopMenuDataHeader: ; 0x4494c
 	db %01000000 ; flags

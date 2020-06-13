@@ -418,7 +418,7 @@ BattleAnimCmd_ED: ; cc304 (33:4304)
 BattleAnimCmd_F5: ; cc7ca (33:47ca)
 BattleAnimCmd_F6: ; cc7cb (33:47cb)
 BattleAnimCmd_F7: ; cc7cc (33:47cc)
-	ret
+	ret ; no-optimize stub function
 
 BattleAnimCmd_Ret: ; cc305 (33:4305)
 	ld hl, BattleAnimFlags

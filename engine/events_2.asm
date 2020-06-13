@@ -423,7 +423,7 @@ CmdQueueAnonJT_Decrement: ; 97eb1
 	ld hl, CMDQUEUE_05
 	add hl, bc
 	dec [hl]
-CmdQueue_Null: ; 97eb7
+CmdQueue_Null: ; no-optimize stub function
 	ret
 ; 97eb7
 
