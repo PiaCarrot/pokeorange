@@ -8,7 +8,7 @@ OverworldLoop:: ; 966b0
 	ld a, [MapStatus]
 	cp 3 ; done
 	jr nz, .loop
-.done
+.done ; no-optimize stub function
 	ret
 
 .jumps
@@ -705,12 +705,9 @@ PlayerMovement: ; 96af0
 .four ; 96b0d
 	xor a
 	ld c, a
+.seven ; no-optimize stub function
 	ret
 ; 96b10
-
-.seven ; 96b10
-	ret
-; 96b16
 
 .one ; 96b16
 	ld a, 5

@@ -219,7 +219,7 @@ DoneTileAnimation: ; fc2fb
 
 WaitTileAnimation: ; fc2fe
 ; Do nothing this frame.
-	ret
+	ret ; no-optimize stub function
 ; fc2ff
 
 

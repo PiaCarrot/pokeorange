@@ -60,15 +60,11 @@ ReadAnyMail: ; b9237
 	cp b
 	jr z, .got_pointer
 	cp -1
-	jr z, .invalid
+	jr z, .got_pointer
 	inc c
 	inc hl
 	inc hl
 	jr .loop2
-
-.invalid
-	ld hl, MailGFXPointers
-	inc hl
 
 .got_pointer
 	ld a, c
@@ -76,12 +72,8 @@ ReadAnyMail: ; b9237
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, .done
 	pop bc
-	push de
-	jp hl
-.done
-	ret
+	jp _hl_
 ; b92f8
 
 MailGFXPointers: ; b92f8
@@ -95,7 +87,7 @@ MailGFXPointers: ; b92f8
 	dbw BLUESKY_MAIL, LoadBlueSkyMailGFX
 	dbw MUSIC_MAIL,   LoadMusicMailGFX
 	dbw MIRAGE_MAIL,  LoadMirageMailGFX
-	db -1
+	dbw -1,           LoadFlowerMailGFX ; invalid
 ; b9317
 
 LoadSurfMailGFX: ; b9317

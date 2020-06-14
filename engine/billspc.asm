@@ -1672,16 +1672,21 @@ StatsScreenDPad: ; e2f95 (38:6f95)
 	ld a, [hl]
 	and A_BUTTON | B_BUTTON | D_RIGHT | D_LEFT
 	ld [wMenuJoypad], a
-	jr nz, .pressed_a_b_right_left
+	ret nz
 	ld a, [hl]
 	and D_DOWN | D_UP
 	ld [wMenuJoypad], a
-	jr z, .pressed_a_b_right_left
+	ret z
 
-.pressed_down_up
 	call _StatsScreenDPad
 	and a
-	jr z, .did_nothing
+	jr nz, .did_something
+
+	xor a
+	ld [wMenuJoypad], a
+	ret
+
+.did_something
 	call BillsPC_GetSelectedPokemonSpecies
 	ld [wd265], a
 	call BillsPC_LoadMonStats
@@ -1691,14 +1696,7 @@ StatsScreenDPad: ; e2f95 (38:6f95)
 	ld hl, TempMonDVs
 	predef GetVariant
 	call GetBaseData
-	call BillsPC_CopyMon
-.pressed_a_b_right_left
-	ret
-
-.did_nothing
-	xor a
-	ld [wMenuJoypad], a
-	ret
+	; fallthrough
 
 BillsPC_CopyMon: ; e2fd6 (38:6fd6)
 	ld a, [wBillsPC_CursorPosition]

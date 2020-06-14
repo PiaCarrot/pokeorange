@@ -5,7 +5,7 @@ HealParty: ; c658
 .loop
 	ld a, [hli]
 	cp -1
-	jr z, .done
+	ret z
 	cp EGG
 	jr z, .next
 
@@ -18,9 +18,6 @@ HealParty: ; c658
 	inc a
 	ld [wCurPartyMon], a
 	jr .loop
-
-.done
-	ret
 
 HealPartyMon: ; c677
 	ld a, MON_SPECIES

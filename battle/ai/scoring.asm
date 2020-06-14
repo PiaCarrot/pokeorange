@@ -1410,30 +1410,28 @@ endc
 
 	ld a, [LastEnemyCounterMove]
 	and a
-	jr z, .asm_38c38
+	ret z
 
 	call AIGetEnemyMove
 
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
 	and a
-	jr z, .asm_38c38
+	ret z
 
 	ld a, [wEnemyMoveStruct + MOVE_CATEGORY]
 if DEF(PSS)
 	and CATEGORY_MASK
 endc
 	cp SPECIAL
-	jr nc, .asm_38c38
+	ret nc
 
 
 .asm_38c30
 	call Random
 	cp $64
-	jr c, .asm_38c38
+	ret c
 
 	dec [hl]
-
-.asm_38c38
 	ret
 
 .asm_38c39
@@ -2585,29 +2583,27 @@ endc
 
 	ld a, [LastEnemyCounterMove]
 	and a
-	jr z, .asm_391d2
+	ret z
 
 	call AIGetEnemyMove
 
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
 	and a
-	jr z, .asm_391d2
+	ret z
 
 	ld a, [wEnemyMoveStruct + MOVE_CATEGORY]
 if DEF(PSS)
 	and CATEGORY_MASK
 endc
 	cp SPECIAL
-	jr c, .asm_391d2
+	ret c
 
 
 .asm_391ca
 	call Random
 	cp 100
-	jr c, .asm_391d2
+	ret c
 	dec [hl]
-
-.asm_391d2
 	ret
 
 .asm_391d3
@@ -2994,12 +2990,12 @@ AI_Opportunist: ; 39315
 .checkmove
 	inc hl
 	dec c
-	jr z, .asm_39347
+	ret z
 
 	ld a, [de]
 	inc de
 	and a
-	jr z, .asm_39347
+	ret z
 
 	push hl
 	push de
@@ -3015,9 +3011,6 @@ AI_Opportunist: ; 39315
 
 	inc [hl]
 	jr .checkmove
-
-.asm_39347
-	ret
 
 .stallmoves
 	db SWORDS_DANCE
@@ -3112,7 +3105,7 @@ AI_Aggressive: ; 39369
 ; Nothing we can do if no attacks did damage.
 	ld a, c
 	and a
-	jr z, .done
+	ret z
 
 ; Discourage moves that do less damage unless they're reckless too.
 	ld hl, Buffer1 - 1
@@ -3122,7 +3115,7 @@ AI_Aggressive: ; 39369
 	inc b
 	ld a, b
 	cp NUM_MOVES + 1
-	jr z, .done
+	ret z
 
 ; Ignore this move if it is the highest damaging one.
 	cp c
@@ -3156,9 +3149,6 @@ AI_Aggressive: ; 39369
 ; If we made it this far, discourage this move.
 	inc [hl]
 	jr .checkmove2
-
-.done
-	ret
 
 .RecklessMoves:
 	db EFFECT_EXPLOSION
@@ -3389,7 +3379,7 @@ endr
 
 
 AI_None: ; 39502
-	ret
+	ret ; no-optimize stub function
 ; 39503
 
 

@@ -380,7 +380,7 @@ SortUsedSprites: ; 1431e
 	jr nz, .FindLastSprite
 .FoundLastSprite:
 	dec c
-	jr z, .quit
+	ret z
 
 ; If the length of the current sprite is
 ; higher than a later one, swap them.
@@ -429,8 +429,6 @@ SortUsedSprites: ; 1431e
 	pop bc
 	dec c
 	jr nz, .CheckSprite
-
-.quit
 	ret
 ; 14355
 
@@ -445,7 +443,7 @@ ArrangeUsedSprites: ; 14355
 ; Keep going until the end of the list.
 	ld a, [hli]
 	and a
-	jr z, .quit
+	ret z
 
 	ld a, [hl]
 	call GetSpriteLength
@@ -473,14 +471,14 @@ ArrangeUsedSprites: ; 14355
 ; Keep going until the end of the list.
 	ld a, [hli]
 	and a
-	jr z, .quit
+	ret z
 
 	ld a, [hl]
 	call GetSpriteLength
 
 ; There are only two tables, so don't go any further than that.
 	add b
-	jr c, .quit
+	ret c
 
 	ld [hl], b
 	ld b, a
@@ -488,8 +486,6 @@ ArrangeUsedSprites: ; 14355
 
 	dec c
 	jr nz, .SecondTableLength
-
-.quit
 	ret
 ; 14386
 
@@ -528,7 +524,7 @@ GetUsedSprites: ; 1439b
 
 	ld a, [hli]
 	and a
-	jr z, .done
+	ret z
 	ld [hUsedSpriteIndex], a
 
 	ld a, [hli]
@@ -549,8 +545,6 @@ GetUsedSprites: ; 1439b
 	pop bc
 	dec c
 	jr nz, .loop
-
-.done
 	ret
 ; 143c8
 
@@ -582,21 +576,18 @@ endr
 
 	ld a, [wSpriteFlags]
 	bit 5, a
-	jr nz, .done
+	ret nz
 	bit 6, a
-	jr nz, .done
+	ret nz
 
 	ld a, [hUsedSpriteIndex]
 	call _DoesSpriteHaveFacings
-	jr c, .done
+	ret c
 
 	ld a, h
 	add $8
 	ld h, a
-	call .CopyToVram
-
-.done
-	ret
+	jr .CopyToVram
 ; 14406
 
 .GetTileAddr: ; 14406

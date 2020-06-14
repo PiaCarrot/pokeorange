@@ -94,9 +94,9 @@ Pokedex_InitCursorPosition: ; 400b4
 	ld hl, wPokedexDataStart
 	ld a, [wLastDexEntry]
 	and a
-	jr z, .done
+	ret z
 	cp NUM_POKEMON + 1
-	jr nc, .done
+	ret nc
 
 	ld b, a
 	ld a, [wDexListingEnd]
@@ -108,7 +108,7 @@ Pokedex_InitCursorPosition: ; 400b4
 .loop1
 	ld a, b
 	cp [hl]
-	jr z, .done
+	ret z
 	inc hl
 	ld a, [wDexListingScrollOffset]
 	inc a
@@ -121,15 +121,13 @@ Pokedex_InitCursorPosition: ; 400b4
 .loop2
 	ld a, b
 	cp [hl]
-	jr z, .done
+	ret z
 	inc hl
 	ld a, [wDexListingCursor]
 	inc a
 	ld [wDexListingCursor], a
 	dec c
 	jr nz, .loop2
-
-.done
 	ret
 
 Pokedex_GetLandmark: ; 400ed
@@ -948,14 +946,13 @@ Pokedex_PlaceSearchResultsTypeStrings: ; 409cf (10:49cf)
 	ld b, a
 	ld a, [wDexSearchMonType2]
 	and a
-	jr z, .done
+	ret z
 	cp b
-	jr z, .done
+	ret z
 	hlcoord 2, 15
 	call Pokedex_PlaceTypeString
 	hlcoord 1, 15
 	ld [hl], "/"
-.done
 	ret
 
 Pokedex_FillBackgroundColor2: ; 40aa6
@@ -1403,14 +1400,11 @@ Pokedex_SearchForMons: ; 41086
 
 .zero_remaining_mons
 	cp NUM_POKEMON
-	jr z, .done
+	ret z
 	ld [hl], c
 	inc hl
 	inc a
 	jr .zero_remaining_mons
-
-.done
-	ret
 
 .TypeConversionTable: ; 410f6
 	db NORMAL

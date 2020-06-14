@@ -697,7 +697,7 @@ BattleCommand_HiddenPower: ; 37be8
 ; hiddenpower
 BattleCommand_FrustrationPower: ; 3790e
 ; frustrationpower
-	ret
+	ret ; no-optimize stub function
 
 
 BattleCommand_CheckObedience: ; 343db
@@ -6916,24 +6916,22 @@ BattleCommand_Charge: ; 36b4d
 	call GetBattleVar
 	cp SOLARBEAM
 	ld hl, .Solarbeam
-	jr z, .done
+	ret z
 
 	cp FLY
 	ld hl, .Fly
-	jr z, .done
+	ret z
 
 	cp BOUNCE
 	ld hl, .Bounce
-	jr z, .done
+	ret z
 
 	cp DIG
 	ld hl, .Dig
-	jr z, .done
+	ret z
 
 	cp DIVE
 	ld hl, .Dive
-
-.done
 	ret
 
 .Solarbeam:
@@ -7530,12 +7528,11 @@ DoubleDamage: ; 36f37
 	sla [hl]
 	dec hl
 	rl [hl]
-	jr nc, .quit
+	ret nc
 
 	ld a, $ff
 	ld [hli], a
 	ld [hl], a
-.quit
 	ret
 
 ; 36f46

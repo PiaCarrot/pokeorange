@@ -56,6 +56,7 @@ HandlePlayerStep: ; d4e5 (3:54e5)
 	ld a, [hl]
 	ld hl, .Jumptable
 	rst JumpTable
+.fail ; no-optimize stub function
 	ret
 
 .Jumptable: ; d4f2 (3:54f2)
@@ -64,9 +65,6 @@ HandlePlayerStep: ; d4e5 (3:54e5)
 	dw BufferScreen
 	dw .fail
 	dw .fail
-
-.fail ; d508 (3:5508)
-	ret
 
 UpdatePlayerCoords: ; d511 (3:5511)
 	ld a, [wPlayerStepDirection]
@@ -144,13 +142,8 @@ UpdateOverworldMap: ; d536 (3:5536)
 	inc [hl]
 	ld a, [hl]
 	cp 2 ; was 1
-	jr nz, .done_down
+	ret nz
 	ld [hl], 0
-	call .Add6ToOverworldMapAnchor
-.done_down
-	ret
-
-.Add6ToOverworldMapAnchor: ; d595 (3:5595)
 	ld hl, wOverworldMapAnchor
 	ld a, [MapWidth]
 	add 6
@@ -175,13 +168,8 @@ UpdateOverworldMap: ; d536 (3:5536)
 	dec [hl]
 	ld a, [hl]
 	cp -1 ; was 0
-	jr nz, .done_up
+	ret nz
 	ld [hl], $1
-	call .Sub6FromOverworldMapAnchor
-.done_up
-	ret
-
-.Sub6FromOverworldMapAnchor: ; d5c6 (3:55c6)
 	ld hl, wOverworldMapAnchor
 	ld a, [MapWidth]
 	add 6
@@ -207,13 +195,8 @@ UpdateOverworldMap: ; d536 (3:5536)
 	dec [hl]
 	ld a, [hl]
 	cp -1
-	jr nz, .done_left
+	ret nz
 	ld [hl], 1
-	call .DecrementwOverworldMapAnchor
-.done_left
-	ret
-
-.DecrementwOverworldMapAnchor: ; d5f4 (3:55f4)
 	ld hl, wOverworldMapAnchor
 	ld a, [hl]
 	sub 1 ; no-optimize a++|a-- (dec a can't set carry)
@@ -236,13 +219,8 @@ UpdateOverworldMap: ; d536 (3:5536)
 	inc [hl]
 	ld a, [hl]
 	cp 2
-	jr nz, .done_right
+	ret nz
 	ld [hl], 0
-	call .IncrementwOverworldMapAnchor
-.done_right
-	ret
-
-.IncrementwOverworldMapAnchor: ; d61d (3:561d)
 	ld hl, wOverworldMapAnchor
 	ld a, [hl]
 	add 1 ; no-optimize a++|a-- (inc a can't set carry)

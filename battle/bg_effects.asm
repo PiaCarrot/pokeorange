@@ -1153,8 +1153,7 @@ BattleBGEffect_DoubleTeam: ; c8689 (32:4689)
 	ld a, [hl]
 	add $4
 	ld [hl], a
-
-.four
+.four ; no-optimize stub function
 	ret
 
 .UpdateLYOverrides:
@@ -1560,13 +1559,11 @@ BattleBGEffect_2f: ; c8919 (32:4919)
 .anon_dw
 	dw BGEffect2d_2f_zero
 	dw Tackle_BGEffect25_2d_one
-	dw .two
+	dw BattleBGEffect_DoNothing
 	dw Tackle_BGEffect25_2d_two
-	dw .four
+	dw BattleAnim_ResetLCDStatCustom
 
-.four
-	call BattleAnim_ResetLCDStatCustom
-.two
+BattleBGEffect_DoNothing: ; no-optimize stub function
 	ret
 
 BattleBGEffect_26: ; c892a (32:492a)
@@ -1754,10 +1751,10 @@ BattleBGEffect_2a: ; c8a3a (32:4a3a)
 	call BattleBGEffects_AnonJumptable
 .anon_dw
 	dw .zero
-	dw .one
+	dw BattleBGEffect_DoNothing
 	dw .two
 	dw .three
-	dw .four
+	dw BattleBGEffect_DoNothing
 	dw .five
 
 .zero
@@ -1784,8 +1781,6 @@ BattleBGEffect_2a: ; c8a3a (32:4a3a)
 	ld hl, BG_EFFECT_STRUCT_03
 	add hl, bc
 	ld [hl], $0
-.one
-.four
 	ret
 
 .two

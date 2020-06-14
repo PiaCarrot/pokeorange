@@ -489,6 +489,7 @@ UseItem: ; 10311
 	jr z, .Oak
 	ld a, $a
 	ld [wJumptableIndex], a
+QuitItemSubmenu: ; no-optimize stub function
 	ret
 ; 10364 (4:4364)
 
@@ -499,7 +500,7 @@ TossMenu: ; 10364
 	push af
 	call ExitMenu
 	pop af
-	jr c, .finish
+	ret c
 	call Pack_GetItemName
 	ld hl, Text_ConfirmThrowAway
 	call MenuTextBox
@@ -507,15 +508,13 @@ TossMenu: ; 10364
 	push af
 	call ExitMenu
 	pop af
-	jr c, .finish
+	ret c
 	ld hl, NumItems
 	ld a, [CurItemQuantity]
 	call TossItem
 	call Pack_GetItemName
 	ld hl, Text_ThrewAway
-	call Pack_PrintTextNoScroll
-.finish
-	ret
+	jp Pack_PrintTextNoScroll
 ; 1039d
 
 RegisterItem: ; 103c2
@@ -608,10 +607,6 @@ GiveItem: ; 103fd
 	text_jump Text_AnEGGCantHoldAnItem
 	db "@"
 ; 0x10492
-
-QuitItemSubmenu: ; 10492
-	ret
-; 10493
 
 BattlePack: ; 10493
 	ld hl, wOptions
@@ -803,7 +798,7 @@ TMHMSubmenu: ; 105dc (4:45dc)
 .UsableJumptable: ; 10614
 
 	dw .Use
-	dw .Quit
+	dw QuitItemSubmenu
 ; 10618
 
 .UnusableMenuDataHeader: ; 0x10618
@@ -822,7 +817,7 @@ TMHMSubmenu: ; 105dc (4:45dc)
 
 .UnusableJumptable: ; 10627
 
-	dw .Quit
+	dw QuitItemSubmenu
 ; 10629
 
 .Use: ; 10629
@@ -883,7 +878,6 @@ TMHMSubmenu: ; 105dc (4:45dc)
 .didnt_use_item ; 10684 (4:4684)
 	xor a
 	ld [wItemEffectSucceeded], a
-.Quit: ; 10689
 	ret
 ; 1068a
 

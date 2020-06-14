@@ -66,8 +66,16 @@ DoAnimFrame: ; 8d24b
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], $0
-.Null: ; 8d2a1 (23:52a1)
-	ret
+.Null:
+.thirteen ; 8d46e (23:546e)
+.fourteen ; 8d47c (23:547c)
+.fifteen ; 8d475 (23:5475)
+.twentysix ; 8d6b7 (23:56b7)
+.twentyseven ; 8d630 (23:5630)
+.twentyeight ; 8d637 (23:5637)
+.thirtyone ; 8d6be (23:56be)
+.RadioTuningKnob: ; 8d578 (23:5578)
+	ret ; no-optimize stub function
 
 .two ; 8d2b9 (23:52b9)
 	ld hl, SPRITEANIMSTRUCT_XCOORD
@@ -393,12 +401,6 @@ DoAnimFrame: ; 8d24b
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
-.thirteen ; 8d46e (23:546e)
-.fourteen ; 8d47c (23:547c)
-.fifteen ; 8d475 (23:5475)
-.twentyseven ; 8d630 (23:5630)
-.twentyeight ; 8d637 (23:5637)
-.RadioTuningKnob: ; 8d578 (23:5578)
 	ret
 
 .sixteen ; 8d483 (23:5483)
@@ -754,7 +756,7 @@ DoAnimFrame: ; 8d24b
 	add hl, bc
 	ld a, [hl]
 	cp $14
-	jr nc, .asm_8d67f
+	ret nc
 	add $2
 	ld [hl], a
 	cpl
@@ -765,7 +767,6 @@ DoAnimFrame: ; 8d24b
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
-.asm_8d67f
 	ret
 
 .thirtytwo ; 8d680 (23:5680)
@@ -808,12 +809,6 @@ DoAnimFrame: ; 8d24b
 	ld a, [hl]
 	add $10
 	ld [hl], a
-	ret
-
-.twentysix ; 8d6b7 (23:56b7)
-	ret
-
-.thirtyone ; 8d6be (23:56be)
 	ret
 
 .AnonymousJumptable: ; 8d6c5 (23:56c5)

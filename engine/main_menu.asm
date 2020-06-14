@@ -14,15 +14,12 @@ MainMenu: ; 49cdc
 	call LoadMenuDataHeader
 	call MainMenuJoypadLoop
 	call CloseWindow
-	jr c, .quit
+	ret c
 	call ClearTileMap
 	ld a, [wMenuSelection]
 	ld hl, .Jumptable
 	rst JumpTable
 	jr MainMenu
-
-.quit
-	ret
 ; 49d14
 
 .MenuDataHeader: ; 49d14
@@ -74,12 +71,8 @@ MainMenuItems:
 MainMenu_GetWhichMenu: ; 49da4
 	ld a, [wSaveFileExists]
 	and a
-	jr nz, .next
-	ld a, $0 ; New Game
-	ret
-
-.next
-	ld a, $1 ; Continue
+	ret z ; NewGameMenu
+	ld a, $1 ; ContinueMenu
 	ret
 
 MainMenuJoypadLoop: ; 49de4

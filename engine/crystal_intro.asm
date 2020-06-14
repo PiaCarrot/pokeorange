@@ -136,7 +136,7 @@ PlaceGameFreakPresents: ; e4670
 PlaceGameFreakPresents_AdvanceIndex: ; e4687
 	ld hl, wJumptableIndex
 	inc [hl]
-PlaceGameFreakPresents_0: ; e468c
+PlaceGameFreakPresents_0: ; no-optimize stub function
 	ret
 ; e468c
 
@@ -228,7 +228,7 @@ GameFreakLogoScene1: ; e4707 (39:4707)
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
 	add hl, bc
 	inc [hl]
-GameFreakLogoScene5: ; e47ab (39:47ab)
+GameFreakLogoScene5: ; no-optimize stub function
 	ret
 
 GameFreakLogoScene2: ; e470d (39:470d)
