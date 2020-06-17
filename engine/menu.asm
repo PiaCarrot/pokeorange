@@ -263,7 +263,7 @@ MenuJoypadLoop: ; 24216
 ; 24249
 
 Do2DMenuRTCJoypad: ; 24249
-	jr .handleLoop
+	jr .handleLoop ; no-optimize stub jump
 .loopRTC
 	call DelayFrame
 .handleLoop
@@ -623,7 +623,7 @@ Error_Cant_ExitMenu: ; 2445d
 	call PrintText
 	call WaitBGMap
 .InfiniteLoop:
-	jr .InfiniteLoop
+	jr .InfiniteLoop ; no-optimize stub jump
 ; 24468
 
 .Text_NoWindowsAvailableForPopping: ; 24468

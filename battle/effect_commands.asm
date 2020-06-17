@@ -6456,7 +6456,7 @@ BattleCommand_ForceSwitch: ; 3680f
 	cp b
 	jr nc, .wild_succeed_playeristarget
 
-.player_miss
+.player_miss ; no-optimize stub jump
 	jr .fail
 
 .wild_succeed_playeristarget
