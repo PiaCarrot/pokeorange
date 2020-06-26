@@ -650,7 +650,6 @@ MapObjectMovementPattern: ; 47dd
 	add hl, bc
 	ld a, [hl]
 	and %00000011
-	or 0
 	call InitStep
 	call Function6ec1
 	jr c, .ok2
