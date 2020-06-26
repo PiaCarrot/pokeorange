@@ -84,7 +84,7 @@ patterns = {
 'a = ~a': [
 	# Bad: xor $ff
 	# Good: cpl
-	(lambda line1, prev: re.match(r'xor (?:255|-1|\$[Ff][Ff]|%11111111)', line1.code)),
+	(lambda line1, prev: re.match(r'xor (?:255|-1|\$[Ff][Ff]|%11111111)$', line1.code)),
 ],
 'a = N - a': [
 	# Bad: ld b, a / ld a, N / sub b (or other intermediate registers)
@@ -231,9 +231,11 @@ patterns = {
 	(lambda line2, prev: line2.code in {'inc hl', 'dec hl'}),
 ],
 'a == 0': [
-	# Bad: cp 0
+	# Bad: cp|or 0
+	# Bad: and $ff
 	# Good: and|or a
-	(lambda line1, prev: re.match(r'cp [%\$]?0+$', line1.code)),
+	(lambda line1, prev: re.match(r'(?:cp|or) [%\$]?0+$', line1.code)
+		or re.match(r'and (?:255|-1|\$[Ff][Ff]|%11111111)$', line1.code)),
 ],
 'Tail call': [
 	# Bad: call Foo / ret (unless Foo messes with the stack)
@@ -356,6 +358,18 @@ patterns = {
 		and ' ' not in line1.code
 		and line1.code.lower() not in {'endc', 'endr', 'endm'}),
 	(lambda line2, prev: line2.code == 'ret'),
+],
+'Stub jump': [
+	# Bad: call [z|nz|c|nc,] Foo / ... / Foo: / jr Bar
+	# Good: call [z|nz|c|nc,] Bar
+	#
+	# Bad: jr|jp [z|nz|c|nc,] Foo / ... / Foo: / jr Bar
+	# Good: jr|jp [z|nz|c|nc,] Bar
+	(lambda line1, prev: re.match(r'[A-Za-z_\.]', line1.text[0])
+		and ' ' not in line1.code
+		and line1.code.lower() not in {'endc', 'endr', 'endm'}),
+	(lambda line2, prev: line2.code.startswith('jr ')
+		and ',' not in line2.code),
 ],
 }
 
