@@ -2352,6 +2352,113 @@ AthleteGroup:
 	db $ff ; end
 
 ; ================
+
+	; ATHLETE (3)
+	db "JIMBO@"
+	db TRAINERTYPE_NORMAL
+
+	db 45, CORSOLA
+	db 45, RELICANTH
+
+	db $ff
+	
+; ================
+
+	; ATHLETE (4)
+	db "BARNEY@"
+	db TRAINERTYPE_NORMAL
+
+	db 47, RAPIDASH
+
+	db $ff
+	
+; ================
+
+	; ATHLETE (5)
+	db "BRUCE@"
+	db TRAINERTYPE_NORMAL
+
+	db 40, DODUO
+	db 40, DODUO
+	db 40, DODUO
+	db 40, DODUO
+	db 40, DODUO
+	db 40, DODRIO
+
+	db $ff
+	
+; ================
+
+	; ATHLETE (6)
+	db "JACK@"
+	db TRAINERTYPE_NORMAL
+
+	db 44, MACHOP
+	db 44, MACHOKE
+	db 43, MACHAMP
+
+	db $ff
+	
+; ================
+
+	; ATHLETE (7)
+	db "LARS@"
+	db TRAINERTYPE_NORMAL
+
+	db 40, TYROGUE
+	db 41, HITMONCHAN
+	db 42, HITMONLEE
+	db 43, HITMONTOP
+
+	db $ff
+	
+; ================
+
+	; ATHLETE (8)
+	db "ED@"
+	db TRAINERTYPE_NORMAL
+
+	db 45, PIKACHU
+	db 45, RAICHU
+
+	db $ff	
+	
+; ================
+
+	; ATHLETE (9)
+	db "JUAN@"
+	db TRAINERTYPE_NORMAL
+
+	db 48, TAUROS
+
+	db $ff	
+	
+; ================
+
+	; ATHLETE (10)
+	db "SHELDON@"
+	db TRAINERTYPE_MOVES
+
+	db 46, ARCANINE
+		db EXTREMESPEED
+		db FLAMETHROWER
+		db QUICK_ATTACK
+		db ROAR
+
+	db 45, POLIWRATH
+		db RAIN_DANCE
+		db ICE_PUNCH
+		db WHIRLPOOL
+		db MACH_PUNCH
+		
+	db 45, JUMPLUFF
+		db RAZOR_LEAF
+		db SYNTHESIS
+		db GIGA_DRAIN
+		db FAIRY_WIND
+
+	db $ff
+; ================
 ; ================================
 
 
@@ -2669,6 +2776,7 @@ CooltrainerMGroup:
 		db SLEEP_TALK
 
 	db $ff
+	
 
 ; ================
 ; ================================

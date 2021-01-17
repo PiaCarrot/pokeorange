@@ -136,6 +136,7 @@ CHRIS EQU __enum__
 	const YAEKO
 	const SAKAKO
 	const YUKA
+	const MARINA
 
 	trainerclass CAMPER
 	const SAMM
@@ -165,6 +166,14 @@ CHRIS EQU __enum__
 	trainerclass ATHLETE
 	const HIDEKI
 	const KAITO
+	const JIMBO
+	const BARNEY
+	const BRUCE
+	const JACK
+	const LARS
+	const ED
+	const JUAN
+	const SHELDON
 
 	trainerclass SIGHTSEERM
 	const MICHIO
