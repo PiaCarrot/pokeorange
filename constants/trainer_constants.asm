@@ -101,6 +101,7 @@ CHRIS EQU __enum__
 	trainerclass LASS
 	const NICOLE
 	const FUYUMI
+	const RILEY
 
 	trainerclass BEAUTY
 
@@ -214,6 +215,7 @@ CHRIS EQU __enum__
 	const NIRO
 	const GODO
 	const JAKE
+	const DOC
 	
 	trainerclass JACE
 	

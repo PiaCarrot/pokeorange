@@ -1707,6 +1707,26 @@ LassGroup:
 	db 29, HORSEA
 
 	db $ff ; end
+	
+; ================
+
+	; LASS (3)
+	db "RILEY@"
+	db TRAINERTYPE_MOVES
+
+	db 46, CLEFABLE
+		db TAKE_DOWN
+		db SWEET_KISS
+		db ATTRACT
+		db METRONOME
+		
+	db 46, WIGGLYTUFF
+		db TAKE_DOWN
+		db DEFENSE_CURL
+		db ROLLOUT
+		db BOUNCE
+
+	db $ff
 
 ; ================
 ; ================================
@@ -2025,6 +2045,32 @@ SwimmerFGroup:
 	; party
 	db 9, WAILMER
 	db 9, PSYDUCK
+
+	db $ff ; end
+	
+; ================
+
+	; SWIMMERF (8)
+	db "MARINA@"
+	db TRAINERTYPE_MOVES
+
+	db 46, GOLDUCK
+		db ZEN_HEADBUTT
+		db SURF
+		db RAIN_DANCE
+		db SCREECH
+
+	db 45, WAILORD
+		db WATER_PULSE
+		db TAKE_DOWN
+		db MIST
+		db DEFENSE_CURL
+		
+	db 44, STARMIE
+		db POWER_GEM
+		db CONFUSE_RAY
+		db TRI_ATTACK
+		db RAPID_SPIN
 
 	db $ff ; end
 
@@ -3196,6 +3242,26 @@ OtakuGroup:
 		db METAL_CLAW
 		db DEFENSE_CURL
 		db ROLLOUT
+
+	db $ff	
+	
+; =================
+
+	; OTAKU (4)
+	db "DOC@"
+	db TRAINERTYPE_MOVES
+
+	db 46, GOLDUCK
+		db PSYBEAM
+		db ICE_BEAM
+		db SURF
+		db REST
+		
+	db 46, MAGNETON
+		db TRI_ATTACK
+		db THUNDERBOLT
+		db THUNDER_WAVE
+		db STEEL_WING
 
 	db $ff	
 
