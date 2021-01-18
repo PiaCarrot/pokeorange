@@ -1727,6 +1727,18 @@ LassGroup:
 		db BOUNCE
 
 	db $ff
+	
+; ================
+
+	; LASS (4)
+	db "LOLA@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 41, MARILL
+	db 42, AZUMARILL
+
+	db $ff ; end
 
 ; ================
 ; ================================
@@ -2303,6 +2315,16 @@ FisherGroup:
 		db WATER_PULSE
 
 	db $ff
+; =================
+
+	; FISHER (11)
+	db "SHO@"
+	db TRAINERTYPE_NORMAL
+
+	db 43, OCTILLERY
+	db 41, MANTINE
+
+	db $ff
 ; ================
 ; ================================
 
@@ -2560,6 +2582,33 @@ SightseerFGroup:
 		db REST
 		db SLEEP_TALK
 
+	db $ff ; end	
+
+; ================
+
+	; SIGHTSEERF (3)
+	db "LANA@"
+	db TRAINERTYPE_MOVES
+
+	; party
+	db 46, SYLVEON
+		db DAZZLINGLEAM
+		db SAND_ATTACK
+		db ENCORE
+		db QUICK_ATTACK
+
+	db $ff ; end
+; ================
+
+	; SIGHTSEERF (4)
+	db "FLORA@"
+	db TRAINERTYPE_DVS
+
+	; party
+	db 42, DRATINI, $98, $88
+	db 40, SPINDA, SPINDA_B_DVS
+	db 40, EXEGGCUTE, $98, $88
+
 	db $ff ; end
 
 ; ================
@@ -2765,7 +2814,7 @@ CooltrainerMGroup:
 	
 ; ================
 
-	; COOLTRAINERM (5)
+	; COOLTRAINERM (9)
 	db "TRAD@"
 	db TRAINERTYPE_MOVES
 
@@ -2774,6 +2823,17 @@ CooltrainerMGroup:
 		db REST
 		db SURF
 		db SLEEP_TALK
+
+	db $ff
+	
+; ================
+
+	; COOLTRAINERM (10)
+	db "DAVID@"
+	db TRAINERTYPE_NORMAL
+
+	db 43, GOLBAT
+	db 43, SKRELP
 
 	db $ff
 	
@@ -2914,6 +2974,16 @@ BirdkeeperGroup:
 	db 28, TRUMBEAK
 	db 27, CHATOT
 	db 26, PELIPPER
+
+	db $ff
+	
+; ================
+	; BIRDKEEPER (2)
+	db "DWIGHT@"
+	db TRAINERTYPE_NORMAL
+
+	db 44, PIDGEOT
+	db 44, TOUCANNON
 
 	db $ff
 

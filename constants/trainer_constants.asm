@@ -102,6 +102,7 @@ CHRIS EQU __enum__
 	const NICOLE
 	const FUYUMI
 	const RILEY
+	const LOLA
 
 	trainerclass BEAUTY
 
@@ -159,6 +160,7 @@ CHRIS EQU __enum__
 	const MIYAGI
 	const KUNAI
 	const YAMATO
+	const SHO
 
 	trainerclass HIKER
 	const TEPPEI
@@ -183,6 +185,8 @@ CHRIS EQU __enum__
 	trainerclass SIGHTSEERF
 	const ASAMI
 	const ARASHI
+	const LANA
+	const FLORA
 
 	trainerclass WAITRESS
 	const SATOMI
@@ -200,6 +204,7 @@ CHRIS EQU __enum__
 	const KUBO
 	const NAGI
 	const TRAD
+	const DAVID
 
 	trainerclass COOLTRAINERF
 	const KEIKO
@@ -217,6 +222,7 @@ CHRIS EQU __enum__
 
 	trainerclass BIRDKEEPER
 	const TATSUYA
+	const DWIGHT
 	
 	trainerclass CROSS
 	

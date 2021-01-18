@@ -93,7 +93,6 @@ LuanaPsychicExplanationText:
 	line "PSYCHIC."
 	cont "I'm sure it will"
 	cont "be helpful."
-	done
 
 LuanaAlreadyGotTMText:
 	text "I'll see you"
@@ -110,4 +109,4 @@ KumquatHotelGym_MapEventHeader::
 .BGEvents: db 0
 
 .ObjectEvents: db 1
-	person_event SPRITE_LUANA,  4,  3, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, LuanaScript, -1
+	person_event SPRITE_LUANA,  5,  4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, LuanaScript, -1

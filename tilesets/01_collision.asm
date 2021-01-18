@@ -164,9 +164,9 @@
 	tilecoll FLOOR, WALL, FLOOR, WALL ; a3
 	tilecoll ROCK_CLIMB, WALL, ROCK_CLIMB, CAVE ; a4
 	tilecoll FLOOR, BOTTOM_WALL, WALL, CAVE ; a5
-	tilecoll FLOOR, WALL, FLOOR, WALL ; a6
-	tilecoll FLOOR, WALL, FLOOR, WALL ; a7
-	tilecoll WALL, FLOOR, WALL, WALL ; a8
+	tilecoll WALL, WALL, WALL, WALL ; a6
+	tilecoll WALL, WALL, WALL, WALL ; a7
+	tilecoll WALL, WALL, WALL, WALL ; a8
 	tilecoll WALL, WALL, WALL, FLOOR ; a9
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; aa
 	tilecoll WALL, WALL, FLOOR, FLOOR ; ab
