@@ -225,8 +225,11 @@ KumquatWestCooltrainerF1Text:
 
 KumquatIslandWest_MapEventHeader::
 
-.Warps: db 1
+.Warps: db 4
 	warp_def 17, 12, 2, GAME_CORNER
+	warp_def 17,  7, 1, KUMQUAT_HOUSE_3
+	warp_def  5, 19, 1, KUMQUAT_HOUSE_4
+	warp_def  9, 11, 1, KUMQUAT_MART
 
 .CoordEvents: db 0
 

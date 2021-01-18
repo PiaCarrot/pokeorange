@@ -266,6 +266,12 @@ MAP_NONE EQU 0
 	mapgroup KUMQUAT_HOTEL_TOP_ROOM_2, 3, 3
 	mapgroup KUMQUAT_HOTEL_TOP_ROOM_3, 3, 3
 	mapgroup KUMQUAT_HOTEL_GYM, 4, 4
+	mapgroup KUMQUAT_HOUSE_1, 4, 4
+	mapgroup KUMQUAT_HOUSE_2, 4, 4
+	mapgroup KUMQUAT_HOUSE_3, 4, 4
+	mapgroup KUMQUAT_HOUSE_4, 4, 4
+	mapgroup KUMQUAT_MART, 4, 6
+	mapgroup KUMQUAT_CENTER, 4, 5
 	mapgroup GAME_CORNER, 6, 7
 	mapgroup ROUTE_67, 15, 30
 	mapgroup RIND_ISLAND, 22, 24

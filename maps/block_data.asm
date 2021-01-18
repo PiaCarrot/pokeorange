@@ -11,6 +11,7 @@ UnnamedIsland1PokeCenter_BlockData:
 MoroPokeCenter_BlockData:
 MurcottPokeCenter_BlockData:
 AscorbiaIslandCenter_BlockData:
+KumquatCenter_BlockData:
 	INCBIN "maps/PokeCenter1F.blk"
 
 PokeCenter2F_BlockData:
@@ -33,6 +34,7 @@ KinnowMart_BlockData:
 MoroMart_BlockData:
 MurcottPokeMart_BlockData:
 AscorbiaIslandMart_BlockData:
+KumquatMart_BlockData:
 	INCBIN "maps/Mart.blk"
 
 BluesHouse_BlockData:
@@ -63,6 +65,10 @@ TrovitopolisHouse4_BlockData:
 AscorbiaIslandMoveRelearner_BlockData:
 AscorbiaIslandHouse1_BlockData:
 AscorbiaIslandHouse2_BlockData:
+KumquatHouse1_BlockData:
+KumquatHouse2_BlockData:
+KumquatHouse3_BlockData:
+KumquatHouse4_BlockData:
 	INCBIN "maps/House1.blk"
 
 MikanNicknameSpeechHouse_BlockData:

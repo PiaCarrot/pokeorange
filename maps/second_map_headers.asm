@@ -377,6 +377,12 @@
 	map_header_2 KumquatHotelTopRoom2, KUMQUAT_HOTEL_TOP_ROOM_2, 0, 0
 	map_header_2 KumquatHotelTopRoom3, KUMQUAT_HOTEL_TOP_ROOM_3, 0, 0
 	map_header_2 KumquatHotelGym, KUMQUAT_HOTEL_GYM, 0, 0
+	map_header_2 KumquatHouse1, KUMQUAT_HOUSE_1, 0, 0
+	map_header_2 KumquatHouse2, KUMQUAT_HOUSE_2, 0, 0
+	map_header_2 KumquatHouse3, KUMQUAT_HOUSE_3, 0, 0
+	map_header_2 KumquatHouse4, KUMQUAT_HOUSE_4, 0, 0
+	map_header_2 KumquatMart, KUMQUAT_MART, 0, 0
+	map_header_2 KumquatCenter, KUMQUAT_CENTER, 0, 0
 	map_header_2 GameCorner, GAME_CORNER, 0, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0

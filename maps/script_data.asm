@@ -18,7 +18,7 @@ INCLUDE "maps/TrovitopolisPokeCommCenter.asm"
 
 
 SECTION "Pokemon Center Scripts 3", ROMX
-
+INCLUDE "maps/KumquatCenter.asm"
 
 SECTION "Pokemon Center Scripts 4", ROMX
 
@@ -257,6 +257,11 @@ INCLUDE "maps/KumquatHotelTopRoom1.asm"
 INCLUDE "maps/KumquatHotelTopRoom2.asm"
 INCLUDE "maps/KumquatHotelTopRoom3.asm"
 INCLUDE "maps/KumquatHotelGym.asm"
+INCLUDE "maps/KumquatHouse1.asm"
+INCLUDE "maps/KumquatHouse2.asm"
+INCLUDE "maps/KumquatHouse3.asm"
+INCLUDE "maps/KumquatHouse4.asm"
+INCLUDE "maps/KumquatMart.asm"
 INCLUDE "maps/GameCorner.asm"
 
 SECTION "Rind Scripts", ROMX

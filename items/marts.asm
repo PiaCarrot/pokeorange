@@ -14,6 +14,7 @@ Marts: ; 160a9
 	dw TrovitopolisMedicineMart
 	dw TrovitopolisTMMart
 	dw AscorbiaMart
+	dw KumquatMart
 MartsEnd
 ; 160ed
 
@@ -208,6 +209,18 @@ TrovitopolisTMMart:
 	db $ff
 
 AscorbiaMart:
+	db 8
+	db GREAT_BALL
+	db ULTRA_BALL
+	db SUPER_POTION
+	db HYPER_POTION
+	db REVIVE
+	db FULL_HEAL
+	db MAX_REPEL
+	db ESCAPE_ROPE
+	db $ff
+
+KumquatMart:
 	db 8
 	db GREAT_BALL
 	db ULTRA_BALL

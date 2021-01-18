@@ -93,6 +93,7 @@ LuanaPsychicExplanationText:
 	line "PSYCHIC."
 	cont "I'm sure it will"
 	cont "be helpful."
+	done
 
 LuanaAlreadyGotTMText:
 	text "I'll see you"

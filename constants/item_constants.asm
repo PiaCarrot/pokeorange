@@ -378,6 +378,7 @@ ITEMMENU_CLOSE              EQU 6
 	const MART_TROVITOPOLIS_MEDICINE
 	const MART_TROVITOPOLIS_TM
 	const MART_ASCORBIA
+	const MART_KUMQUAT
 
 ; PartyMenuActionText
 	const_def

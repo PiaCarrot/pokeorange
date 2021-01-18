@@ -129,8 +129,11 @@ KumquatIslandSignText:
 
 KumquatIslandEast_MapEventHeader::
 
-.Warps: db 1
+.Warps: db 4
 	warp_def 15, 2, 1, KUMQUAT_HOTEL_LOBBY
+	warp_def  9,  7, 1, KUMQUAT_HOUSE_1
+	warp_def 13,  9, 1, KUMQUAT_HOUSE_2
+	warp_def 15, 15, 1, KUMQUAT_CENTER
 
 .CoordEvents: db 0
 
