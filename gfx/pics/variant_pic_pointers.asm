@@ -135,15 +135,3 @@ MagikarpPicPointers::
 	add_pics MagikarpForehead
 	add_pics MagikarpMask
 	add_pics MagikarpBubbles
-	
-EggPicPointers::
-	dba EggPic
-	dba EggTogepiPic
-	dba EggSmoochumPic
-	dba EggPichuPic
-	dba EggMagbyPic
-	dba EggIgglybuffPic
-	dba EggHappinyPic
-	dba EggElekidPic
-	dba EggCleffaPic
-	dba EggAzurillPic
