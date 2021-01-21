@@ -80,7 +80,7 @@ BugCatcherFAliaBeatenText:
 BugCatcherFAliaAfterText:
 	text "I hope I can meet"
 	line "lots of BUG-type"
-	cont "#MON collectors."
+	cont "collectors."
     done
 
 TrainerFisherYuuta:

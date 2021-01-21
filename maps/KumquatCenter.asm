@@ -19,6 +19,13 @@ KumquatCenterSlouchScript:
 	end
 
 KumquatCenterSlouchText:
+	text "Past KUMQUAT ISLAND"
+	line "is VICTORY ROAD."
+	
+	para "It's a rocky crag"
+	line "that the strongest"
+	cont "TRAINERS gather to"
+	cont "stomp competition."
 	done
 
 

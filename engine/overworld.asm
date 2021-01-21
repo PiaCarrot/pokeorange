@@ -686,6 +686,7 @@ SpriteMons: ; 14495
 	db MACHOP
 	db AERODACTYL
 	db FEAROW
+	db GLOOM
 ; 144b8
 
 
