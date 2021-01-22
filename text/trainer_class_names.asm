@@ -29,7 +29,7 @@
 	db "JESSIE@" ; JESSIE_JAMES
 	db "<PK><MN> TRAINER@" ; MOM
 	db "#MANIAC@" ; BILL
-	db "STRANGER@" ; IMAKUNI
+	db "IMAKUNI?@" ; IMAKUNI
 	db "COLLECTOR@" ; LAWRENCE
 	db "#MON PROF.@" ; PROF_OAK
 	db "#MON PROF.@" ; PROF_IVY

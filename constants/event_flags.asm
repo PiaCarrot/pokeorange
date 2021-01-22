@@ -76,6 +76,7 @@
 	const EVENT_SUITE_MASTER_DEFEATED
 	const EVENT_GOT_TM_PSYCHIC
 	const EVENT_GOT_MIRACLE_SEED
+	const EVENT_RECEIVED_KUMQUAT_STARTER
 	
 ; Not yet used
 	const EVENT_WELCOMED_TO_POKECOM_CENTER
@@ -382,6 +383,8 @@
 	const EVENT_GAME_CORNER_HIDDEN_20_COINS
 	const EVENT_GAME_CORNER_HIDDEN_50_COINS
 	const EVENT_GAME_CORNER_HIDDEN_100_COINS
+	const EVENT_ROUTE_67_HIDDEN_GRAPEFRUIT
+	const EVENT_ROUTE_67_HIDDEN_MAX_REVIVE
 
 ; Sprite visibility: When these events are cleared, the sprite becomes visible; when set, the sprite is hidden.
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.
@@ -494,6 +497,9 @@
 	const EVENT_ROUTE_66_EAST_WEST_PINK_BOW
 	const EVENT_ROUTE_66_EAST_WEST_LOCK_ON
 	const EVENT_ROUTE_66_NORTH_SOUTH_MAX_POTION
+	const EVENT_ROUTE_67_SEED_BOMB
+	const EVENT_ROUTE_67_PP_UP
+	const EVENT_ROUTE_67_FULL_RESTORE
 
 ; People
 	const EVENT_BULBASAUR_POKEBALL_IN_IVYS_LAB
