@@ -89,7 +89,7 @@ Vicegrip
 - TM09 *Bullet Seed* (Pinkan Island)
 - TM10 Fissure
 - TM11 Sunny Day (Sunburst Island)
-- TM12 Lock-On
+- TM12 Lock-On (Route 66)
 - TM13 Ice Beam (Trovitopolis Dept. Store)
 - TM14 Blizzard (Game Corner)
 - TM15 Hyper Beam (Trovitopolis Dept. Store)
@@ -106,7 +106,7 @@ Vicegrip
 - TM26 Earthquake (Route 62)
 - TM27 Return (Unnamed Island 1)
 - TM28 Dig
-- TM29 Psychic
+- TM29 Psychic (Luana)
 - TM30 Shadow Ball (Wrecked Ship)
 - TM31 Bubblebeam (Cissy)
 - TM32 Double Team (Rudy)
@@ -136,7 +136,7 @@ Vicegrip
 - HM03 Surf (Tangelo Island)
 - HM04 Strength (Primas School)
 - HM05 Rock Smash (Trovita Island)
-- HM06 *Dive* (**TODO:** Ascorbia Island)
+- HM06 *Dive* (Ascorbia Island)
 - HM07 Waterfall (**TODO:** Unnamed Island 3)
 - HM08 *Rock Climb* (**TODO:** Kanto)
 

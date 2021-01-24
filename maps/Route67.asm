@@ -2,7 +2,12 @@ Route67_MapScriptHeader::
 
 .Triggers: db 0
 
-.Callbacks: db 0
+.Callbacks: db 1
+	dbw MAPCALLBACK_NEWMAP, .InitializeDiveMap
+
+.InitializeDiveMap:
+	divemap ROUTE_67_UNDERWATER, 0, 0
+	return
 
 Route67Sign:
 	jumptext Route67SignText
@@ -34,7 +39,7 @@ Route67_MapEventHeader::
 
 .BGEvents: db 3
 	signpost  4, 54, SIGNPOST_READ, Route67Sign
-	signpost 16, 37, SIGNPOST_ITEM, Route67HiddenGrapefruit
+	signpost  7, 54, SIGNPOST_ITEM, Route67HiddenGrapefruit
 	signpost 25, 22, SIGNPOST_ITEM, Route67HiddenMaxRevive
 
 .ObjectEvents: db 3

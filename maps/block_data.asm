@@ -540,3 +540,6 @@ Route71_BlockData:
 	
 ShamoutiIsland_BlockData:
 	INCBIN "maps/ShamoutiIsland.blk"
+	
+Route67Underwater_BlockData:
+	INCBIN "maps/Route67Underwater.blk"

@@ -278,6 +278,7 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_68, 10, 14
 	mapgroup UNNAMED_ISLAND_3, 20, 20
 	mapgroup ROUTE_69_SOUTH, 41, 20
+	mapgroup ROUTE_67_UNDERWATER, 15, 30
 
 
 ; elevator floors
