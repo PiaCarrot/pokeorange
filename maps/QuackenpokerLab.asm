@@ -118,7 +118,7 @@ KarpSalesmanText1:
 	
 	para "I got a golden"
 	line "MAGIKARP for sale!"
-	cont "How does $200000"
+	cont "How does ¥200000"
 	cont "sound?"
 	done
 	
