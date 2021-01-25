@@ -146,7 +146,7 @@ Vicegrip
 - MT02 ThunderPunch
 - MT03 Ice Punch
 - MT04 Comet Punch
-- MT05 Mach Punch
+- MT05 Mach Punch (Route 56)
 - MT06 DynamicPunch
 - MT07 Headbutt (Moro Island)
 - MT08 *Zen Headbutt*
@@ -157,7 +157,7 @@ Vicegrip
 - MT13 Endure
 - MT14 Swagger
 - MT15 Sleep Talk
-- MT16 Attract
+- MT16 Attract (Route 67)
 - MT17 Play Rough
 - MT18 *Poison Jab*
 - MT19 *Bug Bite* (Route 49)

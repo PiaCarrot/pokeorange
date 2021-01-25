@@ -1187,5 +1187,32 @@
 	db 29, GLOOM
 	db 29, GLOOM
 	db 29, TANGELA
+	
+	map ROUTE_67_UNDERWATER
+	db 7 percent, 7 percent, 7 percent ; encounter rates: morn/day/nite
+	; morn
+	db 30, FINNEON
+	db 30, STARYU
+	db 30, FINNEON
+	db 31, LUMINEON
+	db 31, STARYU
+	db 31, STARMIE
+	db 31, RELICANTH
+	; day
+	db 30, FINNEON
+	db 30, STARYU
+	db 30, FINNEON
+	db 31, LUMINEON
+	db 31, STARYU
+	db 31, STARMIE
+	db 31, RELICANTH
+	; nite
+	db 30, FINNEON
+	db 30, STARYU
+	db 30, FINNEON
+	db 31, LUMINEON
+	db 31, STARYU
+	db 31, STARMIE
+	db 31, RELICANTH
 
 	db -1 ; end
