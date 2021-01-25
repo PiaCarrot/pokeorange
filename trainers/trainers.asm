@@ -2112,6 +2112,43 @@ SwimmerFGroup:
 	db 47, STARMIE
 
 	db $ff ; end
+	
+; ================
+
+	; SWIMMERF (10)
+	db "MELLY@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 51, DEWGONG
+	db 49, SEAKING
+
+	db $ff ; end
+	
+; ================
+
+	; SWIMMERF (11)
+	db "SALLY@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 48, LUMINEON
+	db 49, STUNFISK
+
+	db $ff ; end
+	
+; ================
+
+	; SWIMMERF (12)
+	db "RUE@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 52, BLASTOISE
+	db 50, WARTORTLE
+	db 48, SQUIRTLE
+
+	db $ff ; end
 
 ; ================
 ; ================================

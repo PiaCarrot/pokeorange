@@ -140,6 +140,9 @@ CHRIS EQU __enum__
 	const YUKA
 	const MARINA
 	const LULU
+	const MELLY
+	const SALLY
+	const RUE
 
 	trainerclass CAMPER
 	const SAMM
