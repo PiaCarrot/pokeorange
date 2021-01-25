@@ -1739,6 +1739,20 @@ LassGroup:
 	db 42, AZUMARILL
 
 	db $ff ; end
+	
+; ================
+
+	; LASS (5)
+	db "TORI@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 46, TOGETIC
+	db 46, TOGEPI
+	db 46, CLEFFA
+	db 46, CLEFAIRY
+
+	db $ff ; end
 
 ; ================
 ; ================================
@@ -2085,6 +2099,19 @@ SwimmerFGroup:
 		db RAPID_SPIN
 
 	db $ff ; end
+	
+; ================
+
+	; SWIMMERF (9)
+	db "LULU@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 45, LUMINEON
+	db 49, DRAGALGE
+	db 47, STARMIE
+
+	db $ff ; end
 
 ; ================
 ; ================================
@@ -2323,6 +2350,18 @@ FisherGroup:
 
 	db 43, OCTILLERY
 	db 41, MANTINE
+
+	db $ff
+	
+; =================
+
+	; FISHER (12)
+	db "GIN@"
+	db TRAINERTYPE_PERSONALITY
+
+	db 47, MAGIKARP, MALE_MASK
+	db 45, GYARADOS, MALE_MASK | SHINY_MASK
+	db 47, GYARADOS, MALE_MASK
 
 	db $ff
 ; ================
@@ -2837,6 +2876,18 @@ CooltrainerMGroup:
 
 	db $ff
 	
+; ================
+
+	; COOLTRAINERM (11)
+	db "FABIO@"
+	db TRAINERTYPE_NORMAL
+
+	db 47, CHARIZARD
+	db 46, CHARMELEON
+	db 45, CHARMANDER
+
+	db $ff
+	
 
 ; ================
 ; ================================
@@ -2901,6 +2952,18 @@ CooltrainerFGroup:
 	db 44, SANDSLASH, FEMALE_MASK | SANDSLASH_ALOLAN_FORM
 	db 44, NIDORINA, FEMALE_MASK
 	db 44, JYNX, FEMALE_MASK
+
+	db $ff
+	
+; ================
+
+	; COOLTRAINERF (6)
+	db "LIZ@"
+	db TRAINERTYPE_PERSONALITY
+
+	db 48, MAGCARGO, MALE_MASK
+	db 48, LANTURN, FEMALE_MASK
+	db 48, EXEGGUTOR, MALE_MASK | EXEGGUTOR_KANTONESE_FORM
 
 	db $ff
 
@@ -2982,8 +3045,17 @@ BirdkeeperGroup:
 	db "DWIGHT@"
 	db TRAINERTYPE_NORMAL
 
-	db 44, PIDGEOT
+	db 44, PIDGEOTTO
 	db 44, TOUCANNON
+
+	db $ff
+	
+; ================
+	; BIRDKEEPER (3)
+	db "CID@"
+	db TRAINERTYPE_NORMAL
+
+	db 50, PIDGEOT
 
 	db $ff
 
@@ -3440,6 +3512,26 @@ OtakuGroup:
 		db THUNDERBOLT
 		db THUNDER_WAVE
 		db STEEL_WING
+
+	db $ff	
+	
+; =================
+
+	; OTAKU (4)
+	db "ABE@"
+	db TRAINERTYPE_MOVES
+
+	db 49, DUGTRIO
+		db TRI_ATTACK
+		db DIG
+		db MAGNITUDE
+		db SAND_ATTACK
+		
+	db 48, MAGNETON
+		db TRI_ATTACK
+		db THUNDERBOLT
+		db THUNDER_WAVE
+		db FLASH
 
 	db $ff	
 

@@ -103,6 +103,7 @@ CHRIS EQU __enum__
 	const FUYUMI
 	const RILEY
 	const LOLA
+	const TORI
 
 	trainerclass BEAUTY
 
@@ -138,6 +139,7 @@ CHRIS EQU __enum__
 	const SAKAKO
 	const YUKA
 	const MARINA
+	const LULU
 
 	trainerclass CAMPER
 	const SAMM
@@ -161,6 +163,7 @@ CHRIS EQU __enum__
 	const KUNAI
 	const YAMATO
 	const SHO
+	const GIN
 
 	trainerclass HIKER
 	const TEPPEI
@@ -205,6 +208,7 @@ CHRIS EQU __enum__
 	const NAGI
 	const TRAD
 	const DAVID
+	const FABIO
 
 	trainerclass COOLTRAINERF
 	const KEIKO
@@ -212,6 +216,7 @@ CHRIS EQU __enum__
 	const AIRI
 	const REIKA
 	const MARY
+	const LIZ
 
 	trainerclass CATMAN
 	const DAIKON
@@ -223,6 +228,7 @@ CHRIS EQU __enum__
 	trainerclass BIRDKEEPER
 	const TATSUYA
 	const DWIGHT
+	const CID
 	
 	trainerclass CROSS
 	
@@ -231,6 +237,7 @@ CHRIS EQU __enum__
 	const GODO
 	const JAKE
 	const DOC
+	const ABE
 	
 	trainerclass JACE
 	
