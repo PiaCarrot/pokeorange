@@ -392,6 +392,8 @@
 	const EVENT_GAME_CORNER_HIDDEN_100_COINS
 	const EVENT_ROUTE_67_HIDDEN_GRAPEFRUIT
 	const EVENT_ROUTE_67_HIDDEN_MAX_REVIVE
+	const EVENT_RIND_ISLAND_HIDDEN_ETHER
+	const EVENT_RIND_ISLAND_HIDDEN_NUGGET
 
 ; Sprite visibility: When these events are cleared, the sprite becomes visible; when set, the sprite is hidden.
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.
@@ -512,6 +514,7 @@
 	const EVENT_ROUTE_67_UNDERWATER_MAX_POTION
 	const EVENT_ROUTE_67_UNDERWATER_ELIXIR
 	const EVENT_ROUTE_67_UNDERWATER_KINGS_ROCK
+	const EVENT_RIND_ISLAND_LURE_BALL
 
 ; People
 	const EVENT_BULBASAUR_POKEBALL_IN_IVYS_LAB
