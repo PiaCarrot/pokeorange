@@ -40,7 +40,8 @@ RindIslandHiddenNugget:
 
 RindIsland_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 1
+	warp_def  9, 13, 1, QUACKENPOKER_LAB
 
 .CoordEvents: db 0
 

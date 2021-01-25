@@ -106,6 +106,7 @@ SpecialsPointers:: ; c029
 	add_special SpecialCharmander
 	add_special SpecialSquirtle
 	add_special SpecialIllustratorPikachu
+	add_special SpecialMagikarp
 
 	; Crystal
 	add_special Reset

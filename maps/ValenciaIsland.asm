@@ -133,11 +133,9 @@ if def(DEBUG)
 	giveitem EVERSTONE
 	giveitem OLD_ROD
 	giveitem GOOD_ROD
-	giveitem SUPER_ROD
-	giveitem MASTER_ROD
 	giveitem COIN_CASE
 	givecoins 9999
-	givemoney 0, 100000
+	givemoney 0, 195000
 	opentext
 	givepoke LAPRAS, 100
 	givepoke CHARIZARD, 100

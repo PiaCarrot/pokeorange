@@ -267,6 +267,7 @@ INCLUDE "maps/GameCorner.asm"
 SECTION "Rind Scripts", ROMX
 
 INCLUDE "maps/RindIsland.asm"
+INCLUDE "maps/QuackenpokerLab.asm"
 
 SECTION "Unnamed Island 3 Scripts", ROMX
 

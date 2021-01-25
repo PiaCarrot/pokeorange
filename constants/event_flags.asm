@@ -77,6 +77,7 @@
 	const EVENT_GOT_TM_PSYCHIC
 	const EVENT_GOT_MIRACLE_SEED
 	const EVENT_RECEIVED_KUMQUAT_STARTER
+	const EVENT_BOUGHT_SHINY_MAGIKARP
 	
 ; Not yet used
 	const EVENT_WELCOMED_TO_POKECOM_CENTER
@@ -394,6 +395,7 @@
 	const EVENT_ROUTE_67_HIDDEN_MAX_REVIVE
 	const EVENT_RIND_ISLAND_HIDDEN_ETHER
 	const EVENT_RIND_ISLAND_HIDDEN_NUGGET
+	const EVENT_RIND_ISLAND_HIDDEN_LEFTOVERS
 
 ; Sprite visibility: When these events are cleared, the sprite becomes visible; when set, the sprite is hidden.
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.

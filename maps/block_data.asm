@@ -107,6 +107,7 @@ KrissHouse2F_BlockData:
 IvysHouse_BlockData::
 	INCBIN "maps/IvysHouse.blk"
 
+QuackenpokerLab_BlockData:
 IvysLab_BlockData:
 	INCBIN "maps/IvysLab.blk"
 

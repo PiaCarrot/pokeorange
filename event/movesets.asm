@@ -45,6 +45,18 @@ SpecialIllustratorPikachu:
 	db SKETCH ; unique
 	db THUNDERBOLT
 	db 0
+	
+SpecialMagikarp:
+	call GetLastPartyMonMoveset
+	ld hl, .Moveset
+	jp GiveSpecialMoveset
+	
+.Moveset:
+	db SPLASH
+	db FLAIL
+	db TACKLE
+	db HYPER_BEAM ;unique
+	db 0
 
 GetLastPartyMon: ; 0x8b1ce
 	ld bc, PartyCount
