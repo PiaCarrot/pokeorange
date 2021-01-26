@@ -1582,7 +1582,7 @@ AI_Smart_DefrostOpponent: ; 38ccb
 ; 38cd5
 
 
-Function_0x38d16; 38d16
+Function_0x38d16: ; 38d16
 	jp AIDiscourageMove
 ; 38d19
 

@@ -15,7 +15,7 @@ Marts: ; 160a9
 	dw TrovitopolisTMMart
 	dw AscorbiaMart
 	dw KumquatMart
-MartsEnd
+MartsEnd:
 ; 160ed
 
 

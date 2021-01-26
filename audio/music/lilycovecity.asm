@@ -4,7 +4,7 @@ Music_LilycoveCity:
 	channel 2, Music_LilycoveCity_Ch2
 	channel 3, Music_LilycoveCity_Ch3
 
-Music_LilycoveCity_Ch1
+Music_LilycoveCity_Ch1:
 	tempo $78
 	dutycycle $2
 	notetype $c, $53
@@ -428,7 +428,7 @@ Music_LilycoveCity_Ch1
 
 Music_LilycoveCity_Ch2:
 	dutycycle $1
-Music_LilycoveCity_L1
+Music_LilycoveCity_L1:
 	notetype $c, $18
 	octave 4
 	note F#, 5

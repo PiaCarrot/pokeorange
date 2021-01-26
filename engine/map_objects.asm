@@ -170,10 +170,10 @@ Function4440: ; 4440
 	add hl, bc
 	bit INVISIBLE, [hl]
 	jr nz, SetFacingStanding
-asm_4448 ; use second column
+asm_4448: ; use second column
 	ld de, Pointers445f + 2
 ; 444d
-asm_444d
+asm_444d:
 ; call [4 * ObjectStructs[ObjInd, OBJECT_ACTION] + de]
 	ld hl, OBJECT_ACTION
 	add hl, bc

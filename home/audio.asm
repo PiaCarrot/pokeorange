@@ -52,7 +52,7 @@ UpdateSound:: ; 3b6a
 
 _LoadMusicByte:: ; 3b86
 ; CurMusicByte = [a:de]
-GLOBAL LoadMusicByte
+EXPORT LoadMusicByte
 
 	rst Bankswitch
 

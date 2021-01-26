@@ -9,7 +9,7 @@ ValenciaTangeloRoute49_MapScriptHeader:
 Route49Pokeball:
 	itemball POKE_BALL
 	
-Route49Potion
+Route49Potion:
 	itemball POTION
 
 ValenciaTangeloRoute49_MapEventHeader::

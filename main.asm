@@ -45,7 +45,7 @@ PushOAM: ; 403f
 	dec a
 	jr nz, .loop
 	ret
-PushOAMEnd
+PushOAMEnd:
 
 INCLUDE "engine/map_objects.asm"
 
@@ -4313,7 +4313,7 @@ INCLUDE "engine/landmarks.asm"
 
 SECTION "bank77", ROMX
 
-PrintHoursMins ; 1dd6bb (77:56bb)
+PrintHoursMins: ; 1dd6bb (77:56bb)
 ; Hours in b, minutes in c
 	ld a, b
 	cp 12

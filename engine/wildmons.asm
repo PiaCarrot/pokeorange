@@ -400,7 +400,7 @@ _WaterWildmonLookup: ; 2a21d
 	ld bc, WATER_WILDDATA_LENGTH
 	jr _NormalWildmonOK
 
-_JohtoWildmonCheck
+_JohtoWildmonCheck:
 	call IsInJohto
 	and a
 	ret z
@@ -408,7 +408,7 @@ _JohtoWildmonCheck
 	ld l, e
 	ret
 
-_SwarmWildmonCheck
+_SwarmWildmonCheck:
 	call CopyCurrMapDE
 	push hl
 	ld hl, SwarmFlags
@@ -426,11 +426,11 @@ _SwarmWildmonCheck
 	scf
 	ret
 
-_NoSwarmWildmon
+_NoSwarmWildmon:
 	and a
 	ret
 
-_NormalWildmonOK
+_NormalWildmonOK:
 	call CopyCurrMapDE
 	jr LookUpWildmonsForMapDE
 ; 2a27f

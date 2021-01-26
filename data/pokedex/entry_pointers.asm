@@ -26,10 +26,10 @@ GetDexEntryPointer: ; 44333
 
 .PokedexEntryBanks: ; 44351
 
-GLOBAL PokedexEntries1
-GLOBAL PokedexEntries2
-GLOBAL PokedexEntries3
-GLOBAL PokedexEntries4
+EXPORT PokedexEntries1
+EXPORT PokedexEntries2
+EXPORT PokedexEntries3
+EXPORT PokedexEntries4
 
 	db BANK(PokedexEntries1)
 	db BANK(PokedexEntries2)

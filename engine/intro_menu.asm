@@ -775,7 +775,7 @@ IntroFadePalettes: ; 0x617c
 	db %11111000
 	db %11110100
 	db %11100100
-IntroFadePalettesEnd
+IntroFadePalettesEnd:
 ; 6182
 
 Intro_WipeInFrontpic: ; 6182

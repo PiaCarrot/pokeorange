@@ -96,7 +96,7 @@ MoveReminder:
 GetRemindableMoves:
 ; Get moves remindable by CurPartyMon
 ; Returns z if no moves can be reminded.
-	GLOBAL EvosAttacksPointers, EvosAttacks
+	EXPORT EvosAttacksPointers, EvosAttacks
 	ld hl, wd002
 	xor a
 	ld [hli], a
