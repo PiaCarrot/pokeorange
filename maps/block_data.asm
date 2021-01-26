@@ -110,6 +110,9 @@ IvysHouse_BlockData::
 QuackenpokerLab_BlockData:
 IvysLab_BlockData:
 	INCBIN "maps/IvysLab.blk"
+	
+UnnamedIsland3House_BlockData:
+	INCBIN "maps/UnnamedIsland3House.blk"
 
 
 SECTION "Block Data 1", ROMX

@@ -60,7 +60,7 @@ const_value SET 1
 	const BATTLETYPE_TRAP
 	const BATTLETYPE_CRYSTAL_ONIX
 	const BATTLETYPE_SNORLAX
-
+	const BATTLETYPE_SHINY
 ; battle variables
 	const_def
 	const BATTLE_VARS_SUBSTATUS1

@@ -272,6 +272,7 @@ INCLUDE "maps/QuackenpokerLab.asm"
 SECTION "Unnamed Island 3 Scripts", ROMX
 
 INCLUDE "maps/UnnamedIsland3.asm"
+INCLUDE "maps/UnnamedIsland3House.asm"
 
 SECTION "Victory Road Scripts", ROMX
 

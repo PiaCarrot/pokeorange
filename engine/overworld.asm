@@ -687,6 +687,7 @@ SpriteMons: ; 14495
 	db AERODACTYL
 	db FEAROW
 	db GLOOM
+	db POLITOED
 ; 144b8
 
 
@@ -886,6 +887,7 @@ Group15Sprites:
 	
 Group16Sprites:
 ; Kumquat Island
+	db SPRITE_POLITOED
 	db SPRITE_SIGHTSEER_F
 	db SPRITE_SAILBOAT_TOP
 	db SPRITE_SAILBOAT_BOTTOM

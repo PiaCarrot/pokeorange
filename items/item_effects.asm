@@ -175,6 +175,7 @@ ItemEffects: ; e73c
 	dw Magmarizer
 	dw Electirizer
 	dw Protector
+	dw SalveyoWeed
 ; e8a2
 
 
@@ -2862,7 +2863,8 @@ MoroTrophy:
 ShinyCharm:
 SoulDew:
 HeartScale:
-QuickPowder: ; f77d
+QuickPowder:
+SalveyoWeed: ; f77d
 	jp IsntTheTimeMessage
 ; f780
 

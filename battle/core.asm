@@ -3501,6 +3501,8 @@ TryToRunAwayFromBattle: ; 3d8b3
 	jp z, .cant_escape
 	cp BATTLETYPE_SNORLAX
 	jp z, .cant_escape
+	cp BATTLETYPE_SHINY
+	jp z, .cant_escape
 
 	ld a, [wLinkMode]
 	and a
@@ -8720,8 +8722,13 @@ GetBattleRandomPersonality:
 	call BattleRandom
 	and GENDER_MASK
 	ld b, a
+	
+
 
 ; Shiny?
+	ld a, [BattleType]
+	cp BATTLETYPE_SHINY
+	jr z, .force_shiny
 	; Shiny Charm gives 1/256 chance of a shiny
 	call .HaveShinyCharm
 	jr c, .likely_shiny
@@ -8741,7 +8748,7 @@ GetBattleRandomPersonality:
 	xor a
 .got_shiny
 	or b
-	ld b, a
+	ld b, a    
 
 ; Pink?
 	push bc

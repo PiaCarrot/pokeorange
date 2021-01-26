@@ -134,6 +134,7 @@ if def(DEBUG)
 	giveitem OLD_ROD
 	giveitem GOOD_ROD
 	giveitem COIN_CASE
+	giveitem SALVEYO_WEED
 	givecoins 9999
 	givemoney 0, 195000
 	opentext
@@ -147,7 +148,7 @@ if def(DEBUG)
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp RIND_ISLAND, 19, 13
+	warp UNNAMED_ISLAND_3, 20, 13
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

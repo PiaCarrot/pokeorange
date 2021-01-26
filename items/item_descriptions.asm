@@ -192,6 +192,7 @@ ItemDescriptions:
 	dw MagmarizerDesc
 	dw ElectirizerDesc
 	dw ProtectorDesc
+	dw SalveyoWeedDesc
 
 MasterBallDesc:
 	db   "The best BALL. It"
@@ -836,3 +837,7 @@ ElectirizerDesc:
 ProtectorDesc:
 	db   "Extremely stiff"
 	next "and heavy.@"
+	
+SalveyoWeedDesc:
+	db   "Smells like pond"
+	next "water. For fevers.@"

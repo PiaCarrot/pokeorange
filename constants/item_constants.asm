@@ -161,6 +161,7 @@
 	const MAGMARIZER
 	const ELECTIRIZER
 	const PROTECTOR
+	const SALVEYO_WEED
 
 	add_tm POWERUPPUNCH ; $9d
 	add_tm DRAGON_PULSE ; $9e

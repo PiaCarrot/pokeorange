@@ -159,6 +159,7 @@
 	db "MAGMARIZER@"
 	db "ELECTIRIZER@"
 	db "PROTECTOR@"
+	db "SALVEYO WEED@"
 	db "TM01@"
 	db "TM02@"
 	db "TM03@"

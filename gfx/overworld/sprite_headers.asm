@@ -437,7 +437,7 @@ CatManSprite:
 	sprite_header CatManSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BLUE
 
 RocketMeowthSprite:
-	sprite_header RocketMeowthSpriteGFX, 3, STANDING_SPRITE, PAL_OW_BROWN
+	sprite_header RocketMeowthSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BROWN
 
 ChrisDiveSprite:
 	sprite_header ChrisDiveSpriteGFX, 3, WALKING_SPRITE, PAL_OW_PURPLE

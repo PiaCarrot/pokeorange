@@ -280,6 +280,7 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_69_SOUTH, 41, 20
 	mapgroup ROUTE_67_UNDERWATER, 15, 30
 	mapgroup QUACKENPOKER_LAB, 6, 5
+	mapgroup UNNAMED_ISLAND_3_HOUSE, 3, 4
 
 
 ; elevator floors
