@@ -399,6 +399,8 @@
 	const EVENT_RIND_ISLAND_HIDDEN_ETHER
 	const EVENT_RIND_ISLAND_HIDDEN_NUGGET
 	const EVENT_RIND_ISLAND_HIDDEN_LEFTOVERS
+	const EVENT_UNNAMED_ISLAND_3_HIDDEN_STAR_PIECE
+	const EVENT_UNNAMED_ISLAND_3_HIDDEN_HYPER_POTION
 
 ; Sprite visibility: When these events are cleared, the sprite becomes visible; when set, the sprite is hidden.
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.
@@ -520,6 +522,8 @@
 	const EVENT_ROUTE_67_UNDERWATER_ELIXIR
 	const EVENT_ROUTE_67_UNDERWATER_KINGS_ROCK
 	const EVENT_RIND_ISLAND_LURE_BALL
+	const EVENT_UNNAMED_ISLAND_AERIAL_ACE
+	const EVENT_UNNAMED_ISLAND_MAX_REVIVE
 
 ; People
 	const EVENT_BULBASAUR_POKEBALL_IN_IVYS_LAB

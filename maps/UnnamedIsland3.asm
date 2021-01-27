@@ -91,8 +91,18 @@ PolitoedMovement2:
 	jump_step DOWN
 	remove_fixed_facing
 	step_end
-	
 
+UnnamedIsland3AerialAce:
+	itemball TM_AERIAL_ACE
+	
+UnnamedIsland3MaxRevive:
+	itemball MAX_REVIVE
+
+UnnamedIsland3HiddenStarPiece:
+	dwb EVENT_UNNAMED_ISLAND_3_HIDDEN_STAR_PIECE, STAR_PIECE
+	
+UnnamedIsland3HiddenHyperPotion:
+	dwb EVENT_UNNAMED_ISLAND_3_HIDDEN_HYPER_POTION, HYPER_POTION
 
 UnnamedIsland3_MapEventHeader::
 
@@ -101,10 +111,15 @@ UnnamedIsland3_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 2
+	signpost 33, 32, SIGNPOST_ITEM, UnnamedIsland3HiddenStarPiece
+	signpost 27, 24, SIGNPOST_ITEM, UnnamedIsland3HiddenHyperPotion
 
-.ObjectEvents: db 3
+.ObjectEvents: db 5
 	person_event SPRITE_POLITOED, 12,  9, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_BLUE, 0, 0, UnnamedIsland3Politoed1, EVENT_UNNAMED_ISLAND_POLITOED_1
 	person_event SPRITE_POLITOED, 12, 29, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_BLUE, 0, 0, UnnamedIsland3Politoed2, EVENT_UNNAMED_ISLAND_POLITOED_2
 	person_event SPRITE_POLITOED, 30,  8, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_BLUE, 0, 0, UnnamedIsland3Politoed3, EVENT_UNNAMED_ISLAND_POLITOED_3
+	person_event SPRITE_POKE_BALL,  4,  4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, UnnamedIsland3AerialAce, EVENT_UNNAMED_ISLAND_AERIAL_ACE
+	person_event SPRITE_POKE_BALL, 25, 12, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, UnnamedIsland3MaxRevive, EVENT_UNNAMED_ISLAND_MAX_REVIVE
+
 

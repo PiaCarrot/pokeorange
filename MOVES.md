@@ -116,17 +116,17 @@ Vicegrip
 - TM36 Sludge Bomb (Trovitopolis Sewer)
 - TM37 Sandstorm (Mandarin Desert)
 - TM38 Fire Blast (Game Corner)
-- TM39 *Dazzling Gleam*
-- TM40 *Aerial Ace*
+- TM39 *Dazzling Gleam* 
+- TM40 *Aerial Ace* (Unnamed Island 3)
 - TM41 *Flash Cannon*
 - TM42 *Facade* (Moro Island)
 - TM43 Zap Cannon
 - TM44 Rest
-- TM45 Seed Bomb
+- TM45 Seed Bomb (Route 67)
 - TM46 Thief (Mandarin North)
 - TM47 Steel Wing
 - TM48 Rock Slide (TODO: Show Aerodactyl to Blue)
-- TM49 Tri Attack
+- TM49 Tri Attack 
 - TM50 Flash (Trovitopolis)
 
 ## HMs
