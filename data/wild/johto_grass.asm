@@ -1002,83 +1002,83 @@
 	map ROUTE_66_NORTH_SOUTH
 	db 6 percent, 6 percent, 6 percent
 	;morn
-	db 28, MEOWTH
-	db 28, PERSIAN
-	db 28, ELECTABUZZ
-	db 28, TRUMBEAK
-	db 28, PIKIPEK
-	db 28, TRUMBEAK
-	db 29, ELECTABUZZ
+	db 30, MEOWTH
+	db 30, PERSIAN
+	db 30, ELECTABUZZ
+	db 30, TRUMBEAK
+	db 30, PIKIPEK
+	db 30, TRUMBEAK
+	db 31, ELECTABUZZ
 	;day
-	db 28, MEOWTH
-	db 28, PERSIAN
-	db 28, ELECTABUZZ
-	db 28, TRUMBEAK
-	db 28, PIKIPEK
-	db 28, TRUMBEAK
-	db 29, ELECTABUZZ
+	db 30, MEOWTH
+	db 30, PERSIAN
+	db 30, ELECTABUZZ
+	db 30, TRUMBEAK
+	db 30, PIKIPEK
+	db 30, TRUMBEAK
+	db 31, ELECTABUZZ
 	;nite
-	db 28, MEOWTH
-	db 28, PERSIAN
-	db 28, ELECTABUZZ
-	db 28, RATICATE
-	db 28, RATTATA
-	db 28, RATICATE
-	db 29, ELECTABUZZ
+	db 30, MEOWTH
+	db 30, PERSIAN
+	db 30, ELECTABUZZ
+	db 30, RATICATE
+	db 30, RATTATA
+	db 30, RATICATE
+	db 31, ELECTABUZZ
 	
 	map ROUTE_67
 	db 6 percent, 6 percent, 6 percent
 	;morn
-	db 30, TAUROS
-	db 30, PIDGEOTTO
-	db 30, PONYTA
-	db 31, TAUROS
-	db 31, PIDGEOTTO
-	db 31, PONYTA
-	db 31, ELECTABUZZ
+	db 32, TAUROS
+	db 32, PIDGEOTTO
+	db 32, PONYTA
+	db 33, TAUROS
+	db 33, PIDGEOTTO
+	db 33, PONYTA
+	db 33, ELECTABUZZ
 	;day
-	db 30, TAUROS
-	db 30, PIDGEOTTO
-	db 30, PONYTA
-	db 31, TAUROS
-	db 31, PIDGEOTTO
-	db 31, PONYTA
-	db 31, ELECTABUZZ
+	db 32, TAUROS
+	db 32, PIDGEOTTO
+	db 32, PONYTA
+	db 33, TAUROS
+	db 33, PIDGEOTTO
+	db 33, PONYTA
+	db 33, ELECTABUZZ
 	;nite
-	db 30, TAUROS
-	db 30, RATICATE
-	db 30, PONYTA
-	db 31, TAUROS
-	db 31, RATICATE
-	db 31, PONYTA
-	db 31, ELECTABUZZ
+	db 32, TAUROS
+	db 32, RATICATE
+	db 32, PONYTA
+	db 33, TAUROS
+	db 33, RATICATE
+	db 33, PONYTA
+	db 33, ELECTABUZZ
 	
 	map RIND_ISLAND
 	db 3 percent, 3 percent, 3 percent
 	;morn
-	db 30, PIDGEY
-	db 30, PIDGEOTTO
-	db 30, SLOWPOKE
-	db 31, PIDGEY
-	db 31, PIDGEOTTO
-	db 31, SLOWPOKE
-	db 31, SLOWBRO
+	db 32, PIDGEY
+	db 32, PIDGEOTTO
+	db 32, SLOWPOKE
+	db 33, PIDGEY
+	db 33, PIDGEOTTO
+	db 33, SLOWPOKE
+	db 33, SLOWBRO
 	;day
-	db 30, PIDGEY
-	db 30, PIDGEOTTO
-	db 30, SLOWPOKE
-	db 31, PIDGEY
-	db 31, PIDGEOTTO
-	db 31, SLOWPOKE
-	db 31, SLOWBRO
+	db 32, PIDGEY
+	db 32, PIDGEOTTO
+	db 32, SLOWPOKE
+	db 33, PIDGEY
+	db 33, PIDGEOTTO
+	db 33, SLOWPOKE
+	db 33, SLOWBRO
 	;nite
-	db 30, PIDGEY
-	db 30, PIDGEOTTO
-	db 30, SLOWPOKE
-	db 31, PIDGEY
-	db 31, PIDGEOTTO
-	db 31, SLOWPOKE
-	db 31, SLOWBRO
+	db 32, PIDGEY
+	db 32, PIDGEOTTO
+	db 32, SLOWPOKE
+	db 33, PIDGEY
+	db 33, PIDGEOTTO
+	db 33, SLOWPOKE
+	db 33, SLOWBRO
 	
 	map FUKUHARA_NO_4_BF1
 	db 3 percent, 3 percent, 3 percent
@@ -1214,5 +1214,59 @@
 	db 31, STARYU
 	db 31, STARMIE
 	db 31, RELICANTH
+	
+	map UNNAMED_ISLAND_3
+	db 3 percent, 3 percent, 3 percent
+	;morn
+	db 34, MARILL
+	db 34, WINGULL
+	db 34, GLOOM
+	db 35, GLOOM
+	db 35, AZUMARILL
+	db 35, PELIPPER
+	db 35, TROPIUS
+	;day
+	db 34, MARILL
+	db 34, WINGULL
+	db 34, WEEPINBELL
+	db 35, WEEPINBELL
+	db 35, AZUMARILL
+	db 35, PELIPPER
+	db 35, TROPIUS
+	;nite
+	db 34, MARILL
+	db 34, RATTATA
+	db 34, GLOOM
+	db 35, GLOOM
+	db 35, AZUMARILL
+	db 35, RATICATE
+	db 35, TROPIUS
+	
+	map ROUTE_69_SOUTH
+	db 3 percent, 3 percent, 3 percent
+	;morn
+	db 35, SANDYGAST
+	db 36, PHANPY
+	db 35, FLAAFFY
+	db 35, MAREEP
+	db 35, MAREEP
+	db 36, DONPHAN
+	db 36, SANDYGAST
+	;day
+	db 35, MAREEP
+	db 36, PHANPY
+	db 35, FLAAFFY
+	db 35, MAREEP
+	db 35, MAREEP
+	db 36, DONPHAN
+	db 36, TROPIUS
+	;nite
+	db 35, SANDYGAST
+	db 36, PHANPY
+	db 35, GASTLY
+	db 35, GASTLY
+	db 35, HAUNTER
+	db 36, DONPHAN
+	db 36, SANDYGAST
 
 	db -1 ; end

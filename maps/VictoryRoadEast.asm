@@ -8,7 +8,8 @@ VictoryRoadEast_MapScriptHeader::
 
 VictoryRoadEast_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 1
+	warp_def 15, 17, 7, ROUTE_69_SOUTH
 
 .CoordEvents: db 0
 

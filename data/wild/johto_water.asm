@@ -284,9 +284,27 @@
 	
 	map RIND_ISLAND
 	db 1 percent
-	db 28, MAGIKARP
-	db 28, MAGIKARP
-	db 28, GYARADOS
+	db 30, MAGIKARP
+	db 30, MAGIKARP
+	db 30, GYARADOS
+	
+	map ROUTE_68
+	db 1 percent
+	db 30, WAILMER
+	db 30, SEAKING
+	db 30, GOLDEEN
+	
+	map UNNAMED_ISLAND_3
+	db 3 percent
+	db 32, POLIWAG
+	db 32, MARILL
+	db 32, POLIWHIRL 
+	
+	map ROUTE_69_SOUTH
+	db 3 percent
+	db 33, HORSEA
+	db 33, SEADRA
+	db 33, KRABBY
 	
 	map FUKUHARA_NO_4_BF1
 	db 3 percent
@@ -308,8 +326,8 @@
 	
 	map PUMMELO_ISLAND
 	db 1 percent
-	db 35, HORSEA
-	db 35, MANTINE
-	db 35, LUMINEON
+	db 37, HORSEA
+	db 37, MANTINE
+	db 37, LUMINEON
 
 	db -1 ; end

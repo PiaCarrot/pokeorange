@@ -8,7 +8,9 @@ VictoryRoadExitRoom_MapScriptHeader::
 
 VictoryRoadExitRoom_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 2
+	warp_def 33,  5, 12, ROUTE_69_SOUTH
+	warp_def 11, 25, 13, ROUTE_69_SOUTH
 
 .CoordEvents: db 0
 

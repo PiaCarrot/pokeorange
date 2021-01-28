@@ -8,7 +8,10 @@ VictoryRoadF2_MapScriptHeader::
 
 VictoryRoadF2_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 3
+	warp_def 33, 45, 4, ROUTE_69_SOUTH
+	warp_def 27,  9, 5, ROUTE_69_SOUTH
+	warp_def  7, 43, 6, ROUTE_69_SOUTH
 
 .CoordEvents: db 0
 
