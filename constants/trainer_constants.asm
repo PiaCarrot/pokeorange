@@ -15,6 +15,8 @@ CHRIS EQU __enum__
 
 	trainerclass TRACEY
 
+	trainerclass TRACEY_2
+
 	trainerclass BROCK
 
 	trainerclass MISTY
@@ -220,6 +222,7 @@ CHRIS EQU __enum__
 	const REIKA
 	const MARY
 	const LIZ
+	const NUUK
 
 	trainerclass CATMAN
 	const DAIKON
@@ -241,6 +244,8 @@ CHRIS EQU __enum__
 	const JAKE
 	const DOC
 	const ABE
+	const RWNE
+
 	
 	trainerclass JACE
 	
@@ -268,6 +273,7 @@ CHRIS EQU __enum__
 
 	trainerclass BLACKBELT_T
 	const KEN
+	const STEPPO
 
 ;	trainerclass PSYCHIC_T
 
@@ -293,6 +299,7 @@ CHRIS EQU __enum__
 	const TAKE
 	const MURA
 	const KOBE
+	const KALARIE
 	
 KRIS EQU __enum__
 

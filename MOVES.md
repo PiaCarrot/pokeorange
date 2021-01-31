@@ -126,7 +126,7 @@ Vicegrip
 - TM46 Thief (Mandarin North)
 - TM47 Steel Wing
 - TM48 Rock Slide (TODO: Show Aerodactyl to Blue)
-- TM49 Tri Attack 
+- TM49 Tri Attack (Victory Road)
 - TM50 Flash (Trovitopolis)
 
 ## HMs

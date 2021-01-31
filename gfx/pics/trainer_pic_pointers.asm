@@ -5,6 +5,7 @@ TrainerPicPointers::
 	dba LuanaPic
 	dba DrakePic
 	dba TraceyPic
+	dba Tracey2Pic
 	dba BrockPic
 	dba MistyPic
 	dba LtSurgePic

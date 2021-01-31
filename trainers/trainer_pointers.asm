@@ -7,6 +7,7 @@ TrainerGroups: ; 0x39999
 	dw LuanaGroup
 	dw DrakeGroup
 	dw TraceyGroup
+	dw Tracey2Group
 	dw BrockGroup
 	dw MistyGroup
 	dw LtSurgeGroup

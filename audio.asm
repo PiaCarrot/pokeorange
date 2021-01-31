@@ -205,6 +205,8 @@ INCLUDE "audio/music/fourisland.asm"
 INCLUDE "audio/music/route111.asm"
 INCLUDE "audio/music/sirdbattle.asm"
 INCLUDE "audio/music/castleroute.asm"
+INCLUDE "audio/music/route24gbs.asm"
+INCLUDE "audio/music/cipherpeon.asm"
 
 SECTION "Sound Effects", ROMX
 

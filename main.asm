@@ -1273,6 +1273,10 @@ PlayBattleMusic: ; 2ee6c
 	ld de, MUSIC_SIRD_BATTLE
 	cp LAWRENCE
 	jp z, .done
+	
+	ld de, MUSIC_CIPHER_PEON
+	cp TRACEY_2
+	jp z, .done
 
 	ld de, MUSIC_RIVAL_BATTLE
 	ld a, [OtherTrainerClass]

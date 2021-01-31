@@ -8,7 +8,8 @@ VictoryRoadMysteryRoom_MapScriptHeader::
 
 VictoryRoadMysteryRoom_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 1
+	warp_def  7,  5, 5, VICTORY_ROAD_EAST
 
 .CoordEvents: db 0
 

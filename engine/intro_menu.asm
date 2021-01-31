@@ -543,7 +543,7 @@ OakSpeech: ; 0x5f99
 	call RotateFourPalettesLeft
 	call ClearTileMap
 
-	ld de, MUSIC_ROUTE_30
+	ld de, MUSIC_ROUTE_24_GBS
 	call PlayMusic
 
 	call RotateFourPalettesRight

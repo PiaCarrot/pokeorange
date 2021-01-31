@@ -28,6 +28,7 @@ TrainerClassDVs: ; 270d6
 	db $CC, $CC ; luana
 	db $DD, $DD ; drake
 	db $DD, $DD ; tracey
+	db $DD, $DD ; tracey2
 	db $9D, $79 ; brock
 	db $99, $99 ; misty
 	db $97, $D9 ; lt surge

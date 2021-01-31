@@ -545,44 +545,48 @@ TraceyGroup:
 	
 ; ================
 
-	; TRACEY (4)
+
+	
+Tracey2Group:
+; ================================
+; ================
+	; TRACEY_2 (1)
 	db "TRACEY@"
 	db TRAINERTYPE_MOVES
 
 	; party
 
-	db 53, VENOMOTH
+	db 56, VENOMOTH
 		db SIGNAL_BEAM
 		db AGILITY
 		db HYPNOSIS
 		db SLUDGE_BOMB
 
-	db 54, AZUMARILL
+	db 55, AZUMARILL
 		db HYDRO_PUMP
 		db MOONBLAST
 		db DOUBLE_EDGE
 		db RAIN_DANCE
 
-	db 49, DODRIO
+	db 56, DODRIO
 		db FLY
 		db AGILITY
 		db TRI_ATTACK
 		db DRILL_PECK
 
-	db 50, AMPHAROS
+	db 57, AMPHAROS
 		db THUNDER
 		db POWER_GEM
 		db SUBSTITUTE
 		db DOUBLE_TEAM
 
-	db 48, SCIZOR
+	db 55, SCIZOR
 		db FLASH_CANNON
 		db SWORDS_DANCE
 		db SLASH
 		db FOCUS_ENERGY
 
 	db $ff ; end
-
 ; ================
 ; ================================
 
@@ -3003,6 +3007,71 @@ CooltrainerFGroup:
 	db 48, EXEGGUTOR, MALE_MASK | EXEGGUTOR_KANTONESE_FORM
 
 	db $ff
+	
+; =================
+
+	; COOLTRAINERF (7)
+	db "GRANNY@" ;FIRE
+	db TRAINERTYPE_NORMAL
+
+	db 50, VAPOREON
+	db 50, LEAFEON
+	db 50, SYLVEON
+	db 50, EEVEE
+
+	db $ff
+	
+; =================
+
+	; COOLTRAINERF (8)
+	db "GRANNY@" ;WATER
+	db TRAINERTYPE_NORMAL
+
+	db 50, JOLTEON
+	db 50, FLAREON
+	db 50, SYLVEON
+	db 50, EEVEE
+
+	db $ff
+	
+; =================
+
+	; COOLTRAINERF (9)
+	db "GRANNY@" ;GRASS
+	db TRAINERTYPE_NORMAL
+
+	db 50, GLACEON
+	db 50, VAPOREON
+	db 50, SYLVEON
+	db 50, EEVEE
+
+	db $ff
+	
+; =================
+
+	; COOLTRAINERF (10)
+	db "NUUK@"
+	db TRAINERTYPE_MOVES
+	
+	db 52, TOGETIC
+		db DAZZLINGLEAM
+		db FAIRY_WIND
+		db ATTRACT
+		db SOFTBOILED
+
+	db 52, CHIMECHO
+		db PSYCHIC_M
+		db FAIRY_WIND
+		db DOUBLE_EDGE
+		db HYPNOSIS
+
+	db 52, FLYGON
+		db DRAGON_TAIL
+		db FLY
+		db ROCK_BLAST
+		db FAINT_ATTACK
+
+	db $ff
 
 ; ================
 ; ================================
@@ -3570,7 +3639,39 @@ OtakuGroup:
 		db THUNDER_WAVE
 		db FLASH
 
-	db $ff	
+	db $ff
+	
+; =================
+
+	; OTAKU (5)
+	db "RWNE@"
+	db TRAINERTYPE_MOVES
+
+	db 50, SCYTHER
+		db SLASH
+		db WING_ATTACK
+		db SWORDS_DANCE
+		db PURSUIT
+		
+	db 50, KINGDRA
+		db DRAGON_PULSE
+		db BUBBLEBEAM
+		db SMOKESCREEN
+		db OUTRAGE
+		
+	db 50, MAGNEZONE
+		db ZAP_CANNON
+		db FLASH_CANNON
+		db SUPERSONIC
+		db THUNDER_WAVE
+		
+	db 50, NIDOKING
+		db SURF
+		db DOUBLE_KICK
+		db POISON_JAB
+		db EARTHQUAKE
+
+	db $ff
 
 JaceGroup:
 ; ================================
@@ -3849,6 +3950,38 @@ BlackbeltGroup:
 		db NO_MOVE
 
 	db $ff	
+	
+; =================
+
+	; BLACKBELT (2)
+	db "STEPPO@"
+	db TRAINERTYPE_MOVES
+
+	db 50, STEELIX
+		db IRON_TAIL
+		db ROCK_SLIDE
+		db DIG
+		db EARTH_POWER
+		
+	db 50, SHARPEDO
+		db WATERFALL
+		db CRUNCH
+		db GLARE
+		db MEAN_LOOK
+		
+	db 50, ELECTIVIRE
+		db THUNDER_WAVE
+		db THUNDERBOLT
+		db AGILITY
+		db THUNDERPUNCH
+		
+	db 50, MAGCARGO
+		db FLAMETHROWER
+		db ROLLOUT
+		db ROCK_SMASH
+		db DEFENSE_CURL
+
+	db $ff	
 ; ================
 ; ================================
 
@@ -3989,4 +4122,30 @@ EngineerGroup:
 	db 16, VOLTORB
 
 	db $ff ; end
+	
+; =================
+
+	; ENGINEER (4)
+	db "KALARIE@"
+	db TRAINERTYPE_MOVES
+
+	db 51, LAPRAS
+		db WATERFALL
+		db SING
+		db PERISH_SONG
+		db ICE_BEAM
+
+	db 51, SNORLAX
+		db REST
+		db SLEEP_TALK
+		db SURF
+		db HYPER_BEAM
+
+	db 51, CHARIZARD
+		db FLAMETHROWER
+		db FLY
+		db SLASH
+		db METAL_CLAW
+
+	db $ff
 ; ================

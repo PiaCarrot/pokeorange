@@ -145,4 +145,6 @@
 	dba Music_Route111
 	dba Music_SirdBattle
 	dba Music_CastleRoute
+	dba Music_Route24GBS
+	dba Music_CipherPeon
 ; e91a3
