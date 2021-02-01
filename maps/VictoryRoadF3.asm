@@ -36,8 +36,8 @@ DiverMCaosBeatenText:
 	done
 
 DiverMCaosAfterText:
-	text "Estoy devastado,"
-	line "amigo<...>"
+	text "Me siento"
+	line "devastado<...>"
 	done
 	
 ;=================================
