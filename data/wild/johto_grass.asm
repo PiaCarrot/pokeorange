@@ -1268,5 +1268,140 @@
 	db 35, HAUNTER
 	db 36, DONPHAN
 	db 36, SANDYGAST
+	
+	map VICTORY_ROAD_F1
+	db 7 percent, 7 percent, 7 percent
+	;morn
+	db 36, ZUBAT
+	db 37, GOLBAT
+	db 36, ZUBAT
+	db 36, ROCKRUFF
+	db 36, PHANPY
+	db 37, DONPHAN
+	db 37, RHYHORN
+	;day
+	db 36, ZUBAT
+	db 37, GOLBAT
+	db 36, ZUBAT
+	db 36, ROCKRUFF
+	db 36, PHANPY
+	db 37, DONPHAN
+	db 37, RHYHORN
+	;nite
+	db 36, ZUBAT
+	db 37, GOLBAT
+	db 36, ZUBAT
+	db 36, ROCKRUFF
+	db 36, PHANPY
+	db 37, DONPHAN
+	db 37, RHYHORN
+	
+	map VICTORY_ROAD_F2
+	db 7 percent, 7 percent, 7 percent
+	;morn
+	db 37, ZUBAT
+	db 38, GOLBAT
+	db 37, GRAVELER
+	db 37, ONIX
+	db 37, PHANPY
+	db 38, DONPHAN
+	db 38, RHYHORN
+	;day
+	db 37, ZUBAT
+	db 38, GOLBAT
+	db 37, GRAVELER
+	db 37, ONIX
+	db 37, PHANPY
+	db 38, DONPHAN
+	db 38, RHYHORN
+	;nite
+	db 37, ZUBAT
+	db 38, GOLBAT
+	db 37, GRAVELER
+	db 37, ONIX
+	db 37, PHANPY
+	db 38, DONPHAN
+	db 38, RHYHORN
+	
+	map VICTORY_ROAD_F3
+	db 7 percent, 7 percent, 7 percent
+	;morn
+	db 38, GEODUDE
+	db 39, SPINDA
+	db 38, GRAVELER
+	db 38, ONIX
+	db 38, MAGBY
+	db 39, MAGMAR
+	db 39, RHYHORN
+	;day
+	db 38, GEODUDE
+	db 39, SPINDA
+	db 38, GRAVELER
+	db 38, ONIX
+	db 38, MAGBY
+	db 39, MAGMAR
+	db 39, RHYHORN
+	;nite
+	db 38, GEODUDE
+	db 39, SPINDA
+	db 38, GRAVELER
+	db 38, ONIX
+	db 38, MAGBY
+	db 39, MAGMAR
+	db 39, RHYHORN
+	
+	map VICTORY_ROAD_EXIT_ROOM
+	db 7 percent, 7 percent, 7 percent
+	;morn
+	db 39, GEODUDE
+	db 40, GOLBAT
+	db 39, GRAVELER
+	db 39, GOLBAT
+	db 39, PHANPY
+	db 40, DONPHAN
+	db 40, RHYHORN
+	;day
+	db 39, GEODUDE
+	db 40, GOLBAT
+	db 39, GRAVELER
+	db 39, GOLBAT
+	db 39, PHANPY
+	db 40, DONPHAN
+	db 40, RHYHORN
+	;nite
+	db 39, GEODUDE
+	db 40, GOLBAT
+	db 39, GRAVELER
+	db 39, GOLBAT
+	db 39, PHANPY
+	db 40, DONPHAN
+	db 40, RHYHORN
+	
+	map VICTORY_ROAD_EAST
+	db 7 percent, 7 percent, 7 percent
+	;morn
+	db 37, ZUBAT
+	db 38, GOLBAT
+	db 37, GRAVELER
+	db 37, ONIX
+	db 37, PHANPY
+	db 38, DONPHAN
+	db 38, RHYHORN
+	;day
+	db 37, ZUBAT
+	db 38, GOLBAT
+	db 37, GRAVELER
+	db 37, ONIX
+	db 37, PHANPY
+	db 38, DONPHAN
+	db 38, RHYHORN
+	;nite
+	db 37, ZUBAT
+	db 38, GOLBAT
+	db 37, GRAVELER
+	db 37, ONIX
+	db 37, PHANPY
+	db 38, DONPHAN
+	db 38, RHYHORN
 
 	db -1 ; end

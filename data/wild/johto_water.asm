@@ -329,5 +329,11 @@
 	db 37, HORSEA
 	db 37, MANTINE
 	db 37, LUMINEON
+	
+	map VICTORY_ROAD_F3
+	db 7 percent
+	db 39, GOLBAT
+	db 39, GOLDEEN
+	db 39, SEAKING
 
 	db -1 ; end
