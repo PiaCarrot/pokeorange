@@ -2310,6 +2310,7 @@ wUnnamedIsland1Trigger::		   ds 1
 wButwalIslandWestTrigger::		   ds 1
 wTarrocoIslandTrigger::			   ds 1
 wKumquatHotelLobbyTrigger::		   ds 1
+wPummeloIslandTrigger::		       ds 1
 
 EventFlags:: ; da72
 	flag_array NUM_EVENTS

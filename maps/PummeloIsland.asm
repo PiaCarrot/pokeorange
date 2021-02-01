@@ -1,4 +1,6 @@
 const_value set 1
+	const PUMMELO_ISLAND_YOUNGSTER
+	const PUMMELO_ISLAND_CROSS
 
 PummeloIsland_MapScriptHeader:
 
@@ -10,6 +12,135 @@ PummeloIsland_MapScriptHeader:
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_PUMMELO
 	return
+	
+PummeloIslandCrossScript:
+	appear PUMMELO_ISLAND_CROSS
+	showemote EMOTE_SHOCK, PLAYER, 15
+	pause 10
+	applymovement PUMMELO_ISLAND_CROSS, PummeloCrossMovement1
+	playmusic MUSIC_LOOK_GLADION
+	opentext
+	writetext CrossPummeloIslandText
+	waitbutton
+	closetext
+	checkevent EVENT_GOT_CHARMANDER_FROM_IVY
+	iftrue .GotCharmander
+	checkevent EVENT_GOT_SQUIRTLE_FROM_IVY
+	iftrue .GotSquirtle
+	winlosstext CrossPummeloIslandWinLoss, 0
+	setlasttalked PUMMELO_ISLAND_CROSS
+	loadtrainer CROSS, 15
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	jump .returnfrombattle
+	end
+	
+.GotCharmander:
+	winlosstext CrossPummeloIslandWinLoss, 0
+	setlasttalked PUMMELO_ISLAND_CROSS
+	loadtrainer CROSS, 13
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	jump .returnfrombattle
+	
+.GotSquirtle:
+	winlosstext CrossPummeloIslandWinLoss, 0
+	setlasttalked PUMMELO_ISLAND_CROSS
+	loadtrainer CROSS, 14
+	startbattle
+	dontrestartmapmusic
+	reloadmapafterbattle
+	jump .returnfrombattle
+
+.returnfrombattle:
+	playmusic MUSIC_LOOK_GLADION
+	opentext
+	writetext CrossPummeloIslandLeavingNowText
+	waitbutton
+	closetext
+	disappear PUMMELO_ISLAND_CROSS
+	special Special_FadeInQuickly
+	pause 20
+	playmapmusic
+	pause 10
+	domaptrigger PUMMELO_ISLAND, $1
+	setevent EVENT_CROSS_ON_PUMMELO
+	end	
+	
+CrossPummeloIslandText:
+	text "CROSS: Well."
+	line "Look who finally"
+	cont "showed up."
+	
+	para "I met the CHAMPION"
+	line "of the ORANGE"
+	cont "CREW, DANNY."
+	
+	para "He beat me good."
+	line "I couldn't believe"
+	cont "it. My #MON"
+	cont "are stronger than"
+	
+	para "ever. Is what they"
+	line "keep telling me"
+	cont "true? Because I"
+	cont "treat #MON"
+	
+	para "poorly, I'm weak?"
+	line "No. They're wrong!"
+	cont "I was chosen!"
+	cont "I'll prove it to"
+	
+	para "you, <PLAYER>!"
+	done
+	
+CrossPummeloIslandWinLoss:
+	text "I was chosen!"
+	
+	para "You're all wrong!"
+	line "I am a #MON"
+	cont "MASTER!"
+	done
+	
+CrossPummeloIslandLeavingNowText:
+	text "CROSS: <...>"
+
+	para "I'll say it again."
+	
+	para "I am chosen<...>by"
+	line "the legendary"
+	cont "#MON!"
+	
+	para "When I was young,"
+	cont "I saw it fly over"
+	cont "my hometown."
+	
+	para "A giant, rainbow"
+	line "#MON that isn't"
+	cont "in any book or"
+	cont "ENCYCLOPEDIA."
+	
+	para "My research led me"
+	line "to HO-OH. It calls"
+	cont "to me, and no one"
+	cont "can stop me!"
+	
+	para "Farewell, <PLAYER>."
+	line "Next time we meet,"
+	cont "I will have the"
+	cont "legendary #MON"
+	
+	para "and prove you all"
+	line "wrong!"
+	done
+	
+PummeloCrossMovement1:
+	step DOWN
+	step DOWN
+	step DOWN
+	step_end
 	
 PummeloBadgeYoungsterScript:
 	faceplayer
@@ -82,12 +213,32 @@ PummeloIslandSign:
 PummeloIslandSign2:
 	jumptext PummeloIslandSign2Text
 	
+PummeloIslandSign3:
+	jumptext PummeloIslandSign3Text
+	
+PummeloStatue:
+	jumptext PummeloStatueText
+
 PummeloIslandSignText:
 	text "PUMMELO ISLAND"
+	
+	para "Where CHAMPIONS"
+	line "rise like a"
+	cont "tsunami!"
 	done
 	
 PummeloIslandSign2Text:
 	text "HALL OF FAME"
+	done
+	
+PummeloIslandSign3Text:
+	text "PUMMELO STADIUM"
+	done
+	
+PummeloStatueText:
+	text "An impressive"
+	line "statue of a"
+	cont "DRAGON #MON."
 	done
 
 PummeloIsland_MapEventHeader::
@@ -96,12 +247,21 @@ PummeloIsland_MapEventHeader::
 	warp_def 21, 26, 1, HALL_OF_FAME
 	warp_def 21, 27, 2, HALL_OF_FAME
 
-.CoordEvents: db 0
+.CoordEvents: db 1
+	xy_trigger 0, 27, 26, PummeloIslandCrossScript
 
-.BGEvents: db 2
+.BGEvents: db 9
 	signpost 31, 27, SIGNPOST_READ, PummeloIslandSign
 	signpost 22, 28, SIGNPOST_READ, PummeloIslandSign2
+	signpost 12, 20, SIGNPOST_READ, PummeloIslandSign3
+	signpost 18, 21, SIGNPOST_READ, PummeloStatue
+	signpost 18, 16, SIGNPOST_READ, PummeloStatue
+	signpost 16, 16, SIGNPOST_READ, PummeloStatue
+	signpost 16, 21, SIGNPOST_READ, PummeloStatue
+	signpost 14, 16, SIGNPOST_READ, PummeloStatue
+	signpost 14, 21, SIGNPOST_READ, PummeloStatue
 
-.ObjectEvents: db 1
+.ObjectEvents: db 2
 	person_event SPRITE_YOUNGSTER, 31, 24, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, PummeloBadgeYoungsterScript, -1
+	person_event SPRITE_ROCKER, 23, 26, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_CROSS_ON_PUMMELO
 
