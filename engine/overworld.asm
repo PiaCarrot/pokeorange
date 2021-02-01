@@ -887,6 +887,8 @@ Group15Sprites:
 	db SPRITE_YOUNGSTER
 	db SPRITE_POKEFAN_M
 	db SPRITE_ROCKER
+	db SPRITE_SAILOR
+	db SPRITE_OFFICER
 	db 0 ; end
 	
 Group16Sprites:

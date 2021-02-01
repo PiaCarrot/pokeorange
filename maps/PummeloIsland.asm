@@ -110,13 +110,12 @@ CrossPummeloIslandLeavingNowText:
 	text "CROSS: <...>"
 
 	para "I'll say it again."
-	
-	para "I am chosen<...>by"
-	line "the legendary"
+	line "I am chosen<...>by"
+	cont "the legendary"
 	cont "#MON!"
 	
 	para "When I was young,"
-	cont "I saw it fly over"
+	line "I saw it fly over"
 	cont "my hometown."
 	
 	para "A giant, rainbow"
@@ -209,6 +208,26 @@ MissingNoBadgeText:
 	line "awesome!"
 	done
 	
+PummeloSailorScript:
+	jumptextfaceplayer PummeloSailorScriptText
+	
+PummeloOfficerScript:
+	faceplayer 
+	opentext
+	writetext PummeloOfficerScriptText
+	yesorno
+	iftrue .YesImAPirate
+	writetext PummeloOfficerScriptText3
+	waitbutton
+	closetext
+	end
+	
+.YesImAPirate:
+	writetext PummeloOfficerScriptText2
+	waitbutton
+	closetext
+	end
+
 PummeloIslandFruitTree1:
 	fruittree FRUITTREE_PUMMELO_ISLAND_1
 	
@@ -232,6 +251,9 @@ PummeloIslandSign3:
 	
 PummeloStatue:
 	jumptext PummeloStatueText
+	
+PummeloIslandSign4:
+	jumptext PummeloIslandSign4Text
 
 PummeloIslandSignText:
 	text "PUMMELO ISLAND"
@@ -254,6 +276,41 @@ PummeloStatueText:
 	line "statue of a"
 	cont "DRAGON #MON."
 	done
+	
+PummeloIslandSign4Text:
+	text "EAST TO ROUTE 70"
+	done
+	
+PummeloSailorScriptText:
+	text "I just came in"
+	line "from HAMLIN."
+	
+	para "If you go out"
+	line "that way, watch"
+	cont "out for pirates!"
+	done
+	
+PummeloOfficerScriptText:
+	text "Hey there!"
+	line "That bandana!"
+	
+	para "Are you a pirate?"
+	done
+	
+PummeloOfficerScriptText2:
+	text "You couldn't be!"
+	line "you're way too"
+	cont "young!"
+	done
+	
+PummeloOfficerScriptText3:
+	text "Of course, I'm"
+	line "so sorry!"
+	
+	para "You couldn't be!"
+	line "you're way too"
+	cont "young!"
+	done
 
 PummeloIsland_MapEventHeader::
 
@@ -264,7 +321,7 @@ PummeloIsland_MapEventHeader::
 .CoordEvents: db 1
 	xy_trigger 0, 27, 26, PummeloIslandCrossScript
 
-.BGEvents: db 9
+.BGEvents: db 10
 	signpost 31, 27, SIGNPOST_READ, PummeloIslandSign
 	signpost 22, 28, SIGNPOST_READ, PummeloIslandSign2
 	signpost 12, 20, SIGNPOST_READ, PummeloIslandSign3
@@ -274,12 +331,16 @@ PummeloIsland_MapEventHeader::
 	signpost 16, 21, SIGNPOST_READ, PummeloStatue
 	signpost 14, 16, SIGNPOST_READ, PummeloStatue
 	signpost 14, 21, SIGNPOST_READ, PummeloStatue
+	signpost 31, 45, SIGNPOST_READ, PummeloIslandSign4
 
-.ObjectEvents: db 6
-	person_event SPRITE_YOUNGSTER, 31, 24, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, PummeloBadgeYoungsterScript, -1
+.ObjectEvents: db 8
+	person_event SPRITE_YOUNGSTER, 31, 10, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, PummeloBadgeYoungsterScript, -1
 	person_event SPRITE_ROCKER, 23, 26, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_CROSS_ON_PUMMELO
 	person_event SPRITE_FRUIT_TREE, 35, 46, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PummeloIslandFruitTree1, -1
 	person_event SPRITE_FRUIT_TREE, 19, 38, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PummeloIslandFruitTree2, -1
 	person_event SPRITE_POKE_BALL,  4, 26, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PummeloIslandProtein, EVENT_PUMMELO_ISLAND_PROTEIN
 	person_event SPRITE_POKE_BALL, 16,  4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PummeloIslandRareCandy, EVENT_PUMMELO_ISLAND_RARE_CANDY
+	person_event SPRITE_OFFICER, 31, 24, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, PummeloOfficerScript, -1
+	person_event SPRITE_SAILOR, 36, 28, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, PummeloSailorScript, -1
+
 
