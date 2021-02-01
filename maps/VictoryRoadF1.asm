@@ -5,6 +5,7 @@ const_value set 1
 	const VR_TRAINER_3
 	const VR_TRAINER_4
 	const VR_TRAINER_5
+	const VR_POKEBALL_2
 
 VictoryRoadF1_MapScriptHeader::
 

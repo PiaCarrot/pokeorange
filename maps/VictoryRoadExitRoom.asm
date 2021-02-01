@@ -108,7 +108,18 @@ TraceyVR_Movement:
 	step RIGHT
 	step RIGHT
 	step_end
+	
+VictoryRoadExitRareCandy:
+	itemball RARE_CANDY
 
+VictoryRoadExitPPMax:
+	itemball PP_MAX
+	
+VictoryRoadExitHiddenNugget:
+	dwb EVENT_VICTORY_ROAD_EXIT_HIDDEN_NUGGET, NUGGET
+	
+VictoryRoadExitHiddenRevive:
+	dwb EVENT_VICTORY_ROAD_EXIT_HIDDEN_REVIVE, REVIVE
 
 VictoryRoadExitRoom_MapEventHeader::
 
@@ -118,7 +129,11 @@ VictoryRoadExitRoom_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 2
+	signpost 30,  2, SIGNPOST_ITEM, VictoryRoadExitHiddenNugget
+	signpost 26, 10, SIGNPOST_ITEM, VictoryRoadExitHiddenRevive
 
-.ObjectEvents: db 1
+.ObjectEvents: db 3
 	person_event SPRITE_TRACEY,  3, 21, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, VictoryRoadTraceyScript, EVENT_VICTORY_ROAD_TRACEY
+	person_event SPRITE_POKE_BALL, 18,  7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, VictoryRoadExitRareCandy, EVENT_VICTORY_ROAD_EXIT_RARE_CANDY
+	person_event SPRITE_POKE_BALL,  8,  8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, VictoryRoadExitPPMax, EVENT_VICTORY_ROAD_EXIT_PP_MAX

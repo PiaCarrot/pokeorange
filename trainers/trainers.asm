@@ -2475,6 +2475,19 @@ HikerGroup:
 
 	db $ff ; end
 
+
+	; HIKER (2)
+	db "SOUR@"
+	db TRAINERTYPE_PERSONALITY
+
+	; party
+	db 50, EXEGGUTOR, MALE_MASK | EXEGGUTOR_KANTONESE_FORM
+	db 50, MAGNEZONE
+	db 50, PORYGON2
+	db 50, MAGMORTAR, MALE_MASK
+
+	db $ff ; end
+
 ; ================
 ; ================================
 

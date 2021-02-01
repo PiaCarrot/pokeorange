@@ -176,6 +176,7 @@ CHRIS EQU __enum__
 
 	trainerclass HIKER
 	const TEPPEI
+	const SOUR
 
 	trainerclass ATHLETE
 	const HIDEKI
