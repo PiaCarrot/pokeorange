@@ -1,6 +1,8 @@
 const_value set 1
 	const PUMMELO_ISLAND_YOUNGSTER
 	const PUMMELO_ISLAND_CROSS
+	const PUMMELO_ISLAND_FRUITTREE_1
+	const PUMMELO_ISLAND_FRUITTREE_2
 
 PummeloIsland_MapScriptHeader:
 
@@ -207,6 +209,18 @@ MissingNoBadgeText:
 	line "awesome!"
 	done
 	
+PummeloIslandFruitTree1:
+	fruittree FRUITTREE_PUMMELO_ISLAND_1
+	
+PummeloIslandFruitTree2:
+	fruittree FRUITTREE_PUMMELO_ISLAND_2
+	
+PummeloIslandProtein:
+	itemball PROTEIN
+	
+PummeloIslandRareCandy:
+	itemball RARE_CANDY
+	
 PummeloIslandSign:
 	jumptext PummeloIslandSignText
 	
@@ -261,7 +275,11 @@ PummeloIsland_MapEventHeader::
 	signpost 14, 16, SIGNPOST_READ, PummeloStatue
 	signpost 14, 21, SIGNPOST_READ, PummeloStatue
 
-.ObjectEvents: db 2
+.ObjectEvents: db 6
 	person_event SPRITE_YOUNGSTER, 31, 24, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, PummeloBadgeYoungsterScript, -1
 	person_event SPRITE_ROCKER, 23, 26, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_CROSS_ON_PUMMELO
+	person_event SPRITE_FRUIT_TREE, 35, 46, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PummeloIslandFruitTree1, -1
+	person_event SPRITE_FRUIT_TREE, 19, 38, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PummeloIslandFruitTree2, -1
+	person_event SPRITE_POKE_BALL,  4, 26, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PummeloIslandProtein, EVENT_PUMMELO_ISLAND_PROTEIN
+	person_event SPRITE_POKE_BALL, 16,  4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PummeloIslandRareCandy, EVENT_PUMMELO_ISLAND_RARE_CANDY
 

@@ -882,6 +882,8 @@ Group12Sprites:
 
 Group15Sprites:
 ; Pummelo Island
+	db SPRITE_FRUIT_TREE
+	db SPRITE_POKE_BALL
 	db SPRITE_YOUNGSTER
 	db SPRITE_POKEFAN_M
 	db SPRITE_ROCKER
