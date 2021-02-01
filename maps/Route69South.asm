@@ -20,6 +20,34 @@ Route69SouthFullRestore:
 
 Route69SouthMaxEther:
 	itemball MAX_ETHER
+	
+;=================================
+;=================================	
+TrainerCooltrainerMMako:
+	trainer EVENT_BEAT_COOLTRAINERM_MAKO, COOLTRAINERM, MAKO, CooltrainerMMakoSeenText, CooltrainerMMakoBeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext CooltrainerMMakoAfterText
+	waitbutton
+	closetext
+	end
+
+CooltrainerMMakoSeenText:
+	text "This battle is so"
+	line "going on #TUBE!"
+	done
+
+CooltrainerMMakoBeatenText:
+	text "This better get"
+	line "a hundred likes!"
+	done
+
+CooltrainerMMakoAfterText:
+	text "#TUBE stardom,"
+	line "here I come!"
+	done
 
 Route69South_MapEventHeader::
 
@@ -45,9 +73,10 @@ Route69South_MapEventHeader::
 .BGEvents: db 1
 	signpost 44, 22, SIGNPOST_READ, VictoryRoadSign
 
-.ObjectEvents: db 3
+.ObjectEvents: db 4
 	person_event SPRITE_POKE_BALL, 60,  6, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route69SouthUltraBall, EVENT_ROUTE_69_SOUTH_ULTRA_BALL
 	person_event SPRITE_POKE_BALL, 19, 10, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route69SouthFullRestore, EVENT_ROUTE_69_SOUTH_FULL_RESTORE
 	person_event SPRITE_POKE_BALL, 29, 34, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route69SouthMaxEther, EVENT_ROUTE_69_SOUTH_MAX_ETHER
+	person_event SPRITE_COOLTRAINER_M, 23,  7, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 3, TrainerCooltrainerMMako, -1
 
 

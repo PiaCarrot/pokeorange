@@ -6,6 +6,183 @@ VictoryRoadF2_MapScriptHeader::
 
 .Callbacks: db 0
 
+;=================================
+;=================================
+		
+TrainerCamperNeb:
+	trainer EVENT_BEAT_CAMPER_NEB, CAMPER, NEB, CamperNebSeenText, CamperNebBeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext CamperNebAfterText
+	waitbutton
+	closetext
+	end
+
+CamperNebSeenText:
+	text "Together, my boy-"
+	line "friend and I are"
+	cont "unstoppable!"
+	done
+
+CamperNebBeatenText:
+	text "Yikes!"
+	done
+
+CamperNebAfterText:
+	text "I can't believe it!"
+	done
+	
+;=================================
+;=================================
+		
+TrainerCamperSnyd:
+	trainer EVENT_BEAT_CAMPER_SNYD, CAMPER, SNYD, CamperSnydSeenText, CamperSnydBeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext CamperSnydAfterText
+	waitbutton
+	closetext
+	end
+
+CamperSnydSeenText:
+	text "Would ya please"
+	line "lose for me?"
+	done
+
+CamperSnydBeatenText:
+	text "Just why?"
+	done
+
+CamperSnydAfterText:
+	text "I was trying to"
+	line "look good for NEB!"
+	done
+	
+;=================================
+;=================================
+		
+TrainerFisherStephen:
+	trainer EVENT_BEAT_FISHER_STEPHEN, FISHER, STEPHEN, FisherStephenSeenText, FisherStephenBeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext FisherStephenAfterText
+	waitbutton
+	closetext
+	end
+
+FisherStephenSeenText:
+	text "A fine craft takes"
+	line "time. A good"
+	cont "battle isn't"
+	cont "rushed, either."
+	done
+
+FisherStephenBeatenText:
+	text "So it is written."
+	done
+
+FisherStephenAfterText:
+	text "Good luck, kid."
+	done
+	
+;=================================
+;=================================
+		
+TrainerCatmanMayo:
+	trainer EVENT_BEAT_CATMAN_MAYO, CATMAN, MAYO, CatmanMayoSeenText, CatmanMayoBeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext CatmanMayoAfterText
+	waitbutton
+	closetext
+	end
+
+CatmanMayoSeenText:
+	text "Hello, meow!"
+	done
+
+CatmanMayoBeatenText:
+	text "Hiss!"
+	done
+
+CatmanMayoAfterText:
+	text "I left the village"
+	line "to find a MEOWTH."
+	
+	para "Now I'm lost here."
+	done
+
+;=================================
+;=================================	
+TrainerCooltrainerMMike:
+	trainer EVENT_BEAT_COOLTRAINERM_MIKE, COOLTRAINERM, MICHAEL, CooltrainerMMikeSeenText, CooltrainerMMikeBeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext CooltrainerMMikeAfterText
+	waitbutton
+	closetext
+	end
+
+CooltrainerMMikeSeenText:
+	text "Did you just walk"
+	line "right up to me?"
+	
+	para "Nothing better to"
+	line "do?"
+	done
+
+CooltrainerMMikeBeatenText:
+	text "Hmph."
+	done
+
+CooltrainerMMikeAfterText:
+	text "Leave me alone!"
+	done
+
+;=================================
+;=================================	
+TrainerYoungsterEve:
+	trainer EVENT_BEAT_YOUNGSTER_EVE, YOUNGSTER, EVE, YoungsterEveSeenText, YoungsterEveBeatenText, 0, .Script
+
+.Script:
+	end_if_just_battled
+	opentext
+	writetext YoungsterEveAfterText
+	waitbutton
+	closetext
+	end
+
+YoungsterEveSeenText:
+	text "You're from that"
+	line "VALENCIA ISLAND?"
+	
+	para "I wonder what"
+	line "#MON you got!"
+	done
+
+YoungsterEveBeatenText:
+	text "Nicely done!"
+	done
+
+YoungsterEveAfterText:
+	text "I absolutely love"
+	line "my VENUSAUR. You"
+	cont "could say I'm the"
+	cont "reason it looks"
+	
+	para "the way it does."
+	done
+
 VictoryRoadF2_MapEventHeader::
 
 .Warps: db 6
@@ -21,4 +198,11 @@ VictoryRoadF2_MapEventHeader::
 
 .BGEvents: db 0
 
-.ObjectEvents: db 0
+.ObjectEvents: db 6
+	person_event SPRITE_YOUNGSTER, 10, 10, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerCamperNeb, -1
+	person_event SPRITE_YOUNGSTER, 10,  7, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerCamperSnyd, -1
+	person_event SPRITE_CAT_MAN, 10, 47, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, TrainerCatmanMayo, -1
+	person_event SPRITE_FISHER, 18, 31, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerFisherStephen, -1
+	person_event SPRITE_COOLTRAINER_M, 29, 14, SPRITEMOVEDATA_STANDING_UP, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 0, TrainerCooltrainerMMike, -1
+	person_event SPRITE_YOUNGSTER,  6, 15, SPRITEMOVEDATA_SPINRANDOM_FAST, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerYoungsterEve, -1
+

@@ -99,6 +99,7 @@ CHRIS EQU __enum__
 	const NESS
 	const HIRUMA
 	const ORO
+	const EVE
 
 	trainerclass LASS
 	const NICOLE
@@ -148,6 +149,8 @@ CHRIS EQU __enum__
 
 	trainerclass CAMPER
 	const SAMM
+	const NEB
+	const SNYD
 
 	trainerclass PINK_MANIAC
 	const SHAWN
@@ -169,6 +172,7 @@ CHRIS EQU __enum__
 	const YAMATO
 	const SHO
 	const GIN
+	const STEPHEN
 
 	trainerclass HIKER
 	const TEPPEI
@@ -189,6 +193,7 @@ CHRIS EQU __enum__
 	const MICHIO
 	const KENTA
 	const HYOU
+	const CORAL
 
 	trainerclass SIGHTSEERF
 	const ASAMI
@@ -214,6 +219,8 @@ CHRIS EQU __enum__
 	const TRAD
 	const DAVID
 	const FABIO
+	const MICHAEL
+	const MAKO
 
 	trainerclass COOLTRAINERF
 	const KEIKO
@@ -230,6 +237,7 @@ CHRIS EQU __enum__
 	const YOSHIKAWA
 	const REN
 	const MIMI
+	const MAYO
 
 	trainerclass BIRDKEEPER
 	const TATSUYA
@@ -290,6 +298,8 @@ CHRIS EQU __enum__
 	trainerclass DIVER_MALE
 	const OKABE
 	const HIROSHI
+	const CAOS
+	const MONSTA
 	
 	trainerclass DIVER_FEMALE
 	const MAYURI

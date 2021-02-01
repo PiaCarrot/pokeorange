@@ -279,7 +279,7 @@ LuanaGroup:
 
 	; party
 
-	db 53, ALAKAZAM, MALE_MASK
+	db 54, ALAKAZAM, MALE_MASK
 		db PSYCHIC_M
 		db NASTY_PLOT
 		db SAFEGUARD
@@ -1682,6 +1682,20 @@ YoungsterGroup:
 	db 43, FARFETCH_D
 
 	db $ff ; end
+
+; ================
+
+; YOUNGSTER (7)
+	db "E.V.E@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 50, VENUSAUR
+	db 50, SALAZZLE
+	db 50, STUNFISK
+	db 50, CLOYSTER
+
+	db $ff ; end
 ; ================
 ; ================================
 
@@ -2170,6 +2184,32 @@ CamperGroup:
 	db 10, MANKEY
 
 	db $ff ; end
+	
+; ================
+
+	; CAMPER (2)
+	db "NEB@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 51, TOXAPEX
+	db 51, MAROWAK
+	db 51, TOGEKISS
+
+	db $ff ; end
+	
+; ================
+
+	; CAMPER (3)
+	db "SNYD@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 51, PORYGON_Z
+	db 51, TANGROWTH
+	db 51, ARCANINE
+
+	db $ff ; end
 
 ; ================
 ; ================================
@@ -2405,6 +2445,19 @@ FisherGroup:
 	db 47, GYARADOS, MALE_MASK
 
 	db $ff
+	
+; =================
+
+	; FISHER (13)
+	db "STEPHEN@"
+	db TRAINERTYPE_NORMAL
+
+	db 50, EXEGGUTOR
+	db 50, PELIPPER
+	db 50, PALOSSAND
+	db 50, SCIZOR
+
+	db $ff
 ; ================
 ; ================================
 
@@ -2621,6 +2674,32 @@ SightseerMGroup:
 		db SWEET_KISS
 		db PSYBEAM
 		db ATTRACT
+
+	db $ff
+
+; ================
+
+	; SIGHTSEERM (4)
+	db "CORAL@"
+	db TRAINERTYPE_MOVES
+
+	db 53, CORSOLA
+		db TOXIC
+		db DIVE
+		db SUBSTITUTE
+		db REST
+
+	db 52, CLEFABLE
+		db METRONOME
+		db MOONBLAST
+		db DOUBLESLAP
+		db ATTRACT
+		
+	db 52, RAICHU
+		db PSYCHIC_M
+		db THUNDERBOLT
+		db SURF
+		db SPARK
 
 	db $ff
 
@@ -2928,6 +3007,33 @@ CooltrainerMGroup:
 	db 45, CHARMANDER
 
 	db $ff
+
+; ================
+
+	; COOLTRAINERM (12)
+	db "MIKE@"
+	db TRAINERTYPE_NORMAL
+
+	db 50, SCIZOR
+	db 50, TOUCANNON
+	db 50, SHARPEDO
+	db 50, RAICHU
+
+	db $ff
+	
+
+; ================
+
+	; COOLTRAINERM (13)
+	db "MAKO@"
+	db TRAINERTYPE_NORMAL
+
+	db 50, UMBREON
+	db 50, ESPEON
+	db 50, POLITOED
+	db 50, KINGDRA
+
+	db $ff
 	
 
 ; ================
@@ -3126,6 +3232,17 @@ CatmanGroup:
 	db TRAINERTYPE_PERSONALITY
 
 	db 30, MUK, MALE_MASK | MUK_KANTONESE_FORM
+
+	db $ff
+
+	; CATMAN (6)
+	db "MAYO@"
+	db TRAINERTYPE_PERSONALITY
+
+	db 50, NINETALES, MALE_MASK
+	db 50, VAPOREON, MALE_MASK
+	db 50, LYCANROC, FEMALE_MASK | SHINY_MASK | LYCANROC_MIDNIGHT_FORM
+	db 50, FLYGON, MALE_MASK
 
 	db $ff
 ; ================
@@ -4051,6 +4168,33 @@ DiverMaleGroup:
 	; party
 	db 43, STUNFISK
 	db 43, GYARADOS
+
+	db $ff ; end
+
+; ================
+
+	; DIVER_M (3)
+	db "CAOS@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 52, TOXAPEX
+	db 51, MANTINE
+	db 52, KINGDRA
+
+	db $ff ; end
+
+; ================
+
+	; DIVER_M (4)
+	db "MONSTA@"
+	db TRAINERTYPE_NORMAL
+
+	; party
+	db 50, GLACEON
+	db 50, AMPHAROS
+	db 50, SUNFLORA
+	db 50, FLYGON
 
 	db $ff ; end
 

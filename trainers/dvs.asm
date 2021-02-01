@@ -130,6 +130,7 @@ TrainerClassPersonalities:
 	db FEMALE_MASK ; luana
 	db MALE_MASK   ; drake
 	db MALE_MASK   ; tracey
+	db MALE_MASK   ; tracey2
 	db MALE_MASK   ; brock
 	db FEMALE_MASK ; misty
 	db MALE_MASK   ; lt surge
