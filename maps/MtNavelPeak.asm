@@ -36,6 +36,7 @@ DannyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_SEA_RUBY_BADGE
+	clearevent EVENT_UNNAMED_POKE_CENTER_MISTY
 	checkcode VAR_BADGES
 .FightDone:
 	checkevent EVENT_GOT_TM_HAIL

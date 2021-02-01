@@ -12,7 +12,12 @@ UnnamedIsland1PokeCenter_MapScriptHeader:
 .MapCallbacks: db 0
 
 .Trigger0:
+	checkflag ENGINE_SEA_RUBY_BADGE
+	iffalse .MistyNotActiveYet
 	priorityjump .UnnamedIslandMistyScript
+	end
+	
+.MistyNotActiveYet:
 	end
 
 .Trigger1:
