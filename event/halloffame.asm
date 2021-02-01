@@ -228,6 +228,7 @@ GetHallOfFameParty: ; 8653f
 AnimateHOFMonEntrance: ; 865b5
 	push hl
 	call ClearBGPalettes
+	call ClearVBank1
 	farcall ResetDisplayBetweenHallOfFameMons
 	pop hl
 	ld a, [hli]
@@ -262,6 +263,7 @@ AnimateHOFMonEntrance: ; 865b5
 	ld b, SCGB_PLAYER_OR_MON_FRONTPIC_PALS
 	call GetSGBLayout
 	call SetPalettes
+	call ClearVBank1
 	call HOF_SlideBackpic
 	xor a
 	ld [wBoxAlignment], a

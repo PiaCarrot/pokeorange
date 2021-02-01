@@ -102,6 +102,10 @@ HallOfFame_LanceText:
 	para "and your partners"
 	line "as CHAMPIONS!"
 	done
+	
+HallOfFameMachineScript:
+	halloffame
+	end
 
 HallOfFame_MapEventHeader:
 
@@ -111,7 +115,8 @@ HallOfFame_MapEventHeader:
 
 .XYTriggers: db 0
 
-.Signposts: db 0
+.Signposts: db 1
+	signpost  4,  8, SIGNPOST_READ, HallOfFameMachineScript
 
 .PersonEvents: db 1
 	person_event SPRITE_DRAKE, 10,  6, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_DRAKE_IN_HALL_OF_FAME

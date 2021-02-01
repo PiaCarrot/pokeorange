@@ -147,6 +147,28 @@ Tileset24Anim: ; 0xfc1e7
 	dw NULL,  DoneTileAnimation
 ; 0xfc233
 
+Tileset29Anim: ; 0xfc233
+	dw VTiles2 tile $35, WriteTileToBuffer
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw wTileAnimBuffer, ScrollTileRightLeft
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw VTiles2 tile $35, WriteTileFromBuffer
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw NULL,  WaitTileAnimation
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw VTiles2 tile $31, WriteTileToBuffer
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw wTileAnimBuffer, ScrollTileDown
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw wTileAnimBuffer, ScrollTileDown
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw wTileAnimBuffer, ScrollTileDown
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw VTiles2 tile $31, WriteTileFromBuffer
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw NULL,  DoneTileAnimation
+; 0xfc27f
+
 Tileset30Anim: ; 0xfc1e7
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -182,7 +204,6 @@ Tileset25Anim: ; 0xfc047
 Tileset26Anim: ; 0xfc2e7
 Tileset27Anim: ; 0xfc2e7
 Tileset28Anim: ; 0xfc2e7
-Tileset29Anim:
 Tileset33Anim: ; 0xfc2e7
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
