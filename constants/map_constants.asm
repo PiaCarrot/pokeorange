@@ -237,6 +237,7 @@ MAP_NONE EQU 0
 
 	newgroup ; 15
 	
+	mapgroup ROUTE_69_GATE, 4, 5
 	mapgroup ROUTE_69_NORTH, 16, 14
 	mapgroup PUMMELO_ISLAND, 25, 27
 	mapgroup HALL_OF_FAME, 6, 7

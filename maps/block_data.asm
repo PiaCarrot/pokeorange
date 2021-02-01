@@ -84,6 +84,7 @@ GoldenIslandElderHouse_BlockData:
 Route52TangeloJungleGate_BlockData:
 Route62MandarinDesertGate_BlockData:
 AscorbiaIslandRoute63Gate_BlockData:
+Route69Gate_BlockData:
 	INCBIN "maps/NorthSouthGate.blk"
 
 MikanIslandRoute53Gate_BlockData:

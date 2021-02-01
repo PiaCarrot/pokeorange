@@ -306,6 +306,12 @@
 	db 33, SEADRA
 	db 33, KRABBY
 	
+	map ROUTE_69_NORTH
+	db 1 percent
+	db 37, HORSEA
+	db 37, MANTINE
+	db 37, LUMINEON
+	
 	map FUKUHARA_NO_4_BF1
 	db 3 percent
 	db 25, OMANYTE

@@ -103,5 +103,5 @@ PummeloIsland_MapEventHeader::
 	signpost 22, 28, SIGNPOST_READ, PummeloIslandSign2
 
 .ObjectEvents: db 1
-	person_event SPRITE_YOUNGSTER, 31, 24, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, PummeloBadgeYoungsterScript, -1
+	person_event SPRITE_YOUNGSTER, 31, 24, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, PummeloBadgeYoungsterScript, -1
 

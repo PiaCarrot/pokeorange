@@ -76,7 +76,7 @@ Route69South_MapEventHeader::
 	warp_def 11,  5, 1, VICTORY_ROAD_EXIT_ROOM
 	warp_def  7, 12, 2, VICTORY_ROAD_EXIT_ROOM
 	warp_def 31,  6, 5, VICTORY_ROAD_F3
-	warp_def  5, 17, 1, ROUTE_69_NORTH
+	warp_def  5, 17, 3, ROUTE_69_GATE
 
 .CoordEvents: db 0
 

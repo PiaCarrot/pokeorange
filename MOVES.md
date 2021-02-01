@@ -79,7 +79,7 @@ Vicegrip
 ## TMs
 
 - TM01 *Power-Up Punch*
-- TM02 *Dragon Pulse*
+- TM02 *Dragon Pulse* (Route 69)
 - TM03 *Water Pulse* (Route 55 Underwater)
 - TM04 *Dark Pulse*
 - TM05 *Venoshock*
@@ -98,7 +98,7 @@ Vicegrip
 - TM18 Rain Dance (Murcott Island)
 - TM19 Giga Drain (Ascorbia Island)
 - TM20 *Dragon Tail* (Crystal Cave)
-- TM21 *Shadow Claw*
+- TM21 *Shadow Claw* (Victory Road)
 - TM22 Solarbeam (Trovitopolis Dept. Store)
 - TM23 Iron Tail (Route 63)
 - TM24 Thunderbolt (Trovitopolis Dept. Store)
@@ -137,7 +137,7 @@ Vicegrip
 - HM04 Strength (Primas School)
 - HM05 Rock Smash (Trovita Island)
 - HM06 *Dive* (Ascorbia Island)
-- HM07 Waterfall (**TODO:** Unnamed Island 3)
+- HM07 Waterfall (Unnamed Island 3)
 - HM08 *Rock Climb* (**TODO:** Kanto)
 
 ## Tutors
@@ -149,7 +149,7 @@ Vicegrip
 - MT05 Mach Punch (Route 56)
 - MT06 DynamicPunch
 - MT07 Headbutt (Moro Island)
-- MT08 *Zen Headbutt*
+- MT08 *Zen Headbutt* (Route 69)
 - MT09 Swords Dance
 - MT10 Body Slam
 - MT11 Counter

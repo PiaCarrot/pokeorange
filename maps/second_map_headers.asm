@@ -387,6 +387,7 @@
 	map_header_2 Route67Underwater, ROUTE_67_UNDERWATER, 9, 0
 	map_header_2 QuackenpokerLab, QUACKENPOKER_LAB, 0, 0
 	map_header_2 UnnamedIsland3House, UNNAMED_ISLAND_3_HOUSE, 0, 0
+	map_header_2 Route69Gate, ROUTE_69_GATE, $0, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

@@ -882,7 +882,9 @@ Group12Sprites:
 
 Group15Sprites:
 ; Pummelo Island
-	db SPRITE_COOLTRAINER_M
+	db SPRITE_YOUNGSTER
+	db SPRITE_POKEFAN_M
+	db SPRITE_ROCKER
 	db 0 ; end
 	
 Group16Sprites:
