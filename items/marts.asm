@@ -15,6 +15,7 @@ Marts: ; 160a9
 	dw TrovitopolisTMMart
 	dw AscorbiaMart
 	dw KumquatMart
+	dw PummeloMart
 MartsEnd:
 ; 160ed
 
@@ -230,6 +231,23 @@ KumquatMart:
 	db FULL_HEAL
 	db MAX_REPEL
 	db ESCAPE_ROPE
+	db $ff
+
+PummeloMart:
+	db 13
+	db ULTRA_BALL
+	db HYPER_POTION
+	db MAX_POTION
+	db FULL_RESTORE
+	db REVIVE
+	db FULL_HEAL
+	db MAX_REPEL
+	db X_DEFEND
+	db X_ATTACK
+	db X_SPCL_ATK
+	db X_SPCL_DEF
+	db X_ATTACK
+	db X_SPEED
 	db $ff
 
 DefaultMart: ; 16214

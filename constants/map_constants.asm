@@ -241,12 +241,20 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_69_NORTH, 16, 14
 	mapgroup PUMMELO_ISLAND, 25, 27
 	mapgroup HALL_OF_FAME, 6, 7
-	mapgroup PUMMELO_STADIUM, 5, 7
+	mapgroup PUMMELO_STADIUM, 10, 7
 	mapgroup ROUTE_70, 14, 24
 	mapgroup TARROCO_ISLAND, 20, 30
 	mapgroup ROUTE_71, 20, 36
 	mapgroup SHAMOUTI_ISLAND, 15, 18
-	
+	mapgroup PUMMELO_ISLAND_HOUSE_1, 4, 4
+	mapgroup PUMMELO_ISLAND_HOUSE_2, 4, 4
+	mapgroup PUMMELO_ISLAND_HOUSE_3, 4, 4
+	mapgroup PUMMELO_ISLAND_HOUSE_4, 4, 4
+	mapgroup PUMMELO_ISLAND_HOUSE_5, 4, 4
+	mapgroup PUMMELO_ISLAND_HOUSE_6, 4, 4
+	mapgroup PUMMELO_CENTER, 4, 5
+	mapgroup PUMMELO_MART, 4, 6	
+
 	newgroup ; 16
 	
 	mapgroup KUMQUAT_ISLAND_EAST, 16, 15

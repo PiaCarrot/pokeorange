@@ -104,7 +104,7 @@ if def(DEBUG)
 	clearevent EVENT_RED_ON_CLEOPATRA
 	clearevent EVENT_UNNAMED_POKE_CENTER_MISTY
 ;	setevent EVENT_BEAT_RED
-	setevent EVENT_BEAT_ORANGE_LEAGUE
+;	setevent EVENT_BEAT_ORANGE_LEAGUE
 	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
 	giveitem SKATEBOARD
@@ -149,7 +149,7 @@ if def(DEBUG)
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp PUMMELO_ISLAND, 10, 30
+	warp PUMMELO_ISLAND, 18, 14
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

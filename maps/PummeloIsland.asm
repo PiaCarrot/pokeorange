@@ -227,6 +227,9 @@ PummeloOfficerScript:
 	waitbutton
 	closetext
 	end
+	
+PummeloOfficerGuardScript:
+	jumptextfaceplayer PummeloOfficerGuardScriptText
 
 PummeloIslandFruitTree1:
 	fruittree FRUITTREE_PUMMELO_ISLAND_1
@@ -311,12 +314,26 @@ PummeloOfficerScriptText3:
 	line "you're way too"
 	cont "young!"
 	done
+	
+PummeloOfficerGuardScriptText:
+	text "Sorry, the road is"
+	line "closed due to bri-"
+	cont "gands posing as"
+	cont "highwaymen."
+	
+	para "As soon as the"
+	line "situation is under"
+	cont "control the road"
+	cont "will open again."
+	done
 
 PummeloIsland_MapEventHeader::
 
-.Warps: db 2
+.Warps: db 4
 	warp_def 21, 26, 1, HALL_OF_FAME
 	warp_def 21, 27, 2, HALL_OF_FAME
+	warp_def 11, 18, 1, PUMMELO_STADIUM
+	warp_def 11, 19, 2, PUMMELO_STADIUM
 
 .CoordEvents: db 1
 	xy_trigger 0, 27, 26, PummeloIslandCrossScript
@@ -333,7 +350,7 @@ PummeloIsland_MapEventHeader::
 	signpost 14, 21, SIGNPOST_READ, PummeloStatue
 	signpost 31, 45, SIGNPOST_READ, PummeloIslandSign4
 
-.ObjectEvents: db 8
+.ObjectEvents: db 10
 	person_event SPRITE_YOUNGSTER, 31, 10, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, PummeloBadgeYoungsterScript, -1
 	person_event SPRITE_ROCKER, 23, 26, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_CROSS_ON_PUMMELO
 	person_event SPRITE_FRUIT_TREE, 35, 46, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PummeloIslandFruitTree1, -1
@@ -342,5 +359,8 @@ PummeloIsland_MapEventHeader::
 	person_event SPRITE_POKE_BALL, 16,  4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PummeloIslandRareCandy, EVENT_PUMMELO_ISLAND_RARE_CANDY
 	person_event SPRITE_OFFICER, 31, 24, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, PummeloOfficerScript, -1
 	person_event SPRITE_SAILOR, 36, 28, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, PummeloSailorScript, -1
+	person_event SPRITE_OFFICER, 32, 51, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, PummeloOfficerGuardScript, EVENT_BEAT_ORANGE_LEAGUE
+	person_event SPRITE_OFFICER, 33, 51, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, PummeloOfficerGuardScript, EVENT_BEAT_ORANGE_LEAGUE
+
 
 

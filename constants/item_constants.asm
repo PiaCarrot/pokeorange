@@ -380,6 +380,7 @@ ITEMMENU_CLOSE              EQU 6
 	const MART_TROVITOPOLIS_TM
 	const MART_ASCORBIA
 	const MART_KUMQUAT
+	const MART_PUMMELO
 
 ; PartyMenuActionText
 	const_def

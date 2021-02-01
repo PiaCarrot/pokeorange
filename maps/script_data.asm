@@ -19,6 +19,7 @@ INCLUDE "maps/TrovitopolisPokeCommCenter.asm"
 
 SECTION "Pokemon Center Scripts 3", ROMX
 INCLUDE "maps/KumquatCenter.asm"
+INCLUDE "maps/PummeloCenter.asm"
 
 SECTION "Pokemon Center Scripts 4", ROMX
 
@@ -288,6 +289,14 @@ SECTION "Pummelo Scripts", ROMX
 INCLUDE "maps/PummeloIsland.asm"
 INCLUDE "maps/HallOfFame.asm"
 INCLUDE "maps/PummeloStadium.asm"
+INCLUDE "maps/PummeloIslandHouse1.asm"
+INCLUDE "maps/PummeloIslandHouse2.asm"
+INCLUDE "maps/PummeloIslandHouse3.asm"
+INCLUDE "maps/PummeloIslandHouse4.asm"
+INCLUDE "maps/PummeloIslandHouse5.asm"
+INCLUDE "maps/PummeloIslandHouse6.asm"
+INCLUDE "maps/PummeloMart.asm"
+
 
 SECTION "Tarroco Scripts", ROMX
 

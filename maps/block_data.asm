@@ -12,6 +12,7 @@ MoroPokeCenter_BlockData:
 MurcottPokeCenter_BlockData:
 AscorbiaIslandCenter_BlockData:
 KumquatCenter_BlockData:
+PummeloCenter_BlockData:
 	INCBIN "maps/PokeCenter1F.blk"
 
 PokeCenter2F_BlockData:
@@ -35,6 +36,7 @@ MoroMart_BlockData:
 MurcottPokeMart_BlockData:
 AscorbiaIslandMart_BlockData:
 KumquatMart_BlockData:
+PummeloMart_BlockData:
 	INCBIN "maps/Mart.blk"
 
 BluesHouse_BlockData:
@@ -79,6 +81,12 @@ GoldenIslandHouse1_BlockData:
 GoldenIslandHouse2_BlockData:
 GoldenIslandHouse3_BlockData:
 GoldenIslandElderHouse_BlockData:
+PummeloIslandHouse1_BlockData:
+PummeloIslandHouse2_BlockData:
+PummeloIslandHouse3_BlockData:
+PummeloIslandHouse4_BlockData:
+PummeloIslandHouse5_BlockData:
+PummeloIslandHouse6_BlockData:
 	INCBIN "maps/House2.blk"
 
 Route52TangeloJungleGate_BlockData:
