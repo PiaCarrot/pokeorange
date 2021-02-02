@@ -103,9 +103,27 @@ HallOfFame_LanceText:
 	line "as CHAMPIONS!"
 	done
 	
+HoFOfficerGuardScript:
+	jumptextfaceplayer HoFOfficerGuardScriptText
+	
 HallOfFameMachineScript:
-	halloffame
-	end
+	jumptext HallOfFameMachineScriptText
+	
+HoFMasterBall:
+	itemball MASTER_BALL
+	
+HallOfFameMachineScriptText:
+	text "This machine is"
+	line "used to start up"
+	cont "the HALL OF FAME"
+	cont "RECORDER."
+	done
+	
+HoFOfficerGuardScriptText:
+	text "Sorry, only the"
+	line "CHAMPION can go"
+	cont "back here."
+	done
 
 HallOfFame_MapEventHeader:
 
@@ -118,5 +136,7 @@ HallOfFame_MapEventHeader:
 .Signposts: db 1
 	signpost  4,  8, SIGNPOST_READ, HallOfFameMachineScript
 
-.PersonEvents: db 1
+.PersonEvents: db 3
 	person_event SPRITE_DRAKE, 10,  6, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_DRAKE_IN_HALL_OF_FAME
+	person_event SPRITE_OFFICER,  6,  0, SPRITEMOVEDATA_STANDING_DOWN, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, HoFOfficerGuardScript, EVENT_BEAT_ORANGE_LEAGUE
+	person_event SPRITE_POKE_BALL,  1,  1, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, HoFMasterBall, EVENT_HALL_OF_FAME_MASTER_BALL

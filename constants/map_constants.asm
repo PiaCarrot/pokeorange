@@ -254,6 +254,9 @@ MAP_NONE EQU 0
 	mapgroup PUMMELO_ISLAND_HOUSE_6, 4, 4
 	mapgroup PUMMELO_CENTER, 4, 5
 	mapgroup PUMMELO_MART, 4, 6	
+	mapgroup PUMMELO_ROUTE_70_GATE, 4, 5
+	mapgroup ROUTE_70_GATE_UPSTAIRS, 4, 5
+
 
 	newgroup ; 16
 	

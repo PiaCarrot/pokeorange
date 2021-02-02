@@ -396,6 +396,9 @@
 	map_header_2 PummeloIslandHouse6, PUMMELO_ISLAND_HOUSE_6, 0, 0
 	map_header_2 PummeloCenter, PUMMELO_CENTER, 0, 0
 	map_header_2 PummeloMart, PUMMELO_MART, 0, 0
+	map_header_2 PummeloRoute70Gate, PUMMELO_ROUTE_70_GATE, 0, 0
+	map_header_2 Route70GateUpstairs, ROUTE_70_GATE_UPSTAIRS, 0, 0
+
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0

@@ -296,6 +296,8 @@ INCLUDE "maps/PummeloIslandHouse4.asm"
 INCLUDE "maps/PummeloIslandHouse5.asm"
 INCLUDE "maps/PummeloIslandHouse6.asm"
 INCLUDE "maps/PummeloMart.asm"
+INCLUDE "maps/PummeloRoute70Gate.asm"
+INCLUDE "maps/Route70GateUpstairs.asm"
 
 
 SECTION "Tarroco Scripts", ROMX

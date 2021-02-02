@@ -1118,7 +1118,7 @@ CreditsStrings:
 .YoshinoriMatsuda:    db "  LUCKYTYPHLOSION@"
 .HitomiSato:          db "   FROGGESTSPIRIT@"
 .ToruOsawa:           db "    POKECOMMUNITY@"
-.TakaoOhara:          db "       RHEG@"
+.TakaoOhara:          db "       /RHEG/@"
 .YuichiroIto:         db "        SKEETENDO@"
 .TakaoShimizu:        db "      AND YOU!@"
 .Planning:            db " SPECIAL THANKS"

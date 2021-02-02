@@ -329,7 +329,7 @@ PummeloOfficerGuardScriptText:
 
 PummeloIsland_MapEventHeader::
 
-.Warps: db 12
+.Warps: db 14
 	warp_def 21, 26, 1, HALL_OF_FAME
 	warp_def 21, 27, 2, HALL_OF_FAME
 	warp_def 11, 18, 1, PUMMELO_STADIUM
@@ -342,6 +342,8 @@ PummeloIsland_MapEventHeader::
 	warp_def  9, 45, 1, PUMMELO_ISLAND_HOUSE_6
 	warp_def 29, 21, 1, PUMMELO_CENTER
 	warp_def 29, 17, 1, PUMMELO_MART
+	warp_def 32, 51, 1, PUMMELO_ROUTE_70_GATE
+	warp_def 33, 51, 2, PUMMELO_ROUTE_70_GATE
 
 .CoordEvents: db 1
 	xy_trigger 0, 27, 26, PummeloIslandCrossScript
