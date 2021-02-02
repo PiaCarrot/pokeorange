@@ -9,8 +9,8 @@ PummeloIslandHouse3_MapScriptHeader:
 PummeloIslandHouse3_MapEventHeader:
 
 .Warps: db 2
-	warp_def $7, $3, 5, PUMMELO_ISLAND
-	warp_def $7, $4, 5, PUMMELO_ISLAND
+	warp_def $7, $3, 7, PUMMELO_ISLAND
+	warp_def $7, $4, 7, PUMMELO_ISLAND
 
 .XYTriggers: db 0
 

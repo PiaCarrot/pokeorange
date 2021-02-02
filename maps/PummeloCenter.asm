@@ -24,8 +24,8 @@ PummeloSlouchText:
 PummeloCenter_MapEventHeader::
 
 .Warps: db 2
-	warp_def 7, 4, 5, PUMMELO_ISLAND
-	warp_def 7, 5, 5, PUMMELO_ISLAND
+	warp_def 7, 4, 11, PUMMELO_ISLAND
+	warp_def 7, 5, 11, PUMMELO_ISLAND
 
 .CoordEvents: db 0
 

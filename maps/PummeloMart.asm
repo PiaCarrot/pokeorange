@@ -16,8 +16,8 @@ PummeloClerkScript:
 PummeloMart_MapEventHeader::
 
 .Warps: db 2
-	warp_def 7, 2, 6, PUMMELO_ISLAND
-	warp_def 7, 3, 6, PUMMELO_ISLAND
+	warp_def 7, 2, 12, PUMMELO_ISLAND
+	warp_def 7, 3, 12, PUMMELO_ISLAND
 
 .CoordEvents: db 0
 
