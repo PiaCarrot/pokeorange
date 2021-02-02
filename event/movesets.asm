@@ -57,6 +57,18 @@ SpecialMagikarp:
 	db TACKLE
 	db HYPER_BEAM ;unique
 	db 0
+	
+SpecialDratini:
+	call GetLastPartyMonMoveset
+	ld hl, .Moveset
+	jp GiveSpecialMoveset
+	
+.Moveset:
+	db DRAGON_RAGE
+	db SLAM
+	db THUNDER_WAVE
+	db SPLASH ;unique
+	db 0
 
 GetLastPartyMon: ; 0x8b1ce
 	ld bc, PartyCount

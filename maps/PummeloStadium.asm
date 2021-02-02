@@ -46,6 +46,7 @@ PummeloStadiumEntry:
 	writetext AnnouncerWinnerText
 	waitbutton
 	clearevent EVENT_DRAKE_IN_HALL_OF_FAME
+	clearevent EVENT_PUMMELO_ISLAND_DRAKE_GIFT
 	special FadeOutPalettes
 	pause 15
 	setevent EVENT_BEAT_ORANGE_LEAGUE
