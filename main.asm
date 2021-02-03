@@ -3806,7 +3806,7 @@ ChrisNameMenuHeader: ; 882b5
 	db "INDIGO@"
 	db "ORANGE@"
 	db "JAMES@"
-	db "SUN@"
+	db "NINTEN@"
 	db 2 ; displacement
 	db " NAME @" ; title
 
@@ -3824,8 +3824,8 @@ KrisNameMenuHeader: ; 882e5
 	db "NEW NAME@"
 	db "ORANGE@"
 	db "INDIGO@"
-	db "TERA@"
-	db "MOON@"
+	db "PIA@"
+	db "SONY@"
 	db 2 ; displacement
 	db " NAME @" ; title
 
