@@ -145,12 +145,13 @@ if def(DEBUG)
 	givepoke PIKACHU, 100, LIGHT_BALL
 	givepoke EXEGGUTOR, 100, BERRY, EXEGGUTOR_KANTONESE_FORM
 	givepoke EXEGGUTOR, 100
-	givepoke MEW, 100
+	givepoke MEOWTH, 100
 	closetext
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp PUMMELO_ROUTE_70_GATE, 4, 4
+;	warp PUMMELO_ROUTE_70_GATE, 4, 4
+	warp GOLDEN_ISLAND, 22, 17
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

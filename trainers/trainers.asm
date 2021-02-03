@@ -3204,8 +3204,8 @@ CatmanGroup:
 	db "FRED@"
 	db TRAINERTYPE_NORMAL
 
-	db 28, ONIX
-	db 28, NIDOKING
+	db 42, ONIX
+	db 42, NIDOKING
 
 	db $ff
 
@@ -3213,9 +3213,9 @@ CatmanGroup:
 	db "KENT@"
 	db TRAINERTYPE_NORMAL
 
-	db 27, SCYTHER
-	db 27, HAUNTER
-	db 27, LICKITUNG
+	db 41, SCYTHER
+	db 41, HAUNTER
+	db 41, LICKITUNG
 
 	db $ff
 
@@ -3223,10 +3223,10 @@ CatmanGroup:
 	db "NATE@"
 	db TRAINERTYPE_NORMAL
 
-	db 26, GOLBAT
-	db 26, GOLDUCK
-	db 26, SANDSHREW
-	db 26, FEAROW
+	db 40, GOLBAT
+	db 40, GOLDUCK
+	db 40, SANDSHREW
+	db 40, FEAROW
 
 	db $ff
 
@@ -3234,9 +3234,9 @@ CatmanGroup:
 	db "NOAH@"
 	db TRAINERTYPE_DVS
 
-	db 28, KINGLER, $98, $88
-	db 27, GRAVELER, $98, $88
-	db 26, SPINDA, SPINDA_C_DVS
+	db 42, KINGLER, $98, $88
+	db 41, GRAVELER, $98, $88
+	db 40, SPINDA, SPINDA_C_DVS
 
 	db $ff
 
@@ -3244,7 +3244,7 @@ CatmanGroup:
 	db "GRANT@"
 	db TRAINERTYPE_PERSONALITY
 
-	db 30, MUK, MALE_MASK | MUK_KANTONESE_FORM
+	db 45, MUK, MALE_MASK | MUK_KANTONESE_FORM
 
 	db $ff
 

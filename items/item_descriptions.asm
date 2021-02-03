@@ -193,6 +193,7 @@ ItemDescriptions:
 	dw ElectirizerDesc
 	dw ProtectorDesc
 	dw SalveyoWeedDesc
+	dw CatStatueDesc
 
 MasterBallDesc:
 	db   "The best BALL. It"
@@ -841,3 +842,7 @@ ProtectorDesc:
 SalveyoWeedDesc:
 	db   "Smells like pond"
 	next "water. For fevers.@"
+	
+CatStatueDesc:
+	db   "Solid gold statue."
+	next "Worth a ton.@"

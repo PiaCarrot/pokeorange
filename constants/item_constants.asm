@@ -162,6 +162,7 @@
 	const ELECTIRIZER
 	const PROTECTOR
 	const SALVEYO_WEED
+	const CAT_STATUE
 
 	add_tm POWERUPPUNCH ; $9d
 	add_tm DRAGON_PULSE ; $9e

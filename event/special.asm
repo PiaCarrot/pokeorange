@@ -80,3 +80,7 @@ CopyPokemonName_Buffer1_Buffer3: ; 746e
 	ld de, StringBuffer3
 	ld bc, PKMN_NAME_LENGTH
 	jp CopyBytes
+	
+SpecialTakeMeowth:
+	farcall RemoveMonFromPartyOrBox
+	ret

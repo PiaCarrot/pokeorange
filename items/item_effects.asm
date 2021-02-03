@@ -176,6 +176,7 @@ ItemEffects: ; e73c
 	dw Electirizer
 	dw Protector
 	dw SalveyoWeed
+	dw CatStatue
 ; e8a2
 
 
@@ -2864,7 +2865,8 @@ ShinyCharm:
 SoulDew:
 HeartScale:
 QuickPowder:
-SalveyoWeed: ; f77d
+SalveyoWeed:
+CatStatue: ; f77d
 	jp IsntTheTimeMessage
 ; f780
 

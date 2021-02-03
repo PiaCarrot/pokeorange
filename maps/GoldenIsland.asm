@@ -151,11 +151,20 @@ GOLDEN_ISLAND_JAMES_MOVEMENT:
 	step_end
 
 CatManBattleHouseScript:
+	checkevent EVENT_ELDER_GOT_MEOWTH
+	iffalse .DontWannaFight
 	opentext
 	writetext CatManBattleHouseText1
 	yesorno
 	iftrue .BattleHouseBegin
 	writetext DeclineBattleHouseText
+	waitbutton
+	closetext
+	end
+	
+.DontWannaFight:
+	opentext
+	writetext CatManBattleHouseNoFightText
 	waitbutton
 	closetext
 	end
@@ -275,6 +284,22 @@ CatManBattleHouseText1:
 
 	para "Want to try?"
 	done
+	
+CatManBattleHouseNoFightText:
+	text "Nyaa<...>"
+	line "Welcome to the"
+	cont "GOLDEN ISLAND"
+	cont "BATTLE HOUSE<...>"
+	
+	para "We're nyaat takin'"
+	line "challengers right"
+	cont "now."
+	
+	para "How can we, when"
+	line "we don't have the"
+	cont "MEOWTH of BOUNTY?"
+	cont "Nyaa<...>"
+	done
 
 DeclineBattleHouseText:
 	text "Very well."
@@ -315,7 +340,7 @@ CatManBattleHouseText6:
 
 CatManBattleHouseText7:
 	text "Hmph. I'll get"
-	line "REN to beat you."
+	line "NOAH to beat you."
 	done
 
 CatManBattleHouseText8:
@@ -326,7 +351,7 @@ CatManBattleHouseText8:
 	done
 
 CatManBattleHouseText9:
-	text "MIMI is the stron-"
+	text "GRANT is the stron-"
 	line "gest of us all."
 
 	para "Prepare yourself."

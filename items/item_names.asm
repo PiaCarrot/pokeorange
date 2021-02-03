@@ -160,6 +160,7 @@
 	db "ELECTIRIZER@"
 	db "PROTECTOR@"
 	db "SALVEYO WEED@"
+	db "CAT STATUE@"
 	db "TM01@"
 	db "TM02@"
 	db "TM03@"

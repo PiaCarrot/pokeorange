@@ -2491,6 +2491,7 @@ DragoniteEvosAttacks:
 	db 35, DRAGON_TAIL
 	db 47, SAFEGUARD
 	db 55, WING_ATTACK
+	db 60, HYDRO_PUMP
 	db 61, OUTRAGE
 	db 75, HYPER_BEAM
 	db 0 ; no more level-up moves

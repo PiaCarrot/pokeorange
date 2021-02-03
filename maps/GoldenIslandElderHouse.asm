@@ -57,10 +57,74 @@ GoldenIslandElderScript:
 .ElderTradeScript:
 	faceplayer
 	opentext
-	trade $2
+	checkevent EVENT_ELDER_GOT_MEOWTH
+	iftrue .AlreadyGaveMeowth	
+	writetext ElderTradeScriptText1
+	yesorno
+	iffalse .SaidNo
+	special Special_BillsGrandfather
+	iffalse .SaidNo
+	if_not_equal MEOWTH, .SaidNo
+	playsound SFX_DEX_FANFARE_50_79
+	writetext GaveMeowthText
+	waitsfx
+	writetext ElderTradeScriptText4
+	waitbutton
+	special SpecialTakeMeowth
+	closetext
+	setevent EVENT_ELDER_GOT_MEOWTH
+	end
+	
+.AlreadyGaveMeowth
+	writetext ElderTradeScriptText2
 	waitbutton
 	closetext
 	end
+	
+.SaidNo
+	writetext ElderTradeScriptText3
+	waitbutton
+	closetext
+	end
+	
+ElderTradeScriptText1:
+	text "It's unfortunate"
+	line "about that MEOWTH."
+	
+	para "We really need a"
+	line "MEOWTH to grant us"
+	cont "wealth<...>"
+	
+	para "Did you happen to"
+	line "find one?"
+	done
+	
+ElderTradeScriptText2:
+	text "Thank you<...>"
+	line "You have saved our"
+	cont "village!"
+	done
+	
+ElderTradeScriptText3:
+	text "Oh<...>Please, do"
+	line "return if you find"
+	cont "a MEOWTH<...>"
+	done
+	
+ElderTradeScriptText4:
+	text "Oh! This is a"
+	line "bonafide MEOWTH!"
+	
+	para "Oh, thank you,"
+	line "thank you!"
+	cont "With this, our"
+	cont "village is saved!"
+	done
+	
+GaveMeowthText:
+	text "<PLAYER> gave MEOWTH"
+	line "to the ELDER!"
+	done
 
 ElderPleaseSaveMeText:
 	text "Please help me!"
@@ -199,5 +263,5 @@ GoldenIslandElderHouse_MapEventHeader:
 .PersonEvents: db 4
 	person_event SPRITE_JESSIE, 4, 6, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ElderHouseRocketScript, EVENT_SAVED_CAT_ELDER
 	person_event SPRITE_JAMES, 5, 5, SPRITEMOVEDATA_STANDING_UP, 1, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, ElderHouseRocketScript, EVENT_SAVED_CAT_ELDER
-	person_event SPRITE_ELDER, 4, 5, SPRITEMOVEDATA_STANDING_DOWN, 2, 2, -1, -1, PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, GoldenIslandElderScript, -1
+	person_event SPRITE_CAT_MAN, 4, 5, SPRITEMOVEDATA_STANDING_DOWN, 2, 2, -1, -1, PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, GoldenIslandElderScript, -1
 	person_event SPRITE_ROCKET_MEOWTH, 5, 6, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, ElderHouseRocketScript, EVENT_SAVED_CAT_ELDER

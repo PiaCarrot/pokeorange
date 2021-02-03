@@ -30,7 +30,7 @@ Mimi:
 	opentext
 	writetext GiveExpAllText
 	waitbutton
-	verbosegiveitem FOCUS_BAND
+	verbosegiveitem CAT_STATUE
 	setevent EVENT_GOT_EXP_ALL
 	closetext
 	end

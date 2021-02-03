@@ -67,7 +67,7 @@ SpecialDratini:
 	db DRAGON_RAGE
 	db SLAM
 	db THUNDER_WAVE
-	db SPLASH ;unique
+	db EXTREMESPEED ;unique
 	db 0
 
 GetLastPartyMon: ; 0x8b1ce
