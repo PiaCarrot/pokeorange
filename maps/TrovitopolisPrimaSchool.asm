@@ -97,30 +97,30 @@ PrimaThatsWrongText:
 	line "right."
 	done
 	
-PrimaQuestion1:
+PrimaQuestion1: ;ANSWER IS YES
 	text "CHATOT can learn"
 	line "human speech?"
 	done
 	
-PrimaQuestion2:
-	text "RATTATA can learn"
-	line "WATER GUN?"
+PrimaQuestion2: ;ANSWER IS YES
+	text "MAREEP is ELECTRIC"
+	line "type?"
 	done
 	
-PrimaQuestion3:
+PrimaQuestion3: ;ANSWER IS NO
 	text "MAGIKARP can be"
 	line "found almost any-"
 	cont "where?"
 	done
 	
-PrimaQuestion4:
-	text "BANANA can be"
-	line "found on TROPIUS?"
+PrimaQuestion4: ;ANSWER IS YES
+	text "LORELEI uses ICE"
+	line "type #MON?"
 	done
 	
-PrimaQuestion5:
-	text "PRIMA GAMES was"
-	line "founded in 1984?"
+PrimaQuestion5: ;ANSWER IS NO
+	text "RATTATA can learn"
+	line "WATER GUN?"
 	done
 
 PrimaStrengthHMPrizeText:

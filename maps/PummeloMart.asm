@@ -61,4 +61,4 @@ PummeloMart_MapEventHeader::
 
 .ObjectEvents: db 2
 	person_event SPRITE_CLERK, 3, 1, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PummeloClerkScript, -1
-	person_event SPRITE_OFFICER, 5, 1, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PummeloClerkGiftScript, -1
+	person_event SPRITE_OFFICER, 5, 2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PummeloClerkGiftScript, -1

@@ -14,6 +14,7 @@ KinnowCharcoalScript:
 	iftrue .AlreadyGotCharcoal
     writetext GiveCharcoalText
 	verbosegiveitem CHARCOAL
+	iffalse KinnowCharcoalDoneScript
 	setevent EVENT_GOT_CHARCOAL
 	closetext
 	end
@@ -21,6 +22,10 @@ KinnowCharcoalScript:
 .AlreadyGotCharcoal:
     writetext GotCharcoalText
 	waitbutton
+	closetext
+	end
+	
+KinnowCharcoalDoneScript:
 	closetext
 	end
 

@@ -18,9 +18,10 @@ MurcottPharmacistScript:
 .MakeMedicine:
 	checkitem PINKAN_BERRY
 	iffalse .NoBerries
-	takeitem PINKAN_BERRY
 	writetext PharmacistText2
 	verbosegiveitem PINK_CURE
+	iffalse PharmacistDoneScript
+	takeitem PINKAN_BERRY
 	waitbutton
 	closetext
 	end
@@ -28,6 +29,10 @@ MurcottPharmacistScript:
 .NoBerries:
 	writetext PharmacistText3
 	waitbutton
+	closetext
+	end
+	
+PharmacistDoneScript:
 	closetext
 	end
 	
@@ -42,8 +47,6 @@ PharmacistText1:
 	
 	para "Do you need some"
 	line "medicine made?"
-	cont "Make sure you have"
-	cont "room for it."
 	done
 	
 PharmacistText2:

@@ -93,6 +93,7 @@ KumquatEastCooltrainerM:
 	writetext KumquatEastCooltrainerMText1
 	waitbutton
 	verbosegiveitem MAGMARIZER
+	iffalse KumquatEastCooltrainerMDoneScript
 	closetext
 	setevent EVENT_KUMQUAT_COOLTRAINER_DRAGON_FANG
 	end
@@ -100,6 +101,10 @@ KumquatEastCooltrainerM:
 .AlreadyGotDragonFang:
 	writetext KumquatEastCooltrainerMText2
 	waitbutton
+	closetext
+	end
+	
+KumquatEastCooltrainerMDoneScript:
 	closetext
 	end
 	

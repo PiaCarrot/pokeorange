@@ -31,12 +31,17 @@ Mimi:
 	writetext GiveExpAllText
 	waitbutton
 	verbosegiveitem CAT_STATUE
+	iffalse MimiDoneScript
 	setevent EVENT_GOT_EXP_ALL
 	closetext
 	end
 
 .AlreadyGotExpAll
 	jumptextfaceplayer MimiText
+	
+MimiDoneScript:
+	closetext
+	end
 
 DaikonText:
 	text "You are so strong!"

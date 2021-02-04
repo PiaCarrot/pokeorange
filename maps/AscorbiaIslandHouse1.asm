@@ -21,6 +21,7 @@ AscorbiaDittoGuyScript:
 	writetext AscorbiaDittoGuyText4
 	waitbutton
 	verbosegiveitem METAL_POWDER
+	iffalse AscorbiaDittoGuyDoneScript
 	closetext
 	setevent EVENT_ASCORBIA_GOT_METAL_POWDER
 	end
@@ -34,6 +35,10 @@ AscorbiaDittoGuyScript:
 .SaidNo
 	writetext AscorbiaDittoGuyText3
 	waitbutton
+	closetext
+	end
+	
+AscorbiaDittoGuyDoneScript:
 	closetext
 	end
 
