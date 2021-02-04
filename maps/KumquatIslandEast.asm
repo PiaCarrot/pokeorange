@@ -92,7 +92,7 @@ KumquatEastCooltrainerM:
 	iftrue .AlreadyGotDragonFang
 	writetext KumquatEastCooltrainerMText1
 	waitbutton
-	verbosegiveitem DRAGON_FANG
+	verbosegiveitem MAGMARIZER
 	closetext
 	setevent EVENT_KUMQUAT_COOLTRAINER_DRAGON_FANG
 	end
@@ -113,8 +113,9 @@ KumquatEastCooltrainerMText1:
 	done
 	
 KumquatEastCooltrainerMText2:
-	text "That will power up"
-	line "DRAGON-type moves."
+	text "It might do some-"
+	line "thing to a MAGMAR"
+	cont "if you use it."
 	done
 	
 KumquatIslandSign:
