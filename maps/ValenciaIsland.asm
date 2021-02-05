@@ -145,7 +145,7 @@ if def(DEBUG)
 	givepoke PIKACHU, 100, LIGHT_BALL
 	givepoke EXEGGUTOR, 100, BERRY, EXEGGUTOR_KANTONESE_FORM
 	givepoke EXEGGUTOR, 100
-	givepoke MEOWTH, 100
+	giveegg PICHU, 5
 	closetext
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves

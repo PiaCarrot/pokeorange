@@ -1549,6 +1549,7 @@ GetBaseData:: ; 3856
 ; Sprite dimensions
     ld a, $55 ; 5x5
     ld [BasePicSize], a
+	jp .end
     
 .exeggutor
     ld a, [TempMonForm]
