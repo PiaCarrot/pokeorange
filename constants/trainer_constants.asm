@@ -268,7 +268,7 @@ CHRIS EQU __enum__
 
 ;	trainerclass TEACHER
 
-;	trainerclass SAILOR
+	trainerclass SAILOR
 
 ;	trainerclass SUPER_NERD
 
@@ -311,6 +311,13 @@ CHRIS EQU __enum__
 	const MURA
 	const KOBE
 	const KALARIE
+	
+	trainerclass RAYMOND
+
+	trainerclass CROOK
+
+	trainerclass SCUZ
+
 	
 KRIS EQU __enum__
 

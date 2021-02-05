@@ -68,7 +68,7 @@ TrainerGroups: ; 0x39999
 	dw AliceGroup
 ;	dw GentlemanGroup
 ;	dw TeacherGroup
-;	dw SailorGroup
+	dw SailorGroup
 ;	dw SuperNerdGroup
 ;	dw GuitaristGroup
 ;	dw BikerGroup
@@ -84,3 +84,6 @@ TrainerGroups: ; 0x39999
 	dw DiverMaleGroup
 	dw DiverFemaleGroup
 	dw EngineerGroup
+	dw RaymondGroup
+	dw CrookGroup
+	dw ScuzGroup

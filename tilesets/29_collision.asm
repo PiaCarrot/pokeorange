@@ -68,7 +68,7 @@
 	tilecoll ICE, HOLE, ICE, ICE ; 43
 	tilecoll FLOOR, WALL, FLOOR, WALL ; 44
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 45
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 46
+	tilecoll WALL, WALL, FLOOR, FLOOR ; 46
 	tilecoll FLOOR, WALL, FLOOR, WARP_CARPET_DOWN ; 47
 	tilecoll WALL, WALL, FLOOR, FLOOR ; 48
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 49

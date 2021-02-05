@@ -85,7 +85,7 @@ TrainerClassDVs: ; 270d6
 	db $6D, $88 ; otaku
 ;	db $98, $88 ; gentleman
 ;	db $68, $88 ; teacher
-;	db $98, $88 ; sailor
+	db $98, $88 ; sailor
 ;	db $98, $88 ; super nerd
 ;	db $98, $88 ; guitarist
 ;	db $98, $88 ; biker
@@ -101,6 +101,9 @@ TrainerClassDVs: ; 270d6
 	db $98, $88 ; diverm
 	db $98, $88 ; diverf
 	db $98, $88 ; engineer
+	db $FF, $FF ; raymond
+	db $D8, $A8 ; crook
+	db $D8, $A8 ; scuz
 ; 2715c
 
 

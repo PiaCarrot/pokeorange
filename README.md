@@ -16,4 +16,4 @@ This hack is not complete. It is currently on V1.0.0 and ends just after the 3rd
 ## Discussion
 
 * [PokéCommunity](https://www.pokecommunity.com/showthread.php?t=387653)
-* [Aizawa's Discord server](https://discord.gg/UKTyj3t)
+* [Pokémon Orange Discord server](https://discord.gg/cdrH3qBJnn)

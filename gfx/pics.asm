@@ -734,6 +734,10 @@ LycanrocMidnightBackpic:  INCBIN "gfx/pics/lycanroc_midnight/back.2bpp.lz"
 LycanrocDuskFrontpic:     INCBIN "gfx/pics/lycanroc_dusk/front.2bpp.lz"
 LycanrocDuskBackpic:      INCBIN "gfx/pics/lycanroc_dusk/back.2bpp.lz"
 Tracey2Pic:               INCBIN "gfx/trainers/tracey2.2bpp.lz"
+RaymondPic:               INCBIN "gfx/trainers/raymond.2bpp.lz"
+CrookPic:                 INCBIN "gfx/trainers/crook.2bpp.lz"
+ScuzPic:                  INCBIN "gfx/trainers/scuz.2bpp.lz"
+SailorPic:                INCBIN "gfx/trainers/sailor.2bpp.lz"
 
 
 SECTION "Pics 22", ROMX

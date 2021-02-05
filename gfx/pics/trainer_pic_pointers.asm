@@ -66,7 +66,7 @@ TrainerPicPointers::
 	dba AlicePic
 ;	dba GentlemanPic
 ;	dba TeacherPic
-;	dba SailorPic
+	dba SailorPic
 ;	dba SuperNerdPic
 ;	dba GuitaristPic
 ;	dba BikerPic
@@ -82,3 +82,6 @@ TrainerPicPointers::
 	dba DiverMalePic
 	dba DiverFemalePic
 	dba EngineerPic
+	dba RaymondPic
+	dba CrookPic
+	dba ScuzPic

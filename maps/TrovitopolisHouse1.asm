@@ -25,8 +25,8 @@ TrovitopolisBlackBeltText:
 	
 	para "prolonged battle."
 	line "I recommend you"
-	cont "bring an ICE-TYPE"
-	cont "#MON."
+	cont "bring some"
+	cont "X ACCURACY!"
 	done
 	
 TrovitopolisPokeFanFScript:

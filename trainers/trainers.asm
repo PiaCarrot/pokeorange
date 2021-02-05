@@ -3341,6 +3341,12 @@ CrossGroup:
 		db GROWL
 		db NO_MOVE
 
+	db 12, EEVEE
+		db TACKLE
+		db SAND_ATTACK
+		db GROWL
+		db NO_MOVE
+
 	db $ff ; end
 ; ================ (PICK SQUIRTLE)
 
@@ -3359,6 +3365,12 @@ CrossGroup:
 	db 12, ROCKRUFF
 		db ROCK_THROW
 		db TACKLE
+		db GROWL
+		db NO_MOVE
+	
+	db 12, EEVEE
+		db TACKLE
+		db SAND_ATTACK
 		db GROWL
 		db NO_MOVE
 
@@ -3380,6 +3392,12 @@ CrossGroup:
 	db 12, ROCKRUFF
 		db ROCK_THROW
 		db TACKLE
+		db GROWL
+		db NO_MOVE
+		
+	db 12, EEVEE
+		db TACKLE
+		db SAND_ATTACK
 		db GROWL
 		db NO_MOVE
 
@@ -4168,7 +4186,7 @@ AliceGroup:
 ; ================================
 
 
-;SailorGroup:
+SailorGroup:
 ; ================================
 ; ================
 ; ================
@@ -4465,3 +4483,64 @@ EngineerGroup:
 
 	db $ff
 ; ================
+
+RaymondGroup:
+; ================================
+; ================
+
+	; RAYMOND (1)
+	db "RAYMOND@"
+	db TRAINERTYPE_MOVES
+
+	db 60, DONPHAN
+		db ROLLOUT
+		db DEFENSE_CURL
+		db EARTHQUAKE
+		db ROCK_SMASH
+
+	db 60, MACHAMP
+		db SUBMISSION
+		db THUNDERPUNCH
+		db ICE_PUNCH
+		db FIRE_PUNCH
+
+	db 60, VENOMOTH
+		db SIGNAL_BEAM
+		db LEECH_LIFE
+		db SLEEP_POWDER
+		db PSYCHIC_M
+
+	db 60, PINSIR
+		db GUILLOTINE
+		db VITAL_THROW
+		db SWORDS_DANCE
+		db COUNTER
+
+	db 60, GOLEM
+		db EXPLOSION
+		db EARTHQUAKE
+		db ROCK_SLIDE
+		db MAGNITUDE
+
+	db 60, HYPNO
+		db FUTURE_SIGHT
+		db HYPNOSIS
+		db DREAM_EATER
+		db ZEN_HEADBUTT
+
+	db $ff
+
+; ================
+; ================================
+
+CrookGroup:
+; ================================
+; ================
+; ================
+; ================================
+
+ScuzGroup:
+; ================================
+; ================
+; ================
+; ================================

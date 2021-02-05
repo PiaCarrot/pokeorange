@@ -112,16 +112,16 @@
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 8, HOPPIP
-	db 7, WINGULL
-	db 8, WINGULL
+	db 7, DIGLETT
+	db 8, GROWLITHE
 	db 7, GEODUDE
 	db 8, GEODUDE
 	db 7, EKANS
 	db 8, EKANS
 	; day
 	db 8, HOPPIP
-	db 7, WINGULL
-	db 8, WINGULL
+	db 7, DIGLETT
+	db 8, GROWLITHE
 	db 7, GEODUDE
 	db 8, GEODUDE
 	db 7, EKANS
@@ -129,11 +129,11 @@
 	; nite
 	db 7, ODDISH
 	db 8, ODDISH
-	db 7, SPEAROW
+	db 7, DIGLETT
 	db 8, SPEAROW
 	db 7, GEODUDE
 	db 8, GEODUDE
-	db 7, STARYU
+	db 7, GROWLITHE
 
 	map ROUTE_52
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite

@@ -37,7 +37,7 @@ TrainerClassAttributes: ; 3959c
 	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Tracey2
-	db 0, 0 ; items
+	db FULL_RESTORE, FULL_RESTORE ; items
 	db 15 ; base reward
 	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
 	dw CONTEXT_USE + SWITCH_SOMETIMES
@@ -49,13 +49,13 @@ TrainerClassAttributes: ; 3959c
 	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Misty
-	db 0, 0 ; items
+	db FULL_RESTORE, FULL_RESTORE ; items
 	db 25 ; base reward
 	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
 	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Lt Surge
-	db FULL_RESTORE, 0 ; items
+	db FULL_RESTORE, FULL_RESTORE ; items
 	db 25 ; base reward
 	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
 	dw CONTEXT_USE + SWITCH_SOMETIMES
@@ -403,10 +403,10 @@ TrainerClassAttributes: ; 3959c
 ;	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Sailor
-;	db 0, 0 ; items
-;	db 10 ; base reward
-;	dw AI_BASIC + AI_OFFENSIVE + AI_OPPORTUNIST + AI_STATUS
-;	dw CONTEXT_USE + SWITCH_SOMETIMES
+	db 0, 0 ; items
+	db 10 ; base reward
+	dw AI_BASIC + AI_OFFENSIVE + AI_OPPORTUNIST + AI_STATUS
+	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 ; Super Nerd
 ;	db 0, 0 ; items
@@ -496,6 +496,24 @@ TrainerClassAttributes: ; 3959c
 	db 0, 0 ; items
 	db 10 ; base reward
 	dw AI_BASIC + AI_TYPES + AI_OPPORTUNIST + AI_STATUS
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+	
+; raymond
+	db HYPER_POTION, 0 ; items
+	db 25 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+
+; crook	
+	db 0, 0 ; items
+	db 12 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_SMART + AI_OPPORTUNIST + AI_CAUTIOUS + AI_STATUS + AI_RISKY
+	dw CONTEXT_USE + SWITCH_SOMETIMES
+
+; scuz
+	db 0, 0 ; items
+	db 12 ; base reward
+	dw AI_BASIC + AI_SETUP + AI_TYPES + AI_SMART + AI_OPPORTUNIST + AI_CAUTIOUS + AI_STATUS + AI_RISKY
 	dw CONTEXT_USE + SWITCH_SOMETIMES
 
 
