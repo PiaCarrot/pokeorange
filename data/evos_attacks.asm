@@ -2698,7 +2698,10 @@ PelipperEvosAttacks:
 	db 13, WING_ATTACK
 	db 21, MIST
 	db 25, PROTECT
+	db 35, QUICK_ATTACK
 	db 42, HYDRO_PUMP
+	db 46, PURSUIT
+	db 60, AGILITY
 	db 0 ; no more level-up moves
 
 ChinglingEvosAttacks:

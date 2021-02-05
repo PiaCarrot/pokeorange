@@ -23,21 +23,21 @@ CissyGroup:
 
 	; party
 
-	db 16, HORSEA
+	db 15, HORSEA
 		db BUBBLE
-		db WATER_GUN
 		db SMOKESCREEN
-		db BUBBLEBEAM
+		db NO_MOVE
+		db NO_MOVE
 
-	db 17, WARTORTLE
+	db 16, WARTORTLE
 		db RAPID_SPIN
 		db WATER_GUN
 		db BUBBLEBEAM
 		db WITHDRAW
 
-	db 15, TENTACOOL
+	db 13, TENTACOOL
 		db POISON_STING
-		db BUBBLEBEAM
+		db SURF
 		db ACID
 		db WRAP
 
@@ -1164,13 +1164,27 @@ CassidyGroup:
 
 	; EXECUTIVEF (1)
 	db "CASSIDY@"
-	db TRAINERTYPE_NORMAL
+	db TRAINERTYPE_MOVES
 
 	; party
 
 	db 21, TENTACOOL
+		db ACID
+		db WATER_GUN
+		db POISON_STING
+		db NO_MOVE
+
 	db 20, DROWZEE
+		db HYPNOSIS
+		db DISABLE
+		db CONFUSION
+		db DREAM_EATER
+
 	db 20, RATICATE
+		db BITE
+		db TAIL_WHIP
+		db QUICK_ATTACK
+		db NO_MOVE
 
 	db $ff ; end
 
@@ -2221,12 +2235,19 @@ PinkManiacGroup:
 
 	; PINK_MANIAC (1)
 	db "SHAWN@"
-	db TRAINERTYPE_NORMAL
+	db TRAINERTYPE_MOVES
 
-	; party
-	db 21, RAICHU
+	db 19, RAICHU
+		db CONFUSION
+		db THUNDERSHOCK
+		db NO_MOVE
+		db NO_MOVE
+
 	db 22, RHYHORN
-	db 20, MACHOP
+		db TACKLE
+		db SCARY_FACE
+		db ROCK_THROW
+		db NO_MOVE
 
 	db $ff ; end
 

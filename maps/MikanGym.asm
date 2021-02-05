@@ -190,7 +190,7 @@ LassNicoleSeenText:
 	text "I hope you did"
 	line "some serious trai-"
 	cont "ning before you"
-	cont "came!"
+	cont "came here!"
 	done
 
 LassNicoleBeatenText:

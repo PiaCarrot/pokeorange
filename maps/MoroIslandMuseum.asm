@@ -192,11 +192,11 @@ MoroMuseumPoliceScript:
 	end
 
 PoliceTrophyMissingText:
-	text "Last night, a"
+	text "This is a doozy. A"
 	line "TROPHY was stolen"
 	cont "from this display"
 	cont "while no one was"
-	cont "here."
+	cont "looking."
 
 	para "Unfortunately, no"
 	line "one saw the perp-"

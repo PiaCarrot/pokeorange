@@ -23,35 +23,38 @@ LoadSpecialMapPalette: ; 494ac
 
 	ld hl, HousePalette
 	cp TILESET_HOUSE_1
-	jr z, LoadEightBGPalettes
+	jp z, LoadEightBGPalettes
 
 	ld hl, RadioTowerPalette
 	cp TILESET_RADIO_TOWER
-	jr z, LoadEightBGPalettes
+	jp z, LoadEightBGPalettes
 
 	ld hl, MansionPalette
 	cp TILESET_CELADON_MANSION
-	jr z, LoadEightBGPalettes
+	jp z, LoadEightBGPalettes
 
 	ld hl, GoldenIslandPalette
 	cp TILESET_GOLDEN_ISLAND
-	jr z, LoadEightTimeOfDayBGPalettes
+	jp z, LoadEightTimeOfDayBGPalettes
 
 	ld hl, MandarinDesertPalette
 	cp TILESET_DESERT
-	jr z, LoadEightTimeOfDayBGPalettes
+	jp z, LoadEightTimeOfDayBGPalettes
 
 	ld hl, TrovitopolisSewerPalette
 	cp TILESET_SEWER
-	jr z, LoadEightBGPalettes
+	jp z, LoadEightBGPalettes
 	
 	ld hl, MayorsOfficePalette
 	cp TILESET_POWER_PLANT
-	jr z, LoadEightBGPalettes
+	jp z, LoadEightBGPalettes
 
 	ld hl, PummeloStadiumPalette
 	cp TILESET_GYM_1
-	jr z, LoadEightBGPalettes
+	jp z, LoadEightBGPalettes
+	
+	cp TILESET_ILEX_FOREST
+	jp z, .outside
 
 	ld a, [wPermission]
 	cp TOWN

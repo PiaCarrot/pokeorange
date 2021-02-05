@@ -10,6 +10,7 @@ const_value set 1
 	const ROUTE52_POKE_BALL1
 	const ROUTE52_FISHER5
 	const ROUTE52_POKE_BALL2
+	const ROUTE52_THUNDERPUNCH_TUTOR
 
 Route52_MapScriptHeader:
 
@@ -182,7 +183,7 @@ SwimmermTheoSeenText:
 	done
 
 SwimmermTheoBeatenText:
-	text "Or was it a RICE-"
+	text "Or was it a RICE"
 	line "BALL?"
 	done
 
@@ -263,6 +264,56 @@ Route52SignText:
 	para "TANGELO -"
 	line "MIKAN"
 	done
+	
+Route52ThunderpunchTutor:
+	faceplayer
+	opentext
+	writetext GivePlayerThunderpunchText
+	yesorno
+	iffalse .TutorRefused
+	writebyte THUNDERPUNCH
+	writetext Text_ThunderpunchTutorClear
+	special Special_MoveTutor
+	if_equal $0, .TeachMove
+.TutorRefused
+	writetext Text_ThunderpunchTutorRefused
+	waitbutton
+	closetext
+	end
+
+.TeachMove
+	writetext Text_ThunderpunchTutorTaught
+	waitbutton
+	closetext
+	end
+
+GivePlayerThunderpunchText:
+	text "Getting tired of"
+	line "the water already?"
+	
+	para "Ha. You've come to"
+	line "the right place."
+	cont "Want me to teach"
+	cont "your #MON"
+	
+	para "THUNDERPUNCH?"
+	done
+	
+Text_ThunderpunchTutorTaught:
+	text "THUNDERPUNCH is"
+	line "an ELECTRIC attack"
+	cont "that can sometimes"
+	cont "cause paralysis!"
+	done
+	
+Text_ThunderpunchTutorRefused:
+	text "Take the high road"
+	line "why don'cha?"
+	done
+	
+Text_ThunderpunchTutorClear:
+	text ""
+	done
 
 Route52_MapEventHeader::
 
@@ -278,7 +329,7 @@ Route52_MapEventHeader::
 	signpost 73, 4, SIGNPOST_ITEM, Route52HiddenGreatBall
 	signpost 41, 16, SIGNPOST_ITEM, Route52HiddenSuperPotion
 
-.ObjectEvents: db 10
+.ObjectEvents: db 11
 	person_event SPRITE_FISHER, 33, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerFisherSojiro, -1
 	person_event SPRITE_FISHER, 22, 9, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerFisherFugu, -1
 	person_event SPRITE_FISHER, 29, 4, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 1, TrainerFisherNobu, -1
@@ -289,4 +340,4 @@ Route52_MapEventHeader::
 	person_event SPRITE_SWIMMER_GUY, 35, 18, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmermAtecain, -1
 	person_event SPRITE_POKE_BALL, 6, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route52GreatBall, EVENT_ROUTE_52_GREAT_BALL
 	person_event SPRITE_POKE_BALL, 50, 15, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route52Repel, EVENT_ROUTE_52_REPEL
-
+	person_event SPRITE_BLACK_BELT, 62, 14, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, Route52ThunderpunchTutor, -1
