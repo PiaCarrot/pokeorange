@@ -33,7 +33,7 @@ AthleteBruceAfterText:
 KumquatHotelBottomRoom3_MapEventHeader::
 
 .Warps: db 1
-	warp_def  0,  1, 7, KUMQUAT_HOTEL_SUITES
+	warp_def  0,  1, 5, KUMQUAT_HOTEL_SUITES
 
 .CoordEvents: db 0
 

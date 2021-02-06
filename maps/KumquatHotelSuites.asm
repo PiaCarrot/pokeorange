@@ -11,7 +11,7 @@ AthleteSheldonScript:
 	faceplayer
 	checkevent EVENT_SUITE_MASTER_DEFEATED
 	iftrue .BeatSuiteMaster
-	checkevent EVENT_BEAT_ATHLETE_JIMBO
+	checkevent EVENT_BEAT_ATHLETE_BARNEY
 	iftrue .TrainerCheck1
 	opentext
 	writetext SheldonNotReadyText
@@ -27,7 +27,7 @@ AthleteSheldonScript:
 	end
 	
 .TrainerCheck1:
-	checkevent EVENT_BEAT_ATHLETE_BARNEY
+	checkevent EVENT_BEAT_ATHLETE_BRUCE
 	iftrue .TrainerCheck2
 	opentext
 	writetext SheldonNotReadyText
@@ -36,7 +36,7 @@ AthleteSheldonScript:
 	end
 	
 .TrainerCheck2
-	checkevent EVENT_BEAT_ATHLETE_BRUCE
+	checkevent EVENT_BEAT_ATHLETE_LARS
 	iftrue .TrainerCheck3
 	opentext
 	writetext SheldonNotReadyText
@@ -45,34 +45,7 @@ AthleteSheldonScript:
 	end
 
 .TrainerCheck3
-	checkevent EVENT_BEAT_ATHLETE_JACK
-	iftrue .TrainerCheck4
-	opentext
-	writetext SheldonNotReadyText
-	waitbutton
-	closetext
-	end
-	
-.TrainerCheck4
-	checkevent EVENT_BEAT_ATHLETE_LARS
-	iftrue .TrainerCheck5
-	opentext
-	writetext SheldonNotReadyText
-	waitbutton
-	closetext
-	end
-	
-.TrainerCheck5
 	checkevent EVENT_BEAT_ATHLETE_ED
-	iftrue .TrainerCheck6
-	opentext
-	writetext SheldonNotReadyText
-	waitbutton
-	closetext
-	end
-	
-.TrainerCheck6:
-	checkevent EVENT_BEAT_ATHLETE_JUAN
 	iftrue .FightSheldon
 	opentext
 	writetext SheldonNotReadyText
@@ -157,15 +130,12 @@ AthleteSheldonText2:
 
 KumquatHotelSuites_MapEventHeader::
 
-.Warps: db 8
-	warp_def  0,  1, 1, KUMQUAT_HOTEL_TOP_ROOM_1
+.Warps: db 5
 	warp_def  0,  5, 1, KUMQUAT_HOTEL_TOP_ROOM_2
 	warp_def  0,  9, 1, KUMQUAT_HOTEL_TOP_ROOM_3
 	warp_def  0, 13, 1, KUMQUAT_HOTEL_ELEVATOR
-	warp_def  4,  1, 1, KUMQUAT_HOTEL_BOTTOM_ROOM_1
 	warp_def  4,  5, 1, KUMQUAT_HOTEL_BOTTOM_ROOM_2
 	warp_def  4,  9, 1, KUMQUAT_HOTEL_BOTTOM_ROOM_3
-	warp_def  4, 13, 1, KUMQUAT_HOTEL_BOTTOM_ROOM_4
 
 .CoordEvents: db 0
 

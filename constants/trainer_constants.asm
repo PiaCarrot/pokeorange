@@ -181,13 +181,10 @@ CHRIS EQU __enum__
 	trainerclass ATHLETE
 	const HIDEKI
 	const KAITO
-	const JIMBO
 	const BARNEY
 	const BRUCE
-	const JACK
 	const LARS
 	const ED
-	const JUAN
 	const SHELDON
 
 	trainerclass SIGHTSEERM

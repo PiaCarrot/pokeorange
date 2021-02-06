@@ -33,8 +33,8 @@ AthleteLarsAfterText:
 KumquatHotelTopRoom3_MapEventHeader::
 
 .Warps: db 2
-	warp_def  5,  1, 3, KUMQUAT_HOTEL_SUITES
-	warp_def  5,  2, 3, KUMQUAT_HOTEL_SUITES
+	warp_def  5,  1, 2, KUMQUAT_HOTEL_SUITES
+	warp_def  5,  2, 2, KUMQUAT_HOTEL_SUITES
 
 .CoordEvents: db 0
 

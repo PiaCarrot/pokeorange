@@ -36,7 +36,7 @@ AthleteBarneyAfterText:
 KumquatHotelBottomRoom2_MapEventHeader::
 
 .Warps: db 1
-	warp_def  0,  1, 6, KUMQUAT_HOTEL_SUITES
+	warp_def  0,  1, 4, KUMQUAT_HOTEL_SUITES
 
 .CoordEvents: db 0
 
