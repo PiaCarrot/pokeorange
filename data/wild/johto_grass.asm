@@ -1270,7 +1270,7 @@
 	db 36, SANDYGAST
 	
 	map VICTORY_ROAD_F1
-	db 7 percent, 7 percent, 7 percent
+	db 4 percent, 4 percent, 4 percent
 	;morn
 	db 36, ZUBAT
 	db 37, GOLBAT
@@ -1297,7 +1297,7 @@
 	db 37, RHYHORN
 	
 	map VICTORY_ROAD_F2
-	db 7 percent, 7 percent, 7 percent
+	db 4 percent, 4 percent, 4 percent
 	;morn
 	db 37, ZUBAT
 	db 38, GOLBAT
@@ -1324,7 +1324,7 @@
 	db 38, RHYHORN
 	
 	map VICTORY_ROAD_F3
-	db 7 percent, 7 percent, 7 percent
+	db 4 percent, 4 percent, 4 percent
 	;morn
 	db 38, GEODUDE
 	db 39, SPINDA
@@ -1351,7 +1351,7 @@
 	db 39, RHYHORN
 	
 	map VICTORY_ROAD_EXIT_ROOM
-	db 7 percent, 7 percent, 7 percent
+	db 4 percent, 4 percent, 4 percent
 	;morn
 	db 39, GEODUDE
 	db 40, GOLBAT
@@ -1378,7 +1378,7 @@
 	db 40, RHYHORN
 	
 	map VICTORY_ROAD_EAST
-	db 7 percent, 7 percent, 7 percent
+	db 4 percent, 4 percent, 4 percent
 	;morn
 	db 37, ZUBAT
 	db 38, GOLBAT

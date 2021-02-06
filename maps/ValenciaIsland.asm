@@ -150,8 +150,7 @@ if def(DEBUG)
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-;	warp PUMMELO_ROUTE_70_GATE, 4, 4
-	warp GOLDEN_ISLAND, 22, 17
+	warp PUMMELO_ROUTE_70_GATE, 4, 4
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

@@ -89,7 +89,7 @@ TrainerEncounterMusic: ; e9027
 	db MUSIC_LASS_ENCOUNTER ;alice
 ;	db MUSIC_HIKER_ENCOUNTER		; gentleman
 ;	db MUSIC_BEAUTY_ENCOUNTER		; teacher
-;	db MUSIC_HIKER_ENCOUNTER		; sailor
+	db MUSIC_HIKER_ENCOUNTER		; sailor
 ;	db MUSIC_POKEMANIAC_ENCOUNTER	; super_nerd
 ;	db MUSIC_HIKER_ENCOUNTER		; guitarist
 ;	db MUSIC_HIKER_ENCOUNTER		; biker
@@ -104,4 +104,7 @@ TrainerEncounterMusic: ; e9027
 ;	db MUSIC_BEAUTY_ENCOUNTER		; pokefanf
 	db MUSIC_HIKER_ENCOUNTER		;diverm
 	db MUSIC_BEAUTY_ENCOUNTER		;diverf
+	db MUSIC_OFFICER_ENCOUNTER		;raymond
+	db MUSIC_OFFICER_ENCOUNTER		;crook
+	db MUSIC_OFFICER_ENCOUNTER		;scuz
 ; e906e

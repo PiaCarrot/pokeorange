@@ -92,7 +92,20 @@ LoadSpecialMapPalette: ; 494ac
 	jr z, LoadEightBGPalettes
 	cp MAP_CRYSTAL_CAVE_B1
 	jr z, LoadEightBGPalettes
+	ld a, [MapNumber]
+	ld hl, VictoryRoadPalette
+	cp MAP_VICTORY_ROAD_F1
+	jr z, LoadEightBGPalettes
+	cp MAP_VICTORY_ROAD_F2
+	jr z, LoadEightBGPalettes
+	cp MAP_VICTORY_ROAD_F3
+	jr z, LoadEightBGPalettes
+	cp MAP_VICTORY_ROAD_EAST
+	jr z, LoadEightBGPalettes
+	cp MAP_VICTORY_ROAD_EXIT_ROOM
+	jr z, LoadEightBGPalettes
 	jr .do_nothing
+
 	
 LoadEightTimeOfDayBGPalettes:
 	ld a, [hHours]
@@ -157,6 +170,9 @@ INCLUDE "tilesets/pummelo_stadium.pal"
 
 CrystalCavePalette:
 INCLUDE "tilesets/crystal_cave.pal"
+
+VictoryRoadPalette:
+INCLUDE "tilesets/victory_road.pal"
 
 OutsideDuskPalette:
 INCLUDE "tilesets/dusk.pal"

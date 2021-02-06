@@ -181,3 +181,6 @@
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; b4
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; b5
 	tilecoll FLOOR, RIGHT_WALL, WALL, WALL ; b6
+	tilecoll WALL, WALL, WALL, WALL ; b7
+	tilecoll WALL, FLOOR, WALL, WALL ; b8
+	tilecoll FLOOR, WALL, WALL, WALL ; b9
