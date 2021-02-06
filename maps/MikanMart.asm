@@ -39,7 +39,7 @@ UnknownText_0x68323:
 	text "#MON are"
 	line "getting hard to"
 	cont "catch with just"
-	cont "#BALLS."
+	cont "# BALLS."
 
 	para "I wonder if they"
 	line "have GREAT BALLS"

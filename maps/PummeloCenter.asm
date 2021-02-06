@@ -21,7 +21,7 @@ PummeloSlouchScript:
 
 PummeloSlouchText:
 	text "They say there was"
-	line "a ORANGE CREW"
+	line "an ORANGE CREW"
 	cont "CHAMPION who sunk"
 	cont "at sea nearly 300"
 	

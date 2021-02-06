@@ -85,7 +85,7 @@ MikanIslandSuperNerdText:
 	done
 
 SendaNotBeatenCissyText:
-	text "SENDA: My sister,"
+	text "SENTA: My sister,"
 	line "CISSY, is the"
 	cont "strongest trainer"
 	cont "I know!"
@@ -95,7 +95,7 @@ SendaNotBeatenCissyText:
 	done
 	
 SendaBeatCissyText:
-	text "SENDA: Hmph!"
+	text "SENTA: Hmph!"
 	
 	para "I won't acknowled-"
 	line "ge your victory"
@@ -104,7 +104,7 @@ SendaBeatCissyText:
 	done
 	
 SendaBeatOrangeCrewText:
-	text "SENDA: Hmph!"
+	text "SENTA: Hmph!"
 	
 	para "I acknowledge your"
 	line "skill. Rematch my"
@@ -114,7 +114,7 @@ SendaBeatOrangeCrewText:
 
 MikanIslandYoungsterText:
 	text "CISSY's brother,"
-	line "SENDA is pretty"
+	line "SENTA, is pretty"
 	cont "arrogant."
 
 	para "If he says some-"

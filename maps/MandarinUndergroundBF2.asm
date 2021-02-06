@@ -130,7 +130,7 @@ EngineerKobeAfterText:
 	
 	para "Made my head spin"
 	line "installing them,"
-	cont "That's for sure!"
+	cont "that's for sure!"
 	done
 	
 MandarinUndergroundSuperPotion:

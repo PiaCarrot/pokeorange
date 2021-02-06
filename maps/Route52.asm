@@ -225,9 +225,9 @@ CamperSammAfterText:
 
 SwimmerfYukaSeenText:
 	text "CISSY is a WATER-"
-	line "TYPE trainer. If"
-	cont "can't beat me you"
-	cont "are hopeless!"
+	line "type trainer. If"
+	cont "you can't beat me,"
+	cont "you're hopeless!"
 	done
 
 SwimmerfYukaBeatenText:

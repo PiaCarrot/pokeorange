@@ -123,10 +123,16 @@ CrossPummeloIslandLeavingNowText:
 	cont "in any book or"
 	cont "ENCYCLOPEDIA."
 	
-	para "My research led me"
-	line "to HO-OH. It calls"
-	cont "to me, and no one"
-	cont "can stop me!"
+	para "My search across"
+	line "lands lead me an"
+	cont "old JOHTO folk-"
+	cont "tale. HO-OH."
+	
+	para "It calls to me,"
+	line "somewhere in the"
+	cont "ORANGE ISLANDS,"
+	cont "and no one can or"
+	cont "will stop me!"
 	
 	para "Farewell, <PLAYER>."
 	line "Next time we meet,"
@@ -302,7 +308,7 @@ PummeloOfficerScriptText:
 	
 PummeloOfficerScriptText2:
 	text "You couldn't be!"
-	line "you're way too"
+	line "You're way too"
 	cont "young!"
 	done
 	
@@ -311,7 +317,7 @@ PummeloOfficerScriptText3:
 	line "so sorry!"
 	
 	para "You couldn't be!"
-	line "you're way too"
+	line "You're way too"
 	cont "young!"
 	done
 	

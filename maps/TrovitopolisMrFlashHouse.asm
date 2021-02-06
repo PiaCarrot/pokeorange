@@ -46,8 +46,8 @@ AlreadyGotFlashText:
 	line "FLASHy TM there"
 	cont "contains FLASH."
 	
-	para "You can light up"
-	line "the darkest caves"
+	para "You can light the"
+	line "darkest caves"
 	cont "right up with a"
 	cont "FLASHing bang!"
 	done

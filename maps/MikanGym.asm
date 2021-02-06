@@ -153,7 +153,7 @@ UnknownText_0x68648:
 	para "instantly learn a"
 	line "new move."
 
-	para "that TM contains"
+	para "That TM contains"
 	line "BUBBLEBEAM."
 
 	para "It reduces the"
@@ -213,11 +213,11 @@ MikanGymGuyText:
 	para "Listen kid, CISSY"
 	line "is no joke. She"
 	cont "uses strong WATER-"
-	cont "TYPE #MON."
+	cont "type #MON."
 
 	para "But if you got a"
 	line "ELECTRIC or GRASS-"
-	cont "TYPE, you might"
+	cont "type, you might"
 	cont "have a chance."
 	done
 

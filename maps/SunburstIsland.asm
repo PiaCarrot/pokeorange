@@ -97,7 +97,7 @@ SunburstCooltrainerFText:
 
 SunburstGrampsText:
 	text "This used to be"
-	line "a well off town,"
+	line "a well-off town,"
 	cont "like MANDARIN"
 	cont "ISLAND NORTH was."
 

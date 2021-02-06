@@ -277,9 +277,9 @@ TrovitopolisPortNotWorkingText:
 	done
 
 TrovitopolisPortSailorText:
-	text "Now that the I"
-	line "don't have to pay"
-	cont "a SAILOR TAX, I"
+	text "Now that we don't"
+	line "have to pay the"
+	cont "SAILOR's TAX, I"
 	cont "can take you to"
 	
 	para "TROVITA ISLAND."

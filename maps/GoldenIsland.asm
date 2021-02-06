@@ -271,8 +271,8 @@ CatmanMimiWinLoss:
 
 CatManBattleHouseText1:
 	text "Welcome to the"
-	line "GOLDEN ISLAND BAT-"
-	cont "TLE HOUSE!"
+	line "GOLDEN ISLAND"
+	cont "BATTLE HOUSE!"
 
 	para "To enter, you"
 	line "must win 5 consec-"
@@ -351,7 +351,7 @@ CatManBattleHouseText8:
 	done
 
 CatManBattleHouseText9:
-	text "GRANT is the stron-"
+	text "GRANT's the stron-"
 	line "gest of us all."
 
 	para "Prepare yourself."
