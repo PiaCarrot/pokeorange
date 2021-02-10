@@ -208,6 +208,129 @@ KinnowShowboatAliceText3:
 	cont "Come back when"
 	cont "you get it!"
 	done
+	
+KinnowShowboatAnne:
+	checkevent EVENT_KINNOW_SHOWBOAT_JACE
+	iffalse .FrozenNPC
+	faceplayer
+	opentext
+	writetext KinnowShowboatAnneText
+	waitbutton
+	closetext
+	end
+	
+.FrozenNPC:
+	opentext
+	writetext FrozenNPCText
+	waitbutton
+	closetext
+	end
+
+KinnowShowboatRoger:
+	checkevent EVENT_KINNOW_SHOWBOAT_JASON
+	iffalse .FrozenNPC
+	faceplayer
+	opentext
+	writetext KinnowShowboatRogerText
+	waitbutton
+	closetext
+	end
+
+.FrozenNPC:
+	opentext
+	writetext FrozenNPCText
+	waitbutton
+	closetext
+	end
+
+KinnowShowboatLen:
+	checkevent EVENT_KINNOW_SHOWBOAT_KURT
+	iffalse .FrozenNPC
+	faceplayer
+	opentext
+	writetext KinnowShowboatLenText
+	waitbutton
+	closetext
+	end
+
+.FrozenNPC:
+	opentext
+	writetext FrozenNPCText
+	waitbutton
+	closetext
+	end
+	
+FrozenNPCText:
+	text "Looks like a STAFF"
+	line "member from the"
+	cont "SHOWBOAT. It's"
+	cont "like they're"
+	
+	para "frozen in time!"
+	done
+	
+KinnowShowboatAnneText:
+	text "What happened? I"
+	line "was getting ready"
+	cont "for the show when"
+	cont "suddenly I<...>"
+	
+	para "I guess I fainted?"
+	done
+	
+KinnowShowboatRogerText:
+	text "Strange<...>"
+	line "My memory feels"
+	cont "foggy<...>"
+	
+	para "Thanks for talking"
+	line "to an old man!"
+	cont "Got to get ready"
+	cont "for the next show."
+	done
+	
+KinnowShowboatLenText:
+	text "Huh<...>What"
+	line "happened? Is the"
+	cont "show cancelled?"
+	done
+	
+KinnowShowboatKay:
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_SHINY_CHARM
+	iftrue .GotShinyCharmAlready
+	writetext ShowboatKayText
+	waitbutton
+	verbosegiveitem SHINY_CHARM
+	setevent EVENT_GOT_SHINY_CHARM
+	closetext
+	end
+	
+.GotShinyCharmAlready:
+	writetext ShowboatKayText2
+	waitbutton
+	closetext
+	end
+	
+ShowboatKayText:
+	text "Thank you for"
+	line "making those"
+	cont "weirdos leave!"
+	
+	para "Here, I hope this"
+	line "helps you out!"
+	done
+	
+ShowboatKayText2:
+	text "Those guys came"
+	line "out of nowhere"
+	cont "after we docked."
+	
+	para "It was almost like"
+	line "we were frozen in"
+	cont "place!"
+	done
 
 KinnowShowboatInside_MapEventHeader::
 
@@ -224,8 +347,12 @@ KinnowShowboatInside_MapEventHeader::
 
 .BGEvents: db 0
 
-.ObjectEvents: db 4
+.ObjectEvents: db 8
 	person_event SPRITE_YOUNGSTER,  5,  6, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, KinnowShowboatJace, EVENT_KINNOW_SHOWBOAT_JACE
 	person_event SPRITE_ROCKER, 19,  0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, KinnowShowboatKurt, EVENT_KINNOW_SHOWBOAT_KURT
 	person_event SPRITE_SUPER_NERD,  5, 34, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, KinnowShowboatJason, EVENT_KINNOW_SHOWBOAT_JASON
 	person_event SPRITE_LASS, 23, 30, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, KinnowShowboatAlice, EVENT_KINNOW_SHOWBOAT_ALICE
+	person_event SPRITE_RECEPTIONIST,  5, 15, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, KinnowShowboatAnne, -1
+	person_event SPRITE_LASS, 23, 22, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, KinnowShowboatKay, -1
+	person_event SPRITE_GENTLEMAN,  8, 30, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, KinnowShowboatRoger, -1
+	person_event SPRITE_SUPER_NERD, 23,  0, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, KinnowShowboatLen, -1

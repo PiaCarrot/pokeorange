@@ -8,7 +8,7 @@ KinnowShowboatSign:
 	jumptext KinnowShowboatSignText
 	
 KinnowShowboatSignText:
-	text "KINNOW SHOWBOAT"
+	text "#MON SHOWBOAT"
 	line "For the best"
 	cont "challenge, come"
 	cont "back after every"
