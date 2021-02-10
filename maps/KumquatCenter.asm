@@ -19,7 +19,7 @@ KumquatCenterSlouchScript:
 	end
 
 KumquatCenterSlouchText:
-	text "Past KUMQUAT ISLAND"
+	text "Past this island"
 	line "is VICTORY ROAD."
 	
 	para "It's a rocky crag"

@@ -91,6 +91,8 @@ MAP_NONE EQU 0
 	mapgroup KINNOW_CAFE, 5, 5
 	mapgroup KINNOW_SKATE_SHOP, 4, 5
 	mapgroup KINNOW_SHOWBOAT, 10, 11
+	mapgroup KINNOW_SHOWBOAT_GATE, 4, 5
+	mapgroup KINNOW_SHOWBOAT_HOUSE, 4, 4
 
 	newgroup ; 5
 

@@ -6,7 +6,9 @@ KinnowShowboat_MapScriptHeader::
 
 KinnowShowboat_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 2
+	warp_def  5,  9, 3, KINNOW_SHOWBOAT_GATE
+	warp_def  5, 17, 1, KINNOW_SHOWBOAT_HOUSE
 
 .CoordEvents: db 0
 

@@ -42,6 +42,8 @@ CrystalCaveB1BrockScript:
 	writetext BrockStayingText
 	waitbutton
 	closetext
+	special Special_FadeInQuickly
+	disappear CRYSTAL_CAVE_B1_BROCK
 	end
 
 CrystalOnixScript:
@@ -113,24 +115,20 @@ BrockDefeatedText:
 	done
 
 BrockStayingText:
-	text "<PLAYER>, that"
-	line "was amazing!"
-
+	text "Amazing!"
+	
 	para "You displayed"
 	line "skill I have only"
 	cont "seen from two"
 	cont "other trainers."
-
+	
+	para "I got some samples"
+	line "already, so it's"
+	cont "time for me to go"
+	cont "back to KANTO."
+	
 	para "I truly hope we"
-	line "will meet again."
-
-	para "I'm going to stay"
-	line "here for a little"
-	cont "while to research"
-	cont "this cave."
-
-	para "Who knows what"
-	line "secrets lie here?"
+	line "will meet again."	
 	done
 
 EarnTheRightText:

@@ -71,6 +71,7 @@ KumquatHouse1_BlockData:
 KumquatHouse2_BlockData:
 KumquatHouse3_BlockData:
 KumquatHouse4_BlockData:
+KinnowShowboatHouse_BlockData:
 	INCBIN "maps/House1.blk"
 
 MikanNicknameSpeechHouse_BlockData:
@@ -93,6 +94,7 @@ Route52TangeloJungleGate_BlockData:
 Route62MandarinDesertGate_BlockData:
 AscorbiaIslandRoute63Gate_BlockData:
 Route69Gate_BlockData:
+KinnowShowboatGate_BlockData:
 	INCBIN "maps/NorthSouthGate.blk"
 
 MikanIslandRoute53Gate_BlockData:
