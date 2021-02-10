@@ -93,6 +93,7 @@ MAP_NONE EQU 0
 	mapgroup KINNOW_SHOWBOAT, 10, 11
 	mapgroup KINNOW_SHOWBOAT_GATE, 4, 5
 	mapgroup KINNOW_SHOWBOAT_HOUSE, 4, 4
+	mapgroup KINNOW_SHOWBOAT_INSIDE, 13, 19
 
 	newgroup ; 5
 

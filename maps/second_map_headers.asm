@@ -358,6 +358,7 @@
 	map_header_2 KinnowShowboat, KINNOW_SHOWBOAT, 2, 0
 	map_header_2 KinnowShowboatGate, KINNOW_SHOWBOAT_GATE, $0, 0
 	map_header_2 KinnowShowboatHouse, KINNOW_SHOWBOAT_HOUSE, 0, 0
+	map_header_2 KinnowShowboatInside, KINNOW_SHOWBOAT_INSIDE, 0, 0
 	map_header_2 HeartScaleCove, HEART_SCALE_COVE, 9, 0
 	map_header_2 PummeloStadium, PUMMELO_STADIUM, 0, 0
 	map_header_2 ButwalIslandWestGrotto, BUTWAL_ISLAND_WEST_GROTTO, 9, 0

@@ -28,3 +28,8 @@
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 1b
 	tilecoll DIVE_DOWN, DIVE_DOWN, DIVE_DOWN, DIVE_DOWN ; 1c
 	tilecoll WALL, WALL, WALL, WALL ; 1d
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 1e
+	tilecoll WALL, WALL, WALL, WALL ; 1f
+	tilecoll LADDER, WALL, FLOOR, FLOOR ; 20
+	tilecoll LADDER, FLOOR, FLOOR, FLOOR ; 21
+	tilecoll WALL, WALL, FLOOR, FLOOR ; 22

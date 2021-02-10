@@ -557,3 +557,6 @@ ShamoutiIsland_BlockData:
 	
 Route67Underwater_BlockData:
 	INCBIN "maps/Route67Underwater.blk"
+	
+KinnowShowboatInside_BlockData:
+	INCBIN "maps/KinnowShowboatInside.blk"

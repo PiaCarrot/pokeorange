@@ -111,6 +111,7 @@ INCLUDE "maps/KinnowIslandRoute57Gate.asm"
 INCLUDE "maps/KinnowShowboat.asm"
 INCLUDE "maps/KinnowShowboatGate.asm"
 INCLUDE "maps/KinnowShowboatHouse.asm"
+INCLUDE "maps/KinnowShowboatInside.asm"
 
 
 SECTION "Navel Scripts", ROMX
