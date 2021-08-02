@@ -196,3 +196,6 @@ TrainerClassPersonalities:
 	db MALE_MASK ;diverm
 	db FEMALE_MASK ;diverf
 	db MALE_MASK ;engineer
+	db MALE_MASK ;raymond
+	db MALE_MASK ;crook
+	db MALE_MASK ;scuz

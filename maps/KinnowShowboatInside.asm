@@ -74,6 +74,7 @@ KinnowShowboatKurt:
 	writetext KinnowShowboatKurtText3
 	waitbutton
 	closetext
+	end
 
 KinnowShowboatKurtText1:
 	text "Ah, I see you have"
@@ -129,6 +130,7 @@ KinnowShowboatJason:
 	writetext KinnowShowboatJasonText3
 	waitbutton
 	closetext
+	end
 	
 KinnowShowboatJasonText1:
 	text "Hey, a SPIKE SHELL"
@@ -182,6 +184,7 @@ KinnowShowboatAlice:
 	writetext KinnowShowboatAliceText3
 	waitbutton
 	closetext
+	end
 	
 KinnowShowboatAliceText1:
 	text "We aren't actually"

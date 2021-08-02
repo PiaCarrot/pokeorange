@@ -195,8 +195,8 @@ PoliceTrophyMissingText:
 	text "This is a doozy. A"
 	line "TROPHY was stolen"
 	cont "from this display"
-	cont "while no one was"
-	cont "looking."
+	cont "while the CURATOR"
+	cont "wasn't looking."
 
 	para "Unfortunately, no"
 	line "one saw the perp-"
