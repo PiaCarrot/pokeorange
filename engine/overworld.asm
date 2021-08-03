@@ -890,6 +890,7 @@ Group15Sprites:
 	db SPRITE_ROCKER
 	db SPRITE_SAILOR
 	db SPRITE_OFFICER
+	db SPRITE_SURF
 	db 0 ; end
 	
 Group16Sprites:

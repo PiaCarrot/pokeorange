@@ -91,6 +91,10 @@ TrainerClassDVs: ; 270d6
 ;	db $98, $88 ; biker
 ;	db $98, $88 ; firebreather
 ;	db $98, $88 ; juggler
+    db $FF, $FF ; jace
+    db $FF, $FF ; kurt
+    db $FF, $FF ; kat
+    db $FF, $FF ; alice
 	db $98, $88 ; blackbelt
 ;	db $98, $88 ; psychic
 ;	db $6A, $A8 ; picnicker
@@ -188,6 +192,7 @@ TrainerClassPersonalities:
 	db MALE_MASK   ; birdkeeper
 	db MALE_MASK   ; cross
 	db MALE_MASK   ; otaku
+	db MALE_MASK   ; sailor
 	db MALE_MASK   ; Jace
 	db MALE_MASK   ; Kurt
 	db MALE_MASK   ; Jason

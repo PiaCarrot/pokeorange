@@ -104,7 +104,7 @@ Vicegrip
 - TM24 Thunderbolt (Trovitopolis Dept. Store)
 - TM25 Thunder (Game Corner)
 - TM26 Earthquake (Route 62)
-- TM27 Return (Unnamed Island 1)
+- TM27 Return (Show Lapras to its Family on Route 71)
 - TM28 Dig
 - TM29 Psychic (Luana)
 - TM30 Shadow Ball (Wrecked Ship)
@@ -124,7 +124,7 @@ Vicegrip
 - TM44 Rest
 - TM45 Seed Bomb (Route 67)
 - TM46 Thief (Mandarin North)
-- TM47 Steel Wing
+- TM47 Steel Wing (Unnamed Island 1)
 - TM48 Rock Slide (TODO: Show Aerodactyl to Blue)
 - TM49 Tri Attack (Victory Road)
 - TM50 Flash (Trovitopolis)

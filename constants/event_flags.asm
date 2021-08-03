@@ -83,6 +83,7 @@
 	const EVENT_GOT_ITEMFINDER
 	const EVENT_GOT_PROTECTOR
 	const EVENT_GOT_SHINY_CHARM
+	const EVENT_LAPRAS_FAMILY
 	
 ; Not yet used
 	const EVENT_WELCOMED_TO_POKECOM_CENTER
@@ -370,6 +371,10 @@
 	const EVENT_BEAT_ENGINEER_MURA
 	const EVENT_BEAT_ENGINEER_KOBE
 	const EVENT_BEAT_ENGINEER_KALARIE
+; RAYMOND
+; CROOK
+; SCUZ
+	const EVENT_BEAT_PIRATE_LACKEY_1
 	
 ; Hidden items
 	const EVENT_VALENCIA_PORT_HIDDEN_SUPER_POTION
@@ -425,6 +430,7 @@
 	const EVENT_VICTORY_ROAD_F2_HIDDEN_TRADE_STONE
 	const EVENT_VICTORY_ROAD_EXIT_HIDDEN_NUGGET
 	const EVENT_VICTORY_ROAD_EXIT_HIDDEN_REVIVE
+	const EVENT_ROUTE_70_HIDDEN_PP_MAX
 
 ; Sprite visibility: When these events are cleared, the sprite becomes visible; when set, the sprite is hidden.
 ; The map script command macros `disappear` and `appear` set/clear these flags and immediately apply the effect on visibility.
@@ -564,6 +570,8 @@
 	const EVENT_PUMMELO_ISLAND_PROTEIN
 	const EVENT_PUMMELO_ISLAND_RARE_CANDY
 	const EVENT_HALL_OF_FAME_MASTER_BALL
+	const EVENT_ROUTE_70_MAX_REPEL
+	const EVENT_ROUTE_70_MAX_REVIVE
 
 ; People
 	const EVENT_BULBASAUR_POKEBALL_IN_IVYS_LAB
@@ -602,5 +610,6 @@
 	const EVENT_KINNOW_SHOWBOAT_KURT
 	const EVENT_KINNOW_SHOWBOAT_JASON
 	const EVENT_KINNOW_SHOWBOAT_ALICE
+	const EVENT_PIRATES_DEFEATED_LAPRAS_FAMILY
 
 NUM_EVENTS EQU const_value

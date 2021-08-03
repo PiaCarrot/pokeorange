@@ -55,7 +55,7 @@ CooltrainerKeikoAfterText:
 	done
 
 UnnamedIslandTM:
-	itemball TM_RETURN
+	itemball TM_STEEL_WING
 	
 UnnamedIsland1BlackOutMod:
 	blackoutmod KINNOW_ISLAND

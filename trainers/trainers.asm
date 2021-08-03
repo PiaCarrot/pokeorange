@@ -4512,5 +4512,22 @@ CrookGroup:
 ScuzGroup:
 ; ================================
 ; ================
+	; LACKEY (1)
+	db "LACKEY@"
+	db TRAINERTYPE_MOVES
+
+	db 56, PELIPPER
+		db WING_ATTACK
+		db WATER_PULSE
+		db DIVE
+		db STEEL_WING
+
+	db 56, TENTACRUEL
+		db POISON_JAB
+		db WHIRLPOOL
+		db CONFUSE_RAY
+		db VENOSHOCK
+
+	db $ff
 ; ================
 ; ================================

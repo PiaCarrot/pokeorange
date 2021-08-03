@@ -314,6 +314,7 @@ CHRIS EQU __enum__
 	trainerclass CROOK
 
 	trainerclass SCUZ
+	const LACKEY_1
 
 	
 KRIS EQU __enum__
