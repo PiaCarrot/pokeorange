@@ -7,11 +7,15 @@ INCLUDE "rst.asm"
 INCLUDE "interrupts.asm"
 INCLUDE "home/highhome.asm"
 
-SECTION "Header", ROM0
+SECTION "Header", ROM0[$100]
 
 Start::
-	nop ; no-optimize nops
-	jp _Start
+    nop ; no-optimize nops
+    jp _Start
+
+	ds $150 - @
+; otherwise it either gets filled with padding or rgblink
+; might place a small SECTION there
 
 SECTION "Home", ROM0
 
