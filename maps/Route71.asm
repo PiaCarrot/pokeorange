@@ -60,6 +60,71 @@ Route71LaprasText3:
 	cont "is ready to move"
 	cont "on!"
 	done
+	
+Route71PirateGuard:
+	jumptextfaceplayer Route71PirateGuardText
+	
+Route71PirateGuardText:
+	text "Yarr! There be no"
+	line "gettin' through,"
+	cont "scallywag!"
+	done
+	
+Route71PirateTutorScript:
+	faceplayer
+	opentext
+	writetext GivePlayerSwordsDanceText
+	yesorno
+	iffalse .TutorRefused
+	writebyte SWORDS_DANCE
+	writetext Text_SwordsDanceTutorClear
+	special Special_MoveTutor
+	if_equal $0, .TeachMove
+.TutorRefused
+	writetext Text_SwordsDanceTutorRefused
+	waitbutton
+	closetext
+	end
+
+.TeachMove
+	writetext Text_SwordsDanceTutorTaught
+	waitbutton
+	closetext
+	end
+
+GivePlayerSwordsDanceText:
+	text "Yarr!"
+	line "I bet ye want to"
+	cont "be as good at"
+	cont "sword fightin' as"
+	
+	para "me!"
+	line "Well, ter' bad!"
+	cont "But, I can teach"
+	cont "yer #MON"
+	
+	para "SWORDS DANCE if"
+	line "ye want?"
+	done
+	
+Text_SwordsDanceTutorTaught:
+	text "Arr! SWORDS DANCE"
+	line "Will let ye raise"
+	cont "your ATTACK up two"
+	cont "stages! Arr!"
+	done
+	
+Text_SwordsDanceTutorRefused:
+	text "Arr! Off with ye,"
+	line "scurvy dog!"
+	done
+	
+Text_SwordsDanceTutorClear:
+	text ""
+	done
+	
+Route71TradeStone:
+	itemball TRADE_STONE
 
 Route71_MapEventHeader::
 
@@ -69,9 +134,12 @@ Route71_MapEventHeader::
 
 .BGEvents: db 0
 
-.ObjectEvents: db 3
-	person_event SPRITE_SURF, 14, 52, SPRITEMOVEDATA_STANDING_DOWN, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route71LaprasScript, EVENT_PIRATES_DEFEATED_LAPRAS_FAMILY
-	person_event SPRITE_SURF, 16, 53, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route71LaprasScript, EVENT_PIRATES_DEFEATED_LAPRAS_FAMILY
-	person_event SPRITE_SURF, 16, 50, SPRITEMOVEDATA_STANDING_UP, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route71LaprasScript, EVENT_PIRATES_DEFEATED_LAPRAS_FAMILY
-
+.ObjectEvents: db 7
+	person_event SPRITE_SURF, 15, 55, SPRITEMOVEDATA_STANDING_DOWN, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route71LaprasScript, EVENT_PIRATES_DEFEATED_LAPRAS_FAMILY
+	person_event SPRITE_SURF, 18, 56, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route71LaprasScript, EVENT_PIRATES_DEFEATED_LAPRAS_FAMILY
+	person_event SPRITE_SURF, 17, 53, SPRITEMOVEDATA_STANDING_UP, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route71LaprasScript, EVENT_PIRATES_DEFEATED_LAPRAS_FAMILY
+	person_event SPRITE_POKE_BALL, 10,  4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route71TradeStone, EVENT_ROUTE_71_TRADE_STONE
+	person_event SPRITE_SAILOR, 29, 41, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route71PirateGuard, EVENT_RAYMOND_DEFEATED
+	person_event SPRITE_SAILOR, 28, 41, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route71PirateGuard, EVENT_RAYMOND_DEFEATED
+	person_event SPRITE_SAILOR, 10, 27, SPRITEMOVEDATA_STANDING_UP, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route71PirateTutorScript, -1
 
