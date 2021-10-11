@@ -177,7 +177,7 @@
 	tilecoll BUOY, WATER, WATER, BUOY ; b0
 	tilecoll FLOOR, FLOOR, WALL, FLOOR ; b1
 	tilecoll WALL, WALL, WALL, WALL ; b2
-	tilecoll WALL, WALL, DOOR, POKECENTER_SIGN ; b3
+	tilecoll WALL, WALL, POKECENTER_SIGN, WALL ; b3
 	tilecoll WATER, WATER, WATER, WATER ; b4
 	tilecoll WALL, WALL, WALL, WALL ; b5
 	tilecoll WALL, TOP_WALL, WALL, FLOOR ; b6
@@ -195,7 +195,7 @@
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; c2
 	tilecoll WALL, FLOOR, WALL, WALL ; c3
 	tilecoll WALL, WALL, WALL, FLOOR ; c4
-	tilecoll WALL, WALL, DOOR, WALL ; c5
+	tilecoll WALL, WALL, MART_SIGN, WALL ; c5
 	tilecoll WALL, WALL, FLOOR, WALL ; c6
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; c7
 	tilecoll WALL, FLOOR, WALL, WALL ; c8
@@ -252,4 +252,4 @@
 	tilecoll FLOOR, FLOOR, FLOOR, WALL ; fb
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; fc
 	tilecoll FLOOR, WALL, FLOOR, FLOOR ; fd
-	tilecoll FLOOR, FLOOR, FLOOR, WALL ; fe
+	tilecoll WALL, WALL, FLOOR, FLOOR ; fe

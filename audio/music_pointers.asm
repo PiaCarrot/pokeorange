@@ -148,4 +148,6 @@
 	dba Music_Route24GBS
 	dba Music_CipherPeon
 	dba Music_DriftveilCity
+	dba Music_TangeloJungle
+	dba Music_CrystalCave
 ; e91a3
