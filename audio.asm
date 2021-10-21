@@ -208,8 +208,12 @@ INCLUDE "audio/music/castleroute.asm"
 INCLUDE "audio/music/route24gbs.asm"
 INCLUDE "audio/music/cipherpeon.asm"
 INCLUDE "audio/music/driftveilcity.asm"
+
+SECTION "Songs Regen", ROMX
+
 INCLUDE "audio/music/tangelojungle.asm"
 INCLUDE "audio/music/crystalcave.asm"
+INCLUDE "audio/music/meetjessiejames.asm"
 
 SECTION "Sound Effects", ROMX
 

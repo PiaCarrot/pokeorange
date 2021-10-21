@@ -21,7 +21,7 @@ RocketRoute60Event:
 	closetext
 	spriteface ROUTE_60_JESSIE, DOWN
 	spriteface ROUTE_60_JAMES, DOWN
-	playmusic MUSIC_ROCKET_OVERTURE
+	playmusic MUSIC_MEET_JESSIE_JAMES
 	opentext
 	writetext Route60RocketMottoText
 	waitbutton

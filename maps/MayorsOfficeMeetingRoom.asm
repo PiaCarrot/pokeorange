@@ -27,7 +27,7 @@ MayorsOfficeMeetingRoom_MapScriptHeader:
 	end
 	
 MayorOfficeMeetingRoomScript:
-	playmusic MUSIC_ROCKET_OVERTURE
+	playmusic MUSIC_MEET_JESSIE_JAMES
 	spriteface MAYORS_OFFICE_BUTCH, DOWN
 	spriteface MAYORS_OFFICE_CASSIDY, DOWN
 	spriteface MAYORS_OFFICE_JESSIE, DOWN
@@ -69,7 +69,7 @@ MayorOfficeMeetingRoomScript:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
-	playmusic MUSIC_ROCKET_OVERTURE
+	playmusic MUSIC_MEET_JESSIE_JAMES
 	applymovement MAYORS_OFFICE_JAMES, JamesMovement2
 	applymovement MAYORS_OFFICE_JESSIE, JessieMovement1
 	opentext
@@ -81,7 +81,7 @@ MayorOfficeMeetingRoomScript:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
-	playmusic MUSIC_ROCKET_OVERTURE
+	playmusic MUSIC_MEET_JESSIE_JAMES
 	applymovement MAYORS_OFFICE_JAMES, JamesMovement3
 	spriteface PLAYER, DOWN
 	opentext
@@ -110,7 +110,7 @@ MayorOfficeMeetingRoomScript:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
-	playmusic MUSIC_ROCKET_OVERTURE
+	playmusic MUSIC_MEET_JESSIE_JAMES
 	disappear MAYORS_OFFICE_CASSIDY
 	disappear MAYORS_OFFICE_BUTCH
 	disappear MAYORS_OFFICE_JESSIE
