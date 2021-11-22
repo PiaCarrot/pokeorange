@@ -214,6 +214,7 @@ SECTION "Songs Regen", ROMX
 INCLUDE "audio/music/tangelojungle.asm"
 INCLUDE "audio/music/crystalcave.asm"
 INCLUDE "audio/music/meetjessiejames.asm"
+INCLUDE "audio/music/rocketmotto.asm"
 
 SECTION "Sound Effects", ROMX
 

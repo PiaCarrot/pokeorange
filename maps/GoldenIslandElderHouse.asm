@@ -35,6 +35,21 @@ GoldenIslandElderScript:
 	writetext ElderHouseJessieText2
 	waitbutton
 	closetext
+    playmusic MUSIC_ROCKET_MOTTO
+	opentext
+	writetext ElderHouseJessieText3
+	waitbutton
+	closetext
+	waitbutton
+	pause 20
+	special Special_FadeOutMusic
+	playmapmusic
+	pause 10
+	playmusic MUSIC_ROCKET_OVERTURE
+	opentext
+	writetext ElderHouseJessieText4
+	waitbutton
+	closetext	
 	winlosstext JessieJamesWinLoss, 0
 	loadtrainer JESSIE_JAMES, 1
 	startbattle
@@ -150,8 +165,10 @@ ElderHouseJessieText2:
 	para "MEOWTH: Yeah, that"
 	line "sounds right up my"
 	cont "alley!"
+	done
 
-	para "JAMES: But first<...>"
+ElderHouseJessieText3:
+	text "JAMES: But first<...>"
 
 	para "Prepare the world"
 	line "for devastation!"
@@ -159,8 +176,10 @@ ElderHouseJessieText2:
 	para "To unite all"
 	line "peoples within our"
 	cont "nation!"
-
-	para "<...> <...> <...>"
+	done
+	
+ElderHouseJessieText4:
+	text "<...> <...> <...>"
 
 	para "JAMES: You say you"
 	line "heard our motto,"
