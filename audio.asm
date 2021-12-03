@@ -215,6 +215,7 @@ INCLUDE "audio/music/tangelojungle.asm"
 INCLUDE "audio/music/crystalcave.asm"
 INCLUDE "audio/music/meetjessiejames.asm"
 INCLUDE "audio/music/rocketmotto.asm"
+INCLUDE "audio/music/pinkanisland.asm"
 
 SECTION "Sound Effects", ROMX
 

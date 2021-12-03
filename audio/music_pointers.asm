@@ -152,4 +152,5 @@
 	dba Music_CrystalCave
 	dba Music_MeetJessieJames
 	dba Music_RocketMotto
+	dba Music_PinkanIsland
 ; e91a3
