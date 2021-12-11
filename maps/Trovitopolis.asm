@@ -202,7 +202,7 @@ Trovitopolis_MapEventHeader::
 	signpost 17, 49, SIGNPOST_READ, TrovitopolisMayorSign
 	signpost 15, 37, SIGNPOST_READ, TrovitopolisDeptStoreSign
 	signpost 20, 10, SIGNPOST_READ, TrovitopolisPortSign
-	signpost 25, 19, SIGNPOST_READ, TrovitopolisSchoolSign
+	signpost 22, 16, SIGNPOST_READ, TrovitopolisSchoolSign
 	signpost 22, 46, SIGNPOST_READ, TrovitopolisMoveDeleterSign
 	signpost 6, 56, SIGNPOST_READ, TrovitopolisMrFlashSign
 	signpost 4, 22, SIGNPOST_READ, TrovitopolisSewerSign

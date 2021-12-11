@@ -263,3 +263,12 @@ Tileset33GFX:
 INCBIN "gfx/tilesets/33.2bpp.lz"
 Tileset33Meta:
 INCBIN "tilesets/33_metatiles.bin"
+
+SECTION "Tileset Data 10", ROMX
+
+Tileset34GFX:
+INCBIN "gfx/tilesets/34.2bpp.lz"
+Tileset34Meta:
+INCBIN "tilesets/34_metatiles.bin"
+Tileset34Coll:
+INCLUDE "tilesets/34_collision.asm"

@@ -52,6 +52,7 @@ Tileset31Anim: ; 0xfc073
 
 Tileset01Anim: ; 0xfc0a3
 Tileset02Anim:
+Tileset34Anim:
 	dw VTiles2 tile $7e, WriteTileToBuffer
 	dw RSEWaterFrames, AnimateRSEWaterTiles
 	dw DiveWaterFrames, AnimateDiveWaterTiles
