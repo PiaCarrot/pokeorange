@@ -235,7 +235,7 @@
 	tilecoll WALL, WALL, WALL, WALL ; ea
 	tilecoll WALL, WALL, FLOOR, WALL ; eb
 	tilecoll WALL, WALL, WALL, DOOR ; ec
-	tilecoll WALL, FLOOR, FLOOR, FLOOR ; ed
+	tilecoll WALL, WALL, WALL, WALL ; ed
 	tilecoll FLOOR, WALL, FLOOR, FLOOR ; ee
 	tilecoll WALL, WALL, WALL, WALL ; ef
 	tilecoll WALL, WALL, WALL, WALL ; f0
