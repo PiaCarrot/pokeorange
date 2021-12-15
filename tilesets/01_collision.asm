@@ -149,7 +149,7 @@
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 94
 	tilecoll FLOOR, FLOOR, FLOOR, WALL ; 95
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 96
-	tilecoll WALL, WALL, WALL, WALL ; 97
+	tilecoll PUDDLE, WATER, PUDDLE, WATER ; 97
 	tilecoll WALL, WALL, WALL, WALL ; 98
 	tilecoll WALL, WALL, WALL, WALL ; 99
 	tilecoll WALL, WALL, WALL, WALL ; 9a
@@ -161,7 +161,7 @@
 	tilecoll FLOOR, FLOOR, FLOOR, WALL ; a0
 	tilecoll WALL, WALL, CAVE, WALL ; a1
 	tilecoll WALL, WALL, WALL, WALL ; a2
-	tilecoll FLOOR, WALL, FLOOR, WALL ; a3
+	tilecoll WATER, PUDDLE, WATER, PUDDLE ; a3
 	tilecoll ROCK_CLIMB, WALL, ROCK_CLIMB, CAVE ; a4
 	tilecoll FLOOR, BOTTOM_WALL, WALL, CAVE ; a5
 	tilecoll WALL, WALL, WALL, WALL ; a6
