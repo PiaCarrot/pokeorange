@@ -35,6 +35,8 @@ Facings: ; 4049
 	dw FacingSailboatBottom
 	dw FacingUmbrellaLeft
 	dw FacingUmbrellaRight
+	dw FacingSplash1
+	dw FacingSplash2
 FacingsEnd: dw 0
 
 NUM_FACINGS EQU (FacingsEnd - Facings) / 2
@@ -264,6 +266,16 @@ FacingGrass2: ; 426a
 	db  9, -1, 4, $fe
 	db  9,  9, 4 | X_FLIP, $fe
 ; 4273
+
+FacingSplash1:
+	db 2 ; #
+	db  8,  0, 4, $ff
+	db  8,  8, 4 | X_FLIP, $ff
+
+FacingSplash2:
+	db 2 ; #
+	db  9, -1, 4, $ff
+	db  9,  9, 4 | X_FLIP, $ff
 
 FacingSailboatTop:
 	db 12 ; #

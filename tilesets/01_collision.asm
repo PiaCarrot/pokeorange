@@ -194,12 +194,12 @@
 	tilecoll LEFT_WALL, RIGHT_WALL, LEFT_WALL, RIGHT_WALL ; c1
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; c2
 	tilecoll WALL, FLOOR, WALL, WALL ; c3
-	tilecoll FLOOR, FLOOR, FLOOR, WATER ; c4
-	tilecoll FLOOR, FLOOR, WATER, FLOOR ; c5
-	tilecoll WATER, WATER, FLOOR, FLOOR ; c6
-	tilecoll FLOOR, FLOOR, WATER, WATER ; c7
-	tilecoll FLOOR, WATER, FLOOR, FLOOR ; c8
-	tilecoll WATER, FLOOR, FLOOR, FLOOR ; c9
+	tilecoll PUDDLE, PUDDLE, PUDDLE, WATER ; c4
+	tilecoll PUDDLE, PUDDLE, WATER, PUDDLE ; c5
+	tilecoll WATER, WATER, PUDDLE, PUDDLE ; c6
+	tilecoll PUDDLE, PUDDLE, WATER, WATER ; c7
+	tilecoll PUDDLE, WATER, PUDDLE, PUDDLE ; c8
+	tilecoll WATER, PUDDLE, PUDDLE, PUDDLE ; c9
 	tilecoll WALL, WALL, WALL, WALL ; ca
 	tilecoll WALL, WALL, WALL, WALL ; cb
 	tilecoll WALL, WALL, WALL, WALL ; cc
@@ -241,16 +241,16 @@
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; f0
 	tilecoll WALL, WALL, WALL, WALL ; f1
 	tilecoll WALL, WALL, WALL, WALL ; f2
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; f3
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; f4
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; f5
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; f6
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; f7
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; f8
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; f9
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; fa
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; fb
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; fc
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; fd
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; fe
-	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; ff
+	tilecoll FLOOR, FLOOR, PUDDLE, FLOOR ; f3
+	tilecoll PUDDLE, PUDDLE, PUDDLE, FLOOR ; f4
+	tilecoll PUDDLE, PUDDLE, FLOOR, FLOOR ; f5
+	tilecoll PUDDLE, PUDDLE, FLOOR, PUDDLE ; f6
+	tilecoll PUDDLE, FLOOR, FLOOR, FLOOR ; f7
+	tilecoll PUDDLE, FLOOR, PUDDLE, FLOOR ; f8
+	tilecoll PUDDLE, PUDDLE, PUDDLE, PUDDLE ; f9
+	tilecoll FLOOR, PUDDLE, FLOOR, PUDDLE ; fa
+	tilecoll FLOOR, FLOOR, FLOOR, PUDDLE ; fb
+	tilecoll PUDDLE, FLOOR, PUDDLE, PUDDLE ; fc
+	tilecoll FLOOR, FLOOR, PUDDLE, PUDDLE ; fd
+	tilecoll FLOOR, PUDDLE, PUDDLE, PUDDLE ; fe
+	tilecoll FLOOR, PUDDLE, FLOOR, FLOOR ; ff

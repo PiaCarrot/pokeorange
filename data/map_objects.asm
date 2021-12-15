@@ -39,3 +39,4 @@ endm
 	sprite_movement_data SPRITEMOVEFN_SAILBOAT_BOTTOM,       DOWN,   PERSON_ACTION_SAILBOAT_BOTTOM, $2e,    $01,    %1100 ; 20
 	sprite_movement_data SPRITEMOVEFN_UMBRELLA_LEFT,         DOWN,   PERSON_ACTION_UMBRELLA_LEFT,   $8e,    $02,    %0000 ; 21
 	sprite_movement_data SPRITEMOVEFN_UMBRELLA_RIGHT,        UP,     PERSON_ACTION_UMBRELLA_RIGHT,  $8e,    $02,    %0000 ; 21
+	sprite_movement_data SPRITEMOVEFN_PUDDLE,        		 DOWN,   PERSON_ACTION_PUDDLE_SPLASH,  	$8e,    $02,    %0000 ; 22

@@ -135,10 +135,14 @@ MapCallbackSprites_LoadUsedSpritesGFX: ; 14209
 	farcall LoadEmote
 	call GetMapPermission
 	call CheckOutdoorMap
-	ld c, EMOTE_0B
 	jr z, .outdoor
 	ld c, EMOTE_BOULDER_DUST
-.outdoor
+	farcall LoadEmote
+	ret
+ .outdoor
+	ld c, EMOTE_0B
+	farcall LoadEmote
+	ld c, EMOTE_PUDDLE_SPLASH
 	farcall LoadEmote
 	ret
 ; 14236
@@ -676,6 +680,7 @@ EmotesPointers: ; 144d
 	emote_header FishingRodGFX2, 2, $7c
 	emote_header BoulderDustGFX, 2, $7e
 	emote_header FishingRodGFX4, 1, $7e
+	emote_header PuddleSplashGFX, 1, $7f
 ; 14495
 
 

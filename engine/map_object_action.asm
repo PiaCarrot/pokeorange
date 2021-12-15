@@ -20,6 +20,7 @@ Pointers445f: ; 445f
 	dw SetFacingUmbrellaLeft,          SetFacingUmbrellaLeft   ; PERSON_ACTION_UMBRELLA_LEFT
 	dw SetFacingUmbrellaRight,         SetFacingUmbrellaRight  ; PERSON_ACTION_UMBRELLA_RIGHT
 	dw SetFacingRunAction,             SetFacingCurrent        ; PERSON_ACTION_RUN
+	dw SetFacingPuddleSplash,          SetFacingStanding       ; PERSON_ACTION_PUDDLE_SPLASH
 ; 44a3
 
 SetFacingStanding: ; 44a3
@@ -294,6 +295,22 @@ SetFacingGrassShake: ; 45ed
 	ld [hl], a
 	ret
 ; 4600
+
+SetFacingPuddleSplash:
+	ld hl, OBJECT_STEP_FRAME
+	add hl, bc
+	inc [hl]
+	ld a, [hl]
+	ld hl, OBJECT_FACING_STEP
+	add hl, bc
+	and 4
+	ld a, FACING_SPLASH_1
+	jr z, .ok
+	inc a ; FACING_SPLASH_2
+
+.ok
+	ld [hl], a
+	ret
 
 SetFacingSailboatTop:
 	ld hl, OBJECT_FACING_STEP

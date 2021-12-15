@@ -137,6 +137,10 @@ CheckSpinTile::
 CheckStopSpinTile::
 	cp $80
 	ret
+	
+CheckPuddleTile::
+	cp COLL_PUDDLE
+	ret
 
 GetMapObject:: ; 18d2
 ; Return the location of map object a in bc.

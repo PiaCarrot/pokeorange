@@ -154,7 +154,7 @@ HandleCurNPCStep: ; 437b
 	ld hl, OBJECT_FLAGS1
 	add hl, bc
 	bit INVISIBLE, [hl]
-	jr nz, SetFacingStanding
+	jp nz, SetFacingStanding
 	ld hl, OBJECT_FLAGS2
 	add hl, bc
 	bit 6, [hl]
@@ -561,6 +561,7 @@ MapObjectMovementPattern: ; 47dd
 	dw .MovementSailboatBottom ; 16
 	dw .MovementUmbrellaLeft ; 17
 	dw .MovementUmbrellaRight ; 18
+	dw .MovementSplashingPuddle ; 19
 
 .RandomWalkY:
 	call Random
@@ -925,6 +926,7 @@ MapObjectMovementPattern: ; 47dd
 	ld hl, OBJECT_ACTION
 	add hl, bc
 	ld [hl], PERSON_ACTION_GRASS_SHAKE
+._MovementGrass_Puddle_End:
 	ld hl, OBJECT_STEP_DURATION
 	add hl, de
 	ld a, [hl]
@@ -936,6 +938,14 @@ MapObjectMovementPattern: ; 47dd
 	add hl, bc
 	ld [hl], STEP_TYPE_TRACKING_OBJECT
 	ret
+	
+.MovementSplashingPuddle:
+	call EndSpriteMovement
+	call ._MovementShadow_Grass_Emote_BoulderDust
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], PERSON_ACTION_PUDDLE_SPLASH
+	jr ._MovementGrass_Puddle_End
 
 ._MovementShadow_Grass_Emote_BoulderDust:
 	ld hl, OBJECT_RANGE
@@ -2024,6 +2034,20 @@ ShakeGrass: ; 5556
 .data_5562
 	db $00, PAL_OW_TREE, SPRITEMOVEDATA_GRASS
 ; 5565
+
+SplashPuddle:
+	push bc
+	ld de, .PuddleObject
+	call CopyTempObjectData
+	call InitTempObject
+	pop bc
+	ld de, SFX_PUDDLE
+	call PlaySFX
+	ret
+
+.PuddleObject
+	db $00, PAL_OW_BLUE, SPRITEMOVEDATA_PUDDLE
+
 ShakeScreen: ; 5565
 	push bc
 	push af

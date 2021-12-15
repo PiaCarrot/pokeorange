@@ -374,3 +374,13 @@ Sfx_Pokeflute2_Ch8:
 	note __, 12
 	note __, 2
 	endchannel
+	
+Sfx_Puddle:
+	musicheader 1, 5, Sfx_Puddle_Ch5
+
+Sfx_Puddle_Ch5:
+	dutycycle $1
+	soundinput $97
+	sound __, 16, $98, $0700
+	soundinput $8
+	endchannel

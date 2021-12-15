@@ -775,6 +775,8 @@ NormalStep: ; 5412
 	ld hl, OBJECT_NEXT_TILE
 	add hl, bc
 	ld a, [hl]
+	cp COLL_PUDDLE
+	jr z, .splash_puddle
 	cp COLL_LONG_GRASS
 	jr z, .shake_grass
 	cp COLL_TALL_GRASS
@@ -782,6 +784,11 @@ NormalStep: ; 5412
 
 .shake_grass
 	call ShakeGrass
+	jr .skip_grass
+
+.splash_puddle
+	call SplashPuddle
+	; fallthrough
 
 .skip_grass
 	ld hl, wCenteredObject
