@@ -55,7 +55,13 @@ Tileset02Anim:
 Tileset34Anim:
 	dw VTiles2 tile $7e, WriteTileToBuffer
 	dw RSEWaterFrames, AnimateRSEWaterTiles
+	dw ShoreWaterFrames, AnimateShoreWaterTiles
 	dw DiveWaterFrames, AnimateDiveWaterTiles
+	dw RockTopsFrames, AnimateRockTopsTiles
+	dw RockLeftFrames, AnimateRockLeftTiles
+	dw RockBotLeftFrames, AnimateRockBotLeftTiles
+	dw RockBotRightFrames, AnimateRockBotRightTiles
+	dw RockRightFrames, AnimateRockRightTiles
 	dw wTileAnimBuffer, ScrollTileDown
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -420,6 +426,12 @@ WaterTileFrames: ; fc41c
 
 AnimateRSEWaterTiles:
 AnimateDiveWaterTiles:
+AnimateShoreWaterTiles:
+AnimateRockTopsTiles:
+AnimateRockLeftTiles:
+AnimateRockBotLeftTiles:
+AnimateRockBotRightTiles:
+AnimateRockRightTiles:
 ; Draw two RSE water tiles for the current frame in VRAM tile at de.
 ; based on AnimateWhirlpoolTiles, but with 8 frames
 
@@ -473,6 +485,29 @@ DiveWaterFrames: dw VTiles2 tile $24, DiveWaterTiles
 
 DiveWaterTiles: INCBIN "gfx/tilesets/water/dive.2bpp"
 
+ShoreWaterFrames: dw VTiles2 tile $22, ShoreWaterTiles
+
+ShoreWaterTiles: INCBIN "gfx/tilesets/water/shore.2bpp"
+
+RockTopsFrames: dw VTiles2 tile $39, RockTopsTiles
+
+RockTopsTiles: INCBIN "gfx/tilesets/water/rocktops.2bpp"
+
+RockLeftFrames: dw VTiles2 tile $49, RockLeftTiles
+
+RockLeftTiles: INCBIN "gfx/tilesets/water/rockleft.2bpp"
+
+RockBotLeftFrames: dw VTiles2 tile $56, RockBotLeftTiles
+
+RockBotLeftTiles: INCBIN "gfx/tilesets/water/rockbotleft.2bpp"
+
+RockBotRightFrames: dw VTiles2 tile $66, RockBotRightTiles
+
+RockBotRightTiles: INCBIN "gfx/tilesets/water/rockbotright.2bpp"
+
+RockRightFrames: dw VTiles2 tile $68, RockRightTiles
+
+RockRightTiles: INCBIN "gfx/tilesets/water/rockright.2bpp"
 
 AnimateFlowerTile: ; fc56d
 ; No parameters.

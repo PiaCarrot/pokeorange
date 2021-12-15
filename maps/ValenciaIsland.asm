@@ -273,7 +273,7 @@ ValenciaIslandMagnet:
 ValenciaIsland_MapEventHeader::
 
 .Warps: db 4
-	warp_def 13, 30, 1, IVYS_LAB
+	warp_def 13, 29, 1, IVYS_LAB
 	warp_def 5, 15, 1, KRISS_HOUSE_1F
 	warp_def 19, 5, 1, KRISS_NEIGHBORS_HOUSE
 	warp_def 15, 17, 1, IVYS_HOUSE
@@ -291,7 +291,7 @@ ValenciaIsland_MapEventHeader::
 .ObjectEvents: db 3
 	person_event SPRITE_COOLTRAINER_M, 8, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 1, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ValenciaIslandTeacherScript, -1
 	person_event SPRITE_YOUNGSTER, 8, 13, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, ValenciaIslandFisherScript, -1
-	person_event SPRITE_POKE_BALL, 4, 30, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, ValenciaIslandMagnet, EVENT_VALENCIA_ISLAND_MAGNET
+	person_event SPRITE_POKE_BALL,  7, 41, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, ValenciaIslandMagnet, EVENT_VALENCIA_ISLAND_MAGNET
 
 if def(DEBUG)
 CheatFillPokedex:
