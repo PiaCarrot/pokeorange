@@ -108,13 +108,13 @@ PinkanIsland_MapEventHeader::
 	signpost 10, 12, SIGNPOST_READ, PinkanIslandSign
 	signpost 13, 21, SIGNPOST_READ, PinkanTrainerTipsSign
 	signpost 15, 34, SIGNPOST_ITEM, PinkanIslandHiddenLoveBall
-	signpost 16, 29, SIGNPOST_ITEM, PinkanIslandHiddenPinkanBerry
+	signpost  3, 19, SIGNPOST_ITEM, PinkanIslandHiddenPinkanBerry
 
 .ObjectEvents: db 7
 	person_event SPRITE_FRUIT_TREE, 24, 30, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PinkanIslandFruitTree1, -1
 	person_event SPRITE_FRUIT_TREE, 17, 18, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PinkanIslandFruitTree2, -1
 	person_event SPRITE_FRUIT_TREE, 8, 20, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PinkanIslandFruitTree3, -1
-	person_event SPRITE_FRUIT_TREE, 9, 29, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PinkanIslandFruitTree4, -1
+	person_event SPRITE_FRUIT_TREE,  9, 30, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, PinkanIslandFruitTree4, -1
 	person_event SPRITE_POKE_BALL, 19, 12, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PinkanIslandBulletSeedTM, EVENT_PINKAN_ISLAND_TM_BULLET_SEED
-	person_event SPRITE_POKE_BALL, 13, 30, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PinkanIslandRevive, EVENT_PINKAN_ISLAND_REVIVE
-	person_event SPRITE_SUPER_NERD, 19, 21, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 4, TrainerManiacShawn, -1
+	person_event SPRITE_POKE_BALL, 16, 14, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, PinkanIslandRevive, EVENT_PINKAN_ISLAND_REVIVE
+	person_event SPRITE_SUPER_NERD, 23, 23, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 4, TrainerManiacShawn, -1
