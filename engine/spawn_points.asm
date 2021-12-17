@@ -25,11 +25,11 @@ ENDM
 	spawn KUMQUAT_ISLAND_EAST,  15,  16
 	spawn PUMMELO_ISLAND,  21, 30
 ;	spawn HAMLIN_ISLAND,   0,  0
-;	spawn SHAMOUTI_ISLAND, 0,  0
+	spawn SHAMOUTI_ISLAND, 21,  14
 
     spawn VERMILION_CITY,  0,  0
 ;   spawn FUSCHIA_CITY,    0,  0
-;   spawn CINNIBAR_ISLAND, 0,  0
+;   spawn CINNABAR_ISLAND, 0,  0
 ;   spawn PALLET_TOWN,     0,  0
 ;   spawn WISTERIA_TOWN,   0,  0
 ;   spawn PORTA_VISTA,     0,  0

@@ -493,7 +493,7 @@ ENDM
     flypoint KUMQUAT,        KUMQUAT_ISLAND
 	flypoint PUMMELO,        PUMMELO_ISLAND
 ;   flypoint HAMLIN,         HAMLIN_ISLAND
-;   flypoint SHAMOUTI,       SHAMOUTI_ISLAND
+    flypoint SHAMOUTI,       SHAMOUTI_ISLAND
 ; Kanto
 	flypoint VERMILION, VERMILION_CITY
 
@@ -530,7 +530,7 @@ FlyMap: ; 91c90
 ; Flypoints begin at Valencia..
 	ld [StartFlypoint], a
 ; ..and end at ...
-	ld a, FLY_PUMMELO
+	ld a, FLY_SHAMOUTI
 	ld [EndFlypoint], a
 ; Fill out the map
 	call FillOrangeMap
