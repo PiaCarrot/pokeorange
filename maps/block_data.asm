@@ -560,3 +560,6 @@ Route67Underwater_BlockData:
 	
 KinnowShowboatInside_BlockData:
 	INCBIN "maps/KinnowShowboatInside.blk"
+	
+HamlinIsland_BlockData:
+	INCBIN "maps/HamlinIsland.blk"

@@ -229,6 +229,7 @@
 	connection west, TARROCO_ISLAND, TarrocoIsland, 10, 10, 10, ROUTE_71
 	
 	map_header_2 ShamoutiIsland, SHAMOUTI_ISLAND, 53, 0
+	map_header_2 HamlinIsland, HAMLIN_ISLAND, 19, 0
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0

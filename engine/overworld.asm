@@ -715,6 +715,7 @@ OutdoorSprites: ; 144b8
 	dw Group14Sprites
 	dw Group15Sprites
 	dw Group16Sprites
+	dw Group17Sprites
 ; 144ec
 
 Group1Sprites:
@@ -905,6 +906,20 @@ Group16Sprites:
 	db SPRITE_SAILBOAT_TOP
 	db SPRITE_SAILBOAT_BOTTOM
 	db SPRITE_UMBRELLA
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_COOLTRAINER_F
+	db SPRITE_SUPER_NERD
+	db SPRITE_SWIMMER_GIRL
+	db SPRITE_SAILOR
+	db SPRITE_FISHER
+	db SPRITE_LASS
+	db SPRITE_POKE_BALL
+	db SPRITE_FRUIT_TREE
+	db 0 ;end
+	
+Group17Sprites:
+; Hamlin Island
+	db SPRITE_SIGHTSEER_F
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_SUPER_NERD

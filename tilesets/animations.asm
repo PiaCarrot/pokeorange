@@ -212,6 +212,7 @@ Tileset26Anim: ; 0xfc2e7
 Tileset27Anim: ; 0xfc2e7
 Tileset28Anim: ; 0xfc2e7
 Tileset33Anim: ; 0xfc2e7
+Tileset35Anim: ; 0xfc2e7
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation

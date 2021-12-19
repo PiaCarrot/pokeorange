@@ -99,3 +99,9 @@
 	RGB 07, 14, 21
 	RGB 05, 07, 15
 	RGB 04, 05, 11
+
+; group 17 (Hamlin Island)
+	RGB 00, 20, 10
+	RGB 00, 14, 10
+	RGB 09, 09, 17
+	RGB 05, 07, 13

@@ -98,7 +98,7 @@ if def(DEBUG)
 	setflag ENGINE_FLYPOINT_ASCORBIA
 	setflag ENGINE_FLYPOINT_KUMQUAT
 	setflag ENGINE_FLYPOINT_PUMMELO
-;	setflag ENGINE_FLYPOINT_HAMLIN
+	setflag ENGINE_FLYPOINT_HAMLIN
 	setflag ENGINE_FLYPOINT_SHAMOUTI
 	setflag ENGINE_FLYPOINT_VERMILION
 	clearevent EVENT_RED_ON_CLEOPATRA
@@ -149,7 +149,7 @@ if def(DEBUG)
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp ROUTE_71, 11, 25
+	warp HAMLIN_ISLAND, 21, 32
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

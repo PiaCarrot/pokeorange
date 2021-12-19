@@ -272,3 +272,10 @@ Tileset34Meta:
 INCBIN "tilesets/34_metatiles.bin"
 Tileset34Coll:
 INCLUDE "tilesets/34_collision.asm"
+
+Tileset35GFX:
+INCBIN "gfx/tilesets/35.2bpp.lz"
+Tileset35Meta:
+INCBIN "tilesets/35_metatiles.bin"
+Tileset35Coll:
+INCLUDE "tilesets/35_collision.asm"

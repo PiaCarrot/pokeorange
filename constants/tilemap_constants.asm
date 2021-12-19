@@ -33,6 +33,7 @@ const_value SET 1
 	const TILESET_SEWER
 	const TILESET_AIRSHIP_INSIDE
 	const TILESET_PUMMELO_TROVITOPOLIS
+	const TILESET_HAMLIN
 
 	const_def
 	const PAL_BG_GRAY

@@ -396,6 +396,10 @@ INCLUDE "maps/Route70.asm"
 INCLUDE "maps/Route67Underwater.asm"
 INCLUDE "maps/Route69Gate.asm"
 
+SECTION "Hamlin Scripts", ROMX
+
+INCLUDE "maps/HamlinIsland.asm"
+
 SECTION "Fukuhara No 4 Scripts", ROMX
 
 INCLUDE "maps/FukuharaNo4BF1.asm"

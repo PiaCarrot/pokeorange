@@ -294,6 +294,9 @@ MAP_NONE EQU 0
 	mapgroup QUACKENPOKER_LAB, 6, 5
 	mapgroup UNNAMED_ISLAND_3_HOUSE, 3, 4
 
+	newgroup ; 17
+
+	mapgroup HAMLIN_ISLAND, 30, 20
 
 ; elevator floors
 
@@ -448,7 +451,7 @@ const_value = -1
 	const SPAWN_ASCORBIA
 	const SPAWN_KUMQUAT
 	const SPAWN_PUMMELO
-;	const SPAWN_HAMLIN
+	const SPAWN_HAMLIN
 	const SPAWN_SHAMOUTI
 	const SPAWN_VERMILION
 NUM_SPAWNS EQU const_value
