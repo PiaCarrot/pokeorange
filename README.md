@@ -2,7 +2,7 @@
 
 This is a ROM hack of Pokémon Crystal.
 
-To patch the ROM, apply [**pokeorange-betatester-2-4-21.ips **](patches/pokeorange-betatester-2-4-21.ips ) to a Pokémon Crystal (USA) 1.0 ROM.
+To patch the ROM, apply [**renaissance-pss.ips **](patches/renaissance-pss.ips ) to a Pokemon - Crystal Version (UE) (V1.0) [C][!].gbc ROM.
 
 To build the ROM yourself, see [**INSTALL.md**](INSTALL.md).
 
