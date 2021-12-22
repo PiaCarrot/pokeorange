@@ -110,5 +110,5 @@ MandarinNorth_MapEventHeader::
 	person_event SPRITE_COOLTRAINER_F, 29, 5, SPRITEMOVEDATA_STANDING_DOWN, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, MandarinNorthGuruScript, -1
 	person_event SPRITE_POKE_BALL, 27, 29, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MandarinNorthRareCandy, EVENT_MANDARIN_NORTH_RARE_CANDY
 	person_event SPRITE_PIKACHU, 8, 21, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_RED, 0, 0, MandarinNorthPikachuScript, -1
-	person_event SPRITE_PIKACHU, 11, 4, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_RED, 0, 0, MandarinNorthPikachuScript, -1
+	person_event SPRITE_PIKACHU, 12,  4, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_RED, 0, 0, MandarinNorthPikachuScript, -1
 

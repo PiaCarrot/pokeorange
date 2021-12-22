@@ -172,7 +172,7 @@ Route64_MapEventHeader::
 	signpost 21, 30, SIGNPOST_ITEM, Route64_HiddenHeartScale1
 	signpost 23, 22, SIGNPOST_ITEM, Route64_HiddenHeartScale2
 	signpost 15, 12, SIGNPOST_ITEM, Route64_HiddenHeartScale3
-	signpost 7, 20, SIGNPOST_ITEM, Route64_HiddenHeartScale4
+	signpost  7, 14, SIGNPOST_ITEM, Route64_HiddenHeartScale4
 	signpost 19, 23, SIGNPOST_READ, Route64Sign
 
 .ObjectEvents: db 5

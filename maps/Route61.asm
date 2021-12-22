@@ -106,15 +106,15 @@ Route61_MapEventHeader::
 	warp_def 5, 31, 7, GOLDEN_ISLAND_GATE_HOUSE
 
 .CoordEvents: db 2
-	xy_trigger 1, 35, 42, Route61BridgeOverheadTrigger 
+	xy_trigger 1, 35, 42, Route61BridgeOverheadTrigger
 	xy_trigger 0, 35, 43, Route61BridgeUnderfootTrigger
 
 .BGEvents: db 1
 	signpost 42, 38, SIGNPOST_READ, Route61Sign
 
 .ObjectEvents: db 4
-	person_event SPRITE_SUPER_NERD, 14, 46, SPRITEMOVEDATA_SPINCLOCKWISE, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 3, TrainerPokemaniacKusato, -1
+	person_event SPRITE_SUPER_NERD, 11, 50, SPRITEMOVEDATA_SPINCLOCKWISE, 1, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_TRAINER, 3, TrainerPokemaniacKusato, -1
 	person_event SPRITE_POKE_BALL, 37, 18, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route6lRareCandy, EVENT_ROUTE_61_RARE_CANDY
-	person_event SPRITE_POKE_BALL, 12, 48, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route61MaxPotion, EVENT_ROUTE_61_MAX_POTION
+	person_event SPRITE_POKE_BALL,  6, 48, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route61MaxPotion, EVENT_ROUTE_61_MAX_POTION
 	person_event SPRITE_POKE_BALL, 50, 45, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route61MaxElixer, EVENT_ROUTE_61_MAX_ELIXER
 
