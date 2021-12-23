@@ -194,6 +194,7 @@ ItemDescriptions:
 	dw ProtectorDesc
 	dw SalveyoWeedDesc
 	dw CatStatueDesc
+	dw ShellBoxDesc
 
 MasterBallDesc:
 	db   "The best BALL. It"
@@ -846,3 +847,7 @@ SalveyoWeedDesc:
 CatStatueDesc:
 	db   "Solid gold statue."
 	next "Worth a ton.@"
+	
+ShellBoxDesc:
+	db   "A quaint wooden"
+	next "box for shells.@"

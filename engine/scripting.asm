@@ -224,6 +224,9 @@ ScriptCommandTable: ; 96cb1
 	dw Script_check_save
 	dw Script_divemap
 	dw Script_divewarp
+	dw Script_giveshells
+	dw Script_checkshells
+	dw Script_readshells
 ; 96e05
 
 StartScript: ; 96e05
@@ -2646,3 +2649,54 @@ Script_divewarp:
 	ld a, 1
 	call LoadMapStatus
 	jp StopScript
+	
+Script_giveshells: ; 97881
+; parameters:
+;     shells (ShellByteParam)
+	call LoadShellAmountToMem
+	farcall GiveShells
+	ret
+; 9788b
+
+Script_checkshells: ; 97895
+; parameters:
+;     shells (ShellByteParam)
+	call LoadShellAmountToMem
+	farcall CheckShells
+	jr CompareShellAction
+; 978a0
+
+CompareShellAction: ; 9784f
+	jr c, .two
+	jr z, .one
+	ld a, 0
+	jr .done
+.one
+	ld a, 1
+	jr .done
+.two
+	ld a, 2
+.done
+	ld [ScriptVar], a
+	ret
+
+LoadShellAmountToMem: ; 978a0
+	call GetScriptByte
+	ld [hMoneyTemp + 1], a
+	call GetScriptByte
+	ld [hMoneyTemp], a
+	ld bc, hMoneyTemp
+	ret
+; 978ae
+
+Script_readshells: ; 97747
+; parameters:
+;     memory (SingleByteParam)
+	call ResetStringBuffer1
+	ld hl, StringBuffer1
+	ld de, Shells
+	lb bc, PRINTNUM_RIGHTALIGN | 2, 6
+	call PrintNum
+	ld de, StringBuffer1
+	jp ConvertMemToText
+; 9775c

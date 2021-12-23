@@ -583,7 +583,7 @@ FlyMap: ; 91c90
 ; Flypoints begin at Valencia...
 	ld [StartFlypoint], a
 ; ..and end at ...
-	ld a, FLY_PUMMELO
+	ld a, FLY_SHAMOUTI
 	ld [EndFlypoint], a
 	call FillOrangeMap
 	pop af

@@ -96,6 +96,53 @@ CompareFunds: ; 1600d
 	ret
 ; 16035
 
+CompareShells: ; 1600d
+; a: number of bytes
+; bc: start addr of amount (big-endian)
+; de: start addr of account (big-endian)
+	push hl
+	push de
+	push bc
+	ld h, b
+	ld l, c
+	ld c, 0
+	ld b, a
+.loop1
+	dec a
+	jr z, .done
+	inc de
+	inc hl
+	jr .loop1
+
+.done
+	and a
+.loop2
+	ld a, [de]
+	sbc [hl]
+	jr z, .okay
+	inc c
+
+.okay
+	dec de
+	dec hl
+	dec b
+	jr nz, .loop2
+	jr c, .set_carry
+	ld a, c
+	and a
+	jr .skip_carry
+
+.set_carry
+	ld a, 1
+	and a
+	scf
+.skip_carry
+	pop bc
+	pop de
+	pop hl
+	ret
+; 16035
+
 SubtractMoney: ; 16035
 	ld a, 3
 SubtractFunds: ; 16037
@@ -169,6 +216,41 @@ AddFunds: ; 16055
 	ret
 ; 1606f
 
+AddShells: ; 16055
+; a: number of bytes
+; bc: start addr of amount (big-endian)
+; de: start addr of account (big-endian)
+	push hl
+	push de
+	push bc
+
+	ld h, b
+	ld l, c
+	ld b, a
+.loop1
+	dec a
+	jr z, .done
+	inc de
+	inc hl
+	jr .loop1
+
+.done
+	and a
+.loop2
+	ld a, [de]
+	adc [hl]
+	ld [de], a
+	dec de
+	dec hl
+	dec b
+	jr nz, .loop2
+
+	pop bc
+	pop de
+	pop hl
+	ret
+; 1606f
+
 GiveCoins:: ; 1606f
 	ld a, 2
 	ld de, Coins
@@ -195,6 +277,32 @@ GiveCoins:: ; 1606f
 	bigdw 9999
 ; 1608f
 
+GiveShells:: ; 1606f
+	ld a, 2
+	ld de, Shells
+	call AddShells
+	ld a, 2
+	ld bc, .maxshells
+	call CompareShells
+	jr c, .not_maxed_shells
+	ld hl, .maxshells
+	ld a, [hli]
+	ld [de], a
+	inc de
+	ld a, [hli]
+	ld [de], a
+	scf
+	ret
+	
+.not_maxed_shells
+	and a
+	ret
+; 1608d
+
+.maxshells ; 1608d
+	bigdw 50
+; 1608f
+
 
 TakeCoins:: ; 1608f
 	ld a, 2
@@ -213,6 +321,12 @@ TakeCoins:: ; 1608f
 	and a
 	ret
 ; 160a1
+
+CheckShells:: ; 160a1
+	ld a, 2
+	ld de, Shells
+	jp CompareShells
+; 160a9
 
 CheckCoins:: ; 160a1
 	ld a, 2

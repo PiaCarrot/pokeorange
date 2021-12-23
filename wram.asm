@@ -2441,6 +2441,10 @@ wScreenSave:: ds 6 * 5
 
 wMapDataEnd::
 
+SECTION "Shells", WRAMX
+
+Shells:: ; d855
+	ds 2
 
 SECTION "Party", WRAMX
 

@@ -163,6 +163,7 @@
 	const PROTECTOR
 	const SALVEYO_WEED
 	const CAT_STATUE
+	const SHELL_BOX
 
 	add_tm POWERUPPUNCH ; $9d
 	add_tm DRAGON_PULSE ; $9e

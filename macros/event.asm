@@ -999,3 +999,15 @@ endc
 divewarp: macro
 	db divewarp_command
 	endm
+	
+	enum giveshells_command
+giveshells: macro
+	db giveshells_command
+	dw \1 ; shells
+	endm
+	
+	enum checkshells_command
+checkshells: macro
+	db checkshells_command
+	dw \1 ; shells
+	endm

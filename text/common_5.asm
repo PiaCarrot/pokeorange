@@ -469,3 +469,9 @@ AlreadyHaveTMText::
 	text "You already have"
 	line "that TM."
 	done
+	
+ShellBoxText::
+	text "Shells:"
+	line "@"
+	deciram Shells, 2, 4
+	db "@@"

@@ -177,6 +177,7 @@ ItemEffects: ; e73c
 	dw Protector
 	dw SalveyoWeed
 	dw CatStatue
+	dw ShellBox
 ; e8a2
 
 
@@ -2356,6 +2357,15 @@ CoinCase: ; f59a
 
 .coincasetext
 	text_jump UnknownText_0x1c5c7b
+	db "@"
+; f5a5
+
+ShellBox: ; f59a
+	ld hl, .shellboxtext
+	jp MenuTextBoxWaitButton
+
+.shellboxtext
+	text_jump ShellBoxText
 	db "@"
 ; f5a5
 

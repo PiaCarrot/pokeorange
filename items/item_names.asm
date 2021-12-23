@@ -161,6 +161,7 @@
 	db "PROTECTOR@"
 	db "SALVEYO WEED@"
 	db "CAT STATUE@"
+	db "SHELL BOX@"
 	db "TM01@"
 	db "TM02@"
 	db "TM03@"

@@ -114,21 +114,21 @@ ENDM
 	engine_flag VisitedSpawns + 0, 1 ; valencia
 	engine_flag VisitedSpawns + 0, 2 ; tangelo
 	engine_flag VisitedSpawns + 0, 3 ; mikan
-	                                 ; route 52
+									 ; route 52
 	engine_flag VisitedSpawns + 0, 5 ; mandarin north
 	engine_flag VisitedSpawns + 0, 6 ; sunburst
-	                                 ; route 56 west
+									 ; route 56 west
 	engine_flag VisitedSpawns + 1, 0 ; kinnow
 	engine_flag VisitedSpawns + 1, 1 ; navel
 	engine_flag VisitedSpawns + 1, 2 ; moro
 	engine_flag VisitedSpawns + 1, 3 ; murcott
 	engine_flag VisitedSpawns + 1, 4 ; trovitopolis
-	engine_flag VisitedSpawns + 1, 5 ; ascorbia
-	engine_flag VisitedSpawns + 1, 6 ; kumquat
-	engine_flag VisitedSpawns + 1, 7 ; pummelo
-	engine_flag VisitedSpawns + 2, 0 ; hamlin
-	engine_flag VisitedSpawns + 2, 1 ; shamouti
-
+	engine_flag VisitedSpawns + 1, 5 ; trovita
+	engine_flag VisitedSpawns + 1, 6 ; ascorbia
+	engine_flag VisitedSpawns + 1, 7 ; kumquat
+	engine_flag VisitedSpawns + 2, 0 ; pummelo
+	engine_flag VisitedSpawns + 2, 1 ; hamlin
+	engine_flag VisitedSpawns + 2, 2 ; shamouti
 	engine_flag VisitedSpawns + 2, 3 ; vermilion
 
 	; wDaycareMan, 7 ; daycare 1 on

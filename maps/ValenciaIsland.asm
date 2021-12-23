@@ -101,10 +101,8 @@ if def(DEBUG)
 	setflag ENGINE_FLYPOINT_HAMLIN
 	setflag ENGINE_FLYPOINT_SHAMOUTI
 	setflag ENGINE_FLYPOINT_VERMILION
-	clearevent EVENT_RED_ON_CLEOPATRA
-	clearevent EVENT_UNNAMED_POKE_CENTER_MISTY
-;	setevent EVENT_BEAT_RED
-;	setevent EVENT_BEAT_ORANGE_LEAGUE
+	setevent EVENT_BEAT_RED
+	setevent EVENT_BEAT_ORANGE_LEAGUE
 	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
 	giveitem SKATEBOARD
@@ -136,7 +134,9 @@ if def(DEBUG)
 	giveitem GOOD_ROD
 	giveitem COIN_CASE
 	giveitem SALVEYO_WEED
+	giveitem SHELL_BOX
 	givecoins 9999
+	giveshells 13
 	givemoney 0, 195000
 	opentext
 	givepoke LAPRAS, 100
