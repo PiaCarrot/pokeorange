@@ -724,6 +724,7 @@ Group1Sprites:
 ; Mandarin North
 Group13Sprites:
 ; Sunburst Island
+	db SPRITE_SEASHELL
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_FISHER
 	db SPRITE_GRAMPS
@@ -741,6 +742,7 @@ Group2Sprites:
 ; Route 60
 Group14Sprites:
 ; Golden Island
+	db SPRITE_SEASHELL
 	db SPRITE_JESSIE
 	db SPRITE_JAMES
 	db SPRITE_SWIMMER_GIRL
@@ -762,6 +764,7 @@ Group3Sprites:
 ; 7 Grapefruits
 ; Route 59
 ; Moro Island
+	db SPRITE_SEASHELL
 	db SPRITE_BIG_SNORLAX
 	db SPRITE_SIGHTSEER_F
 	db SPRITE_COOLTRAINER_F
@@ -780,6 +783,7 @@ Group4Sprites:
 ; Route 56 West
 ; Route 56 East
 ; Kinnow Island
+	db SPRITE_SEASHELL
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_FISHER
 	db SPRITE_POKEFAN_M
@@ -796,6 +800,7 @@ Group4Sprites:
 Group5Sprites:
 ; Route 52
 ; Mikan Island
+	db SPRITE_SEASHELL
 	db SPRITE_FISHER
 	db SPRITE_LASS
 	db SPRITE_SUPER_NERD
@@ -812,6 +817,7 @@ Group6Sprites:
 ; Murcott Island
 ; Unnamed Island 2
 ; Mandarin South
+	db SPRITE_SEASHELL
 	db SPRITE_TRACEY
 	db SPRITE_ROCKER
 	db SPRITE_GRAMPS
@@ -831,6 +837,7 @@ Group8Sprites:
 ; Valencia Port
 ; Tangelo Port
 ; Trovitopolis
+	db SPRITE_SEASHELL
 	db SPRITE_FISHING_GURU
 	db SPRITE_SAILOR
 	db SPRITE_FISHER
@@ -844,6 +851,7 @@ Group8Sprites:
 
 Group9Sprites:
 ; Ascorbia Island
+	db SPRITE_SEASHELL
 	db SPRITE_GRANNY
 	db SPRITE_YOUNGSTER
 	db SPRITE_BLACK_BELT
@@ -863,6 +871,7 @@ Group10Sprites:
 Group11Sprites:
 ; Route 49
 ; Valencia Island
+	db SPRITE_SEASHELL
 	db SPRITE_BUG_BOY
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_TRACEY
@@ -877,6 +886,7 @@ Group12Sprites:
 ; Route 50
 ; Route 51
 ; Tangelo Island
+	db SPRITE_SEASHELL
 	db SPRITE_BUG_BOY
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_TRACEY
@@ -889,6 +899,7 @@ Group12Sprites:
 
 Group15Sprites:
 ; Pummelo Island
+	db SPRITE_SEASHELL
 	db SPRITE_FRUIT_TREE
 	db SPRITE_POKE_BALL
 	db SPRITE_YOUNGSTER
@@ -901,6 +912,7 @@ Group15Sprites:
 	
 Group16Sprites:
 ; Kumquat Island
+	db SPRITE_SEASHELL
 	db SPRITE_POLITOED
 	db SPRITE_SIGHTSEER_F
 	db SPRITE_SAILBOAT_TOP
@@ -919,6 +931,7 @@ Group16Sprites:
 	
 Group17Sprites:
 ; Hamlin Island
+	db SPRITE_SEASHELL
 	db SPRITE_SIGHTSEER_F
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_COOLTRAINER_F

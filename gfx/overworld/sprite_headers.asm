@@ -477,3 +477,6 @@ DiverFemaleSwimSprite:
 
 DiverFemaleUWSprite:
 	sprite_header DiverFemaleUWSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BLUE
+
+SeashellSprite:
+	sprite_header SeashellSpriteGFX, 1, STILL_SPRITE, PAL_OW_BLUE

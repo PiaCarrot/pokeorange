@@ -25,6 +25,9 @@ NavelIslandSignText:
 	line "only! MT.NAVEL is"
 	cont "very dangerous!"
 	done
+	
+NavelSeashellScript:
+	end
 
 NavelIsland_MapEventHeader::
 
@@ -40,4 +43,5 @@ NavelIsland_MapEventHeader::
 .BGEvents: db 1
 	signpost 24, 16, SIGNPOST_READ, NavelIslandSign
 
-.ObjectEvents: db 0
+.ObjectEvents: db 1
+	person_event SPRITE_SEASHELL, 14,  2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, NavelSeashellScript, -1
