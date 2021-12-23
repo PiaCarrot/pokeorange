@@ -79,5 +79,5 @@ Route58_MapEventHeader::
 	signpost 12, 16, SIGNPOST_READ, Route58Sign
 
 .ObjectEvents: db 2
-	person_event SPRITE_FISHER, 7, 19, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route58SalesmanScript, -1
+	person_event SPRITE_FISHER,  6, 17, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route58SalesmanScript, -1
 	person_event SPRITE_COOLTRAINER_M, 14, 17, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, CooltrainerMAkira, -1
