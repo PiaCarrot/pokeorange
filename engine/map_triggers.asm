@@ -32,7 +32,7 @@ ENDM
 	trigger_def CLEOPATRA_ISLAND,			  wCleopatraIslandTrigger
 	trigger_def FUKUHARA_NO_4_BF1,			  wFukuharaNo4BF1Trigger
 	trigger_def ROUTE_63_NORTH_SOUTH, 		  wRoute63NorthSouthTrigger
-	trigger_def UNNAMED_ISLAND_1,			  wUnnamedIsland1Trigger
+	trigger_def NAVEL_ISLAND,			      wUnnamedIsland1Trigger
 	trigger_def BUTWAL_ISLAND_WEST,			  wButwalIslandWestTrigger
 	trigger_def TARROCO_ISLAND,				  wTarrocoIslandTrigger
 	trigger_def KUMQUAT_HOTEL_LOBBY,		  wKumquatHotelLobbyTrigger

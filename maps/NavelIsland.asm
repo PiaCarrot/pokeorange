@@ -1,8 +1,6 @@
 NavelIsland_MapScriptHeader::
 
-.MapTriggers: db 2
-	maptrigger .Trigger0
-	maptrigger .Trigger1
+.MapTriggers: db 0
 
 .Callbacks: db 1
 	dbw MAPCALLBACK_NEWMAP, .FlyPoint
@@ -37,8 +35,7 @@ NavelIsland_MapEventHeader::
 	warp_def 15, 10, 4, MT_NAVEL_2F
 	warp_def 21,  9, 1, UNNAMED_ISLAND_1_POKE_CENTER
 
-.CoordEvents: db 1
-	xy_trigger 0, 22,  9, UnnamedIsland1BlackOutMod
+.CoordEvents: db 0
 
 .BGEvents: db 1
 	signpost 24, 16, SIGNPOST_READ, NavelIslandSign
