@@ -1,3 +1,6 @@
+const_value set 1
+	const NAVEL_SEASHELL
+
 NavelIsland_MapScriptHeader::
 
 .MapTriggers: db 0
@@ -27,7 +30,35 @@ NavelIslandSignText:
 	done
 	
 NavelSeashellScript:
+	opentext
+	checkitem SHELL_BOX
+	iffalse .NoShellBox
+	writetext FoundNavelSeashell
+	playsound SFX_DEX_FANFARE_140_169
+	waitsfx
+	closetext
+	giveshells 1
+	setflag EVENT_NAVEL_ISLAND_SEASHELL
+	disappear NAVEL_SEASHELL
 	end
+	
+.NoShellBox:
+	writetext NavelNoShellBox
+	waitbutton
+	closetext
+	end
+	
+NavelNoShellBox:
+	text "What a pretty sea-"
+	line "shell. I don't"
+	cont "want to waste BAG"
+	cont "space for it."
+	done
+	
+FoundNavelSeashell:
+	text "You found a rare"
+	line "seashell!"
+	done
 
 NavelIsland_MapEventHeader::
 
@@ -44,4 +75,4 @@ NavelIsland_MapEventHeader::
 	signpost 24, 16, SIGNPOST_READ, NavelIslandSign
 
 .ObjectEvents: db 1
-	person_event SPRITE_SEASHELL, 14,  2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, NavelSeashellScript, -1
+	person_event SPRITE_SEASHELL, 14,  2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, NavelSeashellScript, EVENT_NAVEL_ISLAND_SEASHELL
