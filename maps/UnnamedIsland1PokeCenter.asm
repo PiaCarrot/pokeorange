@@ -115,8 +115,8 @@ UnnamedMistyText2:
 UnnamedIsland1PokeCenter_MapEventHeader::
 
 .Warps: db 2
-	warp_def 7, 4, 1, UNNAMED_ISLAND_1
-	warp_def 7, 5, 1, UNNAMED_ISLAND_1
+	warp_def 7, 4, 5, NAVEL_ISLAND
+	warp_def 7, 5, 5, NAVEL_ISLAND
 
 .CoordEvents: db 0
 

@@ -530,7 +530,7 @@ FlyMap: ; 91c90
 ; Flypoints begin at Valencia..
 	ld [StartFlypoint], a
 ; ..and end at ...
-	ld a, FLY_HAMLIN
+	ld a, FLY_SHAMOUTI
 	ld [EndFlypoint], a
 ; Fill out the map
 	call FillOrangeMap

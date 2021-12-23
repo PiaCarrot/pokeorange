@@ -8,17 +8,9 @@ const_value set 1
 
 UnnamedIsland1_MapScriptHeader::
 
-.MapTriggers: db 2
-	maptrigger .Trigger0
-	maptrigger .Trigger1
+.MapTriggers: db 0
 
 .MapCallbacks: db 0
-
-.Trigger0:
-	end
-
-.Trigger1:
-	end
 
 UnnamedIsland1Rock:
 	jumpstd smashrock
@@ -63,11 +55,9 @@ UnnamedIsland1BlackOutMod:
 
 UnnamedIsland1_MapEventHeader::
 
-.Warps: db 1
-	warp_def 15, 13, 1, UNNAMED_ISLAND_1_POKE_CENTER
+.Warps: db 0
 
-.CoordEvents: db 1
-	xy_trigger 0, 16, 13, UnnamedIsland1BlackOutMod
+.CoordEvents: db 0
 
 .BGEvents: db 0
 

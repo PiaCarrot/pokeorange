@@ -13,6 +13,10 @@ LoadSpecialMapPalette: ; 494ac
 	cp TILESET_ICE_PATH
 	jp z, .ice_path
 	
+	ld hl, NavelIslandPalette
+	cp TILESET_JOHTO_1
+	jp z, .navel_island
+
 	ld hl, CrystalCavePalette
 	cp TILESET_CAVE
 	jp z, .crystal_cave
@@ -82,6 +86,16 @@ LoadSpecialMapPalette: ; 494ac
 ; 494f2
 
 
+.navel_island
+	ld a, [MapGroup]
+	cp GROUP_NAVEL_ISLAND
+	jr nz, .do_nothing
+	ld a, [MapNumber]
+	ld hl, NavelIslandPalette
+	cp MAP_NAVEL_ISLAND
+	jr z, LoadEightTimeOfDayBGPalettes
+	jr .do_nothing
+
 .crystal_cave
 	ld a, [MapGroup]
 	cp GROUP_CRYSTAL_CAVE_1F
@@ -93,6 +107,7 @@ LoadSpecialMapPalette: ; 494ac
 	cp MAP_CRYSTAL_CAVE_B1
 	jr z, LoadEightBGPalettes
 	ld a, [MapNumber]
+	jr z, LoadEightBGPalettes
 	ld hl, VictoryRoadPalette
 	cp MAP_VICTORY_ROAD_F1
 	jr z, LoadEightBGPalettes
@@ -105,6 +120,8 @@ LoadSpecialMapPalette: ; 494ac
 	cp MAP_VICTORY_ROAD_EXIT_ROOM
 	jr z, LoadEightBGPalettes
 	jr .do_nothing
+	
+	
 
 	
 LoadEightTimeOfDayBGPalettes:
@@ -173,6 +190,9 @@ INCLUDE "tilesets/crystal_cave.pal"
 
 VictoryRoadPalette:
 INCLUDE "tilesets/victory_road.pal"
+
+NavelIslandPalette:
+INCLUDE "tilesets/navel_island.pal"
 
 OutsideDuskPalette:
 INCLUDE "tilesets/dusk.pal"

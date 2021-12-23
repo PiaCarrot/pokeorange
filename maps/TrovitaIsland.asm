@@ -127,7 +127,7 @@ TrovitaIslandSignText:
 TrovitaIsland_MapEventHeader::
 
 .Warps: db 2
-	warp_def 31, 40, 1, TROVITA_PORT
+	warp_def 31, 39, 1, TROVITA_PORT
 	warp_def 7, 22, 1, TROVITA_GYM
 
 .CoordEvents: db 0
