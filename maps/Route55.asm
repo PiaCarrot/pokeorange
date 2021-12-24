@@ -3,6 +3,7 @@ const_value set 1
 	const ROUTE_55_SWIMMER_GUY
 	const ROUTE_55_RUNNER
 	const ROUTE_55_ITEMBALL
+	const ROUTE_55_SEASHELL
 
 Route55_MapScriptHeader::
 
@@ -124,6 +125,37 @@ RangiSignText:
 
 	para "GITHUB lies here."
 	done
+	
+Route55SeashellScript:
+	opentext
+	checkitem SHELL_BOX
+	iffalse .NoShellBox
+	writetext FoundRoute55Seashell
+	playsound SFX_DEX_FANFARE_140_169
+	waitsfx
+	closetext
+	giveshells 1
+	setevent EVENT_ROUTE_55_SEASHELL
+	disappear ROUTE_55_SEASHELL
+	end
+	
+.NoShellBox:
+	writetext Route55NoShellBox
+	waitbutton
+	closetext
+	end
+	
+Route55NoShellBox:
+    text "What a pretty sea-"
+    line "shell! It looks"
+    cont "too fragile to"
+    cont "go in my BAG."
+    done
+	
+FoundRoute55Seashell:
+	text "You found a rare"
+	line "seashell!"
+	done
 
 Route55_MapEventHeader::
 
@@ -138,8 +170,9 @@ Route55_MapEventHeader::
 	signpost 22, 34, SIGNPOST_READ, RangiSign
 	signpost 42, 10, SIGNPOST_ITEM, Route55PotHiddenItem
 
-.ObjectEvents: db 4
+.ObjectEvents: db 5
 	person_event SPRITE_SWIMMER_GIRL, 19, 15, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerSwimmerMayumi, -1
 	person_event SPRITE_SWIMMER_GUY, 31, 34, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmerKosuke, -1
 	person_event SPRITE_COOLTRAINER_M, 40, 37, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerAthleteHideki, -1
 	person_event SPRITE_POKE_BALL, 39, 6, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route55MaxRevive, EVENT_ROUTE_55_MAX_REVIVE
+	person_event SPRITE_SEASHELL, 23, 32, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route55SeashellScript, EVENT_ROUTE_55_SEASHELL
