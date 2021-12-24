@@ -26,10 +26,39 @@ MotherScript:
 	end
 	
 .MotherBattle ;TODO
+	closetext
 	end
 
 TVScript:
+	checkevent EVENT_EON_DUO_WILD
+	iftrue .TvScriptNormal
+	checkevent EVENT_BEAT_ORANGE_LEAGUE
+	iffalse .TvScriptNormal
+	opentext
+	writetext EonDuoTVSpecial
+	waitbutton
+	closetext
+	setevent EVENT_EON_DUO_WILD
+	special InitRoamMons
+	end
+
+.TvScriptNormal
 	jumptext TVText
+
+EonDuoTVSpecial:
+	text "Breaking news!"
+	line "Two #MON"
+	cont "that were reported"
+	cont "to look like jets"
+	
+	para "have been seen"
+	line "flying around the"
+	cont "ORANGE ISLANDS."
+	cont "This broadcast was"
+	
+	para "Brought to you by"
+	line "HAMLIN TV!"
+	done
 
 StoveScript:
 	jumptext StoveText
@@ -94,8 +123,8 @@ TVText:
 	text "There's a movie on"
 	line "TV: Stars dot the"
 
-	para "sky as two boys"
-	line "ride on a train<...>"
+	para "sky as two kids"
+	line "sail on a raft<...>"
 
 	para "I'd better get"
 	line "rolling too!"

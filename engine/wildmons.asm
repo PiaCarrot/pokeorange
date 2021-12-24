@@ -482,33 +482,25 @@ InitRoamMons: ; 2a2a0
 	ld [wRoamMon1Species], a
 	ld a, LATIOS
 	ld [wRoamMon2Species], a
-;	ld a, TANGROWTH
-;	ld [wRoamMon3Species], a
 
 ; level
-	ld a, 70
+	ld a, 60
 	ld [wRoamMon1Level], a
 	ld [wRoamMon2Level], a
 ;	ld [wRoamMon3Level], a
 
-; raikou starting map
+; latias starting map
 	ld a, GROUP_ROUTE_49
 	ld [wRoamMon1MapGroup], a
 	ld a, MAP_ROUTE_49
 	ld [wRoamMon1MapNumber], a
 
-; entei starting map
-	ld a, GROUP_ROUTE_49
+; latios starting map
+	ld a, GROUP_ROUTE_69_SOUTH
 	ld [wRoamMon2MapGroup], a
-	ld a, MAP_ROUTE_49
+	ld a, MAP_ROUTE_69_SOUTH
 	ld [wRoamMon2MapNumber], a
-
-; suicune starting map
-;	ld a, GROUP_ROUTE_49
-;	ld [wRoamMon3MapGroup], a
-;	ld a, MAP_ROUTE_49
-;	ld [wRoamMon3MapNumber], a
-
+	
 ; hp
 	xor a ; generate new stats
 	ld [wRoamMon1HP], a
@@ -755,9 +747,11 @@ RoamMaps: ; 2a40f
 ; and possible maps they can jump to.
 ; Notably missing are Route 40 and
 ; Route 41, which are water routes.
-	roam_map ROUTE_49, 2, ROUTE_50, ROUTE_51
-	roam_map ROUTE_50, 2, ROUTE_49, ROUTE_51
-	roam_map ROUTE_51, 2, ROUTE_49, ROUTE_50
+	roam_map ROUTE_49, 4, ROUTE_50, ROUTE_51, ROUTE_52, ROUTE_53
+	roam_map ROUTE_55, 4, ROUTE_56_WEST, ROUTE_57, UNNAMED_ISLAND_1, SEVEN_GRAPEFRUITS
+	roam_map ROUTE_60, 4, ROUTE_61, UNNAMED_ISLAND_2, ROUTE_62, ROUTE_63_EAST_WEST
+	roam_map ROUTE_64, 4, ROUTE_65, BUTWAL_ISLAND_WEST, ROUTE_67, UNNAMED_ISLAND_3
+	roam_map ROUTE_69_SOUTH, 2, ROUTE_70, ROUTE_71
 	db -1
 ; 2a4a0
 
