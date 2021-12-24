@@ -62,12 +62,13 @@ FoundNavelSeashell:
 
 NavelIsland_MapEventHeader::
 
-.Warps: db 5
+.Warps: db 6
 	warp_def 21, 16, 1, MT_NAVEL_1F
 	warp_def 9, 26, 2, MT_NAVEL_1F
 	warp_def 27, 24, 3, MT_NAVEL_2F
 	warp_def 15, 10, 4, MT_NAVEL_2F
 	warp_def 21,  9, 1, UNNAMED_ISLAND_1_POKE_CENTER
+	warp_def 29, 17, 1, DANNYS_HOUSE
 
 .CoordEvents: db 0
 

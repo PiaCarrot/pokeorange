@@ -121,6 +121,7 @@ INCLUDE "maps/MtNavel1F.asm"
 INCLUDE "maps/MtNavel2F.asm"
 INCLUDE "maps/MtNavelIceRock.asm"
 INCLUDE "maps/MtNavelPeak.asm"
+INCLUDE "maps/DannysHouse.asm"
 
 
 SECTION "Seven Grapefruits Scripts", ROMX

@@ -88,6 +88,7 @@ PummeloIslandHouse3_BlockData:
 PummeloIslandHouse4_BlockData:
 PummeloIslandHouse5_BlockData:
 PummeloIslandHouse6_BlockData:
+DannysHouse_BlockData:
 	INCBIN "maps/House2.blk"
 
 Route52TangeloJungleGate_BlockData:
