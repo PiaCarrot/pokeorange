@@ -169,13 +169,13 @@ SevenGrapefruitsSeashellScript:
 	opentext
 	checkitem SHELL_BOX
 	iffalse .NoShellBox
+	giveshells 1
 	writetext FoundSevenGrapefruitsSeashell
 	playsound SFX_DEX_FANFARE_140_169
 	waitsfx
 	closetext
-	giveshells 1
-	setflag EVENT_SEVENGRAPEFRUITS_ISLAND_SEASHELL
 	disappear SEVENGRAPEFRUITS_SEASHELL
+	setevent EVENT_SEVENGRAPEFRUITS_ISLAND_SEASHELL
 	end
 	
 .NoShellBox:

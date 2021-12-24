@@ -125,7 +125,7 @@ TrovitaSeashellScript:
 	waitsfx
 	closetext
 	giveshells 1
-	setflag EVENT_TROVITA_ISLAND_SEASHELL
+	setevent EVENT_TROVITA_ISLAND_SEASHELL
 	disappear TROVITA_SEASHELL
 	end
 	

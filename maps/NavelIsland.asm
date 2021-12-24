@@ -38,7 +38,7 @@ NavelSeashellScript:
 	waitsfx
 	closetext
 	giveshells 1
-	setflag EVENT_NAVEL_ISLAND_SEASHELL
+	setevent EVENT_NAVEL_ISLAND_SEASHELL
 	disappear NAVEL_SEASHELL
 	end
 	
