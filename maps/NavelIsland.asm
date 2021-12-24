@@ -49,11 +49,11 @@ NavelSeashellScript:
 	end
 	
 NavelNoShellBox:
-	text "What a pretty sea-"
-	line "shell. I don't"
-	cont "want to waste BAG"
-	cont "space for it."
-	done
+    text "What a pretty sea-"
+    line "shell! It looks"
+    cont "too fragile to"
+    cont "go in my BAG."
+    done
 	
 FoundNavelSeashell:
 	text "You found a rare"

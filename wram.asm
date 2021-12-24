@@ -2233,6 +2233,9 @@ wIsDST:: ; d854
 
 Coins:: ; d855
 	ds 2
+	
+Shells:: ; d855
+	ds 2
 
 Badges:: ; d857
 	flag_array NUM_BADGES
@@ -2440,11 +2443,6 @@ XCoord:: ; dcb8
 wScreenSave:: ds 6 * 5
 
 wMapDataEnd::
-
-SECTION "Shells", WRAMX
-
-Shells:: ; d855
-	ds 2
 
 SECTION "Party", WRAMX
 

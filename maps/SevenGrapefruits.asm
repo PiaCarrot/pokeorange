@@ -1,10 +1,9 @@
 const_value set 1
 	const SEVENGRAPEFRUITS_BIG_SNORLAX
 	const SEVENGRAPEFRUITS_WORKER
-	const SEVENGRAPEFRUITS_GUARD1
-	const SEVENGRAPEFRUITS_GUARD2
 	const SEVENGRAPEFRUITS_ITEM_ULTRABALL
 	const SEVENGRAPEFRUITS_ITEM_PROTEIN
+	const SEVENGRAPEFRUITS_SEASHELL
 
 SevenGrapefruits_MapScriptHeader::
 
@@ -165,6 +164,37 @@ GrapefruitWarehouseSignText:
 	line "7 GRAPEFRUIT"
 	cont "ISLANDS!"
 	done
+	
+SevenGrapefruitsSeashellScript:
+	opentext
+	checkitem SHELL_BOX
+	iffalse .NoShellBox
+	writetext FoundSevenGrapefruitsSeashell
+	playsound SFX_DEX_FANFARE_140_169
+	waitsfx
+	closetext
+	giveshells 1
+	setflag EVENT_SEVENGRAPEFRUITS_ISLAND_SEASHELL
+	disappear SEVENGRAPEFRUITS_SEASHELL
+	end
+	
+.NoShellBox:
+	writetext SevenGrapefruitsNoShellBox
+	waitbutton
+	closetext
+	end
+	
+SevenGrapefruitsNoShellBox:
+    text "What a pretty sea-"
+    line "shell! It looks"
+    cont "too fragile to"
+    cont "go in my BAG."
+    done
+	
+FoundSevenGrapefruitsSeashell:
+	text "You found a rare"
+	line "seashell!"
+	done
 
 SevenGrapefruits_MapEventHeader::
 
@@ -177,8 +207,10 @@ SevenGrapefruits_MapEventHeader::
 	signpost 22, 7, SIGNPOST_ITEM, GrapefruitHiddenRareCandy
 	signpost 28, 32, SIGNPOST_READ, GrapefruitWarehouseSign
 
-.ObjectEvents: db 4
+.ObjectEvents: db 5
 	person_event SPRITE_BIG_SNORLAX, 38, 20, SPRITEMOVEDATA_SNORLAX, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GrapefruitsSnorlax, EVENT_SEVEN_GRAPEFRUITS_SNORLAX
 	person_event SPRITE_COOLTRAINER_F, 38, 19, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, GrapefruitsCooltrainer, -1
 	person_event SPRITE_POKE_BALL, 25, 33, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, GrapefruitUltraBall, EVENT_GRAPEFRUIT_ULTRA_BALL
 	person_event SPRITE_POKE_BALL, 15, 20, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, GrapefruitProtein, EVENT_GRAPEFRUIT_PROTEIN
+	person_event SPRITE_SEASHELL, 41,  4, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, SevenGrapefruitsSeashellScript, EVENT_SEVENGRAPEFRUITS_ISLAND_SEASHELL
+
