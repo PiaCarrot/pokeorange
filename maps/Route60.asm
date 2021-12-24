@@ -1,6 +1,13 @@
 const_value set 1
 	const ROUTE_60_JESSIE
 	const ROUTE_60_JAMES
+	const ROUTE_60_POKE_BALL
+	const ROUTE_60_SWIMMER_GIRL
+	const ROUTE_60_POKE_BALL2
+	const ROUTE_60_SWIMMER_GUY
+	const ROUTE_60_ROCKER
+	const ROUTE_60_SEASHELL
+	const ROUTE_60_SEASHELL_2
 
 Route60_MapScriptHeader::
 
@@ -210,6 +217,56 @@ BirdkeeperTatsuyaAfterText:
 	cont "not underestimate"
 	cont "their power!"
 	done
+	
+Route60SeashellScript:
+	opentext
+	checkitem SHELL_BOX
+	iffalse .NoShellBox
+	writetext FoundRoute60Seashell
+	playsound SFX_DEX_FANFARE_140_169
+	waitsfx
+	closetext
+	giveshells 1
+	setevent EVENT_ROUTE_60_SEASHELL
+	disappear ROUTE_60_SEASHELL
+	end
+	
+.NoShellBox:
+	writetext Route60NoShellBox
+	waitbutton
+	closetext
+	end
+	
+Route60NoShellBox:
+    text "What a pretty sea-"
+    line "shell! It looks"
+    cont "too fragile to"
+    cont "go in my BAG."
+    done
+	
+FoundRoute60Seashell:
+	text "You found a rare"
+	line "seashell!"
+	done
+	
+Route60Seashell2Script:
+	opentext
+	checkitem SHELL_BOX
+	iffalse .NoShellBox
+	writetext FoundRoute60Seashell
+	playsound SFX_DEX_FANFARE_140_169
+	waitsfx
+	closetext
+	giveshells 1
+	setevent EVENT_ROUTE_60_SEASHELL_2
+	disappear ROUTE_60_SEASHELL_2
+	end
+	
+.NoShellBox:
+	writetext Route60NoShellBox
+	waitbutton
+	closetext
+	end
 
 Route60_MapEventHeader::
 
@@ -226,7 +283,7 @@ Route60_MapEventHeader::
 .BGEvents: db 1
 	signpost 6, 16, SIGNPOST_READ, Route60Sign
 
-.ObjectEvents: db 7
+.ObjectEvents: db 9
 	person_event SPRITE_JESSIE, 13, 36, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_60_ROCKET
 	person_event SPRITE_JAMES, 13, 35, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_60_ROCKET
 	person_event SPRITE_POKE_BALL, 19, 46, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route60UltraBall, EVENT_ROUTE_60_ULTRA_BALL
@@ -234,4 +291,5 @@ Route60_MapEventHeader::
 	person_event SPRITE_POKE_BALL, 37, 31, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route60SuperRepel, EVENT_ROUTE_60_SUPER_REPEL
 	person_event SPRITE_SWIMMER_GUY, 53, 17, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerSwimmermTakao, -1
 	person_event SPRITE_ROCKER, 35, 30, SPRITEMOVEDATA_SPINRANDOM_FAST, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 3, TrainerBirdkeeperTatsuya, -1
-
+	person_event SPRITE_SEASHELL, 30,  6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route60SeashellScript, EVENT_ROUTE_60_SEASHELL
+	person_event SPRITE_SEASHELL, 59, 49, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route60Seashell2Script, EVENT_ROUTE_60_SEASHELL_2
