@@ -1618,14 +1618,14 @@ MaleTownMapPals:
 	RGB 00, 00, 00
 
 	RGB 28, 31, 20
-	RGB 00, 31, 00
-	RGB 00, 00, 31
-	RGB 00, 00, 00
+	RGB 31, 25, 01
+	RGB 10, 23, 23
+	RGB 23, 10, 02
 
 	RGB 28, 31, 20
-	RGB 00, 31, 00
-	RGB 15, 07, 00
-	RGB 00, 00, 00
+	RGB 31, 25, 01
+	RGB 23, 10, 02
+	RGB 23, 10, 02
 
 	;Town Icon
 	RGB 28, 31, 20
@@ -1634,19 +1634,19 @@ MaleTownMapPals:
 	RGB 00, 00, 00
 
 	RGB 28, 31, 20
-	RGB 00, 31, 00
-	RGB 00, 00, 31
-	RGB 31, 00, 00
+	RGB 31, 25, 01
+	RGB 10, 23, 23
+	RGB 23, 10, 02
 
 	RGB 28, 31, 20
-	RGB 00, 31, 00
-	RGB 15, 07, 00
+	RGB 31, 25, 01
+	RGB 23, 10, 02
 	RGB 31, 00, 00
 
-	RGB 00, 31, 00
-	RGB 15, 07, 00
-	RGB 00, 00, 31
-	RGB 00, 00, 00
+	RGB 31, 25, 01
+	RGB 23, 10, 02
+	RGB 10, 23, 23
+	RGB 23, 10, 02
 
 FemaleTownMapPals:
 	RGB 28, 31, 20
@@ -1655,14 +1655,14 @@ FemaleTownMapPals:
 	RGB 00, 00, 00
 
 	RGB 28, 31, 20
-	RGB 00, 31, 00
-	RGB 00, 00, 31
-	RGB 00, 00, 00
+	RGB 31, 25, 01
+	RGB 10, 23, 23
+	RGB 23, 10, 02
 
 	RGB 28, 31, 20
-	RGB 00, 31, 00
-	RGB 15, 07, 00
-	RGB 00, 00, 00
+	RGB 31, 25, 01
+	RGB 23, 10, 02
+	RGB 23, 10, 02
 
 	;Town Icon
 	RGB 28, 31, 20
@@ -1671,19 +1671,19 @@ FemaleTownMapPals:
 	RGB 00, 00, 00
 
 	RGB 28, 31, 20
-	RGB 00, 31, 00
-	RGB 00, 00, 31
-	RGB 31, 00, 00
+	RGB 31, 25, 01
+	RGB 10, 23, 23
+	RGB 23, 10, 02
 
 	RGB 28, 31, 20
-	RGB 00, 31, 00
-	RGB 15, 07, 00
+	RGB 31, 25, 01
+	RGB 23, 10, 02
 	RGB 31, 00, 00
 
-	RGB 00, 31, 00
-	RGB 15, 07, 00
-	RGB 00, 00, 31
-	RGB 00, 00, 00
+	RGB 31, 25, 01
+	RGB 23, 10, 02
+	RGB 10, 23, 23
+	RGB 23, 10, 02
 
 SlotMachinePals:
 	RGB 31, 31, 31
