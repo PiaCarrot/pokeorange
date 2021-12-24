@@ -5,6 +5,7 @@ const_value set 1
 	const CLEOPATRA_ISLAND_ITEMBALL_MAX_REPEL
 	const CLEOPATRA_ISLAND_ITEMBALL_ELIXER
 	const CLEOPATRA_ISLAND_RED
+	const CLEOPATRA_ISLAND_SEASHELL
 
 CleopatraIsland_MapScriptHeader:
 
@@ -225,6 +226,37 @@ CleopatraTadText3:
 	
 	para "Goodbye, for now!"
 	done
+	
+CleopatraSeashellScript:
+	opentext
+	checkitem SHELL_BOX
+	iffalse .NoShellBox
+	writetext FoundCleopatraSeashell
+	playsound SFX_DEX_FANFARE_140_169
+	waitsfx
+	closetext
+	giveshells 1
+	setevent EVENT_CLEOPATRA_ISLAND_SEASHELL
+	disappear CLEOPATRA_ISLAND_SEASHELL
+	end
+	
+.NoShellBox:
+	writetext CleopatraNoShellBox
+	waitbutton
+	closetext
+	end
+	
+CleopatraNoShellBox:
+    text "What a pretty sea-"
+    line "shell! It looks"
+    cont "too fragile to"
+    cont "go in my BAG."
+    done
+	
+FoundCleopatraSeashell:
+	text "You found a rare"
+	line "seashell!"
+	done
 
 CleopatraIsland_MapEventHeader::
 
@@ -236,11 +268,12 @@ CleopatraIsland_MapEventHeader::
 .BGEvents: db 1
 	signpost 33, 21, SIGNPOST_READ, CleopatraIslandSign
 
-.ObjectEvents: db 6
+.ObjectEvents: db 7
 	person_event SPRITE_COOLTRAINER_M, 5, 20, SPRITEMOVEDATA_STANDING_UP, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, CleopatraTadScript, EVENT_BEAT_COOLTRAINERM_TAD
 	person_event SPRITE_ROCKER, 4, 20, SPRITEMOVEDATA_STANDING_DOWN, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_CROSS_MET_ON_CLEOPATRA
 	person_event SPRITE_POKE_BALL, 7, 24, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, CleopatraIslandHyperPotion, EVENT_CLEOPATRA_ISLAND_HYPER_POTION
-	person_event SPRITE_POKE_BALL, 24, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, CleopatraIslandMaxRepel, EVENT_CLEOPATRA_ISLAND_MAX_REPEL
+	person_event SPRITE_POKE_BALL, 24, 11, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, CleopatraIslandMaxRepel, EVENT_CLEOPATRA_ISLAND_MAX_REPEL
 	person_event SPRITE_POKE_BALL, 10, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, CleopatraIslandElixer, EVENT_CLEOPATRA_ISLAND_ELIXER
 	person_event SPRITE_RED, 13, 19, SPRITEMOVEDATA_STANDING_UP, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, CleopatraRedEvent, EVENT_RED_ON_CLEOPATRA
+	person_event SPRITE_SEASHELL, 24,  2, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, CleopatraSeashellScript, EVENT_CLEOPATRA_ISLAND_SEASHELL
 
