@@ -154,4 +154,5 @@
 	dba Music_RocketMotto
 	dba Music_PinkanIsland
 	dba Music_ImakuniTheme
+	dba Music_CrossBattle
 ; e91a3

@@ -1294,14 +1294,17 @@ PlayBattleMusic: ; 2ee6c
 	
 	ld de, MUSIC_CIPHER_PEON
 	cp TRACEY_2
+	jp z, .done	
+
+	ld de, MUSIC_CROSS_BATTLE
+	cp CROSS
 	jp z, .done
 
 	ld de, MUSIC_RIVAL_BATTLE
 	ld a, [OtherTrainerClass]
 	cp TRACEY
 	jp z, .done
-	cp CROSS
-	jp z, .done
+
 	ld a, [wLinkMode]
 	and a
 	jp nz, .johtotrainer

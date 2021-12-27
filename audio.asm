@@ -218,6 +218,10 @@ INCLUDE "audio/music/rocketmotto.asm"
 INCLUDE "audio/music/pinkanisland.asm"
 INCLUDE "audio/music/imakunitheme.asm"
 
+SECTION "Songs MonstaRules", ROMX
+
+INCLUDE "audio/music/crossbattle.asm"
+
 SECTION "Sound Effects", ROMX
 
 INCLUDE "audio/sfx.asm"
