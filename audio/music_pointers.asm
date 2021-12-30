@@ -116,7 +116,7 @@
 	dba Music_Cinnabar
 	dba Music_PokeathelonFinal
 	dba Music_RidingLapras
-	dba Music_BWWild
+	dba Music_OrangeWild
 	dba Music_CianwoodCity
 	dba Music_SlateportCity
 	dba Music_SootopolisCity
