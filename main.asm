@@ -1229,11 +1229,11 @@ PlayBattleMusic: ; 2ee6c
 	and a
 	jr nz, .kantowild
 
-	ld de, MUSIC_BWWILD
+	ld de, MUSIC_ORANGEWILD
 	ld a, [TimeOfDay]
 	cp NITE
 	jp nz, .done
-	ld de, MUSIC_BWWILD
+	ld de, MUSIC_ORANGEWILD
 	jp .done
 
 .kantowild
