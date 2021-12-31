@@ -30,7 +30,6 @@ INCLUDE "audio/music/bicycle.asm"
 INCLUDE "audio/music/buenaspassword.asm"
 INCLUDE "audio/music/bugcatchingcontest.asm"
 INCLUDE "audio/music/burnedtower.asm"
-INCLUDE "audio/music/bwwild.asm"
 INCLUDE "audio/music/caveoforigin.asm"
 
 
@@ -218,9 +217,10 @@ INCLUDE "audio/music/rocketmotto.asm"
 INCLUDE "audio/music/pinkanisland.asm"
 INCLUDE "audio/music/imakunitheme.asm"
 
-SECTION "Songs MonstaRules", ROMX
+SECTION "Songs Monstarules", ROMX
 
 INCLUDE "audio/music/crossbattle.asm"
+INCLUDE "audio/music/orangewild.asm"
 
 SECTION "Sound Effects", ROMX
 
