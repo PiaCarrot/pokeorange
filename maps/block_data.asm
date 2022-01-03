@@ -96,6 +96,8 @@ Route62MandarinDesertGate_BlockData:
 AscorbiaIslandRoute63Gate_BlockData:
 Route69Gate_BlockData:
 KinnowShowboatGate_BlockData:
+HamlinRoute71Gate_BlockData:
+HamlinBridgeGate_BlockData:
 	INCBIN "maps/NorthSouthGate.blk"
 
 MikanIslandRoute53Gate_BlockData:
@@ -552,6 +554,9 @@ TarrocoIsland_BlockData:
 	
 Route71_BlockData:
 	INCBIN "maps/Route71.blk"
+
+Route71East_BlockData:
+	INCBIN "maps/Route71East.blk"
 	
 ShamoutiIsland_BlockData:
 	INCBIN "maps/ShamoutiIsland.blk"
@@ -564,3 +569,9 @@ KinnowShowboatInside_BlockData:
 	
 HamlinIsland_BlockData:
 	INCBIN "maps/HamlinIsland.blk"
+	
+PonchosHouse_BlockData:
+	INCBIN "maps/PonchosHouse.blk"
+	
+HamlinBridge_BlockData:
+	INCBIN "maps/HamlinBridge.blk"

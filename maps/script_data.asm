@@ -370,6 +370,8 @@ INCLUDE "maps/Route57.asm"
 INCLUDE "maps/Route57GateUpstairs.asm"
 INCLUDE "maps/Route58.asm"
 INCLUDE "maps/Route71.asm"
+INCLUDE "maps/Route71East.asm"
+INCLUDE "maps/PonchosHouse.asm"
 
 
 SECTION "Route Scripts 4", ROMX
@@ -400,6 +402,9 @@ INCLUDE "maps/Route69Gate.asm"
 SECTION "Hamlin Scripts", ROMX
 
 INCLUDE "maps/HamlinIsland.asm"
+INCLUDE "maps/HamlinBridge.asm"
+INCLUDE "maps/HamlinBridgeGate.asm"
+INCLUDE "maps/HamlinRoute71Gate.asm"
 
 SECTION "Fukuhara No 4 Scripts", ROMX
 

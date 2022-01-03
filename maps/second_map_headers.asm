@@ -225,11 +225,16 @@
 	connection west, ROUTE_70, Route70, 9, -2, 11, TARROCO_ISLAND
 	connection east, ROUTE_71, Route71, 10, 10, 10, TARROCO_ISLAND
 	
-	map_header_2 Route71, ROUTE_71, 53, WEST
+	map_header_2 Route71, ROUTE_71, 53, WEST | EAST
 	connection west, TARROCO_ISLAND, TarrocoIsland, 10, 10, 10, ROUTE_71
+	connection east, ROUTE_71_EAST, Route71East, 6, 6, 14, ROUTE_71
+	
+	map_header_2 Route71East, ROUTE_71_EAST, 53, WEST
+	connection west, ROUTE_71, Route71, 6, 6, 14, ROUTE_71_EAST
 	
 	map_header_2 ShamoutiIsland, SHAMOUTI_ISLAND, 53, 0
 	map_header_2 HamlinIsland, HAMLIN_ISLAND, 19, 0
+	map_header_2 HamlinBridge, HAMLIN_BRIDGE, 19, 0
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
 	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
@@ -400,6 +405,9 @@
 	map_header_2 PummeloMart, PUMMELO_MART, 0, 0
 	map_header_2 PummeloRoute70Gate, PUMMELO_ROUTE_70_GATE, 0, 0
 	map_header_2 Route70GateUpstairs, ROUTE_70_GATE_UPSTAIRS, 0, 0
+	map_header_2 PonchosHouse, PONCHOS_HOUSE, 0, 0
+	map_header_2 HamlinRoute71Gate, HAMLIN_ROUTE_71_GATE, 0, 0
+	map_header_2 HamlinBridgeGate, HAMLIN_BRIDGE_GATE, 0, 0
 
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0

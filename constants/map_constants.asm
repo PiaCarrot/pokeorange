@@ -246,10 +246,6 @@ MAP_NONE EQU 0
 	mapgroup PUMMELO_ISLAND, 25, 27
 	mapgroup HALL_OF_FAME, 6, 7
 	mapgroup PUMMELO_STADIUM, 10, 7
-	mapgroup ROUTE_70, 14, 24
-	mapgroup TARROCO_ISLAND, 20, 30
-	mapgroup ROUTE_71, 20, 36
-	mapgroup SHAMOUTI_ISLAND, 15, 18
 	mapgroup PUMMELO_ISLAND_HOUSE_1, 4, 4
 	mapgroup PUMMELO_ISLAND_HOUSE_2, 4, 4
 	mapgroup PUMMELO_ISLAND_HOUSE_3, 4, 4
@@ -298,6 +294,16 @@ MAP_NONE EQU 0
 	newgroup ; 17
 
 	mapgroup HAMLIN_ISLAND, 30, 20
+	mapgroup HAMLIN_BRIDGE, 30, 9
+	mapgroup ROUTE_70, 14, 24
+	mapgroup TARROCO_ISLAND, 20, 30
+	mapgroup ROUTE_71, 20, 36
+	mapgroup ROUTE_71_EAST, 20, 20
+	mapgroup PONCHOS_HOUSE, 3, 3
+	mapgroup SHAMOUTI_ISLAND, 15, 18
+	mapgroup HAMLIN_ROUTE_71_GATE, 4, 5
+	mapgroup HAMLIN_BRIDGE_GATE, 4, 5
+
 
 ; elevator floors
 
