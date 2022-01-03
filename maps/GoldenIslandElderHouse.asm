@@ -85,7 +85,7 @@ GoldenIslandElderScript:
 	waitsfx
 	writetext ElderTradeScriptText4
 	waitbutton
-	special SpecialTakeMeowth
+;	special SpecialTakeMeowth
 	closetext
 	setevent EVENT_ELDER_GOT_MEOWTH
 	end
