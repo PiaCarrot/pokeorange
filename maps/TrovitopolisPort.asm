@@ -53,7 +53,7 @@ LoreleiLanceTraceyPortScript:
 	pause 20
 	showemote EMOTE_SHOCK, PLAYER, 15
 	applymovement TROVITOPOLIS_PORT_TRACEY, TraceyTrovitopolisPortMovement1
-	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	playmusic MUSIC_TRACEY_ENCOUNTER
 	opentext
 	writetext TraceyPortText1
 	waitbutton

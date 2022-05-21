@@ -113,7 +113,7 @@ R62ClimbSignText:
 Route62TraceyScript:
 	faceplayer
 	showemote EMOTE_SHOCK, ROUTE_62_TRACEY, 15
-	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	playmusic MUSIC_TRACEY_ENCOUNTER
 	opentext
 	writetext TraceyRoute62Text
 	waitbutton
@@ -123,7 +123,7 @@ Route62TraceyScript:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
-	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	playmusic MUSIC_TRACEY_ENCOUNTER
 	opentext
 	writetext TraceyRoute62LeavingNowText
 	waitbutton

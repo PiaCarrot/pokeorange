@@ -107,7 +107,6 @@
 	dba Music_MobileAdapterMenu ; 0x17801f
 	dba Music_MobileAdapter ; 0x1fc87
 	dba Music_BuenasPassword ; 0x178153
-	dba Music_LookMysticalMan ; 0x17843b
 	dba Music_CrystalOpening ; 0x1786e8
 	dba Music_BattleTowerTheme ; 0x178889
 	dba Music_SuicuneBattle ; 0x178b81
