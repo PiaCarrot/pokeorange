@@ -45,7 +45,7 @@ Route64TraceyCrossEvent:
 	closetext
 	showemote EMOTE_QUESTION, ROUTE_64_TRACEY, 15
 	applymovement ROUTE_64_CROSS, ROUTE_64_CROSS_MOVEMENT
-	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	playmusic MUSIC_TRACEY_ENCOUNTER
 	spriteface ROUTE_64_TRACEY, UP
 	spriteface PLAYER, DOWN
 	opentext

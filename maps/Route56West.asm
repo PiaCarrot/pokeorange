@@ -134,7 +134,7 @@ SwimmerNaoyaAfterText:
 	done
 
 TraceyScript1:
-	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	playmusic MUSIC_TRACEY_ENCOUNTER
 	showemote EMOTE_SHOCK, ROUTE_56_TRACEY, 15
 	opentext
 	writetext TraceyYoText
@@ -149,7 +149,7 @@ TraceyScript1:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
-	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	playmusic MUSIC_TRACEY_ENCOUNTER
 	opentext
 	writetext TraceyLeavingNowText
 	waitbutton
@@ -166,7 +166,7 @@ TraceyScript1:
 	end
 
 TraceyScript2:
-	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	playmusic MUSIC_TRACEY_ENCOUNTER
 	showemote EMOTE_SHOCK, ROUTE_56_TRACEY, 15
 	opentext
 	writetext TraceyYoText
@@ -181,7 +181,7 @@ TraceyScript2:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
-	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	playmusic MUSIC_TRACEY_ENCOUNTER
 	opentext
 	writetext TraceyLeavingNowText
 	waitbutton

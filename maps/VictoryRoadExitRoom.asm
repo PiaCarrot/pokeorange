@@ -10,7 +10,7 @@ VictoryRoadExitRoom_MapScriptHeader::
 VictoryRoadTraceyScript:
 	faceplayer
 	showemote EMOTE_SHOCK, VICTORY_ROAD_TRACEY, 15
-	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	playmusic MUSIC_TRACEY_ENCOUNTER
 	opentext
 	writetext TraceyVictoryRoadText
 	waitbutton
@@ -20,7 +20,7 @@ VictoryRoadTraceyScript:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
-	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	playmusic MUSIC_TRACEY_ENCOUNTER
 	opentext
 	writetext TraceyVictoryRoadLeavingNowText
 	waitbutton

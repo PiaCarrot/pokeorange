@@ -61,7 +61,7 @@ TangeloTraceyScript:
 	end
 
 .TraceyBattle:
-	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	playmusic MUSIC_TRACEY_ENCOUNTER
 	writetext TraceyBattleText
 	waitbutton
 	closetext
@@ -70,7 +70,7 @@ TangeloTraceyScript:
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
-	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
+	playmusic MUSIC_TRACEY_ENCOUNTER
 	opentext
 	writetext TraceyLeavingTangelo
 	waitbutton

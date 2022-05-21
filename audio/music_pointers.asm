@@ -146,7 +146,6 @@
 	dba Music_SirdBattle
 	dba Music_CastleRoute
 	dba Music_Route24GBS
-	dba Music_CipherPeon
 	dba Music_DriftveilCity
 	dba Music_TangeloJungle
 	dba Music_CrystalCave
@@ -155,4 +154,9 @@
 	dba Music_PinkanIsland
 	dba Music_ImakuniTheme
 	dba Music_CrossBattle
+	dba Music_TraceyBattle
+	dba Music_MarshadowBattle
+	dba Music_WorldTournamentFinal
+	dba Music_TraceyEncounter
+	dba Music_Route69
 ; e91a3

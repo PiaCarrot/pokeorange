@@ -205,7 +205,6 @@ INCLUDE "audio/music/route111.asm"
 INCLUDE "audio/music/sirdbattle.asm"
 INCLUDE "audio/music/castleroute.asm"
 INCLUDE "audio/music/route24gbs.asm"
-INCLUDE "audio/music/cipherpeon.asm"
 INCLUDE "audio/music/driftveilcity.asm"
 
 SECTION "Songs Regen", ROMX
@@ -216,6 +215,13 @@ INCLUDE "audio/music/meetjessiejames.asm"
 INCLUDE "audio/music/rocketmotto.asm"
 INCLUDE "audio/music/pinkanisland.asm"
 INCLUDE "audio/music/imakunitheme.asm"
+INCLUDE "audio/music/traceybattle.asm"
+INCLUDE "audio/music/marshadowbattle.asm"
+INCLUDE "audio/music/PWTfinalorange.asm"
+
+SECTION "Songs Regen 2", ROMX
+INCLUDE "audio/music/traceyencounter.asm"
+INCLUDE "audio/music/route69heh.asm"
 
 SECTION "Songs Monstarules", ROMX
 

@@ -1291,19 +1291,17 @@ PlayBattleMusic: ; 2ee6c
 	ld de, MUSIC_SIRD_BATTLE
 	cp LAWRENCE
 	jp z, .done
-	
-	ld de, MUSIC_CIPHER_PEON
-	cp TRACEY_2
-	jp z, .done	
 
 	ld de, MUSIC_CROSS_BATTLE
 	cp CROSS
 	jp z, .done
 
-	ld de, MUSIC_RIVAL_BATTLE
+	ld de, MUSIC_TRACEY_BATTLE
 	ld a, [OtherTrainerClass]
 	cp TRACEY
 	jp z, .done
+	cp TRACEY_2
+	jp z, .done	
 
 	ld a, [wLinkMode]
 	and a
