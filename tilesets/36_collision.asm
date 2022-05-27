@@ -253,4 +253,4 @@
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; fc
 	tilecoll WALL, WALL, WALL, WALL ; fd
 	tilecoll TOP_WALL, TOP_WALL, FLOOR, FLOOR ; fe
-	tilecoll FLOOR, PUDDLE, FLOOR, FLOOR ; ff
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; ff
