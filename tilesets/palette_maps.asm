@@ -133,3 +133,6 @@ INCLUDE "tilesets/34_palette_map.asm"
 
 Tileset35PalMap:
 INCLUDE "tilesets/35_palette_map.asm"
+
+Tileset36PalMap:
+INCLUDE "tilesets/36_palette_map.asm"

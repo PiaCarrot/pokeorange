@@ -408,6 +408,7 @@
 	map_header_2 PonchosHouse, PONCHOS_HOUSE, 0, 0
 	map_header_2 HamlinRoute71Gate, HAMLIN_ROUTE_71_GATE, 0, 0
 	map_header_2 HamlinBridgeGate, HAMLIN_BRIDGE_GATE, 0, 0
+	map_header_2 ShamoutiShrine, SHAMOUTI_SHRINE, 53, 0
 
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0

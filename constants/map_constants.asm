@@ -303,6 +303,7 @@ MAP_NONE EQU 0
 	mapgroup SHAMOUTI_ISLAND, 15, 18
 	mapgroup HAMLIN_ROUTE_71_GATE, 4, 5
 	mapgroup HAMLIN_BRIDGE_GATE, 4, 5
+	mapgroup SHAMOUTI_SHRINE, 13, 12
 
 
 ; elevator floors

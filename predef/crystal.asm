@@ -56,6 +56,10 @@ LoadSpecialMapPalette: ; 494ac
 	ld hl, PummeloStadiumPalette
 	cp TILESET_GYM_1
 	jp z, LoadEightBGPalettes
+
+	ld hl, ShamoutiShrinePalette
+	cp TILESET_SHAMOUTI_SHRINE
+	jp z, LoadEightTimeOfDayBGPalettes
 	
 	cp TILESET_ILEX_FOREST
 	jp z, .outside
@@ -84,6 +88,8 @@ LoadSpecialMapPalette: ; 494ac
 	jr z, .do_nothing
 	jr LoadEightBGPalettes
 ; 494f2
+
+
 
 
 .navel_island
@@ -193,6 +199,9 @@ INCLUDE "tilesets/victory_road.pal"
 
 NavelIslandPalette:
 INCLUDE "tilesets/navel_island.pal"
+
+ShamoutiShrinePalette:
+INCLUDE "tilesets/shamoutishrine.pal"
 
 OutsideDuskPalette:
 INCLUDE "tilesets/dusk.pal"

@@ -575,3 +575,6 @@ PonchosHouse_BlockData:
 	
 HamlinBridge_BlockData:
 	INCBIN "maps/HamlinBridge.blk"
+	
+ShamoutiShrine_BlockData:
+	INCBIN "maps/ShamoutiShrine.blk"

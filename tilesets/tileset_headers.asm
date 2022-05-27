@@ -43,3 +43,4 @@ Tileset01::
 	tileset Tileset33
 	tileset Tileset34
 	tileset Tileset35
+	tileset Tileset36
