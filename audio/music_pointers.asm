@@ -158,4 +158,5 @@
 	dba Music_WorldTournamentFinal
 	dba Music_TraceyEncounter
 	dba Music_Route69
+	dba Music_LugiasSong2000_NoIntro
 ; e91a3

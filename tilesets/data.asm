@@ -288,3 +288,12 @@ Tileset36Meta:
 INCBIN "tilesets/36_metatiles.bin"
 Tileset36Coll:
 INCLUDE "tilesets/36_collision.asm"
+
+SECTION "Tileset Data 12", ROMX
+
+Tileset37GFX:
+INCBIN "gfx/tilesets/37.2bpp.lz"
+Tileset37Meta:
+INCBIN "tilesets/37_metatiles.bin"
+Tileset37Coll:
+INCLUDE "tilesets/37_collision.asm"

@@ -35,6 +35,7 @@ MapGroupRoofs: ; 1c021i
 	db  0 ; group 15 (Pummelo)
 	db  2 ; group 16 (Kumquat)
 	db  2 ; group 17 (Hamlin)
+	db  2 ; group 18 (Shamouti)
 ; 1c03c
 
 Roofs: ; 1c03c

@@ -693,6 +693,7 @@ SpriteMons: ; 14495
 	db FEAROW
 	db GLOOM
 	db POLITOED
+	db SLOWKING
 ; 144b8
 
 
@@ -716,6 +717,7 @@ OutdoorSprites: ; 144b8
 	dw Group15Sprites
 	dw Group16Sprites
 	dw Group17Sprites
+	dw Group18Sprites
 ; 144ec
 
 Group1Sprites:
@@ -932,6 +934,7 @@ Group16Sprites:
 Group17Sprites:
 ; Hamlin Island
 	db SPRITE_SEASHELL
+	db SPRITE_SLOWKING
 	db SPRITE_SIGHTSEER_F
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_COOLTRAINER_F
@@ -939,6 +942,19 @@ Group17Sprites:
 	db SPRITE_SWIMMER_GIRL
 	db SPRITE_SAILOR
 	db SPRITE_OFFICER
+	db SPRITE_FISHER
+	db SPRITE_LASS
+	db SPRITE_POKE_BALL
+	db SPRITE_FRUIT_TREE
+	db 0 ;end
+
+Group18Sprites:
+; Shamouti  Island
+	db SPRITE_SEASHELL
+	db SPRITE_SLOWKING
+	db SPRITE_KIMONO_GIRL
+	db SPRITE_SAGE
+	db SPRITE_BLACK_BELT
 	db SPRITE_FISHER
 	db SPRITE_LASS
 	db SPRITE_POKE_BALL

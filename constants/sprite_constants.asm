@@ -136,6 +136,7 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_FEAROW
 	const SPRITE_GLOOM
 	const SPRITE_POLITOED
+	const SPRITE_SLOWKING
 
 const_value SET $e0
 	const SPRITE_DAYCARE_MON_1         ; e0

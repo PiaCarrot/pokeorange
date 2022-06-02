@@ -300,12 +300,15 @@ MAP_NONE EQU 0
 	mapgroup ROUTE_71, 20, 36
 	mapgroup ROUTE_71_EAST, 20, 20
 	mapgroup PONCHOS_HOUSE, 3, 3
-	mapgroup SHAMOUTI_ISLAND, 15, 18
 	mapgroup HAMLIN_ROUTE_71_GATE, 4, 5
 	mapgroup HAMLIN_BRIDGE_GATE, 4, 5
+	
+	
+	newgroup ; 18
+
+	mapgroup SHAMOUTI_ISLAND, 15, 18
 	mapgroup SHAMOUTI_SHRINE, 13, 12
-
-
+	
 ; elevator floors
 
 	const_def

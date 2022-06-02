@@ -60,6 +60,10 @@ LoadSpecialMapPalette: ; 494ac
 	ld hl, ShamoutiShrinePalette
 	cp TILESET_SHAMOUTI_SHRINE
 	jp z, LoadEightTimeOfDayBGPalettes
+
+	ld hl, ShamoutiIslandPalette
+	cp TILESET_SHAMOUTI_ISLAND
+	jp z, LoadEightTimeOfDayBGPalettes
 	
 	cp TILESET_ILEX_FOREST
 	jp z, .outside
@@ -202,6 +206,9 @@ INCLUDE "tilesets/navel_island.pal"
 
 ShamoutiShrinePalette:
 INCLUDE "tilesets/shamoutishrine.pal"
+
+ShamoutiIslandPalette:
+INCLUDE "tilesets/shamoutiisland.pal"
 
 OutsideDuskPalette:
 INCLUDE "tilesets/dusk.pal"

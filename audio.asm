@@ -226,6 +226,7 @@ SECTION "Songs Monstarules", ROMX
 
 INCLUDE "audio/music/crossbattle.asm"
 INCLUDE "audio/music/orangewild.asm"
+INCLUDE "audio/music/lugiassong.asm"
 
 SECTION "Sound Effects", ROMX
 

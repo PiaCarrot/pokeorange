@@ -233,6 +233,7 @@
 	connection west, ROUTE_71, Route71, 6, 6, 14, ROUTE_71_EAST
 	
 	map_header_2 ShamoutiIsland, SHAMOUTI_ISLAND, 53, 0
+	
 	map_header_2 HamlinIsland, HAMLIN_ISLAND, 19, 0
 	map_header_2 HamlinBridge, HAMLIN_BRIDGE, 19, 0
 
