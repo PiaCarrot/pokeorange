@@ -25,7 +25,7 @@ ENDM
 	spawn KUMQUAT_ISLAND_EAST,  15,  16
 	spawn PUMMELO_ISLAND,  21, 30
 	spawn HAMLIN_ISLAND,   21,  32
-	spawn SHAMOUTI_ISLAND, 21,  14
+	spawn SHAMOUTI_ISLAND, 19,  12
 
     spawn VERMILION_CITY,  0,  0
 ;   spawn FUSCHIA_CITY,    0,  0

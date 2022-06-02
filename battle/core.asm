@@ -3503,6 +3503,8 @@ TryToRunAwayFromBattle: ; 3d8b3
 	jp z, .cant_escape
 	cp BATTLETYPE_SHINY
 	jp z, .cant_escape
+	cp BATTLETYPE_MARSHADOW
+	jp z, .can_escape
 
 	ld a, [wLinkMode]
 	and a

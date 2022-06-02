@@ -308,6 +308,8 @@ MAP_NONE EQU 0
 
 	mapgroup SHAMOUTI_ISLAND, 15, 18
 	mapgroup SHAMOUTI_SHRINE, 13, 12
+	mapgroup SHAMOUTI_NORTH_BEACH, 16, 14
+	mapgroup SHAMOUTI_BAY, 20, 30
 	
 ; elevator floors
 

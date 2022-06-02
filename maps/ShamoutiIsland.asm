@@ -117,6 +117,7 @@ ShamoutiBlackbelt1ScriptText:
 	
 ShamoutiBlackbelt2Script:
 	jumptextfaceplayer ShamoutiBlackbelt2ScriptText
+	end
 
 ShamoutiBlackbelt2ScriptText:
 	text "So many lights!"

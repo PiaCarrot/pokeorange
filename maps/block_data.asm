@@ -578,3 +578,9 @@ HamlinBridge_BlockData:
 	
 ShamoutiShrine_BlockData:
 	INCBIN "maps/ShamoutiShrine.blk"
+
+ShamoutiNorthBeach_BlockData:
+	INCBIN "maps/ShamoutiNorthBeach.blk"
+	
+ShamoutiBay_BlockData:
+	INCBIN "maps/ShamoutiBay.blk"

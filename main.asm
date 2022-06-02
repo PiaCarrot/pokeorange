@@ -1218,6 +1218,10 @@ PlayBattleMusic: ; 2ee6c
 	ld de, MUSIC_SUICUNE_BATTLE
 	cp BATTLETYPE_ROAMING
 	jp z, .done
+	
+	ld de, MUSIC_MARSHADOW_BATTLE
+	cp BATTLETYPE_MARSHADOW
+	jp z, .done
 
 	; Are we fighting a trainer?
 	ld a, [OtherTrainerClass]

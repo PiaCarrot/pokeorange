@@ -309,6 +309,8 @@ SECTION "Shamouti Scripts", ROMX
 
 INCLUDE "maps/ShamoutiIsland.asm"
 INCLUDE "maps/ShamoutiShrine.asm"
+INCLUDE "maps/ShamoutiNorthBeach.asm"
+INCLUDE "maps/ShamoutiBay.asm"
 
 SECTION "Pallet Scripts", ROMX
 
