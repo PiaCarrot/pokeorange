@@ -312,6 +312,7 @@ MAP_NONE EQU 0
 	mapgroup SHAMOUTI_BAY, 20, 30
 	mapgroup LIGHTNING_ISLAND, 20, 30
 	mapgroup ICE_ISLAND, 20, 28
+	mapgroup FIRE_ISLAND, 24, 20
 	
 ; elevator floors
 

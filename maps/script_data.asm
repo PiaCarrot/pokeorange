@@ -313,6 +313,7 @@ INCLUDE "maps/ShamoutiNorthBeach.asm"
 INCLUDE "maps/ShamoutiBay.asm"
 INCLUDE "maps/LightningIsland.asm"
 INCLUDE "maps/IceIsland.asm"
+INCLUDE "maps/FireIsland.asm"
 
 SECTION "Pallet Scripts", ROMX
 

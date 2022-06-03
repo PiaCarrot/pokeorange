@@ -120,6 +120,8 @@ LoadSpecialMapPalette: ; 494ac
 	jr z, LoadEightTimeOfDayBGPalettes
 	cp MAP_LIGHTNING_ISLAND
 	jr z, LoadEightTimeOfDayBGPalettes
+	cp MAP_FIRE_ISLAND
+	jr z, LoadEightTimeOfDayBGPalettes
 	ld a, [MapNumber]
 	ld hl, IceIslandPalette
 	cp MAP_ICE_ISLAND

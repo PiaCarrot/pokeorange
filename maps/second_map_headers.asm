@@ -247,8 +247,12 @@
 	connection south, SHAMOUTI_NORTH_BEACH, ShamoutiNorthBeach, 10, 0, 15, LIGHTNING_ISLAND
 	connection west, ICE_ISLAND, IceIsland, 0, 4, 14, LIGHTNING_ISLAND
 
-	map_header_2 IceIsland, ICE_ISLAND, 53, EAST
+	map_header_2 IceIsland, ICE_ISLAND, 53, SOUTH | EAST
+	connection south, FIRE_ISLAND, FireIsland, 0, 4, 16, ICE_ISLAND
 	connection east, LIGHTNING_ISLAND, LightningIsland, 4, 0, 15, ICE_ISLAND
+
+	map_header_2 FireIsland, FIRE_ISLAND, 53, NORTH
+	connection north, ICE_ISLAND, IceIsland, 4, 0, 18, FIRE_ISLAND
 	
 	map_header_2 HamlinIsland, HAMLIN_ISLAND, 19, 0
 	map_header_2 HamlinBridge, HAMLIN_BRIDGE, 19, 0

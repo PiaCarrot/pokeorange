@@ -590,3 +590,6 @@ LightningIsland_BlockData:
 
 IceIsland_BlockData:
 	INCBIN "maps/IceIsland.blk"
+
+FireIsland_BlockData:
+	INCBIN "maps/FireIsland.blk"
