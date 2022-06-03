@@ -237,14 +237,14 @@
 	connection east, SHAMOUTI_BAY, ShamoutiBay, 2, 0, 15, SHAMOUTI_ISLAND
 	
 	map_header_2 ShamoutiNorthBeach, SHAMOUTI_NORTH_BEACH, 53, NORTH | SOUTH
-	connection north, LIGHTNING_ISLAND, LightningIsland, 0, 0, 15, SHAMOUTI_NORTH_BEACH
+	connection north, LIGHTNING_ISLAND, LightningIsland, 0, 10, 15, SHAMOUTI_NORTH_BEACH
 	connection south, SHAMOUTI_ISLAND, ShamoutiIsland, 4, 8, 7, SHAMOUTI_NORTH_BEACH
 	
 	map_header_2 ShamoutiBay, SHAMOUTI_BAY, 53, WEST
 	connection west, SHAMOUTI_ISLAND, ShamoutiIsland, -2, 0, 15, SHAMOUTI_BAY
 	
 	map_header_2 LightningIsland, LIGHTNING_ISLAND, 53, SOUTH
-	connection south, SHAMOUTI_NORTH_BEACH, ShamoutiNorthBeach, 0, 0, 15, LIGHTNING_ISLAND
+	connection south, SHAMOUTI_NORTH_BEACH, ShamoutiNorthBeach, 10, 0, 15, LIGHTNING_ISLAND
 	
 	map_header_2 HamlinIsland, HAMLIN_ISLAND, 19, 0
 	map_header_2 HamlinBridge, HAMLIN_BRIDGE, 19, 0

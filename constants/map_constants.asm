@@ -310,7 +310,7 @@ MAP_NONE EQU 0
 	mapgroup SHAMOUTI_SHRINE, 13, 12
 	mapgroup SHAMOUTI_NORTH_BEACH, 16, 14
 	mapgroup SHAMOUTI_BAY, 20, 30
-	mapgroup LIGHTNING_ISLAND, 20, 20
+	mapgroup LIGHTNING_ISLAND, 20, 30
 	
 ; elevator floors
 
