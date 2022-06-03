@@ -587,3 +587,6 @@ ShamoutiBay_BlockData:
 	
 LightningIsland_BlockData:
 	INCBIN "maps/LightningIsland.blk"
+
+IceIsland_BlockData:
+	INCBIN "maps/IceIsland.blk"

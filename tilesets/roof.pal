@@ -105,3 +105,9 @@
 	RGB 00, 14, 10
 	RGB 09, 09, 17
 	RGB 05, 07, 13
+
+; group 18 (Shamouti Island)
+	RGB 00, 20, 10
+	RGB 00, 14, 10
+	RGB 09, 09, 17
+	RGB 05, 07, 13

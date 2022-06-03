@@ -60,10 +60,10 @@ LoadSpecialMapPalette: ; 494ac
 	ld hl, ShamoutiShrinePalette
 	cp TILESET_SHAMOUTI_SHRINE
 	jp z, LoadEightTimeOfDayBGPalettes
-
+	
 	ld hl, ShamoutiIslandPalette
 	cp TILESET_SHAMOUTI_ISLAND
-	jp z, LoadEightTimeOfDayBGPalettes
+	jp z, .shamouti_island
 	
 	cp TILESET_ILEX_FOREST
 	jp z, .outside
@@ -78,7 +78,7 @@ LoadSpecialMapPalette: ; 494ac
 	cp DUSK_HOUR
 	jr nz, .not_outside_dusk
 	ld hl, OutsideDuskPalette
-	jr LoadEightBGPalettes
+	jp LoadEightBGPalettes
 .not_outside_dusk
 
 .do_nothing
@@ -89,8 +89,8 @@ LoadSpecialMapPalette: ; 494ac
 	ld a, [wPermission] ; permission
 	and $7
 	cp INDOOR ; Hall of Fame
-	jr z, .do_nothing
-	jr LoadEightBGPalettes
+	jp z, .do_nothing
+	jp LoadEightBGPalettes
 ; 494f2
 
 
@@ -106,6 +106,26 @@ LoadSpecialMapPalette: ; 494ac
 	jr z, LoadEightTimeOfDayBGPalettes
 	jr .do_nothing
 
+.shamouti_island
+	ld a, [MapGroup]
+	cp GROUP_SHAMOUTI_ISLAND
+	jr nz, .do_nothing
+	ld a, [MapNumber]
+	ld hl, ShamoutiIslandPalette
+	cp MAP_SHAMOUTI_ISLAND
+	jr z, LoadEightTimeOfDayBGPalettes
+	cp MAP_SHAMOUTI_BAY
+	jr z, LoadEightTimeOfDayBGPalettes
+	cp MAP_SHAMOUTI_NORTH_BEACH
+	jr z, LoadEightTimeOfDayBGPalettes
+	cp MAP_LIGHTNING_ISLAND
+	jr z, LoadEightTimeOfDayBGPalettes
+	ld a, [MapNumber]
+	ld hl, IceIslandPalette
+	cp MAP_ICE_ISLAND
+	jr z, LoadEightTimeOfDayBGPalettes
+	jr .do_nothing
+
 .crystal_cave
 	ld a, [MapGroup]
 	cp GROUP_CRYSTAL_CAVE_1F
@@ -117,7 +137,6 @@ LoadSpecialMapPalette: ; 494ac
 	cp MAP_CRYSTAL_CAVE_B1
 	jr z, LoadEightBGPalettes
 	ld a, [MapNumber]
-	jr z, LoadEightBGPalettes
 	ld hl, VictoryRoadPalette
 	cp MAP_VICTORY_ROAD_F1
 	jr z, LoadEightBGPalettes
@@ -209,6 +228,9 @@ INCLUDE "tilesets/shamoutishrine.pal"
 
 ShamoutiIslandPalette:
 INCLUDE "tilesets/shamoutiisland.pal"
+
+IceIslandPalette:
+INCLUDE "tilesets/iceisland.pal"
 
 OutsideDuskPalette:
 INCLUDE "tilesets/dusk.pal"
