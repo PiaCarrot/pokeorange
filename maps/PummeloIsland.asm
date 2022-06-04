@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const PUMMELO_ISLAND_YOUNGSTER
 	const PUMMELO_ISLAND_CROSS
 	const PUMMELO_ISLAND_FRUITTREE_1

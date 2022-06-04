@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ROUTE59_SWIMMERM_KAZUMA
 	const ROUTE59_LIGHTBALL
 

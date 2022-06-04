@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const MORO_FISHING_GURU
 
 MoroFishingHouse_MapScriptHeader:

@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const MURCOTT_ISLAND_CROSS
 	const MURCOTT_LASS
 	const MURCOTT_FRUIT_TREE

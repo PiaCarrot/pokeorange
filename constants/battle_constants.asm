@@ -33,7 +33,7 @@ NUM_LEVEL_STATS EQU const_value
 MOVE_CATEGORY EQU MOVE_TYPE
 
 ; stat constants
-const_value SET 1
+const_value = 1
 	const STAT_HP
 	const STAT_ATK
 	const STAT_DEF
@@ -45,7 +45,7 @@ STAT_MIN_NORMAL EQU 5
 STAT_MIN_HP EQU 10
 
 ; battle classes
-const_value SET 1
+const_value = 1
 	const WILD_BATTLE
 	const TRAINER_BATTLE
 

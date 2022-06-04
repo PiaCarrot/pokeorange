@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const GOLDEN_ISLAND_CATMAN_1
 	const GOLDEN_ISLAND_CATMAN_2
 	const GOLDEN_ISLAND_CATMAN_3

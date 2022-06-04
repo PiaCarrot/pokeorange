@@ -1,6 +1,6 @@
 
 ; pokemon
-const_value set 1
+const_value = 1
 	const BULBASAUR
 	const IVYSAUR
 	const VENUSAUR
@@ -255,7 +255,7 @@ const_value set 1
 	const LATIAS
 	const LATIOS
 
-const_value SET const_value + -1
+const_value = const_value + -1
 
 NUM_POKEMON EQU const_value
 
@@ -307,7 +307,7 @@ FORM_MASK    EQU %00000011
 MALE_MASK    EQU %11110000
 FEMALE_MASK  EQU %00000000
 
-const_value set 1
+const_value = 1
 	const SPINDA_A_FORM
 	const SPINDA_B_FORM
 	const SPINDA_C_FORM
@@ -363,7 +363,7 @@ SPINDA_X_DVS EQUS "$fd, $fe"
 SPINDA_Y_DVS EQUS "$fe, $db"
 SPINDA_Z_DVS EQUS "$fe, $fe"
 
-const_value set 1
+const_value = 1
 	const MAGIKARP_PLAIN_FORM
 	const MAGIKARP_SKELLY_FORM
 	const MAGIKARP_CALICO1_FORM
@@ -395,96 +395,96 @@ MAGIKARP_BUBBLES_DVS  EQUS "$fd, $9f"
 MAGIKARP_FOREHEAD_DVS EQUS "$fe, $bd"
 MAGIKARP_MASK_DVS     EQUS "$fe, $fe"
 
-const_value set 1
+const_value = 1
 	const ONIX_NORMAL_FORM
 	const ONIX_CRYSTAL_FORM
 
-const_value set 1
+const_value = 1
 	const STEELIX_NORMAL_FORM
 	const STEELIX_CRYSTAL_FORM
 	
-const_value set 1
+const_value = 1
 	const EXEGGUTOR_NORMAL_FORM
 	const EXEGGUTOR_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const GRIMER_NORMAL_FORM
 	const GRIMER_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const MUK_NORMAL_FORM
 	const MUK_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const PERSIAN_NORMAL_FORM
 	const PERSIAN_ALOLAN_FORM
 
-const_value set 1
+const_value = 1
 	const VULPIX_NORMAL_FORM
 	const VULPIX_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const NINETALES_NORMAL_FORM
 	const NINETALES_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const SANDSHREW_NORMAL_FORM
 	const SANDSHREW_ALOLAN_FORM
 
-const_value set 1
+const_value = 1
 	const SANDSLASH_NORMAL_FORM
 	const SANDSLASH_ALOLAN_FORM
 
-const_value set 1
+const_value = 1
 	const RATTATA_NORMAL_FORM
 	const RATTATA_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const RATICATE_NORMAL_FORM
 	const RATICATE_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const DIGLETT_NORMAL_FORM
 	const DIGLETT_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const DUGTRIO_NORMAL_FORM
 	const DUGTRIO_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const GEODUDE_NORMAL_FORM
 	const GEODUDE_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const GRAVELER_NORMAL_FORM
 	const GRAVELER_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const GOLEM_NORMAL_FORM
 	const GOLEM_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const RAICHU_NORMAL_FORM
 	const RAICHU_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const MAROWAK_NORMAL_FORM
 	const MAROWAK_KANTONESE_FORM
 
-const_value set 1
+const_value = 1
 	const SQUIRTLE_NORMAL_FORM
 	const SQUIRTLE_GLASSES_FORM
 
-const_value set 1
+const_value = 1
 	const MEOWTH_NORMAL_FORM
 	const MEOWTH_ALOLAN_FORM
 	const MEOWTH_ROCKET_FORM
 
-const_value set 1
+const_value = 1
 	const POLIWRATH_NORMAL_FORM
 	const POLIWRATH_TAD_FORM
 
-const_value set 1
+const_value = 1
 	const LYCANROC_MIDDAY_FORM
 	const LYCANROC_MIDNIGHT_FORM
 	const LYCANROC_DUSK_FORM
@@ -494,7 +494,7 @@ const_value set 1
 CAUGHTGENDER_MASK   EQU %10000000
 CAUGHTLOCATION_MASK EQU %01111111
 
-const_value SET 1
+const_value = 1
 	const MONMENU_CUT        ; 1
 	const MONMENU_FLY        ; 2
 	const MONMENU_SURF       ; 3

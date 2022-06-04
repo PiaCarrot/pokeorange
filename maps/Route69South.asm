@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ROUTE_69_POKEBALL_1
 	const ROUTE_69_POKEBALL_2
 	const ROUTE_69_POKEBALL_3

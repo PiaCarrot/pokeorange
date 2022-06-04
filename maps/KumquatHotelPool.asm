@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const KUMQUAT_POOL_TRAINER_1
 	const KUMQUAT_POOL_TRAINER_2
 	const KUMQUAT_POOL_TRAINER_TRAD

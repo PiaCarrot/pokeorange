@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const MIKANMART_CLERK
 	const MIKANMART_GRANNY
 	const MIKANMART_COOLTRAINER_M

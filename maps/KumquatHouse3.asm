@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ROUTE_67_ATTRACT_TUTOR
 
 KumquatHouse3_MapScriptHeader::

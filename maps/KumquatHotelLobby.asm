@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const KUMQUAT_LOBBY_RECEPTIONIST
 	const KUMQUAT_LOBBY_GYM_GUY
 	const KUMQUAT_LOBBY_LUANA

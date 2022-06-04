@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const WRECKED_SHIP_SEASHELL
 
 WreckedShip_MapScriptHeader::

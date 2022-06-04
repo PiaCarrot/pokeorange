@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const UNNAMED_ISLAND_2_FAST_BALL
 	const UNNAMED_ISLAND_2_PP_UP
 	const UNNAMED_ISLAND_2_TRADE_STONE

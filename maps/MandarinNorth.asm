@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const MANDARINNORTH_LASS
 	const MANDARINNORTH_GURU
 	const MANDARINNORTH_POKE_BALL1

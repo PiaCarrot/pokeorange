@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const DANNYS_HOUSE_SHELL_BOX
 
 DannysHouse_MapScriptHeader:

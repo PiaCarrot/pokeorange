@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const KUMQUATMART_CLERK
 
 KumquatMart_MapScriptHeader:

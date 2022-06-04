@@ -348,7 +348,7 @@ MAP_NONE EQU 0
 	shift_const NORTH
 
 ; permissions
-const_value SET 1
+const_value = 1
 	const TOWN
 	const ROUTE
 	const INDOOR
@@ -494,7 +494,7 @@ EMOTE_OBJECT EQU 7
 	const PERSONTYPE_6
 
 ; fruit trees
-const_value SET 1
+const_value = 1
 	const FRUITTREE_ROUTE_49
 	const FRUITTREE_ROUTE_50_1
 	const FRUITTREE_ROUTE_50_2

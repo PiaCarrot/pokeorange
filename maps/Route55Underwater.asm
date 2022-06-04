@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ROUTE_55_WATER_PULSE
 	const ROUTE_55_NUGGET
 

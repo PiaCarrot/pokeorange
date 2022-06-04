@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const FISHING_CONTEST_GRAMPS
 
 FishingContest_MapScriptHeader::

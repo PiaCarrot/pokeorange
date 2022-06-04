@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const DEPT_STORE_6F_COOLTRAINER
 
 TrovitopolisDeptStore6F_MapScriptHeader:

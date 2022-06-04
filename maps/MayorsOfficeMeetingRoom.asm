@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const MAYORS_OFFICE_MAYOR
 	const MAYORS_OFFICE_JESSIE
 	const MAYORS_OFFICE_JAMES

@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const TANGELOPORT_SAILOR
 	const TANGELOPORT_POKE_BALL
 

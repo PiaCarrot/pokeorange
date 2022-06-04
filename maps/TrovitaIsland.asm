@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const TROVITA_ISLAND_MISTY
 	const TROVITA_ISLAND_ROCK1
 	const TROVITA_ISLAND_ROCK2

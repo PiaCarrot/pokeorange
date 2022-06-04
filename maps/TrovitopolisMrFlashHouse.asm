@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const TROVITOPOLIS_MR_FLASH
 	
 TrovitopolisMrFlashHouse_MapScriptHeader:

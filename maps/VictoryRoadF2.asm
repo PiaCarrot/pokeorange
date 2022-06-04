@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const VR_F2_CAMPER_1
 	const VR_F2_CAMPER_2
 	const VR_F2_CATMAN

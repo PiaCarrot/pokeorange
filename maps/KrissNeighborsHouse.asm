@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const KRISSNEIGHBORSHOUSE_COOLTRAINER_F
 	const KRISSNEIGHBORSHOUSE_POKEDEX
 

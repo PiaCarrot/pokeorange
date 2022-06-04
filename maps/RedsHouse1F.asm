@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const REDSHOUSE1F_REDS_MOM
 
 RedsHouse1F_MapScriptHeader:

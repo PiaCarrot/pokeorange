@@ -1,4 +1,4 @@
-const_value SET 1
+const_value = 1
 	const TILESET_JOHTO_1              ; 01
 	const TILESET_JOHTO_2              ; 02
 	const TILESET_KANTO                ; 03
@@ -47,7 +47,7 @@ const_value SET 1
 	const PAL_BG_ROOF
 	const PAL_BG_TEXT
 
-const_value SET $80
+const_value = $80
 	const PAL_BG_PRIORITY_GRAY   ; 80
 	const PAL_BG_PRIORITY_RED    ; 81
 	const PAL_BG_PRIORITY_GREEN  ; 82

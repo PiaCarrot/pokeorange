@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const HAMLIN_ROUTE_71_GATE_OFFICER
 
 HamlinRoute71Gate_MapScriptHeader:

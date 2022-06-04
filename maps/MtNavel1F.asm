@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const MT_NAVEL_BOULDER
 	const MT_NAVEL_CROSS
 

@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ROUTE52TANGELOJUNGLEGATE_OFFIER
 
 Route52TangeloJungleGate_MapScriptHeader:

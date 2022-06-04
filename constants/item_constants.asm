@@ -276,7 +276,7 @@ CANT_TOSS   EQU 1 << 7
 	const HELD_7
 	const HELD_CLEANSE_TAG
 
-const_value SET 10
+const_value = 10
 	const HELD_HEAL_PINK
 	const HELD_HEAL_POISON
 	const HELD_HEAL_FREEZE
@@ -286,7 +286,7 @@ const_value SET 10
 	const HELD_HEAL_STATUS
 	const HELD_HEAL_CONFUSION
 
-const_value SET 20
+const_value = 20
 	const HELD_PREVENT_POISON
 	const HELD_PREVENT_BURN
 	const HELD_PREVENT_FREEZE
@@ -294,7 +294,7 @@ const_value SET 20
 	const HELD_PREVENT_PARALYZE
 	const HELD_PREVENT_CONFUSE
 
-const_value SET 30
+const_value = 30
 	const HELD_30
 	const HELD_ATTACK_UP
 	const HELD_DEFENSE_UP
@@ -305,13 +305,13 @@ const_value SET 30
 	const HELD_EVASION_UP
 	const HELD_38
 
-const_value SET 40
+const_value = 40
 	const HELD_40
 	const HELD_41
 	const HELD_METAL_POWDER
 	const HELD_QUICK_POWDER
 
-const_value SET 50
+const_value = 50
 	const HELD_NORMAL_BOOST
 	const HELD_FIGHTING_BOOST
 	const HELD_FLYING_BOOST
@@ -331,7 +331,7 @@ const_value SET 50
 	const HELD_STEEL_BOOST
 	const HELD_FAIRY_BOOST
 
-const_value SET 70
+const_value = 70
 	const HELD_CATCH_CHANCE
 	const HELD_71
 	const HELD_ESCAPE
@@ -396,7 +396,7 @@ ITEMMENU_CLOSE              EQU 6
 	const PARTYMENUACTION_07
 	const PARTYMENUACTION_08
 
-const_value set $f0
+const_value = $f0
 	const PARTYMENUTEXT_HEAL_PSN
 	const PARTYMENUTEXT_HEAL_BRN
 	const PARTYMENUTEXT_HEAL_FRZ

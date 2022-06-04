@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ROUTE_55_SWIMMER_GIRL
 	const ROUTE_55_SWIMMER_GUY
 	const ROUTE_55_RUNNER

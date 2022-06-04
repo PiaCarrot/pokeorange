@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ROUTE_64_ULTRA_BALL
 	const ROUTE_64_CROSS
 	const ROUTE_64_TRACEY

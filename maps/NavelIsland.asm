@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const NAVEL_SEASHELL
 
 NavelIsland_MapScriptHeader::

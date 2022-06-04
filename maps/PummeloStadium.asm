@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const PUMMELO_STADIUM_SPECTATOR1
 	const PUMMELO_STADIUM_SPECTATOR2
 	const PUMMELO_STADIUM_DRAKE

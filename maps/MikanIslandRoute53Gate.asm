@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const MIKANISLANDROUTE53GATE_OFFICER
 	const MIKANISLANDROUTE53GATE_YOUNGSTER
 

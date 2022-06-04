@@ -126,7 +126,7 @@
 	const SPRITE_DIVER_FEMALE_UW
 	const SPRITE_SEASHELL
 
-const_value SET $90
+const_value = $90
 SPRITE_POKEMON EQU const_value
 	const SPRITE_SHELLDER              ; 90
 	const SPRITE_PIKACHU               ; 91
@@ -142,16 +142,16 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_ARTICUNO
 	const SPRITE_LUGIA
 
-const_value SET $e0
+const_value = $e0
 	const SPRITE_DAYCARE_MON_1         ; e0
 	const SPRITE_DAYCARE_MON_2         ; e1
 
-const_value SET $f0
+const_value = $f0
 SPRITE_VARS EQU const_value
 	const SPRITE_BIG_DOLL              ; f0
 
 ; sprite types
-const_value SET 1
+const_value = 1
 	const WALKING_SPRITE
 	const STANDING_SPRITE
 	const STILL_SPRITE
@@ -178,7 +178,7 @@ NUM_SPRITEHEADER_FIELDS EQU const_value
 	const PAL_OW_TREE   ; 06
 	const PAL_OW_ROCK   ; 07
 
-const_value SET PAL_OW_SILVER
+const_value = PAL_OW_SILVER
 	const PAL_OW_GRAY   ; 05
 	const PAL_OW_YELLOW ; 06
 	const PAL_OW_TEAL   ; 07

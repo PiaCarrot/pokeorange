@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ASCORBIA_FAN_CLUB_PRESIDENT
 	const ASCORBIA_FAN_CLUB_MEMBER_1
 	const ASCORBIA_FAN_CLUB_MEMBER_2
