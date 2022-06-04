@@ -30,6 +30,11 @@ ShamoutiChiefText2:
 	cont "outside of this"
 	cont "building. My kid"
 	cont "will fill you in."
+	
+	para "I will let the"
+	line "GUARD on the beach"
+	cont "know to let you"
+	cont "through."
 	done
 
 ShamoutiChiefText1:
@@ -89,10 +94,15 @@ ShamoutiChiefText1:
 	cont "outside of this"
 	cont "building. My kid"
 	cont "will fill you in."
+	
+	para "I will let the"
+	line "GUARD on the beach"
+	cont "know to let you"
+	cont "through."
 	done
 	
 ChiefSage1Script:
-	jumptextfaceplayer ChiefSage1Text
+	jumptext ChiefSage1Text
 	
 ChiefSage1Text:
 	text "<...>And she says"
@@ -101,7 +111,7 @@ ChiefSage1Text:
 	done
 	
 ChiefSage2Script:
-	jumptextfaceplayer ChiefSage2Text
+	jumptext ChiefSage2Text
 	
 ChiefSage2Text:
 	text "Hehehe<...>"
