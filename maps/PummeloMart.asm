@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const PUMMELO_CLERK
 	const PUMMELO_CLERK_OFFICER
 

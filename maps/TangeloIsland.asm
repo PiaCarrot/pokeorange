@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const TANGELOISLAND_LAPRAS
 	const TANGELOISLAND_TRACEY
 	const TANGELOISLAND_TEACHER

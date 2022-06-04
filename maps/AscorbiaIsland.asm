@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ASCORBIA_ISLAND_TEACHER
 	const ASCORBIA_ISLAND_LASS
 	const ASCORBIA_ISLAND_ROCKER

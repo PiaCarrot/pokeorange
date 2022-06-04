@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const VR_POKEBALL_1
 	const VR_TRAINER_1
 	const VR_TRAINER_2

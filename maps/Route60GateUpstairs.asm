@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
  const ROUTE_60_GATE_COOLTRAINER_F
 
 Route60GateUpstairs_MapScriptHeader:

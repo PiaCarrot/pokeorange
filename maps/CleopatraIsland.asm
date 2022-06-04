@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const CLEOPATRA_ISLAND_TAD
 	const CLEOPATRA_ISLAND_CROSS
 	const CLEOPATRA_ISLAND_ITEMBALL_HYPER_POTION

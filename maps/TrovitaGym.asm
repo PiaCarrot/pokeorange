@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const TROVITA_GYM_RUDY
 	const TROVITA_GYM_GUY
 	const TROVITA_GYM_MORIKO

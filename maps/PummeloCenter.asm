@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const PUMMELO_NURSE
 	const PUMMELO_SLOUCH
 	const PUMMELO_CENTER_FISHER

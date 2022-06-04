@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ROUTE_65_HIKER_DALE
 	const ROUTE_65_YOUNGSTER_ORO
 	const ROUTE_65_PP_UP

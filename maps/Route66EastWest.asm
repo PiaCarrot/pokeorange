@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ROUTE_63_EAST_WEST_ITEMBALL_PINK_BOW
 	const ROUTE_63_EAST_WEST_ITEMBALL_LOCK_ON
 	const ROUTE_63_EAST_WEST_FISHER

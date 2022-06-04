@@ -103,7 +103,7 @@
 	const TEXT_TRANSLATION
 	const PAAD_TESTING
 
-const_value SET -7
+const_value = -7
 	const CREDITS_THEEND
 	const CREDITS_WAIT2
 	const CREDITS_MUSIC

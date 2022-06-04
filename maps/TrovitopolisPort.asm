@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const TROVITOPOLIS_PORT_SAILOR_1
 	const TROVITOPOLIS_PORT_LORELEI
 	const TROVITOPOLIS_PORT_LANCE

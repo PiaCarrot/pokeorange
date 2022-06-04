@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ROUTE_62_GATE_OFFICER
 
 Route62MandarinDesertGate_MapScriptHeader:

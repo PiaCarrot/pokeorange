@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const UNNAMED_ISLAND_3_POLITOED_1
 	const UNNAMED_ISLAND_3_POLITOED_2
 	const UNNAMED_ISLAND_3_POLITOED_3

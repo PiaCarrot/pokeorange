@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const KUMQUAT_UMBRELLA_LEFT_1
 	const KUMQUAT_UMBRELLA_RIGHT_1
 	const KUMQUAT_UMBRELLA_LEFT_2

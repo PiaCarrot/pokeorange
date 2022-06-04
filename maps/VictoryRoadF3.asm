@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const VR_F3_DIVER_1
 	const VR_F3_SIGHTSEER
 	const VR_F3_DIVER_2

@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const GAMECORNER_CLERK
 	const GAMECORNER_POKEFAN_F
 	const GAMECORNER_COOLTRAINER_F

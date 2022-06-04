@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const MORO_COOLTRAINER_M
 	const MORO_COOLTRAINER_F
 	const MORO_FATTY

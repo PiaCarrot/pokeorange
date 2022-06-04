@@ -17,7 +17,7 @@ ALL_FEMALE  EQU 254
 GENDERLESS  EQU 255
 
 ; egg group constants
-const_value SET 1
+const_value = 1
 	const MONSTER      ; 1
 	const AMPHIBIAN    ; 2
 	const INSECT       ; 3
@@ -35,7 +35,7 @@ const_value SET 1
 	const NO_EGGS      ; f
 
 ; menu sprites
-const_value SET 1
+const_value = 1
 	const ICON_BULBASAUR
 	const ICON_IVYSAUR
 	const ICON_VENUSAUR
@@ -292,7 +292,7 @@ const_value SET 1
 	const ICON_EGG
 
 ; evolution types
-const_value SET 1
+const_value = 1
 	const EVOLVE_LEVEL
 	const EVOLVE_ITEM
 	const EVOLVE_TRADE
@@ -309,13 +309,13 @@ FRIEND_BALL_HAPPINESS EQU 200
 ; happiness evolution triggers
 HAPPINESS_TO_EVOLVE EQU 220
 
-const_value SET 1
+const_value = 1
 	const TR_ANYTIME
 	const TR_MORNDAY
 	const TR_NITE
 
 ; stat evolution triggers
-const_value SET 1
+const_value = 1
 	const ATK_GT_DEF
 	const ATK_LT_DEF
 	const ATK_EQ_DEF

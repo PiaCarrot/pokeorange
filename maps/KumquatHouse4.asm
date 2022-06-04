@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const KUMQUAT_HOUSE_4_POKEFAN_F
 
 KumquatHouse4_MapScriptHeader::

@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const FUKUHARA_BF1_BUTCH
 	const FUKUHARA_BF1_CASSIDY
 	const FUKUHARA_BF1_ITEMBALL_ULTRA_BALL

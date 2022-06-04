@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const TROVITOPOLISDEPTSTORE2F_CLERK1
 	const TROVITOPOLISDEPTSTORE2F_CLERK2
 

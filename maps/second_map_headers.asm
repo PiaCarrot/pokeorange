@@ -1,285 +1,285 @@
 	map_header_2 ValenciaIsland, VALENCIA_ISLAND, 53, WEST
-	connection west, ROUTE_49, Route49, 0, 2, 9, VALENCIA_ISLAND
+	connection west, Route49, ROUTE_49, -2
 
 	map_header_2 Route49, ROUTE_49, 32, NORTH | EAST
-	connection north, VALENCIA_TANGELO_ROUTE_49, ValenciaTangeloRoute49, -1, 0, 12, ROUTE_49
-	connection east, VALENCIA_ISLAND, ValenciaIsland, 2, 0, 9, ROUTE_49
+	connection north, ValenciaTangeloRoute49, VALENCIA_TANGELO_ROUTE_49, -1
+	connection east, ValenciaIsland, VALENCIA_ISLAND, 2
 
 	map_header_2 ValenciaTangeloRoute49, VALENCIA_TANGELO_ROUTE_49, 53, NORTH | SOUTH | WEST
-	connection north, ROUTE_51, Route51, 0, 0, 20, VALENCIA_TANGELO_ROUTE_49
-	connection south, ROUTE_49, Route49, 1, 0, 12, VALENCIA_TANGELO_ROUTE_49
-	connection west, TANGELO_ISLAND, TangeloIsland, -1, 0, 12, VALENCIA_TANGELO_ROUTE_49
+	connection north, Route51, ROUTE_51, 0
+	connection south, Route49, ROUTE_49, 1
+	connection west, TangeloIsland, TANGELO_ISLAND, -1
 
 	map_header_2 TangeloIsland, TANGELO_ISLAND, 53, NORTH | EAST
-	connection north, ROUTE_50, Route50, 9, 0, 11, TANGELO_ISLAND
-	connection east, VALENCIA_TANGELO_ROUTE_49, ValenciaTangeloRoute49, 1, 0, 12, TANGELO_ISLAND
+	connection north, Route50, ROUTE_50, 9
+	connection east, ValenciaTangeloRoute49, VALENCIA_TANGELO_ROUTE_49, 1
 
 	map_header_2 Route50, ROUTE_50, 32, SOUTH | EAST
-	connection south, TANGELO_ISLAND, TangeloIsland, -2, 7, 11, ROUTE_50
-	connection east, ROUTE_51, Route51, 8, 0, 14, ROUTE_50
+	connection south, TangeloIsland, TANGELO_ISLAND, -9
+	connection east, Route51, ROUTE_51, 8
 
 	map_header_2 Route51, ROUTE_51, 32, SOUTH | WEST
-	connection south, VALENCIA_TANGELO_ROUTE_49, ValenciaTangeloRoute49, 0, 0, 20, ROUTE_51
-	connection west, ROUTE_50, Route50, -8, 0, 24, ROUTE_51
+	connection south, ValenciaTangeloRoute49, VALENCIA_TANGELO_ROUTE_49, 0
+	connection west, Route50, ROUTE_50, -8
 
 	map_header_2 Route52, ROUTE_52, 53, NORTH
-	connection north, MIKAN_ISLAND, MikanIsland, 0, 0, 11, ROUTE_52
+	connection north, MikanIsland, MIKAN_ISLAND, 0
 
 	map_header_2 MikanIsland, MIKAN_ISLAND, 32, SOUTH
-	connection south, ROUTE_52, Route52, 0, 0, 11, MIKAN_ISLAND
+	connection south, Route52, ROUTE_52, 0
 
 	map_header_2 Route53, ROUTE_53, 53, SOUTH | NORTH
-	connection north, ROUTE_54, Route54, 21, 1, 10, ROUTE_53
-	connection south, SUNBURST_ISLAND, SunburstIsland, 21, 11, 9, ROUTE_53
+	connection north, Route54, ROUTE_54, 20
+	connection south, SunburstIsland, SUNBURST_ISLAND, 10
 
 	map_header_2 Route54, ROUTE_54, 53, NORTH | SOUTH
-	connection north, MANDARIN_NORTH, MandarinNorth, 0, 4, 11, ROUTE_54
-	connection south, ROUTE_53, Route53, 0, 20, 11, ROUTE_54
+	connection north, MandarinNorth, MANDARIN_NORTH, -4
+	connection south, Route53, ROUTE_53, -20
 
 	map_header_2 SunburstIsland, SUNBURST_ISLAND, 53, NORTH
-	connection north, ROUTE_53, Route53, 10, 20, 11, SUNBURST_ISLAND
+	connection north, Route53, ROUTE_53, -10
 
 	map_header_2 MandarinNorth, MANDARIN_NORTH, 32, SOUTH
-	connection south, ROUTE_54, Route54, 4, 0, 10, MANDARIN_NORTH
+	connection south, Route54, ROUTE_54, 4
 
 	map_header_2 Route55, ROUTE_55, 53, EAST
-	connection east, PINKAN_ISLAND, PinkanIsland, 10, 0, 10, ROUTE_55
+	connection east, PinkanIsland, PINKAN_ISLAND, 10
 
 	map_header_2 PinkanIsland, PINKAN_ISLAND, 53, WEST | EAST
-	connection west, ROUTE_55, Route55, 0, 10, 12, PINKAN_ISLAND
-	connection east, ROUTE_56_WEST, Route56West, 0, 0, 17, PINKAN_ISLAND
+	connection west, Route55, ROUTE_55, -10
+	connection east, Route56West, ROUTE_56_WEST, 0
 
 	map_header_2 Route56West, ROUTE_56_WEST, 53, WEST | EAST
-	connection west, PINKAN_ISLAND, PinkanIsland, 0, 0, 17, ROUTE_56_WEST
-	connection east, ROUTE_56_EAST, Route56East, 0, 0, 17, ROUTE_56_WEST
+	connection west, PinkanIsland, PINKAN_ISLAND, 0
+	connection east, Route56East, ROUTE_56_EAST, 0
 
 	map_header_2 Route56East, ROUTE_56_EAST, 53, WEST | NORTH
-	connection north, KINNOW_ISLAND, KinnowIsland, 25, 0, 12, ROUTE_56_EAST
-	connection west, ROUTE_56_WEST, Route56West, 0, 0, 17, ROUTE_56_EAST
+	connection north, KinnowIsland, KINNOW_ISLAND, 25
+	connection west, Route56West, ROUTE_56_WEST, 0
 
 	map_header_2 KinnowIsland, KINNOW_ISLAND, 53, SOUTH
-	connection south, ROUTE_56_EAST, Route56East, 0, 25, 12, KINNOW_ISLAND
+	connection south, Route56East, ROUTE_56_EAST, -25
 
 	map_header_2 Route57, ROUTE_57, 53, NORTH | EAST
-	connection north, UNNAMED_ISLAND_1, UnnamedIsland1, 0, 0, 12, ROUTE_57
-	connection east, SEVEN_GRAPEFRUITS, SevenGrapefruits, 0, 0, 22, ROUTE_57
+	connection north, UnnamedIsland1, UNNAMED_ISLAND_1, 0
+	connection east, SevenGrapefruits, SEVEN_GRAPEFRUITS, 0
 
 	map_header_2 UnnamedIsland1, UNNAMED_ISLAND_1, 53, SOUTH | EAST | NORTH
-	connection north, ROUTE_57_NORTH, Route57North, 0, 0, 12, UNNAMED_ISLAND_1
-	connection south, ROUTE_57, Route57, 0, 0, 12, UNNAMED_ISLAND_1
-	connection east, ROUTE_58, Route58, 2, 0, 10, UNNAMED_ISLAND_1
+	connection north, Route57North, ROUTE_57_NORTH, 0
+	connection south, Route57, ROUTE_57, 0
+	connection east, Route58, ROUTE_58, 2
 
 	map_header_2 Route58, ROUTE_58, 53, WEST | EAST | SOUTH
-	connection south, SEVEN_GRAPEFRUITS, SevenGrapefruits, 0, 0, 18, ROUTE_58
-	connection west, UNNAMED_ISLAND_1, UnnamedIsland1, -2, 0, 10, ROUTE_58
-	connection east, NAVEL_ISLAND, NavelIsland, 0, 8, 10, ROUTE_58
+	connection south, SevenGrapefruits, SEVEN_GRAPEFRUITS, 0
+	connection west, UnnamedIsland1, UNNAMED_ISLAND_1, -2
+	connection east, NavelIsland, NAVEL_ISLAND, -8
 
 	map_header_2 NavelIsland, NAVEL_ISLAND, 53, WEST
-	connection west, ROUTE_58, Route58, 8, 0, 10, NAVEL_ISLAND
+	connection west, Route58, ROUTE_58, 8
 
 	map_header_2 SevenGrapefruits, SEVEN_GRAPEFRUITS, 53, WEST | NORTH | SOUTH
-	connection north, ROUTE_58, Route58, 0, 0, 18, SEVEN_GRAPEFRUITS
-	connection south, ROUTE_59, Route59, 5, 0, 12, SEVEN_GRAPEFRUITS
-	connection west, ROUTE_57, Route57, 0, 0, 22, SEVEN_GRAPEFRUITS
+	connection north, Route58, ROUTE_58, 0
+	connection south, Route59, ROUTE_59, 5
+	connection west, Route57, ROUTE_57, 0
 
 	map_header_2 Route59, ROUTE_59, 53, NORTH | SOUTH
-	connection north, SEVEN_GRAPEFRUITS, SevenGrapefruits, -2, 3, 16, ROUTE_59
-	connection south, MORO_ISLAND, MoroIsland, 0, 6, 12, ROUTE_59
+	connection north, SevenGrapefruits, SEVEN_GRAPEFRUITS, -5
+	connection south, MoroIsland, MORO_ISLAND, -6
 
 	map_header_2 MoroIsland, MORO_ISLAND, 53, NORTH
-	connection north, ROUTE_59, Route59, 6, 0, 12, MORO_ISLAND
+	connection north, Route59, ROUTE_59, 6
 
 	map_header_2 Route61, ROUTE_61, 53, SOUTH | WEST | EAST
-	connection south, UNNAMED_ISLAND_2, UnnamedIsland2, 7, 0, 8, ROUTE_61
-	connection west, ROUTE_62, Route62, 8, 0, 8, ROUTE_61
-	connection east, MURCOTT_ISLAND, MurcottIsland, 18, 3, 8, ROUTE_61
+	connection south, UnnamedIsland2, UNNAMED_ISLAND_2, 7
+	connection west, Route62, ROUTE_62, 8
+	connection east, MurcottIsland, MURCOTT_ISLAND, 15
 
 	map_header_2 Route62, ROUTE_62, 5, EAST
-	connection east, ROUTE_61, Route61, 0, 8, 8, ROUTE_62
+	connection east, Route61, ROUTE_61, -8
 
 	map_header_2 MurcottIsland, MURCOTT_ISLAND, 5, WEST
-	connection west, ROUTE_61, Route61, 3, 18, 8, MURCOTT_ISLAND
+	connection west, Route61, ROUTE_61, -15
 
 	map_header_2 UnnamedIsland2, UNNAMED_ISLAND_2, 53, NORTH | EAST
-	connection north, ROUTE_61, Route61, 0, 7, 8, UNNAMED_ISLAND_2
-	connection east, FISHING_CONTEST, FishingContest, 1, 0, 40, UNNAMED_ISLAND_2
+	connection north, Route61, ROUTE_61, -7
+	connection east, FishingContest, FISHING_CONTEST, 1
 
 	map_header_2 FishingContest, FISHING_CONTEST, 53, WEST
-	connection west, UNNAMED_ISLAND_2, UnnamedIsland2, -1, 0, 40, FISHING_CONTEST
-	
+	connection west, UnnamedIsland2, UNNAMED_ISLAND_2, -1
+
 	map_header_2 Route57North, ROUTE_57_NORTH, 53, NORTH | SOUTH
-	connection north, CLEOPATRA_ISLAND, CleopatraIsland, -2, 1, 16, ROUTE_57_NORTH
-	connection south, UNNAMED_ISLAND_1, UnnamedIsland1, 0, 0, 12, ROUTE_57_NORTH
+	connection north, CleopatraIsland, CLEOPATRA_ISLAND, -3
+	connection south, UnnamedIsland1, UNNAMED_ISLAND_1, 0
 
 	map_header_2 CleopatraIsland, CLEOPATRA_ISLAND, 53, NORTH | SOUTH
-	connection north, ROUTE_63_EAST_WEST, Route63EastWest, 0, 0, 20, CLEOPATRA_ISLAND
-	connection south, ROUTE_57_NORTH, Route57North, 3, 0, 12, CLEOPATRA_ISLAND
-	
+	connection north, Route63EastWest, ROUTE_63_EAST_WEST, 0
+	connection south, Route57North, ROUTE_57_NORTH, 3
+
 	map_header_2 Route63EastWest, ROUTE_63_EAST_WEST, 53, SOUTH | EAST
-	connection south, CLEOPATRA_ISLAND, CleopatraIsland, 0, 0, 20, ROUTE_63_EAST_WEST
-	connection east, ROUTE_63_NORTH_SOUTH, Route63NorthSouth, 0, 23, 12, ROUTE_63_EAST_WEST
-		
+	connection south, CleopatraIsland, CLEOPATRA_ISLAND, 0
+	connection east, Route63NorthSouth, ROUTE_63_NORTH_SOUTH, -23
+
 	map_header_2 Route63NorthSouth, ROUTE_63_NORTH_SOUTH, 53, WEST
-	connection west, ROUTE_63_EAST_WEST, Route63EastWest, 23, 0, 12, ROUTE_63_NORTH_SOUTH
-	
+	connection west, Route63EastWest, ROUTE_63_EAST_WEST, 23
+
 	map_header_2 AscorbiaIsland, ASCORBIA_ISLAND, 32, WEST
-	connection west, ROUTE_64, Route64, 0, 0, 14, ASCORBIA_ISLAND
-	
+	connection west, Route64, ROUTE_64, 0
+
 	map_header_2 Route64, ROUTE_64, 53, WEST | EAST
-	connection west, ROUTE_65, Route65, 0, 0, 14, ROUTE_64
-	connection east, ASCORBIA_ISLAND, AscorbiaIsland, 0, 0, 14, ROUTE_64
+	connection west, Route65, ROUTE_65, 0
+	connection east, AscorbiaIsland, ASCORBIA_ISLAND, 0
 
 	map_header_2 Route65, ROUTE_65, 53, WEST | EAST
-	connection west, BUTWAL_ISLAND_EAST, ButwalIslandEast, -4, 2, 18, ROUTE_65
-	connection east, ROUTE_64, Route64, 0, 0, 14, ROUTE_65
-	
+	connection west, ButwalIslandEast, BUTWAL_ISLAND_EAST, -6
+	connection east, Route64, ROUTE_64, 0
+
 	map_header_2 ButwalIslandEast, BUTWAL_ISLAND_EAST, 53, WEST | EAST
-	connection west, BUTWAL_ISLAND_WEST, ButwalIslandWest, 0, 0, 22, BUTWAL_ISLAND_EAST
-	connection east, ROUTE_65, Route65, 6, 0, 18, BUTWAL_ISLAND_EAST
-		
+	connection west, ButwalIslandWest, BUTWAL_ISLAND_WEST, 0
+	connection east, Route65, ROUTE_65, 6
+
 	map_header_2 ButwalIslandWest, BUTWAL_ISLAND_WEST, 32, WEST | EAST
-	connection west, ROUTE_66_EAST_WEST, Route66EastWest, 10, 0, 12, BUTWAL_ISLAND_WEST
-	connection east, BUTWAL_ISLAND_EAST, ButwalIslandEast, 0, 0, 22, BUTWAL_ISLAND_WEST
-	
+	connection west, Route66EastWest, ROUTE_66_EAST_WEST, 10
+	connection east, ButwalIslandEast, BUTWAL_ISLAND_EAST, 0
+
 	map_header_2 Route66EastWest, ROUTE_66_EAST_WEST, 53, SOUTH | EAST
-	connection south, ROUTE_66_NORTH_SOUTH, Route66NorthSouth, -3, 0, 12, ROUTE_66_EAST_WEST
-	connection east, BUTWAL_ISLAND_WEST, ButwalIslandWest, 0, 10, 12, ROUTE_66_EAST_WEST
-	
+	connection south, Route66NorthSouth, ROUTE_66_NORTH_SOUTH, -3
+	connection east, ButwalIslandWest, BUTWAL_ISLAND_WEST, -10
+
 	map_header_2 Route66NorthSouth, ROUTE_66_NORTH_SOUTH, 53, NORTH | SOUTH
-	connection north, ROUTE_66_EAST_WEST, Route66EastWest, 3, 0, 12, ROUTE_66_NORTH_SOUTH
-	connection south, KUMQUAT_ISLAND_EAST, KumquatIslandEast, 0, 5, 12, ROUTE_66_NORTH_SOUTH
-	
+	connection north, Route66EastWest, ROUTE_66_EAST_WEST, 3
+	connection south, KumquatIslandEast, KUMQUAT_ISLAND_EAST, -5
+
 	map_header_2 KumquatIslandEast, KUMQUAT_ISLAND_EAST, 53, NORTH | WEST
-	connection north, ROUTE_66_NORTH_SOUTH, Route66NorthSouth, 5, 0, 12, KUMQUAT_ISLAND_EAST
-	connection west, KUMQUAT_ISLAND_WEST, KumquatIslandWest, 0, 0, 16, KUMQUAT_ISLAND_EAST
-	
+	connection north, Route66NorthSouth, ROUTE_66_NORTH_SOUTH, 5
+	connection west, KumquatIslandWest, KUMQUAT_ISLAND_WEST, 0
+
 	map_header_2 KumquatIslandWest, KUMQUAT_ISLAND_WEST, 53, WEST | EAST
-	connection west, ROUTE_67, Route67, 1, 0, 15, KUMQUAT_ISLAND_WEST
-	connection east, KUMQUAT_ISLAND_EAST, KumquatIslandEast, 0, 0, 16, KUMQUAT_ISLAND_WEST
-	
+	connection west, Route67, ROUTE_67, 1
+	connection east, KumquatIslandEast, KUMQUAT_ISLAND_EAST, 0
+
 	map_header_2 Route67, ROUTE_67, 53, WEST | EAST
-	connection west, RIND_ISLAND, RindIsland, 0, 7, 15, ROUTE_67
-	connection east, KUMQUAT_ISLAND_WEST, KumquatIslandWest, -1, 0, 16, ROUTE_67
-	
+	connection west, RindIsland, RIND_ISLAND, -7
+	connection east, KumquatIslandWest, KUMQUAT_ISLAND_WEST, -1
+
 	map_header_2 RindIsland, RIND_ISLAND, 53, WEST | EAST
-	connection west, ROUTE_68, Route68, 3, 0, 10, RIND_ISLAND
-	connection east, ROUTE_67, Route67, 7, 0, 15, RIND_ISLAND
-	
+	connection west, Route68, ROUTE_68, 3
+	connection east, Route67, ROUTE_67, 7
+
 	map_header_2 Route68, ROUTE_68, 53, WEST | EAST
-	connection west, UNNAMED_ISLAND_3, UnnamedIsland3, -2, 9, 10, ROUTE_68
-	connection east, RIND_ISLAND, RindIsland, -1, 2, 13, ROUTE_68
-	
+	connection west, UnnamedIsland3, UNNAMED_ISLAND_3, -11
+	connection east, RindIsland, RIND_ISLAND, -3
+
 	map_header_2 UnnamedIsland3, UNNAMED_ISLAND_3, 53, NORTH | EAST
-	connection north, ROUTE_69_SOUTH, Route69South, 7, 7, 8, UNNAMED_ISLAND_3
-	connection east, ROUTE_68, Route68, 11, 0, 9, UNNAMED_ISLAND_3
-	
+	connection north, Route69South, ROUTE_69_SOUTH, 0
+	connection east, Route68, ROUTE_68, 11
+
 	map_header_2 Route69South, ROUTE_69_SOUTH, 53, SOUTH
-	connection south, UNNAMED_ISLAND_3, UnnamedIsland3, 7, 7, 8, ROUTE_69_SOUTH
-	
+	connection south, UnnamedIsland3, UNNAMED_ISLAND_3, 0
+
 	map_header_2 Route69North, ROUTE_69_NORTH, 53, EAST
-	connection east, PUMMELO_ISLAND, PummeloIsland, -1, 13, 12, ROUTE_69_NORTH
-	
+	connection east, PummeloIsland, PUMMELO_ISLAND, -14
+
 	map_header_2 PummeloIsland, PUMMELO_ISLAND, 53, WEST | EAST
-	connection west, ROUTE_69_NORTH, Route69North, 14, 0, 13, PUMMELO_ISLAND
-	connection east, ROUTE_70, Route70, 13, 5, 6, PUMMELO_ISLAND
-	
+	connection west, Route69North, ROUTE_69_NORTH, 14
+	connection east, Route70, ROUTE_70, 8
+
 	map_header_2 VermilionCity, VERMILION_CITY, 6, EAST
-	connection east, ROUTE_11, Route11, 1, 0, 11, VERMILION_CITY
-	
+	connection east, Route11, ROUTE_11, 1
+
 	map_header_2 FuchsiaCity, FUCHSIA_CITY, 6, EAST
-	connection east, ROUTE_15, Route15, 8, 0, 6, FUCHSIA_CITY
-	
+	connection east, Route15, ROUTE_15, 8
+
 	map_header_2 Route15, ROUTE_15, 6, WEST | EAST
-	connection west, FUCHSIA_CITY, FuchsiaCity, 0, 8, 6, ROUTE_15
-	connection east, ROUTE_14, Route14, -2, 18, 9, ROUTE_15
-	
+	connection west, FuchsiaCity, FUCHSIA_CITY, -8
+	connection east, Route14, ROUTE_14, -20
+
 	map_header_2 Route14, ROUTE_14, 65, WEST | EAST
-	connection west, ROUTE_15, Route15, 20, 0, 6, ROUTE_14
-	connection east, ROUTE_13, Route13, 0, 0, 9, ROUTE_14
-	
+	connection west, Route15, ROUTE_15, 20
+	connection east, Route13, ROUTE_13, 0
+
 	map_header_2 Route13, ROUTE_13, 65, NORTH | WEST
-	connection north, ROUTE_12, Route12, 18, 0, 12, ROUTE_13
-	connection west, ROUTE_14, Route14, 0, 0, 9, ROUTE_13
-	
+	connection north, Route12, ROUTE_12, 18
+	connection west, Route14, ROUTE_14, 0
+
 	map_header_2 Route12, ROUTE_12, 65, SOUTH | WEST
-	connection south, ROUTE_13, Route13, 0, 18, 12, ROUTE_12
-	connection west, ROUTE_11, Route11, 0, 3, 8, ROUTE_12
-	
+	connection south, Route13, ROUTE_13, -18
+	connection west, Route11, ROUTE_11, -3
+
 	map_header_2 Route11, ROUTE_11, 13, WEST | EAST
-	connection west, VERMILION_CITY, VermilionCity, -1, 0, 14, ROUTE_11
-	connection east, ROUTE_12, Route12, 3, 0, 6, ROUTE_11
-	
+	connection west, VermilionCity, VERMILION_CITY, -1
+	connection east, Route12, ROUTE_12, 3
+
 	map_header_2 CinnabarIsland, CINNABAR_ISLAND, 65, 0
-	
+
 	map_header_2 ButwalIslandUnderwaterEast, BUTWAL_ISLAND_UNDERWATER_EAST, 9, WEST
-	connection west, BUTWAL_ISLAND_UNDERWATER_WEST, ButwalIslandUnderwaterWest, 0, 0, 12, BUTWAL_ISLAND_UNDERWATER_EAST
-	
+	connection west, ButwalIslandUnderwaterWest, BUTWAL_ISLAND_UNDERWATER_WEST, 0
+
 	map_header_2 ButwalIslandUnderwaterWest, BUTWAL_ISLAND_UNDERWATER_WEST, 9, EAST
-	connection east, BUTWAL_ISLAND_UNDERWATER_EAST, ButwalIslandUnderwaterEast, 0, 0, 12, BUTWAL_ISLAND_UNDERWATER_WEST
-	
+	connection east, ButwalIslandUnderwaterEast, BUTWAL_ISLAND_UNDERWATER_EAST, 0
+
 	map_header_2 Route70, ROUTE_70, 53, WEST | EAST
-	connection west, PUMMELO_ISLAND, PummeloIsland, 5, 13, 6, ROUTE_70
-	connection east, TARROCO_ISLAND, TarrocoIsland, -2, 9, 11, ROUTE_70
-	
+	connection west, PummeloIsland, PUMMELO_ISLAND, -8
+	connection east, TarrocoIsland, TARROCO_ISLAND, -11
+
 	map_header_2 TarrocoIsland, TARROCO_ISLAND, 53, WEST | EAST
-	connection west, ROUTE_70, Route70, 9, -2, 11, TARROCO_ISLAND
-	connection east, ROUTE_71, Route71, 10, 10, 10, TARROCO_ISLAND
-	
+	connection west, Route70, ROUTE_70, 11
+	connection east, Route71, ROUTE_71, 0
+
 	map_header_2 Route71, ROUTE_71, 53, WEST | EAST
-	connection west, TARROCO_ISLAND, TarrocoIsland, 10, 10, 10, ROUTE_71
-	connection east, ROUTE_71_EAST, Route71East, 6, 6, 14, ROUTE_71
-	
+	connection west, TarrocoIsland, TARROCO_ISLAND, 0
+	connection east, Route71East, ROUTE_71_EAST, 0
+
 	map_header_2 Route71East, ROUTE_71_EAST, 53, WEST
-	connection west, ROUTE_71, Route71, 6, 6, 14, ROUTE_71_EAST
-	
+	connection west, Route71, ROUTE_71, 0
+
 	map_header_2 ShamoutiIsland, SHAMOUTI_ISLAND, 53, NORTH | EAST
-	connection north, SHAMOUTI_NORTH_BEACH, ShamoutiNorthBeach, 8, 4, 7, SHAMOUTI_ISLAND
-	connection east, SHAMOUTI_BAY, ShamoutiBay, 2, 0, 15, SHAMOUTI_ISLAND
-	
+	connection north, ShamoutiNorthBeach, SHAMOUTI_NORTH_BEACH, 4
+	connection east, ShamoutiBay, SHAMOUTI_BAY, 2
+
 	map_header_2 ShamoutiNorthBeach, SHAMOUTI_NORTH_BEACH, 53, NORTH | SOUTH
-	connection north, LIGHTNING_ISLAND, LightningIsland, 0, 10, 15, SHAMOUTI_NORTH_BEACH
-	connection south, SHAMOUTI_ISLAND, ShamoutiIsland, 4, 8, 7, SHAMOUTI_NORTH_BEACH
-	
+	connection north, LightningIsland, LIGHTNING_ISLAND, -10
+	connection south, ShamoutiIsland, SHAMOUTI_ISLAND, -4
+
 	map_header_2 ShamoutiBay, SHAMOUTI_BAY, 53, WEST
-	connection west, SHAMOUTI_ISLAND, ShamoutiIsland, -2, 0, 15, SHAMOUTI_BAY
-	
+	connection west, ShamoutiIsland, SHAMOUTI_ISLAND, -2
+
 	map_header_2 LightningIsland, LIGHTNING_ISLAND, 53, SOUTH | WEST
-	connection south, SHAMOUTI_NORTH_BEACH, ShamoutiNorthBeach, 10, 0, 15, LIGHTNING_ISLAND
-	connection west, ICE_ISLAND, IceIsland, 0, 4, 14, LIGHTNING_ISLAND
+	connection south, ShamoutiNorthBeach, SHAMOUTI_NORTH_BEACH, 10
+	connection west, IceIsland, ICE_ISLAND, -4
 
 	map_header_2 IceIsland, ICE_ISLAND, 53, SOUTH | EAST
-	connection south, FIRE_ISLAND, FireIsland, 0, 4, 16, ICE_ISLAND
-	connection east, LIGHTNING_ISLAND, LightningIsland, 4, 0, 15, ICE_ISLAND
+	connection south, FireIsland, FIRE_ISLAND, -4
+	connection east, LightningIsland, LIGHTNING_ISLAND, 4
 
 	map_header_2 FireIsland, FIRE_ISLAND, 53, NORTH
-	connection north, ICE_ISLAND, IceIsland, 4, 0, 18, FIRE_ISLAND
-	
+	connection north, IceIsland, ICE_ISLAND, 4
+
 	map_header_2 HamlinIsland, HAMLIN_ISLAND, 19, 0
 	map_header_2 HamlinBridge, HAMLIN_BRIDGE, 19, 0
 
 	map_header_2 PokeCenter2F, POKECENTER_2F, 0, 0
-	map_header_2 TradeCenter, TRADE_CENTER, $0, 0
-	map_header_2 Colosseum, COLOSSEUM, $0, 0
+	map_header_2 TradeCenter, TRADE_CENTER, 0, 0
+	map_header_2 Colosseum, COLOSSEUM, 0, 0
 	map_header_2 KrissHouse1F, KRISS_HOUSE_1F, 0, 0
-	map_header_2 KrissHouse2F, KRISS_HOUSE_2F, $0, 0
-	map_header_2 KrissNeighborsHouse, KRISS_NEIGHBORS_HOUSE, $0, 0
+	map_header_2 KrissHouse2F, KRISS_HOUSE_2F, 0, 0
+	map_header_2 KrissNeighborsHouse, KRISS_NEIGHBORS_HOUSE, 0, 0
 	map_header_2 IvysHouse, IVYS_HOUSE, 0, 0
 	map_header_2 IvysLab, IVYS_LAB, 0, 0
 	map_header_2 ValenciaPort, VALENCIA_PORT, 10, 0
 	map_header_2 TangeloPort, TANGELO_PORT, 10, 0
-	map_header_2 TangeloMart, TANGELO_MART, $0, 0
+	map_header_2 TangeloMart, TANGELO_MART, 0, 0
 	map_header_2 TangeloPokeCenter1F, TANGELO_POKECENTER_1F, 0, 0
-	map_header_2 TangeloGymSpeechHouse, TANGELO_GYM_SPEECH_HOUSE, $0, 0
+	map_header_2 TangeloGymSpeechHouse, TANGELO_GYM_SPEECH_HOUSE, 0, 0
 	map_header_2 TangeloEvolutionSpeechHouse, TANGELO_EVOLUTION_SPEECH_HOUSE, 0, 0
 	map_header_2 Route51TangeloJungleGate, ROUTE_51_TANGELO_JUNGLE_GATE, 0, 0
 	map_header_2 TangeloJungle, TANGELO_JUNGLE, 0, 0
-	map_header_2 Route52TangeloJungleGate, ROUTE_52_TANGELO_JUNGLE_GATE, $0, 0
+	map_header_2 Route52TangeloJungleGate, ROUTE_52_TANGELO_JUNGLE_GATE, 0, 0
 	map_header_2 Route52PokeCenter1F, ROUTE_52_POKECENTER_1F, 0, 0
-	map_header_2 MikanMart, MIKAN_MART, $0, 0
+	map_header_2 MikanMart, MIKAN_MART, 0, 0
 	map_header_2 MikanGym, MIKAN_GYM, 0, 0
-	map_header_2 MikanNicknameSpeechHouse, MIKAN_NICKNAME_SPEECH_HOUSE, $0, 0
+	map_header_2 MikanNicknameSpeechHouse, MIKAN_NICKNAME_SPEECH_HOUSE, 0, 0
 	map_header_2 MikanPokeCenter1F, MIKAN_POKECENTER_1F, 0, 0
-	map_header_2 MikanOnixTradeHouse, MIKAN_ONIX_TRADE_HOUSE, $0, 0
+	map_header_2 MikanOnixTradeHouse, MIKAN_ONIX_TRADE_HOUSE, 0, 0
 	map_header_2 MikanIslandRoute53Gate, MIKAN_ISLAND_ROUTE_53_GATE, 0, 0
 	map_header_2 SunburstPokeCenter, SUNBURST_POKECENTER, 0, 0
 	map_header_2 SunburstSmallHouse, SUNBURST_SMALL_HOUSE, 0, 0
@@ -328,7 +328,7 @@
 	map_header_2 MoroMart, MORO_MART, 0, 0
 	map_header_2 MoroRoute60Gate, MORO_ROUTE_60_GATE, 0, 0
 	map_header_2 Route60GateUpstairs, ROUTE_60_GATE_UPSTAIRS, 0, 0
-	map_header_2 HallOfFame, HALL_OF_FAME, $0, 0
+	map_header_2 HallOfFame, HALL_OF_FAME, 0, 0
 	map_header_2 GoldenIsland, GOLDEN_ISLAND, 6, 0
 	map_header_2 Route60, ROUTE_60, 53, 0
 	map_header_2 GoldenIslandHouse1, GOLDEN_ISLAND_HOUSE_1, 0, 0
@@ -350,12 +350,12 @@
 	map_header_2 TrovitopolisSewer, TROVITOPOLIS_SEWER, 0, 0
 	map_header_2 TrovitaIsland, TROVITA_ISLAND, 53, 0
 	map_header_2 TrovitopolisDeptStore1F, TROVITOPOLIS_DEPT_STORE_1F, 0, 0
-	map_header_2 TrovitopolisDeptStore2F, TROVITOPOLIS_DEPT_STORE_2F, $0, 0
-	map_header_2 TrovitopolisDeptStore3F, TROVITOPOLIS_DEPT_STORE_3F, $0, 0
-	map_header_2 TrovitopolisDeptStore4F, TROVITOPOLIS_DEPT_STORE_4F, $0, 0
-	map_header_2 TrovitopolisDeptStore5F, TROVITOPOLIS_DEPT_STORE_5F, $0, 0
+	map_header_2 TrovitopolisDeptStore2F, TROVITOPOLIS_DEPT_STORE_2F, 0, 0
+	map_header_2 TrovitopolisDeptStore3F, TROVITOPOLIS_DEPT_STORE_3F, 0, 0
+	map_header_2 TrovitopolisDeptStore4F, TROVITOPOLIS_DEPT_STORE_4F, 0, 0
+	map_header_2 TrovitopolisDeptStore5F, TROVITOPOLIS_DEPT_STORE_5F, 0, 0
 	map_header_2 TrovitopolisDeptStore6F, TROVITOPOLIS_DEPT_STORE_6F, 0, 0
-	map_header_2 TrovitopolisDeptStoreElevator, TROVITOPOLIS_DEPT_STORE_ELEVATOR, $0, 0
+	map_header_2 TrovitopolisDeptStoreElevator, TROVITOPOLIS_DEPT_STORE_ELEVATOR, 0, 0
 	map_header_2 TrovitopolisDeptStoreRoof, TROVITOPOLIS_DEPT_STORE_ROOF, 36, 0
 	map_header_2 TrovitopolisPokeCommCenter, TROVITOPOLIS_POKE_COMM_CENTER, 0, 0
 	map_header_2 TrovitopolisMrFlashHouse, TROVITOPOLIS_MR_FLASH_HOUSE, 0, 0
@@ -384,7 +384,7 @@
 	map_header_2 AscorbiaIslandMart, ASCORBIA_ISLAND_MART, 0, 0
 	map_header_2 AscorbiaIslandCenter, ASCORBIA_ISLAND_CENTER, 0, 0
 	map_header_2 KinnowShowboat, KINNOW_SHOWBOAT, 2, 0
-	map_header_2 KinnowShowboatGate, KINNOW_SHOWBOAT_GATE, $0, 0
+	map_header_2 KinnowShowboatGate, KINNOW_SHOWBOAT_GATE, 0, 0
 	map_header_2 KinnowShowboatHouse, KINNOW_SHOWBOAT_HOUSE, 0, 0
 	map_header_2 KinnowShowboatInside, KINNOW_SHOWBOAT_INSIDE, 0, 0
 	map_header_2 HeartScaleCove, HEART_SCALE_COVE, 9, 0
@@ -415,7 +415,7 @@
 	map_header_2 Route67Underwater, ROUTE_67_UNDERWATER, 9, 0
 	map_header_2 QuackenpokerLab, QUACKENPOKER_LAB, 0, 0
 	map_header_2 UnnamedIsland3House, UNNAMED_ISLAND_3_HOUSE, 0, 0
-	map_header_2 Route69Gate, ROUTE_69_GATE, $0, 0
+	map_header_2 Route69Gate, ROUTE_69_GATE, 0, 0
 	map_header_2 PummeloIslandHouse1, PUMMELO_ISLAND_HOUSE_1, 0, 0
 	map_header_2 PummeloIslandHouse2, PUMMELO_ISLAND_HOUSE_2, 0, 0
 	map_header_2 PummeloIslandHouse3, PUMMELO_ISLAND_HOUSE_3, 0, 0
@@ -431,11 +431,10 @@
 	map_header_2 HamlinBridgeGate, HAMLIN_BRIDGE_GATE, 0, 0
 	map_header_2 ShamoutiShrine, SHAMOUTI_SHRINE, 53, 0
 
-
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
-	map_header_2 RedsHouse1F, REDS_HOUSE_1F, $0, 0
-	map_header_2 RedsHouse2F, REDS_HOUSE_2F, $0, 0
-	map_header_2 BluesHouse, BLUES_HOUSE, $0, 0
-	map_header_2 OaksLab, OAKS_LAB, $0, 0
+	map_header_2 RedsHouse1F, REDS_HOUSE_1F, 0, 0
+	map_header_2 RedsHouse2F, REDS_HOUSE_2F, 0, 0
+	map_header_2 BluesHouse, BLUES_HOUSE, 0, 0
+	map_header_2 OaksLab, OAKS_LAB, 0, 0
 	map_header_2 SafariZone, SAFARI_ZONE, 44, 0
 	map_header_2 CyberSpace, CYBER_SPACE, 0, 0

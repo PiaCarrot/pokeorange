@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ROUTE69GATE_OFFIER
 
 Route69Gate_MapScriptHeader:

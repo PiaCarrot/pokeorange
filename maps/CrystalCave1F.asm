@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const CRYSTAL_CAVE_1F_BROCK
 	const CRYSTAL_CAVE_1F_ITEM1
 	const CRYSTAL_CAVE_1F_ITEM2

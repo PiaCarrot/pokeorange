@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const VICTORY_ROAD_TRACEY
 
 VictoryRoadExitRoom_MapScriptHeader::

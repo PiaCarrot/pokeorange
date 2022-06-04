@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ROUTE_57_NORTH_SIGHTSEERM_KENTA
 	const ROUTE_57_NORTH_FISHERMAN_
 	const ROUTE_57_NORTH_MAX_REVIVE

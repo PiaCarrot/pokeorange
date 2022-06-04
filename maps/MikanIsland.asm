@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const MIKANISLAND_LASS
 	const MIKANISLAND_SUPER_NERD
 	const MIKANISLAND_GRAMPS

@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const HAMLIN_BRIDGE_GATE_OFFICER
 
 HamlinBridgeGate_MapScriptHeader:

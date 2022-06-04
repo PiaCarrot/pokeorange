@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const TANGELOGYMSPEECHHOUSE_POKEFAN_M
 	const TANGELOGYMSPEECHHOUSE_BUG_CATCHER
 

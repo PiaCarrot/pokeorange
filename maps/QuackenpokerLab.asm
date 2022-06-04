@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const PROF_QUACKENPOKER_RIND
 	const KARP_SALESMAN_RIND
 

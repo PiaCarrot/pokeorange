@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const KECLEON_MANDARIN_DESERT_CAVE
 
 SunrayCaveMandarinDesert1F_MapScriptHeader::

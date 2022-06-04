@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const GRAPEFRUIT_ROCK1
 	const GRAPEFRUIT_ROCK2
 	const GRAPEFRUIT_ROCK3

@@ -57,7 +57,7 @@ warp_def: macro
 
 
 map_header: MACRO
-	; label, tileset, permission, location, music, phone service flag, time of day, fishing group
+; label, tileset, permission, location, music, phone service flag, time of day, fishing group
 \1_MapHeader:
 	db BANK(\1_SecondMapHeader), \2, \3
 	dw \1_SecondMapHeader
@@ -69,9 +69,11 @@ ENDM
 
 map_header_2: MACRO
 ; label, map, border block, connections
+CURRENT_MAP_WIDTH = \2_WIDTH
+CURRENT_MAP_HEIGHT = \2_HEIGHT
 \1_SecondMapHeader::
 	db \3
-	db \2_HEIGHT, \2_WIDTH
+	db CURRENT_MAP_HEIGHT, CURRENT_MAP_WIDTH
 	db BANK(\1_BlockData)
 	dw \1_BlockData
 	db BANK(\1_MapScriptHeader)
@@ -80,75 +82,71 @@ map_header_2: MACRO
 	db \4
 ENDM
 
+; Connections go in order: north, south, west, east
 connection: MACRO
-if "\1" == "north"
-;\2: map id
-;\3: map label (eventually will be rolled into map id)
-;\4: x
-;\5: offset?
-;\6: strip length
-;\7: this map id
-	map \2
-	dw \3_BlockData + \2_WIDTH * (\2_HEIGHT - 3) + \5
-	dw OverworldMap + \4 + 3
-	db \6
-	db \2_WIDTH
-	db \2_HEIGHT * 2 - 1
-	db (\4 - \5) * -2
-	dw OverworldMap + \2_HEIGHT * (\2_WIDTH + 6) + 1
+; direction, map name, map id, sideways offset
+_src = 0
+_tgt = (\4) + 3
+if _tgt < 0
+_src = -_tgt
+_tgt = 0
 endc
 
-if "\1" == "south"
-;\2: map id
-;\3: map label (eventually will be rolled into map id)
-;\4: x
-;\5: offset?
-;\6: strip length
-;\7: this map id
-	map \2
-	dw \3_BlockData + \5
-	dw OverworldMap + (\7_HEIGHT + 3) * (\7_WIDTH + 6) + \4 + 3
-	db \6
-	db \2_WIDTH
-	db 0
-	db (\4 - \5) * -2
-	dw OverworldMap + \2_WIDTH + 7
+if !STRCMP("\1", "north")
+_blk = \3_WIDTH * (\3_HEIGHT - 3) + _src
+_map = _tgt
+_win = (\3_WIDTH + 6) * \3_HEIGHT + 1
+_y = \3_HEIGHT * 2 - 1
+_x = (\4) * -2
+_len = CURRENT_MAP_WIDTH + 3 - (\4)
+if _len > \3_WIDTH
+_len = \3_WIDTH
+endc
 endc
 
-if "\1" == "west"
-;\2: map id
-;\3: map label (eventually will be rolled into map id)
-;\4: y
-;\5: offset?
-;\6: strip length
-;\7: this map id
-	map \2
-	dw \3_BlockData + (\2_WIDTH * \5) + \2_WIDTH - 3
-	dw OverworldMap + (\7_WIDTH + 6) * (\4 + 3)
-	db \6
-	db \2_WIDTH
-	db (\4 - \5) * -2
-	db \2_WIDTH * 2 - 1
-	dw OverworldMap + \2_WIDTH * 2 + 6
+if !STRCMP("\1", "south")
+_blk = _src
+_map = (CURRENT_MAP_WIDTH + 6) * (CURRENT_MAP_HEIGHT + 3) + _tgt
+_win = \3_WIDTH + 7
+_y = 0
+_x = (\4) * -2
+_len = CURRENT_MAP_WIDTH + 3 - (\4)
+if _len > \3_WIDTH
+_len = \3_WIDTH
+endc
 endc
 
-if "\1" == "east"
-;\2: map id
-;\3: map label (eventually will be rolled into map id)
-;\4: y
-;\5: offset?
-;\6: strip length
-;\7: this map id
-	map \2
-	dw \3_BlockData + (\2_WIDTH * \5)
-	dw OverworldMap + (\7_WIDTH + 6) * (\4 + 3 + 1) - 3
-	db \6
-	db \2_WIDTH
-	db (\4 - \5) * -2
-	db 0
-	dw OverworldMap + \2_WIDTH + 7
+if !STRCMP("\1", "west")
+_blk = (\3_WIDTH * _src) + \3_WIDTH - 3
+_map = (CURRENT_MAP_WIDTH + 6) * _tgt
+_win = (\3_WIDTH + 6) * 2 - 6
+_y = (\4) * -2
+_x = \3_WIDTH * 2 - 1
+_len = CURRENT_MAP_HEIGHT + 3 - (\4)
+if _len > \3_HEIGHT
+_len = \3_HEIGHT
+endc
 endc
 
+if !STRCMP("\1", "east")
+_blk = (\3_WIDTH * _src)
+_map = (CURRENT_MAP_WIDTH + 6) * _tgt + CURRENT_MAP_WIDTH + 3
+_win = \3_WIDTH + 7
+_y = (\4) * -2
+_x = 0
+_len = CURRENT_MAP_HEIGHT + 3 - (\4)
+if _len > \3_HEIGHT
+_len = \3_HEIGHT
+endc
+endc
+
+	map \3
+	dw \2_BlockData + _blk
+	dw OverworldMap + _map
+	db _len - _src
+	db \3_WIDTH
+	db _y, _x
+	dw OverworldMap + _win
 ENDM
 
 mapgroup: MACRO

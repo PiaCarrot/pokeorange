@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const TANGELO_JUNGLE_CROSS
 	const TANGELOJUNGLE_POKE_BALL1
 	const TANGELOJUNGLE_LASS

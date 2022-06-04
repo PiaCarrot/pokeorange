@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 
 KrissHouse2F_MapScriptHeader:
 

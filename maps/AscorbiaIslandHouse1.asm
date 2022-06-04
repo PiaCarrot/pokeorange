@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ASCORBIA_DITTO_GUY
 
 AscorbiaIslandHouse1_MapScriptHeader::

@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const KUMQUATWEST_BOATTOP
 	const KUMQUATWEST_BOATBOTTOM
 	const KUMQUATWEST_UMBRELLA1

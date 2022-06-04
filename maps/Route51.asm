@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ROUTE51_YOUNGSTER
 	const ROUTE51_BUG_CATCHER
 	const ROUTE51_FRUIT_TREE

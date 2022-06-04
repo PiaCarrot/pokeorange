@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const TROVITOPOLIS_EEVEE_LASS
 	const TROVITOPOLIS_EEVEE_BALL
 	

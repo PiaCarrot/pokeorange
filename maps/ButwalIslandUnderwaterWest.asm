@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const BUTWAL_WEST_UW_DIVER1
 	const BUTWAL_WEST_UW_DIVER2
 

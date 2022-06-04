@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const KINNOWCHARCOALHOUSE_BLACKBELT
 
 KinnowCharcoalHouse_MapScriptHeader:

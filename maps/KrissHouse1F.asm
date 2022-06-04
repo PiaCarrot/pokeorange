@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const KRISSHOUSE1F_MOM1
 
 KrissHouse1F_MapScriptHeader:

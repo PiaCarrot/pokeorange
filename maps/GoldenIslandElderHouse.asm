@@ -1,4 +1,4 @@
-const_value set 1
+const_value = 1
 	const ELDER_HOUSE_JESSIE
 	const ELDER_HOUSE_JAMES
 	const ELDER_HOUSE_ELDER
