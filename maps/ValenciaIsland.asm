@@ -149,7 +149,7 @@ if def(DEBUG)
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp ICE_ISLAND, 14, 31
+	warp AIRSHIP_INTERIOR, 10, 8
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

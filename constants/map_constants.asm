@@ -313,6 +313,7 @@ MAP_NONE EQU 0
 	mapgroup LIGHTNING_ISLAND, 20, 30
 	mapgroup ICE_ISLAND, 20, 28
 	mapgroup FIRE_ISLAND, 24, 20
+	mapgroup AIRSHIP_INTERIOR, 8, 10
 	
 ; elevator floors
 

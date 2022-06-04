@@ -593,3 +593,6 @@ IceIsland_BlockData:
 
 FireIsland_BlockData:
 	INCBIN "maps/FireIsland.blk"
+	
+AirshipInterior_BlockData:
+	INCBIN "maps/AirshipInterior.blk"

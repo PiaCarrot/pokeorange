@@ -314,6 +314,7 @@ INCLUDE "maps/ShamoutiBay.asm"
 INCLUDE "maps/LightningIsland.asm"
 INCLUDE "maps/IceIsland.asm"
 INCLUDE "maps/FireIsland.asm"
+INCLUDE "maps/AirshipInterior.asm"
 
 SECTION "Pallet Scripts", ROMX
 

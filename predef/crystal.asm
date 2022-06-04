@@ -56,6 +56,10 @@ LoadSpecialMapPalette: ; 494ac
 	ld hl, PummeloStadiumPalette
 	cp TILESET_GYM_1
 	jp z, LoadEightBGPalettes
+	
+	ld hl, AirshipInteriorPalette
+	cp TILESET_AIRSHIP_INSIDE
+	jp z, LoadEightBGPalettes
 
 	ld hl, ShamoutiShrinePalette
 	cp TILESET_SHAMOUTI_SHRINE
@@ -233,6 +237,9 @@ INCLUDE "tilesets/shamoutiisland.pal"
 
 IceIslandPalette:
 INCLUDE "tilesets/iceisland.pal"
+
+AirshipInteriorPalette:
+INCLUDE "tilesets/airship_inside.pal"
 
 OutsideDuskPalette:
 INCLUDE "tilesets/dusk.pal"
