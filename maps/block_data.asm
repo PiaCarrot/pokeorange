@@ -13,6 +13,7 @@ MurcottPokeCenter_BlockData:
 AscorbiaIslandCenter_BlockData:
 KumquatCenter_BlockData:
 PummeloCenter_BlockData:
+ShamoutiCenter_BlockData:
 	INCBIN "maps/PokeCenter1F.blk"
 
 PokeCenter2F_BlockData:
@@ -37,6 +38,7 @@ MurcottPokeMart_BlockData:
 AscorbiaIslandMart_BlockData:
 KumquatMart_BlockData:
 PummeloMart_BlockData:
+ShamoutiMart_BlockData:
 	INCBIN "maps/Mart.blk"
 
 BluesHouse_BlockData:
@@ -89,6 +91,8 @@ PummeloIslandHouse4_BlockData:
 PummeloIslandHouse5_BlockData:
 PummeloIslandHouse6_BlockData:
 DannysHouse_BlockData:
+ShamoutiHouse_BlockData:
+ShamoutiBayHouse_BlockData:
 	INCBIN "maps/House2.blk"
 
 Route52TangeloJungleGate_BlockData:
@@ -596,3 +600,6 @@ FireIsland_BlockData:
 	
 AirshipInterior_BlockData:
 	INCBIN "maps/AirshipInterior.blk"
+	
+ChiefsHouse_BlockData:
+	INCBIN "maps/ChiefsHouse.blk"

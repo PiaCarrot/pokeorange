@@ -8,7 +8,9 @@ ShamoutiBay_MapScriptHeader::
 
 ShamoutiBay_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 1
+	warp_def $9, $7, 1, SHAMOUTI_BAY_HOUSE
+
 .CoordEvents: db 0
 
 .BGEvents: db 0

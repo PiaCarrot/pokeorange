@@ -314,6 +314,11 @@ MAP_NONE EQU 0
 	mapgroup ICE_ISLAND, 20, 28
 	mapgroup FIRE_ISLAND, 24, 20
 	mapgroup AIRSHIP_INTERIOR, 8, 10
+	mapgroup CHIEFS_HOUSE, 4, 6
+	mapgroup SHAMOUTI_MART, 4, 6
+	mapgroup SHAMOUTI_CENTER, 4, 5
+	mapgroup SHAMOUTI_HOUSE, 4, 4
+	mapgroup SHAMOUTI_BAY_HOUSE, 4, 4
 	
 ; elevator floors
 

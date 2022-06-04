@@ -20,6 +20,7 @@ INCLUDE "maps/TrovitopolisPokeCommCenter.asm"
 SECTION "Pokemon Center Scripts 3", ROMX
 INCLUDE "maps/KumquatCenter.asm"
 INCLUDE "maps/PummeloCenter.asm"
+INCLUDE "maps/ShamoutiCenter.asm"
 
 SECTION "Pokemon Center Scripts 4", ROMX
 
@@ -315,6 +316,10 @@ INCLUDE "maps/LightningIsland.asm"
 INCLUDE "maps/IceIsland.asm"
 INCLUDE "maps/FireIsland.asm"
 INCLUDE "maps/AirshipInterior.asm"
+INCLUDE "maps/ChiefsHouse.asm"
+INCLUDE "maps/ShamoutiMart.asm"
+INCLUDE "maps/ShamoutiHouse.asm"
+INCLUDE "maps/ShamoutiBayHouse.asm"
 
 SECTION "Pallet Scripts", ROMX
 

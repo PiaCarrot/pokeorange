@@ -431,6 +431,11 @@
 	map_header_2 HamlinBridgeGate, HAMLIN_BRIDGE_GATE, 0, 0
 	map_header_2 ShamoutiShrine, SHAMOUTI_SHRINE, 53, 0
 	map_header_2 AirshipInterior, AIRSHIP_INTERIOR, 3, 0
+	map_header_2 ChiefsHouse, CHIEFS_HOUSE, 0, 0
+	map_header_2 ShamoutiMart, SHAMOUTI_MART, 0, 0
+	map_header_2 ShamoutiCenter, SHAMOUTI_CENTER, 0, 0
+	map_header_2 ShamoutiHouse, SHAMOUTI_HOUSE, 0, 0
+	map_header_2 ShamoutiBayHouse, SHAMOUTI_BAY_HOUSE, 0, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, 0, 0

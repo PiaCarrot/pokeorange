@@ -129,7 +129,11 @@ ShamoutiBlackbelt2ScriptText:
 
 ShamoutiIsland_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 4
+	warp_def $b, $19, 1, SHAMOUTI_HOUSE
+	warp_def $b, $13, 1, SHAMOUTI_CENTER
+	warp_def $b, $9, 1, SHAMOUTI_MART
+	warp_def $5, $1b, 1, CHIEFS_HOUSE
 .CoordEvents: db 0
 
 .BGEvents: db 0
