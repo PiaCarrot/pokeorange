@@ -7,7 +7,7 @@ AirshipInterior_MapScriptHeader::
 .Callbacks: db 0
 
 ControlPanelAirship:
-	warp AIRSHIP_OUTSIDE, 8, 14
+	warp ICE_ISLAND, 15, 31
 	end
 
 AirshipInterior_MapEventHeader::
