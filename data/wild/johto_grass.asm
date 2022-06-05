@@ -1403,5 +1403,140 @@
 	db 37, PHANPY
 	db 38, DONPHAN
 	db 38, RHYHORN
+	
+	map SHAMOUTI_BAY
+	db 3 percent, 3 percent, 3 percent
+	;morn
+	db 40, HAPPINY
+	db 41, BUTTERFREE
+	db 41, KRABBY
+	db 42, KINGLER
+	db 42, KRABBY
+	db 41, KINGLER
+	db 42, CHANSEY
+	;day
+	db 40, HAPPINY
+	db 41, BUTTERFREE
+	db 41, KRABBY
+	db 42, KINGLER
+	db 42, KRABBY
+	db 41, KINGLER
+	db 42, CHANSEY
+	;nite
+	db 40, HAPPINY
+	db 41, VENOMOTH
+	db 41, KRABBY
+	db 42, KINGLER
+	db 42, KRABBY
+	db 41, KINGLER
+	db 42, CHANSEY
+
+	map SHAMOUTI_NORTH_BEACH
+	db 3 percent, 3 percent, 3 percent
+	;morn
+	db 42, MIME__JR
+	db 42, BUTTERFREE
+	db 41, GLOOM
+	db 42, ODDISH
+	db 42, GLOOM
+	db 41, ODDISH
+	db 42, MR__MIME
+	;day
+	db 42, MIME__JR
+	db 42, BUTTERFREE
+	db 42, GLOOM
+	db 41, ODDISH
+	db 41, GLOOM
+	db 42, ODDISH
+	db 42, MR__MIME
+	;nite
+	db 42, MIME__JR
+	db 41, VENOMOTH
+	db 42, GLOOM
+	db 41, ODDISH
+	db 41, GLOOM
+	db 42, ODDISH
+	db 42, MR__MIME
+
+	map LIGHTNING_ISLAND
+	db 3 percent, 3 percent, 3 percent
+	;morn
+	db 42, ELEKID
+	db 42, BUTTERFREE
+	db 41, PIKACHU
+	db 42, ELECTABUZZ
+	db 42, ELEKID
+	db 41, ELECTABUZZ
+	db 42, BULBASAUR
+	;day
+	db 42, ELEKID
+	db 42, BUTTERFREE
+	db 42, PIKACHU
+	db 41, ELECTABUZZ
+	db 41, ELEKID
+	db 42, ELECTABUZZ
+	db 42, BULBASAUR
+	;nite
+	db 42, ELEKID
+	db 41, VENOMOTH
+	db 42, PIKACHU
+	db 41, ELECTABUZZ
+	db 41, ELEKID
+	db 42, ELECTABUZZ
+	db 42, BULBASAUR
+
+	map FIRE_ISLAND
+	db 3 percent, 3 percent, 3 percent
+	;morn
+	db 42, MAGBY
+	db 42, BUTTERFREE
+	db 41, MAGMAR
+	db 42, MAGMAR
+	db 42, MAGBY
+	db 41, TURTONATOR
+	db 42, CHARMANDER
+	;day
+	db 42, MAGBY
+	db 42, BUTTERFREE
+	db 42, MAGMAR
+	db 41, MAGMAR
+	db 41, MAGBY
+	db 42, TURTONATOR
+	db 42, CHARMANDER
+	;nite
+	db 42, MAGBY
+	db 41, VENOMOTH
+	db 42, MAGMAR
+	db 41, MAGMAR
+	db 41, MAGBY
+	db 42, TURTONATOR
+	db 42, CHARMANDER
+
+	map ICE_ISLAND
+	db 3 percent, 3 percent, 3 percent
+	;morn
+	db 42, SMOOCHUM
+	db 42, SEEL
+	db 41, JYNX
+	db 42, JYNX
+	db 42, SMOOCHUM
+	db 41, TURTONATOR
+	db 42, SQUIRTLE
+	;day
+	db 42, SMOOCHUM
+	db 42, SEEL
+	db 42, JYNX
+	db 41, JYNX
+	db 41, SMOOCHUM
+	db 42, TURTONATOR
+	db 42, SQUIRTLE
+	;nite
+	db 42, SMOOCHUM
+	db 41, SEEL
+	db 42, JYNX
+	db 41, JYNX
+	db 41, SMOOCHUM
+	db 42, TURTONATOR
+	db 42, SQUIRTLE
 
 	db -1 ; end
