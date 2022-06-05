@@ -36,6 +36,7 @@ const_value = 1
 	const TILESET_HAMLIN
 	const TILESET_SHAMOUTI_SHRINE
 	const TILESET_SHAMOUTI_ISLAND
+	const TILESET_AIRSHIP_OUTSIDE
 
 	const_def
 	const PAL_BG_GRAY

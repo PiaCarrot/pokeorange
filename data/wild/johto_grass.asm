@@ -1517,26 +1517,26 @@
 	;morn
 	db 42, SMOOCHUM
 	db 42, SEEL
-	db 41, JYNX
+	db 41, SMOOCHUM
 	db 42, JYNX
 	db 42, SMOOCHUM
-	db 41, TURTONATOR
+	db 41, JYNX
 	db 44, SQUIRTLE
 	;day
 	db 42, SMOOCHUM
 	db 42, SEEL
-	db 42, JYNX
+	db 42, SMOOCHUM
 	db 41, JYNX
 	db 41, SMOOCHUM
-	db 42, TURTONATOR
+	db 42, JYNX
 	db 44, SQUIRTLE
 	;nite
 	db 42, SMOOCHUM
 	db 41, SEEL
-	db 42, JYNX
+	db 42, SMOOCHUM
 	db 41, JYNX
 	db 41, SMOOCHUM
-	db 42, TURTONATOR
+	db 42, JYNX
 	db 44, SQUIRTLE
 
 	db -1 ; end

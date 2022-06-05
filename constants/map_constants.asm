@@ -319,6 +319,8 @@ MAP_NONE EQU 0
 	mapgroup SHAMOUTI_CENTER, 4, 5
 	mapgroup SHAMOUTI_HOUSE, 4, 4
 	mapgroup SHAMOUTI_BAY_HOUSE, 4, 4
+	mapgroup AIRSHIP_OUTSIDE, 32, 14
+	mapgroup AIRSHIP_CUTSCENE, 12, 6
 	
 ; elevator floors
 

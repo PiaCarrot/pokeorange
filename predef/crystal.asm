@@ -60,6 +60,10 @@ LoadSpecialMapPalette: ; 494ac
 	ld hl, AirshipInteriorPalette
 	cp TILESET_AIRSHIP_INSIDE
 	jp z, LoadEightBGPalettes
+	
+	ld hl, AirshipExteriorPalette
+	cp TILESET_AIRSHIP_OUTSIDE
+	jp z, LoadEightTimeOfDayBGPalettes
 
 	ld hl, ShamoutiShrinePalette
 	cp TILESET_SHAMOUTI_SHRINE
@@ -240,6 +244,9 @@ INCLUDE "tilesets/iceisland.pal"
 
 AirshipInteriorPalette:
 INCLUDE "tilesets/airship_inside.pal"
+
+AirshipExteriorPalette:
+INCLUDE "tilesets/airship_outside.pal"
 
 OutsideDuskPalette:
 INCLUDE "tilesets/dusk.pal"

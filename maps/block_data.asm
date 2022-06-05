@@ -603,3 +603,9 @@ AirshipInterior_BlockData:
 	
 ChiefsHouse_BlockData:
 	INCBIN "maps/ChiefsHouse.blk"
+	
+AirshipOutside_BlockData:
+	INCBIN "maps/AirshipOutside.blk"
+	
+AirshipCutscene_BlockData:
+	INCBIN "maps/AirshipCutscene.blk"

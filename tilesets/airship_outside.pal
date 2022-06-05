@@ -1,0 +1,160 @@
+; morn
+	RGB 28, 31, 16
+	RGB 18, 19, 30
+	RGB 13, 12, 30
+	RGB 07, 07, 07 ; gray
+	
+	RGB 28, 31, 16
+	RGB 30, 10, 00
+	RGB 18, 19, 30
+	RGB 07, 07, 07 ; red
+	
+	RGB 18, 19, 30
+	RGB 30, 10, 00
+	RGB 18, 06, 00
+	RGB 07, 07, 07 ; green
+	
+	RGB 28, 31, 16
+	RGB 30, 10, 00
+	RGB 18, 06, 00
+	RGB 07, 07, 07 ; water
+	
+	RGB 28, 31, 16
+	RGB 31, 31, 07
+	RGB 31, 16, 01
+	RGB 07, 07, 07 ; yellow
+	
+	RGB 28, 31, 16
+	RGB 24, 18, 07
+	RGB 20, 15, 03
+	RGB 07, 07, 07 ; brown
+	
+	RGB 28, 31, 16
+	RGB 15, 31, 31
+	RGB 05, 17, 31
+	RGB 07, 07, 07 ; roof
+	
+	RGB 31, 31, 16
+	RGB 31, 31, 16
+	RGB 14, 09, 00
+	RGB 00, 00, 00 ; text
+; day
+	RGB 27, 31, 27
+	RGB 18, 19, 30
+	RGB 13, 12, 30
+	RGB 07, 07, 07 ; gray
+	
+	RGB 27, 31, 27
+	RGB 30, 10, 00
+	RGB 18, 19, 30
+	RGB 07, 07, 07 ; red
+	
+	RGB 18, 19, 30
+	RGB 30, 10, 00
+	RGB 18, 06, 00
+	RGB 07, 07, 07 ; green
+	
+	RGB 27, 31, 27
+	RGB 30, 10, 00
+	RGB 18, 06, 00
+	RGB 07, 07, 07 ; water
+	
+	RGB 27, 31, 27
+	RGB 31, 31, 07
+	RGB 31, 16, 01
+	RGB 07, 07, 07 ; yellow
+	
+	RGB 27, 31, 27
+	RGB 24, 18, 07
+	RGB 20, 15, 03
+	RGB 07, 07, 07 ; brown
+	
+	RGB 27, 31, 27
+	RGB 15, 31, 31
+	RGB 05, 17, 31
+	RGB 07, 07, 07 ; roof
+	
+	RGB 31, 31, 16
+	RGB 31, 31, 16
+	RGB 14, 09, 00
+	RGB 00, 00, 00 ; text
+; nite
+	RGB 12, 14, 24
+	RGB 06, 02, 27
+	RGB 01, 00, 27
+	RGB 00, 00, 00 ; gray
+	
+	RGB 12, 14, 24
+	RGB 15, 00, 00
+	RGB 03, 02, 27
+	RGB 00, 00, 00 ; red
+	
+	RGB 03, 02, 27
+	RGB 15, 00, 00
+	RGB 03, 00, 00
+	RGB 00, 00, 00 ; green
+	
+	RGB 12, 14, 24
+	RGB 15, 00, 00
+	RGB 03, 00, 00
+	RGB 00, 00, 00 ; water
+	
+	RGB 12, 14, 24
+	RGB 31, 31, 07
+	RGB 31, 16, 01
+	RGB 00, 00, 00 ; yellow
+	
+	RGB 12, 14, 24
+	RGB 24, 18, 07
+	RGB 20, 15, 03
+	RGB 00, 00, 00 ; brown
+	
+	RGB 12, 14, 24
+	RGB 15, 31, 31
+	RGB 05, 17, 31
+	RGB 00, 00, 00 ; roof
+	
+	RGB 31, 31, 16
+	RGB 31, 31, 16
+	RGB 14, 09, 00
+	RGB 00, 00, 00 ; text
+; dusk
+	RGB 31, 21, 14
+	RGB 18, 19, 30
+	RGB 13, 12, 30
+	RGB 06, 05, 05 ; gray
+	
+	RGB 31, 21, 14
+	RGB 30, 10, 00
+	RGB 18, 19, 30
+	RGB 06, 05, 05 ; red
+	
+	RGB 18, 19, 30
+	RGB 30, 10, 00
+	RGB 18, 06, 00
+	RGB 06, 05, 05 ; green
+	
+	RGB 31, 21, 14
+	RGB 30, 10, 00
+	RGB 18, 06, 00
+	RGB 06, 05, 05 ; water
+	
+	RGB 31, 21, 14
+	RGB 31, 31, 07
+	RGB 31, 16, 01
+	RGB 06, 05, 05 ; yellow
+	
+	RGB 31, 21, 14
+	RGB 24, 18, 07
+	RGB 20, 15, 03
+	RGB 06, 05, 05 ; brown
+	
+	RGB 31, 21, 14
+	RGB 15, 31, 31
+	RGB 05, 17, 31
+	RGB 06, 05, 05 ; roof
+	
+	RGB 31, 31, 16
+	RGB 31, 31, 16
+	RGB 14, 09, 00
+	RGB 00, 00, 00 ; text

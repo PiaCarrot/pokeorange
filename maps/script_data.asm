@@ -320,6 +320,8 @@ INCLUDE "maps/ChiefsHouse.asm"
 INCLUDE "maps/ShamoutiMart.asm"
 INCLUDE "maps/ShamoutiHouse.asm"
 INCLUDE "maps/ShamoutiBayHouse.asm"
+INCLUDE "maps/AirshipOutside.asm"
+INCLUDE "maps/AirshipCutscene.asm"
 
 SECTION "Pallet Scripts", ROMX
 

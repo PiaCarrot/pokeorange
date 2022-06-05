@@ -7,7 +7,7 @@ AirshipInterior_MapScriptHeader::
 .Callbacks: db 0
 
 ControlPanelAirship:
-	warp SHAMOUTI_ISLAND, 26, 13
+	warp ICE_ISLAND, 15, 31
 	end
 
 AirshipInterior_MapEventHeader::
