@@ -1539,4 +1539,31 @@
 	db 42, JYNX
 	db 44, SQUIRTLE
 
+	map SHAMOUTI_CAVE
+	db 4 percent, 4 percent, 4 percent
+	;morn
+	db 42, MACHOP
+	db 42, TYROGUE
+	db 41, GOLBAT
+	db 42, MACHOP
+	db 42, TYROGUE
+	db 41, MACHOKE
+	db 44, MACHAMP
+	;day
+	db 42, MACHOP
+	db 42, TYROGUE
+	db 41, GOLBAT
+	db 42, MACHOP
+	db 42, TYROGUE
+	db 41, MACHOKE
+	db 44, MACHAMP
+	;nite
+	db 42, MACHOP
+	db 42, TYROGUE
+	db 41, GOLBAT
+	db 42, MACHOP
+	db 42, TYROGUE
+	db 41, MACHOKE
+	db 44, MACHAMP
+
 	db -1 ; end

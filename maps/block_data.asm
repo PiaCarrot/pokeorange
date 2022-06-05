@@ -609,3 +609,6 @@ AirshipOutside_BlockData:
 	
 AirshipCutscene_BlockData:
 	INCBIN "maps/AirshipCutscene.blk"
+	
+ShamoutiCave_BlockData:
+	INCBIN "maps/ShamoutiCave.blk"

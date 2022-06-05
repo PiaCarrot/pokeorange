@@ -47,7 +47,9 @@ ShamoutiShrineSlowkingText1:
 
 ShamoutiShrine_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 1
+	warp_def $11, $6, 2, SHAMOUTI_CAVE
+	
 .CoordEvents: db 0
 
 .BGEvents: db 1
