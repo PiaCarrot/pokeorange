@@ -8,7 +8,9 @@ LightningIsland_MapScriptHeader::
 
 LightningIsland_MapEventHeader::
 
-.Warps: db 0
+.Warps: db 2
+	warp_def $5, $1f, 1, LIGHTNING_ISLAND_CAVE
+	warp_def $b, $13, 2, LIGHTNING_ISLAND_CAVE
 .CoordEvents: db 0
 
 .BGEvents: db 0

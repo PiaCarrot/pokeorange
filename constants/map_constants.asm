@@ -322,6 +322,7 @@ MAP_NONE EQU 0
 	mapgroup AIRSHIP_OUTSIDE, 32, 14
 	mapgroup AIRSHIP_CUTSCENE, 12, 6
 	mapgroup SHAMOUTI_CAVE, 14, 8
+	mapgroup LIGHTNING_ISLAND_CAVE, 4, 10
 	
 ; elevator floors
 

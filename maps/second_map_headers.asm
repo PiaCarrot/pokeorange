@@ -439,6 +439,7 @@
 	map_header_2 AirshipOutside, AIRSHIP_OUTSIDE, 0, 0
 	map_header_2 AirshipCutscene, AIRSHIP_CUTSCENE, 0, 0
 	map_header_2 ShamoutiCave, SHAMOUTI_CAVE, 9, 0
+	map_header_2 LightningIslandCave, LIGHTNING_ISLAND_CAVE, 9, 0
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, 0, 0

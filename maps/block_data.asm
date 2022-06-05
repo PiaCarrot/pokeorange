@@ -612,3 +612,6 @@ AirshipCutscene_BlockData:
 	
 ShamoutiCave_BlockData:
 	INCBIN "maps/ShamoutiCave.blk"
+
+LightningIslandCave_BlockData:
+	INCBIN "maps/LightningIslandCave.blk"
