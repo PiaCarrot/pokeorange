@@ -346,37 +346,37 @@
 	db 1 percent
 	db 40, WAILMER
 	db 40, CARVANHA
-	db 40, WAILORD
+	db 48, WAILORD
 
 	map SHAMOUTI_BAY
 	db 1 percent
 	db 40, WAILMER
 	db 40, CARVANHA
-	db 40, WAILORD
+	db 48, WAILORD
 
 	map SHAMOUTI_NORTH_BEACH
 	db 1 percent
 	db 40, WAILMER
 	db 40, CARVANHA
-	db 40, WAILORD
+	db 48, WAILORD
 
 	map LIGHTNING_ISLAND
 	db 1 percent
 	db 40, WAILMER
 	db 40, CARVANHA
-	db 40, WAILORD
+	db 48, WAILORD
 
 	map ICE_ISLAND
 	db 1 percent
 	db 40, WAILMER
 	db 40, CARVANHA
-	db 40, WAILORD
+	db 48, WAILORD
 
 	map FIRE_ISLAND
 	db 1 percent
 	db 40, WAILMER
 	db 40, CARVANHA
-	db 40, WAILORD
+	db 48, WAILORD
 
 
 	db -1 ; end

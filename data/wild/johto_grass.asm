@@ -1197,7 +1197,7 @@
 	db 31, LUMINEON
 	db 31, STARYU
 	db 31, STARMIE
-	db 31, RELICANTH
+	db 33, RELICANTH
 	; day
 	db 30, FINNEON
 	db 30, STARYU
@@ -1205,7 +1205,7 @@
 	db 31, LUMINEON
 	db 31, STARYU
 	db 31, STARMIE
-	db 31, RELICANTH
+	db 33, RELICANTH
 	; nite
 	db 30, FINNEON
 	db 30, STARYU
@@ -1213,7 +1213,7 @@
 	db 31, LUMINEON
 	db 31, STARYU
 	db 31, STARMIE
-	db 31, RELICANTH
+	db 33, RELICANTH
 	
 	map UNNAMED_ISLAND_3
 	db 3 percent, 3 percent, 3 percent
@@ -1224,7 +1224,7 @@
 	db 35, GLOOM
 	db 35, AZUMARILL
 	db 35, PELIPPER
-	db 35, TROPIUS
+	db 36, TROPIUS
 	;day
 	db 34, MARILL
 	db 34, WINGULL
@@ -1232,7 +1232,7 @@
 	db 35, WEEPINBELL
 	db 35, AZUMARILL
 	db 35, PELIPPER
-	db 35, TROPIUS
+	db 36, TROPIUS
 	;nite
 	db 34, MARILL
 	db 34, RATTATA
@@ -1240,7 +1240,7 @@
 	db 35, GLOOM
 	db 35, AZUMARILL
 	db 35, RATICATE
-	db 35, TROPIUS
+	db 36, TROPIUS
 	
 	map ROUTE_69_SOUTH
 	db 3 percent, 3 percent, 3 percent
@@ -1405,7 +1405,7 @@
 	db 38, RHYHORN
 	
 	map SHAMOUTI_BAY
-	db 3 percent, 3 percent, 3 percent
+	db 6 percent, 6 percent, 6 percent
 	;morn
 	db 40, HAPPINY
 	db 41, BUTTERFREE
@@ -1413,7 +1413,7 @@
 	db 42, KINGLER
 	db 42, KRABBY
 	db 41, KINGLER
-	db 42, CHANSEY
+	db 48, CHANSEY
 	;day
 	db 40, HAPPINY
 	db 41, BUTTERFREE
@@ -1421,7 +1421,7 @@
 	db 42, KINGLER
 	db 42, KRABBY
 	db 41, KINGLER
-	db 42, CHANSEY
+	db 48, CHANSEY
 	;nite
 	db 40, HAPPINY
 	db 41, VENOMOTH
@@ -1429,10 +1429,10 @@
 	db 42, KINGLER
 	db 42, KRABBY
 	db 41, KINGLER
-	db 42, CHANSEY
+	db 48, CHANSEY
 
 	map SHAMOUTI_NORTH_BEACH
-	db 3 percent, 3 percent, 3 percent
+	db 6 percent, 6 percent, 6 percent
 	;morn
 	db 42, MIME__JR
 	db 42, BUTTERFREE
@@ -1459,7 +1459,7 @@
 	db 42, MR__MIME
 
 	map LIGHTNING_ISLAND
-	db 3 percent, 3 percent, 3 percent
+	db 6 percent, 6 percent, 6 percent
 	;morn
 	db 42, ELEKID
 	db 42, BUTTERFREE
@@ -1467,7 +1467,7 @@
 	db 42, ELECTABUZZ
 	db 42, ELEKID
 	db 41, ELECTABUZZ
-	db 42, BULBASAUR
+	db 44, BULBASAUR
 	;day
 	db 42, ELEKID
 	db 42, BUTTERFREE
@@ -1475,7 +1475,7 @@
 	db 41, ELECTABUZZ
 	db 41, ELEKID
 	db 42, ELECTABUZZ
-	db 42, BULBASAUR
+	db 44, BULBASAUR
 	;nite
 	db 42, ELEKID
 	db 41, VENOMOTH
@@ -1483,10 +1483,10 @@
 	db 41, ELECTABUZZ
 	db 41, ELEKID
 	db 42, ELECTABUZZ
-	db 42, BULBASAUR
+	db 44, BULBASAUR
 
 	map FIRE_ISLAND
-	db 3 percent, 3 percent, 3 percent
+	db 6 percent, 6 percent, 6 percent
 	;morn
 	db 42, MAGBY
 	db 42, BUTTERFREE
@@ -1494,7 +1494,7 @@
 	db 42, MAGMAR
 	db 42, MAGBY
 	db 41, TURTONATOR
-	db 42, CHARMANDER
+	db 44, CHARMANDER
 	;day
 	db 42, MAGBY
 	db 42, BUTTERFREE
@@ -1502,7 +1502,7 @@
 	db 41, MAGMAR
 	db 41, MAGBY
 	db 42, TURTONATOR
-	db 42, CHARMANDER
+	db 44, CHARMANDER
 	;nite
 	db 42, MAGBY
 	db 41, VENOMOTH
@@ -1510,10 +1510,10 @@
 	db 41, MAGMAR
 	db 41, MAGBY
 	db 42, TURTONATOR
-	db 42, CHARMANDER
+	db 44, CHARMANDER
 
 	map ICE_ISLAND
-	db 3 percent, 3 percent, 3 percent
+	db 6 percent, 6 percent, 6 percent
 	;morn
 	db 42, SMOOCHUM
 	db 42, SEEL
@@ -1521,7 +1521,7 @@
 	db 42, JYNX
 	db 42, SMOOCHUM
 	db 41, TURTONATOR
-	db 42, SQUIRTLE
+	db 44, SQUIRTLE
 	;day
 	db 42, SMOOCHUM
 	db 42, SEEL
@@ -1529,7 +1529,7 @@
 	db 41, JYNX
 	db 41, SMOOCHUM
 	db 42, TURTONATOR
-	db 42, SQUIRTLE
+	db 44, SQUIRTLE
 	;nite
 	db 42, SMOOCHUM
 	db 41, SEEL
@@ -1537,6 +1537,6 @@
 	db 41, JYNX
 	db 41, SMOOCHUM
 	db 42, TURTONATOR
-	db 42, SQUIRTLE
+	db 44, SQUIRTLE
 
 	db -1 ; end
