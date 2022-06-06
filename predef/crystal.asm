@@ -59,7 +59,7 @@ LoadSpecialMapPalette: ; 494ac
 	
 	ld hl, AirshipInteriorPalette
 	cp TILESET_AIRSHIP_INSIDE
-	jp z, LoadEightBGPalettes
+	jp z, LoadEightTimeOfDayBGPalettes
 	
 	ld hl, AirshipExteriorPalette
 	cp TILESET_AIRSHIP_OUTSIDE
