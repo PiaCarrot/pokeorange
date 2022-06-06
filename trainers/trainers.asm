@@ -1476,11 +1476,11 @@ LawrenceGroup:
 	; LAWRENCE (1)
 	db TRAINERTYPE_MOVES
 
-	db 70, ARTICUNO
-		db BLIZZARD
-		db ICE_BEAM
+	db 70, MOLTRES
+		db FIRE_BLAST
+		db FLAMETHROWER
 		db DRILL_PECK
-		db FLY
+		db STEEL_WING
 
 ; ================================
 ; ================
@@ -1492,43 +1492,49 @@ LawrenceGroup:
 		db FIRE_BLAST
 		db FLAMETHROWER
 		db DRILL_PECK
-		db FLY
-
-; ================================
-; ================
-
-	; LAWRENCE (3)
-	db TRAINERTYPE_MOVES
-
-	db 70, ZAPDOS
-		db THUNDER
-		db THUNDERBOLT
-		db DRILL_PECK
-		db FLY
-
-; ================================
-; ================
-
-	; LAWRENCE (4)
-	db TRAINERTYPE_MOVES
-
-	db 70, ZAPDOS
-		db THUNDER
-		db THUNDERBOLT
-		db DRILL_PECK
-		db FLY
+		db STEEL_WING
 		
 	db 70, ARTICUNO
 		db BLIZZARD
 		db ICE_BEAM
 		db DRILL_PECK
-		db FLY
+		db LOCK_ON
 		
-	db 70, MOLTRES
+	db 70, ZAPDOS
+		db THUNDER
+		db THUNDERBOLT
+		db DRILL_PECK
+		db REST
+
+; ================================
+; ================
+
+	; LAWRENCE (3) (World Tournament)
+	db TRAINERTYPE_MOVES
+
+	db 100, ZAPDOS
+		db THUNDER
+		db THUNDERBOLT
+		db DRILL_PECK
+		db REST
+		
+	db 100, ARTICUNO
+		db BLIZZARD
+		db ICE_BEAM
+		db DRILL_PECK
+		db LOCK_ON
+		
+	db 100, MOLTRES
 		db FIRE_BLAST
 		db FLAMETHROWER
 		db DRILL_PECK
-		db FLY
+		db STEEL_WING
+
+	db 100, LUGIA
+		db AEROBLAST
+		db DIVE
+		db TRI_ATTACK
+		db PSYCHIC_M
 
 	db $ff ; end
 	
