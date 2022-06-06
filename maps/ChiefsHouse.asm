@@ -15,6 +15,7 @@ ShamoutiChiefScript:
 	waitbutton
 	closetext
 	setevent EVENT_SHAMOUTI_QUEST_STARTED
+	warp AIRSHIP_CUTSCENE, 5, 21
 	end
 	
 .AcceptedShamoutiQuest

@@ -61,4 +61,4 @@
 	tilecoll WALL, WALL, WALL, WALL ; 3c
 	tilecoll DIVE_DOWN, DIVE_DOWN, DIVE_DOWN, DIVE_DOWN ; 3d
 	tilecoll WALL, WALL, WALL, WALL ; 3e
-	tilecoll FLOOR, FLOOR, FLOOR, HEADBUTT_TREE ; 3f
+	tilecoll WALL, WALL, WALL, WALL ; 3f

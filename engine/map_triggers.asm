@@ -36,6 +36,8 @@ ENDM
 	trigger_def TARROCO_ISLAND,				  wTarrocoIslandTrigger
 	trigger_def KUMQUAT_HOTEL_LOBBY,		  wKumquatHotelLobbyTrigger
 	trigger_def PUMMELO_ISLAND,		  		  wPummeloIslandTrigger
+	trigger_def AIRSHIP_CUTSCENE,		  	  wAirshipCutsceneTrigger
+	trigger_def AIRSHIP_INTERIOR,		  	  wAirshipInteriorTrigger
 
 	db -1
 ; 4d15b

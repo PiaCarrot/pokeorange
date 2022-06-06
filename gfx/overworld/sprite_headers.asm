@@ -480,3 +480,6 @@ DiverFemaleUWSprite:
 
 SeashellSprite:
 	sprite_header SeashellSpriteGFX, 1, STILL_SPRITE, PAL_OW_BLUE
+	
+LawrenceSprite:
+	sprite_header LawrenceSpriteGFX, 3, WALKING_SPRITE, PAL_OW_GREEN
