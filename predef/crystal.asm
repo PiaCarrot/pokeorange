@@ -253,6 +253,13 @@ INCLUDE "tilesets/dusk.pal"
 
 LoadSpecialMapOBPalette:
     ld a, [MapGroup]
+	cp GROUP_SHAMOUTI_ISLAND
+    jr nz, .not_shamouti
+    ld a, [MapNumber]
+    cp MAP_SHAMOUTI_BAY
+    ld hl, KumquatOBPalette
+	jr z, LoadEightTimeOfDayOBPalettes
+.not_shamouti
     cp GROUP_KUMQUAT_ISLAND_WEST
     jr nz, .not_kumquat
     ld a, [MapNumber]

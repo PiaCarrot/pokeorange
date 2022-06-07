@@ -43,7 +43,7 @@ KumquatWestShamoutiSailor:
 	writetext KumquatWestShamoutiSailorText3
 	waitbutton
 	closetext
-;	warp SHAMOUTI_ISLAND, 1, 1
+	warp SHAMOUTI_ISLAND, 13, 21
 	end
 	
 KumquatWestShamoutiSailorText:
@@ -242,7 +242,7 @@ KumquatIslandWest_MapEventHeader::
 	person_event SPRITE_SAILBOAT_BOTTOM, 28, 12, SPRITEMOVEDATA_SAILBOAT_BOTTOM, 0, 0, -1, -1, PAL_OW_TREE, PERSONTYPE_SCRIPT, 0, KumquatWestUmbrellas, -1
 	person_event SPRITE_UMBRELLA, 22, 22, SPRITEMOVEDATA_UMBRELLA_LEFT, 0, 0, -1, -1, PAL_OW_ROCK, PERSONTYPE_SCRIPT, 0, KumquatWestUmbrellas, -1
 	person_event SPRITE_UMBRELLA, 22, 23, SPRITEMOVEDATA_UMBRELLA_RIGHT, 0, 0, -1, -1, PAL_OW_ROCK, PERSONTYPE_SCRIPT, 0, KumquatWestUmbrellas, -1
-	person_event SPRITE_SAILOR, 27, 12, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, KumquatWestShamoutiSailor, -1
+	person_event SPRITE_COOLTRAINER_F, 27, 12, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, KumquatWestShamoutiSailor, -1
 	person_event SPRITE_SAILOR, 10, 17, SPRITEMOVEDATA_WANDER, 2, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, KumquatWestSailor, -1
 	person_event SPRITE_FISHER, 4, 27, SPRITEMOVEDATA_WANDER, 2, 0, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, KumquatWestFisher, -1
 	person_event SPRITE_SIGHTSEER_F, 23, 24, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, (1 << MORN) | (1 << DAY), PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, KumquatWestSightseer, -1

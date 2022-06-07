@@ -8,6 +8,10 @@ LightningIslandCave_MapScriptHeader::
 .Callbacks: db 0
 
 LawrenceLightningIslandScript:
+	opentext
+	writetext LawrenceLightningIslandText2
+	waitbutton
+	closetext
 	faceplayer
 	showemote EMOTE_QUESTION, LIGHTNING_ISLAND_LAWRENCE, 15
 	playmusic MUSIC_CASTLE_ROUTE
@@ -71,6 +75,27 @@ LawrenceLightningIslandText:
 	line "LAWRENCE III."
 	
 	para "Good day, peasant."
+	done
+	
+LawrenceLightningIslandText2:
+	text "Target appears to"
+	line "have left the"
+	cont "LIGHTNING ISLAND"
+	cont "in order to claim"
+	cont "FIRE ISLAND."
+	
+	para "<...> <...> <...>"
+	
+	para "Target ZAPDOS is"
+	line "currently engaged"
+	cont "in battle with"
+	cont "Target 3 on ICE"
+	cont "ISLAND."
+	
+	para "???: Getting a"
+	line "bit ahead of our-"
+	cont "selves are we,"
+	cont "ZAPDOS<...>?"
 	done
 	
 LawrenceLightningIsland_Movement:
