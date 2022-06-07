@@ -133,7 +133,9 @@ if def(DEBUG)
 	giveitem OLD_ROD
 	giveitem GOOD_ROD
 	giveitem COIN_CASE
-	giveitem SALVEYO_WEED
+	giveitem ELECTRIC_ORB
+	giveitem FIRE_ORB
+	giveitem ICE_ORB
 	giveitem SHELL_BOX
 	givecoins 9999
 	giveshells 13
@@ -141,10 +143,10 @@ if def(DEBUG)
 	opentext
 	givepoke LAPRAS, 100
 	givepoke CHARIZARD, 100
-	givepoke PIKACHU, 100, LIGHT_BALL
-	givepoke EXEGGUTOR, 100, BERRY, EXEGGUTOR_KANTONESE_FORM
-	givepoke EXEGGUTOR, 100
-	giveegg PICHU, 5
+	givepoke HO_OH, 100, LIGHT_BALL
+	givepoke MEW, 100
+	givepoke MARSHADOW, 100
+	givepoke LUGIA, 100
 	closetext
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves

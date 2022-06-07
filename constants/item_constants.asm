@@ -164,6 +164,9 @@
 	const SALVEYO_WEED
 	const CAT_STATUE
 	const SHELL_BOX
+	const ELECTRIC_ORB
+	const FIRE_ORB
+	const ICE_ORB
 
 	add_tm POWERUPPUNCH ; $9d
 	add_tm DRAGON_PULSE ; $9e

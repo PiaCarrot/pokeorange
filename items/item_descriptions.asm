@@ -195,6 +195,9 @@ ItemDescriptions:
 	dw SalveyoWeedDesc
 	dw CatStatueDesc
 	dw ShellBoxDesc
+	dw ElectricOrbDesc
+	dw FireOrbDesc
+	dw IceOrbDesc
 
 MasterBallDesc:
 	db   "The best BALL. It"
@@ -851,3 +854,15 @@ CatStatueDesc:
 ShellBoxDesc:
 	db   "A quaint wooden"
 	next "box for shells.@"
+	
+ElectricOrbDesc:
+	db   "God of LIGHTNING"
+	next "ISLAND's treasure.@"
+
+FireOrbDesc:
+	db   "God of FIRE"
+	next "ISLAND's treasure.@"
+
+IceOrbDesc:
+	db   "God of ICE"
+	next "ISLAND's treasure.@"

@@ -178,6 +178,9 @@ ItemEffects: ; e73c
 	dw SalveyoWeed
 	dw CatStatue
 	dw ShellBox
+	dw ElectricOrb
+	dw FireOrb
+	dw IceOrb
 ; e8a2
 
 
@@ -2876,7 +2879,11 @@ SoulDew:
 HeartScale:
 QuickPowder:
 SalveyoWeed:
-CatStatue: ; f77d
+CatStatue:
+ElectricOrb:
+FireOrb:
+IceOrb:
+; f77d
 	jp IsntTheTimeMessage
 ; f780
 
