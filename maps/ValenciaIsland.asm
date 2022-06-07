@@ -103,6 +103,8 @@ if def(DEBUG)
 	setflag ENGINE_FLYPOINT_VERMILION
 	setevent EVENT_BEAT_RED
 	setevent EVENT_BEAT_ORANGE_LEAGUE
+	setevent EVENT_BEAT_LAWRENCE
+	setevent EVENT_OBTAINED_ELECTRIC_ORB
 	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
 	giveitem SKATEBOARD
@@ -330,7 +332,7 @@ TeachHMSlaveMoves:
 	ld [hl], a ; SLAM
 	; ROCKRUFF
 	ld hl, PartyMon4Moves
-	ld a, FLAMETHROWER
+	ld a, ROCK_CLIMB
 	ld [hli], a
 	ld a, DIG
 	ld [hl], a
