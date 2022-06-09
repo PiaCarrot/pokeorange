@@ -113,7 +113,7 @@ MoroMuseumStone:
 	jumptext MoroMuseumStoneText
 
 MoroMuseumStoneText:
-	text "TRADE STONE"
+	text "ICE STONE"
 
 	para "This is a recently"
 	line "discovered stone."

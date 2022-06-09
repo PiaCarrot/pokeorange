@@ -135,7 +135,7 @@
 	db "SILVER WING@"
 	db "RAINBOW WING@"
 	db "SHINY STONE@"
-	db "TRADE STONE@"
+	db "LINK CABLE@"
 	db "MORO TROPHY@"
 	db "DUBIOUS DISC@"
 	db "SHINY CHARM@"
