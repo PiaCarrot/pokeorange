@@ -37,6 +37,7 @@ ShamoutiChiefScript:
 	writetext ShamoutiChiefText4
 	waitbutton
 	closetext
+	setevent EVENT_RECEIVED_ROCK_CLIMB
 	end
 	
 .AlreadyGotRockClimb
