@@ -12,8 +12,8 @@ FireIsland_MapScriptHeader::
 FireIslandFirestone:
 	itemball FIRE_STONE
 	
-FireIslandKingsRock:
-	itemball KINGS_ROCK
+FireIslandTradestone:
+	itemball TRADE_STONE
 	
 FireIslandShrine:
 	checkevent EVENT_OBTAINED_FIRE_ORB
@@ -93,5 +93,5 @@ FireIsland_MapEventHeader::
 
 .ObjectEvents: db 3
 	person_event SPRITE_MOLTRES, 30, 10, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_RED, 0, 0, 0, EVENT_MOLTRES_APPEARS
-	person_event SPRITE_POKE_BALL, 28,  7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, FireIslandFirestone, EVENT_FIRE_ISLAND_FIRE_STONE
-	person_event SPRITE_POKE_BALL, 14, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, FireIslandKingsRock, EVENT_FIRE_ISLAND_KINGS_ROCK
+	person_event SPRITE_POKE_BALL, 18, 16, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, FireIslandFirestone, EVENT_FIRE_ISLAND_FIRE_STONE
+	person_event SPRITE_POKE_BALL, 26,  7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, FireIslandTradestone, EVENT_FIRE_ISLAND_TRADE_STONE
