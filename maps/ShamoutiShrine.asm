@@ -8,10 +8,27 @@ ShamoutiShrine_MapScriptHeader::
 
 ShamoutiShrineSlowkingScript:
 	opentext
+	checkevent EVENT_MELODY_SENDS_YOU_TO_SHRINE
+	iftrue .SlowkingWarp
 	writetext ShamoutiShrineSlowkingText1
 	cry SLOWKING
 	waitbutton
 	closetext
+	end
+	
+.SlowkingWarp
+	writetext ShamoutiShrineSlowkingText2
+	yesorno
+	iftrue .YesToSlowkingWarp
+	closetext
+	end
+	
+.YesToSlowkingWarp
+	closetext
+	playsound SFX_WARP_TO
+	special FadeOutPalettes
+	waitsfx
+	warp AIRSHIP_OUTSIDE, 8, 14
 	end
 	
 ShamoutiShrineText:
@@ -43,6 +60,25 @@ ShamoutiShrineText1:
 	
 ShamoutiShrineSlowkingText1:
 	text "Yaaaaawn."
+	done
+	
+ShamoutiShrineSlowkingText2:
+	text "It's getting a"
+	line "bit chilly, isn't"
+	cont "it? I could use"
+	cont "some pants."
+	
+	para "Ah, the flying"
+	line "castle up there?"
+	
+	para "I can teleport"
+	line "you there, if you"
+	cont "would like?"
+	
+	para "I can't guarantee"
+	line "that you will"
+	cont "be in the safest"
+	cont "place up there."
 	done
 
 ShamoutiShrine_MapEventHeader::

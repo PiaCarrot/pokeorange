@@ -15,13 +15,29 @@ MelodyShamouti:
 .PlayLugiaSong
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_LAWRENCE_ICE_ISLAND
+	iftrue .GoToSlowking
 	writetext MelodyText2
 	waitbutton
 	closetext
 	playmusic MUSIC_LUGIAS_SONG_2000
 	end
+
+.GoToSlowking
+	checkevent EVENT_MELODY_SENDS_YOU_TO_SHRINE
+	iftrue .AlreadySpokeToMelody
+	writetext MelodyText3
+	waitbutton
+	closetext
+	setevent EVENT_MELODY_SENDS_YOU_TO_SHRINE
+	end
 	
-	
+.AlreadySpokeToMelody
+	writetext MelodyText4
+	waitbutton
+	closetext
+	end
+
 MelodyText1:
 	text "MELODY: Are you"
 	line "here for the"
@@ -56,6 +72,72 @@ MelodyText2:
 	line "goes like this<...>"
 	done
 	
+MelodyText3:
+	text "MELODY: So, the"
+	line "prophecy has come"
+	cont "true? Someone has"
+	cont "disturbed the gods"
+	cont "of the islands."
+	
+	para "If we don't do"
+	line "something fast,"
+	cont "who knows what"
+	cont "will happen!"
+	
+	para "It can't be a"
+	line "coincidence that"
+	cont "you came to us."
+	
+	para "<...>"
+	
+	para "You can't get up"
+	line "to the castle in"
+	cont "the sky?"
+	
+	para "There's a guardian"
+	line "at the shrine that"
+	cont "might be able to"
+	cont "help with that."
+	
+	para "Go speak with it,"
+	line "and when you get"
+	cont "back, meet me at"
+	cont "the shrine with"
+	cont "those treasures."
+	
+	para "If that intruder"
+	line "really thinks the"
+	cont "gods are the three"
+	cont "treasures, then he"
+	cont "is dumber than he"
+	cont "lets on. I'm sure"
+	cont "you can do this!"
+	done
+	
+MelodyText4:
+	text "You can't get up"
+	line "to the castle in"
+	cont "the sky?"
+	
+	para "There's a guardian"
+	line "at the shrine that"
+	cont "might be able to"
+	cont "help with that."
+	
+	para "Go speak with it,"
+	line "and when you get"
+	cont "back, meet me at"
+	cont "the shrine with"
+	cont "those treasures."
+	
+	para "If that intruder"
+	line "really thinks the"
+	cont "gods are the three"
+	cont "treasures, then he"
+	cont "is dumber than he"
+	cont "lets on. I'm sure"
+	cont "you can do this!"
+	done
 
 ShamoutiHouse_MapEventHeader:
 
