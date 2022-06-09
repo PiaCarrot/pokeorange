@@ -59,6 +59,7 @@ IceIslandCutscene:
 	domaptrigger ICE_ISLAND, $1
 	setevent EVENT_BEAT_LAWRENCE_ICE_ISLAND
 	setevent ICE_ISLAND_CAPTURE_RING_1
+	clearevent EVENT_AIRSHIP_BIRDS
 	end
 	
 IceIslandLawrenceText1:

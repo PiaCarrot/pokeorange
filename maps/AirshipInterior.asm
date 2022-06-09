@@ -87,5 +87,5 @@ AirshipInterior_MapEventHeader::
 .BGEvents: db 1
 	signpost  2, 10, SIGNPOST_READ, ControlPanelAirship
 
-.ObjectEvents: db 1	
+.ObjectEvents: db 8	
 	person_event SPRITE_LAWRENCE,  3, 10, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, 0, -1

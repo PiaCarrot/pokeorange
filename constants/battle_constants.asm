@@ -63,6 +63,8 @@ const_value = 1
 	const BATTLETYPE_SHINY
 	const BATTLETYPE_MARSHADOW
 	const BATTLETYPE_KANTO_LEGEND
+	const BATTLETYPE_LUGIA
+	const BATTLETYPE_HOOH
 ; battle variables
 	const_def
 	const BATTLE_VARS_SUBSTATUS1
