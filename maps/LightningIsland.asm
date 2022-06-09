@@ -67,7 +67,7 @@ LightningIslandShrine:
 	clearevent EVENT_ZAPDOS_APPEARS
 	appear LIGHTNING_ISLAND_ZAPDOS
 	applymovement LIGHTNING_ISLAND_ZAPDOS, ZapdosLightningIslandMovement
-	writecode VAR_BATTLETYPE, BATTLETYPE_SNORLAX
+	writecode VAR_BATTLETYPE, BATTLETYPE_KANTO_LEGEND
 	loadwildmon ZAPDOS, 65
 	startbattle
 	disappear LIGHTNING_ISLAND_ZAPDOS

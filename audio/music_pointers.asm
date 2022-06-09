@@ -125,7 +125,6 @@
 	dba Music_LookGladion
 	dba Music_HoennChampionBattle
 	dba Music_HoOhBattle
-	dba Music_KantoLegend
 	dba Music_LilycoveCity
 	dba Music_LugiaBattle
 	dba Music_Route103

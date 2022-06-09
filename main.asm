@@ -1222,6 +1222,10 @@ PlayBattleMusic: ; 2ee6c
 	ld de, MUSIC_MARSHADOW_BATTLE
 	cp BATTLETYPE_MARSHADOW
 	jp z, .done
+	
+	ld de, MUSIC_KANTO_WILD_BATTLE ;Three birds theme
+	cp BATTLETYPE_KANTO_LEGEND
+	jp z, .done
 
 	; Are we fighting a trainer?
 	ld a, [OtherTrainerClass]

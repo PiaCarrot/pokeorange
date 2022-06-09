@@ -62,6 +62,7 @@ const_value = 1
 	const BATTLETYPE_SNORLAX
 	const BATTLETYPE_SHINY
 	const BATTLETYPE_MARSHADOW
+	const BATTLETYPE_KANTO_LEGEND
 ; battle variables
 	const_def
 	const BATTLE_VARS_SUBSTATUS1
