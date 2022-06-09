@@ -38,6 +38,7 @@ ENDM
 	trigger_def PUMMELO_ISLAND,		  		  wPummeloIslandTrigger
 	trigger_def AIRSHIP_CUTSCENE,		  	  wAirshipCutsceneTrigger
 	trigger_def AIRSHIP_INTERIOR,		  	  wAirshipInteriorTrigger
+	trigger_def ICE_ISLAND,		  	 		  wIceIslandTrigger
 
 	db -1
 ; 4d15b

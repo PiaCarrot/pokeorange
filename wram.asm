@@ -2315,6 +2315,7 @@ wKumquatHotelLobbyTrigger::		   ds 1
 wPummeloIslandTrigger::		       ds 1
 wAirshipCutsceneTrigger::		   ds 1
 wAirshipInteriorTrigger::		   ds 1
+wIceIslandTrigger::				   ds 1
 
 EventFlags:: ; da72
 	flag_array NUM_EVENTS

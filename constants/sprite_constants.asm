@@ -126,6 +126,7 @@
 	const SPRITE_DIVER_FEMALE_UW
 	const SPRITE_SEASHELL
 	const SPRITE_LAWRENCE
+	const SPRITE_CAPTURE_RING
 
 const_value = $90
 SPRITE_POKEMON EQU const_value

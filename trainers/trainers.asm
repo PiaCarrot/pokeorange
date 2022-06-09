@@ -1474,42 +1474,67 @@ LawrenceGroup:
 ; ================
 
 	; LAWRENCE (1)
-	db TRAINERTYPE_MOVES
+	db "LAWRENCE@"
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 
-	db 70, MOLTRES
+	db 65, MOLTRES, MALE_MASK
 		db FIRE_BLAST
 		db FLAMETHROWER
 		db DRILL_PECK
 		db STEEL_WING
+
+	db 62, KINGDRA, MALE_MASK
+		db HYDRO_PUMP
+		db SMOKESCREEN
+		db DRAGONBREATH
+		db WATERFALL
+
+	db 63, FLYGON, MALE_MASK
+		db SANDSTORM
+		db DRAGON_PULSE
+		db EARTHQUAKE
+		db DIG
+
+	db 64, LYCANROC, MALE_MASK | LYCANROC_DUSK_FORM
+		db ACCELEROCK
+		db POWER_GEM
+		db CRUNCH
+		db ROCK_SLIDE
+		
+
+	db $ff ; end
 
 ; ================================
 ; ================
 
 	; LAWRENCE (2)
+	db "LAWRENCE@"
 	db TRAINERTYPE_MOVES
 
-	db 70, MOLTRES
+	db 65, MOLTRES
 		db FIRE_BLAST
 		db FLAMETHROWER
 		db DRILL_PECK
 		db STEEL_WING
 		
-	db 70, ARTICUNO
+	db 65, ARTICUNO
 		db BLIZZARD
 		db ICE_BEAM
 		db DRILL_PECK
 		db LOCK_ON
 		
-	db 70, ZAPDOS
+	db 65, ZAPDOS
 		db THUNDER
 		db THUNDERBOLT
 		db DRILL_PECK
 		db REST
 
+	db $ff ; end
 ; ================================
 ; ================
 
 	; LAWRENCE (3) (World Tournament)
+	db "LAWRENCE@"
 	db TRAINERTYPE_MOVES
 
 	db 100, ZAPDOS
@@ -3251,7 +3276,7 @@ CatmanGroup:
 
 	db 50, NINETALES, MALE_MASK
 	db 50, VAPOREON, MALE_MASK
-	db 50, LYCANROC, FEMALE_MASK | SHINY_MASK | LYCANROC_MIDNIGHT_FORM
+	db 50, LYCANROC, FEMALE_MASK | LYCANROC_MIDNIGHT_FORM
 	db 50, FLYGON, MALE_MASK
 
 	db $ff

@@ -46,6 +46,7 @@ LightningIslandShrine:
 	waitsfx
 	waitbutton
 	closetext
+	setevent EVENT_OBTAINED_ELECTRIC_ORB
 	end
 	
 .LawrenceCheck:
