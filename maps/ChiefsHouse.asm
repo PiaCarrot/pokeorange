@@ -15,11 +15,32 @@ ShamoutiChiefScript:
 	waitbutton
 	closetext
 	setevent EVENT_SHAMOUTI_QUEST_STARTED
+	special FadeOutPalettes
 	warp AIRSHIP_CUTSCENE, 5, 21
 	end
 	
 .AcceptedShamoutiQuest
+	checkevent EVENT_LUGIA_FOUGHT
+	iftrue .RockClimbScript
 	writetext ShamoutiChiefText2
+	waitbutton
+	closetext
+	end
+	
+.RockClimbScript
+	checkevent EVENT_RECEIVED_ROCK_CLIMB
+	iftrue .AlreadyGotRockClimb
+	writetext ShamoutiChiefText3
+	waitbutton
+	verbosegiveitem HM_ROCK_CLIMB
+	waitbutton
+	writetext ShamoutiChiefText4
+	waitbutton
+	closetext
+	end
+	
+.AlreadyGotRockClimb
+	writetext ShamoutiChiefText4
 	waitbutton
 	closetext
 	end
@@ -29,8 +50,9 @@ ShamoutiChiefText2:
 	line "details, please go"
 	cont "to my home just"
 	cont "outside of this"
-	cont "building. My kid"
-	cont "will fill you in."
+	cont "building. My grand"
+	cont "kid will handle"
+	cont "the rest."
 	
 	para "I will let the"
 	line "GUARD on the beach"
@@ -93,15 +115,39 @@ ShamoutiChiefText1:
 	line "details, please go"
 	cont "to the home just"
 	cont "outside of this"
-	cont "building. My kid"
-	cont "will fill you in."
+	cont "building. My grand"
+	cont "kid will handle"
+	cont "the rest."
 	
 	para "I will let the"
 	line "GUARD on the beach"
 	cont "know to let you"
 	cont "through."
 	done
+
+ShamoutiChiefText3:
+	text "I can't thank you"
+	line "enough, <PLAYER>!"
 	
+	para "The prophecy is"
+	line "fulfilled, and"
+	cont "all is well."
+	
+	para "Of course, I have"
+	line "a reward for your"
+	cont "troubles."
+	done
+
+ShamoutiChiefText4:
+	text "That HM will let"
+	line "you scale all"
+	cont "kinds of walls!"
+	
+	para "I'm sure it will"
+	line "come in handy!"
+	done
+
+
 ChiefSage1Script:
 	jumptext ChiefSage1Text
 	

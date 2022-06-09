@@ -50,7 +50,7 @@ LightningIslandShrine:
 	end
 	
 .LawrenceCheck:
-	checkevent EVENT_BEAT_LAWRENCE
+	checkevent EVENT_LUGIA_FOUGHT
 	iftrue .ZapdosCheck
 	opentext
 	writetext LightningIslandShrineText

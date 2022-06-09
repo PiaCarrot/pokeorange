@@ -104,8 +104,9 @@ if def(DEBUG)
 	setevent EVENT_BEAT_RED
 	setevent EVENT_BEAT_ORANGE_LEAGUE
 	setevent EVENT_BEAT_LAWRENCE_ICE_ISLAND
-	clearevent EVENT_MELODY_AT_SHRINE
 	setevent EVENT_SHAMOUTI_QUEST_STARTED
+	setevent EVENT_MELODY_SENDS_YOU_TO_SHRINE
+	clearevent EVENT_AIRSHIP_BIRDS
 	setevent EVENT_OBTAINED_ICE_ORB
 	setevent EVENT_OBTAINED_FIRE_ORB
 	setevent EVENT_OBTAINED_ELECTRIC_ORB
@@ -158,7 +159,7 @@ if def(DEBUG)
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp SHAMOUTI_ISLAND, 27, 7
+	warp SHAMOUTI_SHRINE, 11, 15
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

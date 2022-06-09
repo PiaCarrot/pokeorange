@@ -1509,59 +1509,47 @@ LawrenceGroup:
 
 	; LAWRENCE (2)
 	db "LAWRENCE@"
-	db TRAINERTYPE_MOVES
+	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 
-	db 65, MOLTRES
+	db 65, MOLTRES, MALE_MASK
 		db FIRE_BLAST
 		db FLAMETHROWER
 		db DRILL_PECK
 		db STEEL_WING
 		
-	db 65, ARTICUNO
+	db 65, ARTICUNO, MALE_MASK
 		db BLIZZARD
 		db ICE_BEAM
 		db DRILL_PECK
 		db LOCK_ON
 		
-	db 65, ZAPDOS
+	db 65, ZAPDOS, MALE_MASK
 		db THUNDER
 		db THUNDERBOLT
 		db DRILL_PECK
 		db REST
+		
+	db 64, KINGDRA, MALE_MASK
+		db HYDRO_PUMP
+		db SMOKESCREEN
+		db DRAGONBREATH
+		db WATERFALL
+
+	db 65, FLYGON, MALE_MASK
+		db SANDSTORM
+		db DRAGON_PULSE
+		db EARTHQUAKE
+		db DIG
+
+	db 65, LYCANROC, MALE_MASK | LYCANROC_DUSK_FORM
+		db ACCELEROCK
+		db POWER_GEM
+		db CRUNCH
+		db ROCK_SLIDE
 
 	db $ff ; end
 ; ================================
 ; ================
-
-	; LAWRENCE (3) (World Tournament)
-	db "LAWRENCE@"
-	db TRAINERTYPE_MOVES
-
-	db 100, ZAPDOS
-		db THUNDER
-		db THUNDERBOLT
-		db DRILL_PECK
-		db REST
-		
-	db 100, ARTICUNO
-		db BLIZZARD
-		db ICE_BEAM
-		db DRILL_PECK
-		db LOCK_ON
-		
-	db 100, MOLTRES
-		db FIRE_BLAST
-		db FLAMETHROWER
-		db DRILL_PECK
-		db STEEL_WING
-
-	db 100, LUGIA
-		db AEROBLAST
-		db DIVE
-		db TRI_ATTACK
-		db PSYCHIC_M
-
-	db $ff ; end
 	
 ; ================
 ; ================================

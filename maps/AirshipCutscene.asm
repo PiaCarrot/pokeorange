@@ -17,6 +17,7 @@ AirshipCutscene_MapScriptHeader::
 AirshipCutscene:
 	applymovement PLAYER, AirshipCutsceneHidePersonMovement
 	applymovement PLAYER, AirshipCutsceneHidePersonMovement2
+	special FadeOutPalettes
 	warp AIRSHIP_INTERIOR, 10, 15
 	end
 

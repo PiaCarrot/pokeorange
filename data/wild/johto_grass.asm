@@ -1592,5 +1592,32 @@
 	db 42, TYROGUE
 	db 41, MACHOKE
 	db 44, MACHAMP
+	
+	map AIRSHIP_OUTSIDE
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 46, FEAROW
+	db 46, SPEAROW
+	db 46, FEAROW
+	db 46, FEAROW
+	db 46, SPEAROW
+	db 46, PIDGEOTTO
+	db 48, PIDGEOT
+	; day
+	db 46, FEAROW
+	db 46, SPEAROW
+	db 46, FEAROW
+	db 46, FEAROW
+	db 46, SPEAROW
+	db 46, PIDGEOTTO
+	db 48, PIDGEOT
+	; nite
+	db 46, FEAROW
+	db 46, SPEAROW
+	db 46, FEAROW
+	db 46, FEAROW
+	db 46, SPEAROW
+	db 46, PIDGEOTTO
+	db 48, PIDGEOT
 
 	db -1 ; end
