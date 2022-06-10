@@ -109,6 +109,7 @@ CharmeleonEvosAttacks:
 
 CharizardEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, WING_ATTACK
 	db 1, SHADOW_CLAW
 	db 1, SCRATCH
 	db 1, GROWL
@@ -120,7 +121,6 @@ CharizardEvosAttacks:
 	db 23, FLAME_WHEEL
 	db 27, SCARY_FACE
 	db 34, FLAMETHROWER
-	db 36, WING_ATTACK
 	db 40, DRAGON_RAGE
 	db 44, SLASH
 	db 48, FIRE_SPIN
