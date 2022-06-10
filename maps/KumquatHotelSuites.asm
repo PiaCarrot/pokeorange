@@ -61,7 +61,7 @@ AthleteSheldonScript:
 	waitbutton
 	winlosstext SheldonWinLoss, 0
 	setlasttalked KUMQUAT_SUITES_SHELDON
-	loadtrainer ATHLETE, 10
+	loadtrainer ATHLETE, 7
 	startbattle
 	reloadmapafterbattle
 	opentext
