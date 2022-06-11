@@ -126,6 +126,31 @@ ShamoutiBlackbelt2ScriptText:
 	cont "lanterns every"
 	cont "year!"
 	done
+	
+ShamoutiIslandSign:
+	jumptext ShamoutiIslandSignText
+	
+ShamoutiIslandSignText:
+	text "SHAMOUTI ISLAND"
+	
+	para "Legends live for"
+	line "as long as people"
+	cont "remember them."
+	done
+	
+MelodyHouseSign:
+	jumptext MelodyHouseSignText
+	
+MelodyHouseSignText:
+	text "MELODY'S HOUSE"
+	done
+	
+ChiefHouseSign:
+	jumptext ChiefHouseSignText
+	
+ChiefHouseSignText:
+	text "CHIEF'S HOUSE"
+	done
 
 ShamoutiIsland_MapEventHeader::
 
@@ -138,7 +163,10 @@ ShamoutiIsland_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 3
+	signpost 14, 16, SIGNPOST_READ, ShamoutiIslandSign
+	signpost 11, 27, SIGNPOST_READ, MelodyHouseSign
+	signpost  5, 25, SIGNPOST_READ, ChiefHouseSign
 
 .ObjectEvents: db 8
 	person_event SPRITE_KIMONO_GIRL,  8, 24, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ShamoutiKimonoGirl1Script, -1
@@ -147,5 +175,5 @@ ShamoutiIsland_MapEventHeader::
 	person_event SPRITE_SAGE,  6, 28, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ShamoutiSage1Script, -1
 	person_event SPRITE_SAGE,  6, 29, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ShamoutiSage2Script, -1
 	person_event SPRITE_BLACK_BELT, 10, 14, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ShamoutiBlackbelt1Script, -1
-	person_event SPRITE_BLACK_BELT, 14,  8, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ShamoutiBlackbelt2Script, -1
+	person_event SPRITE_BLACK_BELT, 14,  8, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ShamoutiBlackbelt2Script, -1
 	person_event SPRITE_SAGE, 15, 14, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ShamoutiSage3Script, -1

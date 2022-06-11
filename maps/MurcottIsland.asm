@@ -29,6 +29,9 @@ DayCareSignText:
 MurcottIslandSign:
 	jumptext MurcottIslandSignText
 	
+MurcottIslandPharmacySign:
+	jumptext MurcottIslandPharmacySignText
+	
 MurcottIslandSignText:
 	text "MURCOTT ISLAND"
 	
@@ -36,6 +39,10 @@ MurcottIslandSignText:
 	line "unexpected places"
 	done
 	
+MurcottIslandPharmacySignText:
+	text "PHARMACY"
+	done
+
 MurcottLassScript:
 	jumptextfaceplayer MurcottLassText
 	
@@ -259,9 +266,10 @@ MurcottIsland_MapEventHeader::
 	xy_trigger 0, 14, 4, CrossBattle3Script1
 	xy_trigger 0, 15, 4, CrossBattle3Script2
 
-.BGEvents: db 2
+.BGEvents: db 3
 	signpost 6, 16, SIGNPOST_READ, DayCareSign
 	signpost 13, 9, SIGNPOST_READ, MurcottIslandSign
+	signpost 23, 33, SIGNPOST_READ, MurcottIslandPharmacySign
 
 .ObjectEvents: db 5
 	person_event SPRITE_ROCKER, 14, 9, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_MURCOTT_ISLAND_CROSS
