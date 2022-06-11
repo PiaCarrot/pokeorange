@@ -1858,7 +1858,7 @@ TryWithdrawPokemon: ; e30fa (38:70fa)
 	ld h, b
 	ld de, StringBuffer1
 	call PlaceString
-	ld a, $e7
+	ld a, "!"
 	ld [bc], a
 	ld c, 50
 	call DelayFrames
