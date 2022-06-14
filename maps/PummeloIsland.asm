@@ -78,7 +78,7 @@ CrossPummeloIslandText:
 	
 	para "I met the CHAMPION"
 	line "of the ORANGE"
-	cont "CREW, DANNY."
+	cont "CREW, DRAKE."
 	
 	para "He beat me good."
 	line "I couldn't believe"
