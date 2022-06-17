@@ -137,11 +137,11 @@ AscorbiaFanClubFisherScript:
 	
 AscorbiaFanClubFisherText:
 	text "Do you know about"
-	line "TRADE STONES?"
+	line "the LINK CABLE?"
 	
 	para "Some #MON only"
 	line "evolve by trade,"
-	cont "but TRADE STONE"
+	cont "but LINK CABLE"
 	cont "ignores that!"
 	done
 	
