@@ -59,10 +59,10 @@ TrovitopolisPokeCommScientist1Text:
 	
 	para "SUKIYAMI: Gah!"
 	
-	para "No! I deleted all"
-	line "of the SAVE data!"
+	para "No! I broke it"
+	line "even more!"
 	
-	para "AIZAWA is going to"
+	para "PIA is going to"
 	line "kill me<...>"
 	
 	para "I know! I'll get"
@@ -75,13 +75,12 @@ TrovitopolisPokeCommScientist2Script:
 TrovitopolisPokeCommScientist2Text:
 	text "<...>"
 	
-	para "RANGI: Hmm<...>"
+	para "RANGI: Ew<...>"
 	
-	para "MOEMON ORANGE is"
-	line "now live! Nyahaha!"
+	para "This code is so<...>"
 	
-	para "Oops. I just del-"
-	line "eted it. Back to"
+	para "old. I give up"
+	line "on it. Back to"
 	cont "POLISHED CRYSTAL."
 	done
 	
@@ -94,7 +93,7 @@ TrovitopolisPokeCommLuckyText:
 	
 	para "So. Many. WINGULL."
 	line "It's safe in here."
-	cont "outside is too"
+	cont "Outside is too"
 	cont "scary for me."
 	
 	para "Atleast in here 60"
@@ -122,7 +121,7 @@ APSign:
 	
 APSignText:
 	text "FROM: LINKANDZELDA"
-	line "TO: PIA CARROT"
+	line "TO: PIA CRT"
 
 	para "<...>"
 	
