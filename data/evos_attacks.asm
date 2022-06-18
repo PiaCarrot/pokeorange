@@ -864,7 +864,7 @@ MeowthEvosAttacks:
 	db 11, BITE
 	db 16, FURY_SWIPES
 	db 20, PAY_DAY
-	db 24, THIEF
+	db 24, SCARY_FACE
 	db 28, FAINT_ATTACK
 	db 32, PLAY_ROUGH
 	db 36, CRUNCH
@@ -880,7 +880,7 @@ PersianEvosAttacks:
 	db 11, BITE
 	db 16, FURY_SWIPES
 	db 20, PAY_DAY
-	db 24, THIEF
+	db 24, SCARY_FACE
 	db 28, FAINT_ATTACK
 	db 35, PLAY_ROUGH
 	db 41, CRUNCH
@@ -937,7 +937,7 @@ MankeyEvosAttacks:
 	db 16, SWAGGER
 	db 20, VITAL_THROW
 	db 23, FOCUS_ENERGY
-	db 27, THIEF
+	db 27, SCARY_FACE
 	db 31, THRASH
 	db 34, SEISMIC_TOSS
 	db 38, CROSS_CHOP
@@ -957,7 +957,7 @@ PrimeapeEvosAttacks:
 	db 16, SWAGGER
 	db 20, VITAL_THROW
 	db 23, FOCUS_ENERGY
-	db 27, THIEF
+	db 27, SCARY_FACE
 	db 34, THRASH
 	db 38, SEISMIC_TOSS
 	db 42, CROSS_CHOP
@@ -2541,7 +2541,7 @@ TropiusEvosAttacks:
 
 KecleonEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, THIEF
+	db 1, SCARY_FACE
 	db 1, TAIL_WHIP
 	db 1, LICK
 	db 1, SCRATCH
@@ -4029,7 +4029,7 @@ MarshadowEvosAttacks:
 	db 15, HI_JUMP_KICK
 	db 20, MIRROR_COAT
 	db 26, SHADOW_BALL
-	db 30, THIEF
+	db 30, MEAN_LOOK
 	db 35, DIZZY_PUNCH
 	db 41, NASTY_PLOT
 	db 45, SPECTRATHIEF
