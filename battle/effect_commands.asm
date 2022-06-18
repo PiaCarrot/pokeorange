@@ -6941,12 +6941,12 @@ BattleCommand_Charge: ; 36b4d
 
 .Fly:
 ; 'flew up high!'
-	text_jump UnknownText_0x1c0d5c
+	text_jump FlewUpHighText
 	db "@"
 
 .Bounce:
 ; 'sprang up!'
-	text_jump UnknownText_0x1c0d4e
+	text_jump UnknownText_0x1c0d5c
 	db "@"
 
 .Dig:
@@ -6958,6 +6958,7 @@ BattleCommand_Charge: ; 36b4d
 ; 'hid underwater!'
 	text_jump HidUnderwaterText
 	db "@"
+
 ; 36c2c
 
 
