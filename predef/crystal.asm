@@ -12,10 +12,6 @@ LoadSpecialMapPalette: ; 494ac
 	ld hl, IcePathPalette
 	cp TILESET_ICE_PATH
 	jp z, .ice_path
-	
-	ld hl, NavelIslandPalette
-	cp TILESET_JOHTO_1
-	jp z, .navel_island
 
 	ld hl, CrystalCavePalette
 	cp TILESET_CAVE
@@ -75,6 +71,12 @@ LoadSpecialMapPalette: ; 494ac
 	
 	cp TILESET_ILEX_FOREST
 	jp z, .outside
+	
+	ld a, [MapNumber]
+
+	ld hl, NavelIslandPalette
+	cp MAP_NAVEL_ISLAND
+	jp z, .navel_island
 
 	ld a, [wPermission]
 	cp TOWN
