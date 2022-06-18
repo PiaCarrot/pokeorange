@@ -1112,7 +1112,7 @@ CreditsStrings:
 .AtsushiTada:         db "         CORALDEV@"
 .NaokoKawakami:       db "       DR REALITY@"
 .HiroyukiZinnai:      db "          KALARIE@"
-.KunimiKawamura:      db "       SHANTYTOWN@"
+.KunimiKawamura:      db "            REGEN@"
 .HisashiSogabe:       db "       PIA CARROT@"
 .KeitaKagaya:         db "             LUNA@"
 .YoshinoriMatsuda:    db "  LUCKYTYPHLOSION@"
