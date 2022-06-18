@@ -117,8 +117,9 @@ Route57Sign:
 	
 Route57SignText:
 	text "ROUTE 57"
-	line "east to the 7"
-	cont "GRAPEFRUIT ISLANDS"
+	
+	para "EAST to the SEVEN"
+	line "GRAPEFRUIT ISLANDS"
 	done
 
 Route57HardStone:
