@@ -111,6 +111,15 @@ FisherYuutaAfterText:
 	line "FISHER spirit in"
 	cont "you."
 	done
+	
+Route57Sign:
+	jumptext Route57SignText
+	
+Route57SignText:
+	text "ROUTE 57"
+	line "east to the 7"
+	cont "GRAPEFRUIT ISLANDS"
+	done
 
 Route57HardStone:
 	itemball HARD_STONE
@@ -123,7 +132,8 @@ Route57_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 1
+	signpost 21, 17, SIGNPOST_READ, Route57Sign
 
 .ObjectEvents: db 5
 	person_event SPRITE_POKE_BALL, 39, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route57HardStone, EVENT_ROUTE_57_HARD_STONE
