@@ -117,9 +117,8 @@ Route57Sign:
 	
 Route57SignText:
 	text "ROUTE 57"
-	
-	para "EAST to the SEVEN"
-	line "GRAPEFRUIT ISLANDS"
+	line "east to the 7"
+	cont "GRAPEFRUIT ISLANDS"
 	done
 
 Route57HardStone:
@@ -137,8 +136,8 @@ Route57_MapEventHeader::
 	signpost 21, 17, SIGNPOST_READ, Route57Sign
 
 .ObjectEvents: db 5
-	person_event SPRITE_POKE_BALL, 39, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route57HardStone, EVENT_ROUTE_57_HARD_STONE
-	person_event SPRITE_SWIMMER_GUY, 28, 15, SPRITEMOVEDATA_SWIM_LEFT_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route57SwimmerGirlScript, -1
+	person_event SPRITE_POKE_BALL, 19, 19, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route57HardStone, EVENT_ROUTE_57_HARD_STONE
+	person_event SPRITE_SWIMMER_GUY, 30, 18, SPRITEMOVEDATA_SWIM_LEFT_RIGHT, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, Route57SwimmerGirlScript, -1
 	person_event SPRITE_SIGHTSEER_F, 33, 12, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, TrainerSightSeerAsami, -1
 	person_event SPRITE_SIGHTSEER_F, 21, 13, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 3, TrainerBugCatcherFAlia, -1
 	person_event SPRITE_FISHER,  7,  7, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 1, TrainerFisherYuuta, -1
