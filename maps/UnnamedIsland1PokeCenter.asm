@@ -57,10 +57,11 @@ UnnamedIslandSlouchScript:
 	end
 
 UnnamedIslandSlouchText:
-	text "This island is a"
-	line "part of the KINNOW"
-	cont "ISLANDS, but has"
-	cont "no official name."
+	text "If you go east of"
+	line "KINNOW ISLAND, you"
+	cont "can find the path"
+	cont "to the 7 GRAPE-"
+	cont "FRUIT ISLANDS."
 	done
 
 UnnamedPokeCenter1FMistyMovement:
