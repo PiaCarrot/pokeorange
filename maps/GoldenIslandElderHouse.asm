@@ -121,7 +121,7 @@ ElderTradeScriptText2:
 	done
 	
 ElderTradeScriptText3:
-	text "Oh<...>Please, do"
+	text "Oh<...> Please, do"
 	line "return if you find"
 	cont "a MEOWTH<...>"
 	done
