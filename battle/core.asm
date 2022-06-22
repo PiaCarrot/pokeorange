@@ -1825,6 +1825,25 @@ SubtractHP: ; 3cc45
 	ret
 ; 3cc76
 
+GetThirdMaxHP::
+; Assumes HP<768
+	call GetMaxHP
+	xor a
+	inc b
+.loop
+	dec b
+	inc a
+	dec bc
+	dec bc
+	dec bc
+	inc b
+	jr nz, .loop
+	dec a
+	ld c, a
+	ret nz
+	inc c
+	ret
+
 GetSixteenthMaxHP: ; 3cc76
 	call GetQuarterMaxHP
 	; quarter result
@@ -1905,6 +1924,24 @@ GetMaxHP: ; 3ccac
 	ld c, a
 	ret
 ; 3ccc2
+
+CheckFullHP:
+	ld hl, BattleMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_hp
+	ld hl, EnemyMonHP
+.got_hp
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	cp b
+	ret nz
+	ld a, [hl]
+	cp c
+	ret
 
 CheckUserHasEnoughHP: ; 3ccde
 	ld hl, BattleMonHP + 1
@@ -6156,7 +6193,7 @@ LoadEnemyMon: ; 3e8eb
 	ld a, [wBattleMode]
 	and a
 	ret z
-	
+
 ; Update enemy nick
 	ld a, [wBattleMode]
 	dec a ; WILD_BATTLE?
@@ -8730,7 +8767,7 @@ GetBattleRandomPersonality:
 	call BattleRandom
 	and GENDER_MASK
 	ld b, a
-	
+
 
 
 ; Shiny?
@@ -8756,7 +8793,7 @@ GetBattleRandomPersonality:
 	xor a
 .got_shiny
 	or b
-	ld b, a    
+	ld b, a
 
 ; Pink?
 	push bc
@@ -8775,7 +8812,7 @@ GetBattleRandomPersonality:
 .got_pink
 	or b
 	ld b, a
-	
+
 ; Variant Splits
 	push bc
     call IsInJohto

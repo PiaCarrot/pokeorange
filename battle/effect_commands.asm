@@ -8750,108 +8750,43 @@ BattleCommand_ClearHazards: ; 37b39
 ; 37b74
 
 
-BattleCommand_HealMorn: ; 37b74
-; healmorn
-	ld b, MORN
-	jr BattleCommand_TimeBasedHealContinue
-
-; 37b78
-
-BattleCommand_HealDay: ; 37b78
-; healday
-	ld b, DAY
-	jr BattleCommand_TimeBasedHealContinue
-
-; 37b7c
-
-BattleCommand_HealNite: ; 37b7c
-; healnite
-	ld b, NITE
-	; fallthrough
-; 37b7e
-
-BattleCommand_TimeBasedHealContinue: ; 37b7e
-; Time- and weather-sensitive heal.
-
-	ld hl, BattleMonMaxHP
-	ld de, BattleMonHP
-	ld a, [hBattleTurn]
-	and a
-	jr z, .start
-	ld hl, EnemyMonMaxHP
-	ld de, EnemyMonHP
-
-.start
-; Index for .Multipliers
-; Default restores half max HP.
-	ld c, 2
-
-; Don't bother healing if HP is already full.
-	push bc
-	call StringCmp
-	pop bc
-	jr z, .Full
-
-; Don't factor in time of day in link battles.
-	ld a, [wLinkMode]
-	and a
-	jr nz, .Weather
-
-	ld a, [TimeOfDay]
-	cp b
-	jr z, .Weather
-	dec c ; double
-
-.Weather:
-	ld a, [Weather]
-	and a
-	jr z, .Heal
-
-; x2 in sun
-; /2 in rain/sandstorm/hail
-	inc c
-	cp WEATHER_SUN
-	jr z, .Heal
-	dec c
-	dec c
-
-.Heal:
-	ld b, 0
-	ld hl, .Multipliers
-	add hl, bc
-	add hl, bc
-
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	ld a, BANK(GetMaxHP)
-	rst FarCall
-
+BattleCommand_HealMorn:
+BattleCommand_HealDay:
+BattleCommand_HealNite:
+BattleCommand_WeatherBasedHeal:
+; Weather-sensitive heal.
+	farcall CheckFullHP
+	jr z, .full
 	call AnimateCurrentMove
+
+	ld a, [Weather]
+	cp WEATHER_SUN
+	jr z, .goodheal
+	and a
+	jr nz, .badheal
+	farcall GetHalfMaxHP
+	jr .amount_ok
+.badheal
+	farcall GetQuarterMaxHP
+	jr .amount_ok
+.goodheal
+	farcall GetThirdMaxHP
+	sla c
+	rl b
+.amount_ok
 	call BattleCommand_SwitchTurn
 
 	farcall RestoreHP
 
 	call BattleCommand_SwitchTurn
 	call UpdateUserInParty
-
-; 'regained health!'
+	; 'regained health!'
 	ld hl, RegainedHealthText
 	jp StdBattleTextBox
-
-.Full:
+.full
 	call AnimateFailedMove
-
-; 'hp is full!'
 	ld hl, HPIsFullText
 	jp StdBattleTextBox
-
-.Multipliers:
-	dw GetEighthMaxHP
-	dw GetQuarterMaxHP
-	dw GetHalfMaxHP
-	dw GetMaxHP
-; 37be8
 
 
 BattleCommand_StartRain: ; 37bf4
