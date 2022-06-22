@@ -64,7 +64,7 @@ TrainerGroups: ; 0x39999
 	dw OtakuGroup
 	dw JaceGroup
 	dw KurtGroup
-	dw JasonGroup
+	dw KatGroup
 	dw AliceGroup
 ;	dw GentlemanGroup
 ;	dw TeacherGroup

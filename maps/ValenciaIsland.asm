@@ -101,19 +101,6 @@ if def(DEBUG)
 	setflag ENGINE_FLYPOINT_HAMLIN
 	setflag ENGINE_FLYPOINT_SHAMOUTI
 	setflag ENGINE_FLYPOINT_VERMILION
-	setevent EVENT_BEAT_RED
-	setevent EVENT_BEAT_ORANGE_LEAGUE
-	setevent EVENT_BEAT_LAWRENCE_ICE_ISLAND
-	setevent EVENT_BEAT_LAWRENCE
-	setevent EVENT_SHAMOUTI_QUEST_STARTED
-	setevent EVENT_MELODY_SENDS_YOU_TO_SHRINE
-	setevent EVENT_MOLTRES_ESCAPES_AIRSHIP
-	setevent EVENT_AIRSHIP_BIRDS
-	setevent EVENT_OBTAINED_ICE_ORB
-	setevent EVENT_OBTAINED_FIRE_ORB
-	setevent EVENT_OBTAINED_ELECTRIC_ORB
-	clearevent EVENT_MELODY_AT_SHRINE
-	setevent EVENT_MET_LAWRENCE_AT_LIGHTNING_ISLAND
 	giveitem TOWN_MAP
 	giveitem POKE_FLUTE
 	giveitem SKATEBOARD
@@ -162,7 +149,7 @@ if def(DEBUG)
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves
 	callasm CheatFillPokedex
-	warp SHAMOUTI_SHRINE, 11, 15
+	warp VERMILION_CITY, 11, 4
 	end
 else
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

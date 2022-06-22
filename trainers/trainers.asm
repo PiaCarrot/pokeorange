@@ -4065,12 +4065,12 @@ KurtGroup:
 		
 	db $ff
 
-JasonGroup:
+KatGroup:
 ; ================================
 ; ================
 
-	; JASON (1)
-	db "JASON@"
+	; KAT (1)
+	db "KAT@"
 	db TRAINERTYPE_MOVES + TRAINERTYPE_ITEM + TRAINERTYPE_DVS + TRAINERTYPE_PERSONALITY
 
 	; party

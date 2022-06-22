@@ -184,3 +184,8 @@
 	tilecoll WALL, WALL, WALL, WALL ; b7
 	tilecoll WALL, FLOOR, WALL, WALL ; b8
 	tilecoll FLOOR, WALL, WALL, WALL ; b9
+	tilecoll FLOOR, FLOOR, WALL, WALL ; ba
+	tilecoll FLOOR, FLOOR, FLOOR, WALL ; bb
+	tilecoll FLOOR, FLOOR, WALL, FLOOR ; bc
+	tilecoll WALL, FLOOR, WALL, WALL ; bd
+	tilecoll FLOOR, FLOOR, ROCK_CLIMB, WALL ; be

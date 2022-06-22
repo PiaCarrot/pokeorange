@@ -486,3 +486,6 @@ LawrenceSprite:
 	
 CaptureRingSprite:
 	sprite_header CaptureRingSpriteGFX, 3, WALKING_SPRITE, PAL_OW_BLUE
+
+KatSprite:
+	sprite_header KatSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED

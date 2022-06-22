@@ -61,7 +61,7 @@
 	db "OTAKU@" ;OTAKU
 	db "STAFF@" ;JACE
 	db "STAFF@" ;KURT
-	db "STAFF@" ;JASON
+	db "STAFF@" ;KAT
 	db "STAFF@" ;ALICE
 ;	db "GENTLEMAN@" ; GENTLEMAN
 ;	db "TEACHER@" ; TEACHER

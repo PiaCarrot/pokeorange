@@ -257,7 +257,7 @@ CHRIS EQU __enum__
 	
 	trainerclass KURT
 	
-	trainerclass JASON
+	trainerclass KAT
 	
 	trainerclass ALICE
 

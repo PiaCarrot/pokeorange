@@ -85,7 +85,7 @@ TrainerEncounterMusic: ; e9027
 	db MUSIC_POKEMANIAC_ENCOUNTER   ; otaku
 	db MUSIC_LASS_ENCOUNTER ;jace
 	db MUSIC_LASS_ENCOUNTER ;kurt
-	db MUSIC_LASS_ENCOUNTER ;jason
+	db MUSIC_LASS_ENCOUNTER ;kat
 	db MUSIC_LASS_ENCOUNTER ;alice
 ;	db MUSIC_HIKER_ENCOUNTER		; gentleman
 ;	db MUSIC_BEAUTY_ENCOUNTER		; teacher

@@ -1299,7 +1299,7 @@ PlayBattleMusic: ; 2ee6c
 	jp z, .done	
 	cp KURT
 	jp z, .done	
-	cp JASON
+	cp KAT
 	jp z, .done	
 	cp ALICE
 	jp z, .done

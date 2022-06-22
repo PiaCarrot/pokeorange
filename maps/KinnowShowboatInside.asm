@@ -1,7 +1,7 @@
 const_value = 1
 	const KINNOW_JACE
 	const KINNOW_KURT
-	const KINNOW_JASON
+	const KINNOW_KAT
 	const KINNOW_ALICE
 
 KinnowShowboatInside_MapScriptHeader:
@@ -27,6 +27,7 @@ KinnowShowboatJace:
 	closetext
 	disappear KINNOW_JACE
 	special Special_FadeInQuickly
+	setevent EVENT_KINNOW_SHOWBOAT_JACE
 	end
 	
 KinnowShowboatJaceText1:
@@ -68,6 +69,7 @@ KinnowShowboatKurt:
 	closetext
 	disappear KINNOW_KURT
 	special Special_FadeInQuickly
+	setevent EVENT_KINNOW_SHOWBOAT_KURT
 	end
 	
 .NoSeaRuby:
@@ -105,56 +107,57 @@ KinnowShowboatKurtText3:
 	cont "do!"
 	done
 
-KinnowShowboatJason:
+KinnowShowboatKat:
 	faceplayer
 	opentext
 	checkflag ENGINE_SPIKE_SHELL_BADGE
 	iffalse .NoSpikeShell
-	writetext KinnowShowboatJasonText1
+	writetext KinnowShowboatKatText1
 	waitbutton
 	closetext
-	winlosstext JasonWinLossText, 0
-	loadtrainer JASON, 1
+	winlosstext KatWinLossText, 0
+	loadtrainer KAT, 1
 	startbattle
 	reloadmapafterbattle
 	special RestartMapMusic
 	opentext
-	writetext KinnowShowboatJasonText2
+	writetext KinnowShowboatKatText2
 	waitbutton
 	closetext
-	disappear KINNOW_JASON
+	disappear KINNOW_KAT
 	special Special_FadeInQuickly
+	setevent EVENT_KINNOW_SHOWBOAT_KAT
 	end
 
 .NoSpikeShell:	
-	writetext KinnowShowboatJasonText3
+	writetext KinnowShowboatKatText3
 	waitbutton
 	closetext
 	end
 	
-KinnowShowboatJasonText1:
-	text "Hey, a SPIKE SHELL"
-	line "BADGE, just like"
-	cont "my helmet!"
-	
-	para "Let's battle!"
+KinnowShowboatKatText1:
+	text "Meow! That's a"
+	line "SPIKE SHELL BADGE!"
+	cont "Let's battle!"
 	done
 	
-JasonWinLossText:
-	text "Who's cuter?"
-	line "OMASTAR or me?"
+KatWinLossText:
+	text "This is so much"
+	line "more fun than"
+	cont "when I lived on"
+	cont "GOLDEN ISLAND!"
 	done
 	
-KinnowShowboatJasonText2:
-	text "Tragic. Come back"
+KinnowShowboatKatText2:
+	text "Meow. Come back"
 	line "with the JADE STAR"
 	cont "BADGE to battle"
 	cont "the commander!"
 	done
 	
-KinnowShowboatJasonText3:
-	text "Aw, you don't have"
-	line "a SPIKE SHELL"
+KinnowShowboatKatText3:
+	text "Mu<...> You don't"
+	line "have a SPIKE SHELL"
 	cont "BADGE. Battle?"
 	cont "No can do!"
 	done
@@ -178,6 +181,7 @@ KinnowShowboatAlice:
 	closetext
 	disappear KINNOW_ALICE
 	special Special_FadeInQuickly
+	setevent EVENT_KINNOW_SHOWBOAT_ALICE
 	end
 	
 .NoJadeStar:
@@ -230,7 +234,7 @@ KinnowShowboatAnne:
 	end
 
 KinnowShowboatRoger:
-	checkevent EVENT_KINNOW_SHOWBOAT_JASON
+	checkevent EVENT_KINNOW_SHOWBOAT_KAT
 	iffalse .FrozenNPC
 	faceplayer
 	opentext
@@ -353,7 +357,7 @@ KinnowShowboatInside_MapEventHeader::
 .ObjectEvents: db 8
 	person_event SPRITE_YOUNGSTER,  5,  6, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, KinnowShowboatJace, EVENT_KINNOW_SHOWBOAT_JACE
 	person_event SPRITE_ROCKER, 19,  0, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, KinnowShowboatKurt, EVENT_KINNOW_SHOWBOAT_KURT
-	person_event SPRITE_SUPER_NERD,  5, 34, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, KinnowShowboatJason, EVENT_KINNOW_SHOWBOAT_JASON
+	person_event SPRITE_KAT,  5, 34, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, KinnowShowboatKat, EVENT_KINNOW_SHOWBOAT_KAT
 	person_event SPRITE_LASS, 23, 30, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, KinnowShowboatAlice, EVENT_KINNOW_SHOWBOAT_ALICE
 	person_event SPRITE_RECEPTIONIST,  5, 15, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, KinnowShowboatAnne, -1
 	person_event SPRITE_LASS, 23, 22, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, KinnowShowboatKay, -1

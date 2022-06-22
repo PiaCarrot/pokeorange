@@ -62,7 +62,7 @@ TrainerPicPointers::
 	dba OtakuPic
 	dba JacePic
 	dba KurtPic
-	dba JasonPic
+	dba KatPic
 	dba AlicePic
 ;	dba GentlemanPic
 ;	dba TeacherPic
