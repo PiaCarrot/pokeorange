@@ -160,3 +160,4 @@
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 9f
 	tilecoll FLOOR, FLOOR, WALL, FLOOR ; a0
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; a1
+	tilecoll DIVE_DOWN, DIVE_DOWN, DIVE_DOWN, DIVE_DOWN ; a2
