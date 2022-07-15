@@ -1465,6 +1465,41 @@ BillGroup:
 ImakuniGroup:
 ; ================================
 ; ================
+	; Imakuni? (1)
+	db "IMAKUNI?@"
+	db  TRAINERTYPE_ITEM + TRAINERTYPE_MOVES
+
+	db 60, FARFETCH_D, BERSERK_GENE
+		db SWAGGER
+		db SLASH
+		db AERIAL_ACE
+		db SPLASH
+
+	db 69, MAGIKARP, BERSERK_GENE
+		db HYPER_BEAM
+		db NO_MOVE
+		db NO_MOVE
+		db NO_MOVE
+
+	db 62, DODRIO, BERSERK_GENE
+		db TRI_ATTACK
+		db SLAM
+		db DRILL_PECK
+		db FLAIL
+
+	db 63, GOLDUCK, BERSERK_GENE
+		db SURF
+		db AMNESIA
+		db SWEET_KISS
+		db SCREECH
+
+	db 60, SLOWPOKE, BERSERK_GENE
+		db REST
+		db TAIL_WHIP
+		db EXPLOSION
+		db NO_MOVE
+
+	db $ff ; end
 ; ================
 ; ================================
 
@@ -1535,13 +1570,13 @@ LawrenceGroup:
 		db DRAGONBREATH
 		db WATERFALL
 
-	db 65, FLYGON, MALE_MASK
+	db 63, FLYGON, MALE_MASK
 		db SANDSTORM
 		db DRAGON_PULSE
 		db EARTHQUAKE
 		db DIG
 
-	db 65, LYCANROC, MALE_MASK | LYCANROC_DUSK_FORM
+	db 64, LYCANROC, MALE_MASK | LYCANROC_DUSK_FORM
 		db ACCELEROCK
 		db POWER_GEM
 		db CRUNCH
