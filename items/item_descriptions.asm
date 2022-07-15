@@ -672,7 +672,7 @@ DragonScaleDesc:
 	next "item.@"
 
 BerserkGeneDesc:
-	db   "Boosts ATTACK but"
+	db   "Boosts confidence,"
 	next "causes confusion.@"
 
 SacredAshDesc:
