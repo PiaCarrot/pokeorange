@@ -14,7 +14,7 @@ class Bank:
 def tcase(a):
     return a[0].upper() + a[1:]
 
-dedpath = os.getcwd() + "/audio/ded/"
+dedpath = os.getcwd() + "/audio/deda/"
 print("Generating all DEDs in {}...".format(dedpath))
 filelist = os.listdir(dedpath)
 lenlist = {}

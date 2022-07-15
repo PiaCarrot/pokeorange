@@ -1258,8 +1258,6 @@ PlayBattleMusic: ; 2ee6c
 
 .trainermusic
 	ld de, MUSIC_CHAMPION_BATTLE
-	cp DRAKE
-	jp z, .done
 	cp LANCE
 	jp z, .done
 	cp RED
@@ -1269,6 +1267,10 @@ PlayBattleMusic: ; 2ee6c
 	cp GREEN
 	jp z, .done
 	cp YELLOW
+	jp z, .done
+	
+	ld de, MUSIC_DRAKE_BATTLE
+	cp DRAKE
 	jp z, .done
 
 	; really, they should have included admins and scientists here too...
