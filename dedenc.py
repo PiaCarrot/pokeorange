@@ -21,7 +21,7 @@ def readsamp(src,pos,size,chs): # returns a value between -0.5 and 0.5
     for i in range(chs):
         tt = 0
         for j in range(size):
-            tt = tt + (ord(src[pos+i*size+j]) << (j * 8))
+            tt = tt + (src[pos+i*size+j] << (j * 8))
         if size == 1: # 8-bit samples are usually unsigned
             tt = tt - 128 # negative
         elif tt > 256**size/2-1: tt = tt - 256**size # negative
@@ -103,7 +103,7 @@ def wavtoded(fd,ra,ch,wi):
     qu = []
     for i in freq.keys(): qu.append(HuffLeaf(freq[i],i))
     while len(qu) > 1:
-        qu = sorted(qu, lambda x,y: cmp(x.val,y.val))
+        qu = sorted(qu, key=lambda x: x.val)
         le = qu.pop(0)
         ri = qu.pop(0)
         if isinstance(le,HuffLeaf) and isinstance(ri,HuffTree):
@@ -121,7 +121,7 @@ def wavtoded(fd,ra,ch,wi):
     for i in range(len(tp)): ou = ou + code[tp[i]]
     while len(ou) % 8 != 0: ou = ou + "1"
 
-    ls = ls + chr((len(tp)/32)%256) + chr((len(tp)/32)>>8)
+    ls = ls + chr((len(tp)//32)%256) + chr((len(tp)//32)>>8)
     for i in range(0,len(ou),8): ls = ls + chr(int(ou[i:i+8],2))
     return ls
 
@@ -135,5 +135,5 @@ if __name__ == "__main__":
     nf = fl.getnframes()
     ous = wavtoded(fl.readframes(nf), fl.getframerate(), fl.getnchannels(), fl.getsampwidth())
     fl.close()
-    nsp.fo.write(ous)
+    nsp.fo.write(ous.encode('latin1'))
     nsp.fo.close()
