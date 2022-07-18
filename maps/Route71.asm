@@ -2,12 +2,7 @@ Route71_MapScriptHeader::
 
 .Triggers: db 0
 
-.Callbacks: db 1
-	dbw MAPCALLBACK_NEWMAP, .InitializeDiveMap
-
-.InitializeDiveMap:
-	divemap ROUTE_71_UNDERWATER, 0, 0
-	return
+.Callbacks: db 0
 
 Route71LaprasScript:
 	faceplayer
@@ -146,5 +141,5 @@ Route71_MapEventHeader::
 	person_event SPRITE_POKE_BALL, 10,  4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route71TradeStone, EVENT_ROUTE_71_TRADE_STONE
 	person_event SPRITE_SAILOR, 29, 41, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route71PirateGuard, EVENT_RAYMOND_DEFEATED
 	person_event SPRITE_SAILOR, 28, 41, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route71PirateGuard, EVENT_RAYMOND_DEFEATED
-	person_event SPRITE_SAILOR, 10, 27, SPRITEMOVEDATA_STANDING_UP, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route71PirateTutorScript, -1
+	person_event SPRITE_SAILOR, 10, 26, SPRITEMOVEDATA_STANDING_UP, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, Route71PirateTutorScript, -1
 
