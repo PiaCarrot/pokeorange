@@ -51,7 +51,6 @@ Tileset31Anim: ; 0xfc073
 ; 0xfc047
 
 Tileset01Anim: ; 0xfc0a3
-Tileset02Anim:
 Tileset34Anim:
 Tileset36Anim:
 Tileset37Anim:
@@ -64,6 +63,23 @@ Tileset37Anim:
 	dw RockBotLeftFrames, AnimateRockBotLeftTiles
 	dw RockBotRightFrames, AnimateRockBotRightTiles
 	dw RockRightFrames, AnimateRockRightTiles
+	dw wTileAnimBuffer, ScrollTileDown
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  AnimateFlowerTile
+	dw WhirlpoolFramesTop, AnimateWhirlpoolTiles
+	dw WhirlpoolFramesBottom, AnimateWhirlpoolTiles
+	dw wTileAnimBuffer, ScrollTileDown
+	dw NULL,  WaitTileAnimation
+	dw VTiles2 tile $7e, WriteTileFromBuffer
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+; 0xfc0d7
+
+Tileset02Anim:
+	dw VTiles2 tile $7e, WriteTileToBuffer
+	dw RSEWaterFrames, AnimateRSEWaterTiles
+	dw DiveWaterFrames, AnimateDiveWaterTiles
 	dw wTileAnimBuffer, ScrollTileDown
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -153,6 +169,7 @@ Tileset24Anim: ; 0xfc1e7
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw VTiles2 tile $40, WriteTileFromBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
+	dw VTiles2 tile $75, WriteTileToBuffer
 	dw NULL,  DoneTileAnimation
 ; 0xfc233
 

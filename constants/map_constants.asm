@@ -305,7 +305,7 @@ MAP_NONE EQU 0
 	mapgroup PONCHOS_HOUSE, 3, 3
 	mapgroup HAMLIN_ROUTE_71_GATE, 4, 5
 	mapgroup HAMLIN_BRIDGE_GATE, 4, 5
-	mapgroup ROUTE_71_UNDERWATER, 9, 10
+	mapgroup ROUTE_71_UNDERWATER, 9, 23
 	
 	
 	newgroup ; 18

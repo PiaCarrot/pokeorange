@@ -86,3 +86,4 @@
 	tilecoll WALL, WALL, WALL, WALL ; 55
 	tilecoll WALL, WALL, WALL, WALL ; 56
 	tilecoll WALL, WALL, WALL, WALL ; 57
+	tilecoll DIVE_UP, DIVE_UP, DIVE_UP, DIVE_UP ; 58

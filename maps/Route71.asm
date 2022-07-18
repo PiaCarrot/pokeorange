@@ -6,7 +6,7 @@ Route71_MapScriptHeader::
 	dbw MAPCALLBACK_NEWMAP, .InitializeDiveMap
 
 .InitializeDiveMap:
-	divemap ROUTE_71_UNDERWATER, 6, -2
+	divemap ROUTE_71_UNDERWATER, 0, 0
 	return
 
 Route71LaprasScript:
