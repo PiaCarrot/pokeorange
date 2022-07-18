@@ -8,7 +8,7 @@ If you run into trouble, ask for help on [**Pia's Discord server**](https://disc
 
 To build on Windows, install [**Cygwin**](http://cygwin.com/install.html) with the default settings.
 
-In the installer, select the following packages: `make`, `gcc-core`, `python`, `git`, `gettext`.
+In the installer, select the following packages: `make`, `gcc-core`, `python3`, `git`, `gettext`.
 If `gettext` no longer exists, get `libsasl2-3` and `ca-certificates`.
 
 In the **Cygwin terminal**:
