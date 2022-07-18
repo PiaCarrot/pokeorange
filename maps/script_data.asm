@@ -414,6 +414,10 @@ INCLUDE "maps/Route69North.asm"
 INCLUDE "maps/Route70.asm"
 INCLUDE "maps/Route67Underwater.asm"
 INCLUDE "maps/Route69Gate.asm"
+INCLUDE "maps/Route71Underwater.asm"
+INCLUDE "maps/PiratesCove1F.asm"
+INCLUDE "maps/PiratesCove2F.asm"
+INCLUDE "maps/PiratesCoveUnderwater.asm"
 
 SECTION "Hamlin Scripts", ROMX
 

@@ -302,6 +302,10 @@ MAP_NONE EQU 0
 	mapgroup PONCHOS_HOUSE, 3, 3
 	mapgroup HAMLIN_ROUTE_71_GATE, 4, 5
 	mapgroup HAMLIN_BRIDGE_GATE, 4, 5
+	mapgroup ROUTE_71_UNDERWATER, 9, 10
+	mapgroup PIRATES_COVE_1F, 10, 20
+	mapgroup PIRATES_COVE_2F, 10, 20
+	mapgroup PIRATES_COVE_UNDERWATER, 10, 20
 	
 	
 	newgroup ; 18

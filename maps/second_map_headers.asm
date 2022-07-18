@@ -440,6 +440,10 @@
 	map_header_2 AirshipCutscene, AIRSHIP_CUTSCENE, 0, 0
 	map_header_2 ShamoutiCave, SHAMOUTI_CAVE, 9, 0
 	map_header_2 LightningIslandCave, LIGHTNING_ISLAND_CAVE, 9, 0
+	map_header_2 Route71Underwater, ROUTE_71_UNDERWATER, 9, 0
+	map_header_2 PiratesCove1F, PIRATES_COVE_1F, 9, 0
+	map_header_2 PiratesCove2F, PIRATES_COVE_2F, 9, 0
+	map_header_2 PiratesCoveUnderwater, PIRATES_COVE_UNDERWATER, 9, 20
 
 	map_header_2 PalletTown, PALLET_TOWN, 6, 0
 	map_header_2 RedsHouse1F, REDS_HOUSE_1F, 0, 0

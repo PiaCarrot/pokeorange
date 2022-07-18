@@ -2,7 +2,12 @@ Route71_MapScriptHeader::
 
 .Triggers: db 0
 
-.Callbacks: db 0
+.Callbacks: db 1
+	dbw MAPCALLBACK_NEWMAP, .InitializeDiveMap
+
+.InitializeDiveMap:
+	divemap ROUTE_71_UNDERWATER, 6, -2
+	return
 
 Route71LaprasScript:
 	faceplayer

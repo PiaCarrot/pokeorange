@@ -615,3 +615,15 @@ ShamoutiCave_BlockData:
 
 LightningIslandCave_BlockData:
 	INCBIN "maps/LightningIslandCave.blk"
+
+Route71Underwater_BlockData:
+	INCBIN "maps/Route71Underwater.blk"
+
+PiratesCove1F_BlockData:
+	INCBIN "maps/PiratesCove1F.blk"
+
+PiratesCove2F_BlockData:
+	INCBIN "maps/PiratesCove2F.blk"
+
+PiratesCoveUnderwater_BlockData:
+	INCBIN "maps/PiratesCoveUnderwater.blk"
