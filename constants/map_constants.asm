@@ -45,6 +45,9 @@ MAP_NONE EQU 0
 	mapgroup VICTORY_ROAD_EAST, 20, 12
 	mapgroup VICTORY_ROAD_MYSTERY_ROOM, 5, 5
 	mapgroup VICTORY_ROAD_EXIT_ROOM, 18, 15
+	mapgroup PIRATES_COVE_1F, 10, 20
+	mapgroup PIRATES_COVE_2F, 10, 20
+	mapgroup PIRATES_COVE_UNDERWATER, 10, 20
 	
 
 	newgroup ; 3
@@ -303,9 +306,6 @@ MAP_NONE EQU 0
 	mapgroup HAMLIN_ROUTE_71_GATE, 4, 5
 	mapgroup HAMLIN_BRIDGE_GATE, 4, 5
 	mapgroup ROUTE_71_UNDERWATER, 9, 10
-	mapgroup PIRATES_COVE_1F, 10, 20
-	mapgroup PIRATES_COVE_2F, 10, 20
-	mapgroup PIRATES_COVE_UNDERWATER, 10, 20
 	
 	
 	newgroup ; 18

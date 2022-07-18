@@ -20,4 +20,5 @@ Route71Underwater_MapEventHeader::
 
 .BGEvents: db 0
 
-.ObjectEvents: db 0
+.ObjectEvents: db 1
+	person_event SPRITE_SAILOR, 12, 13, SPRITEMOVEDATA_STANDING_UP, 2, 2, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, 0, -1

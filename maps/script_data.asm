@@ -388,6 +388,7 @@ INCLUDE "maps/Route58.asm"
 INCLUDE "maps/Route71.asm"
 INCLUDE "maps/Route71East.asm"
 INCLUDE "maps/PonchosHouse.asm"
+INCLUDE "maps/Route71Underwater.asm"
 
 
 SECTION "Route Scripts 4", ROMX
@@ -414,7 +415,9 @@ INCLUDE "maps/Route69North.asm"
 INCLUDE "maps/Route70.asm"
 INCLUDE "maps/Route67Underwater.asm"
 INCLUDE "maps/Route69Gate.asm"
-INCLUDE "maps/Route71Underwater.asm"
+
+SECTION "Pirates Cove Scripts", ROMX
+
 INCLUDE "maps/PiratesCove1F.asm"
 INCLUDE "maps/PiratesCove2F.asm"
 INCLUDE "maps/PiratesCoveUnderwater.asm"
