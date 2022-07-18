@@ -170,6 +170,13 @@ Tileset24Anim: ; 0xfc1e7
 	dw VTiles2 tile $40, WriteTileFromBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw VTiles2 tile $75, WriteTileToBuffer
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw wTileAnimBuffer, ScrollTileRightLeft
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw VTiles2 tile $75, WriteTileFromBuffer
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw NULL,  WaitTileAnimation
+	dw NULL,  FlickeringCaveEntrancePalette
 	dw NULL,  DoneTileAnimation
 ; 0xfc233
 
