@@ -159,4 +159,5 @@
 	dba Music_Route69
 	dba Music_LugiasSong2000_NoIntro
 	dba Music_DrakeBattle
+	dba Music_AscorbiaIsland
 ; e91a3

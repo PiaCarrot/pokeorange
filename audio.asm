@@ -221,6 +221,7 @@ SECTION "Songs Regen 2", ROMX
 INCLUDE "audio/music/traceyencounter.asm"
 INCLUDE "audio/music/route69heh.asm"
 INCLUDE "audio/music/drakebattle.asm"
+INCLUDE "audio/music/ascorbiaisland.asm"
 
 SECTION "Songs Monstarules", ROMX
 
