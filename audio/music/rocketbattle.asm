@@ -1,17 +1,18 @@
 Music_RocketBattle: ; e9b6f
-	musicheader 3, 1, Music_RocketBattle_Ch1
+	musicheader 4, 1, Music_RocketBattle_Ch1
 	musicheader 1, 2, Music_RocketBattle_Ch2
 	musicheader 1, 3, Music_RocketBattle_Ch3
-; e9b78
+	musicheader 1, 4, Music_RocketBattle_Ch4
 
-Music_RocketBattle_Ch1: ; e9b78
-	tempo 101
+Music_RocketBattle_Ch1:
+	tempo $6C
 	volume $77
-	dutycycle $3
+	stereopanning $77
+	dutycycle 3
 	tone $0002
 	vibrato $10, $15
-	notetype $c, $b2
 	octave 4
+	notetype $C, $B2
 	note E_, 1
 	note D#, 1
 	note D_, 1
@@ -48,37 +49,63 @@ Music_RocketBattle_Ch1: ; e9b78
 	note C_, 1
 	octave 2
 	note B_, 1
-Music_RocketBattle_branch_e9bad: ; e9bad
-	intensity $b2
+	intensity $B2
 	octave 3
 	note C_, 6
 	note C_, 4
+	intensity $92
 	note E_, 2
-	intensity $b7
+	intensity $97
 	note D_, 4
-	loopchannel 3, Music_RocketBattle_branch_e9bad
-	intensity $b2
+	intensity $B2
+	note C_, 6
+	note C_, 4
+	intensity $92
+	note E_, 2
+	intensity $97
+	note D_, 4
+	intensity $B2
+	note C_, 6
+	note C_, 4
+	intensity $92
+	note E_, 2
+	intensity $97
+	note D_, 4
+	intensity $B2
 	note C_, 6
 	note C_, 6
-	intensity $b7
+	intensity $B7
 	note D_, 4
-Music_RocketBattle_branch_e9bc1: ; e9bc1
-	intensity $b2
+	intensity $B2
 	octave 4
 	note E_, 6
 	note E_, 4
+	intensity $92
 	note G_, 2
-	intensity $b7
+	intensity $97
 	note F_, 4
-	loopchannel 3, Music_RocketBattle_branch_e9bc1
-	intensity $b2
+	intensity $B2
 	note E_, 6
 	note E_, 4
-	intensity $b7
+	intensity $92
+	note G_, 2
+	intensity $97
+	note F_, 4
+	intensity $B2
+	note E_, 6
+	note E_, 4
+	intensity $92
+	note G_, 2
+	intensity $97
+	note F_, 4
+	intensity $B2
+	note E_, 2
+	note E_, 4
+	note E_, 4
+	intensity $B7
 	note D_, 2
 	note D#, 4
-	intensity $b3
-	octave 4
+	intensity $B3
 	note C_, 2
 	octave 3
 	note E_, 2
@@ -93,30 +120,33 @@ Music_RocketBattle_branch_e9bc1: ; e9bc1
 	note C_, 2
 	octave 3
 	note E_, 2
-	note E_, 2
 	note A_, 2
 	note E_, 2
+	note A#, 1
+	note A_, 1
+	note E_, 2
 	note D_, 2
-	note E_, 2
 	note F_, 2
 	note E_, 2
 	note F_, 2
-	intensity $b5
+	intensity $B5
 	note G_, 4
-	intensity $b3
+	intensity $B3
 	note G_, 2
 	note F_, 2
-	note D#, 2
+	note D#, 1
+	note F_, 1
 	note D_, 2
 	note C#, 2
 	note D_, 2
-	intensity $b5
+	intensity $B5
 	note D#, 4
-	intensity $b3
+	intensity $B3
 	note D#, 2
 	note D_, 2
 	note F_, 2
-Music_RocketBattle_branch_e9c02: ; e9c02
+Music_RocketBattle_Ch1_loop:
+	notetype $C, $B3
 	octave 4
 	note E_, 2
 	octave 3
@@ -136,46 +166,56 @@ Music_RocketBattle_branch_e9c02: ; e9c02
 	note E_, 2
 	octave 3
 	note E_, 2
-	note E_, 2
 	octave 4
 	note D_, 2
+	intensity $B4
 	octave 3
 	note E_, 2
-	note D_, 2
+	octave 4
+	note E_, 1
+	note D_, 1
+	note C_, 2
+	octave 3
 	note E_, 2
 	note F_, 2
 	note E_, 2
 	note F_, 2
-	intensity $b5
+	intensity $B5
 	note G_, 4
-	intensity $b3
+	intensity $B3
 	note G_, 2
 	note F_, 2
+	note A#, 1
 	octave 4
-	note C_, 2
+	note C_, 1
 	note D_, 2
 	note C_, 2
 	note D_, 2
-	intensity $b5
+	intensity $B5
 	note F_, 4
-	intensity $b2
+	dutycycle 0
+	intensity $B2
 	octave 3
 	note F_, 2
 	note G_, 2
 	note G#, 4
-	intensity $b5
+	dutycycle 1
+	intensity $B5
 	note D_, 4
 	note C_, 4
 	note D_, 4
 	note E_, 2
-	intensity $b2
+	intensity $B2
 	note F_, 2
 	note A_, 4
-	intensity $b7
+	intensity $B5
 	note A_, 4
-	intensity $b5
-	note A_, 2
+	intensity $B1
+	note A_, 1
+	intensity $B2
+	note A_, 1
 	note G_, 2
+	intensity $B5
 	note F_, 4
 	note D_, 4
 	note C_, 4
@@ -189,7 +229,7 @@ Music_RocketBattle_branch_e9c02: ; e9c02
 	note G_, 2
 	note A_, 2
 	note A#, 2
-	intensity $b7
+	intensity $B7
 	octave 4
 	note E_, 6
 	note D_, 4
@@ -203,37 +243,96 @@ Music_RocketBattle_branch_e9c02: ; e9c02
 	note E_, 6
 	note D_, 6
 	note D#, 4
-	intensity $a0
 	note E_, 8
-	intensity $a7
-	note E_, 8
-	intensity $b7
 	octave 2
-	note A_, 8
-	note G_, 8
-	note A_, 8
-	note A#, 8
-	note A_, 8
-	note G_, 8
-	note A_, 8
-	octave 3
-	note C#, 8
-	note D_, 8
-	note C#, 8
-	octave 2
-	note A#, 8
-	note A_, 8
-	octave 3
-	note D_, 8
-	note C#, 8
-	note D_, 8
 	note E_, 8
+	intensity $B2
+	note A_, 4
+	note __, 4
+	note G_, 4
+	note __, 4
+	note A_, 4
+	note __, 4
+	intensity $B5
+	note A#, 4
+	note A#, 4
+	intensity $B2
+	note A_, 4
+	note __, 4
+	note G_, 4
+	note __, 4
+	note A_, 4
+	note __, 4
+	intensity $B5
+	octave 3
+	note C#, 4
+	note C#, 4
+	intensity $B2
+	note D_, 4
+	note __, 4
+	note C#, 4
+	note __, 4
+	octave 2
+	note A#, 4
+	note __, 4
+	intensity $B5
+	note A_, 4
+	note A_, 2
+	octave 3
+	note C#, 2
+	intensity $B2
+	note D_, 4
+	note __, 4
+	note C#, 4
+	note __, 4
+	note D_, 4
+	note __, 4
+	intensity $B4
+	note E_, 4
+	note E_, 2
+	intensity $7B
+	note E_, 2
+	intensity $B5
 	octave 2
 	note A#, 6
 	octave 3
 	note D_, 6
 	note C_, 4
-	intensity $b5
+	intensity $B3
+	octave 2
+	note A#, 2
+	octave 3
+	note C_, 2
+	note D_, 2
+	note E_, 2
+	note F_, 2
+	note E_, 2
+	note D_, 2
+	note F_, 2
+	intensity $B5
+	octave 2
+	note A_, 6
+	octave 3
+	note C#, 6
+	note E_, 4
+	octave 2
+	note A_, 2
+	intensity $B3
+	note E_, 2
+	note A_, 2
+	octave 3
+	note D_, 2
+	note E_, 2
+	note D_, 2
+	note C_, 2
+	note E_, 2
+	intensity $B5
+	octave 2
+	note A#, 6
+	octave 3
+	note D_, 6
+	note C_, 4
+	intensity $B3
 	octave 2
 	note A#, 2
 	octave 3
@@ -262,71 +361,75 @@ Music_RocketBattle_branch_e9c02: ; e9c02
 	octave 3
 	note A#, 2
 	note G_, 2
-	intensity $b2
+	intensity $B2
 	note E_, 6
 	note E_, 6
 	note E_, 4
 	note E_, 6
 	note E_, 4
-	intensity $b7
+	intensity $97
 	note G_, 2
 	note F_, 4
-	intensity $b2
+	intensity $B2
 	note E_, 6
 	note E_, 4
-	intensity $b7
+	intensity $97
 	note G_, 2
 	note F_, 4
-	intensity $b2
+	intensity $B2
 	note E_, 6
 	octave 4
 	note D_, 1
 	note D#, 1
-	intensity $a0
+	intensity $A0
 	note E_, 8
-	intensity $b2
+	intensity $B2
 	octave 3
 	note F_, 6
 	note F_, 4
-	intensity $b7
-	note A#, 2
-	note G_, 4
-Music_RocketBattle_branch_e9cc5: ; e9cc5
-	intensity $b2
-	note F_, 6
-	note F_, 4
-	intensity $b7
+	intensity $97
 	note A_, 2
 	note G_, 4
-	loopchannel 2, Music_RocketBattle_branch_e9cc5
-	intensity $b2
+	intensity $B2
+	note F_, 6
+	note F_, 4
+	intensity $97
+	note A_, 2
+	note G_, 4
+	intensity $B2
+	note F_, 6
+	note F_, 4
+	intensity $97
+	note A_, 2
+	note G_, 4
+	intensity $B2
 	note F_, 6
 	octave 4
 	note D_, 1
 	note E_, 1
-	intensity $a0
+	intensity $A0
 	note F_, 8
-	intensity $b3
+	intensity $B3
 	note D_, 2
 	octave 3
 	note A_, 2
 	note E_, 2
 	note A_, 4
 	note A_, 2
-	intensity $b7
+	intensity $B7
 	octave 4
 	note D_, 4
-	intensity $b3
+	intensity $B3
 	note D#, 2
 	octave 3
 	note A#, 2
 	note G_, 2
 	note A#, 4
 	note A#, 2
-	intensity $b7
+	intensity $B7
 	octave 4
 	note D_, 4
-	intensity $b3
+	intensity $B3
 	note E_, 2
 	note C_, 2
 	octave 3
@@ -334,16 +437,16 @@ Music_RocketBattle_branch_e9cc5: ; e9cc5
 	octave 4
 	note C_, 4
 	note C_, 2
-	intensity $b7
+	intensity $B7
 	note D#, 4
-	intensity $a0
+	intensity $A0
 	note E_, 4
-	intensity $a7
+	intensity $A7
 	note E_, 6
-	intensity $a0
+	intensity $A0
 	octave 3
 	note G#, 6
-	intensity $b3
+	intensity $B3
 	note C_, 2
 	note E_, 2
 	note E_, 2
@@ -371,32 +474,33 @@ Music_RocketBattle_branch_e9cc5: ; e9cc5
 	note A#, 2
 	octave 3
 	note C_, 2
-	intensity $b5
+	intensity $B5
 	note D_, 4
-	intensity $b3
+	intensity $B3
 	note D_, 2
 	note C_, 2
 	octave 2
-	note A#, 2
+	note A#, 1
 	octave 3
+	note C#, 1
 	note D_, 2
 	note C#, 2
 	note D_, 2
-	intensity $b5
+	intensity $B5
 	note D#, 4
-	intensity $b3
+	intensity $B3
 	note D#, 2
 	note D_, 2
-	note F_, 2
-	loopchannel 0, Music_RocketBattle_branch_e9c02
-; e9d3e
+	note D#, 1
+	note F_, 1
+	loopchannel 0, Music_RocketBattle_Ch1_loop
 
-Music_RocketBattle_Ch2: ; e9d3e
-	dutycycle $3
-	vibrato $8, $36
+Music_RocketBattle_Ch2:
+	dutycycle 3
 	tone $0001
-	notetype $c, $b2
+	vibrato $08, $36
 	octave 4
+	notetype $C, $B2
 	note A_, 4
 	note A#, 4
 	note B_, 4
@@ -407,7 +511,7 @@ Music_RocketBattle_Ch2: ; e9d3e
 	note G#, 1
 	note A_, 1
 	note G#, 1
-	intensity $c2
+	intensity $C2
 	octave 5
 	note C#, 1
 	intensity $92
@@ -415,120 +519,165 @@ Music_RocketBattle_Ch2: ; e9d3e
 	note G#, 1
 	note A_, 1
 	note G#, 1
-	intensity $c2
+	intensity $C2
 	octave 5
 	note D_, 1
-	intensity $a2
+	intensity $A2
 	octave 4
 	note G#, 1
 	note A_, 1
 	note G#, 1
-	intensity $c2
+	intensity $C2
 	octave 5
 	note D#, 1
-	intensity $b2
+	intensity $B2
 	octave 4
 	note G#, 1
 	note A_, 1
 	note G#, 1
-	intensity $c2
+	intensity $C2
 	octave 5
 	note E_, 1
 	octave 4
 	note G#, 1
 	note A_, 1
 	note G#, 1
-Music_RocketBattle_branch_e9d7b: ; e9d7b
-	intensity $c2
 	octave 3
 	note A_, 6
 	note A_, 4
 	octave 4
 	note C_, 2
-	intensity $c7
+	intensity $C7
 	octave 3
 	note A#, 4
-	loopchannel 3, Music_RocketBattle_branch_e9d7b
-	intensity $c2
+	intensity $C2
+	note A_, 6
+	note A_, 4
+	octave 4
+	note C_, 2
+	intensity $C7
+	octave 3
+	note A#, 4
+	intensity $C2
+	note A_, 6
+	note A_, 4
+	octave 4
+	note C_, 2
+	intensity $C7
+	octave 3
+	note A#, 4
+	intensity $C2
 	note A_, 6
 	note A_, 6
-	intensity $4a
+	intensity $4A
 	note G#, 4
-Music_RocketBattle_branch_e9d91: ; e9d91
-	intensity $c2
+	intensity $C2
 	octave 4
 	note A_, 6
 	note A_, 4
 	octave 5
 	note C_, 2
-	intensity $c7
+	intensity $C7
 	octave 4
 	note A#, 4
-	loopchannel 3, Music_RocketBattle_branch_e9d91
-	intensity $c2
+	intensity $C2
 	note A_, 6
 	note A_, 4
-	intensity $c7
+	octave 5
+	note C_, 2
+	intensity $C7
+	octave 4
+	note A#, 4
+	intensity $C2
+	note A_, 6
+	note A_, 4
+	octave 5
+	note C_, 2
+	intensity $C7
+	octave 4
+	note A#, 4
+	intensity $C2
+	note A_, 2
+	note A_, 4
+	note A_, 4
+	intensity $C7
 	note G_, 2
 	note G#, 4
-	callchannel Music_RocketBattle_branch_e9ea0
-	intensity $b0
+	intensity $C6
+	note A_, 6
+	note G#, 6
+	note E_, 4
+	note A_, 6
+	note G#, 6
+	note E_, 4
+	intensity $B0
 	note F_, 16
-	intensity $b7
-	note F_, 16
-Music_RocketBattle_branch_e9db1: ; e9db1
-	callchannel Music_RocketBattle_branch_e9ea0
-	intensity $b0
+	intensity $B7
+	note F_, 13
+	note __, 1
+	note F_, 1
+	note G_, 1
+Music_RocketBattle_Ch2_loop:
+	notetype $C, $C6
+	octave 4
+	note A_, 6
+	note G#, 6
+	note E_, 4
+	note A_, 6
+	note G#, 6
+	note E_, 4
+	intensity $B0
 	note F_, 8
-	intensity $b7
+	intensity $B7
 	note F_, 8
-	intensity $b0
+	intensity $0D
 	note A#, 8
-	intensity $b7
+	intensity $B7
 	note A#, 8
-	intensity $c4
+	dutycycle 0
+	intensity $C4
 	octave 3
 	note A_, 2
 	note G_, 2
 	note A_, 2
-	intensity $c7
+	intensity $C7
 	octave 4
 	note C_, 4
 	octave 3
 	note A#, 2
 	note A_, 2
 	note G_, 2
-	intensity $c2
+	intensity $C2
 	note A_, 2
 	octave 4
 	note C_, 4
-	intensity $b0
+	intensity $B0
 	note C_, 6
-	intensity $b7
+	intensity $B7
 	note C_, 4
-	intensity $c4
+	intensity $C4
 	octave 3
 	note A#, 2
 	note A_, 2
 	note A#, 2
-	intensity $c7
+	intensity $C7
 	octave 4
 	note D_, 4
 	note C_, 2
 	octave 3
 	note A#, 2
 	note A_, 2
-	intensity $c2
+	intensity $C2
 	note A#, 2
 	octave 4
 	note D_, 4
-	intensity $b0
+	intensity $B0
 	note D_, 4
-	intensity $b7
+	intensity $B7
 	note D_, 6
-	intensity $4f
+	intensity $4F
 	note A_, 6
-	intensity $a0
+	intensity $A0
 	note G_, 6
 	note F_, 4
 	note E_, 6
@@ -538,92 +687,135 @@ Music_RocketBattle_branch_e9db1: ; e9db1
 	note A#, 6
 	note G#, 4
 	note A_, 6
-	intensity $a7
+	intensity $A7
 	note A_, 10
-	intensity $3f
+	dutycycle 1
+	intensity $3F
 	octave 3
 	note D_, 8
-	intensity $b7
+	intensity $B7
 	note D_, 8
-	intensity $3f
+	intensity $3F
 	note C#, 8
-	intensity $b7
+	intensity $B7
 	note C#, 8
-	intensity $3f
+	intensity $3F
 	note D_, 8
-	intensity $b7
+	intensity $B7
 	note D_, 8
-	intensity $3f
+	intensity $3F
 	note E_, 8
-	intensity $b7
+	intensity $B7
 	note E_, 8
-	intensity $4e
+	intensity $4F
 	note F_, 8
-	intensity $a0
+	intensity $A0
 	note F_, 8
+	intensity $90
 	note E_, 16
-	note F_, 16
-	note A_, 16
-	intensity $3f
-	note F_, 16
-	intensity $c7
+	intensity $A0
+	note F_, 12
+	intensity $A7
+	note F_, 4
+	intensity $B0
+	note A_, 10
+	intensity $6D
+	note A_, 6
+	intensity $A8
+	note F_, 8
+	intensity $6F
+	note F_, 8
+	intensity $C7
 	octave 4
 	note D_, 8
 	note C#, 8
-	intensity $b0
-	note E_, 8
-	intensity $b7
-	note E_, 8
-	intensity $3c
-	note A_, 6
-	intensity $c7
-	note A_, 10
-	intensity $c2
+	intensity $B0
+	octave 3
+	note A_, 8
+	intensity $B7
+	note A_, 8
+	intensity $3C
+	note E_, 6
+	intensity $C7
+	note E_, 10
+	intensity $A8
+	octave 4
+	note F_, 8
+	intensity $6F
+	note F_, 8
+	intensity $C7
+	note D_, 8
+	note F_, 6
+	intensity $B7
+	note G_, 2
+	intensity $B0
+	note A_, 8
+	intensity $B7
+	note A_, 8
+	intensity $3C
+	octave 5
+	note C#, 6
+	intensity $C7
+	note C#, 10
+	intensity $C2
 	octave 3
 	note A_, 6
 	note A_, 6
 	note A_, 4
 	note A_, 6
 	note A_, 4
-	intensity $c7
+	intensity $C7
 	octave 4
 	note C_, 2
 	octave 3
 	note A#, 4
-	intensity $c2
+	intensity $C2
 	note A_, 6
 	note A_, 4
-	intensity $c7
+	intensity $C7
 	octave 4
 	note C_, 2
 	octave 3
 	note A#, 4
-	intensity $c2
+	intensity $C2
 	note A_, 6
-	intensity $c7
+	intensity $C7
 	octave 4
 	note G_, 1
 	note G#, 1
 	note A_, 8
-Music_RocketBattle_branch_e9e5a: ; e9e5a
-	intensity $c2
+	intensity $C2
 	octave 3
 	note A#, 6
 	note A#, 4
-	intensity $c7
+	intensity $C7
 	octave 4
 	note D_, 2
 	note C_, 4
-	loopchannel 3, Music_RocketBattle_branch_e9e5a
-	intensity $c2
+	intensity $C2
 	octave 3
 	note A#, 6
-	intensity $c7
+	note A#, 4
+	intensity $C7
+	octave 4
+	note D_, 2
+	note C_, 4
+	intensity $C2
+	octave 3
+	note A#, 6
+	note A#, 4
+	intensity $C7
+	octave 4
+	note D_, 2
+	note C_, 4
+	intensity $C2
+	octave 3
+	note A#, 6
+	intensity $C7
 	octave 4
 	note G_, 1
 	note A_, 1
 	note A#, 8
-	intensity $c7
 	note A_, 6
 	note G_, 6
 	note A_, 4
@@ -634,13 +826,13 @@ Music_RocketBattle_branch_e9e5a: ; e9e5a
 	note A#, 4
 	note A_, 6
 	note G_, 6
-	intensity $c5
+	intensity $C5
 	note A_, 4
-	intensity $b0
+	intensity $B0
 	note A_, 8
-	intensity $b7
+	intensity $B7
 	note A_, 8
-	intensity $c6
+	intensity $C6
 	octave 3
 	note A_, 6
 	note G#, 6
@@ -648,32 +840,23 @@ Music_RocketBattle_branch_e9e5a: ; e9e5a
 	note A_, 6
 	note G#, 6
 	note E_, 4
-	intensity $b0
+	intensity $B0
 	note F_, 8
-	intensity $b7
+	intensity $B7
 	note F_, 8
-	intensity $3d
+	intensity $3D
 	note A#, 8
-	intensity $c7
-	note A#, 8
-	loopchannel 0, Music_RocketBattle_branch_e9db1
-; e9ea0
-
-Music_RocketBattle_branch_e9ea0: ; e9ea0
-	intensity $c6
+	intensity $C7
+	note A#, 6
 	octave 4
-	note A_, 6
-	note G#, 6
-	note E_, 4
-	note A_, 6
-	note G#, 6
-	note E_, 4
-	endchannel
-; e9eaa
+	note F_, 1
+	note G_, 1
+	loopchannel 0, Music_RocketBattle_Ch2_loop
 
-Music_RocketBattle_Ch3: ; e9eaa
-	notetype $c, $19
+Music_RocketBattle_Ch3:
+	dutycycle 4
 	octave 3
+	notetype $C, $14
 	note A_, 2
 	octave 4
 	note E_, 2
@@ -704,9 +887,41 @@ Music_RocketBattle_Ch3: ; e9eaa
 	octave 2
 	note B_, 2
 	note A#, 2
-Music_RocketBattle_branch_e9ecc: ; e9ecc
-	callchannel Music_RocketBattle_branch_e9fe6
-	loopchannel 3, Music_RocketBattle_branch_e9ecc
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D_, 2
+	octave 2
+	note A_, 2
+	note A#, 2
+	octave 3
+	note E_, 2
+	note G_, 2
+	note F_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D_, 2
+	octave 2
+	note A_, 2
+	note A#, 2
+	octave 3
+	note E_, 2
+	note G_, 2
+	note F_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D_, 2
+	octave 2
+	note A_, 2
+	note A#, 2
+	octave 3
+	note E_, 2
+	note G_, 2
+	note F_, 2
 	octave 2
 	note A_, 2
 	octave 3
@@ -719,9 +934,42 @@ Music_RocketBattle_branch_e9ecc: ; e9ecc
 	note F_, 2
 	note E_, 2
 	note D_, 2
-Music_RocketBattle_branch_e9edf: ; e9edf
-	callchannel Music_RocketBattle_branch_e9fe6
-	loopchannel 3, Music_RocketBattle_branch_e9edf
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D_, 2
+	octave 2
+	note A_, 2
+	note A#, 2
+	octave 3
+	note E_, 2
+	note G_, 2
+	note F_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D_, 2
+	octave 2
+	note A_, 2
+	note A#, 2
+	octave 3
+	note E_, 2
+	note G_, 2
+	note F_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D_, 2
+	octave 2
+	note A_, 2
+	note A#, 2
+	octave 3
+	note E_, 2
+	note G_, 2
+	note F_, 2
 	octave 2
 	note A_, 2
 	octave 3
@@ -735,14 +983,101 @@ Music_RocketBattle_branch_e9edf: ; e9edf
 	note G_, 2
 	note A_, 2
 	note A#, 2
-	callchannel Music_RocketBattle_branch_e9ff3
-	callchannel Music_RocketBattle_branch_ea010
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D#, 2
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D#, 2
+	note D_, 2
+	octave 2
+	note A#, 2
 	octave 3
 	note F_, 2
-	callchannel Music_RocketBattle_branch_ea01d
-Music_RocketBattle_branch_e9efe: ; e9efe
-	callchannel Music_RocketBattle_branch_e9ff3
-	callchannel Music_RocketBattle_branch_ea010
+	note A#, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	note A#, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	note A#, 2
+	note F_, 2
+	note A#, 2
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+Music_RocketBattle_Ch3_loop:
+	notetype $C, $14
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D#, 2
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D#, 2
+	note D_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	note A#, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	note A#, 2
+	octave 2
+	note A#, 2
 	octave 3
 	note A#, 2
 	octave 2
@@ -759,7 +1094,22 @@ Music_RocketBattle_branch_e9efe: ; e9efe
 	note F_, 2
 	note E_, 2
 	note D_, 2
-	callchannel Music_RocketBattle_branch_ea02a
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
 	octave 2
 	note A_, 2
 	octave 3
@@ -774,12 +1124,26 @@ Music_RocketBattle_branch_e9efe: ; e9efe
 	note A_, 2
 	octave 3
 	note E_, 2
-Music_RocketBattle_branch_e9f25: ; e9f25
 	octave 2
 	note A#, 2
 	octave 3
 	note F_, 2
-	loopchannel 5, Music_RocketBattle_branch_e9f25
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
 	note A#, 2
 	octave 2
 	note A#, 2
@@ -790,7 +1154,22 @@ Music_RocketBattle_branch_e9f25: ; e9f25
 	note A#, 2
 	octave 3
 	note A#, 2
-	callchannel Music_RocketBattle_branch_ea02a
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
 	octave 2
 	note A_, 2
 	octave 3
@@ -805,40 +1184,165 @@ Music_RocketBattle_branch_e9f25: ; e9f25
 	note F_, 2
 	note E_, 2
 	note D_, 2
-	callchannel Music_RocketBattle_branch_ea02a
-	callchannel Music_RocketBattle_branch_ea02a
-Music_RocketBattle_branch_e9f4e: ; e9f4e
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
 	octave 2
 	note A_, 2
 	octave 3
 	note E_, 2
 	note D_, 2
 	octave 2
-	note A#, 2
+	note A_, 1
+	note A#, 1
 	note A_, 2
 	octave 3
 	note D_, 2
 	note G_, 2
-	note F_, 2
-	loopchannel 7, Music_RocketBattle_branch_e9f4e
+	note D_, 1
+	note F_, 1
 	octave 2
 	note A_, 2
 	octave 3
 	note E_, 2
 	note D_, 2
 	octave 2
-	note A#, 2
+	note A_, 1
+	note A#, 1
+	note A_, 2
+	octave 3
+	note D_, 2
+	note G_, 2
+	note D_, 1
+	note F_, 1
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D_, 2
+	octave 2
+	note A_, 1
+	note A#, 1
+	note A_, 2
+	octave 3
+	note D_, 2
+	note G_, 2
+	note D_, 1
+	note F_, 1
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D_, 2
+	octave 2
+	note A_, 1
+	note A#, 1
+	note A_, 2
+	octave 3
+	note D_, 2
+	note G_, 2
+	note D_, 1
+	note F_, 1
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D_, 2
+	octave 2
+	note A_, 1
+	note A#, 1
+	note A_, 2
+	octave 3
+	note D_, 2
+	note G_, 2
+	note D_, 1
+	note F_, 1
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D_, 2
+	octave 2
+	note A_, 1
+	note A#, 1
+	note A_, 2
+	octave 3
+	note D_, 2
+	note G_, 2
+	note D_, 1
+	note F_, 1
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D_, 2
+	octave 2
+	note A_, 1
+	note A#, 1
+	note A_, 2
+	octave 3
+	note D_, 2
+	note G_, 2
+	note D_, 1
+	note F_, 1
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note D_, 2
+	octave 2
+	note A_, 1
+	note A#, 1
 	note A_, 2
 	octave 3
 	note A_, 2
 	note G_, 2
 	note F_, 2
-Music_RocketBattle_branch_e9f6a: ; e9f6a
 	octave 2
 	note A#, 2
 	octave 3
 	note F_, 2
-	loopchannel 4, Music_RocketBattle_branch_e9f6a
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
 	octave 2
 	note A#, 2
 	octave 3
@@ -849,12 +1353,112 @@ Music_RocketBattle_branch_e9f6a: ; e9f6a
 	note D_, 2
 	note C#, 2
 	note D_, 2
-Music_RocketBattle_branch_e9f7c: ; e9f7c
 	octave 2
 	note A_, 2
 	octave 3
 	note E_, 2
-	loopchannel 13, Music_RocketBattle_branch_e9f7c
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note F_, 2
+	note E_, 2
+	note D_, 2
+	note E_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	note G_, 2
+	note F_, 2
+	note E_, 2
+	note D_, 2
+	note C#, 2
+	note D_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
 	octave 2
 	note A_, 2
 	octave 3
@@ -863,12 +1467,21 @@ Music_RocketBattle_branch_e9f7c: ; e9f7c
 	note C_, 2
 	octave 2
 	note A#, 2
-Music_RocketBattle_branch_e9f8c: ; e9f8c
+	note A_, 2
+	octave 3
+	note E_, 2
 	octave 2
 	note A_, 2
 	octave 3
 	note E_, 2
-	loopchannel 4, Music_RocketBattle_branch_e9f8c
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
 	octave 2
 	note A_, 2
 	octave 4
@@ -879,21 +1492,56 @@ Music_RocketBattle_branch_e9f8c: ; e9f8c
 	note A_, 2
 	note G_, 2
 	note A#, 2
-Music_RocketBattle_branch_e9f9e: ; e9f9e
 	octave 2
 	note A#, 2
 	octave 3
 	note F_, 2
-	loopchannel 7, Music_RocketBattle_branch_e9f9e
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
 	note E_, 2
 	note F_, 2
-Music_RocketBattle_branch_e9fa8: ; e9fa8
 	octave 2
 	note A#, 2
 	octave 3
 	note F_, 2
-	loopchannel 5, Music_RocketBattle_branch_e9fa8
+	octave 2
+	note A#, 2
 	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
 	note A#, 2
 	octave 4
 	note D_, 4
@@ -901,56 +1549,64 @@ Music_RocketBattle_branch_e9fa8: ; e9fa8
 	octave 3
 	note A#, 2
 	note G_, 2
-	callchannel Music_RocketBattle_branch_ea033
+	octave 2
+	note A_, 2
 	octave 3
 	note E_, 2
-	callchannel Music_RocketBattle_branch_ea010
+	note A_, 2
+	octave 2
+	note A_, 2
 	octave 3
-	note F_, 2
-	callchannel Music_RocketBattle_branch_ea033
-	octave 3
+	note E_, 2
 	note A_, 2
 	octave 2
 	note A_, 2
 	octave 3
 	note E_, 2
 	octave 2
-	note A_, 2
-	octave 3
-	note E_, 2
-	octave 2
-	note A_, 2
-	octave 3
-	note E_, 2
-	octave 2
-	note A_, 2
-	octave 3
-	note E_, 2
-	callchannel Music_RocketBattle_branch_e9ff3
-	callchannel Music_RocketBattle_branch_ea010
-	octave 3
-	note F_, 2
-	callchannel Music_RocketBattle_branch_ea01d
-	loopchannel 0, Music_RocketBattle_branch_e9efe
-; e9fe6
-
-Music_RocketBattle_branch_e9fe6: ; e9fe6
-	octave 2
-	note A_, 2
-	octave 3
-	note E_, 2
-	note D_, 2
-	octave 2
-	note A_, 2
 	note A#, 2
 	octave 3
-	note E_, 2
-	note G_, 2
 	note F_, 2
-	endchannel
-; e9ff3
-
-Music_RocketBattle_branch_e9ff3: ; e9ff3
+	note A#, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	note A#, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note A_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	note A_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note A_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
+	octave 2
+	note A_, 2
+	octave 3
+	note E_, 2
 	octave 2
 	note A_, 2
 	octave 3
@@ -979,62 +1635,872 @@ Music_RocketBattle_branch_e9ff3: ; e9ff3
 	note E_, 2
 	note D#, 2
 	note D_, 2
-	endchannel
-; ea010
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	note A#, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	note A#, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	note A#, 2
+	note F_, 2
+	note A#, 2
+	note F_, 2
+	octave 2
+	note A#, 2
+	octave 3
+	note F_, 2
+	loopchannel 0, Music_RocketBattle_Ch3_loop
 
-Music_RocketBattle_branch_ea010: ; ea010
-	octave 2
-	note A#, 2
-	octave 3
-	note F_, 2
-	note A#, 2
-	octave 2
-	note A#, 2
-	octave 3
-	note F_, 2
-	note A#, 2
-	octave 2
-	note A#, 2
-	endchannel
-; ea01d
+Music_RocketBattle_Ch4:
+	togglenoise 2
+	notetype $C
+	note C#, 1
+	note __, 3
+	note C#, 1
+	note __, 3
+	note C#, 1
+	note __, 3
+	note C#, 1
+	note __, 3
+	note C#, 1
+	note __, 3
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C#, 1
+	note D_, 1
+	note D#, 1
+	note D_, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note A_, 1
+	note __, 3
+	note G#, 1
+	note __, 3
+	note G#, 1
+	note __, 1
+	note A_, 1
+	note __, 1
+	note F_, 1
+	note __, 1
+Music_RocketBattle_Ch4_loop:
+	notetype $C
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note C_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note C_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note F_, 1
+	note D#, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note F_, 1
+	note D_, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C#, 1
+	note D_, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C#, 1
+	note D_, 1
+	note D#, 1
+	note G_, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D#, 1
+	note C#, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D#, 1
+	note D_, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D#, 1
+	note D_, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note D_, 1
+	note C#, 1
+	note C#, 1
+	note C#, 1
+	note C#, 1
+	note A_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note A#, 1
+	note D_, 1
+	note C_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note A_, 1
+	note __, 9
+	note F_, 1
+	note __, 1
+	note A_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note A_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note A_, 1
+	note __, 9
+	note F_, 1
+	note __, 1
+	note A_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note G#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note D_, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D#, 1
+	note __, 1
+	note C#, 1
+	note __, 1
+	note C_, 1
+	note __, 1
+	note D_, 1
+	note C#, 1
+	note C_, 1
+	note __, 1
+	loopchannel 0, Music_RocketBattle_Ch4_loop
 
-Music_RocketBattle_branch_ea01d: ; ea01d
-	octave 2
-	note A#, 2
-	octave 3
-	note F_, 2
-	note A#, 2
-	note F_, 2
-	note A#, 2
-	note F_, 2
-	octave 2
-	note A#, 2
-	octave 3
-	note F_, 2
-	endchannel
-; ea02a
-
-Music_RocketBattle_branch_ea02a: ; ea02a
-	octave 2
-	note A_, 2
-	octave 3
-	note E_, 2
-	loopchannel 4, Music_RocketBattle_branch_ea02a
-	endchannel
-; ea033
-
-Music_RocketBattle_branch_ea033: ; ea033
-	octave 2
-	note A_, 2
-	octave 3
-	note E_, 2
-	note A_, 2
-	octave 2
-	note A_, 2
-	octave 3
-	note E_, 2
-	note A_, 2
-	octave 2
-	note A_, 2
-	endchannel
-; ea040
