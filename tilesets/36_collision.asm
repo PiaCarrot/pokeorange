@@ -241,11 +241,11 @@
 	tilecoll FLOOR, WALL, WALL, FLOOR ; f0
 	tilecoll FLOOR, FLOOR, WALL, FLOOR ; f1
 	tilecoll WALL, FLOOR, WALL, FLOOR ; f2
-	tilecoll FLOOR, FLOOR, PUDDLE, FLOOR ; f3
+	tilecoll WALL, FLOOR, WALL, FLOOR ; f3
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; f4
 	tilecoll WALL, WALL, FLOOR, WALL ; f5
 	tilecoll WALL, WALL, WALL, WALL ; f6
-	tilecoll PUDDLE, FLOOR, FLOOR, FLOOR ; f7
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; f7
 	tilecoll FLOOR, WALL, FLOOR, WALL ; f8
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; f9
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; fa
