@@ -380,12 +380,14 @@ IvyAdventureText:
 	line "is an important"
 	cont "item."
 
-	para "The GS BALL. I"
-	line "don't know what it"
-	cont "does or who even"
+	para "The GS BALL. It"
+	line "seems to not be"
+	cont "possible to open"
+	cont "up. We don't know"
 
-	para "made it. I had it"
-	line "sent to PROF.OAK"
+	para "its purpose or who"
+	line "made it. I had it"
+	cont "sent to PROF.OAK"
 	cont "in PALLET TOWN."
 
 	para "It seems he didn't"
@@ -414,8 +416,33 @@ IvyAdventureText:
 	done
 
 FinalIvyText:
-	text "IVY: I can only"
-	line "count on you."
+	text "IVY: SAMSON OAK is"
+	line "a professor from"
+	cont "the ALOLA region."
+	
+	para "He's SAMUEL OAK's"
+	line "cousin, and he is"
+	cont "here to study the"
+	cont "unique forms that"
+	
+	para "#MON take in the"
+	line "ORANGE ISLANDS."
+	cont "As our regions are"
+	cont "similar, you may"
+	
+	para "meet many #MON"
+	line "that exhibit the"
+	cont "same changes that"
+	cont "those in ALOLA do."
+	
+	para "As a professor my-"
+	line "self I would love"
+	cont "to see you catch"
+	cont "them all so we can"
+	cont "study them."
+	
+	para "Best of luck now,"
+	line "<PLAYER>!"
 	done
 
 IvyText_Intro:
@@ -459,6 +486,11 @@ IvyText_ChooseAPokemon:
 LabWhereGoingText:
 	text "IVY: Wait! Where"
 	line "are you going?"
+	
+	para "<...>"
+	
+	para "Maybe you need a"
+	line "minute to decide?"
 	done
 
 TakeCharmanderText:
