@@ -492,6 +492,12 @@ LabWhereGoingText:
 	para "Maybe you need a"
 	line "minute to decide?"
 	done
+	
+LabGoForAWalkText:
+	text "IVY: Hmm<...>"
+	line "Why don't we go"
+	cont "for a walk?"
+	done
 
 TakeCharmanderText:
 	text "IVY: You'll take"
