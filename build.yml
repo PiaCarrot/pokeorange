@@ -1,0 +1,121 @@
+# Continuous Integration Workflow
+name: "CI Build"
+
+on:
+  pull_request:
+    branches:
+      - master
+  workflow_call:
+
+env:
+  RGBDS_VERSION: "v0.5.2"
+
+jobs:
+  build-ubuntu:
+    name: "Build"
+    runs-on: ubuntu-latest
+    steps:
+      # SET ENVIRONMENT VARIABLES
+      - id: set-env-var
+        name: "Set environment variables"
+        run: |
+          echo "SHORT_SHA=$(echo ${GITHUB_SHA} | cut -c1-8)" >> $GITHUB_ENV
+
+      # INSTALL DEPENDENCIES
+      - id: apt-get-depends
+        name: "Install build dependencies"
+        run: |
+          sudo apt-get install bison gcc git make python -y;
+          
+      # CHECKOUT RGBDS
+      - id: checkout-rgbds
+        name: "Checkout gbdev/rgbds"
+        uses: actions/checkout@v3
+        with:
+          path: rgbds
+          ref: ${{ env.RGBDS_VERSION }}
+          repository: gbdev/rgbds
+      
+      # INSTALL RGBDS
+      - id: install-rgbds
+        name: "Install gbdev/rgbds"
+        working-directory: rgbds
+        run: |
+          sudo make install
+      
+      # CHECKOUT REPOSITORY
+      - id: checkout-orange
+        name: "Checkout PiaCarrot/pokeorange"
+        uses: actions/checkout@v3
+      
+      # BUILD ROMS
+      - id: build-pokeorange
+        name: "Build pokeorange"
+        run: |
+          make -j$(nproc)
+          mkdir build
+          mv pokeorange.gbc build/pokeorange-beta-${{ env.SHORT_SHA }}.gbc
+          mv pokeorange.sym build/pokeorange-beta-${{ env.SHORT_SHA }}.sym
+          make clean
+
+      - id: build-pokeorange-pss
+        name: "Build pokeorange-pss"
+        run: |
+          make -j$(nproc) pss
+          mv pokeorange.gbc build/pokeorange-pss-beta-${{ env.SHORT_SHA }}.gbc
+          mv pokeorange.sym build/pokeorange-pss-beta-${{ env.SHORT_SHA }}.sym
+          make clean
+
+      # BUILD DEBUG ROMS
+      - id: build-orangedebug
+        name: "Build orangedebug"
+        run: |
+          make -j$(nproc) debug
+          mv pokeorange.gbc build/pokeorange-debug-${{ env.SHORT_SHA }}.gbc
+          mv pokeorange.sym build/pokeorange-debug-${{ env.SHORT_SHA }}.sym
+          make clean
+
+      - id: build-orangedebug-pss
+        name: "Build orangedebug-pss"
+        run: |
+          make -j$(nproc) pss debug
+          mv pokeorange.gbc build/pokeorange-debug-pss-${{ env.SHORT_SHA }}.gbc
+          mv pokeorange.sym build/pokeorange-debug-pss-${{ env.SHORT_SHA }}.sym
+          make clean
+          
+      # UPLOAD ARTIFACTS
+      - id: upload-pokeorange
+        name: "Upload pokeorange artifacts"
+        uses: actions/upload-artifact@v3
+        with:
+          name: "pokeorange"
+          retention-days: 1
+          path: |
+            build/pokeorange-beta-${{ env.SHORT_SHA }}.*
+
+      - id: upload-pokeorange-pss
+        name: "Upload pokeorange-pss artifacts"
+        uses: actions/upload-artifact@v3
+        with:
+          name: "pokeorange-pss"
+          retention-days: 1
+          path: |
+            build/pokeorange-pss-beta-${{ env.SHORT_SHA }}.*
+
+      - id: upload-orangedebug
+        name: "Upload orangedebug artifacts"
+        uses: actions/upload-artifact@v3
+        with:
+          name: "orangedebug"
+          retention-days: 1
+          path: |
+            build/pokeorange-debug-${{ env.SHORT_SHA }}.*
+
+      - id: upload-orangedebug-pss
+        name: "Upload orangedebug-pss artifacts"
+        uses: actions/upload-artifact@v3
+        with:
+          name: "orangedebug-pss"
+          retention-days: 1
+          path: |
+            build/pokeorange-debug-pss-${{ env.SHORT_SHA }}.*
