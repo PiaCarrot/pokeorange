@@ -47,7 +47,7 @@ RocketRoute60Event:
 	disappear ROUTE_60_JAMES
 	setevent EVENT_ROUTE_60_ROCKET
 	domaptrigger ROUTE_60, $1
-	playmusic MUSIC_ROUTE_29
+	playmusic MUSIC_ROUTE_62
 	end
 
 

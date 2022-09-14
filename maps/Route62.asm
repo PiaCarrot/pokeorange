@@ -133,7 +133,7 @@ Route62TraceyScript:
 	playsound SFX_ENTER_DOOR
 	special Special_FadeOutMusic
 	special RestartMapMusic
-	playmusic MUSIC_ROUTE_36
+	playmusic MUSIC_ROUTE_62
 	pause 10
 	setevent EVENT_ROUTE_62_TRACEY
 	end
