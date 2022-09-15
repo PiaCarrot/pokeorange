@@ -1292,7 +1292,7 @@ PlayBattleMusic: ; 2ee6c
 	farcall IsKantoGymLeader
 	jp c, .done
 
-	ld de, MUSIC_HOENN_CHAMPION_BATTLE
+	ld de, MUSIC_ORANGE_ISLANDS_GYM_BATTLE
 	farcall IsJohtoGymLeader
 	jp c, .done
 	

@@ -123,7 +123,6 @@
 	dba Music_HoennDewfordTown
 	dba Music_EverGrandeCity
 	dba Music_LookGladion
-	dba Music_HoennChampionBattle
 	dba Music_HoOhBattle
 	dba Music_LilycoveCity
 	dba Music_LugiaBattle
@@ -161,4 +160,5 @@
 	dba Music_DrakeBattle
 	dba Music_AscorbiaIsland
 	dba Music_Route62
+	dba Music_OrangeIslandsGymBattle
 ; e91a3

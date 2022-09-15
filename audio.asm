@@ -66,7 +66,6 @@ INCLUDE "audio/music/gymleadervictory.asm"
 INCLUDE "audio/music/halloffame.asm"
 INCLUDE "audio/music/healpokemon.asm"
 INCLUDE "audio/music/hoenn_dewford_town.asm"
-INCLUDE "audio/music/hoennchampionbattle.asm"
 INCLUDE "audio/music/indigoplateau.asm"
 INCLUDE "audio/music/johtogymbattle.asm"
 INCLUDE "audio/music/johtotrainerbattle.asm"
@@ -223,6 +222,7 @@ INCLUDE "audio/music/route69heh.asm"
 INCLUDE "audio/music/drakebattle.asm"
 INCLUDE "audio/music/ascorbiaisland.asm"
 INCLUDE "audio/music/route62.asm"
+INCLUDE "audio/music/orangegymbattle.asm"
 
 SECTION "Songs Monstarules", ROMX
 
