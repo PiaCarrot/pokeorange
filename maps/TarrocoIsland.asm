@@ -45,8 +45,8 @@ TarrocoIsland_MapEventHeader::
 
 .Warps: db 0
 .CoordEvents: db 2
-	xy_trigger 1, 18, 30, TarrocoIslandBridgeOverheadTrigger 
-	xy_trigger 0, 19, 30, TarrocoIslandBridgeUnderfootTrigger
+	xy_trigger 1, 15, 14, TarrocoIslandBridgeOverheadTrigger 
+	xy_trigger 0, 15, 15, TarrocoIslandBridgeUnderfootTrigger
 
 .BGEvents: db 0
 

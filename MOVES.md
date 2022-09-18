@@ -143,14 +143,14 @@ Vicegrip
 ## Tutors
 
 - MT01 Fire Punch
-- MT02 ThunderPunch
+- MT02 ThunderPunch (Route 52)
 - MT03 Ice Punch
 - MT04 Comet Punch
 - MT05 Mach Punch (Route 56)
 - MT06 DynamicPunch
 - MT07 Headbutt (Moro Island)
 - MT08 *Zen Headbutt* (Route 69)
-- MT09 Swords Dance
+- MT09 Swords Dance (Route 71)
 - MT10 Body Slam
 - MT11 Counter
 - MT12 Substitute
