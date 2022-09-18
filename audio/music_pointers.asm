@@ -113,7 +113,6 @@
 	dba Music_BattleTowerLobby ; 0x17948b
 	dba Music_MobileCenter ; 0x17961d
 	dba Music_Cinnabar
-	dba Music_PokeathelonFinal
 	dba Music_RidingLapras
 	dba Music_OrangeWild
 	dba Music_CianwoodCity
@@ -161,4 +160,5 @@
 	dba Music_AscorbiaIsland
 	dba Music_Route62
 	dba Music_OrangeIslandsGymBattle
+	dba Music_OrangeTrainerBattle
 ; e91a3

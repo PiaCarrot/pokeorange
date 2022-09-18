@@ -112,7 +112,6 @@ INCLUDE "audio/music/mtmoonsquare.asm"
 INCLUDE "audio/music/nationalpark.asm"
 INCLUDE "audio/music/newbarktown.asm"
 INCLUDE "audio/music/pallettown.asm"
-INCLUDE "audio/music/pokeathelonfinal.asm"
 
 
 SECTION "Songs 8", ROMX
@@ -222,13 +221,14 @@ INCLUDE "audio/music/route69heh.asm"
 INCLUDE "audio/music/drakebattle.asm"
 INCLUDE "audio/music/ascorbiaisland.asm"
 INCLUDE "audio/music/route62.asm"
-INCLUDE "audio/music/orangegymbattle.asm"
 
 SECTION "Songs Monstarules", ROMX
 
 INCLUDE "audio/music/crossbattle.asm"
 INCLUDE "audio/music/orangewild.asm"
 INCLUDE "audio/music/lugiassong.asm"
+INCLUDE "audio/music/orangegymbattle.asm"
+INCLUDE "audio/music/orangetrainerbattle.asm"
 
 SECTION "Sound Effects", ROMX
 

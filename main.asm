@@ -1331,7 +1331,7 @@ PlayBattleMusic: ; 2ee6c
 	jp nz, .kantotrainer
 
 .johtotrainer
-	ld de, MUSIC_POKEATHELON_FINAL
+	ld de, MUSIC_ORANGE_TRAINER_BATTLE
 	jp .done
 
 .kantotrainer
