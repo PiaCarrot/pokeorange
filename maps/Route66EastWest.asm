@@ -71,6 +71,13 @@ SightseerFLanaAfterText:
 	line "I forgot, I have a"
 	cont "spare!"
 	done
+	
+Route66Sign:
+	jumptext Route65SignText
+	
+Route66SignText:
+	text "ROUTE 66"
+	done
 
 Route66EastWest_MapEventHeader::
 
@@ -78,7 +85,8 @@ Route66EastWest_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 0
+.BGEvents: db 1
+	signpost 12, 12, SIGNPOST_READ, Route66Sign
 
 .ObjectEvents: db 4
 	person_event SPRITE_POKE_BALL, 13, 26, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route66EastWestPinkBow, EVENT_ROUTE_66_EAST_WEST_PINK_BOW
