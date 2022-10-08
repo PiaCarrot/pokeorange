@@ -425,9 +425,10 @@ FinalIvyText:
 	cont "here to study the"
 	cont "unique forms that"
 	
-	para "#MON take in the"
-	line "ORANGE ISLANDS."
-	cont "As our regions are"
+	para "#MON take in"
+	line "the ORANGE"
+	cont "ARCHIPELAGO. As"
+	cont "our regions are"
 	cont "similar, you may"
 	
 	para "meet many #MON"
