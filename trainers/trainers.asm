@@ -1764,10 +1764,10 @@ YoungsterGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 50, VENUSAUR
-	db 50, SALAZZLE
-	db 50, STUNFISK
-	db 50, CLOYSTER
+	db 44, VENUSAUR
+	db 44, SALANDIT
+	db 44, STUNFISK
+	db 44, CLOYSTER
 
 	db $ff ; end
 ; ================
@@ -1806,13 +1806,13 @@ LassGroup:
 	db "RILEY@"
 	db TRAINERTYPE_MOVES
 
-	db 46, CLEFABLE
+	db 44, CLEFABLE
 		db TAKE_DOWN
 		db SWEET_KISS
 		db ATTRACT
 		db METRONOME
 		
-	db 46, WIGGLYTUFF
+	db 44, WIGGLYTUFF
 		db TAKE_DOWN
 		db DEFENSE_CURL
 		db ROLLOUT
@@ -1839,10 +1839,10 @@ LassGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 46, TOGETIC
-	db 46, TOGEPI
-	db 46, CLEFFA
-	db 46, CLEFAIRY
+	db 44, TOGETIC
+	db 44, TOGEPI
+	db 44, CLEFFA
+	db 44, CLEFAIRY
 
 	db $ff ; end
 
@@ -2172,13 +2172,13 @@ SwimmerFGroup:
 	db "MARINA@"
 	db TRAINERTYPE_MOVES
 
-	db 46, GOLDUCK
+	db 44, GOLDUCK
 		db ZEN_HEADBUTT
 		db SURF
 		db RAIN_DANCE
 		db SCREECH
 
-	db 45, WAILORD
+	db 44, WAILORD
 		db WATER_PULSE
 		db TAKE_DOWN
 		db MIST
@@ -2199,9 +2199,9 @@ SwimmerFGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 45, LUMINEON
-	db 49, DRAGALGE
-	db 47, STARMIE
+	db 44, LUMINEON
+	db 44, DRAGALGE
+	db 44, STARMIE
 
 	db $ff ; end
 	
@@ -2212,8 +2212,8 @@ SwimmerFGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 51, DEWGONG
-	db 49, SEAKING
+	db 44, DEWGONG
+	db 44, SEAKING
 
 	db $ff ; end
 	
@@ -2224,8 +2224,8 @@ SwimmerFGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 48, LUMINEON
-	db 49, STUNFISK
+	db 44, LUMINEON
+	db 44, STUNFISK
 
 	db $ff ; end
 	
@@ -2236,9 +2236,9 @@ SwimmerFGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 52, BLASTOISE
-	db 50, WARTORTLE
-	db 48, SQUIRTLE
+	db 42, BLASTOISE
+	db 41, WARTORTLE
+	db 40, SQUIRTLE
 
 	db $ff ; end
 
@@ -2266,9 +2266,9 @@ CamperGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 51, TOXAPEX
-	db 51, MAROWAK
-	db 51, TOGEKISS
+	db 44, TOXAPEX
+	db 44, MAROWAK
+	db 44, TOGETIC
 
 	db $ff ; end
 	
@@ -2279,9 +2279,9 @@ CamperGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 51, PORYGON_Z
-	db 51, TANGROWTH
-	db 51, ARCANINE
+	db 44, PORYGON2
+	db 44, TANGELA
+	db 44, ARCANINE
 
 	db $ff ; end
 
@@ -2338,7 +2338,7 @@ PokemaniacGroup:
 
 	; party
 	db 43, SALAZZLE
-	db 45, MUK
+	db 44, MUK
 
 	db $ff ; end
 ; ================
@@ -2521,9 +2521,9 @@ FisherGroup:
 	db "GIN@"
 	db TRAINERTYPE_PERSONALITY
 
-	db 47, MAGIKARP, MALE_MASK
+	db 44, MAGIKARP, MALE_MASK
 	db 45, GYARADOS, MALE_MASK | SHINY_MASK
-	db 47, GYARADOS, MALE_MASK
+	db 44, GYARADOS, MALE_MASK
 
 	db $ff
 	
@@ -2533,10 +2533,10 @@ FisherGroup:
 	db "STEPHEN@"
 	db TRAINERTYPE_NORMAL
 
-	db 50, EXEGGUTOR
-	db 50, PELIPPER
-	db 50, PALOSSAND
-	db 50, SCIZOR
+	db 44, EXEGGUTOR
+	db 44, PELIPPER
+	db 44, PALOSSAND
+	db 44, SCYTHER
 
 	db $ff
 ; ================
@@ -2562,10 +2562,10 @@ HikerGroup:
 	db TRAINERTYPE_PERSONALITY
 
 	; party
-	db 50, EXEGGUTOR, MALE_MASK | EXEGGUTOR_KANTONESE_FORM
-	db 50, MAGNEZONE, MALE_MASK
-	db 50, PORYGON2, MALE_MASK
-	db 50, MAGMORTAR, MALE_MASK
+	db 44, EXEGGUTOR, MALE_MASK | EXEGGUTOR_KANTONESE_FORM
+	db 44, MAGNETON, MALE_MASK
+	db 44, PORYGON, MALE_MASK
+	db 44, MAGMAR, MALE_MASK
 
 	db $ff ; end
 
@@ -2606,7 +2606,7 @@ AthleteGroup:
 	db "BARNEY@"
 	db TRAINERTYPE_NORMAL
 
-	db 47, RAPIDASH
+	db 42, RAPIDASH
 
 	db $ff
 	
@@ -2629,9 +2629,9 @@ AthleteGroup:
 	db TRAINERTYPE_NORMAL
 
 	db 40, TYROGUE
-	db 41, HITMONCHAN
-	db 42, HITMONLEE
-	db 43, HITMONTOP
+	db 40, HITMONCHAN
+	db 40, HITMONLEE
+	db 40, HITMONTOP
 
 	db $ff
 	
@@ -2641,8 +2641,8 @@ AthleteGroup:
 	db "ED@"
 	db TRAINERTYPE_NORMAL
 
-	db 45, PIKACHU
-	db 45, RAICHU
+	db 40, PIKACHU
+	db 40, RAICHU
 
 	db $ff	
 	
@@ -2652,19 +2652,19 @@ AthleteGroup:
 	db "SHELDON@"
 	db TRAINERTYPE_MOVES
 
-	db 46, ARCANINE
+	db 44, ARCANINE
 		db EXTREMESPEED
 		db FLAMETHROWER
 		db QUICK_ATTACK
 		db ROAR
 
-	db 45, POLIWRATH
+	db 42, POLIWRATH
 		db RAIN_DANCE
 		db ICE_PUNCH
 		db WHIRLPOOL
 		db MACH_PUNCH
 		
-	db 45, JUMPLUFF
+	db 41, JUMPLUFF
 		db RAZOR_LEAF
 		db SYNTHESIS
 		db GIGA_DRAIN
@@ -2741,19 +2741,19 @@ SightseerMGroup:
 	db "CORAL@"
 	db TRAINERTYPE_MOVES
 
-	db 53, CORSOLA
+	db 44, CORSOLA
 		db TOXIC
 		db DIVE
 		db SUBSTITUTE
 		db REST
 
-	db 52, CLEFABLE
+	db 44, CLEFABLE
 		db METRONOME
 		db MOONBLAST
 		db DOUBLESLAP
 		db ATTRACT
 		
-	db 52, RAICHU
+	db 44, RAICHU
 		db PSYCHIC_M
 		db THUNDERBOLT
 		db SURF
@@ -2808,7 +2808,7 @@ SightseerFGroup:
 	db TRAINERTYPE_MOVES
 
 	; party
-	db 46, SYLVEON
+	db 41, SYLVEON
 		db DAZZLINGLEAM
 		db SAND_ATTACK
 		db ENCORE
@@ -2822,9 +2822,9 @@ SightseerFGroup:
 	db TRAINERTYPE_DVS
 
 	; party
-	db 42, DRATINI, $98, $88
-	db 40, SPINDA, SPINDA_B_DVS
-	db 40, EXEGGCUTE, $98, $88
+	db 38, DRATINI, $98, $88
+	db 38, SPINDA, SPINDA_B_DVS
+	db 38, EXEGGCUTE, $98, $88
 
 	db $ff ; end
 
@@ -2969,13 +2969,13 @@ CooltrainerMGroup:
 	db "HUEY@"
 	db TRAINERTYPE_MOVES
 
-	db 43, DITTO
+	db 40, DITTO
 		db TRANSFORM
 		db 0
 		db 0
 		db 0
 		
-	db 44, RAPIDASH
+	db 40, RAPIDASH
 		db STOMP
 		db FIRE_SPIN
 		db AERIAL_ACE
@@ -2989,13 +2989,13 @@ CooltrainerMGroup:
 	db "JACK@"
 	db TRAINERTYPE_PERSONALITY | TRAINERTYPE_MOVES
 
-	db 44, PERSIAN, MALE_MASK | PERSIAN_ALOLAN_FORM
+	db 40, PERSIAN, MALE_MASK | PERSIAN_ALOLAN_FORM
 		db AGILITY
 		db PURSUIT
 		db CRUNCH
 		db ROAR
 		
-	 db 44, WIGGLYTUFF, FEMALE_MASK
+	 db 40, WIGGLYTUFF, FEMALE_MASK
 		db SING
 		db FACADE
 		db REST
@@ -3009,19 +3009,19 @@ CooltrainerMGroup:
 	db "BRAD@"
 	db TRAINERTYPE_MOVES
 
-	db 44, PERSIAN
+	db 40, PERSIAN
 		db AGILITY
 		db PURSUIT
 		db BODY_SLAM
 		db ROAR
 		
-	db 44, EXEGGCUTE
+	db 40, EXEGGCUTE
 		db SELFDESTRUCT
 		db EGG_BOMB
 		db LEECH_SEED
 		db PROTECT
 		
-	 db 44, PINSIR
+	 db 40, PINSIR
 		db SLASH
 		db SWORDS_DANCE
 		db LEECH_LIFE
@@ -3035,7 +3035,7 @@ CooltrainerMGroup:
 	db "TRAD@"
 	db TRAINERTYPE_MOVES
 
-	 db 47, SNORLAX
+	 db 44, SNORLAX
 		db HYPER_BEAM
 		db REST
 		db SURF
@@ -3049,8 +3049,8 @@ CooltrainerMGroup:
 	db "DAVID@"
 	db TRAINERTYPE_NORMAL
 
-	db 43, GOLBAT
-	db 43, SKRELP
+	db 39, GOLBAT
+	db 39, SKRELP
 
 	db $ff
 	
@@ -3060,9 +3060,9 @@ CooltrainerMGroup:
 	db "FABIO@"
 	db TRAINERTYPE_NORMAL
 
-	db 47, CHARIZARD
-	db 46, CHARMELEON
-	db 45, CHARMANDER
+	db 42, CHARIZARD
+	db 41, CHARMELEON
+	db 38, CHARMANDER
 
 	db $ff
 
@@ -3072,10 +3072,10 @@ CooltrainerMGroup:
 	db "MIKE@"
 	db TRAINERTYPE_NORMAL
 
-	db 50, SCIZOR
-	db 50, TOUCANNON
-	db 50, SHARPEDO
-	db 50, RAICHU
+	db 44, SCIZOR
+	db 45, TRUMBEAK
+	db 46, SHARPEDO
+	db 45, RAICHU
 
 	db $ff
 	
@@ -3086,10 +3086,10 @@ CooltrainerMGroup:
 	db "MAKO@"
 	db TRAINERTYPE_NORMAL
 
-	db 50, UMBREON
-	db 50, ESPEON
-	db 50, POLITOED
-	db 50, KINGDRA
+	db 44, UMBREON
+	db 45, ESPEON
+	db 46, POLIWHIRL
+	db 45, SEADRA
 
 	db $ff
 	
@@ -3142,8 +3142,8 @@ CooltrainerFGroup:
 	db "FREY@"
 	db TRAINERTYPE_NORMAL
 
-	db 42, VENUSAUR
-	db 43, CLEFABLE
+	db 40, VENUSAUR
+	db 41, CLEFABLE
 
 	db $ff
 	
@@ -3153,10 +3153,10 @@ CooltrainerFGroup:
 	db "MARY@"
 	db TRAINERTYPE_PERSONALITY
 
-	db 44, OMASTAR, FEMALE_MASK
-	db 44, SANDSLASH, FEMALE_MASK | SANDSLASH_ALOLAN_FORM
-	db 44, NIDORINA, FEMALE_MASK
-	db 44, JYNX, FEMALE_MASK
+	db 42, OMASTAR, FEMALE_MASK
+	db 41, SANDSLASH, FEMALE_MASK | SANDSLASH_ALOLAN_FORM
+	db 40, NIDORINA, FEMALE_MASK
+	db 37, JYNX, FEMALE_MASK
 
 	db $ff
 	
@@ -3166,9 +3166,9 @@ CooltrainerFGroup:
 	db "LIZ@"
 	db TRAINERTYPE_PERSONALITY
 
-	db 48, MAGCARGO, MALE_MASK
-	db 48, LANTURN, FEMALE_MASK
-	db 48, EXEGGUTOR, MALE_MASK | EXEGGUTOR_KANTONESE_FORM
+	db 44, MAGCARGO, MALE_MASK
+	db 45, LANTURN, FEMALE_MASK
+	db 46, EXEGGUTOR, MALE_MASK | EXEGGUTOR_KANTONESE_FORM
 
 	db $ff
 	
@@ -3178,10 +3178,10 @@ CooltrainerFGroup:
 	db "GRANNY@" ;FIRE
 	db TRAINERTYPE_NORMAL
 
-	db 50, VAPOREON
-	db 50, LEAFEON
-	db 50, SYLVEON
-	db 50, EEVEE
+	db 44, VAPOREON
+	db 44, LEAFEON
+	db 44, SYLVEON
+	db 44, EEVEE
 
 	db $ff
 	
@@ -3191,10 +3191,10 @@ CooltrainerFGroup:
 	db "GRANNY@" ;WATER
 	db TRAINERTYPE_NORMAL
 
-	db 50, JOLTEON
-	db 50, FLAREON
-	db 50, SYLVEON
-	db 50, EEVEE
+	db 44, JOLTEON
+	db 44, FLAREON
+	db 44, SYLVEON
+	db 44, EEVEE
 
 	db $ff
 	
@@ -3204,10 +3204,10 @@ CooltrainerFGroup:
 	db "GRANNY@" ;GRASS
 	db TRAINERTYPE_NORMAL
 
-	db 50, GLACEON
-	db 50, VAPOREON
-	db 50, SYLVEON
-	db 50, EEVEE
+	db 44, GLACEON
+	db 44, VAPOREON
+	db 44, SYLVEON
+	db 44, EEVEE
 
 	db $ff
 	
@@ -3217,19 +3217,19 @@ CooltrainerFGroup:
 	db "NUUK@"
 	db TRAINERTYPE_MOVES
 	
-	db 52, TOGETIC
+	db 46, TOGETIC
 		db DAZZLINGLEAM
 		db FAIRY_WIND
 		db ATTRACT
 		db SOFTBOILED
 
-	db 52, CHIMECHO
+	db 46, CHIMECHO
 		db PSYCHIC_M
 		db FAIRY_WIND
 		db DOUBLE_EDGE
 		db HYPNOSIS
 
-	db 52, FLYGON
+	db 46, VIBRAVA
 		db DRAGON_TAIL
 		db FLY
 		db ROCK_BLAST
@@ -3297,10 +3297,10 @@ CatmanGroup:
 	db "MAYO@"
 	db TRAINERTYPE_PERSONALITY
 
-	db 50, NINETALES, MALE_MASK
-	db 50, VAPOREON, MALE_MASK
-	db 50, LYCANROC, FEMALE_MASK | LYCANROC_MIDNIGHT_FORM
-	db 50, FLYGON, MALE_MASK
+	db 44, NINETALES, MALE_MASK
+	db 45, VAPOREON, MALE_MASK
+	db 46, LYCANROC, FEMALE_MASK | LYCANROC_MIDNIGHT_FORM
+	db 47, VIBRAVA, MALE_MASK
 
 	db $ff
 ; ================
@@ -3326,8 +3326,8 @@ BirdkeeperGroup:
 	db "DWIGHT@"
 	db TRAINERTYPE_NORMAL
 
-	db 44, PIDGEOTTO
-	db 44, TOUCANNON
+	db 42, PIDGEOTTO
+	db 41, TOUCANNON
 
 	db $ff
 	
@@ -3336,7 +3336,7 @@ BirdkeeperGroup:
 	db "CID@"
 	db TRAINERTYPE_NORMAL
 
-	db 50, PIDGEOT
+	db 42, PIDGEOT
 
 	db $ff
 
@@ -3884,13 +3884,13 @@ OtakuGroup:
 	db "CHRIS@"
 	db TRAINERTYPE_MOVES
 
-	db 41, PORYGON
+	db 39, PORYGON
 		db CONVERSION
 		db CONVERSION2
 		db TRI_ATTACK
 		db PROTECT
 		
-	db 41, PORYGON2
+	db 39, PORYGON2
 		db TRI_ATTACK
 		db NASTY_PLOT
 		db SWAGGER
@@ -3904,7 +3904,7 @@ OtakuGroup:
 	db "RALPH@"
 	db TRAINERTYPE_MOVES
 
-	db 44, MAGNEZONE
+	db 40, MAGNEZONE
 		db HYPER_BEAM
 		db SWAGGER
 		db LOCK_ON
@@ -3918,13 +3918,13 @@ OtakuGroup:
 	db "SEAN@"
 	db TRAINERTYPE_MOVES
 
-	db 45, JUMPLUFF
+	db 40, JUMPLUFF
 		db GIGA_DRAIN
 		db SLEEP_POWDER
 		db LEECH_SEED
 		db SPLASH
 		
-	db 44, SANDSLASH
+	db 40, SANDSLASH
 		db DIG
 		db METAL_CLAW
 		db DEFENSE_CURL
@@ -3938,13 +3938,13 @@ OtakuGroup:
 	db "DOC@"
 	db TRAINERTYPE_MOVES
 
-	db 46, GOLDUCK
+	db 40, GOLDUCK
 		db PSYBEAM
 		db ICE_BEAM
 		db SURF
 		db REST
 		
-	db 46, MAGNETON
+	db 40, MAGNETON
 		db TRI_ATTACK
 		db THUNDERBOLT
 		db THUNDER_WAVE
@@ -3958,13 +3958,13 @@ OtakuGroup:
 	db "ABE@"
 	db TRAINERTYPE_MOVES
 
-	db 49, DUGTRIO
+	db 41, DUGTRIO
 		db TRI_ATTACK
 		db DIG
 		db MAGNITUDE
 		db SAND_ATTACK
 		
-	db 48, MAGNETON
+	db 42, MAGNETON
 		db TRI_ATTACK
 		db THUNDERBOLT
 		db THUNDER_WAVE
@@ -3978,25 +3978,25 @@ OtakuGroup:
 	db "RWNE@"
 	db TRAINERTYPE_MOVES
 
-	db 50, SCYTHER
+	db 44, SCYTHER
 		db SLASH
 		db WING_ATTACK
 		db SWORDS_DANCE
 		db PURSUIT
 		
-	db 50, KINGDRA
-		db DRAGON_PULSE
+	db 44, SEADRA
+		db WATER_PULSE
 		db BUBBLEBEAM
 		db SMOKESCREEN
-		db OUTRAGE
+		db DIVE
 		
-	db 50, MAGNEZONE
+	db 44, MAGNETON
 		db ZAP_CANNON
 		db FLASH_CANNON
 		db SUPERSONIC
 		db THUNDER_WAVE
 		
-	db 50, NIDOKING
+	db 44, NIDOKING
 		db SURF
 		db DOUBLE_KICK
 		db POISON_JAB
@@ -4262,19 +4262,19 @@ BlackbeltGroup:
 	db "KEN@"
 	db TRAINERTYPE_MOVES
 
-	db 42, MACHOKE
+	db 40, MACHOKE
 		db SUBMISSION
 		db FIRE_PUNCH
 		db KARATE_CHOP
 		db NO_MOVE
 		
-	db 42, MACHOKE
+	db 40, MACHOKE
 		db THUNDERPUNCH
 		db LOW_KICK
 		db SUBMISSION
 		db NO_MOVE
 		
-	db 42, MACHOKE
+	db 40, MACHOKE
 		db ICE_PUNCH
 		db SUBMISSION
 		db SEISMIC_TOSS
@@ -4288,19 +4288,19 @@ BlackbeltGroup:
 	db "STEPPO@"
 	db TRAINERTYPE_MOVES
 
-	db 50, STEELIX
+	db 44, STEELIX
 		db IRON_TAIL
 		db ROCK_SLIDE
 		db DIG
 		db EARTH_POWER
 		
-	db 50, SHARPEDO
+	db 44, SHARPEDO
 		db WATERFALL
 		db CRUNCH
 		db GLARE
 		db MEAN_LOOK
 		
-	db 50, ELECTIVIRE
+	db 44, ELECTABUZZ
 		db THUNDER_WAVE
 		db THUNDERBOLT
 		db AGILITY
@@ -4380,8 +4380,8 @@ DiverMaleGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 43, STUNFISK
-	db 43, GYARADOS
+	db 40, STUNFISK
+	db 38, GYARADOS
 
 	db $ff ; end
 
@@ -4392,9 +4392,9 @@ DiverMaleGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 52, TOXAPEX
-	db 51, MANTINE
-	db 52, KINGDRA
+	db 44, MAREANIE
+	db 44, MANTINE
+	db 44, SEADRA
 
 	db $ff ; end
 
@@ -4405,10 +4405,10 @@ DiverMaleGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 50, GLACEON
-	db 50, AMPHAROS
-	db 50, SUNFLORA
-	db 50, FLYGON
+	db 44, GLACEON
+	db 44, AMPHAROS
+	db 44, SUNFLORA
+	db 44, VIBRAVA
 
 	db $ff ; end
 
@@ -4437,7 +4437,7 @@ DiverFemaleGroup:
 	db TRAINERTYPE_NORMAL
 
 	; party
-	db 46, TOXAPEX
+	db 42, TOXAPEX
 
 	db $ff ; end
 
@@ -4487,19 +4487,19 @@ EngineerGroup:
 	db "KALARIE@"
 	db TRAINERTYPE_MOVES
 
-	db 51, LAPRAS
+	db 44, LAPRAS
 		db WATERFALL
 		db SING
 		db PERISH_SONG
 		db ICE_BEAM
 
-	db 51, SNORLAX
+	db 44, MUNCHLAX
 		db REST
 		db SLEEP_TALK
-		db SURF
+		db BODY_SLAM
 		db HYPER_BEAM
 
-	db 51, CHARIZARD
+	db 44, CHARIZARD
 		db FLAMETHROWER
 		db FLY
 		db SLASH
