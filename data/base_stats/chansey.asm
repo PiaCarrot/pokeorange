@@ -6,7 +6,7 @@
 	db NORMAL, NORMAL
 	db 30 ; catch rate
 	db NO_ITEM ; item 1
-	db LUCKY_EGG ; item 2
+	db NO_ITEM ; item 2
 	db ALL_FEMALE ; gender
 	db 40 ; step cycles to hatch
 	dn 6, 6 ; frontpic dimensions

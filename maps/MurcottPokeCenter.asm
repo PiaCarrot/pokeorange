@@ -46,6 +46,13 @@ MurcottSightseerText:
 MurcottLuckyEggScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_ORANGE_LEAGUE
+	iftrue .CanGetLuckyEgg
+	writetext MurcottCenterOldLadyText
+	waitbutton
+	closetext
+	end
+.CanGetLuckyEgg:
 	checkevent EVENT_MURCOTT_LUCKY_EGG
 	iftrue .AlreadyGotLuckyEgg
     writetext GiveLuckyEggText
@@ -68,7 +75,7 @@ MurcottLuckyEggDoneScript:
 	
 GiveLuckyEggText:
 	text "Oh! You look like"
-	line "an aspiring young"
+	line "an hungry young"
 	cont "trainer."
 	
 	para "Take this, I am"
@@ -76,9 +83,19 @@ GiveLuckyEggText:
 	done
 	
 GotLuckyEggText:
-	text "LUCKY EGG will"
-	line "increase the EXP a"
-	cont "#MON receives."
+	text "I sure do love"
+	line "scrambled eggs!"
+	done
+	
+MurcottCenterOldLadyText:
+	text "A trainer, eh?"
+	line "You don't look"
+	cont "like you need a"
+	cont "good meal yet."
+	
+	para "Come see granny"
+	line "when you're very"
+	cont "hungry."
 	done
 
 MurcottPokeCenter_MapEventHeader::
