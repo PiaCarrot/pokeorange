@@ -415,10 +415,10 @@ npctrade: MACRO
 ENDM
 
 
-	npctrade 2, PHANPY,     ELEKID,     "ZOKZOK@@@@@", $98, $88, GOLD_BERRY,   37460, "ARMON@@@@@@", TRADE_EITHER_GENDER
-	npctrade 3, PIKACHU,    CLEFAIRY,   "ARIALA@@@@@", $96, $66, GOLD_BERRY,   48926, "MARISSA@@@@", TRADE_EITHER_GENDER
+	npctrade 2, JIGGLYPUFF, DIGLETT,    "DOUG@@@@@@@", $98, $88, GOLD_BERRY,   37460, "ARMON@@@@@@", TRADE_EITHER_GENDER
+	npctrade 3, PIKACHU,    CLEFAIRY,   "ARIA@@@@@@@", $96, $66, GOLD_BERRY,   48926, "MARISSA@@@@", TRADE_EITHER_GENDER
 	npctrade 0, MEOWTH,     MR__MIME,   "MIMEY@@@@@@", $98, $88, FOCUS_BAND,   22689, "SHAMUS@@@@@", TRADE_EITHER_GENDER
-	npctrade 3, STUNFISK,   SEEL,       "DOUG@@@@@@@", $96, $66, MYSTERYBERRY, 62712, "MAYA@@@@@@@", TRADE_EITHER_GENDER
+	npctrade 3, STUNFISK,   SEEL,       "PUFF@@@@@@@", $96, $66, MYSTERYBERRY, 62712, "MAYA@@@@@@@", TRADE_EITHER_GENDER
 ; fcf38
 
 
