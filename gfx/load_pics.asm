@@ -175,6 +175,62 @@ GetFrontpicPointer: ; 510d7
 	ld a, [CurPartySpecies]
 	call GetRelevantPicPointers
 	ld a, [CurPartySpecies]
+	cp RATTATA
+	jp z, .dual_form
+    cp RATICATE
+    jp z, .dual_form
+	cp ONIX
+	jp z, .dual_form
+	cp STEELIX
+	jp z, .dual_form
+	cp EXEGGUTOR
+	jp z, .dual_form
+	cp GRIMER
+	jp z, .dual_form
+	cp MUK
+	jp z, .dual_form
+	cp VULPIX
+	jp z, .dual_form
+	cp NINETALES
+	jp z, .dual_form
+	cp SANDSHREW
+	jp z, .dual_form
+	cp SANDSLASH
+	jp z, .dual_form
+    cp DIGLETT
+    jp z, .dual_form
+    cp DUGTRIO
+    jp z, .dual_form
+    cp GEODUDE
+	jp z, .dual_form
+	cp GRAVELER
+	jp z, .dual_form
+    cp GOLEM
+	jp z, .dual_form
+    cp MAROWAK
+    jp z, .dual_form
+    cp RAICHU
+    jp z, .dual_form
+	jp .skip
+.dual_form
+	xor a
+	ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
+    and FORM_MASK
+	push bc
+	ld b, 2
+	cp b
+	ld a, [MonVariant]
+	pop bc
+	jr nz, .notvariant
+	ld a, 2
+	jr .notvariant
+.skip
+	ld a, [CurPartySpecies]
+	call GetRelevantPicPointers
+	ld a, [CurPartySpecies]
 	jr nc, .notvariant
 	ld a, [MonVariant]
 .notvariant
@@ -255,10 +311,10 @@ Function5114f: ; 5114f
 	ret
 
 GetBackpic: ; 5116c
-	ld a, [CurPartySpecies]
+	ld a, [BattleMonSpecies]
 	call IsAPokemon
 	ret c
-	ld a, [CurPartySpecies]
+	ld a, [BattleMonSpecies]
 	ld b, a
 	ld a, [MonVariant]
 	ld c, a
@@ -271,9 +327,62 @@ GetBackpic: ; 5116c
 	push bc
 	call GetRelevantPicPointers
 	pop bc
-	ld a, b
-	jr nc, .notvariant
-	ld a, c
+	ld a, [BattleMonSpecies]
+	cp RATTATA
+	jp z, .dual_form
+    cp RATICATE
+    jp z, .dual_form
+	cp ONIX
+	jp z, .dual_form
+	cp STEELIX
+	jp z, .dual_form
+	cp EXEGGUTOR
+	jp z, .dual_form
+	cp GRIMER
+	jp z, .dual_form
+	cp MUK
+	jp z, .dual_form
+	cp VULPIX
+	jp z, .dual_form
+	cp NINETALES
+	jp z, .dual_form
+	cp SANDSHREW
+	jp z, .dual_form
+	cp SANDSLASH
+	jp z, .dual_form
+    cp DIGLETT
+    jp z, .dual_form
+    cp DUGTRIO
+    jp z, .dual_form
+    cp GEODUDE
+	jp z, .dual_form
+	cp GRAVELER
+	jp z, .dual_form
+    cp GOLEM
+	jp z, .dual_form
+    cp MAROWAK
+    jp z, .dual_form
+    cp RAICHU
+    jp z, .dual_form
+	jp .skip
+
+.dual_form
+	xor a
+	push bc
+	ld a, [BattleMonGender]
+	srl a
+	srl a
+	srl a
+    and FORM_MASK
+	ld b, 2
+	cp b
+	ld a, 1
+	pop bc
+	jr nz, .notvariant
+	ld a, 2
+	jr .notvariant
+.skip
+	ld a, [BattleMonSpecies]
 .notvariant
 	dec a
 	ld bc, 6

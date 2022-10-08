@@ -3410,6 +3410,7 @@ Function_SetEnemyPkmnAndSendOutAnimation: ; 3d7c7
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a
 	call GetBaseData
+	farcall AssertEnemyMonType
 	ld a, OTPARTYMON
 	ld [MonType], a
 	predef CopyPkmnToTempMon
@@ -3728,6 +3729,7 @@ InitBattleMon: ; 3da0d
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a
 	call GetBaseData
+	farcall AssertPlayerMonType
 	ld a, [BaseType1]
 	ld [BattleMonType1], a
 	ld a, [BaseType2]
@@ -3838,7 +3840,11 @@ InitEnemyMon: ; 3dabd
 	call CopyBytes
 	ld a, [EnemyMonSpecies]
 	ld [CurSpecies], a
+	ld a, [EnemyMonPersonality]
+	ld [TempMonForm], a
+	ld a, [TempEnemyMonSpecies]
 	call GetBaseData
+	farcall AssertEnemyMonType
 	ld hl, OTPartyMonNicknames
 	ld a, [wCurPartyMon]
 	call SkipNames
@@ -4573,6 +4579,7 @@ PrintPlayerHUD: ; 3dfbf
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a
 	call GetBaseData
+	farcall AssertPlayerMonType
 
 	pop hl
 	dec hl
@@ -4633,7 +4640,11 @@ DrawEnemyHUD: ; 3e043
 	ld a, [TempEnemyMonSpecies]
 	ld [CurSpecies], a
 	ld [CurPartySpecies], a
+	ld a, [EnemyMonPersonality]
+	ld [TempMonForm], a
+	ld a, [TempEnemyMonSpecies]
 	call GetBaseData
+	farcall AssertEnemyMonType
 	ld de, EnemyMonNick
 	hlcoord 1, 0
 	call PlaceString
@@ -5792,7 +5803,11 @@ LoadEnemyMon: ; 3e8eb
 	ld [CurPartySpecies], a
 
 ; Grab the BaseData for this species
+	ld a, [EnemyMonPersonality]
+	ld [TempMonForm], a
+	ld a, [TempEnemyMonSpecies]
 	call GetBaseData
+	farcall AssertEnemyMonType
 
 ; Let's get the item:
 
@@ -6118,6 +6133,17 @@ LoadEnemyMon: ; 3e8eb
 	jr .PP
 
 .WildMoves:
+; Fill moves based on level... and get the right ones from personalities
+; Trainer battle?
+	ld a, [wBattleMode]
+	cp TRAINER_BATTLE
+	jp z, .TrainerPersonality
+
+; Wild personality
+	call GetWildPersonality
+	ld [EnemyMonPersonality], a
+	ld [TempMonForm], a
+
 ; Clear EnemyMonMoves
 	xor a
 	ld h, d
@@ -6128,8 +6154,10 @@ LoadEnemyMon: ; 3e8eb
 	ld [hl], a
 ; Make sure the predef knows this isn't a partymon
 	ld [wEvolutionOldSpecies], a
-; Fill moves based on level
+	ld a, [EnemyMonPersonality]
+	ld [TempMonPersonality], a
 	predef FillMoves
+	jp .PP
 
 .PP:
 ; Trainer battle?
@@ -6141,7 +6169,7 @@ LoadEnemyMon: ; 3e8eb
 	ld hl, EnemyMonMoves
 	ld de, EnemyMonPP
 	predef FillPP
-	jr .Personality
+	jr .Finish
 
 .TrainerPP:
 ; Copy PP from the party struct
@@ -6152,17 +6180,6 @@ LoadEnemyMon: ; 3e8eb
 	ld bc, NUM_MOVES
 	call CopyBytes
 
-.Personality:
-; Trainer battle?
-	ld a, [wBattleMode]
-	cp TRAINER_BATTLE
-	jr z, .TrainerPersonality
-
-; Wild personality
-	call GetWildPersonality
-	ld [EnemyMonPersonality], a
-	jr .Finish
-
 .TrainerPersonality:
 ; Get personality from the party struct
 	ld hl, OTPartyMon1Personality
@@ -6170,6 +6187,7 @@ LoadEnemyMon: ; 3e8eb
 	call GetPartyLocation
 	ld a, [hl]
 	ld [EnemyMonPersonality], a
+	ld [TempMonForm], a
 
 .Finish:
 ; Only the first five base stats are copied..
@@ -6796,6 +6814,7 @@ GiveExperiencePoints: ; 3ee3b
 	ld a, [hl]
 	ld [CurSpecies], a
 	call GetBaseData
+	farcall AssertPlayerMonType
 	push bc
 	ld d, MAX_LEVEL
 	farcall CalcExpAtLevel
@@ -6849,6 +6868,7 @@ GiveExperiencePoints: ; 3ee3b
 	ld [CurSpecies], a
 	ld [wd265], a
 	call GetBaseData
+	farcall AssertPlayerMonType
 	ld hl, MON_MAXHP + 1
 	add hl, bc
 	ld a, [hld]
@@ -7618,6 +7638,7 @@ DropEnemySub: ; 3f486
 	ld [CurSpecies], a
 	ld [CurPartySpecies], a
 	call GetBaseData
+	farcall AssertEnemyMonType
 	ld hl, EnemyMonDVs
 	predef GetVariant
 	ld de, VTiles2

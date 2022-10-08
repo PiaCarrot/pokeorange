@@ -4541,3 +4541,7 @@ INCLUDE "battle/scaled_exp.asm"
 
 
 INCLUDE "tilesets/data.asm"
+
+
+SECTION "Assert For Forms, Evo2", ROMX
+INCLUDE "battle/assert_form.asm"

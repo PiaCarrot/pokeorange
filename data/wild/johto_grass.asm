@@ -46,13 +46,13 @@
 	db 7, NIDORAN_M
 	db 7, PIKIPEK
 	; nite
-	db 6, RATTATA
-	db 6, ODDISH
-	db 7, RATTATA
-	db 7, ZUBAT
-	db 7, POLIWAG
-	db 7, ODDISH
-	db 7, POLIWAG
+	db 6, EXEGGCUTE
+	db 6, EXEGGCUTE
+	db 7, EXEGGCUTE
+	db 7, EXEGGCUTE
+	db 7, EXEGGCUTE
+	db 7, EXEGGCUTE
+	db 7, EXEGGCUTE
 	
 	map VALENCIA_TANGELO_ROUTE_49
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite

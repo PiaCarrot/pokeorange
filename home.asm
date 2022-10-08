@@ -1556,7 +1556,10 @@ GetBaseData:: ; 3856
 	jp .end
     
 .exeggutor
-    ld a, [TempMonForm]
+	ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
     cp EXEGGUTOR_KANTONESE_FORM
 	ld a, EXEGGUTOR
@@ -1567,9 +1570,15 @@ GetBaseData:: ; 3856
     jp .got_base_data_loc
 	
 .vulpix
-    ld a, [TempMonForm]
+	ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp VULPIX_KANTONESE_FORM
+	push bc
+    ld b, VULPIX_KANTONESE_FORM
+	cp b
+	pop bc
 	ld a, VULPIX
     jp nz, .got_base_data
     ld a, BANK(KantoneseVulpixBaseData)
@@ -1579,8 +1588,14 @@ GetBaseData:: ; 3856
 	
 .rattata
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp RATTATA_KANTONESE_FORM
+	push bc
+	ld b, RATTATA_KANTONESE_FORM
+    cp b
+	pop bc
 	ld a, RATTATA
     jp nz, .got_base_data
     ld a, BANK(KantoneseRattataBaseData)
@@ -1590,8 +1605,14 @@ GetBaseData:: ; 3856
 	
 .raticate
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp RATICATE_KANTONESE_FORM
+	push bc
+    ld b, RATICATE_KANTONESE_FORM
+	cp b
+	pop bc
 	ld a, RATICATE
     jp nz, .got_base_data
     ld a, BANK(KantoneseRaticateBaseData)
@@ -1601,8 +1622,14 @@ GetBaseData:: ; 3856
 	
 .raichu
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp RAICHU_KANTONESE_FORM
+	push bc
+    ld b, RAICHU_KANTONESE_FORM
+	cp b
+	pop bc
 	ld a, RAICHU
     jp nz, .got_base_data
     ld a, BANK(KantoneseRaichuBaseData)
@@ -1612,8 +1639,14 @@ GetBaseData:: ; 3856
 	
 .sandshrew
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp SANDSHREW_ALOLAN_FORM
+	push bc
+    ld b, SANDSHREW_ALOLAN_FORM
+	cp b
+	pop bc
 	ld a, SANDSHREW
     jp nz, .got_base_data
     ld a, BANK(AlolanSandshrewBaseData)
@@ -1622,9 +1655,15 @@ GetBaseData:: ; 3856
     jp .got_base_data_loc
 	
 .sandslash
-    ld a, [TempMonForm]
+   ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp SANDSLASH_ALOLAN_FORM
+	push bc
+    ld b, SANDSLASH_ALOLAN_FORM
+	cp b
+	pop bc
 	ld a, SANDSLASH
     jp nz, .got_base_data
     ld a, BANK(AlolanSandslashBaseData)
@@ -1634,8 +1673,14 @@ GetBaseData:: ; 3856
 	
 .ninetales
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp NINETALES_KANTONESE_FORM
+	push bc
+    ld b, NINETALES_KANTONESE_FORM
+	cp b
+	pop bc
 	ld a, NINETALES
     jp nz, .got_base_data
     ld a, BANK(KantoneseNinetalesBaseData)
@@ -1645,8 +1690,14 @@ GetBaseData:: ; 3856
 	
 .diglett
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp DIGLETT_KANTONESE_FORM
+	push bc
+    ld b, DIGLETT_KANTONESE_FORM
+	cp b
+	pop bc
 	ld a, DIGLETT
     jp nz, .got_base_data
     ld a, BANK(KantoneseDiglettBaseData)
@@ -1655,9 +1706,15 @@ GetBaseData:: ; 3856
     jp .got_base_data_loc
 	
 .dugtrio
-    ld a, [TempMonForm]
+   ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp DUGTRIO_KANTONESE_FORM
+	push bc
+    ld b, DUGTRIO_KANTONESE_FORM
+	cp b
+	pop bc
 	ld a, DUGTRIO
     jp nz, .got_base_data
     ld a, BANK(KantoneseDugtrioBaseData)
@@ -1667,8 +1724,14 @@ GetBaseData:: ; 3856
 	
 .meowth
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp MEOWTH_ALOLAN_FORM
+	push bc
+    ld b, MEOWTH_ALOLAN_FORM
+	cp b
+	pop bc
 	ld a, MEOWTH
     jp nz, .got_base_data
     ld a, BANK(AlolanMeowthBaseData)
@@ -1678,8 +1741,14 @@ GetBaseData:: ; 3856
 	
 .persian
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp PERSIAN_ALOLAN_FORM
+	push bc
+    ld b, PERSIAN_ALOLAN_FORM
+	cp b
+	pop bc
 	ld a, PERSIAN
     jp nz, .got_base_data
     ld a, BANK(AlolanPersianBaseData)
@@ -1689,8 +1758,14 @@ GetBaseData:: ; 3856
 	
 .geodude
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp GEODUDE_KANTONESE_FORM
+	push bc
+    ld b, GEODUDE_KANTONESE_FORM
+	cp b
+	pop bc
 	ld a, GEODUDE
     jp nz, .got_base_data
     ld a, BANK(KantoneseGeodudeBaseData)
@@ -1700,8 +1775,14 @@ GetBaseData:: ; 3856
 	
 .graveler
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp GRAVELER_KANTONESE_FORM
+	push bc
+    ld b, GRAVELER_KANTONESE_FORM
+	cp b
+	pop bc
 	ld a, GRAVELER
     jp nz, .got_base_data
     ld a, BANK(KantoneseGravelerBaseData)
@@ -1711,8 +1792,14 @@ GetBaseData:: ; 3856
 	
 .golem
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp GOLEM_KANTONESE_FORM
+	push bc
+    ld b, GOLEM_KANTONESE_FORM
+	cp b
+	pop bc
 	ld a, GOLEM
     jp nz, .got_base_data
     ld a, BANK(KantoneseGolemBaseData)
@@ -1722,8 +1809,14 @@ GetBaseData:: ; 3856
 	
 .grimer
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp GRIMER_KANTONESE_FORM
+	push bc
+    ld b, GRIMER_KANTONESE_FORM
+	cp b
+	pop bc
 	ld a, GRIMER
     jp nz, .got_base_data
     ld a, BANK(KantoneseGrimerBaseData)
@@ -1733,8 +1826,14 @@ GetBaseData:: ; 3856
 	
 .muk
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp MUK_KANTONESE_FORM
+	push bc
+    ld b, MUK_KANTONESE_FORM
+	cp b
+	pop bc
 	ld a, MUK
     jp nz, .got_base_data
     ld a, BANK(KantoneseMukBaseData)
@@ -1744,8 +1843,14 @@ GetBaseData:: ; 3856
 	
 .marowak
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp MAROWAK_KANTONESE_FORM
+	push bc
+    ld b, MAROWAK_KANTONESE_FORM
+	cp b
+	pop bc
 	ld a, MAROWAK
     jp nz, .got_base_data
     ld a, BANK(KantoneseMarowakBaseData)
@@ -1755,8 +1860,14 @@ GetBaseData:: ; 3856
 	
 .onix
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp ONIX_CRYSTAL_FORM
+	push bc
+    ld b, ONIX_CRYSTAL_FORM
+	cp b
+	pop bc
 	ld a, ONIX
     jp nz, .got_base_data
     ld a, BANK(CrystalOnixBaseData)
@@ -1766,8 +1877,14 @@ GetBaseData:: ; 3856
 
 .steelix
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp STEELIX_CRYSTAL_FORM
+	push bc
+    ld b, STEELIX_CRYSTAL_FORM
+	cp b
+	pop bc
 	ld a, STEELIX
     jp nz, .got_base_data
     ld a, BANK(CrystalSteelixBaseData)
@@ -1777,8 +1894,15 @@ GetBaseData:: ; 3856
 	
 .lycanroc
     ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
     and FORM_MASK
-    cp LYCANROC_MIDNIGHT_FORM
+	push bc
+    ld b, LYCANROC_MIDNIGHT_FORM
+	cp b
+	pop bc
+	cp b
 	jp z, .midnight
 	cp LYCANROC_DUSK_FORM
 	ld a, LYCANROC

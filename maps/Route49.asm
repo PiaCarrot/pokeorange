@@ -14,7 +14,11 @@ Route49_MapScriptHeader:
 .MapCallbacks: db 0
 
 Route49YoungsterScript:
-	jumptextfaceplayer Route49YoungsterText
+	faceplayer
+	opentext
+	giveitem LEAF_STONE, 1
+	closetext
+	end
 
 Route49TeacherScript:
 	jumptextfaceplayer Route49TeacherText

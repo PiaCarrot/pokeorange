@@ -10,7 +10,6 @@
 	db FEMALE_50 ; gender
 	db 15 ; step cycles to hatch
 	dn 5, 5 ; frontpic dimensions
-
 	db MEDIUM_FAST ; growth rate
 	dn FIELD, FIELD ; egg groups
 

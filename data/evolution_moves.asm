@@ -36,7 +36,7 @@ EvolutionMoves::
 	db NO_MOVE      ; CLEFAIRY
 	db NO_MOVE      ; CLEFABLE
 	db NO_MOVE      ; VULPIX
-	db NASTY_PLOT   ; NINETALES
+	db DAZZLINGLEAM ; NINETALES
 	db NO_MOVE      ; JIGGLYPUFF
 	db NO_MOVE      ; WIGGLYTUFF
 	db NO_MOVE      ; ZUBAT
@@ -101,9 +101,9 @@ EvolutionMoves::
 	db NO_MOVE      ; VOLTORB
 	db NO_MOVE      ; ELECTRODE
 	db NO_MOVE      ; EXEGGCUTE
-	db STOMP        ; EXEGGUTOR
+	db DRAGON_PULSE ; EXEGGUTOR
 	db NO_MOVE      ; CUBONE
-	db NO_MOVE      ; MAROWAK
+	db SHADOW_BONE  ; MAROWAK
 	db DOUBLE_KICK  ; HITMONLEE
 	db DIZZY_PUNCH  ; HITMONCHAN
 	db NO_MOVE      ; LICKITUNG

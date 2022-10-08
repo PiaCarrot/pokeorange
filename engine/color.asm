@@ -172,6 +172,9 @@ GetMonPalettePointer:
 .lycanroc
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp LYCANROC_MIDNIGHT_FORM
 	ld hl, LycanrocMidnightPalettes
@@ -185,6 +188,9 @@ GetMonPalettePointer:
 .poliwrath
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp POLIWRATH_TAD_FORM
 	ld hl, PoliwrathTadPalettes
@@ -195,6 +201,9 @@ GetMonPalettePointer:
 .onix
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp ONIX_CRYSTAL_FORM
 	ld hl, OnixCrystalPalettes
@@ -205,6 +214,9 @@ GetMonPalettePointer:
 .steelix
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp STEELIX_CRYSTAL_FORM
 	ld hl, SteelixCrystalPalettes
@@ -215,6 +227,9 @@ GetMonPalettePointer:
 .exeggutor
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp EXEGGUTOR_KANTONESE_FORM
 	ld hl, ExeggutorKantonesePalettes
@@ -225,6 +240,9 @@ GetMonPalettePointer:
 .grimer
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp GRIMER_KANTONESE_FORM
 	ld hl, GrimerKantonesePalettes
@@ -235,6 +253,9 @@ GetMonPalettePointer:
 .muk
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp MUK_KANTONESE_FORM
 	ld hl, MukKantonesePalettes
@@ -245,6 +266,9 @@ GetMonPalettePointer:
 .meowth
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp MEOWTH_ALOLAN_FORM
 	ld hl, MeowthAlolanPalettes
@@ -255,6 +279,9 @@ GetMonPalettePointer:
 .persian
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp PERSIAN_ALOLAN_FORM
 	ld hl, PersianAlolanPalettes
@@ -265,6 +292,9 @@ GetMonPalettePointer:
 .vulpix
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp VULPIX_KANTONESE_FORM
 	ld hl, VulpixKantonesePalettes
@@ -275,6 +305,9 @@ GetMonPalettePointer:
 .ninetales
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp NINETALES_KANTONESE_FORM
 	ld hl, NinetalesKantonesePalettes
@@ -285,6 +318,9 @@ GetMonPalettePointer:
 .sandshrew
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp SANDSHREW_ALOLAN_FORM
 	ld hl, SandshrewAlolanPalettes
@@ -295,6 +331,9 @@ GetMonPalettePointer:
 .sandslash
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp SANDSLASH_ALOLAN_FORM
 	ld hl, SandslashAlolanPalettes
@@ -305,6 +344,9 @@ GetMonPalettePointer:
 .rattata
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp RATTATA_KANTONESE_FORM
 	ld hl, RattataKantonesePalettes
@@ -315,6 +357,9 @@ GetMonPalettePointer:
 .raticate
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp RATICATE_KANTONESE_FORM
 	ld hl, RaticateKantonesePalettes
@@ -325,6 +370,9 @@ GetMonPalettePointer:
 .diglett
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp DIGLETT_KANTONESE_FORM
 	ld hl, DiglettKantonesePalettes
@@ -335,6 +383,9 @@ GetMonPalettePointer:
 .dugtrio
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp DUGTRIO_KANTONESE_FORM
 	ld hl, DugtrioKantonesePalettes
@@ -345,6 +396,9 @@ GetMonPalettePointer:
 .geodude
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp GEODUDE_KANTONESE_FORM
 	ld hl, GeodudeKantonesePalettes
@@ -355,6 +409,9 @@ GetMonPalettePointer:
 .graveler
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp GRAVELER_KANTONESE_FORM
 	ld hl, GravelerKantonesePalettes
@@ -365,6 +422,9 @@ GetMonPalettePointer:
 .golem
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp GOLEM_KANTONESE_FORM
 	ld hl, GolemKantonesePalettes
@@ -375,6 +435,9 @@ GetMonPalettePointer:
 .raichu
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp RAICHU_KANTONESE_FORM
 	ld hl, RaichuKantonesePalettes
@@ -385,6 +448,9 @@ GetMonPalettePointer:
 .marowak
 	push af
 	ld a, [bc]
+	srl a
+	srl a
+	srl a
 	and FORM_MASK
 	cp MAROWAK_KANTONESE_FORM
 	ld hl, MarowakKantonesePalettes
