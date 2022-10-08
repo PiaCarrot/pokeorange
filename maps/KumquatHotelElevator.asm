@@ -43,13 +43,13 @@ KumquatHotelElevatorScript:
 Elevator_kumquat2:
 	db 2 ; floors
 	elevfloor _1F,  4, KUMQUAT_HOTEL_LOBBY
-	elevfloor _2F,  4, KUMQUAT_HOTEL_SUITES
+	elevfloor _2F,  3, KUMQUAT_HOTEL_SUITES
 	db -1 ; end
 	
 Elevator_kumquat4:
 	db 3 ; floors
 	elevfloor _1F,  4, KUMQUAT_HOTEL_LOBBY
-	elevfloor _2F,  4, KUMQUAT_HOTEL_SUITES
+	elevfloor _2F,  3, KUMQUAT_HOTEL_SUITES
 	elevfloor _3F,  1, KUMQUAT_HOTEL_GYM
 	db -1 ; end
 	
