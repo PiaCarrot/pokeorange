@@ -75,7 +75,7 @@ MurcottLuckyEggDoneScript:
 	
 GiveLuckyEggText:
 	text "Oh! You look like"
-	line "an hungry young"
+	line "a hungry young"
 	cont "trainer."
 	
 	para "Take this, I am"
