@@ -42,11 +42,10 @@ EvolveAfterBattle_MasterLoop:
     jp z, EvolveAfterBattle_MasterLoop
  
     ld a, [wEvolutionOldSpecies]
+	ld hl, EvosAttacksPointers
     cp VULPIX
-    ld hl, EvosAttacksPointers
     jp z, .vulpix
 	cp SANDSHREW
-	ld hl, EvosAttacksPointers
 	jp z, .sandshrew
 .got_pointers
     dec a
@@ -668,7 +667,7 @@ LearnEvolutionMove:
 	ld [hl], THUNDERPUNCH
 	jr .spec_continue
 .exeggcute
-	ld [hl], STOMP
+	ld [hl], SEED_BOMB
 	jr .spec_continue
 .cubone
 	ld [hl], SWORDS_DANCE

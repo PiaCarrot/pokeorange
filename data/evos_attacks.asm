@@ -4123,6 +4123,7 @@ KantoneseExeggutorEvosAttacks:
 	db 1, BARRAGE
 	db 1, HYPNOSIS
 	db 1, CONFUSION
+	db 1, SEED_BOMB
 	db 19, STOMP
 	db 31, EGG_BOMB
 	db 0 ; no more level-up moves
