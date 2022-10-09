@@ -338,7 +338,7 @@ endr
     and FORM_MASK
     cp MEOWTH_ROCKET_FORM
     jp nz, .not_rockruff
-    ld a, PERSIAN_NORMAL_FORM
+    ld a, MEOWTH
     jr .got_form
 .rockruff
     cp ROCKRUFF

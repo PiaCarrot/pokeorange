@@ -211,6 +211,8 @@ GetFrontpicPointer: ; 510d7
     jp z, .dual_form
     cp RAICHU
     jp z, .dual_form
+	cp MEOWTH
+	jp z, .meowth
 	jp .skip
 .dual_form
 	xor a
@@ -219,6 +221,33 @@ GetFrontpicPointer: ; 510d7
 	srl a
 	srl a
     and FORM_MASK
+	push bc
+	ld b, 2
+	cp b
+	ld a, [MonVariant]
+	pop bc
+	jr nz, .notvariant
+	ld a, 2
+	jr .notvariant
+.meowth
+	ld a, [OtherTrainerClass]
+	cp JESSIE_JAMES
+	ld a, 3
+	jr z, .notvariant
+	ld a, [OtherTrainerClass]
+	cp JESSIE
+	ld a, 3
+	jr z, .notvariant
+	ld a, [OtherTrainerClass]
+	cp JAMES
+	ld a, 3
+	jr z, .notvariant
+	xor a
+	ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
+	and FORM_MASK
 	push bc
 	ld b, 2
 	cp b
@@ -364,6 +393,8 @@ GetBackpic: ; 5116c
     jp z, .dual_form
     cp RAICHU
     jp z, .dual_form
+	cp MEOWTH
+	jp z, .meowth
 	jp .skip
 
 .dual_form
@@ -381,6 +412,23 @@ GetBackpic: ; 5116c
 	jr nz, .notvariant
 	ld a, 2
 	jr .notvariant
+.meowth
+	xor a
+	ld a, [BattleMonGender]
+	srl a
+	srl a
+	srl a
+	and FORM_MASK
+	ld b, a
+	ld a, 3
+	cp b
+	jr z, .notvariant
+	ld a, 2
+	cp b
+	jr z, .notvariant
+	ld a, 1
+	jr .notvariant
+
 .skip
 	ld a, [BattleMonSpecies]
 .notvariant
