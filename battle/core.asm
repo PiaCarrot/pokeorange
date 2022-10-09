@@ -8881,7 +8881,7 @@ GetBattleRandomPersonality:
 .is_not_kantonese
     ld a, [BattleType]
     cp BATTLETYPE_CRYSTAL_ONIX
-    ld c, ONIX_CRYSTAL_FORM
+    ld c, %11110000
     jr z, .got_form
     ld a, [TempEnemyMonSpecies]
     cp LYCANROC

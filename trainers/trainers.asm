@@ -619,7 +619,7 @@ BrockGroup:
 		db ROAR
 		db TACKLE
 
-	db 22, ONIX, MALE_MASK
+	db 22, ONIX, %11000000
 		db TACKLE
 		db ROCK_THROW
 		db SCREECH
