@@ -66,6 +66,22 @@ ReadTrainerParty: ; 39771
 	ld [MonType], a
 
 	push hl
+	ld a, [OtherTrainerType]
+	bit TRNTYPE_PERSONALITY, a
+	jr z, .skip
+
+	ld a, [OTPartyCount]
+	dec a
+	ld hl, OTPartyMon1Personality
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld d, h
+	ld e, l
+	ld a, [de]
+	ld [TempMonPersonality], a
+	ld a, [hli]
+	ld [de], a
+.skip
 	predef TryAddMonToParty
 	pop hl
 	
