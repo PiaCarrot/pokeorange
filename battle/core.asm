@@ -5803,6 +5803,21 @@ LoadEnemyMon: ; 3e8eb
 	ld [CurPartySpecies], a
 
 ; Grab the BaseData for this species
+	cp MEOWTH
+	jr nz, .not_wild_meowth
+	ld a, 100
+	call RandomRange
+	cp 50
+	jr nc, .female
+	ld a, %10000000
+	ld [EnemyMonPersonality], a
+	ld [TempMonForm], a
+	jr .not_wild_meowth
+.female
+	ld a, %00000000
+	ld [EnemyMonPersonality], a
+	ld [TempMonForm], a
+.not_wild_meowth 
 	ld a, [EnemyMonPersonality]
 	ld [TempMonForm], a
 	ld a, [TempEnemyMonSpecies]
@@ -6140,10 +6155,28 @@ LoadEnemyMon: ; 3e8eb
 	jp z, .TrainerPersonality
 
 ; Wild personality
+	ld a, [EnemyMonSpecies]
+	cp MEOWTH
+	jr nz, .not_wild_meowth2
+	ld a, 100
+	call RandomRange
+	cp 50
+	jr nc, .female2
+	ld a, %10000000
+	ld [EnemyMonPersonality], a
+	ld [TempMonForm], a
+	jr .clearwildmoves
+.female2
+	ld a, %00000000
+	ld [EnemyMonPersonality], a
+	ld [TempMonForm], a
+	jr .clearwildmoves
+.not_wild_meowth2
 	call GetWildPersonality
 	ld [EnemyMonPersonality], a
 	ld [TempMonForm], a
 
+.clearwildmoves
 ; Clear EnemyMonMoves
 	xor a
 	ld h, d
