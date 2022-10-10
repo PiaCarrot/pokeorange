@@ -141,7 +141,7 @@
 	db 9, CUTIEFLY
 	db 10, PIDGEY
 	db 9, PIDGEY
-	db 10, CUTIEFLY
+	db 10, VULPIX
 	db 9, HOPPIP
 	db 10, HOPPIP
 	db 9, TANGELA
@@ -149,7 +149,7 @@
 	db 9, CUTIEFLY
 	db 10, PIDGEY
 	db 9, PIDGEY
-	db 10, CUTIEFLY
+	db 10, VULPIX
 	db 9, HOPPIP
 	db 10, HOPPIP
 	db 9, TANGELA
@@ -157,7 +157,7 @@
 	db 9, VENONAT
 	db 10, VENONAT
 	db 9, SPEAROW
-	db 10, SPEAROW
+	db 10, VULPIX
 	db 9, ODDISH
 	db 10, ODDISH
 	db 9, TANGELA
@@ -411,23 +411,23 @@
 	db 18, VULPIX
 	db 18, ZUBAT
 	db 19, VULPIX
-	db 19, JYNX
+	db 19, SANDSHREW
 	db 19, VULPIX
 	db 20, ZUBAT
 	db 20, JYNX
 	; day
-	db 18, PSYDUCK
+	db 18, VULPIX
 	db 18, ZUBAT
-	db 19, PSYDUCK
-	db 19, JYNX
-	db 19, PSYDUCK
+	db 19, VULPIX
+	db 19, SANDSHREW
+	db 19, VULPIX
 	db 20, ZUBAT
 	db 20, JYNX
 	; nite
 	db 18, VULPIX
 	db 18, ZUBAT
 	db 19, VULPIX
-	db 19, JYNX
+	db 19, SANDSHREW
 	db 19, VULPIX
 	db 20, ZUBAT
 	db 20, JYNX
@@ -438,23 +438,23 @@
 	db 18, VULPIX
 	db 18, ZUBAT
 	db 19, VULPIX
-	db 19, JYNX
+	db 19, SANDSHREW
 	db 19, VULPIX
 	db 20, ZUBAT
 	db 20, JYNX
 	; day
-	db 18, PSYDUCK
+	db 18, VULPIX
 	db 18, ZUBAT
-	db 19, PSYDUCK
-	db 19, JYNX
-	db 19, PSYDUCK
+	db 19, VULPIX
+	db 19, SANDSHREW
+	db 19, VULPIX
 	db 20, ZUBAT
 	db 20, JYNX
 	; nite
 	db 18, VULPIX
 	db 18, ZUBAT
 	db 19, VULPIX
-	db 19, JYNX
+	db 19, SANDSHREW
 	db 19, VULPIX
 	db 20, ZUBAT
 	db 20, JYNX
@@ -464,24 +464,24 @@
 	; morn
 	db 35, VULPIX
 	db 35, GOLBAT
-	db 35, JYNX
-	db 35, JYNX
+	db 35, SANDSHREW
+	db 35, SANDSHREW
 	db 35, VULPIX
 	db 35, GOLBAT
 	db 35, JYNX
 	; day
-	db 35, GOLDUCK
+	db 35, VULPIX
 	db 35, GOLBAT
-	db 35, JYNX
-	db 35, JYNX
-	db 35, GOLDUCK
+	db 35, SANDSHREW
+	db 35, SANDSHREW
+	db 35, VULPIX
 	db 35, GOLBAT
 	db 35, JYNX
 	; nite
 	db 35, VULPIX
 	db 35, GOLBAT
-	db 35, JYNX
-	db 35, JYNX
+	db 35, SANDSHREW
+	db 35, SANDSHREW
 	db 35, VULPIX
 	db 35, GOLBAT
 	db 35, JYNX
@@ -757,7 +757,7 @@
 	db 25, SKARMORY
 	
 	map MANDARIN_DESERT
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
 	db 22, SANDYGAST
 	db 22, DIGLETT
@@ -1002,24 +1002,24 @@
 	map ROUTE_66_NORTH_SOUTH
 	db 6 percent, 6 percent, 6 percent
 	;morn
-	db 30, MEOWTH
-	db 30, PERSIAN
+	db 30, VULPIX
+	db 30, VULPIX
 	db 30, ELECTABUZZ
 	db 30, TRUMBEAK
 	db 30, PIKIPEK
 	db 30, TRUMBEAK
 	db 31, ELECTABUZZ
 	;day
-	db 30, MEOWTH
-	db 30, PERSIAN
+	db 30, VULPIX
+	db 30, VULPIX
 	db 30, ELECTABUZZ
 	db 30, TRUMBEAK
 	db 30, PIKIPEK
 	db 30, TRUMBEAK
 	db 31, ELECTABUZZ
 	;nite
-	db 30, MEOWTH
-	db 30, PERSIAN
+	db 30, VULPIX
+	db 30, VULPIX
 	db 30, ELECTABUZZ
 	db 30, RATICATE
 	db 30, RATTATA
@@ -1490,7 +1490,7 @@
 	;morn
 	db 42, MAGBY
 	db 42, BUTTERFREE
-	db 41, MAGMAR
+	db 41, VULPIX
 	db 42, MAGMAR
 	db 42, MAGBY
 	db 41, TURTONATOR
@@ -1498,7 +1498,7 @@
 	;day
 	db 42, MAGBY
 	db 42, BUTTERFREE
-	db 42, MAGMAR
+	db 42, VULPIX
 	db 41, MAGMAR
 	db 41, MAGBY
 	db 42, TURTONATOR
@@ -1506,7 +1506,7 @@
 	;nite
 	db 42, MAGBY
 	db 41, VENOMOTH
-	db 42, MAGMAR
+	db 42, VULPIX
 	db 41, MAGMAR
 	db 41, MAGBY
 	db 42, TURTONATOR
