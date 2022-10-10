@@ -327,3 +327,91 @@ AssertPlayerMonType:
 	jp .end
 .end
 	ret
+
+; Strict form typing for specific WILD Pokémon and locations. NOT for trainer battles.
+StrictForm:
+	ld a, [wBattleMode]
+	cp TRAINER_BATTLE
+	jp z, .done
+	; Grab the BaseData for this species
+	ld a, [EnemyMonSpecies]
+	cp VULPIX
+	jr z, .wild_vulpix
+	cp MEOWTH
+	jp z, .wild_meowth
+	cp SANDSHREW
+	jp z, .wild_sandshrew
+
+	; Otherwise, we're done
+	jp .done
+
+.wild_sandshrew
+	ld a, [MapGroup]
+	cp 2 ; Alolan Sandshrew appears only in map GROUP 2. First check this.
+	jr nz, .kantonese_sandshrew
+	ld a, [MapNumber]
+	cp 1 ; Tangelo jungle would set the carry flag
+	jr c, .kantonese_sandshrew
+	cp 5 ; Mt. Navel maps would set the carry flag
+	jr nc, .kantonese_sandshrew
+
+	; If we're here, it's the alolan form... which, is NOT default.
+	ld a, 100
+	call RandomRange
+	cp 50
+	jp c, .female_form
+	jp .male_form
+.kantonese_sandshrew
+	ld a, 100
+	call RandomRange
+	cp 50
+	jp c, .female_normal
+	jp .male_normal
+
+.wild_vulpix
+	ld a, [MapGroup]
+	cp 2 ; Alolan Vulpix appears only in map GROUP 2. First check this.
+	jr nz, .kantonese_vulpix
+	ld a, [MapNumber]
+	cp 1 ; Tangelo jungle would set the carry flag
+	jr c, .kantonese_vulpix
+	cp 5 ; Mt. Navel maps would set the carry flag
+	jr nc, .kantonese_vulpix
+
+	; If we're here, it's the alolan form... which, is default.
+	ld a, 100
+	call RandomRange
+	cp 25
+	jp nc, .female_normal
+	jp .male_normal
+.kantonese_vulpix
+	ld a, 100
+	call RandomRange
+	cp 25
+	jp nc, .female_form
+	jp .male_form
+
+; Meowth is pretty straightforward
+.wild_meowth
+	ld a, 100
+	call RandomRange
+	cp 50
+	jr nc, .female_normal
+	jr .male_normal
+
+.male_form
+	ld a, %11110000
+	jr .load_new_value
+.female_form
+	ld a, %00110000
+	jr .load_new_value
+.male_normal
+	ld a, %11000000
+	jr .load_new_value
+.female_normal
+	ld a, %00000000
+.load_new_value
+	ld [EnemyMonPersonality], a
+	ld [TempMonForm], a
+.done
+	ret
