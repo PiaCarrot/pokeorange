@@ -1,6 +1,7 @@
 
 	dbba SPINDA,    SpindaPicPointers
 	dbba ONIX,      OnixPicPointers
+	dbba STEELIX,   SteelixPicPointers
 	dbba EXEGGUTOR, ExeggutorPicPointers
 	dbba GRIMER,    GrimerPicPointers
 	dbba MUK,       MukPicPointers

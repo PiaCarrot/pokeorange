@@ -427,3 +427,28 @@ StrictForm:
 	ld [TempMonForm], a
 .done
 	ret
+
+StrictTrainerOnixSteelixForm:
+	ld a, [wBattleMode]
+	cp TRAINER_BATTLE
+	jp nz, .done
+
+	ld a, [EnemyMonSpecies]
+	cp ONIX
+	jr z, .force
+	cp STEELIX
+	jr z, .force
+	jr .done
+
+.force
+	ld a, 100
+	call RandomRange
+	cp 50
+	ld a, %11000000
+	jr nc, .male
+	ld a, %00000000
+.male
+	ld [EnemyMonPersonality], a
+	ld [TempMonForm], a
+.done
+	ret
