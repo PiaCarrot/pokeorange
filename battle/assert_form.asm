@@ -1,4 +1,3 @@
-; Band-Aid
 AssertEnemyMonType:
 	ld a, [CurSpecies]
 	cp RATTATA
@@ -163,7 +162,6 @@ AssertEnemyMonType:
 .end
 	ret
 
-; Band-Aid 2
 AssertPlayerMonType:
 	ld a, [BattleMonSpecies]
 	cp RATTATA
@@ -341,6 +339,8 @@ StrictForm:
 	jp z, .wild_meowth
 	cp SANDSHREW
 	jp z, .wild_sandshrew
+	cp ONIX
+	jp z, .wild_onix
 
 	; Otherwise, we're done
 	jp .done
@@ -389,6 +389,18 @@ StrictForm:
 	call RandomRange
 	cp 25
 	jp nc, .female_form
+	jp .male_form
+
+; Crystal Onix should only appear in Crystal Cave... and only appear as a MALE. Source: le animu
+.wild_onix
+	ld a, [MapGroup]
+	cp 2 ; Map GROUP 2
+	jr nz, .wild_meowth ; This is actually the best way to do this
+	ld a, [MapNumber]
+	cp 7 ; Crystal Cave BF1, since the map constants are a bit borken
+	jr nz, .wild_meowth
+
+	; Alright then, we jump to the male wild Crystal Onix.
 	jp .male_form
 
 ; Meowth is pretty straightforward
