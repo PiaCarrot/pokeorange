@@ -748,235 +748,215 @@ LearnLevelMoves: ; 42487
 jp .skip_evos
    
 .exeggutor
-	ld b, a
-    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
+    call FormSrl
     and FORM_MASK
     cp EXEGGUTOR_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseExeggutorFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .vulpix
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp VULPIX_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseVulpixFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .rattata
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp RATTATA_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseRattataFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .raticate
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp RATICATE_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseRaticateFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .raichu
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp RAICHU_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseRaichuFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .sandshrew
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp SANDSHREW_ALOLAN_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, AlolanSandshrewFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .sandslash
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp SANDSLASH_ALOLAN_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, AlolanSandslashFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .ninetales
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp NINETALES_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseNinetalesFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .diglett
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp DIGLETT_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseDiglettFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .dugtrio
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp DUGTRIO_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseDugtrioFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .meowth
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp MEOWTH_ALOLAN_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, AlolanMeowthFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .persian
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp PERSIAN_ALOLAN_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, AlolanPersianFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .geodude
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp GEODUDE_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseGeodudeFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .graveler
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp GRAVELER_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseGravelerFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .golem
-	ld b, a
+	
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp GOLEM_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseGolemFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .grimer
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp GRIMER_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseGrimerFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .muk
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp MUK_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseMukFormEvosAttacksPointers
     jp .got_form_pointer
 	
 .marowak
-	ld b, a
     ld a, [TempMonForm]
     srl a
 	srl a
 	srl a
 	and FORM_MASK
     cp MAROWAK_KANTONESE_FORM
-	ld a, b
+	ld a, [CurPartySpecies]
     jp nz, .got_pointers
     ld hl, KantoneseMarowakFormEvosAttacksPointers
     jp .got_form_pointer
@@ -1048,6 +1028,8 @@ FillMoves: ; 424e1
     jp z, .exeggutor
 	cp VULPIX
 	jp z, .vulpix
+	cp SANDSHREW
+	jp z, .sandshrew
 	cp RATTATA
 	jp z, .rattata
 	cp RATICATE
@@ -1084,145 +1066,98 @@ FillMoves: ; 424e1
     jp .GetLevel
    
 .exeggutor
-	push bc
-    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
+    call FormSrl
 	and FORM_MASK
 	cp EXEGGUTOR_KANTONESE_FORM
-	pop bc
 	ld a, c
     jp nz, .got_pointers
     ld hl, KantoneseExeggutorFormEvosAttacksPointers
     jp .got_form_pointer
    
 .vulpix
-	push bc
-    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
+    call FormSrl
 	and FORM_MASK
 	cp VULPIX_KANTONESE_FORM
-	pop bc
     jp nz, .got_pointers
     ld hl, KantoneseVulpixFormEvosAttacksPointers
     jp .got_form_pointer
    
+.sandshrew
+    call FormSrl
+	and FORM_MASK
+	cp SANDSHREW_ALOLAN_FORM
+    jp nz, .got_pointers
+    ld hl, AlolanSandshrewFormEvosAttacksPointers
+    jp .got_form_pointer
+
 .rattata
-	push bc
-    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
+    call FormSrl
 	and FORM_MASK
 	cp RATTATA_KANTONESE_FORM
-	pop bc
     jp nz, .got_pointers
     ld hl, KantoneseRattataFormEvosAttacksPointers
     jp .got_form_pointer
    
 .raticate
-	push bc
-    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
+    call FormSrl
 	and FORM_MASK
 	cp RATICATE_KANTONESE_FORM
-	pop bc
     jp nz, .got_pointers
     ld hl, KantoneseRaticateFormEvosAttacksPointers
     jp .got_form_pointer
    
 .diglett
-	push bc
-    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
+    call FormSrl
 	and FORM_MASK
 	cp DIGLETT_KANTONESE_FORM
-	pop bc
     jp nz, .got_pointers
     ld hl, KantoneseDiglettFormEvosAttacksPointers
     jp .got_form_pointer
    
 .dugtrio
-	push bc
-    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
+    call FormSrl
 	and FORM_MASK
 	cp DUGTRIO_KANTONESE_FORM
-	pop bc
     jp nz, .got_pointers
     ld hl, KantoneseDugtrioFormEvosAttacksPointers
     jp .got_form_pointer
    
 .geodude
-	push bc
-    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
+    call FormSrl
 	and FORM_MASK
 	cp GEODUDE_KANTONESE_FORM
-	pop bc
     jp nz, .got_pointers
     ld hl, KantoneseGeodudeFormEvosAttacksPointers
     jp .got_form_pointer
    
 .graveler
-	push bc
-    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
+    call FormSrl
 	and FORM_MASK
 	cp GRAVELER_KANTONESE_FORM
-	pop bc
     jp nz, .got_pointers
     ld hl, KantoneseGravelerFormEvosAttacksPointers
     jp .got_form_pointer
    
 .grimer
-	push bc
-    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
+    call FormSrl
 	and FORM_MASK
 	cp GRIMER_KANTONESE_FORM
-	pop bc
     jp nz, .got_pointers
     ld hl, KantoneseGrimerFormEvosAttacksPointers
     jp .got_form_pointer
    
 .muk
-	push bc
-    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
+    call FormSrl
 	and FORM_MASK
 	cp MUK_KANTONESE_FORM
-	pop bc
     jp nz, .got_pointers
     ld hl, KantoneseMukFormEvosAttacksPointers
     jp .got_form_pointer
    
 .marowak
-	push bc
-    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
+    call FormSrl
 	and FORM_MASK
 	cp MAROWAK_KANTONESE_FORM
-	pop bc
     jp nz, .got_pointers
     ld hl, KantoneseMarowakFormEvosAttacksPointers
     jp .got_form_pointer
@@ -1387,3 +1322,10 @@ GetPreEvolution: ; 42581
 	scf
 	ret
 ; 425b1
+
+FormSrl:
+	ld a, [TempMonForm]
+	srl a
+	srl a
+	srl a
+	ret

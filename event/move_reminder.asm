@@ -107,6 +107,21 @@ GetRemindableMoves:
 	ld a, [hl]
 	ld [CurPartySpecies], a
 
+	; Loads the selected Pokémon's personality in TempMonPersonality
+	ld a, MON_SPECIES
+	call GetPartyParamLocation
+	ld de, BattleMonSpecies
+	ld bc, MON_ID
+	call CopyBytes
+	ld bc, MON_DVS - MON_ID
+	add hl, bc
+	ld de, BattleMonDVs
+	ld bc, MON_PKRUS - MON_DVS
+	call CopyBytes
+	inc hl
+	ld a, [hli]
+	ld [TempMonPersonality], a
+
 	push af
 	ld a, MON_LEVEL
 	call GetPartyParamLocation
