@@ -102,11 +102,6 @@ GetRemindableMoves:
 	ld [hli], a
 	ld [hl], $ff
 
-	ld a, MON_SPECIES
-	call GetPartyParamLocation
-	ld a, [hl]
-	ld [CurPartySpecies], a
-
 	; Loads the selected Pokémon's personality in TempMonPersonality
 	ld a, MON_SPECIES
 	call GetPartyParamLocation
@@ -133,6 +128,334 @@ GetRemindableMoves:
 ; based on GetEggMove in engine/breeding.asm
 .loop
 	ld a, [CurPartySpecies]
+	cp EXEGGUTOR
+    jp z, .exeggutor
+	cp VULPIX
+	jp z, .vulpix
+	cp RATTATA
+	jp z, .rattata
+	cp RATICATE
+	jp z, .raticate
+	cp RAICHU
+	jp z, .raichu
+	cp SANDSHREW
+	jp z, .sandshrew
+	cp SANDSLASH
+	jp z, .sandslash
+	cp NINETALES
+	jp z, .ninetales
+	cp DIGLETT
+	jp z, .diglett
+	cp DUGTRIO
+	jp z, .dugtrio
+	cp MEOWTH
+	jp z, .meowth
+	cp PERSIAN
+	jp z, .persian
+	cp GEODUDE
+	jp z, .geodude
+	cp GRAVELER
+	jp z, .graveler
+	cp GOLEM
+	jp z, .golem
+	cp GRIMER
+	jp z, .grimer
+	cp MUK
+	jp z, .muk
+	cp MAROWAK
+	jp z, .marowak
+	jp .pointers
+
+.exeggutor
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+    and FORM_MASK
+    cp EXEGGUTOR_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseExeggutorFormEvosAttacksPointers
+    jp .skip
+	
+.vulpix
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp VULPIX_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseVulpixFormEvosAttacksPointers
+    jp .skip
+	
+.rattata
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp RATTATA_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseRattataFormEvosAttacksPointers
+    jp .skip
+	
+.raticate
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp RATICATE_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseRaticateFormEvosAttacksPointers
+    jp .skip
+	
+.raichu
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp RAICHU_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseRaichuFormEvosAttacksPointers
+    jp .skip
+	
+.sandshrew
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp SANDSHREW_ALOLAN_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, AlolanSandshrewFormEvosAttacksPointers
+    jp .skip
+	
+.sandslash
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp SANDSLASH_ALOLAN_FORM
+	ld a, [CurPartySpecies]
+     jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, AlolanSandslashFormEvosAttacksPointers
+    jp .skip
+	
+.ninetales
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp NINETALES_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseNinetalesFormEvosAttacksPointers
+    jp .skip
+	
+.diglett
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp DIGLETT_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseDiglettFormEvosAttacksPointers
+    jp .skip
+	
+.dugtrio
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp DUGTRIO_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseDugtrioFormEvosAttacksPointers
+    jp .skip
+	
+.meowth
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp MEOWTH_ALOLAN_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, AlolanMeowthFormEvosAttacksPointers
+    jp .skip
+	
+.persian
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp PERSIAN_ALOLAN_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, AlolanPersianFormEvosAttacksPointers
+    jp .skip
+	
+.geodude
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp GEODUDE_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseGeodudeFormEvosAttacksPointers
+    jp .skip
+	
+.graveler
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp GRAVELER_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseGravelerFormEvosAttacksPointers
+    jp .skip
+	
+.golem
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp GOLEM_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseGolemFormEvosAttacksPointers
+    jp .skip
+	
+.grimer
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp GRIMER_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseGrimerFormEvosAttacksPointers
+    jp .skip
+	
+.muk
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp MUK_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseMukFormEvosAttacksPointers
+    jp .skip
+	
+.marowak
+    ld a, [TempMonForm]
+    srl a
+	srl a
+	srl a
+	and FORM_MASK
+    cp MAROWAK_KANTONESE_FORM
+	ld a, [CurPartySpecies]
+    jp nz, .pointers
+	dec a
+	push bc
+	ld b, 0
+	ld c, a
+    ld hl, KantoneseMarowakFormEvosAttacksPointers
+    jp .skip
+ 
+.pointers
 	dec a
 	push bc
 	ld b, 0
@@ -140,6 +463,7 @@ GetRemindableMoves:
 	ld hl, EvosAttacksPointers
 	add hl, bc
 	add hl, bc
+.skip
 	ld a, BANK(EvosAttacksPointers)
 	call GetFarHalfword
 .skip_evos
@@ -206,7 +530,7 @@ GetRemindableMoves:
 
 	farcall GetPreEvolution
 	pop bc
-	jr c, .loop
+	jp c, .loop
 	pop af
 	ld [CurPartySpecies], a
 	ld a, b
