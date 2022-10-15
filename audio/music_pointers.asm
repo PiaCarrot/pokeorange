@@ -161,4 +161,5 @@
 	dba Music_Route62
 	dba Music_OrangeIslandsGymBattle
 	dba Music_OrangeTrainerBattle
+	dba Music_EarlyOrangeRoute
 ; e91a3
