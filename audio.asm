@@ -222,6 +222,7 @@ INCLUDE "audio/music/drakebattle.asm"
 INCLUDE "audio/music/ascorbiaisland.asm"
 INCLUDE "audio/music/route62.asm"
 INCLUDE "audio/music/earlyorangeroute.asm"
+INCLUDE "audio/music/crimsonroute.asm"
 
 SECTION "Songs Monstarules", ROMX
 
