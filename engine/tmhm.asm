@@ -1,6 +1,13 @@
 CanLearnTMHMMove: ; 11639
 	ld a, [CurPartySpecies]
 	ld [CurSpecies], a
+	ld a, b
+	ld hl, PartyMon1Gender
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [hl]
+	ld [TempMonGender], a
+
 	call GetBaseData
 	ld hl, BaseTMHM
 	push hl
