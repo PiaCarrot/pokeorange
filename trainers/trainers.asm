@@ -2787,13 +2787,13 @@ SightseerFGroup:
 	db TRAINERTYPE_MOVES
 
 	; party
-	db 42, WIGGLYTUFF
+	db 38, WIGGLYTUFF
 		db DAZZLINGLEAM
 		db TAKE_DOWN
 		db ENCORE
 		db DOUBLESLAP
 		
-	db 42, GOLDUCK
+	db 38, GOLDUCK
 		db PSYBEAM
 		db SURF
 		db REST
@@ -2808,7 +2808,7 @@ SightseerFGroup:
 	db TRAINERTYPE_MOVES
 
 	; party
-	db 41, SYLVEON
+	db 39, SYLVEON
 		db DAZZLINGLEAM
 		db SAND_ATTACK
 		db ENCORE
@@ -2822,9 +2822,9 @@ SightseerFGroup:
 	db TRAINERTYPE_DVS
 
 	; party
-	db 38, DRATINI, $98, $88
-	db 38, SPINDA, SPINDA_B_DVS
-	db 38, EXEGGCUTE, $98, $88
+	db 36, DRATINI, $98, $88
+	db 36, SPINDA, SPINDA_B_DVS
+	db 36, EXEGGCUTE, $98, $88
 
 	db $ff ; end
 
@@ -2910,8 +2910,8 @@ CooltrainerMGroup:
 	db "JAKE@"
 	db TRAINERTYPE_NORMAL
 
-	db 36, GRAVELER
-	db 35, HYPNO
+	db 34, GRAVELER
+	db 33, HYPNO
 
 	db $ff
 
@@ -2921,7 +2921,7 @@ CooltrainerMGroup:
 	db "LOGAN@"
 	db TRAINERTYPE_NORMAL
 
-	db 38, STEELIX
+	db 33, STEELIX
 	db 34, MAGMAR
 
 	db $ff
@@ -2953,12 +2953,12 @@ CooltrainerMGroup:
 	db "JEFF@"
 	db TRAINERTYPE_NORMAL
 
-	db 38, MR__MIME
-	db 37, EXEGGCUTE
-	db 38, PERSIAN
-	db 37, MACHOKE
-	db 38, FEAROW
-	db 36, TENTACRUEL
+	db 30, MR__MIME
+	db 30, EXEGGCUTE
+	db 31, PERSIAN
+	db 31, MACHOKE
+	db 32, FEAROW
+	db 32, TENTACRUEL
 
 	db $ff
 	
@@ -2969,13 +2969,13 @@ CooltrainerMGroup:
 	db "HUEY@"
 	db TRAINERTYPE_MOVES
 
-	db 40, DITTO
+	db 38, DITTO
 		db TRANSFORM
 		db 0
 		db 0
 		db 0
 		
-	db 40, RAPIDASH
+	db 36, RAPIDASH
 		db STOMP
 		db FIRE_SPIN
 		db AERIAL_ACE
@@ -3117,7 +3117,7 @@ CooltrainerFGroup:
 	db "PAULA@"
 	db TRAINERTYPE_NORMAL
 
-	db 40, DEWGONG
+	db 35, DEWGONG
 
 	db $ff
 
@@ -3463,7 +3463,7 @@ CrossGroup:
 
 	; party
 
-	db 29, WARTORTLE, MALE_MASK
+	db 27, WARTORTLE, MALE_MASK
 		db BUBBLEBEAM
 		db BITE
 		db SURF
@@ -3491,7 +3491,7 @@ CrossGroup:
 
 	; party
 
-	db 29, IVYSAUR, MALE_MASK
+	db 27, IVYSAUR, MALE_MASK
 		db RAZOR_LEAF
 		db LEECH_SEED
 		db SLEEP_POWDER
@@ -3519,7 +3519,7 @@ CrossGroup:
 
 	; party
 
-	db 29, CHARMELEON, MALE_MASK
+	db 27, CHARMELEON, MALE_MASK
 		db FLAMETHROWER
 		db SLASH
 		db SMOKESCREEN
@@ -3547,7 +3547,7 @@ CrossGroup:
 
 	; party
 
-	db 38, BLASTOISE, MALE_MASK
+	db 33, BLASTOISE, MALE_MASK
 		db BUBBLEBEAM
 		db BITE
 		db SURF
@@ -3581,7 +3581,7 @@ CrossGroup:
 
 	; party
 
-	db 38, VENUSAUR, MALE_MASK
+	db 33, VENUSAUR, MALE_MASK
 		db GIGA_DRAIN
 		db LEECH_SEED
 		db PETAL_DANCE
@@ -3615,7 +3615,7 @@ CrossGroup:
 
 	; party
 
-	db 38, CHARIZARD, MALE_MASK
+	db 33, CHARIZARD, MALE_MASK
 		db FLAMETHROWER
 		db DRAGON_TAIL
 		db SLASH
@@ -3649,7 +3649,7 @@ CrossGroup:
 
 	; party
 
-	db 47, BLASTOISE, MALE_MASK
+	db 44, BLASTOISE, MALE_MASK
 		db DIVE
 		db CRUNCH
 		db RAPID_SPIN
@@ -3689,7 +3689,7 @@ CrossGroup:
 
 	; party
 
-	db 47, VENUSAUR, MALE_MASK
+	db 44, VENUSAUR, MALE_MASK
 		db GIGA_DRAIN
 		db LEECH_SEED
 		db PETAL_DANCE
@@ -3729,7 +3729,7 @@ CrossGroup:
 
 	; party
 
-	db 47, CHARIZARD, MALE_MASK
+	db 44, CHARIZARD, MALE_MASK
 		db FLAMETHROWER
 		db DRAGON_TAIL
 		db SLASH
