@@ -1956,12 +1956,12 @@ Surf:
 	doturn
 	critical
 	damagestats
+	happinesspower
 	damagecalc
 	stab
 	damagevariation
 	doubleunderwaterdamage
 	checkhit
-	effectchance
 	hittarget
 	failuretext
 	checkfaint
@@ -1969,6 +1969,7 @@ Surf:
 	supereffectivetext
 	checkdestinybond
 	buildopponentrage
+	kingsrock
 	endmove
 
 Venoshock:
