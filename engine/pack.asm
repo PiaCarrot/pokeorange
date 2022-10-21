@@ -191,6 +191,9 @@ Pack: ; 10000
 	ld a, [hl]
 	push af
 	res NO_TEXT_SCROLL, [hl]
+	; TODO - LD B with which party Pokémon we're actually looking at
+	ld a, [wCurPartyMon]
+	ld b, a
 	farcall TeachTMHM
 	pop af
 	ld [wOptions], a

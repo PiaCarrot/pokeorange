@@ -118,7 +118,6 @@ ChooseMonToLearnTMHM_NoRefresh: ; 2c80a
 
 TeachTMHM: ; 2c867
 	predef CanLearnTMHMMove
-
 	push bc
 	ld a, [wCurPartyMon]
 	ld hl, PartyMonNicknames
