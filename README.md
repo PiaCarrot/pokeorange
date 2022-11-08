@@ -2,7 +2,9 @@
 
 This is a ROM hack of Pokémon Crystal.
 
-To patch the ROM, apply [**movie-2000-pss.ips**](patches/movie-2000-pss.ips) or [**movie-2000-no-pss.ips**](patches/movie-2000-no-pss.ips) to a clean Pokemon - Crystal Version (UE) (V1.0) [C][!].gbc ROM.
+To patch the ROM, apply [**movie-2000-pss.ips**](patches/movie-2000-pss.ips) or [**movie-2000-no-pss.ips**](patches/movie-2000-no-pss.ips) to a clean Pokemon - Crystal Version (UE) (V1.0) [C][!].gbc ROM. (This is no longer recommended, see below)
+
+For the latest version (recommended, but may have unknown bugs), download the latest nightly build from [**the releases tab**](/releases/tag/beta-nightly).
 
 To build the ROM yourself, see [**INSTALL.md**](INSTALL.md).
 
