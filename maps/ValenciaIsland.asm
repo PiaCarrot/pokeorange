@@ -144,7 +144,7 @@ if def(DEBUG)
 	givepoke HO_OH, 100, LIGHT_BALL
 	givepoke MEW, 100
 	givepoke MARSHADOW, 100
-	givepoke LUGIA, 100
+	givepoke MEOWTH, 99, NUGGET, %00110000
 	closetext
 	callasm TeachHMSlaveMoves
 	special HealParty ; restore PP after TeachHMSlaveMoves

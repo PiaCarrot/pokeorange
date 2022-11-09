@@ -1714,7 +1714,7 @@ YoungsterGroup:
 
 	; party
 	db 9, TANGELA
-	db 9, MEOWTH
+	db 9, RATTATA
 
 	db $ff ; end
 
@@ -2955,7 +2955,7 @@ CooltrainerMGroup:
 
 	db 30, MR__MIME
 	db 30, EXEGGCUTE
-	db 31, PERSIAN
+	db 31, RATICATE
 	db 31, MACHOKE
 	db 32, FEAROW
 	db 32, TENTACRUEL

@@ -163,4 +163,5 @@
 	dba Music_OrangeTrainerBattle
 	dba Music_EarlyOrangeRoute
 	dba Music_CrimsonRoute
+	dba Music_StarterOrangeRoute
 ; e91a3
