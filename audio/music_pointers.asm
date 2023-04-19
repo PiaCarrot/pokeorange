@@ -165,4 +165,6 @@
 	dba Music_CrimsonRoute
 	dba Music_StarterOrangeRoute
 	dba Music_CityOrange
+	dba Music_ValenciaTown
+	dba Music_Looker
 ; e91a3

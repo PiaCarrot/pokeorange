@@ -225,6 +225,13 @@ INCLUDE "audio/music/earlyorangeroute.asm"
 INCLUDE "audio/music/crimsonroute.asm"
 INCLUDE "audio/music/starterorangeroute.asm"
 INCLUDE "audio/music/cityorange.asm"
+INCLUDE "audio/music/valenciatown.asm"
+
+
+SECTION "Songs Regen 3", ROMX
+
+
+INCLUDE "audio/music/looker.asm"
 
 SECTION "Songs Monstarules", ROMX
 
