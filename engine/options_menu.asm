@@ -75,7 +75,18 @@ StringOptions: ; e4241
 	db "<LNBRK>"
 	db "<LNBRK>"
 	db "<LNBRK>"
+
+if DEF(PSS)
+	if DEF(DEBUG)
+		db "DONE        PSS-D@"
+	endc
+	db "DONE        PSS@"
+else
+    if DEF(DEBUG)
+		db "DONE            D@"
+	endc
 	db "DONE@"
+endc
 ; e42d6
 
 

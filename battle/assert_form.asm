@@ -326,25 +326,3 @@ StrictForm:
 	ld [TempMonForm], a
 .done
 	ret
-
-StrictTrainerOnixSteelixForm:
-	ld a, [wBattleMode]
-	cp TRAINER_BATTLE
-	jp nz, .done
-
-	ld a, [EnemyMonSpecies]
-	cp ONIX
-	jr z, .force
-	cp STEELIX
-	jr z, .force
-	jr .done
-
-.force
-	ld a, [EnemyMonPersonality]
-	and FORM_MASK ;erase form
-	or ONIX_NORMAL_FORM ;force form 1 (normal)
-.male
-	ld [EnemyMonPersonality], a
-	ld [TempMonForm], a
-.done
-	ret

@@ -5802,8 +5802,7 @@ LoadEnemyMon: ; 3e8eb
 	ld [CurSpecies], a
 	ld [CurPartySpecies], a
 
-	farcall StrictForm
-	farcall StrictTrainerOnixSteelixForm
+	farcall StrictForm ;is this really needed with form code fixed // should this be handled in the form code???
 
 	ld a, [EnemyMonPersonality]
 	ld [TempMonForm], a
@@ -6146,7 +6145,7 @@ LoadEnemyMon: ; 3e8eb
 	ld a, b
 	ld [EnemyMonPersonality], a
 	ld [TempMonForm], a
-	farcall StrictForm
+	farcall StrictForm ;is this really needed with form code fixed // should this be handled in the form code???
 
 .clearwildmoves
 ; Clear EnemyMonMoves
@@ -6193,7 +6192,6 @@ LoadEnemyMon: ; 3e8eb
 	ld a, [hl]
 	ld [EnemyMonPersonality], a
 	ld [TempMonForm], a
-	farcall StrictTrainerOnixSteelixForm
 
 .Finish:
 ; Only the first five base stats are copied..
