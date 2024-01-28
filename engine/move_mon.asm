@@ -1810,34 +1810,146 @@ InitNickname: ; e3de
 	jp ExitAllMenus
 ; e3fd
 
+; Return personality (gender, shiny, pink and form) in a and b
 GetRandomPersonality:
-; Gender
+; Gender is the high nibble of the random value
 	call Random
+	ld b, a ;this is just to compensate the next step from GetBattleRandomPersonality call, could be done better I guess
+
+_GetBattleRandomPersonality: ;tag to call from core.asm, which uses BattleRandom. The random value is in b
+	ld a, b
+;form
+	;a holds a number between 0x00 and 0xFF
+	;forms are defined in the code as 1 (default), 2, and 3, but form 0 also defaults to default form)
+	;meowth and lycanroc have a 3r form, but lycanroc is time-based and meowth's 3rd form is for in-game events only
+	and %11110011 ;erase shiny and pink bits
+	;now form is either 0,1, 2 or 3
+	;make all forms 3 turn into form 2
+	
+	push af
 	and GENDER_MASK
-	ld b, a
+	ld b, a ;temp store gender nibble, with no form, shinyness or pinkness bits
+	pop af
+	and FORM_MASK ;now a has only the random lower bits 0 and 1 (randomized form)
+	
+.check_form0
+	cp 0
+	jp nz, .check_form3 ;not 0, is it 3?
+	ld a, 1 ;if form 0, convert to 1
+.check_form3
+	cp 3
+	jp nz, .handleKanto ;no 3 or 0, so 1 or 2, so we are good to go
+	ld a, 2 ;if form 3, convert to 2
+	
+;enforce kanto forms in johto
+.handleKanto
+	ld c, a
+	push bc ;preserve the gender nibble and form
+    call IsInJohto
+	pop bc
+    jr z, .handle_lycanroc ;not in johto, proceed as normal
+;enforce certain species
+    ld a, [TempEnemyMonSpecies]
+; is kantonese
+    cp VULPIX
+    jr z, .forceForm2 ;all kantonese forms except sandshrew/sandlslash are form 2
+; no wild ninetales exist
+    cp EXEGGUTOR
+    jr z, .forceForm2
+    cp GRIMER
+    jr z, .forceForm2
+    cp MUK
+    jr z, .forceForm2
+    cp GEODUDE
+    jr z, .forceForm2
+    cp GRAVELER
+    jr z, .forceForm2
+; no wild golem exist
+    cp RATTATA
+    jr z, .forceForm2
+    cp RATICATE
+    jr z, .forceForm2
+    cp DIGLETT
+    jr z, .forceForm2
+    cp DUGTRIO
+    jr z, .forceForm2
+; no wild raichu exist
+    cp MAROWAK
+    jr z, .forceForm2
+	
+.forceForm1 ;currently unused, but I'll leave the syntax here
+	ld a, 01
+	jr .handle_lycanroc
+.forceForm2
+	ld a, 02
+	;;fallthrough
 
-; Shiny?
+; Handle lycanroc's form
+;b still holds the gender nibble
+;c still holds form
+.handle_lycanroc
+	ld a, [CurSpecies]
+	cp LYCANROC
+	jr nz, .skip_lycanroc
+	; 5:00 PM to 5:59 PM = Dusk Lycanroc
+	ld a, [hHours]
+	cp DUSK_HOUR
+	ld a, LYCANROC_DUSK_FORM
+	jr z, .set_dusk
+	; night = Midnight Lycanroc
+	ld a, [TimeOfDay]
+	cp NITE
+	ld a, LYCANROC_MIDNIGHT_FORM
+	jr z, .set_midnight
+	; day = Midday Lycanroc
+	ld a, LYCANROC_MIDDAY_FORM
+.set_midday
+	ld a, LYCANROC_MIDDAY_FORM
+	jr .shiny_rolls
+.set_midnight
+	ld a,  LYCANROC_MIDNIGHT_FORM
+	jr .shiny_rolls
+.set_dusk
+	ld a, LYCANROC_DUSK_FORM
+	jr .shiny_rolls
+
+.skip_lycanroc
+.shiny_rolls ; Shiny?
+;for shiny and pink, bit manipulation will be used, so we can fuse gender + form
+;b holds gender nibble
+;c holds form
+
+	ld a, c ;restore form
+	or a, b ;now a holds gender + form
+
+	push af ;store PV
 	; Shiny Charm gives 1/256 chance of a shiny
-	call .HaveShinyCharm
-	jr c, .likely_shiny
-	; 1/16 roll
+	call HaveShinyCharm
+	jr nc, .no_charm
 	call Random
-	cp $10
+	;cp $10 	; 1/16 roll (16/256), so not the intended 1/256?
+	cp 1 		; 1/256
 	jr nc, .not_shiny
-.likely_shiny
-	; 1/256 roll (compounds with 1/16 for 1/4096 random shiny chance)
+.no_charm
+	; (1/4096 random shiny chance)
 	call Random
-	and a
-	jr nz, .not_shiny
-	ld a, SHINY_MASK
-	jr .got_shiny
+	cp 8 ;8/256 first roll
+	jr nc, .not_shiny
+	call Random
+	cp 8 ;8/256 second roll (16/65536 accumulated = 1/4096)
+	jr nc, .not_shiny
+;if we reach here, it is shiny!
+	pop af
+	set 3, a ;set the shiny bit
+	jr .pink
 .not_shiny
-	xor a
-.got_shiny
-	or b
-	ld b, a
+	pop af ;restore PV
 
-; Pink?
+;check for pink
+.pink ; Pink?
+	push af ;store PV
+	
+	;check if in pinkan island
 	push bc
 	ld a, [MapGroup]
 	ld b, a
@@ -1846,40 +1958,18 @@ GetRandomPersonality:
 	call GetWorldMapLocation
 	pop bc
 	cp PINKAN_ISLAND
-	jr z, .is_pink
-	xor a
-	jr .got_pink
-.is_pink
-	ld a, PINK_MASK
-.got_pink
-	or b
-	ld b, a
+	jr nz, .not_pink
+	pop af
+	set 2, a ;set the pink bit
+	jr .return
+.not_pink
+	pop af
 
-; Form
-	ld a, [CurSpecies]
-	cp LYCANROC
-	ld a, 0 ; default form 0
-	jr nz, .got_form
-	; 5:00 PM to 5:59 PM = Dusk Lycanroc
-	ld a, [hHours]
-	cp DUSK_HOUR
-	ld a, LYCANROC_DUSK_FORM
-	jr z, .got_form
-	; night = Midnight Lycanroc
-	ld a, [TimeOfDay]
-	cp NITE
-	ld a, LYCANROC_MIDNIGHT_FORM
-	jr z, .got_form
-	; day = Midday Lycanroc
-	ld a, LYCANROC_MIDDAY_FORM
-.got_form
-	or b
+.return ; Return personality (gender, shiny, pink and form) in a and b
 	ld b, a
-
-; Return personality in a and b
 	ret
 
-.HaveShinyCharm:
+HaveShinyCharm:
 	ld a, [wCurItem]
 	push af
 	ld a, SHINY_CHARM

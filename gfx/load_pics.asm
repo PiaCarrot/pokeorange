@@ -24,7 +24,6 @@ GetVariant: ; 51040
 	ld bc, BattleMonForm - BattleMonDVs
 	add hl, bc
 	pop bc
-
 	ld a, [hl]
 	and FORM_MASK ; 0, 1, 2, or 3
 	jr nz, .ok_form
@@ -211,23 +210,28 @@ GetFrontpicPointer: ; 510d7
     jp z, .dual_form
     cp RAICHU
     jp z, .dual_form
+	cp LYCANROC
+	jp z, .dual_form
 	cp MEOWTH
 	jp z, .meowth
 	jp .skip
 .dual_form
 	xor a
-	ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
-    and FORM_MASK
 	push bc
+	ld a, [TempMonGender]
+    and FORM_MASK
 	ld b, 2
 	cp b
-	ld a, [MonVariant]
+	ld a, 2 ;second form
 	pop bc
-	jr nz, .notvariant
-	ld a, 2
+	jr z, .notvariant
+	push bc
+	ld b, 3
+	cp b
+	ld a, 3 ;third form
+	pop bc
+	jr z, .notvariant
+	ld a, 1 ;base form
 	jr .notvariant
 .meowth
 	ld a, [OtherTrainerClass]
@@ -244,9 +248,6 @@ GetFrontpicPointer: ; 510d7
 	jr z, .notvariant
 	xor a
 	ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
 	and FORM_MASK
 	push bc
 	ld b, 2
@@ -394,39 +395,28 @@ GetBackpic: ; 5116c
     cp RAICHU
     jp z, .dual_form
 	cp MEOWTH
-	jp z, .meowth
+	jp z, .dual_form
+	cp LYCANROC
+	jp z, .dual_form
 	jp .skip
 
 .dual_form
 	xor a
 	push bc
 	ld a, [BattleMonGender]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	ld b, 2
 	cp b
-	ld a, 1
+	ld a, 2 ;second form
 	pop bc
-	jr nz, .notvariant
-	ld a, 2
-	jr .notvariant
-.meowth
-	xor a
-	ld a, [BattleMonGender]
-	srl a
-	srl a
-	srl a
-	and FORM_MASK
-	ld b, a
-	ld a, 3
-	cp b
 	jr z, .notvariant
-	ld a, 2
+	push bc
+	ld b, 3
 	cp b
+	ld a, 3 ;third form
+	pop bc
 	jr z, .notvariant
-	ld a, 1
+	ld a, 1 ;base form
 	jr .notvariant
 
 .skip

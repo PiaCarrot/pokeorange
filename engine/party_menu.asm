@@ -415,9 +415,6 @@ PlacePartyMonEvoStoneCompatibility: ; 5022f
     ld hl, PartyMon1Form
     call AddNTimes
     ld a, [hl]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
     cp VULPIX_KANTONESE_FORM
     ld a, d
@@ -436,9 +433,6 @@ PlacePartyMonEvoStoneCompatibility: ; 5022f
     ld hl, PartyMon1Form
     call AddNTimes
     ld a, [hl]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
     cp SANDSHREW_ALOLAN_FORM
     ld a, d

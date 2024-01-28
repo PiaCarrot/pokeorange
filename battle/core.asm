@@ -6143,6 +6143,7 @@ LoadEnemyMon: ; 3e8eb
 
 ; Wild personality
 	call GetWildPersonality
+	ld a, b
 	ld [EnemyMonPersonality], a
 	ld [TempMonForm], a
 	farcall StrictForm
@@ -8788,152 +8789,9 @@ GetWildPersonality:
 	ld [hl], a
 	ret
 
+; Return personality (gender, shiny, pink and form) in a and b
 GetBattleRandomPersonality:
-; Gender
 	call BattleRandom
-	and GENDER_MASK
-	ld b, a
-
-
-
-; Shiny?
-	ld a, [BattleType]
-	cp BATTLETYPE_SHINY
-	jr z, .force_shiny
-	; Shiny Charm gives 1/256 chance of a shiny
-	call .HaveShinyCharm
-	jr c, .likely_shiny
-	; 1/16 roll
-	call BattleRandom
-	cp $10
-	jr nc, .not_shiny
-.likely_shiny
-	; 1/256 roll (compounds with 1/16 for 1/4096 random shiny chance)
-	call BattleRandom
-	and a
-	jr nz, .not_shiny
-.force_shiny
-	ld a, SHINY_MASK
-	jr .got_shiny
-.not_shiny
-	xor a
-.got_shiny
-	or b
-	ld b, a
-
-; Pink?
-	push bc
-	ld a, [MapGroup]
-	ld b, a
-	ld a, [MapNumber]
-	ld c, a
-	call GetWorldMapLocation
-	pop bc
-	cp PINKAN_ISLAND
-	jr z, .is_pink
-	xor a
-	jr .got_pink
-.is_pink
-	ld a, PINK_MASK
-.got_pink
-	or b
-	ld b, a
-
-; Variant Splits
-	push bc
-    call IsInJohto
-    and a
-    jr z, .is_not_kantonese
-    ld a, [TempEnemyMonSpecies]
-; is kantonese
-    cp VULPIX
-    ld c, VULPIX_KANTONESE_FORM
-    jr z, .got_form
-; no wild ninetales exist
-    cp EXEGGUTOR
-    ld c, EXEGGUTOR_KANTONESE_FORM
-    jr z, .got_form
-    cp GRIMER
-    ld c, GRIMER_KANTONESE_FORM
-    jr z, .got_form
-    cp MUK
-    ld c, MUK_KANTONESE_FORM
-    jr z, .got_form
-    cp GEODUDE
-    ld c, GEODUDE_KANTONESE_FORM
-    jr z, .got_form
-    cp GRAVELER
-    ld c, GRAVELER_KANTONESE_FORM
-    jr z, .got_form
-; no wild golem exist
-    cp RATTATA
-    ld c, RATTATA_KANTONESE_FORM
-    jr z, .got_form
-    cp RATICATE
-    ld c, RATICATE_KANTONESE_FORM
-    jr z, .got_form
-    cp DIGLETT
-    ld c, DIGLETT_KANTONESE_FORM
-    jr z, .got_form
-    cp DUGTRIO
-    ld c, DUGTRIO_KANTONESE_FORM
-    jr z, .got_form
-; no wild raichu exist
-    cp MAROWAK
-    ld c, MAROWAK_KANTONESE_FORM
-    jr z, .got_form
-
-.is_not_kantonese
-    ld a, [BattleType]
-    cp BATTLETYPE_CRYSTAL_ONIX
-    ld c, %11110000
-    jr z, .got_form
-    ld a, [TempEnemyMonSpecies]
-    cp LYCANROC
-    ld c, 0 ; default form 0
-    jr nz, .got_form
-    ; 5:00 PM to 5:59 PM = Dusk Lycanroc
-    ld a, [hHours]
-    cp DUSK_HOUR
-    ld c, LYCANROC_DUSK_FORM
-    jr z, .got_form
-    ; night = Midnight Lycanroc
-    ld a, [TimeOfDay]
-    cp NITE
-    ld c, LYCANROC_MIDNIGHT_FORM
-    jr z, .got_form
-    ; day = Midday Lycanroc
-    ld c, LYCANROC_MIDDAY_FORM
-.got_form
-    ld a, c
-	pop bc
-    or b
-    ld b, a
-
-; Return personality in a and b
-	ret
-
-.HaveShinyCharm:
-	ld a, [wCurItem]
-	push af
-	ld a, SHINY_CHARM
-	ld [wCurItem], a
-	push hl
-	push bc
-	push de
-	ld hl, NumItems
-	call CheckItem
-	pop de
-	pop bc
-	pop hl
-	jr c, .have_shiny_charm
-	pop af
-	ld [wCurItem], a
-	xor a
-	ret
-
-.have_shiny_charm
-	pop af
-	ld [wCurItem], a
-	scf
+	ld b, a ;store random value in b
+	farcall _GetBattleRandomPersonality
 	ret
