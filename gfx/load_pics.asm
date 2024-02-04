@@ -347,7 +347,7 @@ GetBackpic: ; 5116c
 	ld a, [BattleMonSpecies]
 	ld b, a
 	ld a, [MonVariant]
-	ld c, a
+	ld c, a ;store MonVariant in c before switching wram banks
 	ld a, [rSVBK]
 	push af
 	ld a, $6
@@ -398,7 +398,14 @@ GetBackpic: ; 5116c
 	jp z, .dual_form
 	cp LYCANROC
 	jp z, .dual_form
+	cp SQUIRTLE
+	jp z, .squirtle_form
+	
 	jp .skip
+	
+.squirtle_form
+	ld a, c ;restore MonVariant previously stored in c
+	jr .notvariant
 
 .dual_form
 	xor a
