@@ -3410,7 +3410,7 @@ Function_SetEnemyPkmnAndSendOutAnimation: ; 3d7c7
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a
 	call GetBaseData
-	farcall AssertEnemyMonType
+	;farcall AssertEnemyMonType
 	ld a, OTPARTYMON
 	ld [MonType], a
 	predef CopyPkmnToTempMon
@@ -3728,8 +3728,10 @@ InitBattleMon: ; 3da0d
 	ld [TempBattleMonSpecies], a
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a
+	ld a, [BattleMonPersonality]
+	ld [TempMonForm], a
 	call GetBaseData
-	farcall AssertPlayerMonType
+	;farcall AssertPlayerMonType
 	ld a, [BaseType1]
 	ld [BattleMonType1], a
 	ld a, [BaseType2]
@@ -3844,7 +3846,7 @@ InitEnemyMon: ; 3dabd
 	ld [TempMonForm], a
 	ld a, [TempEnemyMonSpecies]
 	call GetBaseData
-	farcall AssertEnemyMonType
+	;farcall AssertEnemyMonType
 	ld hl, OTPartyMonNicknames
 	ld a, [wCurPartyMon]
 	call SkipNames
@@ -4578,8 +4580,10 @@ PrintPlayerHUD: ; 3dfbf
 	ld a, [hl]
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a
+	ld a, [BattleMonPersonality]
+	ld [TempMonForm], a
 	call GetBaseData
-	farcall AssertPlayerMonType
+	;farcall AssertPlayerMonType
 
 	pop hl
 	dec hl
@@ -4644,7 +4648,7 @@ DrawEnemyHUD: ; 3e043
 	ld [TempMonForm], a
 	ld a, [TempEnemyMonSpecies]
 	call GetBaseData
-	farcall AssertEnemyMonType
+	;farcall AssertEnemyMonType
 	ld de, EnemyMonNick
 	hlcoord 1, 0
 	call PlaceString
@@ -5808,7 +5812,7 @@ LoadEnemyMon: ; 3e8eb
 	ld [TempMonForm], a
 	ld a, [TempEnemyMonSpecies]
 	call GetBaseData
-	farcall AssertEnemyMonType
+	;farcall AssertEnemyMonType
 
 ; Let's get the item:
 
@@ -6817,8 +6821,21 @@ GiveExperiencePoints: ; 3ee3b
 	add hl, de
 	ld a, [hl]
 	ld [CurSpecies], a
+	
+	;load form byte so GetBaseData gets the correct basestats
+	push bc
+	push hl
+	ld bc, PartyMon1Gender - PartyMon2Gender
+	ld a, [wCurPartyMon]
+	ld hl, PartyMon1Gender
+	call AddNTimes ;hl should now point to current mon's personality byte
+	ld a, [hl]
+	ld [TempMonForm], a
+	pop hl
+	pop bc
+	
 	call GetBaseData
-	farcall AssertPlayerMonType
+	;farcall AssertPlayerMonType
 	push bc
 	ld d, MAX_LEVEL
 	farcall CalcExpAtLevel
@@ -6871,8 +6888,21 @@ GiveExperiencePoints: ; 3ee3b
 	ld a, [hl]
 	ld [CurSpecies], a
 	ld [wd265], a
+	
+	;load form byte so GetBaseData gets the correct basestats
+	push bc
+	push hl
+	ld bc, PartyMon1Gender - PartyMon2Gender
+	ld a, [wCurPartyMon]
+	ld hl, PartyMon1Gender
+	call AddNTimes ;hl should now point to current mon's personality byte
+	ld a, [hl]
+	ld [TempMonForm], a
+	pop hl
+	pop bc
+
 	call GetBaseData
-	farcall AssertPlayerMonType
+	;farcall AssertPlayerMonType
 	ld hl, MON_MAXHP + 1
 	add hl, bc
 	ld a, [hld]
@@ -7638,11 +7668,13 @@ DropEnemySub: ; 3f486
 
 	ld a, [CurPartySpecies]
 	push af
+	ld a, [EnemyMonPersonality]
+	ld [TempMonForm], a
 	ld a, [EnemyMonSpecies]
 	ld [CurSpecies], a
 	ld [CurPartySpecies], a
-	call GetBaseData
-	farcall AssertEnemyMonType
+	call GetBaseData ;needs correct TempMonForm loaded
+	;farcall AssertEnemyMonType
 	ld hl, EnemyMonDVs
 	predef GetVariant
 	ld de, VTiles2
