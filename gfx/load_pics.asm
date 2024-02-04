@@ -218,6 +218,8 @@ GetFrontpicPointer: ; 510d7
 	jp z, .dual_form
 	cp MEOWTH
 	jp z, .meowth
+	cp PERSIAN
+	jp z, .dual_form
 	jp .skip
 .dual_form
 	xor a
@@ -399,6 +401,8 @@ GetBackpic: ; 5116c
     cp RAICHU
     jp z, .dual_form
 	cp MEOWTH
+	jp z, .dual_form
+	cp PERSIAN
 	jp z, .dual_form
 	cp LYCANROC
 	jp z, .dual_form
