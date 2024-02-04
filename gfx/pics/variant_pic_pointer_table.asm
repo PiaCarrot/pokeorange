@@ -24,4 +24,6 @@
 	dbba LYCANROC,  LycanrocPicPointers
 	dbba SQUIRTLE,  SquirtlePicPointers
 	dbba MAGIKARP,  MagikarpPicPointers
+	dbba WARTORTLE, WartortlePicPointers
+	dbba BLASTOISE, BlastoisePicPointers
 	dbba -1,        PicPointers

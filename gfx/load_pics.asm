@@ -3,6 +3,10 @@ GetVariant: ; 51040
 	ld a, [CurPartySpecies]
 	cp SQUIRTLE
 	jr z, .GetSquirtleVariant
+	cp WARTORTLE
+	jr z, .GetSquirtleVariant
+	cp BLASTOISE
+	jr z, .GetSquirtleVariant
 	cp SPINDA
 	jr z, .GetSpindaVariant
 	cp MAGIKARP
@@ -399,6 +403,10 @@ GetBackpic: ; 5116c
 	cp LYCANROC
 	jp z, .dual_form
 	cp SQUIRTLE
+	jp z, .squirtle_form
+	cp WARTORTLE
+	jp z, .squirtle_form
+	cp BLASTOISE
 	jp z, .squirtle_form
 	
 	jp .skip

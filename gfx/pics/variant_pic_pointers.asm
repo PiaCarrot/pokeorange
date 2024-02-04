@@ -77,6 +77,14 @@ MarowakPicPointers::
 SquirtlePicPointers::
 	add_pics Squirtle
 	add_pics SquirtleGlasses
+	
+WartortlePicPointers::
+	add_pics Wartortle
+	add_pics WartortleGlasses
+
+BlastoisePicPointers::
+	add_pics Blastoise
+	add_pics BlastoiseGlasses
 
 MeowthPicPointers::
 	add_pics Meowth
