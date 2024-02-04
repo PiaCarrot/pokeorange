@@ -6825,7 +6825,7 @@ GiveExperiencePoints: ; 3ee3b
 	;load form byte so GetBaseData gets the correct basestats
 	push bc
 	push hl
-	ld bc, PartyMon1Gender - PartyMon2Gender
+	ld bc, PartyMon2Gender - PartyMon1Gender
 	ld a, [wCurPartyMon]
 	ld hl, PartyMon1Gender
 	call AddNTimes ;hl should now point to current mon's personality byte
@@ -6892,7 +6892,7 @@ GiveExperiencePoints: ; 3ee3b
 	;load form byte so GetBaseData gets the correct basestats
 	push bc
 	push hl
-	ld bc, PartyMon1Gender - PartyMon2Gender
+	ld bc, PartyMon2Gender - PartyMon1Gender
 	ld a, [wCurPartyMon]
 	ld hl, PartyMon1Gender
 	call AddNTimes ;hl should now point to current mon's personality byte
