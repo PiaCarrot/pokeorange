@@ -358,7 +358,7 @@
 	db 18, ROCKRUFF
 	db 18, TRUMBEAK
 	db 18, MANKEY
-	db 19, ROCKRUFF
+	db 19, LYCANROC
 	db 19, MANKEY
 	db 19, SPEAROW
 	;day
@@ -366,7 +366,7 @@
 	db 18, ROCKRUFF
 	db 18, TRUMBEAK
 	db 18, MANKEY
-	db 19, ROCKRUFF
+	db 19, LYCANROC
 	db 19, MANKEY
 	db 19, SPEAROW
 	;nite
@@ -375,6 +375,7 @@
 	db 18, RATTATA
 	db 18, SANDSHREW
 	db 19, TANGELA
+	db 19, LYCANROC
 	db 19, SANDSHREW
 	db 19, RATTATA
 
@@ -491,7 +492,7 @@
 	; morning
 	db 18, HOPPIP
 	db 18, FLAAFFY
-	db 19, ROCKRUFF
+	db 19, LYCANROC
 	db 19, HOPPIP
 	db 19, MAREEP
 	db 20, FLAAFFY
@@ -499,7 +500,7 @@
 	; day
 	db 18, HOPPIP
 	db 18, FLAAFFY
-	db 19, ROCKRUFF
+	db 19, LYCANROC
 	db 19, HOPPIP
 	db 19, MAREEP
 	db 20, FLAAFFY
@@ -507,6 +508,7 @@
 	; night
 	db 18, PARAS
 	db 18, ZUBAT
+	db 19, LYCANROC
 	db 19, RATTATA
 	db 19, PARAS
 	db 19, ODDISH
@@ -1275,7 +1277,7 @@
 	db 36, ZUBAT
 	db 37, GOLBAT
 	db 36, ZUBAT
-	db 36, ROCKRUFF
+	db 36, LYCANROC
 	db 36, PHANPY
 	db 37, DONPHAN
 	db 37, RHYHORN
@@ -1283,7 +1285,7 @@
 	db 36, ZUBAT
 	db 37, GOLBAT
 	db 36, ZUBAT
-	db 36, ROCKRUFF
+	db 36, LYCANROC
 	db 36, PHANPY
 	db 37, DONPHAN
 	db 37, RHYHORN
@@ -1291,7 +1293,7 @@
 	db 36, ZUBAT
 	db 37, GOLBAT
 	db 36, ZUBAT
-	db 36, ROCKRUFF
+	db 36, LYCANROC
 	db 36, PHANPY
 	db 37, DONPHAN
 	db 37, RHYHORN
