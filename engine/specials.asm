@@ -65,6 +65,7 @@ SpecialsPointers:: ; c029
 	add_special UpdateSprites
 	add_special ReplaceKrisSprite
 	add_special Special_GameCornerPrizeMonCheckDex
+	add_special ShowPokedexEntry
 	add_special SpecialSeenMon
 	add_special WaitSFX
 	add_special PlayMapMusic
@@ -144,6 +145,17 @@ Special_GameCornerPrizeMonCheckDex: ; c230
 	farcall NewPokedexEntry
 	jp ExitAllMenus
 ; c252
+
+ShowPokedexEntry:
+	ld a, [ScriptVar]
+	dec a
+	call SetSeenMon
+	call FadeToMenu
+	ld a, [ScriptVar]
+	ld [wNamedObjectIndexBuffer], a
+	farcall NewPokedexEntry
+	call ExitAllMenus
+	ret
 
 SpecialSeenMon: ; c252
 	ld a, [ScriptVar]

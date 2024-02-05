@@ -40,6 +40,10 @@ TVScript:
 	closetext
 	setevent EVENT_EON_DUO_WILD
 	special InitRoamMons
+	writebyte LATIAS
+	special ShowPokedexEntry
+	writebyte LATIOS
+	special ShowPokedexEntry
 	end
 
 .TvScriptNormal

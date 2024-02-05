@@ -4260,10 +4260,15 @@ NewPokedexEntry: ; fb877
 	ld [wPokedexStatus], a
 	farcall _NewPokedexEntry
 	call WaitPressAorB_BlinkCursor
+	ld a, [wNamedObjectIndexBuffer]
+	dec a
+	call CheckCaughtMon
+	jr z, .notcaught
 	ld a, $1
 	ld [wPokedexStatus], a
 	farcall DisplayDexEntry
 	call WaitPressAorB_BlinkCursor
+.notcaught
 	pop af
 	ld [wPokedexStatus], a
 	call MaxVolume
