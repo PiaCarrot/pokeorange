@@ -852,6 +852,7 @@ Group8Sprites:
 	db SPRITE_LORELEI
 	db SPRITE_LANCE
 	db SPRITE_TRACEY
+	db SPRITE_GRAMPS
 	db SPRITE_POKE_BALL
 	db 0 ; end
 
