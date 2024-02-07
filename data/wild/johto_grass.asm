@@ -375,9 +375,8 @@
 	db 18, RATTATA
 	db 18, SANDSHREW
 	db 19, TANGELA
-	db 19, LYCANROC
 	db 19, SANDSHREW
-	db 19, RATTATA
+	db 19, LYCANROC
 
 	map UNNAMED_ISLAND_1
 	db 7 percent, 7 percent, 7 percent
@@ -508,11 +507,10 @@
 	; night
 	db 18, PARAS
 	db 18, ZUBAT
-	db 19, LYCANROC
 	db 19, RATTATA
+	db 19, LYCANROC
 	db 19, PARAS
 	db 19, ODDISH
-	db 20, ZUBAT
 	db 20, RATICATE
 	
 	map SEVEN_GRAPEFRUITS_UNDERWATER
