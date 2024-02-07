@@ -38,7 +38,19 @@ TrovitopolisSailorScript:
 	jumptextfaceplayer TrovitopolisSailorText
 
 TrovitopolisGrampsScript:
-	jumptextfaceplayer TrovitopolisGrampsText
+	faceplayer
+	opentext
+	writetext TrovitopolisGrampsText
+	waitbutton
+	checkevent EVENT_CROSS_ON_PUMMELO
+	iffalse .done
+	checkitem RAINBOW_WING
+	iftrue .done
+	verbosegiveitem RAINBOW_WING
+	
+.done
+	closetext
+	end
 
 TrovitopolisGrampsText:
 	text "Sometimes I've run"

@@ -698,6 +698,10 @@ SpriteMons: ; 14495
 	db MOLTRES
 	db ARTICUNO
 	db LUGIA
+	db MEWTWO
+	db MEW
+	db MARSHADOW
+	db HO_OH
 ; 144b8
 
 

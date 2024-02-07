@@ -136,14 +136,18 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_ONIX                  ; 92
 	const SPRITE_MACHOP                ; 93
 	const SPRITE_AERODACTYL            ; 94
-	const SPRITE_FEAROW
-	const SPRITE_GLOOM
-	const SPRITE_POLITOED
-	const SPRITE_SLOWKING
-	const SPRITE_ZAPDOS
-	const SPRITE_MOLTRES
-	const SPRITE_ARTICUNO
-	const SPRITE_LUGIA
+	const SPRITE_FEAROW         	   ; 95
+	const SPRITE_GLOOM                 ; 96
+	const SPRITE_POLITOED              ; 97
+	const SPRITE_SLOWKING              ; 98
+	const SPRITE_ZAPDOS                ; 99
+	const SPRITE_MOLTRES               ; 9a
+	const SPRITE_ARTICUNO              ; 9b
+	const SPRITE_LUGIA                 ; 9c
+	const SPRITE_MEWTWO                ; 9d
+	const SPRITE_MEW                   ; 9e
+	const SPRITE_MARSHADOW             ; 9f
+	const SPRITE_HO_OH                  ; A0
 
 const_value = $e0
 	const SPRITE_DAYCARE_MON_1         ; e0
