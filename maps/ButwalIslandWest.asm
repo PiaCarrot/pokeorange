@@ -129,7 +129,7 @@ ButwalIslandWest_MapEventHeader::
 	warp_def 23, 24, 1, BUTWAL_ISLAND_WEST_GROTTO
 
 .CoordEvents: db 3
-	xy_trigger 1, 16, 26, ButwalIslandWestBridgeOverheadTrigger 
+	xy_trigger 1, 16, 26, ButwalIslandWestBridgeOverheadTrigger
 	xy_trigger 0, 17, 26, ButwalIslandWestBridgeUnderfootTrigger
 	xy_trigger 0, 12, 30, ButwalIslandWestBridgeUnderfootTrigger
 
@@ -141,5 +141,5 @@ ButwalIslandWest_MapEventHeader::
 	person_event SPRITE_COOLTRAINER_M, 32, 11, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, TrainerCooltrainerMNagi, -1
 	person_event SPRITE_POKE_BALL, 3, 26, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, ButwalWestTM17Protect, EVENT_BUTWAL_WEST_PROTECT
 	person_event SPRITE_POKE_BALL, 15, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, ButwalWestRevive, EVENT_BUTWAL_WEST_REVIVE
-	person_event SPRITE_POKE_BALL, 7, 22, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, ButwalWestMaxPotion, EVENT_BUTWAL_WEST_MAX_POTION
+	person_event SPRITE_POKE_BALL,  6, 22, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, ButwalWestMaxPotion, EVENT_BUTWAL_WEST_MAX_POTION
 	person_event SPRITE_FRUIT_TREE, 33, 18, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, ButwalWestFruitTree, -1
