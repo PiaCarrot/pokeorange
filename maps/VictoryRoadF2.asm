@@ -7,6 +7,7 @@ const_value = 1
 	const VR_F2_YOUNGSTER
 	const VR_F2_POKEBALL_1
 	const VR_F2_POKEBALL_2
+	const VR_F2_OFFICER
 
 VictoryRoadF2_MapScriptHeader::
 
@@ -200,6 +201,26 @@ VictoryRoadF2Everstone:
 VictoryRoadF2HiddenTradeStone:
 	dwb EVENT_VICTORY_ROAD_F2_HIDDEN_TRADE_STONE, TRADE_STONE
 
+VictoryRoadF2OfficerScript:
+	faceplayer
+	opentext
+	writetext VictoryRoadF2OfficerText
+	waitbutton
+	closetext
+	end
+
+VictoryRoadF2OfficerText:
+	text "This is ORANGE"
+	line "CAVE! Horribly"
+	cont "strong #MON"
+	cont "live in there!"
+
+	para "The ORANGE LEAGUE"
+	line "champion is the"
+	cont "only person who"
+	cont "is allowed in!"
+	done
+
 VictoryRoadF2_MapEventHeader::
 
 .Warps: db 6
@@ -216,7 +237,7 @@ VictoryRoadF2_MapEventHeader::
 .BGEvents: db 1
 	signpost 13, 44, SIGNPOST_ITEM, VictoryRoadF2HiddenTradeStone
 
-.ObjectEvents: db 8
+.ObjectEvents: db 9
 	person_event SPRITE_YOUNGSTER, 10, 10, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerCamperNeb, -1
 	person_event SPRITE_YOUNGSTER, 10,  7, SPRITEMOVEDATA_STANDING_RIGHT, 1, 0, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_TRAINER, 2, TrainerCamperSnyd, -1
 	person_event SPRITE_CAT_MAN, 10, 47, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_TRAINER, 1, TrainerCatmanMayo, -1
@@ -225,3 +246,4 @@ VictoryRoadF2_MapEventHeader::
 	person_event SPRITE_YOUNGSTER,  6, 15, SPRITEMOVEDATA_SPINRANDOM_FAST, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_TRAINER, 4, TrainerYoungsterEve, -1
 	person_event SPRITE_POKE_BALL, 16, 35, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, VictoryRoadF2Elixer, EVENT_VICTORY_ROAD_F2_ELIXER
 	person_event SPRITE_POKE_BALL, 17,  4, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, VictoryRoadF2Everstone, EVENT_VICTORY_ROAD_F2_EVERSTONE
+	person_event SPRITE_OFFICER,  2, 49, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, VictoryRoadF2OfficerScript, EVENT_BEAT_ORANGE_LEAGUE
