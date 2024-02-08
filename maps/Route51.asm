@@ -4,6 +4,7 @@ const_value = 1
 	const ROUTE51_FRUIT_TREE
 	const ROUTE51_POKE_BALL1
 	const ROUTE51_POKE_BALL2
+	const ROUTE51_HO_OH
 
 Route51_MapScriptHeader:
 
@@ -65,6 +66,26 @@ Route51SignText:
 	text "ROUTE 51"
 	done
 
+Route51Ho_ohScript:	
+	faceplayer
+	opentext
+	writetext Ho_ohText
+	cry HO_OH
+	pause 15
+	closetext
+	writecode VAR_BATTLETYPE, BATTLETYPE_SNORLAX
+	loadwildmon HO_OH, 70
+	startbattle
+	disappear ROUTE51_HO_OH
+	reloadmapafterbattle
+	playmapmusic
+	setevent EVENT_ROUTE51_HO_OH_FOUGHT
+	end
+	
+Ho_ohText:
+	text "Shaooo!"
+	done
+
 Route51_MapEventHeader::
 
 .Warps: db 2
@@ -76,10 +97,10 @@ Route51_MapEventHeader::
 .BGEvents: db 1
 	signpost 12, 20, SIGNPOST_READ, Route51Sign
 
-.ObjectEvents: db 5
+.ObjectEvents: db 6
 	person_event SPRITE_YOUNGSTER, 19, 14, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route51YoungsterScript, -1
 	person_event SPRITE_BUG_BOY, 5, 12, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 1, TrainerBug_catcherSam, -1
 	person_event SPRITE_FRUIT_TREE, 25, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, Route51FruitTree, -1
 	person_event SPRITE_POKE_BALL,  1, 19, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route51Potion, EVENT_ROUTE_51_POTION
 	person_event SPRITE_POKE_BALL,  6,  7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, Route51PokeBall, EVENT_ROUTE_51_POKE_BALL
-
+	person_event SPRITE_HO_OH, 12, 28, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_RED, 0, 0, Route51Ho_ohScript, EVENT_ROUTE51_HO_OH_FOUGHT

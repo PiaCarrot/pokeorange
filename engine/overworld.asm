@@ -906,6 +906,7 @@ Group12Sprites:
 	db SPRITE_YOUNGSTER
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_HO_OH
 	db 0 ; end
 
 Group15Sprites:

@@ -39,6 +39,8 @@ ENDM
 	trigger_def AIRSHIP_CUTSCENE,		  	  wAirshipCutsceneTrigger
 	trigger_def AIRSHIP_INTERIOR,		  	  wAirshipInteriorTrigger
 	trigger_def ICE_ISLAND,		  	 		  wIceIslandTrigger
+	trigger_def SUNRAY_CAVE_MANDARIN_DESERT_1F, wSunrayCaveTrigger
+	trigger_def ROUTE_51,		  	 		  wRoute51Trigger
 
 	db -1
 ; 4d15b

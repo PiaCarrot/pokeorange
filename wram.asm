@@ -2321,7 +2321,11 @@ EventFlags:: ; da72
 	flag_array NUM_EVENTS
 ; db6c
 
-	ds 200
+	ds 198
+wSunrayCaveTrigger::
+	ds 1
+wRoute51Trigger::
+	ds 1
 
 wCurBox:: ; db72
 	ds 1

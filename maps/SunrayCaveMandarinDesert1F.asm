@@ -1,12 +1,18 @@
 const_value = 1
 	const KECLEON_MANDARIN_DESERT_CAVE
-	const MEWTWO_MANDARIN_DESERT_CAVE
+	const SUNRAY_CROSS
+	const MARSHADOW_MANDARIN_DESERT_CAVE
 
 SunrayCaveMandarinDesert1F_MapScriptHeader::
 
 .Triggers: db 0
 
-.Callbacks: db 0
+.Callbacks: db 1
+	dbw MAPCALLBACK_OBJECTS, HideCrossCallback
+
+HideCrossCallback:
+	disappear SUNRAY_CROSS
+	return
 
 InvisibleForceScript:
 	opentext
@@ -31,7 +37,7 @@ InvisibleForceScript:
 	startbattle
 	disappear KECLEON_MANDARIN_DESERT_CAVE
 	reloadmapafterbattle
-;   setevent EVENT_MANDARIN_CAVE_KECLEON_DEFEATED
+    setevent EVENT_MANDARIN_CAVE_KECLEON_DEFEATED
 	end
 	
 RainbowWingReactsText:
@@ -51,24 +57,54 @@ InvisibleForceText:
 	line "blocks the way<...>"
 	done
 
-MandarinCaveMewtwoScript:	
+SunrayCaveCrossScript:
+	appear SUNRAY_CROSS
+	showemote EMOTE_SHOCK, PLAYER, 15
+	pause 10
+	applymovement SUNRAY_CROSS, SunrayCrossMovement1
+	playmusic MUSIC_LOOK_GLADION
+	opentext
+	writetext CrossSunrayText
+	waitbutton
+	closetext
+	disappear SUNRAY_CROSS
+	special Special_FadeInQuickly
+	pause 20
+	playmapmusic
+	pause 10
+	takeitem RAINBOW_WING
+	setevent EVENT_CROSS_CORRUPTED_SUNRAY
+	jump MandarinCaveMarshadowScript
+
+SunrayCrossMovement1:
+	step UP
+	step UP
+	step UP
+	step UP
+	step_end
+
+MandarinCaveMarshadowScript:	
 	faceplayer
 	opentext
-	writetext MewtwoText
-	cry MEWTWO
+	writetext MarshadowText
+	cry MARSHADOW
 	pause 15
 	closetext
 	writecode VAR_BATTLETYPE, BATTLETYPE_SNORLAX
-	loadwildmon MEWTWO, 70
+	loadwildmon MARSHADOW, 60
 	startbattle
-	disappear MEWTWO_MANDARIN_DESERT_CAVE
+	disappear MARSHADOW_MANDARIN_DESERT_CAVE
 	reloadmapafterbattle
 	playmapmusic
-	setevent EVENT_SUNRAY_CAVE_1F_MEWTWO_FOUGHT
+	setevent EVENT_SUNRAY_CAVE_1F_MARSHADOW_FOUGHT
 	end
 	
-MewtwoText:
-	text "Mew!"
+MarshadowText:
+	text "Shadow!"
+	done
+
+CrossSunrayText:
+	text "placeholder"
 	done
 
 SunrayCaveMandarinDesert1F_MapEventHeader::
@@ -79,10 +115,12 @@ SunrayCaveMandarinDesert1F_MapEventHeader::
 	warp_def 19, 19, 4, SUNRAY_CAVE_MANDARIN_DESERT_1F
 	warp_def 11, 29, 3, SUNRAY_CAVE_MANDARIN_DESERT_1F
 
-.CoordEvents: db 0
+.CoordEvents: db 1
+	xy_trigger 0,  3, 30, SunrayCaveCrossScript
 
 .BGEvents: db 0
 
-.ObjectEvents: db 2
+.ObjectEvents: db 3
 	person_event SPRITE_INVISIBLE, 3, 13, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, InvisibleForceScript, -1
-	person_event SPRITE_MEWTWO,  2, 30, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_OW_SILVER, 0, 0, MandarinCaveMewtwoScript, EVENT_SUNRAY_CAVE_1F_MEWTWO_FOUGHT
+	person_event SPRITE_ROCKER,  8, 30, SPRITEMOVEDATA_STANDING_UP, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_CROSS_CORRUPTED_SUNRAY
+	person_event SPRITE_MARSHADOW,  2, 30, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_GRAY, 0, 0, MandarinCaveMarshadowScript, EVENT_SUNRAY_CAVE_1F_MARSHADOW_FOUGHT
