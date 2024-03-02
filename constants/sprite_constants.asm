@@ -189,6 +189,7 @@ const_value = PAL_OW_SILVER
 	const PAL_OW_GRAY   ; 05
 	const PAL_OW_YELLOW ; 06
 	const PAL_OW_TEAL   ; 07
+	const PAL_OW_PINK   ; 08
 
 ; sprite movement data table indices
 ; see data/map_objects.asm

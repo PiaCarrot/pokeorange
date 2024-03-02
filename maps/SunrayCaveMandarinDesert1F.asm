@@ -58,12 +58,14 @@ InvisibleForceText:
 	done
 
 SunrayCaveCrossScript:
+	checkevent EVENT_CROSS_CORRUPTED_SUNRAY
+	iftrue .corruptedCross
+	playmusic MUSIC_LOOK_GLADION
 	appear SUNRAY_CROSS
 	showemote EMOTE_SHOCK, PLAYER, 15
 	spriteface PLAYER, DOWN
 	pause 10
 	applymovement SUNRAY_CROSS, SunrayCrossMovement1
-	playmusic MUSIC_LOOK_GLADION
 	opentext
 	writetext CrossSunrayText
 	waitbutton
@@ -77,6 +79,8 @@ SunrayCaveCrossScript:
 	setevent EVENT_CROSS_CORRUPTED_SUNRAY
 	spriteface PLAYER, UP
 	jump MandarinCaveMarshadowScript
+.corruptedCross:
+	end
 
 SunrayCrossMovement1:
 	step UP
@@ -124,5 +128,5 @@ SunrayCaveMandarinDesert1F_MapEventHeader::
 
 .ObjectEvents: db 3
 	person_event SPRITE_INVISIBLE, 3, 13, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, InvisibleForceScript, EVENT_MANDARIN_CAVE_KECLEON_DEFEATED
-	person_event SPRITE_ROCKER,  8, 30, SPRITEMOVEDATA_STANDING_UP, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_CROSS_CORRUPTED_SUNRAY
+	person_event SPRITE_ROCKER,  8, 30, SPRITEMOVEDATA_STANDING_UP, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_SUNRAY_CAVE_1F_CROSS_FOUGHT
 	person_event SPRITE_MARSHADOW,  2, 30, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_GRAY, 0, 0, MandarinCaveMarshadowScript, EVENT_SUNRAY_CAVE_1F_MARSHADOW_FOUGHT
