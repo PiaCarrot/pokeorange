@@ -128,6 +128,8 @@
 	const SPRITE_LAWRENCE
 	const SPRITE_CAPTURE_RING
 	const SPRITE_KAT
+	const SPRITE_SHRINE1
+	const SPRITE_SHRINE2
 
 const_value = $90
 SPRITE_POKEMON EQU const_value

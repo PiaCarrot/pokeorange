@@ -957,6 +957,8 @@ Group17Sprites:
 	db SPRITE_LASS
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_SHRINE1
+	db SPRITE_SHRINE2
 	db 0 ;end
 
 Group18Sprites:

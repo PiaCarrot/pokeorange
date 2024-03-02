@@ -489,3 +489,9 @@ CaptureRingSprite:
 
 KatSprite:
 	sprite_header KatSpriteGFX, 3, WALKING_SPRITE, PAL_OW_RED
+
+Shrine1Sprite:
+	sprite_header Shrine1SpriteGFX, 1, STILL_SPRITE, PAL_OW_ROCK
+	
+Shrine2Sprite:
+	sprite_header Shrine2SpriteGFX, 1, STILL_SPRITE, PAL_OW_ROCK
