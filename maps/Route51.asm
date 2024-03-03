@@ -129,7 +129,7 @@ Route51CrossScript:
 	iftrue .GotSquirtle
 	winlosstext CrossRoute51WinLoss, 0
 	setlasttalked ROUTE51_CROSS
-	loadtrainer CROSS, 15
+	loadtrainer CROSS, 18
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -139,7 +139,7 @@ Route51CrossScript:
 .GotCharmander:
 	winlosstext ROUTE51_CROSS, 0
 	setlasttalked ROUTE51_CROSS
-	loadtrainer CROSS, 13
+	loadtrainer CROSS, 16
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
@@ -148,7 +148,7 @@ Route51CrossScript:
 .GotSquirtle:
 	winlosstext ROUTE51_CROSS, 0
 	setlasttalked ROUTE51_CROSS
-	loadtrainer CROSS, 14
+	loadtrainer CROSS, 17
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
