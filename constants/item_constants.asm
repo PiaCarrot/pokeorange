@@ -167,6 +167,7 @@
 	const ELECTRIC_ORB
 	const FIRE_ORB
 	const ICE_ORB
+	const KANTO_STONE
 
 	add_tm POWERUPPUNCH ; $9d
 	add_tm DRAGON_PULSE ; $9e

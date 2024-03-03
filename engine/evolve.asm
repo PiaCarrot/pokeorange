@@ -310,7 +310,7 @@ endr
     push bc
     call IsInJohto
     ld a, [TempMonSpecies]
-    jr z, .meowth
+    jr z, .cubone_alola
     cp PIKACHU
     jr nz, .exeggcute
     ld a, RAICHU_KANTONESE_FORM
@@ -325,6 +325,24 @@ endr
     jr nz, .meowth
     ld a, MAROWAK_KANTONESE_FORM
     jr .got_form
+.cubone_alola
+	cp CUBONE
+	jr nz, .meowth
+	push bc
+	push hl
+	push de
+	ld a, [wCurPartyMon]
+	ld hl, PartyMon1Gender
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [hl]
+	and GENDER_MASK ;delete current form
+	or $01 ;enforce form 1 (alolan)
+	ld [hl], a ;store
+	pop de
+	pop hl
+	pop bc
+	ld a, MAROWAK_NORMAL_FORM
 .meowth
     cp MEOWTH
     jr nz, .rockruff
@@ -650,20 +668,32 @@ LearnEvolutionMove:
 	ret
 
 .region
-	call IsInJohto
-	jp z, .continue
+	;call IsInJohto ;disabled region evos since kanto stone will be used for these three
+	;jp z, .continue
 	ld a, [CurPartySpecies]
 	cp CUBONE
 	jr z, .cubone
 	cp EXEGGCUTE
 	jr z, .exeggcute
 .pikachu
+	ld a, [TempMonForm]
+	and FORM_MASK
+	cp RAICHU_KANTONESE_FORM
+	jr nz, .continue
 	ld [hl], THUNDERPUNCH
 	jr .spec_continue
 .exeggcute
+	ld a, [TempMonForm]
+	and FORM_MASK
+	cp EXEGGUTOR_KANTONESE_FORM
+	jr nz, .continue
 	ld [hl], SEED_BOMB
 	jr .spec_continue
 .cubone
+	ld a, [TempMonForm]
+	and FORM_MASK
+	cp MAROWAK_KANTONESE_FORM
+	jr nz, .continue
 	ld [hl], SWORDS_DANCE
 	jr .spec_continue
 .dual
