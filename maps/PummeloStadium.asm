@@ -50,6 +50,10 @@ PummeloStadiumEntry:
 	special FadeOutPalettes
 	pause 15
 	setevent EVENT_BEAT_ORANGE_LEAGUE
+	clearevent EVENT_SEVEN_GRAPEFRUITS_SNORLAX
+	clearevent EVENT_FUKUHARA_BF3_AERODACTYL_FOUGHT
+	clearevent EVENT_MIMIKYU_FOUGHT
+	clearevent EVENT_MANDARIN_CAVE_KECLEON_FOUGHT
 	warpfacing UP, HALL_OF_FAME, 6, 11
 	end
 
@@ -109,10 +113,27 @@ PummeloStadiumEntry:
 	playmapmusic
 	reloadmapafterbattle
 	opentext
-	writetext StadiumWonText
+	writetext StadiumWonText1
 	waitbutton
-	;give something as reward
+	verbosegiveitem MASTER_BALL
+	writetext StadiumWonText2
+	waitbutton
 	closetext
+	;reset static encounters
+	clearevent EVENT_SEVEN_GRAPEFRUITS_SNORLAX
+	clearevent EVENT_FUKUHARA_BF3_AERODACTYL_FOUGHT
+	clearevent EVENT_MIMIKYU_FOUGHT
+	clearevent EVENT_ZAPDOS_FOUGHT
+	clearevent EVENT_ARTICUNO_FOUGHT
+	clearevent EVENT_MOLTRES_FOUGHT
+	clearevent EVENT_LUGIA_FOUGHT
+	clearevent EVENT_MANDARIN_CAVE_KECLEON_FOUGHT
+	clearevent EVENT_SUNRAY_CAVE_1F_MARSHADOW_FOUGHT
+	clearevent EVENT_ROUTE51_HO_OH_FOUGHT
+	clearevent EVENT_TANGELO_JUNGLE_MEW_FOUGHT
+	clearevent EVENT_VICTORY_ROAD_MEWTWO_FOUGHT
+	clearevent EVENT_TARROCO_CELEBI_FOUGHT
+	special InitRoamMons ;reset the eon duo
 	end
 	
 .NoSpikeShell:
@@ -212,8 +233,12 @@ RedWinLoss:
 	text "..."
 	done
 
-StadiumWonText:
+StadiumWonText1:
 	text "You won!"
+	done
+
+StadiumWonText2:
+	text "You won 2!"
 	done
 
 PummeloStadiumNoSpikeShellText:

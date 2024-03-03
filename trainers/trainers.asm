@@ -3938,10 +3938,10 @@ CrossGroup:
 		db FLAMETHROWER
 
 	db 75, MARSHADOW
-		db ANCIENTPOWER
-		db LEECH_SEED
-		db GIGA_DRAIN
-		db SOLARBEAM
+		db SHADOW_BALL
+		db DIZZY_PUNCH
+		db NASTY_PLOT
+		db SPECTRATHIEF
 
 	db $ff ; end
 
@@ -3984,10 +3984,10 @@ CrossGroup:
 		db THUNDERBOLT
 
 	db 75, MARSHADOW
-		db STOMP
-		db FLAME_WHEEL
-		db AGILITY
-		db SUNNY_DAY
+		db SHADOW_BALL
+		db DIZZY_PUNCH
+		db NASTY_PLOT
+		db SPECTRATHIEF
 
 	db $ff ; end
 
@@ -4030,10 +4030,10 @@ CrossGroup:
 		db AMNESIA
 		
 	db 75, MARSHADOW
-		db ICE_PUNCH
-		db SING
-		db SWEET_KISS
-		db BLIZZARD
+		db SHADOW_BALL
+		db DIZZY_PUNCH
+		db NASTY_PLOT
+		db SPECTRATHIEF
 
 	db $ff ; end
 
