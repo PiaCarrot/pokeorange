@@ -2250,7 +2250,10 @@ AnimateTrademonFrontpic: ; 4d81e
 	ld [CurPartySpecies], a
 	hlcoord 7, 2
 	lb de, $0, ANIM_MON_TRADE
-	predef_jump AnimateFrontpic
+	;predef_jump AnimateFrontpic
+	ld c, 180 ;artificial 3 second delay after showing the mon's data
+	call DelayFrames
+	ret ;remove animation
 
 CheckPokerus: ; 4d860
 ; Return carry if a monster in your party has Pokerus

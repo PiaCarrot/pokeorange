@@ -264,12 +264,12 @@ StrictForm:
 
 	; If we're here, it's the alolan form... which, is NOT default.
 	ld a, [EnemyMonPersonality]
-	and FORM_MASK ;erase form
+	and GENDER_MASK ;erase form
 	or $02 ;enforce form 2 (alolan, not default)
 	jp .store_enforced_form
 .kantonese_sandshrew
 	ld a, [EnemyMonPersonality]
-	and FORM_MASK ;erase form
+	and GENDER_MASK ;erase form
 	or $01 ;enforce form 1 (alolan, default)
 	jp .store_enforced_form
 
@@ -286,12 +286,12 @@ StrictForm:
 	; If we're here, it's the alolan form... which, is default.
 
 	ld a, [EnemyMonPersonality]
-	and FORM_MASK ;erase form
+	and GENDER_MASK ;erase form
 	or $01 ;enforce form 1 (alolan, default)
 	jp .store_enforced_form
 .kantonese_vulpix
 	ld a, [EnemyMonPersonality]
-	and FORM_MASK ;erase form
+	and GENDER_MASK ;erase form
 	or $02 ;enforce form 2 (alolan, not default)
 	jp .store_enforced_form
 
@@ -310,13 +310,13 @@ StrictForm:
 ; Meowth is pretty straightforward
 .wild_meowth ;seems only normal form is supposed to appear?
 	ld a, [EnemyMonPersonality]
-	and FORM_MASK ;erase form
+	and GENDER_MASK ;erase form
 	or MEOWTH_NORMAL_FORM ;enforce form 1 (normal, default?)
 	jp .store_enforced_form
 
 .crystal_onix
 	ld a, [EnemyMonPersonality]
-	and FORM_MASK ;erase form
+	and GENDER_MASK ;erase form
 	or $02 ;enforce form 2 (crystal)
 	or %11000000 ;enforce male for crystal onix
 	jp .store_enforced_form

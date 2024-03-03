@@ -57,7 +57,12 @@ KumquatEastSightseerF1Text:
 	done
 
 KumquatEastSightseerF2:
-	jumptextfaceplayer KumquatEastSightseerF2Text
+	faceplayer
+	opentext
+	trade 4
+	waitbutton
+	closetext
+	end
 
 KumquatEastSightseerF2Text:
 	text "The MEOWTH here"

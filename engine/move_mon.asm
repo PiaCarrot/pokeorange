@@ -208,6 +208,7 @@ endr
 	xor a
 	ld [de], a
 	inc de
+	
 ; personality
 	push de
 	ld a, [MonType]
@@ -222,11 +223,15 @@ endr
 	call GetRandomPersonality
 .initializetrainermonpersonality
 	pop de
+
+; CaughtData/CaughtTime/CaughtLevel
+	xor a
 	ld [de], a
 	inc de
-; caught data
+; CaughtGender/CaughtLocation
 	ld [de], a
 	inc de
+
 ; level
 	ld a, [CurPartyLevel]
 	ld [de], a
