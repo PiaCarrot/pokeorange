@@ -1557,9 +1557,6 @@ GetBaseData:: ; 3856
     
 .exeggutor
 	ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
     cp EXEGGUTOR_KANTONESE_FORM
 	ld a, EXEGGUTOR
@@ -1571,9 +1568,6 @@ GetBaseData:: ; 3856
 	
 .vulpix
 	ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, VULPIX_KANTONESE_FORM
@@ -1588,9 +1582,6 @@ GetBaseData:: ; 3856
 	
 .rattata
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
 	ld b, RATTATA_KANTONESE_FORM
@@ -1605,9 +1596,6 @@ GetBaseData:: ; 3856
 	
 .raticate
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, RATICATE_KANTONESE_FORM
@@ -1622,9 +1610,6 @@ GetBaseData:: ; 3856
 	
 .raichu
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, RAICHU_KANTONESE_FORM
@@ -1639,9 +1624,6 @@ GetBaseData:: ; 3856
 	
 .sandshrew
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, SANDSHREW_ALOLAN_FORM
@@ -1656,9 +1638,6 @@ GetBaseData:: ; 3856
 	
 .sandslash
    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, SANDSLASH_ALOLAN_FORM
@@ -1673,9 +1652,6 @@ GetBaseData:: ; 3856
 	
 .ninetales
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, NINETALES_KANTONESE_FORM
@@ -1690,9 +1666,6 @@ GetBaseData:: ; 3856
 	
 .diglett
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, DIGLETT_KANTONESE_FORM
@@ -1707,9 +1680,6 @@ GetBaseData:: ; 3856
 	
 .dugtrio
    ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, DUGTRIO_KANTONESE_FORM
@@ -1724,9 +1694,6 @@ GetBaseData:: ; 3856
 	
 .meowth
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, MEOWTH_ALOLAN_FORM
@@ -1741,9 +1708,6 @@ GetBaseData:: ; 3856
 	
 .persian
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, PERSIAN_ALOLAN_FORM
@@ -1758,9 +1722,6 @@ GetBaseData:: ; 3856
 	
 .geodude
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, GEODUDE_KANTONESE_FORM
@@ -1775,9 +1736,6 @@ GetBaseData:: ; 3856
 	
 .graveler
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, GRAVELER_KANTONESE_FORM
@@ -1792,9 +1750,6 @@ GetBaseData:: ; 3856
 	
 .golem
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, GOLEM_KANTONESE_FORM
@@ -1809,9 +1764,6 @@ GetBaseData:: ; 3856
 	
 .grimer
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, GRIMER_KANTONESE_FORM
@@ -1826,9 +1778,6 @@ GetBaseData:: ; 3856
 	
 .muk
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, MUK_KANTONESE_FORM
@@ -1843,9 +1792,6 @@ GetBaseData:: ; 3856
 	
 .marowak
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, MAROWAK_KANTONESE_FORM
@@ -1860,9 +1806,6 @@ GetBaseData:: ; 3856
 	
 .onix
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, ONIX_CRYSTAL_FORM
@@ -1877,9 +1820,6 @@ GetBaseData:: ; 3856
 
 .steelix
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, STEELIX_CRYSTAL_FORM
@@ -1894,30 +1834,26 @@ GetBaseData:: ; 3856
 	
 .lycanroc
     ld a, [TempMonForm]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
     ld b, LYCANROC_MIDNIGHT_FORM
 	cp b
-	pop bc
-	cp b
-	jp z, .midnight
-	cp LYCANROC_DUSK_FORM
-	ld a, LYCANROC
-    jp nz, .got_base_data
-    ld a, BANK(DuskLycanrocBaseData)
-    rst Bankswitch
-    ld hl, DuskLycanrocBaseData
-    jp .got_base_data_loc
-	
-.midnight
-	ld a, LYCANROC
-    jp nz, .got_base_data
+	jr nz, .dusk_or_day
+.licanrock_midnight
+	pop bc ;it is midnight form, load data and return
     ld a, BANK(MidnightLycanrocBaseData)
     rst Bankswitch
     ld hl, MidnightLycanrocBaseData
+    jp .got_base_data_loc
+.dusk_or_day
+	ld b, LYCANROC_DUSK_FORM
+	cp b
+	pop bc
+	ld a, LYCANROC
+	jp nz, .got_base_data ; no dusk, so the first form data (day forme) is already loaded
+    ld a, BANK(DuskLycanrocBaseData)
+    rst Bankswitch
+    ld hl, DuskLycanrocBaseData
     jp .got_base_data_loc
 
 .end

@@ -396,6 +396,7 @@ ArbokEvosAttacks:
 
 PikachuEvosAttacks:
 	db EVOLVE_ITEM, THUNDERSTONE, RAICHU
+	db EVOLVE_ITEM, KANTO_STONE, RAICHU
 	db 0 ; no more evolutions
 	db 1, THUNDERSHOCK
 	db 1, GROWL
@@ -1783,6 +1784,7 @@ ElectrodeEvosAttacks:
 
 ExeggcuteEvosAttacks:
 	db EVOLVE_ITEM, LEAF_STONE, EXEGGUTOR
+	db EVOLVE_ITEM, KANTO_STONE, EXEGGUTOR
 	db 0 ; no more evolutions
 	db 1, BARRAGE
 	db 1, LIGHT_SCREEN ; UPROAR
@@ -1813,6 +1815,7 @@ ExeggutorEvosAttacks:
 
 CuboneEvosAttacks:
 	db EVOLVE_LEVEL, 28, MAROWAK
+	db EVOLVE_ITEM, KANTO_STONE, MAROWAK
 	db 0 ; no more evolutions
 	db 1, GROWL
 	db 5, TAIL_WHIP

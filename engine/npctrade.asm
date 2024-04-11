@@ -138,6 +138,25 @@ Trade_GetDialog: ; fcc59
 ; fcc63
 
 DoNPCTrade: ; fcc63
+
+	;temporarily store form for correct animation
+	push af
+	push bc
+	push hl
+	push de
+	ld a, [wCurPartyMon]
+	ld hl, PartyMon1Gender
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [hl]
+	ld [TempMonHappiness], a ;store 
+	ld [TempMonGender], a ;store 
+	pop de
+	pop hl
+	pop bc
+	pop af
+	;
+
 	ld e, TRADE_GIVEMON
 	call GetTradeAttribute
 	ld a, [hl]
@@ -193,9 +212,10 @@ DoNPCTrade: ; fcc63
 	call GetTradeAttribute
 	ld a, [hl]
 	cp 3
-	; if carry (a < 3) then a = 1, else a = 2
-	sbc a
-	add 2
+	ld a, CAUGHT_BY_GIRL
+	jr c, .okay
+	ld a, CAUGHT_BY_BOY
+.okay
 	ld [wOTTrademonCaughtData], a
 
 	ld hl, PartyMon1Level
@@ -279,6 +299,22 @@ DoNPCTrade: ; fcc63
 	ld a, [hl]
 	ld [de], a
 
+	ld e, TRADE_GETMON
+	call GetTradeAttribute
+	push hl
+	ld hl, PartyMon1Gender
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call Trade_GetAttributeOfLastPartymon
+	pop hl
+	ld a, [hl]
+	cp a, MEOWTH
+	jr nz, .skipformforce
+	ld a, [de]
+	and GENDER_MASK ;erase form
+	or $02 ;enforce form 2 (alolan, not default)
+	ld [de], a
+
+.skipformforce
 	push af
 	push bc
 	push de
@@ -419,6 +455,7 @@ ENDM
 	npctrade 3, PIKACHU,    CLEFAIRY,   "ARIA@@@@@@@", $96, $66, GOLD_BERRY,   48926, "MARISSA@@@@", TRADE_EITHER_GENDER
 	npctrade 0, MEOWTH,     MR__MIME,   "MIMEY@@@@@@", $98, $88, FOCUS_BAND,   22689, "SHAMUS@@@@@", TRADE_EITHER_GENDER
 	npctrade 3, STUNFISK,   SEEL,       "PUFF@@@@@@@", $96, $66, MYSTERYBERRY, 62712, "MAYA@@@@@@@", TRADE_EITHER_GENDER
+	npctrade 4, MEOWTH,     MEOWTH,     "MOMOSHIRO@@", $98, $88, LEFTOVERS,    43673, "SOYA@@@@@@@", TRADE_EITHER_GENDER
 ; fcf38
 
 
@@ -426,7 +463,7 @@ PrintTradeText: ; fcf38
 	push af
 	call GetTradeMonNames
 	pop af
-	ld bc, 2 * 4
+	ld bc, 2 * 5
 	ld hl, TradeTexts
 	call AddNTimes
 	ld a, [wcf64]
@@ -445,30 +482,35 @@ TradeTexts: ; fcf53
 	dw TradeIntroText2
 	dw TradeIntroText3
 	dw TradeIntroText4
+	dw TradeIntroText5
 
 ; cancel
 	dw TradeCancelText1
 	dw TradeCancelText2
 	dw TradeCancelText3
 	dw TradeCancelText4
+	dw TradeCancelText5
 
 ; wrong mon
 	dw TradeWrongText1
 	dw TradeWrongText2
 	dw TradeWrongText3
 	dw TradeWrongText4
+	dw TradeWrongText5
 
 ; completed
 	dw TradeCompleteText1
 	dw TradeCompleteText2
 	dw TradeCompleteText3
 	dw TradeCompleteText4
+	dw TradeCompleteText5
 
 ; after
 	dw TradeAfterText1
 	dw TradeAfterText2
 	dw TradeAfterText3
 	dw TradeAfterText4
+	dw TradeAfterText5
 ; fcf7b
 
 
@@ -496,6 +538,17 @@ TradedForText: ; 0xfcf80
 	db "@"
 ; 0xfcf97
 
+TradeIntroText5:
+	text_jump _TradeIntroText5
+	db "@"
+
+TradeAfterText5:
+	text_jump _TradeAfterText5
+	db "@"
+
+TradeCompleteText5:
+	text_jump _TradeCompleteText5
+	db "@"
 
 TradeIntroText1: ; 0xfcf97
 	; I collect #MON. Do you have @ ? Want to trade it for my @ ?
@@ -568,12 +621,14 @@ TradeIntroText4: ; 0xfcfc9
 	db "@"
 ; 0xfcfce
 
+TradeCancelText5:
 TradeCancelText4: ; 0xfcfce
 	; You don't want to trade? Oh, darn…
 	text_jump UnknownText_0x1bd673
 	db "@"
 ; 0xfcfd3
 
+TradeWrongText5:
 TradeWrongText4: ; 0xfcfd3
 	; That's not @ . Please trade with me if you get one.
 	text_jump UnknownText_0x1bd696
@@ -629,3 +684,26 @@ GetCaughtGender: ; 4f301
 	ld c, 0
 	ret
 ; 4f31c
+
+_TradeIntroText5:
+	text "The MEOWTH here"
+	line "are different from"
+	cont "the ones from my"
+	cont "region."
+	para "Would you like to"
+	line "trade a MEOWTH for"
+	cont "one of my region?"
+	done
+
+_TradeCompleteText5:
+	text "Great! This region"
+	line "MEOWTH are so"
+	cont "interesting!"
+	done
+
+_TradeAfterText5:
+	text "My friends will"
+	line "be amazed when I"
+	cont "show them this"
+	cont "MEOWTH!"
+	done

@@ -37,6 +37,10 @@ TVScript:
 	opentext
 	writetext EonDuoTVSpecial
 	waitbutton
+	writebyte LATIAS
+	special ShowPokedexEntry
+	writebyte LATIOS
+	special ShowPokedexEntry
 	closetext
 	setevent EVENT_EON_DUO_WILD
 	special InitRoamMons

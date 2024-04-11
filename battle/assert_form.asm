@@ -1,55 +1,17 @@
 AssertEnemyMonType:
-	ld a, [CurSpecies]
-	cp RATTATA
-	jp z, .dual_form
-    cp RATICATE
-    jp z, .dual_form
-	cp ONIX
-	jp z, .dual_form
-	cp STEELIX
-	jp z, .dual_form
-	cp EXEGGUTOR
-	jp z, .dual_form
-	cp GRIMER
-	jp z, .dual_form
-	cp MUK
-	jp z, .dual_form
-	cp VULPIX
-	jp z, .dual_form
-	cp NINETALES
-	jp z, .dual_form
-	cp SANDSHREW
-	jp z, .dual_form
-	cp SANDSLASH
-	jp z, .dual_form
-    cp DIGLETT
-    jp z, .dual_form
-    cp DUGTRIO
-    jp z, .dual_form
-    cp GEODUDE
-	jp z, .dual_form
-	cp GRAVELER
-	jp z, .dual_form
-    cp GOLEM
-	jp z, .dual_form
-    cp MAROWAK
-    jp z, .dual_form
-    cp RAICHU
-    jp z, .dual_form
-	cp MEOWTH
-	jp z, .meowth
-	jp .end
-.dual_form
 	ld a, [EnemyMonPersonality]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
-	ld b, 2
+	ld b, 3 ;lycanrock check
     cp b
 	pop bc
-	jp nz, .end
+	jp z, .handle_forms
+	push bc
+	ld b, 2 ;all other alternate forms
+	cp b
+	pop bc
+	jp nz, .end ;if base form, return
+.handle_forms
 	ld a, [CurSpecies]
 	cp RATTATA
 	jp z, .rattata
@@ -87,6 +49,7 @@ AssertEnemyMonType:
 	jp z, .raichu
 	cp MAROWAK
 	jp z, .marowak
+	jp .end ;failsafe
 .rattata
 .raticate
 	ld a, NORMAL
@@ -145,16 +108,6 @@ AssertEnemyMonType:
 	ld [EnemyMonType2], a
 	jp .end
 .meowth
-    ld a, [EnemyMonPersonality]
-    srl a
-	srl a
-	srl a
-    and FORM_MASK
-	push bc
-	ld b, 2
-    cp b
-    pop bc
-    jr nz, .end
     ld a, DARK
     ld [EnemyMonType1], a
 	ld [EnemyMonType2], a
@@ -163,57 +116,19 @@ AssertEnemyMonType:
 	ret
 
 AssertPlayerMonType:
-	ld a, [BattleMonSpecies]
-	cp RATTATA
-	jp z, .dual_form
-    cp RATICATE
-    jp z, .dual_form
-	cp ONIX
-	jp z, .dual_form
-	cp STEELIX
-	jp z, .dual_form
-	cp EXEGGUTOR
-	jp z, .dual_form
-	cp GRIMER
-	jp z, .dual_form
-	cp MUK
-	jp z, .dual_form
-	cp VULPIX
-	jp z, .dual_form
-	cp NINETALES
-	jp z, .dual_form
-	cp SANDSHREW
-	jp z, .dual_form
-	cp SANDSLASH
-	jp z, .dual_form
-    cp DIGLETT
-    jp z, .dual_form
-    cp DUGTRIO
-    jp z, .dual_form
-    cp GEODUDE
-	jp z, .dual_form
-	cp GRAVELER
-	jp z, .dual_form
-    cp GOLEM
-	jp z, .dual_form
-    cp MAROWAK
-    jp z, .dual_form
-    cp RAICHU
-    jp z, .dual_form
-	cp MEOWTH
-	jp z, .meowth
-	jp .end
-.dual_form
 	ld a, [BattleMonPersonality]
-	srl a
-	srl a
-	srl a
     and FORM_MASK
 	push bc
-	ld b, 2
+	ld b, 3 ;lycanrock check
     cp b
 	pop bc
-	jp nz, .end
+	jp z, .handle_forms
+	push bc
+	ld b, 2 ;all other alternate forms
+	cp b
+	pop bc
+	jp nz, .end ;if base form, return
+.handle_forms
 	ld a, [BattleMonSpecies]
 	cp RATTATA
 	jp z, .rattata
@@ -251,6 +166,8 @@ AssertPlayerMonType:
 	jp z, .raichu
 	cp MAROWAK
 	jp z, .marowak
+	jp .end ;failsafe
+	
 .rattata
 .raticate
 	ld a, NORMAL
@@ -309,16 +226,6 @@ AssertPlayerMonType:
 	ld [BattleMonType2], a
 	jp .end
 .meowth
-    ld a, [BattleMonPersonality]
-    srl a
-	srl a
-	srl a
-    and FORM_MASK
-	push bc
-	ld b, 2
-    cp b
-    pop bc
-    jr nz, .end
     ld a, DARK
     ld [BattleMonType1], a
 	ld [BattleMonType2], a
@@ -356,17 +263,15 @@ StrictForm:
 	jr nc, .kantonese_sandshrew
 
 	; If we're here, it's the alolan form... which, is NOT default.
-	ld a, 100
-	call RandomRange
-	cp 50
-	jp c, .female_form
-	jp .male_form
+	ld a, [EnemyMonPersonality]
+	and GENDER_MASK ;erase form
+	or $02 ;enforce form 2 (alolan, not default)
+	jp .store_enforced_form
 .kantonese_sandshrew
-	ld a, 100
-	call RandomRange
-	cp 50
-	jp c, .female_normal
-	jp .male_normal
+	ld a, [EnemyMonPersonality]
+	and GENDER_MASK ;erase form
+	or $01 ;enforce form 1 (alolan, default)
+	jp .store_enforced_form
 
 .wild_vulpix
 	ld a, [MapGroup]
@@ -379,17 +284,16 @@ StrictForm:
 	jr nc, .kantonese_vulpix
 
 	; If we're here, it's the alolan form... which, is default.
-	ld a, 100
-	call RandomRange
-	cp 25
-	jp nc, .female_normal
-	jp .male_normal
+
+	ld a, [EnemyMonPersonality]
+	and GENDER_MASK ;erase form
+	or $01 ;enforce form 1 (alolan, default)
+	jp .store_enforced_form
 .kantonese_vulpix
-	ld a, 100
-	call RandomRange
-	cp 25
-	jp nc, .female_form
-	jp .male_form
+	ld a, [EnemyMonPersonality]
+	and GENDER_MASK ;erase form
+	or $02 ;enforce form 2 (alolan, not default)
+	jp .store_enforced_form
 
 ; Crystal Onix should only appear in Crystal Cave... and only appear as a MALE. Source: le animu
 .wild_onix
@@ -401,53 +305,23 @@ StrictForm:
 	jr nz, .wild_meowth
 
 	; Alright then, we jump to the male wild Crystal Onix.
-	jp .male_form
+	jp .crystal_onix
 
 ; Meowth is pretty straightforward
-.wild_meowth
-	ld a, 100
-	call RandomRange
-	cp 50
-	jr nc, .female_normal
-	jr .male_normal
+.wild_meowth ;seems only normal form is supposed to appear?
+	ld a, [EnemyMonPersonality]
+	and GENDER_MASK ;erase form
+	or MEOWTH_NORMAL_FORM ;enforce form 1 (normal, default?)
+	jp .store_enforced_form
 
-.male_form
-	ld a, %11110000
-	jr .load_new_value
-.female_form
-	ld a, %00110000
-	jr .load_new_value
-.male_normal
-	ld a, %11000000
-	jr .load_new_value
-.female_normal
-	ld a, %00000000
-.load_new_value
-	ld [EnemyMonPersonality], a
-	ld [TempMonForm], a
-.done
-	ret
+.crystal_onix
+	ld a, [EnemyMonPersonality]
+	and GENDER_MASK ;erase form
+	or $02 ;enforce form 2 (crystal)
+	or %11000000 ;enforce male for crystal onix
+	jp .store_enforced_form
 
-StrictTrainerOnixSteelixForm:
-	ld a, [wBattleMode]
-	cp TRAINER_BATTLE
-	jp nz, .done
-
-	ld a, [EnemyMonSpecies]
-	cp ONIX
-	jr z, .force
-	cp STEELIX
-	jr z, .force
-	jr .done
-
-.force
-	ld a, 100
-	call RandomRange
-	cp 50
-	ld a, %11000000
-	jr nc, .male
-	ld a, %00000000
-.male
+.store_enforced_form
 	ld [EnemyMonPersonality], a
 	ld [TempMonForm], a
 .done

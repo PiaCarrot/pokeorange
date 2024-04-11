@@ -514,26 +514,33 @@ InitRoamMons: ; 2a2a0
 CheckEncounterRoamMon: ; 2a2ce
 	push hl
 ; Don't trigger an encounter if we're on water.
-	call CheckOnWater
-	jr z, .DontEncounterRoamMon
+	;call CheckOnWater
+	;jr z, .DontEncounterRoamMon
 ; Load the current map group and number to de
 	call CopyCurrMapDE
 ; Randomly select a beast.
 	call Random
-	cp 100 ; 25/64 chance
+	cp 100 ; 25/64 chance 39% chance to encounter the roammer if it lies in the same map
 	jr nc, .DontEncounterRoamMon
-	and %00000011 ; Of that, a 3/4 chance.  Running total: 75/256, or around 29.3%.
+	ld a, 1 ;check the rommer #2 first
+	jr nz, .checkmap
+	
+.nextroamer
+	ld a, c
+	cp 0
 	jr z, .DontEncounterRoamMon
-	dec a ; 1/3 chance that it's Entei, 1/3 chance that it's Raikou
+	dec a
+	
+.checkmap
 ; Compare its current location with yours
 	ld hl, wRoamMon1MapGroup
 	ld c, a
 	ld b, 0
-	ld a, 7 ; length of the RoamMon struct
+	ld a, 8 ; length of the RoamMon struct ;in orange the struct is 8 bytes long!
 	call AddNTimes
 	ld a, d
 	cp [hl]
-	jr nz, .DontEncounterRoamMon
+	jr nz, .nextroamer
 	inc hl
 	ld a, e
 	cp [hl]
@@ -700,7 +707,7 @@ JumpRoamMon: ; 2a3cd
 .innerloop1 ; This loop is completely unnecessary.
 	call Random ; Choose a random number
 	and $f ; Take the lower nybble only.  This gives a number between 0 and 15.
-	cp $10 ; If the number is greater than or equal to 16, loop back and try again.
+	cp NUM_ROAMMON_MAPS ; If the number is greater than or equal to 16, loop back and try again.
 	jr nc, .innerloop1 ; I'm sure you can guess why this check is bogus.
 	inc a
 	ld b, a
@@ -747,11 +754,15 @@ RoamMaps: ; 2a40f
 ; and possible maps they can jump to.
 ; Notably missing are Route 40 and
 ; Route 41, which are water routes.
-	roam_map ROUTE_49, 4, ROUTE_50, ROUTE_51, ROUTE_52, ROUTE_53
-	roam_map ROUTE_55, 4, ROUTE_56_WEST, ROUTE_57, UNNAMED_ISLAND_1, SEVEN_GRAPEFRUITS
-	roam_map ROUTE_60, 4, ROUTE_61, UNNAMED_ISLAND_2, ROUTE_62, ROUTE_63_EAST_WEST
-	roam_map ROUTE_64, 4, ROUTE_65, BUTWAL_ISLAND_WEST, ROUTE_67, UNNAMED_ISLAND_3
-	roam_map ROUTE_69_SOUTH, 2, ROUTE_70, ROUTE_71
+
+NUM_ROAMMON_MAPS EQU 5 ;total number of roam_map entries
+
+	roam_map ROUTE_49, 3, ROUTE_50, ROUTE_51, ROUTE_52
+	roam_map ROUTE_55, 3, ROUTE_53, ROUTE_54, ROUTE_56_WEST
+	roam_map ROUTE_57, 4, UNNAMED_ISLAND_1,  ROUTE_58, SEVEN_GRAPEFRUITS, ROUTE_59
+	roam_map ROUTE_60, 3, ROUTE_61, UNNAMED_ISLAND_2, ROUTE_62
+	roam_map ROUTE_65, 4, ROUTE_64, ROUTE_63_EAST_WEST, BUTWAL_ISLAND_WEST, ROUTE_66_EAST_WEST
+	roam_map UNNAMED_ISLAND_3, 3, ROUTE_67, ROUTE_68, ROUTE_69_SOUTH
 	db -1
 ; 2a4a0
 

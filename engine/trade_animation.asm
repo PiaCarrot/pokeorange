@@ -182,14 +182,33 @@ RunTradeAnimScript: ; 28fa1
 	farcall GetTrademonFrontpic
 	call EnableLCD
 	call LoadTradeBallAndCableGFX
+
+	;propper form should already be loaded to TempMonGender at DoNPCTrade:
+	ld a, [TempMonHappiness]
+	ld [TempMonGender], a
+	
 	ld a, [wPlayerTrademonSpecies]
 	ld hl, wPlayerTrademonDVs
 	ld de, VTiles0
 	call TradeAnim_GetFrontpic
+	
 	ld a, [wOTTrademonSpecies]
+	;hard code meowth form as it is the only trade with another form
+	cp a, MEOWTH
+	jr nz, .skipmeowth
+	push af
+	ld a, 2
+	ld [TempMonGender], a
+	pop af
+.skipmeowth
 	ld hl, wOTTrademonDVs
 	ld de, VTiles0 tile $31
 	call TradeAnim_GetFrontpic
+	
+	;restore player tempmongender for trade animation
+	ld a, [TempMonHappiness]
+	ld [TempMonGender], a
+	
 	ld a, [wPlayerTrademonSpecies]
 	ld de, wPlayerTrademonSpeciesName
 	call TradeAnim_GetNickname
@@ -809,6 +828,19 @@ TradeAnim_ShowGivemonData: ; 2942e
 ; 29461
 
 TradeAnim_ShowGetmonData: ; 29461
+
+	push af
+	xor a
+	ld [TempMonGender], a ;default form
+	ld a, [wOTTrademonSpecies]
+	;meowth exception for alolan meowth trade
+	cp a, MEOWTH
+	jr nz, .skipmeowth
+	ld a, 2
+	ld [TempMonGender], a
+.skipmeowth
+	pop af
+
 	call ShowOTTrademonStats
 	ld a, [wOTTrademonSpecies]
 	ld [CurPartySpecies], a
@@ -860,7 +892,19 @@ TradeAnim_ShowGivemonFrontpic: ; 294bb
 	jr TradeAnim_ShowFrontpic
 
 TradeAnim_ShowGetmonFrontpic: ; 294c0
+	push af
+	xor a
+	ld [TempMonGender], a ;default form
+	ld a, [wOTTrademonSpecies]
+	;meowth exception for alolan meowth trade
+	cp a, MEOWTH
+	jr nz, .skipmeowth
+	ld a, 2
+	ld [TempMonGender], a
+.skipmeowth
+	pop af
 	ld de, VTiles0 tile $31
+
 TradeAnim_ShowFrontpic: ; 294c3
 	call DelayFrame
 	ld hl, VTiles2

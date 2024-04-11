@@ -181,6 +181,7 @@ ItemEffects: ; e73c
 	dw ElectricOrb
 	dw FireOrb
 	dw IceOrb
+	dw KantoStone
 ; e8a2
 
 
@@ -1205,6 +1206,7 @@ IceStone:
 Magmarizer:
 Electirizer:
 Protector: ; ee0f
+KantoStone:
 	ld b, PARTYMENUACTION_EVO_STONE
 	call UseItem_SelectMon
 
@@ -1216,6 +1218,36 @@ Protector: ; ee0f
 	ld a, [hl]
 	cp EVERSTONE
 	jr z, .NoEffect
+
+	push bc
+	push hl
+	push de
+	ld a, [CurPartySpecies]
+	cp CUBONE
+	jr z, .SpecialKanto
+	cp EXEGGCUTE
+	jr z, .SpecialKanto
+	cp PIKACHU
+	jr nz, .SkipKanto
+.SpecialKanto
+	ld a, [wCurItem]
+	cp a, KANTO_STONE
+	ld d, $02 ;form 2 (Kantonese)
+	jr z, .StoreForm
+	ld d, $01 ;form 1 (Alolan), asume the other stone
+.StoreForm
+	ld a, [wCurPartyMon]
+	ld hl, PartyMon1Gender
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld a, [hl]
+	and GENDER_MASK ;delete current form
+	or d ;enforce form stored in d
+	ld [hl], a ;store
+.SkipKanto
+	pop de
+	pop hl
+	pop bc
 
 	ld a, $1
 	ld [wForceEvolution], a

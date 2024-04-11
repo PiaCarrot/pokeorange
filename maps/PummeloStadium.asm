@@ -50,14 +50,90 @@ PummeloStadiumEntry:
 	special FadeOutPalettes
 	pause 15
 	setevent EVENT_BEAT_ORANGE_LEAGUE
+	clearevent EVENT_SEVEN_GRAPEFRUITS_SNORLAX
+	clearevent EVENT_FUKUHARA_BF3_AERODACTYL_FOUGHT
+	clearevent EVENT_MIMIKYU_FOUGHT
+	clearevent EVENT_MANDARIN_CAVE_KECLEON_FOUGHT
 	warpfacing UP, HALL_OF_FAME, 6, 11
 	end
 
 .DrakeGone:
 	opentext
 	writetext DrakeGoneText
+	yesorno
+	iftrue .PostGameStadiumBegin
+	writetext DeclinePostStadiumText
 	waitbutton
 	closetext
+	end
+
+.PostGameStadiumBegin:
+	writetext CissyBattleText
+	waitbutton
+	winlosstext CissyWinLoss, 0
+	loadtrainer CISSY, 2
+	startbattle
+
+	playmapmusic
+	reloadmapafterbattle
+	opentext
+	writetext DannyBattleText
+	waitbutton
+	winlosstext DannyWinLoss, 0
+	loadtrainer DANNY, 2
+	startbattle
+
+	playmapmusic
+	reloadmapafterbattle
+	opentext
+	writetext RudyBattleText
+	waitbutton
+	winlosstext RudyWinLoss, 0
+	loadtrainer RUDY, 2
+	startbattle
+
+	playmapmusic
+	reloadmapafterbattle
+	opentext
+	writetext LuanaBattleText
+	waitbutton
+	winlosstext LuanaWinLoss, 0
+	loadtrainer LUANA, 2
+	startbattle
+
+	playmapmusic
+	reloadmapafterbattle
+	opentext
+	writetext RedBattleText
+	waitbutton
+	winlosstext RedWinLoss, 0
+	loadtrainer RED, 1
+	startbattle
+
+	playmapmusic
+	reloadmapafterbattle
+	opentext
+	writetext StadiumWonText1
+	waitbutton
+	verbosegiveitem MASTER_BALL
+	writetext StadiumWonText2
+	waitbutton
+	closetext
+	;reset static encounters
+	clearevent EVENT_SEVEN_GRAPEFRUITS_SNORLAX
+	clearevent EVENT_FUKUHARA_BF3_AERODACTYL_FOUGHT
+	clearevent EVENT_MIMIKYU_FOUGHT
+	clearevent EVENT_ZAPDOS_FOUGHT
+	clearevent EVENT_ARTICUNO_FOUGHT
+	clearevent EVENT_MOLTRES_FOUGHT
+	clearevent EVENT_LUGIA_FOUGHT
+	clearevent EVENT_MANDARIN_CAVE_KECLEON_FOUGHT
+	clearevent EVENT_SUNRAY_CAVE_1F_MARSHADOW_FOUGHT
+	clearevent EVENT_ROUTE51_HO_OH_FOUGHT
+	clearevent EVENT_TANGELO_JUNGLE_MEW_FOUGHT
+	clearevent EVENT_VICTORY_ROAD_MEWTWO_FOUGHT
+	clearevent EVENT_TARROCO_CELEBI_FOUGHT
+	special InitRoamMons ;reset the eon duo
 	end
 	
 .NoSpikeShell:
@@ -76,14 +152,95 @@ PummeloStadiumEntry:
 
 DrakeGoneText:
 	text "Ah, CHAMPION!"
-	line "I'm sorry, there's"
-	cont "no challengers."
 	
 	para "If you're looking"
 	line "for DRAKE. He left"
 	cont "PUMMELO to train."
-	done
+	cont "But if you are"
+	cont "looking for a"
+	cont "challenge, you've"
+	cont "come to the right"
+	cont "place!"
 	
+	para "Would you like to"
+	line "face our island's"
+	cont "strongest?"
+	done
+
+DeclinePostStadiumText:
+	text "Well, these our"
+	line "trainers love"
+	cont "battling, they"
+	cont "will accept your"
+	cont "challenge anytime."
+	
+	para "Please come back."
+	done
+
+CissyBattleText:
+	text "Your first battle"
+	line "will be against"
+	cont "CISSY!"
+	para "What? You expected"
+	line "someone else?"
+	para "Of course our"
+	line "strongest trainers"
+	cont "are the GYM"
+	cont "LEADERS!"
+	para "But don't be"
+	line "fooled, they are"
+	cont "far more powerful"
+	cont "than when you"
+	cont "faced them!"
+	para "Now, let's beggin!"
+	done
+
+DannyBattleText:
+	text "second battle"
+	done
+
+RudyBattleText:
+	text "third battle"
+	done
+
+LuanaBattleText:
+	text "fourth battle"
+	done
+
+RedBattleText:
+	text "..."
+	done
+
+CissyWinLoss:
+	text "I gave it my best"
+	line "shot!"
+	done
+
+DannyWinLoss:
+	text "Wow, not bad at"
+	line "all!"
+	done
+
+RudyWinLoss:
+	text "Hmph."
+	done
+
+LuanaWinLoss:
+	text "Can you do it?"
+	done
+
+RedWinLoss:
+	text "..."
+	done
+
+StadiumWonText1:
+	text "You won!"
+	done
+
+StadiumWonText2:
+	text "You won 2!"
+	done
+
 PummeloStadiumNoSpikeShellText:
 	text "Frankly, I'm"
 	line "appalled."
@@ -95,7 +252,7 @@ PummeloStadiumNoSpikeShellText:
 	para "RUDY of TROVITA"
 	line "ISLAND has that."
 	done
-	
+
 PummeloStadiumNoJadeStarText:
 	text "Frankly, I'm"
 	line "appalled."

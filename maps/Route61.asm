@@ -105,9 +105,21 @@ Route61_MapEventHeader::
 .Warps: db 1
 	warp_def 5, 31, 7, GOLDEN_ISLAND_GATE_HOUSE
 
-.CoordEvents: db 2
-	xy_trigger 1, 35, 42, Route61BridgeOverheadTrigger
-	xy_trigger 0, 35, 43, Route61BridgeUnderfootTrigger
+.CoordEvents: db 14
+	xy_trigger 0, 36, 44, Route61BridgeUnderfootTrigger
+	xy_trigger 0, 36, 45, Route61BridgeUnderfootTrigger
+	xy_trigger 1, 43, 46, Route61BridgeOverheadTrigger
+	xy_trigger 1, 42, 46, Route61BridgeOverheadTrigger
+	xy_trigger 1, 47, 43, Route61BridgeOverheadTrigger
+	xy_trigger 1, 46, 43, Route61BridgeOverheadTrigger
+	xy_trigger 1, 45, 43, Route61BridgeOverheadTrigger
+	xy_trigger 1, 44, 43, Route61BridgeOverheadTrigger
+	xy_trigger 1, 43, 43, Route61BridgeOverheadTrigger
+	xy_trigger 1, 47, 46, Route61BridgeOverheadTrigger
+	xy_trigger 1, 46, 46, Route61BridgeOverheadTrigger
+	xy_trigger 1, 45, 46, Route61BridgeOverheadTrigger
+	xy_trigger 1, 44, 46, Route61BridgeOverheadTrigger
+	xy_trigger 1, 42, 43, Route61BridgeOverheadTrigger
 
 .BGEvents: db 1
 	signpost 42, 38, SIGNPOST_READ, Route61Sign

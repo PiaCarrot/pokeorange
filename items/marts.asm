@@ -80,7 +80,7 @@ SunburstMart1: ; 16111
 ; 16118
 
 SunburstMart2: ; 16118
-	db 7 ; # items
+	db 8 ; # items
 	db THUNDERSTONE
 	db WATER_STONE
 	db FIRE_STONE
@@ -88,6 +88,7 @@ SunburstMart2: ; 16118
 	db SUN_STONE
 	db SHINY_STONE
 	db MOON_STONE
+	db KANTO_STONE
 	db $ff
 ; 16121
 

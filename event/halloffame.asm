@@ -236,6 +236,21 @@ AnimateHOFMonEntrance: ; 865b5
 	ld [CurPartySpecies], a
 	inc hl
 	inc hl
+	ld a, [CurPartySpecies]
+	ld [BattleMonSpecies], a ;GetBackpic later relies on BattleMonSpecies
+	
+	;load form byte to get correct basestats and picture pointers
+	push bc
+	push hl
+	ld bc, PartyMon2Gender - PartyMon1Gender
+	ld a, [wCurPartyMon]
+	ld hl, PartyMon1Gender
+	call AddNTimes ;hl should now point to current mon's personality byte
+	ld a, [hl]
+	ld [TempMonForm], a
+	pop hl
+	pop bc
+
 	ld a, [hli]
 	ld [TempMonDVs], a
 	ld a, [hli]

@@ -69,6 +69,11 @@ PummeloIslandCrossScript:
 	pause 10
 	domaptrigger PUMMELO_ISLAND, $1
 	setevent EVENT_CROSS_ON_PUMMELO
+	opentext
+	writetext CrossPummeloIslandDroppedWingText
+	waitbutton
+	verbosegiveitem RAINBOW_WING
+	closetext
 	end	
 	
 CrossPummeloIslandText:
@@ -141,6 +146,13 @@ CrossPummeloIslandLeavingNowText:
 	
 	para "and prove you all"
 	line "wrong!"
+	done
+
+CrossPummeloIslandDroppedWingText:
+	text "Uh? What's this?"
+	
+	para "He seems to have"
+	line "dropped something."
 	done
 	
 PummeloCrossMovement1:

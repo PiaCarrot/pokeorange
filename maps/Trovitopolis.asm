@@ -36,6 +36,44 @@ TrovitopolisGentlemanScript:
 	
 TrovitopolisSailorScript:
 	jumptextfaceplayer TrovitopolisSailorText
+
+TrovitopolisGrampsScript:
+	faceplayer
+	opentext
+	writetext TrovitopolisGrampsText
+	waitbutton
+	checkevent EVENT_CROSS_ON_PUMMELO
+	iffalse .done
+	checkitem RAINBOW_WING
+	iftrue .done
+	verbosegiveitem RAINBOW_WING
+	
+.done
+	closetext
+	end
+
+TrovitopolisGrampsText:
+	text "Sometimes I've run"
+	line "into an invisble"
+	cont "wall in the caves."
+	cont "Did it happen to"
+	cont "you too?"
+	
+	para "I may be crazy,"
+	line "but I feel like"
+	cont "there's something"
+	cont "watching me when"
+	cont "it happens. Legend"
+	cont "says the feathers"
+	cont "of the legendary"
+	cont "#MON HO-OH can"
+	cont "show the secrets"
+	cont "of the invisible,"
+	cont "but I guess I'll"
+	cont "never solve this"
+	cont "mistery."
+
+	done
 	
 TrovitopolisRedCooltrainerCorruptedText:
 	text "The mayor keeps"
@@ -211,6 +249,7 @@ Trovitopolis_MapEventHeader::
 	person_event SPRITE_COOLTRAINER_F, 26, 56, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 1, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TrovitopolisRedCoolTrainerScript, -1
 	person_event SPRITE_COOLTRAINER_F, 32, 25, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, TrovitopolisGreenCoolTrainerScript, -1
 	person_event SPRITE_GENTLEMAN, 18, 36, SPRITEMOVEDATA_WANDER, 0, 1, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrovitopolisGentlemanScript, -1
+	person_event SPRITE_GRAMPS, 38, 56, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, TrovitopolisGrampsScript, -1
 	person_event SPRITE_SAILOR, 21, 4, SPRITEMOVEDATA_STANDING_LEFT, 0, 1, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrovitopolisSailorScript, -1
 	person_event SPRITE_SAILOR, 33, 45, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, -1, PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, TrovitopolisSailor2Script, -1
 	person_event SPRITE_POKE_BALL, 43, 32, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TrovitopolisMaxRevive, EVENT_TROVITOPOLIS_MAX_REVIVE

@@ -198,6 +198,7 @@ ItemDescriptions:
 	dw ElectricOrbDesc
 	dw FireOrbDesc
 	dw IceOrbDesc
+	dw KantoStoneDesc
 
 MasterBallDesc:
 	db   "The best BALL. It"
@@ -866,3 +867,7 @@ FireOrbDesc:
 IceOrbDesc:
 	db   "God of ICE"
 	next "ISLAND's treasure.@"
+
+KantoStoneDesc:
+	db   "Evolves certain"
+	next "kinds of #MON.@"

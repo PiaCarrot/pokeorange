@@ -9,12 +9,37 @@ const_value = 1
 	const TANGELO_JUNGLE_BUG_BOY
 	const TANGELO_JUNGLE_BUG_BOY2
 	const TANGELO_JUNGLE_NESS
+	const TANGELO_JUNGLE_ROCK1
+	const MEW_TANGELO_JUNGLE
 
 TangeloJungle_MapScriptHeader:
 
 .MapTriggers: db 0
 
 .MapCallbacks: db 0
+
+TangeloJungleMewScript:	
+	faceplayer
+	opentext
+	writetext MewText
+	cry MEW
+	pause 15
+	closetext
+	writecode VAR_BATTLETYPE, BATTLETYPE_SNORLAX
+	loadwildmon MEW, 50
+	startbattle
+	disappear MEW_TANGELO_JUNGLE
+	reloadmapafterbattle
+	playmapmusic
+	setevent EVENT_TANGELO_JUNGLE_MEW_FOUGHT
+	end
+	
+MewText:
+	text "Mew!"
+	done
+
+TangeloRock:
+	jumpstd smashrock
 
 TrainerBug_catcherWayne:
 	trainer EVENT_BEAT_BUG_CATCHER_MIKE, BUG_CATCHER, MIKE, Bug_catcherWayneSeenText, Bug_catcherWayneBeatenText, 0, Bug_catcherWayneScript
@@ -299,7 +324,7 @@ TangeloJungle_MapEventHeader::
 	signpost 26, 4, SIGNPOST_ITEM, TangeloJungleHiddenFullHeal
 	signpost 51, 39, SIGNPOST_UP, MapTangeloJungleSignpost4Script
 
-.ObjectEvents: db 10
+.ObjectEvents: db 12
 	person_event SPRITE_ROCKER, 6, 21, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, CrossBattle1Script, EVENT_TANGELO_JUNGLE_CROSS
 	person_event SPRITE_POKE_BALL, 26, 45, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJunglePoisonBarb, EVENT_TANGELO_JUNGLE_POISON_BARB
 	person_event SPRITE_YOUNGSTER, 37, 20, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, TangeloJungleLassScript, -1
@@ -310,4 +335,6 @@ TangeloJungle_MapEventHeader::
 	person_event SPRITE_POKE_BALL, 44, 1, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleAntidote, EVENT_TANGELO_JUNGLE_ANTIDOTE
 	person_event SPRITE_POKE_BALL, 14, 41, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TangeloJungleEther, EVENT_TANGELO_JUNGLE_ETHER
 	person_event SPRITE_YOUNGSTER, 31, 4, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_OW_BLUE, PERSONTYPE_TRAINER, 2, TrainerYoungsterNess, -1
+	person_event SPRITE_ROCK, 12, 47, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, TangeloRock, -1
+	person_event SPRITE_MEW,  4, 46, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_GRAY, 0, 0, TangeloJungleMewScript, EVENT_TANGELO_JUNGLE_MEW_FOUGHT
 

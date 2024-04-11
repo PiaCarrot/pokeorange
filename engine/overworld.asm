@@ -698,6 +698,10 @@ SpriteMons: ; 14495
 	db MOLTRES
 	db ARTICUNO
 	db LUGIA
+	db MEWTWO
+	db MEW
+	db MARSHADOW
+	db HO_OH
 ; 144b8
 
 
@@ -852,6 +856,7 @@ Group8Sprites:
 	db SPRITE_LORELEI
 	db SPRITE_LANCE
 	db SPRITE_TRACEY
+	db SPRITE_GRAMPS
 	db SPRITE_POKE_BALL
 	db 0 ; end
 
@@ -901,6 +906,8 @@ Group12Sprites:
 	db SPRITE_YOUNGSTER
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_HO_OH
+	db SPRITE_ROCKER
 	db 0 ; end
 
 Group15Sprites:
@@ -950,6 +957,8 @@ Group17Sprites:
 	db SPRITE_LASS
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_SHRINE1
+	db SPRITE_SHRINE2
 	db 0 ;end
 
 Group18Sprites:

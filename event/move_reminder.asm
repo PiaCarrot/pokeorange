@@ -168,12 +168,8 @@ GetRemindableMoves:
 
 .exeggutor
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
     and FORM_MASK
     cp EXEGGUTOR_KANTONESE_FORM
-	ld a, [CurPartySpecies]
     ld a, [CurPartySpecies]
     jp nz, .pointers
 	dec a
@@ -185,9 +181,6 @@ GetRemindableMoves:
 	
 .vulpix
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp VULPIX_KANTONESE_FORM
 	ld a, [CurPartySpecies]
@@ -201,9 +194,6 @@ GetRemindableMoves:
 	
 .rattata
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp RATTATA_KANTONESE_FORM
 	ld a, [CurPartySpecies]
@@ -217,9 +207,6 @@ GetRemindableMoves:
 	
 .raticate
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp RATICATE_KANTONESE_FORM
 	ld a, [CurPartySpecies]
@@ -233,9 +220,6 @@ GetRemindableMoves:
 	
 .raichu
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp RAICHU_KANTONESE_FORM
 	ld a, [CurPartySpecies]
@@ -249,9 +233,6 @@ GetRemindableMoves:
 	
 .sandshrew
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp SANDSHREW_ALOLAN_FORM
 	ld a, [CurPartySpecies]
@@ -265,9 +246,6 @@ GetRemindableMoves:
 	
 .sandslash
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp SANDSLASH_ALOLAN_FORM
 	ld a, [CurPartySpecies]
@@ -281,9 +259,6 @@ GetRemindableMoves:
 	
 .ninetales
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp NINETALES_KANTONESE_FORM
 	ld a, [CurPartySpecies]
@@ -297,9 +272,6 @@ GetRemindableMoves:
 	
 .diglett
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp DIGLETT_KANTONESE_FORM
 	ld a, [CurPartySpecies]
@@ -313,9 +285,6 @@ GetRemindableMoves:
 	
 .dugtrio
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp DUGTRIO_KANTONESE_FORM
 	ld a, [CurPartySpecies]
@@ -329,9 +298,6 @@ GetRemindableMoves:
 	
 .meowth
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp MEOWTH_ALOLAN_FORM
 	ld a, [CurPartySpecies]
@@ -345,9 +311,6 @@ GetRemindableMoves:
 	
 .persian
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp PERSIAN_ALOLAN_FORM
 	ld a, [CurPartySpecies]
@@ -361,9 +324,6 @@ GetRemindableMoves:
 	
 .geodude
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp GEODUDE_KANTONESE_FORM
 	ld a, [CurPartySpecies]
@@ -377,9 +337,6 @@ GetRemindableMoves:
 	
 .graveler
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp GRAVELER_KANTONESE_FORM
 	ld a, [CurPartySpecies]
@@ -393,9 +350,6 @@ GetRemindableMoves:
 	
 .golem
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp GOLEM_KANTONESE_FORM
 	ld a, [CurPartySpecies]
@@ -409,9 +363,6 @@ GetRemindableMoves:
 	
 .grimer
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp GRIMER_KANTONESE_FORM
 	ld a, [CurPartySpecies]
@@ -425,9 +376,6 @@ GetRemindableMoves:
 	
 .muk
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp MUK_KANTONESE_FORM
 	ld a, [CurPartySpecies]
@@ -441,9 +389,6 @@ GetRemindableMoves:
 	
 .marowak
     ld a, [TempMonForm]
-    srl a
-	srl a
-	srl a
 	and FORM_MASK
     cp MAROWAK_KANTONESE_FORM
 	ld a, [CurPartySpecies]

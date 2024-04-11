@@ -1,4 +1,25 @@
 const_value = 1
+	const MEWTWO_VICTORY_ROAD_MISTERY_ROOM
+
+VictoryRoadMysteryRoomMewtwoScript:	
+	faceplayer
+	opentext
+	writetext MewtwoText
+	cry MEWTWO
+	pause 15
+	closetext
+	writecode VAR_BATTLETYPE, BATTLETYPE_SNORLAX
+	loadwildmon MEWTWO, 70
+	startbattle
+	disappear MEWTWO_VICTORY_ROAD_MISTERY_ROOM
+	reloadmapafterbattle
+	playmapmusic
+	setevent EVENT_VICTORY_ROAD_MEWTWO_FOUGHT
+	end
+	
+MewtwoText:
+	text "Mew!"
+	done
 
 VictoryRoadMysteryRoom_MapScriptHeader::
 
@@ -15,4 +36,5 @@ VictoryRoadMysteryRoom_MapEventHeader::
 
 .BGEvents: db 0
 
-.ObjectEvents: db 0
+.ObjectEvents: db 1
+	person_event SPRITE_MEWTWO,  2,  4, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_SILVER, 0, 0, VictoryRoadMysteryRoomMewtwoScript, EVENT_VICTORY_ROAD_MEWTWO_FOUGHT
