@@ -12,6 +12,22 @@ SunrayCaveMandarinDesert1F_MapScriptHeader::
 
 SunrayHideCrossCallback:
 	disappear SUNRAY_CROSS
+	appear MARSHADOW_MANDARIN_DESERT_CAVE
+	
+	checkevent EVENT_CROSS_CORRUPTED_SUNRAY ;If this cave's event is done, hide Marshadow, unless already fought Cross at route 51
+	iftrue .checkRoute51Cross
+	return ;if the event isn't done, we are done
+	
+.checkRoute51Cross:
+	checkevent EVENT_CROSS_CORRUPTED_FOUGHT ;if we haven't beat Cross at route 51, hide Marshadow
+	iffalse .hideMarshadow
+
+	checkevent EVENT_SUNRAY_CAVE_1F_MARSHADOW_FOUGHT ;if we already battled him, hide Marshadow
+	iftrue .hideMarshadow
+	return
+	
+.hideMarshadow:
+	disappear MARSHADOW_MANDARIN_DESERT_CAVE
 	return
 
 InvisibleForceScript:
@@ -78,7 +94,7 @@ SunrayCaveCrossScript:
 	takeitem RAINBOW_WING
 	setevent EVENT_CROSS_CORRUPTED_SUNRAY
 	spriteface PLAYER, UP
-	jump MandarinCaveMarshadowScript
+	disappear MARSHADOW_MANDARIN_DESERT_CAVE
 .corruptedCross:
 	end
 
@@ -128,5 +144,5 @@ SunrayCaveMandarinDesert1F_MapEventHeader::
 
 .ObjectEvents: db 3
 	person_event SPRITE_INVISIBLE, 3, 13, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, InvisibleForceScript, EVENT_MANDARIN_CAVE_KECLEON_FOUGHT
-	person_event SPRITE_ROCKER,  8, 30, SPRITEMOVEDATA_STANDING_UP, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_SUNRAY_CAVE_1F_CROSS_FOUGHT
-	person_event SPRITE_MARSHADOW,  2, 30, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_GRAY, 0, 0, MandarinCaveMarshadowScript, EVENT_SUNRAY_CAVE_1F_MARSHADOW_FOUGHT
+	person_event SPRITE_ROCKER,  8, 30, SPRITEMOVEDATA_STANDING_UP, 1, 0, -1, -1, (1 << 3) | PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_SUNRAY_CAVE_1F_CROSS_HS
+	person_event SPRITE_MARSHADOW,  2, 30, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_OW_GRAY, 0, 0, MandarinCaveMarshadowScript, EVENT_SUNRAY_CAVE_1F_MARSHADOW_HS

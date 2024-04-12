@@ -92,7 +92,7 @@ HealMachineAnim: ; 12324
 	ld de, SFX_SECOND_PART_OF_ITEMFINDER
 	call PlaySFX
 	pop de
-	ld c, 30
+	ld c, 5
 	call DelayFrames
 	dec b
 	jr nz, .party_loop
