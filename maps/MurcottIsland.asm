@@ -4,18 +4,102 @@ const_value = 1
 	const MURCOTT_FRUIT_TREE
 	const MURCOTT_GRAMPS_2
 	const MURCOTT_POKEBALL
+	const MURCOTT_DAYCARE_GRAMPS
+	const MURCOTT_DAYCARE_MON_1
+	const MURCOTT_DAYCARE_MON_2
 
 MurcottIsland_MapScriptHeader::
 
 .Triggers: db 0
 
-.Callbacks: db 1
+.Callbacks: db 2
 	dbw MAPCALLBACK_NEWMAP, .FlyPoint
+	dbw MAPCALLBACK_OBJECTS, .MurcottEggCheckCallback
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_MURCOTT
 	return
-	
+
+.MurcottEggCheckCallback:
+	checkflag ENGINE_DAYCARE_MAN_HAS_EGG
+	iftrue .PutDayCareManOutside
+	clearevent EVENT_DAYCARE_MAN_IN_DAYCARE
+	setevent EVENT_DAYCARE_MAN_OUTSIDE
+	jump .CheckMon1
+
+.PutDayCareManOutside:
+	setevent EVENT_DAYCARE_MAN_IN_DAYCARE
+	clearevent EVENT_DAYCARE_MAN_OUTSIDE
+	jump .CheckMon1
+
+.CheckMon1:
+	checkflag ENGINE_DAYCARE_MAN_HAS_MON
+	iffalse .HideMon1
+	clearevent EVENT_DAYCARE_MON_1
+	jump .CheckMon2
+
+.HideMon1:
+	setevent EVENT_DAYCARE_MON_1
+	jump .CheckMon2
+
+.CheckMon2:
+	checkflag ENGINE_DAYCARE_LADY_HAS_MON
+	iffalse .HideMon2
+	clearevent EVENT_DAYCARE_MON_2
+	return
+
+.HideMon2:
+	setevent EVENT_DAYCARE_MON_2
+	return
+
+DayCareManScript_Outside:
+	faceplayer
+	opentext
+	special Special_DayCareManOutside
+	waitbutton
+	closetext
+	if_equal TRUE, .end_fail
+	clearflag ENGINE_DAYCARE_MAN_HAS_EGG
+	checkcode VAR_FACING
+	if_equal RIGHT, .walk_around_player
+	applymovement MURCOTT_DAYCARE_GRAMPS, MurcottMovementData_DayCareManWalksBackInside
+	playsound SFX_ENTER_DOOR
+	disappear MURCOTT_DAYCARE_GRAMPS
+.end_fail
+	end
+
+.walk_around_player
+	applymovement MURCOTT_DAYCARE_GRAMPS, MurcottMovementData_DayCareManWalksBackInside_WalkAroundPlayer
+	playsound SFX_ENTER_DOOR
+	disappear MURCOTT_DAYCARE_GRAMPS
+	end
+
+MurcottMovementData_DayCareManWalksBackInside:
+	slow_step LEFT
+	slow_step LEFT
+	slow_step UP
+	step_end
+
+MurcottMovementData_DayCareManWalksBackInside_WalkAroundPlayer:
+	slow_step DOWN
+	slow_step LEFT
+	slow_step LEFT
+	slow_step UP
+	slow_step UP
+	step_end
+
+DayCareMon1Script:
+	opentext
+	special Special_DayCareMon1
+	closetext
+	end
+
+DayCareMon2Script:
+	opentext
+	special Special_DayCareMon2
+	closetext
+	end
+
 DayCareSign:
 	jumptext DayCareSignText
 	
@@ -271,10 +355,13 @@ MurcottIsland_MapEventHeader::
 	signpost 13, 9, SIGNPOST_READ, MurcottIslandSign
 	signpost 23, 33, SIGNPOST_READ, MurcottIslandPharmacySign
 
-.ObjectEvents: db 5
+.ObjectEvents: db 8
 	person_event SPRITE_ROCKER, 14, 9, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_OW_RED, PERSONTYPE_SCRIPT, 0, ObjectEvent, EVENT_MURCOTT_ISLAND_CROSS
 	person_event SPRITE_LASS, 13, 15, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MurcottLassScript, -1
 	person_event SPRITE_FRUIT_TREE, 29, 18, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, MurcottIslandFruitTree, -1
 	person_event SPRITE_GRAMPS, 18, 32, SPRITEMOVEDATA_STANDING_UP, 0, 0, -2, -2, PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, MurcottOldManScript, -1
 	person_event SPRITE_POKE_BALL, 31, 45, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MurcottIslandTMRainDance, EVENT_MURCOTT_ISLAND_RAIN_DANCE
+	person_event SPRITE_GRAMPS,  6, 15, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DayCareManScript_Outside, EVENT_DAYCARE_MAN_OUTSIDE
+	person_event SPRITE_DAYCARE_MON_1,  4, 17, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DayCareMon1Script, EVENT_DAYCARE_MON_1
+	person_event SPRITE_DAYCARE_MON_2,  4, 19, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DayCareMon2Script, EVENT_DAYCARE_MON_2
 

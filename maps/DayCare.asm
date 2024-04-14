@@ -33,9 +33,9 @@ DayCareLadyScript:
 	faceplayer
 	opentext
 	writetext DayCareLadyText
-	; checkflag ENGINE_DAYCARE_MAN_HAS_EGG
-	; iftrue .HusbandWasLookingForYou
-	; special Special_DayCareLady
+	checkflag ENGINE_DAYCARE_MAN_HAS_EGG
+	iftrue .HusbandWasLookingForYou
+	special Special_DayCareLady
 	waitbutton
 	closetext
 	end
