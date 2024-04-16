@@ -41,6 +41,7 @@ ENDM
 	trigger_def ICE_ISLAND,		  	 		  wIceIslandTrigger
 	trigger_def SUNRAY_CAVE_MANDARIN_DESERT_1F, wSunrayCaveTrigger
 	trigger_def ROUTE_51,		  	 		  wRoute51Trigger
+	trigger_def DAYCARE,		  	 		  wDayCareTrigger
 
 	db -1
 ; 4d15b

@@ -4,10 +4,23 @@ const_value = 1
 
 DayCare_MapScriptHeader:
 
-.MapTriggers: db 0
+.MapTriggers: db 1
+	maptrigger .AppearDayCareManScript
 
 .MapCallbacks: db 1
 	dbw MAPCALLBACK_OBJECTS, .EggCheckCallback
+
+.AppearDayCareManScript
+	checkflag ENGINE_DAYCARE_MAN_HAS_EGG
+	iftrue .PutDayCareManOutside2
+	end
+.PutDayCareManOutside2
+	special Special_FadeBlackQuickly
+	special Special_ReloadSpritesNoPalettes
+	disappear DAYCARE_GRAMPS
+	special Special_FadeInQuickly
+	dotrigger 1
+	end
 
 .EggCheckCallback:
 	checkflag ENGINE_DAYCARE_MAN_HAS_EGG
@@ -64,15 +77,16 @@ DayCareLadyText:
 
 DayCare_MapEventHeader::
 
-.Warps: db 2
+.Warps: db 3
 	warp_def 7, 4, 1, MURCOTT_ISLAND
 	warp_def 7, 5, 1, MURCOTT_ISLAND
+	warp_def  0,  4, 7, MURCOTT_ISLAND
 
 .CoordEvents: db 0
 
 .BGEvents: db 2
-	signpost 1, 0, SIGNPOST_READ, DayCareBookshelf
-	signpost 1, 1, SIGNPOST_READ, DayCareBookshelf
+	signpost  1,  8, SIGNPOST_READ, DayCareBookshelf
+	signpost  1,  9, SIGNPOST_READ, DayCareBookshelf
 
 .ObjectEvents: db 2
 	person_event SPRITE_GRAMPS, 2, 1, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, DayCareManScript_Inside, EVENT_DAYCARE_MAN_IN_DAYCARE

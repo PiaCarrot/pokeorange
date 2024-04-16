@@ -210,10 +210,12 @@ DaycareStep:: ; 7282
 	ld hl, wStepsToEgg
 	dec [hl]
 	ret nz
-
 	call Random
 	ld [hl], a
 	farcall CheckBreedmonCompatibility
+if DEF(DEBUG) ;skip compatibility checks
+	jp .okay
+endc
 	ld a, [wd265]
 	cp 230
 	ld b, -1 + 32 percent
@@ -232,7 +234,10 @@ DaycareStep:: ; 7282
 .okay
 	call Random
 	cp b
+if DEF(DEBUG) ;always produce an egg in debug version
+else
 	ret nc
+endc
 	ld hl, wDaycareMan
 	res 5, [hl]
 	set 6, [hl]

@@ -10,12 +10,25 @@ const_value = 1
 
 MurcottIsland_MapScriptHeader::
 
-.Triggers: db 0
+.Triggers: db 1
+	maptrigger .AppearDayCareManScript
 
 .Callbacks: db 2
 	dbw MAPCALLBACK_NEWMAP, .FlyPoint
 	dbw MAPCALLBACK_OBJECTS, .MurcottEggCheckCallback
 
+.AppearDayCareManScript
+	checkflag ENGINE_DAYCARE_MAN_HAS_EGG
+	iftrue .PutDayCareManOutside2
+	end
+.PutDayCareManOutside2
+	special Special_FadeBlackQuickly
+	special Special_ReloadSpritesNoPalettes
+	appear MURCOTT_DAYCARE_GRAMPS
+	special Special_FadeInQuickly
+	dotrigger 1
+	end
+	
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_MURCOTT
 	return
@@ -65,6 +78,7 @@ DayCareManScript_Outside:
 	applymovement MURCOTT_DAYCARE_GRAMPS, MurcottMovementData_DayCareManWalksBackInside
 	playsound SFX_ENTER_DOOR
 	disappear MURCOTT_DAYCARE_GRAMPS
+	dotrigger 0
 .end_fail
 	end
 
@@ -72,12 +86,13 @@ DayCareManScript_Outside:
 	applymovement MURCOTT_DAYCARE_GRAMPS, MurcottMovementData_DayCareManWalksBackInside_WalkAroundPlayer
 	playsound SFX_ENTER_DOOR
 	disappear MURCOTT_DAYCARE_GRAMPS
+	dotrigger 0
 	end
 
 MurcottMovementData_DayCareManWalksBackInside:
-	slow_step LEFT
-	slow_step LEFT
-	slow_step UP
+	step LEFT
+	step LEFT
+	step UP
 	step_end
 
 MurcottMovementData_DayCareManWalksBackInside_WalkAroundPlayer:
@@ -338,13 +353,15 @@ CrossMurcottIslandApproach2_Movement:
 	
 MurcottIsland_MapEventHeader::
 
-.Warps: db 6
+.Warps: db 8
 	warp_def 5, 13, 1, DAYCARE
 	warp_def 11, 17, 1, MURCOTT_HOUSE_1
 	warp_def 19, 13, 1, MURCOTT_HOUSE_2
 	warp_def 23, 35, 1, MURCOTT_HOUSE_3
 	warp_def 13, 3, 1, MURCOTT_POKE_CENTER
 	warp_def 17, 37, 2, MURCOTT_POKE_MART
+	warp_def  1, 14, 3, DAYCARE
+	warp_def  1, 13, 3, DAYCARE
 
 .CoordEvents: db 2
 	xy_trigger 0, 14, 4, CrossBattle3Script1
