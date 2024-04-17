@@ -230,7 +230,7 @@ endc
 	move SWAGGER,      EFFECT_SWAGGER,             0, STATUS,   NORMAL,    85, 15, 100
 	move WATER_PULSE,  EFFECT_CONFUSE_HIT,        60, SPECIAL,  WATER,    100, 20,  20
 	move SPARK,        EFFECT_PARALYZE_HIT,       65, PHYSICAL, ELECTRIC, 100, 20,  30
-	move BUG_BITE,     EFFECT_BUG_BITE,           60, PHYSICAL, BUG,      100, 20,   0
+	move BUG_BITE,     EFFECT_BUG_BITE,           60, PHYSICAL, BUG,      100, 20,   100
 	move STEEL_WING,   EFFECT_STEEL_WING,         70, PHYSICAL, STEEL,     90, 25,  10
 	move MEAN_LOOK,    EFFECT_MEAN_LOOK,           0, STATUS,   NORMAL,   100,  5,   0
 	move ATTRACT,      EFFECT_ATTRACT,             0, STATUS,   NORMAL,   100, 15,   0

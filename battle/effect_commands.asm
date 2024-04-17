@@ -9348,3 +9348,5 @@ AppearUserRaiseSub: ; 37ece
 	ret
 
 ; 37ed5
+
+INCLUDE "battle/effects/bugbite.asm"

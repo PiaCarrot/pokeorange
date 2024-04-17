@@ -4124,6 +4124,24 @@ RecallPlayerMon: ; 3dce6
 	ret
 ; 3dcf9
 
+HandleBugBiteEatBerry:
+	ld a, [hLinkPlayerNumber]
+	cp $1
+	jr z, .player_1
+	call SetEnemyTurn
+	call UseHPHealingEatenBerry
+	call UseHeldStatusHealingItem
+	call UseConfusionHealingItem
+	call SetPlayerTurn
+	ret
+.player_1
+	call SetPlayerTurn
+	call UseHPHealingEatenBerry
+	call UseHeldStatusHealingItem
+	call UseConfusionHealingItem
+	call SetEnemyTurn
+	ret
+
 HandleHealingItems: ; 3dcf9
 	ld a, [hLinkPlayerNumber]
 	cp $1
@@ -4147,6 +4165,56 @@ HandleHealingItems: ; 3dcf9
 	call UseHeldStatusHealingItem
 	jp UseConfusionHealingItem
 ; 3dd2f
+
+UseHPHealingEatenBerry:
+	farcall GetOpponentItem
+	ld a, b
+	cp $1
+	ret nz
+	ld de, EnemyMonHP + 1
+	ld hl, EnemyMonMaxHP
+	ld a, [hBattleTurn]
+	and a
+	jr z, .less
+	ld de, BattleMonHP + 1
+	ld hl, BattleMonMaxHP
+	
+.less
+	call ItemRecoveryAnim
+	; store max HP in Buffer1/2
+	ld a, [hli]
+	ld [Buffer2], a
+	ld a, [hl]
+	ld [Buffer1], a
+	ld a, [de]
+	add c
+	ld [Buffer5], a
+	ld c, a
+	dec de
+	ld a, [de]
+	adc $0
+	ld [Buffer6], a
+	ld b, a
+	ld a, [hld]
+	cp c
+	ld a, [hl]
+	sbc b
+	jr nc, .okay
+	ld a, [hli]
+	ld [Buffer6], a
+	ld a, [hl]
+	ld [Buffer5], a
+
+.okay
+	ld a, [Buffer6]
+	ld [de], a
+	inc de
+	ld a, [Buffer5]
+	ld [de], a
+	ld a, [hBattleTurn]
+	ld [wWhichHPBar], a
+	and a
+	jp UseOpponentItem
 
 HandleHPHealingItem: ; 3dd2f
 	farcall GetOpponentItem

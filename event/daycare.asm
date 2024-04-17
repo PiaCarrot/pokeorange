@@ -445,6 +445,8 @@ Special_DayCareManOutside: ; 16936
 	jr .Load0
 
 .Declined:
+	ld hl, wDaycareMan ;mantain breeding compatibility set to produce more eggs after declining
+	set 5, [hl] ;mantain breeding compatibility set to produce more eggs after declining
 	ld hl, .IllKeepItThanksText
 
 .Load0:

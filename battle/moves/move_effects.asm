@@ -1,4 +1,25 @@
-BugBite: ; TODO: implement EFFECT_BUG_BITE
+BugBite:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	hittarget
+	failuretext
+	checkfaint
+	criticaltext
+	supereffectivetext
+	bugbite
+	checkdestinybond
+	buildopponentrage
+	kingsrock
+	endmove
+
 KarateChop:
 Scratch:
 Cut:

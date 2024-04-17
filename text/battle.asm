@@ -1046,6 +1046,14 @@ StoleText: ; 0x815da
 	prompt
 ; 0x815f7
 
+EatBerryText:
+	text "<USER>"
+	line "eat @"
+	text_from_ram StringBuffer1
+	text ""
+	cont "from its foe!"
+	prompt
+
 CantEscapeNowText: ; 0x815f7
 	text "<TARGET>"
 	line "can't escape now!"
