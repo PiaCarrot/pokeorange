@@ -22,6 +22,70 @@ GameCornerPokefanM3Script:
 GameCornerCoinVendorScript:
 	jumpstd gamecornercoinvendor
 
+GameCornerItemVendorScript:
+	faceplayer
+	opentext
+	writetext GameCornerPrizeVendorIntroText
+	waitbutton
+	checkitem COIN_CASE
+	iffalse GameCornerPrizeVendor_NoCoinCaseScript
+	writetext GameCornerPrizeVendorWhichPrizeText
+GameCornerItemVendor_LoopScript: ; 056c36
+	special Special_DisplayCoinCaseBalance
+	loadmenudata GameCornerItemVendorMenuData
+	verticalmenu
+	closewindow
+	if_equal $1, .TradeStone
+	if_equal $2, .Upgrade
+	if_equal $3, .DubiousDisc
+	jump GameCornerPrizeVendor_CancelPurchaseScript
+
+.TradeStone:
+	checkcoins 1000
+	if_equal $2, GameCornerPrizeVendor_NotEnoughCoinsScript
+	itemtotext TRADE_STONE, $0
+	writetext ItemPickedText
+	waitbutton
+	scall GameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GameCornerPrizeVendor_CancelPurchaseScript
+	giveitem TRADE_STONE
+	iffalse GameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins 1000
+	jump GameCornerItemVendor_FinishScript
+
+.Upgrade:
+	checkcoins 1000
+	if_equal $2, GameCornerPrizeVendor_NotEnoughCoinsScript
+	itemtotext UP_GRADE, $0
+	writetext ItemPickedText
+	waitbutton
+	scall GameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GameCornerPrizeVendor_CancelPurchaseScript
+	giveitem UP_GRADE
+	iffalse GameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins 1000
+	jump GameCornerItemVendor_FinishScript
+
+.DubiousDisc:
+	checkcoins 1000
+	if_equal $2, GameCornerPrizeVendor_NotEnoughCoinsScript
+	itemtotext DUBIOUS_DISC, $0
+	writetext ItemPickedText
+	waitbutton
+	scall GameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GameCornerPrizeVendor_CancelPurchaseScript
+	giveitem DUBIOUS_DISC
+	iffalse GameCornerPrizeMonVendor_NoRoomForPrizeScript
+	takecoins 1000
+	jump GameCornerItemVendor_FinishScript
+
+GameCornerItemVendor_FinishScript:
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext GameCornerPrizeVendorHereYouGoText
+	waitbutton
+	jump GameCornerItemVendor_LoopScript
+
 GameCornerTMVendorScript:
 	faceplayer
 	opentext
@@ -127,6 +191,20 @@ GameCornerPrizeVendor_NoCoinCaseScript:
 	closetext
 	end
 
+GameCornerItemVendorMenuData:
+	db $40 ; flags
+	db 02, 00 ; start coords
+	db 11, 19 ; end coords
+	dw .MenuData2
+	db 1 ; default option
+
+.MenuData2:
+	db $80 ; flags
+	db 4 ; items
+	db "LINK CABLE   1000@"
+	db "UP-GRADE     1000@"
+	db "DUBIOUS DISC 1000@"
+	db "CANCEL@"
 
 GameCornerTMVendorMenuData:
 	db $40 ; flags
@@ -158,8 +236,9 @@ GameCornerPrizeMonVendorScript:
 	verticalmenu
 	closewindow
 	if_equal $1, .abra
-	if_equal $2, .cubone
-	if_equal $3, .wobbuffet
+	if_equal $2, .eevee
+	if_equal $3, .cubone
+	if_equal $4, .wobbuffet
 	jump GameCornerPrizeVendor_CancelPurchaseScript
 
 .abra
@@ -185,16 +264,16 @@ GameCornerPrizeMonVendorScript:
 	if_equal $2, GameCornerPrizeVendor_NotEnoughCoinsScript
 	checkcode VAR_PARTYCOUNT
 	if_equal $6, GameCornerPrizeMonVendor_NoRoomForPrizeScript
-	pokenamemem CUBONE, $0
+	pokenamemem KANGASKHAN, $0
 	scall GameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GameCornerPrizeVendor_CancelPurchaseScript
 	waitsfx
 	playsound SFX_TRANSACTION
 	writetext GameCornerPrizeVendorHereYouGoText
 	waitbutton
-	writebyte CUBONE
+	writebyte KANGASKHAN
 	special Special_GameCornerPrizeMonCheckDex
-	givepoke CUBONE, 35
+	givepoke KANGASKHAN, 35
 	takecoins 5000
 	jump .loop
 
@@ -216,6 +295,24 @@ GameCornerPrizeMonVendorScript:
 	takecoins 9999
 	jump .loop
 
+.eevee
+	checkcoins 2500
+	if_equal $2, GameCornerPrizeVendor_NotEnoughCoinsScript
+	checkcode VAR_PARTYCOUNT
+	if_equal $6, GameCornerPrizeMonVendor_NoRoomForPrizeScript
+	pokenamemem EEVEE, $0
+	scall GameCornerPrizeVendor_ConfirmPurchaseScript
+	iffalse GameCornerPrizeVendor_CancelPurchaseScript
+	waitsfx
+	playsound SFX_TRANSACTION
+	writetext GameCornerPrizeVendorHereYouGoText
+	waitbutton
+	writebyte EEVEE
+	special Special_GameCornerPrizeMonCheckDex
+	givepoke EEVEE, 30
+	takecoins 2500
+	jump .loop
+
 
 .MenuDataHeader:
 	db $40 ; flags
@@ -228,9 +325,9 @@ GameCornerPrizeMonVendorScript:
 	db $80 ; flags
 	db 4 ; items
 	db "MIME JR.   2500@"
-	db "CUBONE     5000@"
+	db "EEVEE      2500@"
+	db "KANGASKHAN 5000@"
 	db "PORYGON    9999@"
-	db "CANCEL@"
 
 GameCornerPokefanFScript:
 	faceplayer
@@ -456,6 +553,10 @@ PickedThunderText:
 	line "tains THUNDER."
 	cont "Good choice!"
 	done
+
+ItemPickedText:
+	text "Good choice!"
+	done
 	
 GameCorner_MapEventHeader::
 
@@ -465,7 +566,7 @@ GameCorner_MapEventHeader::
 
 .CoordEvents: db 0
 
-.BGEvents: db 16
+.BGEvents: db 17
 	signpost  8,  1, SIGNPOST_LEFT, GameCornerSlotsMachineScript
 	signpost  9,  1, SIGNPOST_LEFT, GameCornerSlotsMachineScript
 	signpost 11,  1, SIGNPOST_LEFT, GameCornerSlotsMachineScript
@@ -476,7 +577,8 @@ GameCorner_MapEventHeader::
 	signpost  8, 12, SIGNPOST_RIGHT, GameCornerCardFlipMachineScript
 	signpost 10, 12, SIGNPOST_RIGHT, GameCornerCardFlipMachineScript
 	signpost 11, 12, SIGNPOST_RIGHT, GameCornerCardFlipMachineScript
-	signpost  1,  8, SIGNPOST_READ, GameCornerTMVendorScript
+	signpost  1,  7, SIGNPOST_READ, GameCornerTMVendorScript
+	signpost  1,  9, SIGNPOST_READ, GameCornerItemVendorScript
 	signpost  1,  5, SIGNPOST_READ, GameCornerPrizeMonVendorScript
 	signpost 10,  9, SIGNPOST_READ, GameCorner10Coins
 	signpost  7, 13, SIGNPOST_READ, GameCorner20Coins
