@@ -782,7 +782,34 @@
 	db 23, TRAPINCH
 	db 24, TRAPINCH
 	db 24, CUBONE
-	
+
+	map SUNRAY_CAVE_MANDARIN_DESERT_1F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 22, SANDYGAST
+	db 22, SLUGMA
+	db 22, DIGLETT
+	db 23, MAGNEMITE
+	db 23, SLUGMA
+	db 24, CLEFAIRY
+	db 24, CLEFABLE
+	; day
+	db 22, SANDYGAST
+	db 22, SLUGMA
+	db 22, DIGLETT
+	db 23, MAGNEMITE
+	db 23, SLUGMA
+	db 24, CLEFAIRY
+	db 24, CLEFABLE
+	; nite
+	db 22, SANDYGAST
+	db 22, SLUGMA
+	db 22, DIGLETT
+	db 23, MAGNEMITE
+	db 23, SLUGMA
+	db 24, CLEFAIRY
+	db 24, CLEFABLE
+
 	map TROVITOPOLIS_SEWER
 	db 7 percent, 7 percent, 7 percent
 	;morn
@@ -1462,54 +1489,54 @@
 	db 6 percent, 6 percent, 6 percent
 	;morn
 	db 42, ELEKID
-	db 42, BUTTERFREE
+	db 42, VOLTORB
 	db 41, PIKACHU
 	db 42, ELECTABUZZ
 	db 42, ELEKID
-	db 41, ELECTABUZZ
+	db 41, JOLTEON
 	db 44, BULBASAUR
 	;day
 	db 42, ELEKID
-	db 42, BUTTERFREE
+	db 42, VOLTORB
 	db 42, PIKACHU
 	db 41, ELECTABUZZ
 	db 41, ELEKID
-	db 42, ELECTABUZZ
+	db 42, JOLTEON
 	db 44, BULBASAUR
 	;nite
 	db 42, ELEKID
-	db 41, VENOMOTH
+	db 41, VOLTORB
 	db 42, PIKACHU
 	db 41, ELECTABUZZ
 	db 41, ELEKID
-	db 42, ELECTABUZZ
+	db 42, JOLTEON
 	db 44, BULBASAUR
 
 	map FIRE_ISLAND
 	db 6 percent, 6 percent, 6 percent
 	;morn
 	db 42, MAGBY
-	db 42, BUTTERFREE
+	db 42, MAGCARGO
 	db 41, VULPIX
 	db 42, MAGMAR
-	db 42, MAGBY
-	db 41, TURTONATOR
+	db 42, TURTONATOR
+	db 41, FLAREON
 	db 44, CHARMANDER
 	;day
 	db 42, MAGBY
-	db 42, BUTTERFREE
+	db 42, SLUGMA
 	db 42, VULPIX
 	db 41, MAGMAR
-	db 41, MAGBY
-	db 42, TURTONATOR
+	db 41, TURTONATOR
+	db 42, FLAREON
 	db 44, CHARMANDER
 	;nite
 	db 42, MAGBY
-	db 41, VENOMOTH
+	db 41, SLUGMA
 	db 42, VULPIX
 	db 41, MAGMAR
-	db 41, MAGBY
-	db 42, TURTONATOR
+	db 41, TURTONATOR
+	db 42, FLAREON
 	db 44, CHARMANDER
 
 	map ICE_ISLAND
@@ -1520,7 +1547,7 @@
 	db 41, SMOOCHUM
 	db 42, JYNX
 	db 42, SMOOCHUM
-	db 41, JYNX
+	db 41, VAPOREON
 	db 44, SQUIRTLE
 	;day
 	db 42, SMOOCHUM
@@ -1528,7 +1555,7 @@
 	db 42, SMOOCHUM
 	db 41, JYNX
 	db 41, SMOOCHUM
-	db 42, JYNX
+	db 42, VAPOREON
 	db 44, SQUIRTLE
 	;nite
 	db 42, SMOOCHUM
@@ -1536,7 +1563,7 @@
 	db 42, SMOOCHUM
 	db 41, JYNX
 	db 41, SMOOCHUM
-	db 42, JYNX
+	db 42, VAPOREON
 	db 44, SQUIRTLE
 
 	map SHAMOUTI_CAVE
@@ -1571,26 +1598,26 @@
 	;morn
 	db 42, MACHOP
 	db 42, TYROGUE
-	db 41, GOLBAT
-	db 42, MACHOP
-	db 42, TYROGUE
-	db 41, MACHOKE
+	db 41, TYROGUE
+	db 42, VOLTORB
+	db 42, MACHOKE
+	db 41, ELECTRODE
 	db 44, MACHAMP
 	;day
 	db 42, MACHOP
 	db 42, TYROGUE
-	db 41, GOLBAT
-	db 42, MACHOP
-	db 42, TYROGUE
-	db 41, MACHOKE
+	db 41, TYROGUE
+	db 42, VOLTORB
+	db 42, MACHOKE
+	db 41, ELECTRODE
 	db 44, MACHAMP
 	;nite
 	db 42, MACHOP
 	db 42, TYROGUE
-	db 41, GOLBAT
-	db 42, MACHOP
-	db 42, TYROGUE
-	db 41, MACHOKE
+	db 41, TYROGUE
+	db 42, VOLTORB
+	db 42, MACHOKE
+	db 41, ELECTRODE
 	db 44, MACHAMP
 	
 	map AIRSHIP_OUTSIDE
@@ -1619,5 +1646,59 @@
 	db 46, SPEAROW
 	db 46, PIDGEOTTO
 	db 48, PIDGEOT
+
+	map ROUTE_70
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 46, EEVEE
+	db 46, TOUCANNON
+	db 46, TOGETIC
+	db 46, LYCANROC
+	db 46, CLEFAIRY
+	db 46, KANGASKHAN
+	db 48, ESPEON
+	; day
+	db 46, EEVEE
+	db 46, TOUCANNON
+	db 46, TOGETIC
+	db 46, LYCANROC
+	db 46, CLEFAIRY
+	db 46, KANGASKHAN
+	db 48, SYLVEON
+	; nite
+	db 46, EEVEE
+	db 46, TOUCANNON
+	db 46, TOGETIC
+	db 46, LYCANROC
+	db 46, CLEFAIRY
+	db 46, KANGASKHAN
+	db 48, UMBREON
+
+	map TARROCO_ISLAND
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 46, EEVEE
+	db 46, TOUCANNON
+	db 46, TOGETIC
+	db 46, LYCANROC
+	db 46, CLEFAIRY
+	db 46, KANGASKHAN
+	db 48, ESPEON
+	; day
+	db 46, EEVEE
+	db 46, TOUCANNON
+	db 46, TOGETIC
+	db 46, LYCANROC
+	db 46, CLEFAIRY
+	db 46, KANGASKHAN
+	db 48, SYLVEON
+	; nite
+	db 46, EEVEE
+	db 46, TOUCANNON
+	db 46, TOGETIC
+	db 46, LYCANROC
+	db 46, CLEFAIRY
+	db 46, KANGASKHAN
+	db 48, UMBREON
 
 	db -1 ; end
