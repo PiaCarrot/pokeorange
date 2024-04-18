@@ -670,6 +670,15 @@ FlyFunction: ; ca3b
 	cp TILESET_UNDERWATER
 	jr z, .indoors
 
+	;allow fly in trovitopolis mart rooftop
+	ld a, [MapGroup]
+	cp $08
+	jr nz, .notrovitopolisroof
+	ld a, [MapNumber]
+	cp $0b
+	jr z, .outdoors
+
+.notrovitopolisroof
 	call GetMapPermission
 	call CheckOutdoorMap
 	jr nz, .indoors
