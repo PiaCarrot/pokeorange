@@ -4,8 +4,13 @@ TarrocoIsland_MapScriptHeader::
 
 .Triggers: db 0
 
-.Callbacks: db 1
+.Callbacks: db 2
 	dbw MAPCALLBACK_TILES, TarrocoIslandBridgeCallback
+	dbw MAPCALLBACK_NEWMAP, .FlyPoint
+
+.FlyPoint:
+	setflag ENGINE_FLYPOINT_HAMLIN
+	return
 	
 TarrocoIslandBridgeCallback:
 	checktriggers
