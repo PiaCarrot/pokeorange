@@ -365,6 +365,16 @@ Script_AlertToFullBox::
 	closetext
 	end
 
+Script_AlertNewEgg::
+	refreshscreen
+	playsound SFX_CALL
+	waitsfx
+	opentext
+	farwritetext NewEggCallText
+	waitbutton
+	closetext
+	end
+
 INCLUDE "event/itemball.asm"
 INCLUDE "engine/healmachineanim.asm"
 INCLUDE "event/whiteout.asm"

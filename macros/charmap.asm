@@ -18,6 +18,8 @@
 	charmap "<PROMPT>", $58
 	charmap "<TARGET>", $59
 	charmap "<USER>",   $5a
+	
+	charmap "☎", 		$BC ;this is not the mapping used in vanilla crystal
 
 ; battle extras
 	charmap "<LV>",     $6e
