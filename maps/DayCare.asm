@@ -22,6 +22,8 @@ DayCare_MapScriptHeader:
 	disappear DAYCARE_GRAMPS
 	special Special_FadeInQuickly
 .end
+	clearevent EVENT_DAYCARE_MAN_IN_DAYCARE
+	setevent EVENT_DAYCARE_MAN_OUTSIDE
 	dotrigger 1
 	end
 

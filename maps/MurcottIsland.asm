@@ -29,7 +29,7 @@ MurcottIsland_MapScriptHeader::
 	checkcode VAR_YCOORD
 	if_greater_than  10, .DoNotMoveGramps
 	checkcode VAR_XCOORD
-	if_greater_than  19, .DoNotMoveGramps
+	if_greater_than  18, .DoNotMoveGramps
 .MoveGramps
 	moveperson MURCOTT_DAYCARE_GRAMPS, 13, 5
 	appear MURCOTT_DAYCARE_GRAMPS
@@ -41,6 +41,8 @@ MurcottIsland_MapScriptHeader::
 	special Special_FadeInQuickly
 .end
 	moveperson MURCOTT_DAYCARE_GRAMPS, 15, 6 ;needed to make the old man stay in the final position
+	clearevent EVENT_DAYCARE_MAN_IN_DAYCARE
+	setevent EVENT_DAYCARE_MAN_OUTSIDE
 	dotrigger 1
 	end
 

@@ -494,12 +494,61 @@ Special_DayCareManOutside: ; 16936
 ; 0x169ac
 
 DayCare_GiveEgg: ; 169ac
+
+;form, gender and shinyness
+	;generate random PV
+	call Random
+	and %11110000 ;erase shiny, pink and form bits
+	push af ;store PV
+	
+	;load in a the full PV/form byte from the female mother or the male if breeding with ditto
+	;check if BreedMon1 is ditto
+	ld a, [wBreedMon1Species]
+	cp DITTO
+	jr z, .GetBreedMon2GenderForm ;if it is ditto, use the other mon's form byte
+	
+	;not ditto. Check if the mon is female
+	ld a, [wBreedMon1Gender]
+	ld [TempMonGender], a
+
+	ld a, TEMPMON
+	ld [MonType], a
+	predef GetGender
+	ld a, [wBreedMon1Gender]
+	jr z, .GotMotherGenderForm ; z means female, so use this one
+	jr c, .GotMotherGenderForm ; c means genderless, so the other mon must be ditto if breeding
+	;otherwise it is male, so use the other BreedMon form
+.GetBreedMon2GenderForm
+	ld a, [wBreedMon2Gender]
+
+.GotMotherGenderForm
+	;and %00000111 ;only keep form bits AND pinkness
+	and %00000011 ;only keep form bits
+	ld b, a ;store form in b
+	pop af ;restore the PV
+	or a, b ;now a holds gender + form
+	push af ;store gender + form
+
+;shinyness
+;Let's put a flat 64/255 chance for shiny when breeding! (25%)
+	call Random
+	cp a, 64
+	jr c, .shiny
+	ld b, %00000000
+	jr .storePV
+.shiny
+	ld b, %00001000
+.storePV
+	pop af
+	or a, b ;now a holds gender + shinyness + form
+	ld [wEggMonGender], a
+
 	ld a, [wEggMonLevel]
 	ld [CurPartyLevel], a
 	ld hl, PartyCount
 	ld a, [hl]
 	cp PARTY_LENGTH
-	jr nc, .PartyFull
+	jp nc, .PartyFull
 	inc a
 	ld [hl], a
 
@@ -525,6 +574,17 @@ DayCare_GiveEgg: ; 169ac
 	call DayCare_GetCurrentPartyMember
 	ld hl, wEggOT
 	call CopyBytes
+
+if DEF(DEBUG) ;in debug all eggs only need 1 cycle to hatch
+	ld a, 1
+	ld [wEggMonHappiness], a
+else ;make egg cycles 1/4 shorter
+	call GetBaseData
+	ld a, [BaseEggSteps]
+	rr a ;divide cycles by 2
+	rr a ;divide cycles by 2 again
+	ld [wEggMonHappiness], a
+endc
 
 	ld hl, PartyMon1
 	ld bc, PARTYMON_STRUCT_LENGTH
@@ -758,7 +818,14 @@ DayCare_InitBreeding: ; 16a3b
 	ld de, StringBuffer1
 	ld bc, NAME_LENGTH
 	call CopyBytes
+	
+if DEF(DEBUG) ;only one hatch cycle on debug
+	ld a, 1
+else
 	ld a, [BaseEggSteps]
+	rr a ;divide cycles by 2
+	rr a ;divide cycles by 2 again
+endc
 	ld hl, wEggMonHappiness
 	ld [hli], a
 	xor a
