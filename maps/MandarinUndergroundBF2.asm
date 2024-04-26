@@ -1,6 +1,7 @@
 const_value = 1
 	const MANDARINUNDERGROUND_ENGINEER3
 	const MANDARINUNDERGROUND_SUPER_POTION
+	const MANDARINUNDERGROUND_TRAP_VOLTORB
 
 MandarinUndergroundBF2_MapScriptHeader::
 
@@ -136,6 +137,24 @@ EngineerKobeAfterText:
 MandarinUndergroundSuperPotion:
 	itemball SUPER_POTION
 
+MandarinUndergroundTrapVoltorbScript:	
+	opentext
+	writetext TrapVoltrobText
+	cry VOLTORB
+	pause 15
+	closetext
+	writecode VAR_BATTLETYPE, BATTLETYPE_SNORLAX
+	loadwildmon VOLTORB, 15
+	startbattle
+	disappear MANDARINUNDERGROUND_TRAP_VOLTORB
+	reloadmapafterbattle
+	playmapmusic
+	end
+	
+TrapVoltrobText:
+	text "Bzzzt!"
+	done
+
 MandarinUndergroundBF2_MapEventHeader::
 
 .Warps: db 4
@@ -153,7 +172,8 @@ MandarinUndergroundBF2_MapEventHeader::
 	signpost 1, 11, SIGNPOST_READ, MandarinUndergroundPC
 	signpost 1, 12, SIGNPOST_READ, MandarinUndergroundStatue
 
-.ObjectEvents: db 2
+.ObjectEvents: db 3
 	person_event SPRITE_SUPER_NERD, 1, 6, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, (1 << 3) | PAL_OW_BROWN, PERSONTYPE_TRAINER, 3, TrainerEngineerKobe, -1
 	person_event SPRITE_POKE_BALL, 16, 13, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, MandarinUndergroundSuperPotion, EVENT_MANDARIN_UNDERGROUND_SUPER_POTION
+	person_event SPRITE_POKE_BALL,  1,  8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, 0, 0, MandarinUndergroundTrapVoltorbScript, -1
 
