@@ -15,10 +15,13 @@ DayCare_MapScriptHeader:
 	iftrue .PutDayCareManOutside2
 	end
 .PutDayCareManOutside2
+	checkflag EVENT_DAYCARE_MAN_OUTSIDE
+	iftrue .end
 	special Special_FadeBlackQuickly
 	special Special_ReloadSpritesNoPalettes
 	disappear DAYCARE_GRAMPS
 	special Special_FadeInQuickly
+.end
 	dotrigger 1
 	end
 
@@ -27,6 +30,7 @@ DayCare_MapScriptHeader:
 	iftrue .PutDaycareManOutside
 	clearevent EVENT_DAYCARE_MAN_IN_DAYCARE
 	setevent EVENT_DAYCARE_MAN_OUTSIDE
+	dotrigger 0
 	return
 
 .PutDaycareManOutside:
