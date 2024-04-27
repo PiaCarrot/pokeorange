@@ -54,6 +54,7 @@ PummeloStadiumEntry:
 	clearevent EVENT_FUKUHARA_BF3_AERODACTYL_FOUGHT
 	clearevent EVENT_MIMIKYU_FOUGHT
 	clearevent EVENT_MANDARIN_CAVE_KECLEON_FOUGHT
+	clearevent EVENT_RED_ON_CLEOPATRA
 	warpfacing UP, HALL_OF_FAME, 6, 11
 	end
 
@@ -133,6 +134,7 @@ PummeloStadiumEntry:
 	clearevent EVENT_TANGELO_JUNGLE_MEW_FOUGHT
 	clearevent EVENT_VICTORY_ROAD_MEWTWO_FOUGHT
 	clearevent EVENT_TARROCO_CELEBI_FOUGHT
+	clearevent EVENT_RED_ON_CLEOPATRA
 	special InitRoamMons ;reset the eon duo
 	end
 	
