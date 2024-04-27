@@ -18,7 +18,7 @@ Route70MaxRepel:
 	itemball MAX_REPEL
 	
 Route70MaxRevive:
-	itemball MAX_REVIVE
+	itemball TRADE_STONE
 	
 Route70OfficerScript:
 	jumptextfaceplayer Route70OfficerScriptText
