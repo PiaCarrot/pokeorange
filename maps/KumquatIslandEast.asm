@@ -64,13 +64,6 @@ KumquatEastSightseerF2:
 	closetext
 	end
 
-KumquatEastSightseerF2Text:
-	text "The MEOWTH here"
-	line "are different from"
-	cont "the ones from my"
-	cont "region."
-	done
-
 KumquatEastFisher:
 	jumptextfaceplayer KumquatEastFisherText
 	
