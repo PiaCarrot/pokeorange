@@ -454,7 +454,7 @@ PlacePartyMonEvoStoneCompatibility: ; 5022f
 	ld l, a
 	ld de, StringBuffer1
 	ld a, BANK(EvosAttacks)
-	ld bc, $10
+	ld bc, $1f ;this limits the number of evolution entries loaded to buffer. Eevee is the one with most entries, 10, which are 30 bytes + the 0x00 terminator. This overflows into StringBuffer2, but it is not used at this point, so it is no problem
 	call FarCopyBytes
 	ld hl, StringBuffer1
 .loop2
