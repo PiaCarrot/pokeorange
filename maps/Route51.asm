@@ -105,6 +105,7 @@ Route51CrossScript_left:
 	checkevent EVENT_CROSS_CORRUPTED_FOUGHT
 	iftrue .finish
 	spriteface PLAYER, RIGHT
+	spriteface ROUTE51_CROSS, LEFT
 	jump Route51CrossScript
 .finish
 	end
@@ -113,6 +114,7 @@ Route51CrossScript_up:
 	checkevent EVENT_CROSS_CORRUPTED_FOUGHT
 	iftrue .finish
 	spriteface PLAYER, DOWN
+	spriteface ROUTE51_CROSS, UP
 	jump Route51CrossScript
 .finish
 	end
