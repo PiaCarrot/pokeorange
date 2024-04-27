@@ -5,8 +5,8 @@
 
 	db NORMAL, NORMAL
 	db 45 ; catch rate
-	db NO_ITEM ; item 1
-	db NO_ITEM ; item 2
+	db UP_GRADE ; item 1
+	db DUBIOUS_DISC ; item 2
 	db GENDERLESS ; gender
 	db 20 ; step cycles to hatch
 	dn 6, 6 ; frontpic dimensions

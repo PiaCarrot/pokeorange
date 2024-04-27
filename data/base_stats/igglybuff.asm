@@ -5,8 +5,8 @@
 
 	db NORMAL, FAIRY
 	db 170 ; catch rate
-	db NO_ITEM ; item 1
-	db NO_ITEM ; item 2
+	db MOON_STONE ; item 1
+	db MOON_STONE ; item 2
 	db FEMALE_75 ; gender
 	db 10 ; step cycles to hatch
 	dn 5, 5 ; frontpic dimensions

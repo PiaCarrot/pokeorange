@@ -127,6 +127,7 @@ Route58Mart:
 	db ICE_HEAL
 	db ESCAPE_ROPE
 	db MAX_REPEL
+	db ICE_STONE
 	db $ff
 
 MoroMart:
