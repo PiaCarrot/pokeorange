@@ -105,6 +105,11 @@ Route51CrossScript_left:
 	checkevent EVENT_CROSS_CORRUPTED_FOUGHT
 	iftrue .finish
 	spriteface PLAYER, RIGHT
+	playmusic MUSIC_LOOK_GLADION
+	opentext
+	writetext CrossRoute51Text
+	waitbutton
+	closetext
 	spriteface ROUTE51_CROSS, LEFT
 	jump Route51CrossScript
 .finish
@@ -114,15 +119,19 @@ Route51CrossScript_up:
 	checkevent EVENT_CROSS_CORRUPTED_FOUGHT
 	iftrue .finish
 	spriteface PLAYER, DOWN
+	playmusic MUSIC_LOOK_GLADION
+	opentext
+	writetext CrossRoute51Text
+	waitbutton
+	closetext
 	spriteface ROUTE51_CROSS, UP
 	jump Route51CrossScript
 .finish
 	end
 
 Route51CrossScript:
-	playmusic MUSIC_LOOK_GLADION
 	opentext
-	writetext CrossRoute51Text
+	writetext CrossRoute51Text2
 	waitbutton
 	closetext
 	checkevent EVENT_GOT_CHARMANDER_FROM_IVY
@@ -168,6 +177,7 @@ Route51CrossScript:
 	playmapmusic
 	pause 10
 	setevent EVENT_CROSS_CORRUPTED_FOUGHT
+	cry HO_OH
 	opentext
 	writetext CrossRoute51PurifiedWingText
 	waitbutton
@@ -176,19 +186,88 @@ Route51CrossScript:
 	end
 
 CrossRoute51Text:
-	text "ROUTE 51 CROSS TEXT"
+	text "CROSS: Why will"
+	line "you not face me,"
+	cont "HO-OH? I have your"
+	cont "RAINBOW WING!"
+	cont "Submit to me, a"
+	cont "#MON MASTER!"
+	
+	para "CROSS produces the" 
+	line "RAINBOW WING, but"
+	cont "its covered in a"
+	cont "dark miasma."
+	
+	para "HO-OH: Ayiiiehh!!"
+	
+CrossRoute51Text2:
+	para "CROSS: Oh, I see<...>"
+	line "You wish for me to"
+	cont "prove myself by"
+	cont "beating the ORANGE"
+	cont "CREW CHAMPION!"
+	
+	para "That will be easy,"
+	line "with my new tools"
+	cont "I've obtained!"
 	done
 
 CrossRoute51WinLoss:
-	text "WinLoss"
+	text "CROSS: MARSHADOW!"
+	line "Where are you"
+	cont "going? This isn't"
+	cont "how it was meant"
+	cont "to be<...>"
 	done
 
 CrossRout51DefeatText:
-	text "Defeat."
+	text "CROSS: <...><...>"
+	line "I understand now."
+	cont "It was never about"
+	cont "strength, was it?"
+	
+	para "I can see it now,"
+	line "<PLAYER>."
+	cont "Your #MON adore"
+	cont "you, and you love"
+	cont "them too. I only"
+	cont "treated mine as"
+	cont "tools to obtain"
+	cont "even more power."
+	
+	para "I was never worthy"
+	line "of HO-OH. You can"
+	cont "have this, I don't"
+	cont "need it anymore<...>"
+	
+	para "<PLAYER> received"
+	line "the RAINBOW WING!"
+	cont "It's still covered"
+	cont "in a dark miasma."
+	
+	para "CROSS: I don't"
+	line "expect you to"
+	cont "forgive me for the"
+	cont "way I've treated"
+	cont "you, but I hope we"
+	cont "meet again."
 	done
 
 CrossRoute51PurifiedWingText:
-	text "Purified."
+	text "HO-OH: Ayiiieehhh!"
+	
+	para "The dark miasma"
+	line "enveloping the"
+	cont "RAINBOW WING"
+	cont "dissipates, and it"
+	cont "shimmers again!"
+	
+	para "HO-OH looks down"
+	line "upon you, awaiting"
+	cont "your challenge."
+	cont "You have earned"
+	cont "the right to face"
+	cont "it!"
 	done
 
 Route51_MapEventHeader::
