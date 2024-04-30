@@ -129,7 +129,7 @@
 	dba Music_XdBattleSimTheme
 	dba Music_Route119
 	dba Music_SunnyShore
-	dba Music_MarineTube
+	dba Music_OrangeDive
 	dba Music_RSLookLass
 	dba Music_Route110
 	dba Music_Route209N
@@ -167,4 +167,6 @@
 	dba Music_CityOrange
 	dba Music_ValenciaTown
 	dba Music_Looker
+	dba Music_OrangeEncounter
+	dba Music_SomeRouteOrange
 ; e91a3

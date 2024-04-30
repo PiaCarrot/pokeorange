@@ -232,6 +232,9 @@ SECTION "Songs Regen 3", ROMX
 
 
 INCLUDE "audio/music/looker.asm"
+INCLUDE "audio/music/routeextra.asm"
+INCLUDE "audio/music/orangeencounter.asm"
+INCLUDE "audio/music/orangedive.asm"
 
 SECTION "Songs Monstarules", ROMX
 
