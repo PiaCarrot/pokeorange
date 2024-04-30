@@ -142,6 +142,8 @@ PummeloStadiumEntry:
 	clearevent EVENT_TARROCO_CELEBI_FOUGHT
 	clearevent EVENT_RED_ON_CLEOPATRA
 	special InitRoamMons ;reset the eon duo
+	special HealParty
+	halloffame
 	end
 	
 .NoSpikeShell:
