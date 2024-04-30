@@ -256,7 +256,7 @@ RedWinLoss:
 
 StadiumWonText1:
 	text "Great job!"
-	para "We had no doubts"
+	line "We had no doubts"
 	cont "that you would"
 	cont "succeed."
 	
