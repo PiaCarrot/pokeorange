@@ -88,7 +88,7 @@ Route51Ho_ohScript:
 	cry HO_OH
 	pause 15
 	closetext
-	writecode VAR_BATTLETYPE, BATTLETYPE_SNORLAX
+	writecode VAR_BATTLETYPE, BATTLETYPE_HOOH
 	loadwildmon HO_OH, 70
 	startbattle
 	disappear ROUTE51_HO_OH
@@ -195,13 +195,14 @@ CrossRoute51Text:
 	
 	para "CROSS produces the" 
 	line "RAINBOW WING, but"
-	cont "its covered in a"
+	cont "it's covered in a"
 	cont "dark miasma."
 	
 	para "HO-OH: Ayiiiehh!!"
+	done
 	
 CrossRoute51Text2:
-	para "CROSS: Oh, I see<...>"
+	text "CROSS: Oh, I see<...>"
 	line "You wish for me to"
 	cont "prove myself by"
 	cont "beating the ORANGE"
