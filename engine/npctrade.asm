@@ -455,7 +455,8 @@ ENDM
 	npctrade 3, PIKACHU,    CLEFAIRY,   "ARIA@@@@@@@", $96, $66, GOLD_BERRY,   48926, "MARISSA@@@@", TRADE_EITHER_GENDER
 	npctrade 0, MEOWTH,     MR__MIME,   "MIMEY@@@@@@", $98, $88, FOCUS_BAND,   22689, "SHAMUS@@@@@", TRADE_EITHER_GENDER
 	npctrade 3, STUNFISK,   SEEL,       "PUFF@@@@@@@", $96, $66, MYSTERYBERRY, 62712, "MAYA@@@@@@@", TRADE_EITHER_GENDER
-	npctrade 4, MEOWTH,     MEOWTH,     "MOMOSHIRO@@", $98, $88, LEFTOVERS,    43673, "SOYA@@@@@@@", TRADE_EITHER_GENDER
+	npctrade 4, MEOWTH,     MEOWTH,     "MOMOSHIRO@@", $98, $88, LEFTOVERS,    43434, "SOLYA@@@@@@", TRADE_EITHER_GENDER
+	npctrade 1, SALANDIT,   PORYGON,    "SEIZURE@@@@", $98, $88, UP_GRADE,     34343, "SULOKU@@@@@", TRADE_FEMALE_ONLY
 ; fcf38
 
 
@@ -582,6 +583,21 @@ TradeAfterText1: ; 0xfcfab
 
 
 TradeIntroText2:
+	text "Hello there!"
+	
+	para "I came to this"
+	line "region so I can"
+	cont "train a SALAZZLE,"
+	cont "but I've had no"
+	cont "luck yet. Do you"
+	cont "happen to have a"
+	cont "SALANDIT♀?"
+	
+	para "I'm willing to"
+	line "trade my loyal"
+	cont "PORYGON for one."
+	done
+
 TradeIntroText3: ; 0xfcfb0
 	; Hi, I'm looking for this #MON. If you have @ , would you trade it for my @ ?
 	text_jump UnknownText_0x1bd512
@@ -610,10 +626,17 @@ TradeCompleteText2: ; 0xfcfbf
 
 TradeAfterText2: ; 0xfcfc4
 	; Hi! The @ you traded me is doing great!
-	text_jump UnknownText_0x1bd5f4
-	db "@"
+;	text_jump UnknownText_0x1bd5f4
+;	db "@"
 ; 0xfcfc9
+	text "Hi! The SALANDIT♀"
+	line "you traded me"
+	cont "finally evolved"
+	cont "into SALAZZLE!"
 
+	para "How is my old"
+	line "buddy doing?"
+	done
 
 TradeIntroText4: ; 0xfcfc9
 	; 's cute, but I don't have it. Do you have @ ? Want to trade it for my @ ?
@@ -696,8 +719,8 @@ _TradeIntroText5:
 	done
 
 _TradeCompleteText5:
-	text "Great! This region"
-	line "MEOWTH are so"
+	text "Great! MEOWTH from"
+	line "this region are so"
 	cont "interesting!"
 	done
 

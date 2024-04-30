@@ -5,8 +5,8 @@
 
 	db NORMAL, NORMAL
 	db 45 ; catch rate
-	db NO_ITEM ; item 1
-	db NO_ITEM ; item 2
+	db TRADE_STONE ; item 1
+	db TRADE_STONE ; item 2
 	db ALL_FEMALE ; gender
 	db 20 ; step cycles to hatch
 	dn 7, 7 ; frontpic dimensions

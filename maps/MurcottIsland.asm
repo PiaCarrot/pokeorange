@@ -22,13 +22,30 @@ MurcottIsland_MapScriptHeader::
 	iftrue .PutDayCareManOutside2
 	end
 .PutDayCareManOutside2
+	checkflag EVENT_DAYCARE_MAN_OUTSIDE
+	iftrue .end
 	special Special_FadeBlackQuickly
 	special Special_ReloadSpritesNoPalettes
+	checkcode VAR_YCOORD
+	if_greater_than  10, .DoNotMoveGramps
+	checkcode VAR_XCOORD
+	if_greater_than  18, .DoNotMoveGramps
+.MoveGramps
+	moveperson MURCOTT_DAYCARE_GRAMPS, 13, 5
 	appear MURCOTT_DAYCARE_GRAMPS
 	special Special_FadeInQuickly
+	applymovement MURCOTT_DAYCARE_GRAMPS, DayCareGrampsAppearMovement ;daycare man can technically go trough the player/end up in the same position
+	jump .end
+.DoNotMoveGramps
+	appear MURCOTT_DAYCARE_GRAMPS
+	special Special_FadeInQuickly
+.end
+	moveperson MURCOTT_DAYCARE_GRAMPS, 15, 6 ;needed to make the old man stay in the final position
+	clearevent EVENT_DAYCARE_MAN_IN_DAYCARE
+	setevent EVENT_DAYCARE_MAN_OUTSIDE
 	dotrigger 1
 	end
-	
+
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_MURCOTT
 	return
@@ -38,6 +55,7 @@ MurcottIsland_MapScriptHeader::
 	iftrue .PutDayCareManOutside
 	clearevent EVENT_DAYCARE_MAN_IN_DAYCARE
 	setevent EVENT_DAYCARE_MAN_OUTSIDE
+	dotrigger 0
 	jump .CheckMon1
 
 .PutDayCareManOutside:
@@ -90,9 +108,9 @@ DayCareManScript_Outside:
 	end
 
 MurcottMovementData_DayCareManWalksBackInside:
-	step LEFT
-	step LEFT
-	step UP
+	slow_step LEFT
+	slow_step LEFT
+	slow_step UP
 	step_end
 
 MurcottMovementData_DayCareManWalksBackInside_WalkAroundPlayer:
@@ -101,6 +119,12 @@ MurcottMovementData_DayCareManWalksBackInside_WalkAroundPlayer:
 	slow_step LEFT
 	slow_step UP
 	slow_step UP
+	step_end
+
+DayCareGrampsAppearMovement:
+	slow_step DOWN
+	slow_step RIGHT
+	slow_step RIGHT
 	step_end
 
 DayCareMon1Script:

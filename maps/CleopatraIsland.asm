@@ -20,7 +20,7 @@ CleopatraIslandMaxRepel:
 	itemball MAX_REPEL
 	
 CleopatraIslandElixer:
-	itemball ELIXER
+	itemball TRADE_STONE
 	
 CleopatraIslandSign:
 	jumptext CleopatraIslandSignText

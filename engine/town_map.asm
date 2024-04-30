@@ -492,7 +492,7 @@ ENDM
 	flypoint ASCORBIA,       ASCORBIA_ISLAND
     flypoint KUMQUAT,        KUMQUAT_ISLAND
 	flypoint PUMMELO,        PUMMELO_ISLAND
-    flypoint HAMLIN,         HAMLIN_ISLAND
+    flypoint TARROCO,         TARROCO_ISLAND
     flypoint SHAMOUTI,       SHAMOUTI_ISLAND
 ; Kanto
 	flypoint VERMILION, VERMILION_CITY

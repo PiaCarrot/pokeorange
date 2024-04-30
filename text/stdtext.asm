@@ -353,3 +353,14 @@ FullBoxText:
 	para "you want to catch"
 	line "more #MON."
 	done
+
+NewEggCallText:
+	text "☎ DAYCARE: Hello"
+	line "<PLAYER>, your"
+	cont "#MON just had"
+	cont "an EGG!"
+
+	para "We'll take care of"
+	line "it at Murcott"
+	cont "until you come by!"
+	done

@@ -552,72 +552,72 @@ SteelixCrystalShinyPalette: INCLUDE "gfx/pics/steelix_crystal/shiny.pal"
 
 ExeggutorKantonesePalettes:
 ExeggutorKantonesePalette: 		INCLUDE "gfx/pics/exeggutor_kanto/normal.pal"
-ExeggutorKantoneseShinyPalette: INCLUDE "gfx/pics/exeggutor_kanto/normal.pal"
+ExeggutorKantoneseShinyPalette: INCLUDE "gfx/pics/exeggutor_kanto/shiny.pal"
 
 GrimerKantonesePalettes:
 GrimerKantonesePalette: 		INCLUDE "gfx/pics/grimer_kanto/normal.pal"
-GrimerKantoneseShinyPalette: INCLUDE "gfx/pics/grimer_kanto/normal.pal"
+GrimerKantoneseShinyPalette: INCLUDE "gfx/pics/grimer_kanto/shiny.pal"
 
 MukKantonesePalettes:
 MukKantonesePalette: 		INCLUDE "gfx/pics/muk_kanto/normal.pal"
-MukKantoneseShinyPalette: INCLUDE "gfx/pics/muk_kanto/normal.pal"
+MukKantoneseShinyPalette: INCLUDE "gfx/pics/muk_kanto/shiny.pal"
 
 MeowthAlolanPalettes:
 MeowthAlolanPalette: 		INCLUDE "gfx/pics/meowth_alola/normal.pal"
-MeowthAlolanShinyPalette: INCLUDE "gfx/pics/meowth_alola/normal.pal"
+MeowthAlolanShinyPalette: INCLUDE "gfx/pics/meowth_alola/shiny.pal"
 
 PersianAlolanPalettes:
 PersianAlolanPalette: 		INCLUDE "gfx/pics/persian_alola/normal.pal"
-PersianAlolanShinyPalette: INCLUDE "gfx/pics/persian_alola/normal.pal"
+PersianAlolanShinyPalette: INCLUDE "gfx/pics/persian_alola/shiny.pal"
 
 VulpixKantonesePalettes:
 VulpixKantonesePalette: 		INCLUDE "gfx/pics/vulpix_kanto/normal.pal"
-VulpixKantoneseShinyPalette: INCLUDE "gfx/pics/vulpix_kanto/normal.pal"
+VulpixKantoneseShinyPalette: INCLUDE "gfx/pics/vulpix_kanto/shiny.pal"
 
 NinetalesKantonesePalettes:
 NinetalesKantonesePalette: 		INCLUDE "gfx/pics/ninetales_kanto/normal.pal"
-NinetalesKantoneseShinyPalette: INCLUDE "gfx/pics/ninetales_kanto/normal.pal"
+NinetalesKantoneseShinyPalette: INCLUDE "gfx/pics/ninetales_kanto/shiny.pal"
 
 SandshrewAlolanPalettes:
 SandshrewAlolanPalette: 		INCLUDE "gfx/pics/sandshrew_alola/normal.pal"
-SandshrewAlolanShinyPalette: INCLUDE "gfx/pics/sandshrew_alola/normal.pal"
+SandshrewAlolanShinyPalette: INCLUDE "gfx/pics/sandshrew_alola/shiny.pal"
 
 SandslashAlolanPalettes:
 SandslashAlolanPalette: 		INCLUDE "gfx/pics/sandslash_alola/normal.pal"
-SandslashAlolanShinyPalette: INCLUDE "gfx/pics/sandslash_alola/normal.pal"
+SandslashAlolanShinyPalette: INCLUDE "gfx/pics/sandslash_alola/shiny.pal"
 
 RattataKantonesePalettes:
 RattataKantonesePalette: 		INCLUDE "gfx/pics/rattata_kanto/normal.pal"
-RattataKantoneseShinyPalette: INCLUDE "gfx/pics/rattata_kanto/normal.pal"
+RattataKantoneseShinyPalette: INCLUDE "gfx/pics/rattata_kanto/shiny.pal"
 
 RaticateKantonesePalettes:
 RaticateKantonesePalette: 		INCLUDE "gfx/pics/raticate_kanto/normal.pal"
-RaticateKantoneseShinyPalette: INCLUDE "gfx/pics/raticate_kanto/normal.pal"
+RaticateKantoneseShinyPalette: INCLUDE "gfx/pics/raticate_kanto/shiny.pal"
 
 DiglettKantonesePalettes:
 DiglettKantonesePalette: 		INCLUDE "gfx/pics/diglett_kanto/normal.pal"
-DiglettKantoneseShinyPalette: INCLUDE "gfx/pics/diglett_kanto/normal.pal"
+DiglettKantoneseShinyPalette: INCLUDE "gfx/pics/diglett_kanto/shiny.pal"
 
 DugtrioKantonesePalettes:
 DugtrioKantonesePalette: 		INCLUDE "gfx/pics/dugtrio_kanto/normal.pal"
-DugtrioKantoneseShinyPalette: INCLUDE "gfx/pics/dugtrio_kanto/normal.pal"
+DugtrioKantoneseShinyPalette: INCLUDE "gfx/pics/dugtrio_kanto/shiny.pal"
 
 GeodudeKantonesePalettes:
 GeodudeKantonesePalette: 		INCLUDE "gfx/pics/geodude_kanto/normal.pal"
-GeodudeKantoneseShinyPalette: INCLUDE "gfx/pics/geodude_kanto/normal.pal"
+GeodudeKantoneseShinyPalette: INCLUDE "gfx/pics/geodude_kanto/shiny.pal"
 
 GravelerKantonesePalettes:
 GravelerKantonesePalette: 		INCLUDE "gfx/pics/graveler_kanto/normal.pal"
-GravelerKantoneseShinyPalette: INCLUDE "gfx/pics/graveler_kanto/normal.pal"
+GravelerKantoneseShinyPalette: INCLUDE "gfx/pics/graveler_kanto/shiny.pal"
 
 GolemKantonesePalettes:
 GolemKantonesePalette: 		INCLUDE "gfx/pics/golem_kanto/normal.pal"
-GolemKantoneseShinyPalette: INCLUDE "gfx/pics/golem_kanto/normal.pal"
+GolemKantoneseShinyPalette: INCLUDE "gfx/pics/golem_kanto/shiny.pal"
 
 RaichuKantonesePalettes:
 RaichuKantonesePalette: 		INCLUDE "gfx/pics/raichu_kanto/normal.pal"
-RaichuKantoneseShinyPalette: INCLUDE "gfx/pics/raichu_kanto/normal.pal"
+RaichuKantoneseShinyPalette: INCLUDE "gfx/pics/raichu_kanto/shiny.pal"
 
 MarowakKantonesePalettes:
 MarowakKantonesePalette: 		INCLUDE "gfx/pics/marowak_kanto/normal.pal"
-MarowakKantoneseShinyPalette: INCLUDE "gfx/pics/marowak_kanto/normal.pal"
+MarowakKantoneseShinyPalette: INCLUDE "gfx/pics/marowak_kanto/shiny.pal"

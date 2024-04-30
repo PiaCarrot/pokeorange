@@ -481,7 +481,7 @@ const_value = -1
 	const SPAWN_ASCORBIA
 	const SPAWN_KUMQUAT
 	const SPAWN_PUMMELO
-	const SPAWN_HAMLIN
+	const SPAWN_TARROCO
 	const SPAWN_SHAMOUTI
 	const SPAWN_VERMILION
 NUM_SPAWNS EQU const_value

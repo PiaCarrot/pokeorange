@@ -8,6 +8,10 @@ CheckBreedmonCompatibility: ; 16e1d
 	ld [TempMonDVs], a
 	ld a, [wBreedMon1DVs + 1]
 	ld [TempMonDVs + 1], a
+;load gender
+	ld a, [wBreedMon1Gender]
+	ld [TempMonGender], a
+
 	ld a, TEMPMON
 	ld [MonType], a
 	predef GetGender
@@ -24,7 +28,11 @@ CheckBreedmonCompatibility: ; 16e1d
 	ld [TempMonDVs], a
 	ld a, [wBreedMon2DVs + 1]
 	ld [TempMonDVs + 1], a
-	ld a, $3
+;load gender
+	ld a, [wBreedMon2Gender]
+	ld [TempMonGender], a
+
+	ld a, TEMPMON
 	ld [MonType], a
 	predef GetGender
 	pop bc
@@ -571,6 +579,10 @@ GetHeritableMoves: ; 17197
 	ld [TempMonDVs], a
 	ld a, [wBreedMon2DVs + 1]
 	ld [TempMonDVs + 1], a
+;load gender
+	ld a, [wBreedMon2Gender]
+	ld [TempMonGender], a
+
 	ld a, TEMPMON
 	ld [MonType], a
 	predef GetGender
@@ -587,6 +599,10 @@ GetHeritableMoves: ; 17197
 	ld [TempMonDVs], a
 	ld a, [wBreedMon1DVs + 1]
 	ld [TempMonDVs + 1], a
+;load gender
+	ld a, [wBreedMon1Gender]
+	ld [TempMonGender], a
+
 	ld a, TEMPMON
 	ld [MonType], a
 	predef GetGender
@@ -629,7 +645,8 @@ GetEggFrontpic: ; 17224 (5:7224)
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a
 	call GetBaseData
-	ld hl, BattleMonDVs
+	ld a, MON_DVS
+	call GetPartyParamLocation
 	predef GetVariant
 	pop de
 	predef_jump GetFrontpic
@@ -639,7 +656,8 @@ GetHatchlingFrontpic: ; 1723c (5:723c)
 	ld [CurPartySpecies], a
 	ld [CurSpecies], a
 	call GetBaseData
-	ld hl, BattleMonDVs
+	ld a, MON_DVS
+	call GetPartyParamLocation
 	predef GetVariant
 	pop de
 	predef_jump FrontpicPredef
@@ -755,11 +773,12 @@ EggHatch_AnimationSequence: ; 1728f (5:728f)
 	call Hatch_UpdateFrontpicBGMapCenter
 	call Hatch_ShellFragmentLoop
 	call WaitSFX
-	ld a, [wJumptableIndex]
-	ld [CurPartySpecies], a
-	hlcoord 6, 3
-	lb de, $0, ANIM_MON_HATCH
-	predef AnimateFrontpic
+;the following is commented since orange doesn't have sprite animations, this this code corrupts the picture
+	;ld a, [wJumptableIndex]
+	;ld [CurPartySpecies], a
+	;hlcoord 6, 3
+	;lb de, $0, ANIM_MON_HATCH
+	;predef AnimateFrontpic
 	pop af
 	ld [CurSpecies], a
 	ret

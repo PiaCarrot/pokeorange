@@ -17,7 +17,7 @@ VictoryRoadF1TriAttack:
 	itemball TM_TRI_ATTACK
 	
 VictoryRoadF1Nugget:
-	itemball NUGGET
+	itemball DUBIOUS_DISC
 	
 ;=================================
 ;=================================

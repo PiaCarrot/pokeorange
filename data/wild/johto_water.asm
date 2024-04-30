@@ -378,5 +378,10 @@
 	db 40, CARVANHA
 	db 48, WAILORD
 
+	map ROUTE_70
+	db 1 percent
+	db 40, QWILFISH
+	db 40, LANTURN
+	db 48, DEWGONG
 
 	db -1 ; end

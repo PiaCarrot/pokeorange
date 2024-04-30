@@ -5,8 +5,8 @@
 
 	db ELECTRIC, ELECTRIC
 	db 45 ; catch rate
-	db NO_ITEM ; item 1
-	db NO_ITEM ; item 2
+	db ELECTIRIZER ; item 1
+	db ELECTIRIZER ; item 2
 	db FEMALE_25 ; gender
 	db 25 ; step cycles to hatch
 	dn 6, 6 ; frontpic dimensions

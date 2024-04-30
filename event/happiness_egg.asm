@@ -241,4 +241,18 @@ endc
 	ld hl, wDaycareMan
 	res 5, [hl]
 	set 6, [hl]
+;Show a message to the player
+	call .Ring
+	call .Ring
+	ld b, BANK(Script_AlertNewEgg)
+	ld de, Script_AlertNewEgg
+	farcall LoadScriptBDE
+	ret
+
+.Ring
+	call WaitSFX
+	ld de, SFX_CALL
+	call PlaySFX
+	ld c, 20
+	call DelayFrames
 	ret

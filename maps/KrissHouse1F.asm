@@ -26,6 +26,8 @@ MotherScript:
 	end
 	
 .MotherBattle ;TODO
+	writetext MotherBeatRedText
+	waitbutton
 	closetext
 	end
 
@@ -83,9 +85,9 @@ MotherText:
 	line "to be a TRAINER,"
 	cont "a long time ago."
 
-	para "If you ever get"
-	line "strong, I will"
-	cont "gladly battle you."
+;	para "If you ever get"
+;	line "strong, I will"
+;	cont "gladly battle you."
 	done
 	
 MotherBeatOrangeCrewText:
@@ -98,7 +100,34 @@ MotherBeatOrangeCrewText:
 	para "I once took on"
 	line "the INDIGO LEAGUE."
 	cont "I hear there's a"
-	cont "new champion now."
+	cont "new CHAMPION now,"
+	cont "there are rumors"
+	cont "he's come to the"
+	cont "islands to face"
+	cont "our CHAMPION, and"
+	cont "that is you!"
+	
+	para "Apparently he was"
+	line "last seen in"
+	cont "CLEOPATRA ISLAND."
+	done
+
+MotherBeatRedText:
+	text "MOM: You defeated"
+	line "INDIGO LEAGUE's"
+	cont "CHAMPION?!"
+	
+	para "I guess you ended"
+	line "up being a better"
+	cont "TRAINER than I"
+	cont "used to. I wish I"
+	cont "still had my old"
+	cont "companions around,"
+	cont "I'm sure battling"
+	cont "with my own son,"
+	para "the CHAMPION!,"
+	para "would be so much"
+	line "fun!"
 	done
 
 StoveText:
