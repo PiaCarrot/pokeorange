@@ -819,6 +819,7 @@ CreditsScript: ; 10acb4
 
 	db             DIRECTOR, 1
 	db       SATOSHI_TAJIRI, 2
+	db          MIYUKI_SATO, 3
 
 	db CREDITS_WAIT, 12
 
@@ -1128,7 +1129,7 @@ CreditsStrings:
 .HirotakaUemura:      db "              FIQ@"
 .HiroakiTamura:       db "           SERG!O@"
 .NoriakiSakaguchi:    db "             PRET@"
-.MiyukiSato:          db "    MIYUKI SATO@"
+.MiyukiSato:          db "           SULOKU@"
 .GakuziNomoto:        db "   GAKUZI NOMOTO@"
 .AiMashima:           db "     AI MASHIMA@"
 .MikihiroIshikawa:    db " MIKIHIRO ISHIKAWA@"
