@@ -112,7 +112,7 @@ MandarinCaveMarshadowScript:
 	cry MARSHADOW
 	pause 15
 	closetext
-	writecode VAR_BATTLETYPE, BATTLETYPE_SNORLAX
+	writecode VAR_BATTLETYPE, BATTLETYPE_MARSHADOW
 	loadwildmon MARSHADOW, 60
 	startbattle
 	disappear MARSHADOW_MANDARIN_DESERT_CAVE
