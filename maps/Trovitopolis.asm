@@ -74,7 +74,7 @@ TrovitopolisGrampsText:
 	cont "of the invisible,"
 	cont "but I guess I'll"
 	cont "never solve this"
-	cont "mistery."
+	cont "mystery."
 
 	done
 	
