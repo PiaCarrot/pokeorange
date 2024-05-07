@@ -224,11 +224,12 @@ endr
 .initializetrainermonpersonality
 	pop de
 
-; CaughtData/CaughtTime/CaughtLevel
-	xor a
+; CaughtData/CaughtTime/CaughtLevel --> this byte has been repurposedf for the personality value
+;	xor a ; don't erase it, since we will use the generated personality
 	ld [de], a
 	inc de
 ; CaughtGender/CaughtLocation
+	xor a ;this is initialized as zero
 	ld [de], a
 	inc de
 
