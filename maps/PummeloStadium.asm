@@ -107,6 +107,12 @@ PummeloStadiumEntry:
 	opentext
 	writetext RedBattleText
 	waitbutton
+	playmusic MUSIC_HEAL
+	special HealParty
+	pause 60
+	special Special_FadeInQuickly
+	special RestartMapMusic
+	blackoutmod PUMMELO_ISLAND
 	winlosstext RedWinLoss, 0
 	loadtrainer RED, 1
 	startbattle
@@ -136,6 +142,8 @@ PummeloStadiumEntry:
 	clearevent EVENT_TARROCO_CELEBI_FOUGHT
 	clearevent EVENT_RED_ON_CLEOPATRA
 	special InitRoamMons ;reset the eon duo
+	special HealParty
+	halloffame
 	end
 	
 .NoSpikeShell:
@@ -198,19 +206,30 @@ CissyBattleText:
 	done
 
 DannyBattleText:
-	text "second battle"
+	text "The second match"
+	line "against DANNY will"
+	cont "commence!"
 	done
 
 RudyBattleText:
-	text "third battle"
+	text "The third match"
+	line "against RUDY will"
+	cont "commence!"
 	done
 
 LuanaBattleText:
-	text "fourth battle"
+	text "The fourth battle"
+	line "against LUANA will"
+	cont "commence!"
 	done
 
 RedBattleText:
-	text "..."
+	text "Finally, we have a"
+	line "new challenger for"
+	cont "you, CHAMPION!"
+	
+	para "We will heal your"
+	line "party for this."
 	done
 
 CissyWinLoss:
@@ -236,11 +255,20 @@ RedWinLoss:
 	done
 
 StadiumWonText1:
-	text "You won!"
+	text "Great job!"
+	line "We had no doubts"
+	cont "that you would"
+	cont "succeed."
+	
+	para "We would like"
+	line "you to have this!"
 	done
 
 StadiumWonText2:
-	text "You won 2!"
+	text "Please come see"
+	line "us again if you"
+	cont "have the itch to"
+	cont "battle, CHAMPION."
 	done
 
 PummeloStadiumNoSpikeShellText:

@@ -112,7 +112,7 @@ MandarinCaveMarshadowScript:
 	cry MARSHADOW
 	pause 15
 	closetext
-	writecode VAR_BATTLETYPE, BATTLETYPE_SNORLAX
+	writecode VAR_BATTLETYPE, BATTLETYPE_MARSHADOW
 	loadwildmon MARSHADOW, 60
 	startbattle
 	disappear MARSHADOW_MANDARIN_DESERT_CAVE
@@ -122,11 +122,29 @@ MandarinCaveMarshadowScript:
 	end
 	
 MarshadowText:
-	text "Shadow!"
+	text "Kuu!"
 	done
 
 CrossSunrayText:
-	text "placeholder"
+	text "<PLAYER>! You have"
+	line "something of mine."
+	cont "Give it back!"
+
+	para "You return the" 
+	line "RAINBOW WING to"
+	cont "CROSS."
+	
+	para "CROSS: Hahaha! You"
+	line "are spineless."
+	cont "CHAMPION of the"
+	cont "dorks! I'll return" 
+	cont "to the island we"
+	cont "first met. I can"
+	cont "feel HO-OH's power"
+	cont "in the RAINBOW"
+	cont "WING!"
+	
+	para "MARSHADOW: Kuu<...>"
 	done
 
 SunrayCaveMandarinDesert1F_MapEventHeader::

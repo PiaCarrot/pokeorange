@@ -7,17 +7,17 @@ Music_ValenciaTown:
 Music_ValenciaTown_Ch1:
 	tempo $B5
 	volume $77
-	stereopanning $f
-	tone $0001
 Music_ValenciaTown_Ch1_loop:
 	dutycycle 2
-	vibrato $00, $00
+	tone $0001
+	stereopanning $f0
 	octave 4
 	notetype $C, $42
 	note D#, 2
 	note D#, 2
 	intensity $35
 	note D#, 2
+	stereopanning $f
 	intensity $42
 	octave 3
 	note G_, 2
@@ -26,12 +26,14 @@ Music_ValenciaTown_Ch1_loop:
 	intensity $37
 	note G_, 3
 	note __, 1
+	stereopanning $f0
 	intensity $42
 	octave 4
 	note F#, 2
 	note F#, 2
 	intensity $35
 	note F#, 2
+	stereopanning $f
 	intensity $42
 	note C_, 2
 	note C_, 2
@@ -39,11 +41,13 @@ Music_ValenciaTown_Ch1_loop:
 	intensity $37
 	note C_, 3
 	note __, 1
+	stereopanning $f0
 	intensity $42
 	note D#, 2
 	note D#, 2
 	intensity $35
 	note D#, 2
+	stereopanning $f
 	intensity $42
 	octave 3
 	note G_, 2
@@ -52,38 +56,50 @@ Music_ValenciaTown_Ch1_loop:
 	intensity $37
 	note G_, 3
 	note __, 1
+	stereopanning $f0
 	intensity $42
 	octave 4
 	note F#, 2
 	note F#, 2
 	intensity $35
 	note F#, 2
+	stereopanning $f
 	intensity $52
 	note D#, 2
+	stereopanning $f0
 	note F_, 2
+	stereopanning $f
 	note D#, 2
+	stereopanning $f0
 	note C#, 2
+	stereopanning $f
 	intensity $45
 	note D#, 2
 	dutycycle 0
-	vibrato $00, $25
+	stereopanning $f0
 	intensity $0F
+	vibrato $00, $25
 	octave 3
 	note C_, 6
+	stereopanning $f
 	octave 5
 	note C_, 6
 	intensity $88
 	note C_, 4
+	stereopanning $f0
 	intensity $0F
 	octave 2
 	note B_, 6
+	stereopanning $f
 	octave 4
 	note B_, 6
 	intensity $88
 	note B_, 4
+	stereopanning $f0
 	intensity $0F
 	octave 2
 	note A#, 6
+	stereopanning $f
 	octave 4
 	note A#, 5
 	intensity $78
@@ -103,6 +119,7 @@ Music_ValenciaTown_Ch1_loop:
 	note A#, 3
 	note G#, 2
 	dutycycle 1
+	stereopanning $f0
 	intensity $3D
 	vibrato $00, $12
 	octave 5
@@ -110,21 +127,26 @@ Music_ValenciaTown_Ch1_loop:
 	intensity $77
 	note D#, 4
 	dutycycle 0
+	stereopanning $f
 	intensity $0F
 	vibrato $00, $25
 	note C_, 6
 	intensity $88
 	note C_, 4
+	stereopanning $f0
 	intensity $0F
 	octave 2
 	note B_, 6
+	stereopanning $f
 	octave 4
 	note B_, 6
 	intensity $88
 	note B_, 4
+	stereopanning $f0
 	intensity $0F
 	octave 2
 	note A#, 6
+	stereopanning $f
 	octave 4
 	note A#, 6
 	intensity $88
@@ -132,6 +154,7 @@ Music_ValenciaTown_Ch1_loop:
 	intensity $0F
 	note B_, 8
 	dutycycle 2
+	stereopanning $77
 	vibrato $00, $33
 	octave 3
 	note F#, 6
@@ -214,9 +237,9 @@ Music_ValenciaTown_Ch1_loop:
 	loopchannel 0, Music_ValenciaTown_Ch1_loop
 
 Music_ValenciaTown_Ch2:
-	stereopanning $f0
 	dutycycle 2
 	tone $0002
+	stereopanning $77
 	vibrato $00, $23
 	octave 2
 	notetype $C, $95
@@ -244,7 +267,6 @@ Music_ValenciaTown_Ch2:
 	intensity $5E
 	note F_, 4
 Music_ValenciaTown_Ch2_loop:
-	tone $0002
 	dutycycle 2
 	notetype $C, $5F
 	note F#, 4
@@ -266,6 +288,7 @@ Music_ValenciaTown_Ch2_loop:
 	note F_, 1
 	note __, 2
 	note D#, 2
+	stereopanning $f0
 	notetype $6, $64
 	note D#, 1
 	octave 2
@@ -283,6 +306,7 @@ Music_ValenciaTown_Ch2_loop:
 	note D#, 1
 	octave 2
 	note A#, 1
+	stereopanning $f
 	octave 3
 	note D#, 1
 	octave 2
@@ -310,6 +334,7 @@ Music_ValenciaTown_Ch2_loop:
 	note D#, 1
 	note G_, 1
 	note D#, 1
+	stereopanning $f0
 	note G_, 1
 	note D#, 1
 	note G_, 1
@@ -325,9 +350,9 @@ Music_ValenciaTown_Ch2_loop:
 	note G_, 1
 	note D#, 1
 	dutycycle 1
-	tone $0000
 	intensity $4C
 	vibrato $00, $12
+	tone $0000
 	octave 4
 	note A#, 4
 	octave 5
@@ -342,6 +367,7 @@ Music_ValenciaTown_Ch2_loop:
 	note F_, 4
 	dutycycle 2
 	tone $0002
+	stereopanning $77
 	intensity $B6
 	vibrato $00, $23
 	octave 3
@@ -357,6 +383,7 @@ Music_ValenciaTown_Ch2_loop:
 	note F#, 2
 	note __, 4
 	note F_, 4
+	stereopanning $f0
 	intensity $64
 	note D#, 1
 	octave 2
@@ -387,6 +414,7 @@ Music_ValenciaTown_Ch2_loop:
 	octave 2
 	note A#, 1
 	octave 3
+	stereopanning $f
 	note D#, 1
 	octave 2
 	note A#, 1
@@ -441,6 +469,7 @@ Music_ValenciaTown_Ch2_loop:
 	note F#, 1
 	octave 2
 	note B_, 1
+	stereopanning $f0
 	octave 3
 	note F#, 1
 	octave 2
@@ -464,6 +493,7 @@ Music_ValenciaTown_Ch2_loop:
 	octave 2
 	note B_, 1
 	dutycycle 3
+	stereopanning $77
 	intensity $98
 	vibrato $00, $00
 	octave 1
@@ -582,9 +612,8 @@ Music_ValenciaTown_Ch2_loop:
 	note __, 8
 	loopchannel 0, Music_ValenciaTown_Ch2_loop
 
-Music_ValenciaTown_Ch3:	
+Music_ValenciaTown_Ch3:
 Music_ValenciaTown_Ch3_loop:
-	vibrato $00, $00
 	dutycycle 4
 	octave 3
 	notetype $C, $14
@@ -731,7 +760,6 @@ Music_ValenciaTown_Ch3_loop:
 	octave 3
 	note D#, 2
 	note F#, 2
-	tone $0000
 	vibrato $00, $12
 	octave 4
 	note B_, 2

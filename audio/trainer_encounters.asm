@@ -57,54 +57,54 @@ TrainerEncounterMusic: ; e9027
 	db MUSIC_HIKER_ENCOUNTER		; imakuni
 	db MUSIC_HIKER_ENCOUNTER		; lawrence
 	db MUSIC_HIKER_ENCOUNTER		; prof_oak
-	db MUSIC_BEAUTY_ENCOUNTER		; prof_ivy
-	db MUSIC_LASS_ENCOUNTER			; prof_aide
-	db MUSIC_OFFICER_ENCOUNTER		; nurse
-	db MUSIC_OFFICER_ENCOUNTER		; officer
-	db MUSIC_YOUNGSTER_ENCOUNTER	; youngster
-	db MUSIC_LASS_ENCOUNTER			; lass
-	db MUSIC_BEAUTY_ENCOUNTER		; beauty
-	db MUSIC_YOUNGSTER_ENCOUNTER	; bug_catcher
-	db MUSIC_LASS_ENCOUNTER			; bug_catcher_f
-	db MUSIC_HIKER_ENCOUNTER		; swimmerm
-	db MUSIC_BEAUTY_ENCOUNTER		; swimmerf
-	db MUSIC_YOUNGSTER_ENCOUNTER	; camper
-	db MUSIC_POKEMANIAC_ENCOUNTER	; pink_maniac
-	db MUSIC_POKEMANIAC_ENCOUNTER	; pokemaniac
-	db MUSIC_HIKER_ENCOUNTER		; fisher
-	db MUSIC_HIKER_ENCOUNTER		; hiker
-	db MUSIC_HIKER_ENCOUNTER		; athlete
-	db MUSIC_HIKER_ENCOUNTER		; sightseerm
-	db MUSIC_BEAUTY_ENCOUNTER		; sightseerf
-	db MUSIC_BEAUTY_ENCOUNTER		; waitress
-	db MUSIC_HIKER_ENCOUNTER		; cooltrainerm
-	db MUSIC_BEAUTY_ENCOUNTER		; cooltrainerf
-	db MUSIC_POKEMANIAC_ENCOUNTER	; catman
-	db MUSIC_YOUNGSTER_ENCOUNTER	; bird_keeper
+	db MUSIC_ORANGE_ENCOUNTER		; prof_ivy
+	db MUSIC_ORANGE_ENCOUNTER			; prof_aide
+	db MUSIC_ORANGE_ENCOUNTER		; nurse
+	db MUSIC_ORANGE_ENCOUNTER		; officer
+	db MUSIC_ORANGE_ENCOUNTER	; youngster
+	db MUSIC_ORANGE_ENCOUNTER			; lass
+	db MUSIC_ORANGE_ENCOUNTER		; beauty
+	db MUSIC_ORANGE_ENCOUNTER	; bug_catcher
+	db MUSIC_ORANGE_ENCOUNTER			; bug_catcher_f
+	db MUSIC_ORANGE_ENCOUNTER		; swimmerm
+	db MUSIC_ORANGE_ENCOUNTER		; swimmerf
+	db MUSIC_ORANGE_ENCOUNTER	; camper
+	db MUSIC_ORANGE_ENCOUNTER	; pink_maniac
+	db MUSIC_ORANGE_ENCOUNTER	; pokemaniac
+	db MUSIC_ORANGE_ENCOUNTER		; fisher
+	db MUSIC_ORANGE_ENCOUNTER		; hiker
+	db MUSIC_ORANGE_ENCOUNTER		; athlete
+	db MUSIC_ORANGE_ENCOUNTER		; sightseerm
+	db MUSIC_ORANGE_ENCOUNTER		; sightseerf
+	db MUSIC_ORANGE_ENCOUNTER		; waitress
+	db MUSIC_ORANGE_ENCOUNTER		; cooltrainerm
+	db MUSIC_ORANGE_ENCOUNTER		; cooltrainerf
+	db MUSIC_ORANGE_ENCOUNTER	; catman
+	db MUSIC_ORANGE_ENCOUNTER	; bird_keeper
 	db MUSIC_LOOK_GLADION           ; cross
-	db MUSIC_POKEMANIAC_ENCOUNTER   ; otaku
+	db MUSIC_ORANGE_ENCOUNTER   ; otaku
 	db MUSIC_LASS_ENCOUNTER ;jace
 	db MUSIC_LASS_ENCOUNTER ;kurt
 	db MUSIC_LASS_ENCOUNTER ;kat
 	db MUSIC_LASS_ENCOUNTER ;alice
-;	db MUSIC_HIKER_ENCOUNTER		; gentleman
-;	db MUSIC_BEAUTY_ENCOUNTER		; teacher
-	db MUSIC_HIKER_ENCOUNTER		; sailor
-;	db MUSIC_POKEMANIAC_ENCOUNTER	; super_nerd
-;	db MUSIC_HIKER_ENCOUNTER		; guitarist
-;	db MUSIC_HIKER_ENCOUNTER		; biker
-;	db MUSIC_HIKER_ENCOUNTER		; firebreather
-;	db MUSIC_POKEMANIAC_ENCOUNTER	; juggler
-	db MUSIC_HIKER_ENCOUNTER		; blackbelt_t
-;	db MUSIC_YOUNGSTER_ENCOUNTER	; psychic_t
-;	db MUSIC_LASS_ENCOUNTER			; picnicker
-;	db MUSIC_SAGE_ENCOUNTER			; sage
-;	db MUSIC_SAGE_ENCOUNTER			; medium
-;	db MUSIC_HIKER_ENCOUNTER		; pokefanm
-;	db MUSIC_BEAUTY_ENCOUNTER		; pokefanf
-	db MUSIC_HIKER_ENCOUNTER		;diverm
-	db MUSIC_BEAUTY_ENCOUNTER		;diverf
-	db MUSIC_OFFICER_ENCOUNTER		;raymond
-	db MUSIC_OFFICER_ENCOUNTER		;crook
-	db MUSIC_OFFICER_ENCOUNTER		;scuz
+;	db MUSIC_ORANGE_ENCOUNTER		; gentleman
+;	db MUSIC_ORANGE_ENCOUNTER		; teacher
+	db MUSIC_ORANGE_ENCOUNTER		; sailor
+;	db MUSIC_ORANGE_ENCOUNTER	; super_nerd
+;	db MUSIC_ORANGE_ENCOUNTER		; guitarist
+;	db MUSIC_ORANGE_ENCOUNTER		; biker
+;	db MUSIC_ORANGE_ENCOUNTER		; firebreather
+;	db MUSIC_ORANGE_ENCOUNTER	; juggler
+	db MUSIC_ORANGE_ENCOUNTER		; blackbelt_t
+;	db MUSIC_ORANGE_ENCOUNTER	; psychic_t
+;	db MUSIC_ORANGE_ENCOUNTER			; picnicker
+;	db MUSIC_ORANGE_ENCOUNTER			; sage
+;	db MUSIC_ORANGE_ENCOUNTER			; medium
+;	db MUSIC_ORANGE_ENCOUNTER		; pokefanm
+;	db MUSIC_ORANGE_ENCOUNTER		; pokefanf
+	db MUSIC_ORANGE_ENCOUNTER		;diverm
+	db MUSIC_ORANGE_ENCOUNTER		;diverf
+	db MUSIC_ORANGE_ENCOUNTER		;raymond
+	db MUSIC_ORANGE_ENCOUNTER		;crook
+	db MUSIC_ORANGE_ENCOUNTER		;scuz
 ; e906e
