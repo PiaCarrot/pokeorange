@@ -195,6 +195,8 @@ MurcottIslandTMRainDance:
 	itemball TM_RAIN_DANCE
 	
 CrossBattle3Script1:
+	checkevent EVENT_MURCOTT_ISLAND_CROSS
+	iftrue .End
 	faceplayer
 	showemote EMOTE_SHOCK, PLAYER, 15
 	applymovement PLAYER, CrossMurcottIslandApproach1_Movement
@@ -247,9 +249,12 @@ CrossBattle3Script1:
 	pause 10
 	domaptrigger MURCOTT_ISLAND, $1
 	setevent EVENT_MURCOTT_ISLAND_CROSS
+.End
 	end	
 	
-CrossBattle3Script2:	
+CrossBattle3Script2:
+	checkevent EVENT_MURCOTT_ISLAND_CROSS
+	iftrue .End
 	faceplayer
 	showemote EMOTE_SHOCK, PLAYER, 15
 	applymovement PLAYER, CrossMurcottIslandApproach2_Movement
@@ -302,6 +307,7 @@ CrossBattle3Script2:
 	pause 10
 	domaptrigger MURCOTT_ISLAND, $1
 	setevent EVENT_MURCOTT_ISLAND_CROSS
+.End
 	end
 	
 CrossMurcottIslandText:

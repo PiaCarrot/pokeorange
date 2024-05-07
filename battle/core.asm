@@ -4125,16 +4125,17 @@ RecallPlayerMon: ; 3dce6
 ; 3dcf9
 
 HandleBugBiteEatBerry:
-	ld a, [hLinkPlayerNumber]
-	cp $1
-	jr z, .player_1
+	ld a, [hBattleTurn]
+	and a
+	jr nz, .player_consumeberry
+;enemyturn
 	call SetEnemyTurn
 	call UseHPHealingEatenBerry
 	call UseHeldStatusHealingItem
 	call UseConfusionHealingItem
 	call SetPlayerTurn
 	ret
-.player_1
+.player_consumeberry
 	call SetPlayerTurn
 	call UseHPHealingEatenBerry
 	call UseHeldStatusHealingItem

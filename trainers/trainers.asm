@@ -3899,7 +3899,7 @@ CrossGroup:
 
 	db $ff ; end
 
-; ================ PUMMELO (PICK CHARMANDER)
+; ================ ROUTE 51 (PICK CHARMANDER)
 
 	; CROSS (16)
 	db "CROSS@"
@@ -3945,7 +3945,7 @@ CrossGroup:
 
 	db $ff ; end
 
-; ================ PUMMELO (PICK SQUIRTLE)
+; ================ ROUTE 51 (PICK SQUIRTLE)
 
 	; CROSS (17)
 	db "CROSS@"
@@ -3991,7 +3991,7 @@ CrossGroup:
 
 	db $ff ; end
 
-; ================ PUMMELO (PICK BULBASAUR)
+; ================ ROUTE 51 (PICK BULBASAUR)
 
 	; CROSS (18)
 	db "CROSS@"
