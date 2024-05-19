@@ -1,5 +1,6 @@
 const_value = 1
 	const FISHING_CONTEST_GRAMPS
+	const FISHING_CONTEST_SCIENTIST
 
 FishingContest_MapScriptHeader::
 
@@ -40,6 +41,13 @@ FishingContestNatPagleText:
 	line "a great excuse to"
 	cont "drink. Heavily."
 	done
+	
+UnnamedIslandTMScript:
+	faceplayer
+	opentext
+	pokemart MARTTYPE_STANDARD, MART_UNNAMED_ISLAND_2_TM
+	closetext
+	end
 
 FishingContest_MapEventHeader::
 
@@ -50,6 +58,7 @@ FishingContest_MapEventHeader::
 .BGEvents: db 1
 	signpost 15, 11, SIGNPOST_READ, FishingContestSign
 
-.ObjectEvents: db 1
+.ObjectEvents: db 2
 	person_event SPRITE_GRAMPS, 14, 17, SPRITEMOVEDATA_STANDING_RIGHT, 0, 1, -1, -1, PAL_OW_BROWN, PERSONTYPE_SCRIPT, 0, FishingContestNatPagleScript, -1
+	person_event SPRITE_SUPER_NERD, 12,  9, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 1, -1, -1, PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, UnnamedIslandTMScript, -1
 

@@ -387,6 +387,8 @@ ITEMMENU_CLOSE              EQU 6
 	const MART_ASCORBIA
 	const MART_KUMQUAT
 	const MART_PUMMELO
+	const MART_TROVITOPOLIS_SEWER_TM
+	const MART_UNNAMED_ISLAND_2_TM
 
 ; PartyMenuActionText
 	const_def

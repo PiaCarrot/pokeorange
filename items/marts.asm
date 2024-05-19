@@ -16,6 +16,8 @@ Marts: ; 160a9
 	dw AscorbiaMart
 	dw KumquatMart
 	dw PummeloMart
+	dw TrovitopolisSewerTMMart
+	dw UnnamedIsland2TMMart
 MartsEnd:
 ; 160ed
 
@@ -203,12 +205,17 @@ TrovitopolisMedicineMart:
 	db $ff
 
 TrovitopolisTMMart:
-	db 5
+	db 10
 	db TM_FLAMETHROWER
 	db TM_THUNDERBOLT
 	db TM_ICE_BEAM
 	db TM_SOLARBEAM
-	db TM_HYPER_BEAM
+	db TM_POWERUPPUNCH
+	db TM_DIG
+	db TM_EARTH_POWER
+	db TM_GIGA_IMPACT
+	db TM_DAZZLINGLEAM
+	db TM_FLASH_CANNON
 	db $ff
 
 AscorbiaMart:
@@ -250,6 +257,21 @@ PummeloMart:
 	db X_SPCL_DEF
 	db X_ATTACK
 	db X_SPEED
+	db $ff
+	
+TrovitopolisSewerTMMart:
+	db 4
+	db TM_DARK_PULSE
+	db TM_TOXIC
+	db TM_VENOSHOCK
+	db TM_ZAP_CANNON
+	db $ff
+	
+UnnamedIsland2TMMart:
+	db 3
+	db TM_REST
+	db TM_RETURN
+	db TM_FISSURE
 	db $ff
 
 DefaultMart: ; 16214
