@@ -268,10 +268,11 @@ TrovitopolisSewerTMMart:
 	db $ff
 	
 UnnamedIsland2TMMart:
-	db 3
+	db 4
 	db TM_REST
 	db TM_RETURN
 	db TM_FISSURE
+	db TM_ROCK_SLIDE
 	db $ff
 
 DefaultMart: ; 16214

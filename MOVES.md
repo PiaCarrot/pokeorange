@@ -125,7 +125,7 @@ Vicegrip
 - TM45 Seed Bomb (Route 67)
 - TM46 Thief (Mandarin North)
 - TM47 Steel Wing (Unnamed Island 1)
-- TM48 Rock Slide (TODO: Show Aerodactyl to Blue)
+- TM48 Rock Slide (Unnamed Island 2)
 - TM49 Tri Attack (Victory Road)
 - TM50 Flash (Trovitopolis)
 
@@ -138,7 +138,7 @@ Vicegrip
 - HM05 Rock Smash (Trovita Island)
 - HM06 *Dive* (Ascorbia Island)
 - HM07 Waterfall (Unnamed Island 3)
-- HM08 *Rock Climb* (**TODO:** Kanto)
+- HM08 *Rock Climb* (Shamouti Island)
 
 ## Tutors
 
