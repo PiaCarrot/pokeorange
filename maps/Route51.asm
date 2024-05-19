@@ -148,7 +148,7 @@ Route51CrossScript:
 	end
 	
 .GotCharmander:
-	winlosstext ROUTE51_CROSS, 0
+	winlosstext CrossRoute51WinLoss, 0
 	setlasttalked ROUTE51_CROSS
 	loadtrainer CROSS, 16
 	startbattle
@@ -157,7 +157,7 @@ Route51CrossScript:
 	jump .returnfrombattle
 	
 .GotSquirtle:
-	winlosstext ROUTE51_CROSS, 0
+	winlosstext CrossRoute51WinLoss, 0
 	setlasttalked ROUTE51_CROSS
 	loadtrainer CROSS, 17
 	startbattle
