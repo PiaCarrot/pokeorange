@@ -430,21 +430,21 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 	ld a, [hl]
 	and SELECT
 	ld hl, wDexMonPersonality
-	jr z, .ShinyToogle
-	
-	ld a, [MonVariant]
-	ld b, a
+	jr z, .ShinyToggle
 	
 ;check mon that have more than 2 forms
-	;Meowth 3 forms
-	;Lycanroc 3 forms
+	;Meowth 3 forms (handled by IsThreeFormMon)
+	;Raticate 3 forms (handled by IsThreeFormMon)
+	;Lycanroc 3 forms (handled by IsThreeFormMon)
 	;Magikarp 14 forms
 	;Spinda 26 forms
+	push hl
+	farcall IsThreeFormMon
+	pop hl
+	ld a, [MonVariant]
+	ld b, a
+	jr c, .ThreeFormMon
 	ld a, [CurPartySpecies]
-	cp MEOWTH
-	jr z, .meowth_lycanroc
-	cp LYCANROC
-	jr z, .meowth_lycanroc
 	cp SPINDA
 	jr z, .spinda
 	cp MAGIKARP
@@ -457,7 +457,7 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 	jr nz, .nextForm
 	ld a, 26
 	jr .nextForm
-.meowth_lycanroc
+.ThreeFormMon
 	ld a, b
 	dec a
 	jr nz, .nextForm
@@ -489,7 +489,7 @@ DexEntryScreen_MenuActionJumptable: ; 402f2
 	jr .reloadPic
 
 
-.ShinyToogle
+.ShinyToggle
 	ld a, [hl]
 	xor SHINY_MASK ; alternate normal and shiny
 	ld [hl], a
@@ -979,7 +979,7 @@ Pokedex_DrawSearchScreenBG: ; 408f0 (10:48f0)
 	db   "@"
 
 .Menu: ; 4094c
-	db   "SEARCH!"
+	db   "BEGIN SEARCH!!"
 	next "CANCEL"
 	db   "@"
 
@@ -1835,14 +1835,15 @@ Pokedex_LoadSelectedMonTiles: ; 4143b
 	ld a, [wFirstSpindaSeen]
 .got_variant
 	ld [MonVariant], a
+	ld a, [EnemyMonGender]
 	push af
-	;keep shiny toogle
+	;keep shiny toggle
 	ld a, [wDexMonPersonality]
 	and SHINY_MASK
 	ld b, a
 	pop af
 	or b
-	;shiny toogle kept
+	;shiny toggle kept
 	ld [TempMonGender], a
 	ld [wDexMonPersonality], a
 	call GetBaseData

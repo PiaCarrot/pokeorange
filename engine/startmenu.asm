@@ -444,6 +444,9 @@ StartMenu_Pokemon: ; 12976
 .choosemenu
 	xor a
 	ld [PartyMenuActionText], a ; Choose a POKéMON.
+	inc a
+	ld [wPartyMenuScrollPosition], a ; Allow to quick switch with SELECT button (wPartyMenuScrollPosition is unused)
+	dec a
 	call ClearBGPalettes
 
 .menu
@@ -459,6 +462,9 @@ StartMenu_Pokemon: ; 12976
 	call DelayFrame
 	farcall PartyMenuSelect
 	jr c, .return ; if cancelled or pressed B
+	ld a, d
+	cp $69 ;if switched Pokémon with SELECT button
+	jr z, .menunoreload
 
 	call PokemonActionSubmenu
 	cp 3
@@ -473,9 +479,14 @@ StartMenu_Pokemon: ; 12976
 .return
 	call CloseSubmenu
 	ld a, 0
+	
+	ld [wPartyMenuScrollPosition], a
+	
 	ret
 
 .quit
+	xor a
+	ld [wPartyMenuScrollPosition], a
 	ld a, b
 	push af
 	call ExitAllMenus
@@ -1125,6 +1136,9 @@ OpenPartyStats: ; 12e00
 
 
 MonMenu_Fly: ; 12e30
+	xor a
+	ld [EnemyMonUnused], a ; temp value for using fly from town map
+
 	farcall FlyFunction
 	ld a, [wFieldMoveSucceeded]
 	and a

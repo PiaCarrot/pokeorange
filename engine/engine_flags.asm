@@ -97,12 +97,14 @@ ENDM
 	engine_flag BikeFlags, 2 ; downhill (cycling road)
 
 	engine_flag StatusFlags, 0 ; pokedex
+	engine_flag StatusFlags, 1 ; hard mode
 	engine_flag StatusFlags, 3 ; pokerus
 	engine_flag StatusFlags, 4 ; exp all
 	engine_flag StatusFlags, 6 ; credits skip
 	engine_flag StatusFlags, 7 ; bug contest on
 
 	engine_flag StatusFlags2, 2 ; bug contest timer
+	engine_flag StatusFlags2, 3 ; Fast TMHM flag
 
 	engine_flag Badges, 0 ; coral-eye badge
 	engine_flag Badges, 1 ; sea ruby badge

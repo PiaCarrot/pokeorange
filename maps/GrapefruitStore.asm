@@ -82,6 +82,18 @@ GrapefruitLassText:
 	cont "tasty!"
 	done
 
+GrapefruitScript:
+	opentext
+	writetext GrapefruitText
+	waitbutton
+	closetext
+	end
+
+GrapefruitText:
+	text "It's a GRAPEFRUIT."
+	para "It looks tasty!"
+	done
+
 GrapefruitStore_MapEventHeader::
 
 .Warps: db 2
@@ -92,6 +104,10 @@ GrapefruitStore_MapEventHeader::
 
 .BGEvents: db 0
 
-.ObjectEvents: db 2
+.ObjectEvents: db 6
 	person_event SPRITE_LASS, 2, 2, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, (1 << 3) | PAL_OW_GREEN, PERSONTYPE_SCRIPT, 0, GrapefruitLassScript, -1
-	person_event SPRITE_YOUNGSTER, 5, 5, SPRITEMOVEDATA_STANDING_UP, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, GrapefruitSalesmanScript, -1
+	person_event SPRITE_YOUNGSTER, 5, 5, SPRITEMOVEDATA_STANDING_LEFT, 1, 0, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, GrapefruitSalesmanScript, -1
+	person_event SPRITE_GRAPEFRUIT,  1,  1, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, PAL_OW_RED, 0, 0, GrapefruitScript, -1
+	person_event SPRITE_GRAPEFRUIT,  1,  3, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, PAL_OW_RED, 0, 0, GrapefruitScript, -1
+	person_event SPRITE_GRAPEFRUIT,  1,  5, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, PAL_OW_RED, 0, 0, GrapefruitScript, -1
+	person_event SPRITE_GRAPEFRUIT,  1,  7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, PAL_OW_RED, 0, 0, GrapefruitScript, -1

@@ -312,6 +312,7 @@ BattleAnim_Moonblast:
 	anim_ret
 
 BattleAnim_FairyWind:
+	anim_sound 3, 0, SFX_RAZOR_WIND
 BattleAnim_SweetScent2: ; c929c
 	anim_2gfx ANIM_GFX_FLOWER, ANIM_GFX_MISC
 	anim_obj ANIM_OBJ_FLOWER,   8, 0,  12, 0, $2

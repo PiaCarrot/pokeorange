@@ -90,6 +90,9 @@
 
 	charmap "′",        $ba
 	charmap "″",        $bb
+	
+	charmap "<PHONE>",	$bc
+	charmap "<SHINY>",	$bd
 
 	charmap "'d",       $c0
 	charmap "'l",       $c1

@@ -243,6 +243,7 @@ INCLUDE "audio/music/orangewild.asm"
 INCLUDE "audio/music/lugiassong.asm"
 INCLUDE "audio/music/orangegymbattle.asm"
 INCLUDE "audio/music/orangetrainerbattle.asm"
+INCLUDE "audio/music/crossencounter.asm"
 
 SECTION "Sound Effects", ROMX
 

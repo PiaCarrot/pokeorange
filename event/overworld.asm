@@ -31,9 +31,107 @@ GetPartyNick: ; c706
 	ld hl, StringBuffer3
 	jp CopyName2
 
-CheckPartyMove: ; c742
-; Check if a monster in your party has move d.
+_ASM_skipHiddenMachineMessage:
+	xor a
+	ld [ScriptVar], a
+	ld a, [StatusFlags2]
+	bit 3, a
+	ret z
+	ld a, 1
+	ld [ScriptVar], a
+	ret
 
+CheckPartyMove: ; c742
+; Only used for OW HM moves
+; If no HM is enabled, skip
+	ld a, [StatusFlags2]
+	bit 3, a
+	jr z, .NormalHM
+	
+	xor a
+	ld [wCurPartyMon], a
+	
+	ld a, WHIRLPOOL
+	ld c, WHIRLPOOL_TMNUM - 1 ; WHIRLPOOL
+	cp d
+	jr z, .checkTMHM
+	
+	ld a, FLASH ; not used, but adding it nonetheless
+	ld c, FLASH_TMNUM - 1
+	jr z, .checkTMHM
+
+	ld a, CUT 
+	ld c, CUT_TMNUM - 1 ; CUT
+	cp d
+	jr z, .checkTMHM
+
+	ld a, FLY ; not used, but adding it nonetheless
+	ld c, FLY_TMNUM - 1 ; FLY
+	cp d
+	jr z, .checkTMHM
+	
+	ld a, SURF 
+	ld c, SURF_TMNUM - 1 ; SURF
+	cp d
+	jr z, .checkTMHM
+	
+	ld a, STRENGTH
+	ld c, STRENGTH_TMNUM - 1 ; STRENGTH
+	cp d
+	jr z, .checkTMHM
+	
+	ld a, ROCK_SMASH 
+	ld c, ROCK_SMASH_TMNUM - 1 ; ROCK_SMASH
+	cp d
+	jr z, .checkTMHM
+	
+	ld a, DIVE 
+	ld c, DIVE_TMNUM - 1 ; DIVE
+	cp d
+	jr z, .checkTMHM
+	
+	ld a, WATERFALL 
+	ld c, WATERFALL_TMNUM - 1 ; WATERFALL
+	cp d
+	jr z, .checkTMHM
+	
+	ld a, ROCK_CLIMB 
+	ld c, ROCK_CLIMB_TMNUM - 1 ; ROCK_CLIMB
+	cp d
+	jr z, .checkTMHM
+	
+	ld a, HEADBUTT
+	cp d
+	jr nz, .NormalHM ; Handles every other possible case (there should be none at the moment)
+	
+	;Here is the HEADBUTT code, since it is a tutor move
+	ld de, EVENT_UNLOCKED_HEADBUTT
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	ld a, c
+	and a
+	jr nz, .hasTMHM
+	; Headbutt not unlocked
+	scf
+	ret
+
+.checkTMHM
+	ld hl, TMsHMs
+	ld b, 0
+	add hl, bc
+	ld a, [hl] ; not using "bit 0, [hl]" because it would fail in case there are multiple TMs stored. Not possible in normal playtrough though
+	and a
+	jr nz, .hasTMHM
+	; Don't have the TMHM, set carry and return
+	scf
+	ret
+.hasTMHM
+	xor a
+	ld [wCurPartyMon], a ;failsafe, but text won't be printed on fast TMHM
+	ret
+
+.NormalHM
+; Check if a monster in your party has move d.
 	ld e, 0
 	xor a
 	ld [wCurPartyMon], a
@@ -131,6 +229,11 @@ Text_UsedCut: ; 0xc7c4
 	text_jump UnknownText_0x1c05dd
 	db "@"
 
+Text_QuickUsedCut: ; 0xc7c4
+	;  "The tree was CUT!"
+	text_jump QuickTMHMCutText
+	db "@"
+
 Text_NothingToCut: ; 0xc7c9
 	; There's nothing to CUT here.
 	text_jump UnknownText_0x1c05ec
@@ -176,8 +279,13 @@ Script_CutFromMenu: ; c7fe
 	special UpdateTimePals
 
 Script_Cut: ; 0xc802
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .skipTMHMText
 	callasm GetPartyNick
 	writetext Text_UsedCut
+.skipTMHMText
+	writetext Text_QuickUsedCut
+	wait 4
 	reloadmappart
 	callasm CutDownTreeOrGrass
 	closetext
@@ -409,11 +517,15 @@ SurfFromMenuScript: ; c983
 	special UpdateTimePals
 
 UsedSurfScript: ; c986
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .skipTMHMText
+
 	opentext
 	writetext UsedSurfText ; "used SURF!"
 	waitbutton
 	closetext
 
+.skipTMHMText
 	copybytetovar Buffer2
 	writevarcode VAR_MOVEMENT
 
@@ -569,6 +681,10 @@ UsedDiveText:
 	text_jump _UsedDiveText
 	db "@"
 
+QuickUsedDiveText:
+	text_jump _QuickUsedDiveText
+	db "@"
+
 CantDiveText:
 	text_jump _CantDiveText
 	db "@"
@@ -653,13 +769,21 @@ DiveFromMenuScript:
 	special UpdateTimePals
 
 UsedDiveScript:
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .alternatediveText
 	writetext UsedDiveText
 	waitbutton
+.continueDive
 	closetext
 	special FadeOutPalettes
 	waitsfx
 	divewarp
 	end
+	
+.alternatediveText
+	writetext QuickUsedDiveText
+	wait 4
+	jump .continueDive
 
 FlyFunction: ; ca3b
 	call FieldMoveJumptableReset
@@ -727,17 +851,38 @@ FlyFunction: ; ca3b
 
 .illegal
 	call CloseWindow
+	ld a, [EnemyMonUnused] ; temp value for using fly from town map
+	and a
+	jr z, .done_tiles
+	ld a, [wUsingItemWithSelect]
+	and a
+	jr nz, .overworld
+	farcall Pack_InitGFX ; gets the pack GFX when exiting out of Fly by pressing B
+	farcall WaitBGMap_DrawPackGFX
+	farcall Pack_InitColors
+.done_tiles
 	call WaitBGMap
 	ld a, $80
 	ret
 
+.overworld
+	call ExitFlyMap
+	jr .done_tiles
+
 .DoFly: ; ca94
+	ld a, [wUsingItemWithSelect]
+	and a
+	jr z, .done_select
+	call ExitFlyMap
+.done_select
 	ld hl, .FlyScript
 	call QueueScript
 	ld a, $81
 	ret
 
 .FailFly: ; ca9d
+	xor a
+	ld [EnemyMonUnused], a ; temp value for using fly from town map, after we use fly we clear it
 	call FieldMoveFailed
 	ld a, $82
 	ret
@@ -746,12 +891,14 @@ FlyFunction: ; ca3b
 	reloadmappart
 	callasm HideSprites
 	special UpdateTimePals
+	callasm LoadFlyMonPal
 	callasm FlyFromAnim
 	farscall Script_AbortBugContest
 	special WarpToSpawnPoint
 	callasm DelayLoadingNewSprites
 	writecode VAR_MOVEMENT, PLAYER_NORMAL
 	newloadmap MAPSETUP_FLY
+	callasm LoadFlyMonPal
 	callasm FlyToAnim
 	special WaitSFX
 	callasm .ReturnFromFly
@@ -760,8 +907,25 @@ FlyFunction: ; ca3b
 .ReturnFromFly: ; cacb
 	farcall Function561d
 	call DelayFrame
+	callasm ReloadOWPal
 	call ReplaceKrisSprite
 	farcall LoadOverworldFont
+	callasm _ASM_clearFastFly
+	ret
+
+_ASM_clearFastFly:
+	xor a
+	ld [EnemyMonUnused], a ; temp value for using fly from town map, after we use fly we clear it
+	ret
+
+LoadFlyMonPal:
+	farcall FlyFunction_GetFlyMonPalette ; returns palette index in d
+	farcall FlyLoadOB0Pal ; loads palette d to OB0
+	ret
+
+ReloadOWPal:
+	ld d, 0
+	farcall FlyLoadOB0Pal ; Loads pallete 0 (Red) to OB0.
 	ret
 
 WaterfallFunction: ; cade
@@ -804,10 +968,13 @@ Script_WaterfallFromMenu: ; 0xcb1c
 	special UpdateTimePals
 
 Script_UsedWaterfall: ; 0xcb20
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .skipTMHMText
 	callasm GetPartyNick
 	writetext .Text_UsedWaterfall
 	waitbutton
 	closetext
+.skipTMHMText
 	playsound SFX_BUBBLEBEAM
 .loop
 	applymovement PLAYER, .WaterfallStep
@@ -862,12 +1029,16 @@ Script_CantDoWaterfall: ; 0xcb7e
 	db "@"
 
 Script_AskWaterfall: ; 0xcb86
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .skipTMHMText
 	opentext
 	writetext .AskUseWaterfall
 	yesorno
 	iftrue Script_UsedWaterfall
 	closetext
 	end
+.skipTMHMText
+	jump Script_UsedWaterfall
 
 .AskUseWaterfall: ; 0xcb90
 	; Do you want to use WATERFALL?
@@ -941,21 +1112,28 @@ TryRockClimbOW::
 	ret
 
 AskRockClimbScript:
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .skipTMHMText
 	opentext
 	writetext AskRockClimbText
 	yesorno
 	iftrue Script_UsedRockClimb
 	closetext
 	end
+.skipTMHMText
+	jump Script_UsedRockClimb
 
 Script_RockClimbFromMenu:
 	reloadmappart
 	special UpdateTimePals
 
 Script_UsedRockClimb:
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .skipTMHMText
 	callasm GetPartyNick
 	writetext Text_UsedRockClimb
 	closetext
+.skipTMHMText
 	waitsfx
 	playsound SFX_STRENGTH
 	checkcode VAR_FACING
@@ -1262,6 +1440,8 @@ Script_StrengthFromMenu: ; 0xcd29
 	special UpdateTimePals
 
 Script_UsedStrength: ; 0xcd2d
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .skipTMHMText
 	callasm SetStrengthFlag
 	writetext .UsedStrength
 	copybytetovar Buffer6
@@ -1269,6 +1449,12 @@ Script_UsedStrength: ; 0xcd2d
 	pause 3
 	writetext .StrengthAllowedItToMoveBoulders
 	closetext
+	end
+.skipTMHMText
+	callasm SetStrengthFlag
+	copybytetovar Buffer6
+	cry 0
+	pause 3
 	end
 
 .UsedStrength: ; 0xcd41
@@ -1292,12 +1478,16 @@ AskStrengthScript:
 	jumptext UnknownText_0xcd6e
 
 .AskStrength: ; 0xcd5f
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .skipTMHMText
 	opentext
 	writetext UnknownText_0xcd69
 	yesorno
 	iftrue Script_UsedStrength
 	closetext
 	end
+.skipTMHMText
+	jump Script_UsedStrength
 
 UnknownText_0xcd69: ; 0xcd69
 	; A #MON may be able to move this. Want to use STRENGTH?
@@ -1378,6 +1568,12 @@ Text_UsedWhirlpool: ; 0xcdd9
 	; used WHIRLPOOL!
 	text_jump UnknownText_0x1c0816
 	db "@"
+	
+Text_QuickUsedWhirlpool:
+	; The whirlpool is
+	; vanishing!
+	text_jump QuickTMHMWhirlpoolText
+	db "@"
 
 TryWhirlpoolMenu: ; cdde
 	call GetFacingTileCoord
@@ -1411,9 +1607,18 @@ Script_WhirlpoolFromMenu: ; 0xce0b
 	special UpdateTimePals
 
 Script_UsedWhirlpool: ; 0xce0f
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .skipTMHMText
 	callasm GetPartyNick
 	writetext Text_UsedWhirlpool
 	reloadmappart
+	callasm DisappearWhirlpool
+	closetext
+	end
+.skipTMHMText
+	opentext ; unfortunately, reloadmappart used later needs to have a textbox
+	writetext Text_QuickUsedWhirlpool
+	wait 4
 	callasm DisappearWhirlpool
 	closetext
 	end
@@ -1461,12 +1666,16 @@ Script_MightyWhirlpool: ; 0xce66
 	db "@"
 
 Script_AskWhirlpoolOW: ; 0xce6e
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .skipTMHMText
 	opentext
 	writetext UnknownText_0xce78
 	yesorno
 	iftrue Script_UsedWhirlpool
 	closetext
 	end
+.skipTMHMText
+	jump Script_UsedWhirlpool
 
 UnknownText_0xce78: ; 0xce78
 	text_jump UnknownText_0x1c0864
@@ -1606,8 +1815,11 @@ RockSmashFromMenuScript: ; 0xcf2e
 	special UpdateTimePals
 
 RockSmashScript: ; cf32
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .skipTMHMText
 	callasm GetPartyNick
 	writetext UnknownText_0xcf58
+.skipTMHMText
 	closetext
 	waitsfx
 	playsound SFX_STRENGTH
@@ -1654,18 +1866,30 @@ AskRockSmashScript: ; 0xcf5d
 	callasm HasRockSmash
 	if_equal 1, .no
 
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .skipTMHMText
 	opentext
 	writetext UnknownText_0xcf77
 	yesorno
 	iftrue RockSmashScript
 	closetext
 	end
+.skipTMHMText
+	opentext ; Unfortunately, reloadmaplater needs an open textbox
+	writetext QuickRockSmashText
+	wait 4
+	jump RockSmashScript
 .no
 	jumptext UnknownText_0xcf72
 
 UnknownText_0xcf72: ; 0xcf72
 	; Maybe a #MON can break this.
 	text_jump UnknownText_0x1c0906
+	db "@"
+
+QuickRockSmashText: ; 0xcf72
+	; The rock was smashed!
+	text_jump _QuickRockSmashText
 	db "@"
 
 UnknownText_0xcf77: ; 0xcf77
@@ -2037,6 +2261,8 @@ TryCutOW:: ; d186
 	ret
 
 AskCutScript: ; 0xd1a9
+	callasm _ASM_skipHiddenMachineMessage
+	iftrue .skipTMHMText
 	opentext
 	writetext UnknownText_0xd1c8
 	yesorno
@@ -2044,6 +2270,12 @@ AskCutScript: ; 0xd1a9
 	callasm .CheckMap
 	iftrue Script_Cut
 .script_d1b8
+	closetext
+	end
+.skipTMHMText
+	opentext ; unfortunately, reloadmappart used later needs to have a textbox
+	callasm .CheckMap
+	iftrue Script_Cut
 	closetext
 	end
 

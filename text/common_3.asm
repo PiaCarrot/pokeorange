@@ -20,6 +20,10 @@ _UsedDiveText::
 	line "DIVE!"
 	done
 
+_QuickUsedDiveText::
+	text "Let's DIVE!"
+	done
+
 _CantDiveText::
 	text "You can't DIVE"
 	line "here."
@@ -155,6 +159,11 @@ UnknownText_0x1c08f0::
 UnknownText_0x1c0906::
 	text "Maybe a #MON"
 	line "can break this."
+	done
+	
+_QuickRockSmashText::
+	text "The rock was"
+	line "smashed!"
 	done
 
 UnknownText_0x1c0924::
@@ -1113,4 +1122,9 @@ _OakText5::
 
 	para "That's why I study"
 	line "#MON every day."
+	prompt
+
+_HardModeText::
+	text "Would you like to"
+	line "enable HARD MODE?"
 	prompt

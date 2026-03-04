@@ -1172,6 +1172,8 @@ GiveEgg:: ; df8c
 	ld a, 1
 	jr nz, .got_init_happiness
 	ld a, [BaseEggSteps]
+	srl a ;divide cycles by 2
+	srl a ;divide cycles by 2 again
 
 .got_init_happiness
 	ld [hl], a
@@ -1183,6 +1185,29 @@ GiveEgg:: ; df8c
 	xor a
 	ld [hli], a
 	ld [hl], a
+
+;Make shiny chance a flat 25%
+	ld a, [PartyCount]
+	dec a
+	ld hl, PartyMon1Shiny
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	push hl
+	ldh a, [hRandomAdd]
+	cp a, $40 ;25% chance
+	pop hl
+	ld a, [hl]
+	jr nc, .not_shiny
+.shiny
+	or SHINY_MASK ; set the shiny bit
+	jr .done
+.not_shiny
+	and ~SHINY_MASK ; unset the shiny bit
+.done
+	ld [hl], a
+
+;return
+	xor a
 	and a
 	ret
 ; e035
@@ -1885,9 +1910,11 @@ _GetBattleRandomPersonality: ;tag to call from core.asm, which uses BattleRandom
 	
 .forceForm1 ;currently unused, but I'll leave the syntax here
 	ld a, 01
+	ld c, a
 	jr .handle_lycanroc
 .forceForm2
 	ld a, 02
+	ld c, a
 	;;fallthrough
 
 ; Handle lycanroc's form
@@ -1951,7 +1978,7 @@ _GetBattleRandomPersonality: ;tag to call from core.asm, which uses BattleRandom
 
 ; Having all 11 Seashells gives 1/256 chance of a shiny, it stacks with the Shiny Charm
 .checkSeashells
-	;extra 1/16 roll when player has all seashells
+	;extra 1/256 roll when player has all seashells
 	ld a, [Shells+1]
 	cp 11
 	jr c, .normalRoll ;if seashells <11

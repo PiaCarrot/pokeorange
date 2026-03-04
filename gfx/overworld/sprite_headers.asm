@@ -495,3 +495,6 @@ Shrine1Sprite:
 	
 Shrine2Sprite:
 	sprite_header Shrine2SpriteGFX, 1, STILL_SPRITE, PAL_OW_ROCK
+
+GrapefruitSprite:
+	sprite_header GrapefruitSpriteGFX, 1, STILL_SPRITE, PAL_OW_RED

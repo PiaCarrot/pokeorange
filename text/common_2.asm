@@ -199,3 +199,12 @@ UnknownText_0x1c0609::
 	line "lights the area!@"
 	text_waitbutton
 	db "@@"
+
+QuickTMHMCutText::
+	text "The tree was CUT!"
+	done
+
+QuickTMHMWhirlpoolText::
+	text "The whirlpool is"
+	line "vanishing!"
+	done

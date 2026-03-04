@@ -255,10 +255,8 @@ AnimateHOFMonEntrance: ; 865b5
 	ld [CurPartySpecies], a
 	inc hl
 	inc hl
-	ld a, [CurPartySpecies]
-	ld [BattleMonSpecies], a ;GetBackpic later relies on BattleMonSpecies
 	
-	;load form byte and monvariant form stored HoF entry
+	;load form byte and monvariant from stored HoF entry
 	ld a, [hli]
 	ld [TempMonForm], a
 	ld a, [hl]
@@ -268,8 +266,16 @@ AnimateHOFMonEntrance: ; 865b5
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
 	call ByteFill
+
+	ld a, [BattleMonSpecies] ; BattleMonSpecies shares the same address as wHallOfFameTempMon3DVs
+	push af
+	ld a, [CurPartySpecies]
+	ld [BattleMonSpecies], a ;GetBackpic relies on BattleMonSpecies
 	ld de, VTiles2 tile $31
 	predef GetBackpic
+	pop af
+	ld [BattleMonSpecies], a ; Restore wHallOfFameTempMon3DVs, though this is probably unneded
+
 	ld a, $31
 	ld [hGraphicStartTile], a
 	hlcoord 6, 6

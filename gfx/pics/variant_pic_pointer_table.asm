@@ -26,4 +26,6 @@
 	dbba MAGIKARP,  MagikarpPicPointers
 	dbba WARTORTLE, WartortlePicPointers
 	dbba BLASTOISE, BlastoisePicPointers
+	dbba ARBOK, 	ArbokPicPointers
+	dbba VICTREEBEL, VictreebelPicPointers
 	dbba -1,        PicPointers

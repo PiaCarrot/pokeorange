@@ -22,7 +22,7 @@ PicPointers::
 	add_pics Spearow
 	add_pics Fearow
 	add_pics Ekans
-	add_pics Arbok
+	add_pics Arbok	; unused; see ArbokPicPointers
 	add_pics Pikachu
 	add_pics Raichu
 	add_pics Sandshrew
@@ -69,7 +69,7 @@ PicPointers::
 	add_pics Machamp
 	add_pics Bellsprout
 	add_pics Weepinbell
-	add_pics Victreebel
+	add_pics Victreebel ; unused; see VictreebelPicPointers
 	add_pics Tentacool
 	add_pics Tentacruel
 	add_pics Geodude

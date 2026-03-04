@@ -639,7 +639,7 @@ InitPartyMenuWithCancel: ; 50405
 
 .done
 	ld [wMenuCursorY], a
-	ld a, A_BUTTON | B_BUTTON
+	ld a, A_BUTTON | B_BUTTON | SELECT
 	ld [wMenuJoypadFilter], a
 	ret
 ; 5042d
@@ -682,9 +682,28 @@ PartyMenuAttributes: ; 5044f
 	db 0
 ; 50457
 
+; Returns carry if non-select button was pressed or if select was pressed AND is allowed to be pressed
+PartyMenuSelect_AllowSelectButton:
+	ld a, [hJoyLast]
+	bit SELECT_F, a
+	jr z, .scf ; if select wasn't pressed, proceed normally
+; SELECT Pressed
+	ld a, [wPartyMenuScrollPosition] ; Only allow select if wPartyMenuScrollPosition is non-zero
+	and a
+	jr nz, .scf
+	xor a
+	ret
+.scf
+	scf
+	ret
+
 PartyMenuSelect: ; 0x50457
 ; sets carry if exitted menu.
+.ignoreSelect
 	call StaticMenuJoypad
+	call PartyMenuSelect_AllowSelectButton ; ignores SELECT button press in any situation that isn't the Start button Party Menu
+	jr nc, .ignoreSelect
+
 	call PlaceHollowCursor
 	ld a, [PartyCount]
 	inc a
@@ -697,6 +716,9 @@ PartyMenuSelect: ; 0x50457
 	ld b, a
 	bit B_BUTTON_F, b
 	jr nz, .exitmenu ; B button
+	
+	push bc ;store last button press
+
 	ld a, [wMenuCursorY]
 	dec a
 	ld [wCurPartyMon], a
@@ -709,6 +731,17 @@ PartyMenuSelect: ; 0x50457
 
 	ld de, SFX_READ_TEXT_2
 	call PlaySFX
+
+	pop bc ;restore last button press
+	ld a, [wPartyMenuScrollPosition] ; If non-zero, allow to quick switch party mon with select (only enabled from the party start menu)
+	and a
+	jr z, .noSwitch
+	bit SELECT_F, b
+	ld d, 0
+	jr z, .noSwitch
+	farcall SwitchPartyMons
+	ld d, $69
+.noSwitch
 	and a
 	ret
 

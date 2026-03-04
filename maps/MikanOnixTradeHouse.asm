@@ -172,7 +172,8 @@ _ASM_OnixTradeHouseRand:
 	ld [ScriptVar], a
 	call Random
 	ldh a, [hRandomAdd]
-	cp a, $1A ;10% chance
+	;cp a, $1A ;10% chance
+	cp a, $40 ;25% chance
 	ret nc
 	ld a, 1
 	ld [ScriptVar], a

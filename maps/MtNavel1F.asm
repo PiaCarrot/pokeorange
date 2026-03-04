@@ -13,8 +13,8 @@ MtNavel1FBoulder:
 	
 CrossBattle2Script:
 	faceplayer
+	playmusic MUSIC_CROSS_ENCOUNTER
 	showemote EMOTE_SHOCK, MT_NAVEL_CROSS, 15
-	playmusic MUSIC_LOOK_GLADION
 	opentext
 	writetext CrossMtNavelText
 	waitbutton
@@ -50,7 +50,7 @@ CrossBattle2Script:
 	jump .returnfrombattle
 
 .returnfrombattle:
-	playmusic MUSIC_LOOK_GLADION
+	playmusic MUSIC_CROSS_ENCOUNTER
 	opentext
 	writetext CrossMtNavelLeavingNowText
 	waitbutton

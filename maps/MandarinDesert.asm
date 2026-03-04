@@ -13,7 +13,8 @@ MandarinDesertTMSandstorm:
 	itemball TM_SANDSTORM
 	
 MandarinDesertTMIron:
-	itemball IRON
+	;itemball IRON
+	itemball METAL_COAT
 	
 MandarinDesertSmokeBall:
 	itemball SMOKE_BALL

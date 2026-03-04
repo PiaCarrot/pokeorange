@@ -25,6 +25,11 @@ AI_SwitchOrTryItem: ; 38000
 	and a
 	jr nz, .ok
 
+	; In Hard Mode, always load the first TrainerClass (Cissy) [AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY]
+	ld a, [StatusFlags]
+	bit 1, a ; hard mode
+	jr nz, .ok
+
 	ld a, [TrainerClass]
 	dec a
 	ld bc, 7

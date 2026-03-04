@@ -10,6 +10,16 @@ _OptionsMenu: ; e41d0
 	hlcoord 2, 2
 	ld de, StringOptions
 	call PlaceString
+	
+	hlcoord 3, 13
+	ld a, [StatusFlags]
+	bit 1, a ; hard mode
+	ld de, HardModeOFFString
+	jr z, .hardModeOff
+	ld de, HardModeONString
+.hardModeOff
+	call PlaceString
+	
 	xor a
 	ld [wJumptableIndex], a
 	ld c, $6 ; number of items on the menu minus 1 (for Done)
@@ -89,6 +99,11 @@ else
 endc
 ; e42d6
 
+HardModeONString:
+	db "(HARD MODE ON)@"
+
+HardModeOFFString:
+	db "(HARD MODE OFF)@"
 
 GetOptionPointer: ; e42d6
 	ld a, [wJumptableIndex] ; load the cursor position to a

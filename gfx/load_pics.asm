@@ -221,12 +221,16 @@ GetFrontpicPointer: ; 510d7
     cp RAICHU
     jp z, .dual_form
 	cp MEOWTH
-	jp z, .meowth
+	jp z, .dual_form
 	cp PERSIAN
 	jp z, .dual_form
 	cp LYCANROC
 	jp z, .dual_form
 	cp POLIWRATH
+	jp z, .dual_form
+	cp ARBOK
+	jp z, .dual_form
+	cp VICTREEBEL
 	jp z, .dual_form
 	jp .skip
 .dual_form
@@ -248,30 +252,6 @@ GetFrontpicPointer: ; 510d7
 	pop bc
 	jr z, .notvariant
 	ld a, 1 ;base form
-	jr .notvariant
-.meowth
-	ld a, [OtherTrainerClass]
-	cp JESSIE_JAMES
-	ld a, 3
-	jr z, .notvariant
-	ld a, [OtherTrainerClass]
-	cp JESSIE
-	ld a, 3
-	jr z, .notvariant
-	ld a, [OtherTrainerClass]
-	cp JAMES
-	ld a, 3
-	jr z, .notvariant
-	xor a
-	ld a, [TempMonForm]
-	and FORM_MASK
-	push bc
-	ld b, 2
-	cp b
-	ld a, [MonVariant]
-	pop bc
-	jr nz, .notvariant
-	ld a, 2
 	jr .notvariant
 .skip
 	ld a, [CurPartySpecies]

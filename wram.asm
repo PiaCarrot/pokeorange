@@ -2202,12 +2202,12 @@ CurTimeOfDay:: ; d848
 wSecretID:: ds 2
 StatusFlags:: ; d84c
 	; 0 - pokedex
-	; 1 -
-	; 2 -
+	; 1 - hard mode
+	; 2 - flash
 	; 3 - pokerus
 	; 4 - exp all
 	; 5 - wild encounters on/off
-	; 6 - hall of fame
+	; 6 - hall of fame (also enables faster credits roll)
 	; 7 - bug contest on
 	ds 1
 
@@ -2215,7 +2215,7 @@ StatusFlags2:: ; d84d
 	; 0 - rockets
 	; 1 -
 	; 2 - bug contest timer
-	; 3 -
+	; 3 - Fast TMHM flag
 	; 4 - bike shop call
 	; 5 - pokerus
 	; 6 - berry juice?

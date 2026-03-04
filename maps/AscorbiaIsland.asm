@@ -28,7 +28,8 @@ AscorbiaTMDragonPulse:
 	itemball TM_DRAGON_PULSE
 	
 AscorbiaMaxRepel:
-	itemball MAX_REPEL
+	;itemball MAX_REPEL
+	itemball DRAGON_SCALE
 	
 AscorbiaPolkadotBow:
 	itemball POLKADOT_BOW

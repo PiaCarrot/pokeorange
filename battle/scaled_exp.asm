@@ -190,6 +190,8 @@ ScaledExpCalculation::
 	ld a, [hl]
 	cp LUCKY_EGG
 	call z, BoostExp
+; Apply HARD MODE deboost
+	call HardModeDeboostExp
 ; store final EXP to be handled back in the original bank
 	ld a, [hProduct + 3]
 	ld [wExpScratch40_1 + 2], a
@@ -256,6 +258,23 @@ BoostExp::
 	ld [hDivisor], a
 	ld b, $4
 	call Divide
+	pop bc
+	ret
+
+HardModeDeboostExp::
+; reduce exp by 25% in hard mode
+; when this is called exp is already in place
+	ld a, [StatusFlags]
+	bit 1, a ; hard mode
+	ret z ; if hard mode is disabled, return
+	push bc
+	ld a, $4 ;divide by 4
+	ld [hDivisor], a
+	ld b, $4
+	call Divide
+	ld a, $3
+	ld [hMultiplier], a
+	call Multiply	
 	pop bc
 	ret
 

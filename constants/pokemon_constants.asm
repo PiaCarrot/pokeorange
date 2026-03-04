@@ -445,6 +445,7 @@ const_value = 1
 const_value = 1
 	const RATICATE_NORMAL_FORM
 	const RATICATE_KANTONESE_FORM
+	const RATICATE_ROCKET_FORM
 
 const_value = 1
 	const DIGLETT_NORMAL_FORM
@@ -491,6 +492,14 @@ const_value = 1
 	const LYCANROC_MIDDAY_FORM
 	const LYCANROC_MIDNIGHT_FORM
 	const LYCANROC_DUSK_FORM
+
+const_value = 1
+	const ARBOK_NORMAL_FORM
+	const ARBOK_ROCKET_FORM
+
+const_value = 1
+	const VICTREEBEL_NORMAL_FORM
+	const VICTREEBEL_ROCKET_FORM
 
 
 ; apply to MON_CAUGHTDATA

@@ -634,8 +634,13 @@ LearnEvolutionMove:
 	ld c, a
 	ld hl, EvolutionMoves
 	add hl, bc
+	ld a, BANK(EvolutionMoves)
+	call GetFarByte
+	jr .continue_evomove
+
 .override
 	ld a, [hl]
+.continue_evomove
 	and a
 	ret z
 

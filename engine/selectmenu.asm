@@ -117,6 +117,40 @@ CheckRegisteredItem: ; 13345
 UseRegisteredItem: ; 133c3
 
 	farcall CheckItemMenu
+
+	;handle Town Map for Fly
+	ld a, [wCurItem]
+	cp TOWN_MAP
+	jr nz, .skipTownMap
+
+	;if fast TMHM isn't enabled, use normal town map
+	ld a, [StatusFlags2]
+	bit 3, a
+	jr z, .handleTownMapNoFly
+
+	;if player has fly, continue
+	ld hl, TMsHMs
+	ld b, 0
+	ld c, FLY_TMNUM - 1 ; FLY
+	add hl, bc
+	ld a, [hl] ; not using "bit 0, [hl]" because it would fail in case there are multiple TMs stored. Not possible in normal playtrough though
+	and a
+	jr z, .handleTownMapNoFly
+	
+	; Change the attribute to close the menu if using the map for Fly
+	ld a, 06
+	ld [wItemAttributeParamBuffer], a
+	jr .skipTownMap
+
+.handleTownMapNoFly
+	; Signal to use normal Town Map instead of FlyMap
+	ld a, -1
+	ld [EnemyMonUnused], a
+	ld a, 1
+	ld [wUsingItemWithSelect], a
+
+.skipTownMap
+
 	ld a, [wItemAttributeParamBuffer]
 	ld hl, .SwitchTo
 	rst JumpTable
@@ -178,7 +212,11 @@ UseRegisteredItem: ; 133c3
 	call RefreshScreen
 
 ._cantuse
+	ld a, [EnemyMonUnused]
+	and a
+	jr nz, .skip_oak
 	call CantUseItem
+.skip_oak
 	call CloseText
 	and a
 	ret

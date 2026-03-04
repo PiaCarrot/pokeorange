@@ -18,6 +18,7 @@ Marts: ; 160a9
 	dw PummeloMart
 	dw TrovitopolisSewerTMMart
 	dw UnnamedIsland2TMMart
+	dw ShamoutiMart
 MartsEnd:
 ; 160ed
 
@@ -82,11 +83,12 @@ SunburstMart1: ; 16111
 ; 16118
 
 SunburstMart2: ; 16118
-	db 8 ; # items
+	db 9 ; # items
 	db THUNDERSTONE
 	db WATER_STONE
 	db FIRE_STONE
 	db LEAF_STONE
+	db ICE_STONE
 	db SUN_STONE
 	db SHINY_STONE
 	db MOON_STONE
@@ -273,6 +275,29 @@ UnnamedIsland2TMMart:
 	db TM_RETURN
 	db TM_FISSURE
 	db TM_ROCK_SLIDE
+	db $ff
+
+ShamoutiMart:
+	db 19
+	db ULTRA_BALL
+	db HYPER_POTION
+	db MAX_POTION
+	db FULL_RESTORE
+	db REVIVE
+	db FULL_HEAL
+	db MAX_REPEL
+	db X_DEFEND
+	db X_ATTACK
+	db X_SPCL_ATK
+	db X_SPCL_DEF
+	db X_ATTACK
+	db X_SPEED
+	db MAGMARIZER
+	db ELECTIRIZER
+	db PROTECTOR
+	db KINGS_ROCK
+	db METAL_COAT
+	db DRAGON_SCALE
 	db $ff
 
 DefaultMart: ; 16214

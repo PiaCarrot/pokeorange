@@ -3,8 +3,6 @@ INCLUDE "includes.asm"
 
 SECTION "Evolutions and Attacks", ROMX
 
-INCLUDE "data/evolution_moves.asm"
-
 INCLUDE "data/evos_attacks_pointers.asm"
 
 
@@ -1025,6 +1023,7 @@ PoliwagEvosAttacks:
 PoliwhirlEvosAttacks:
 	db EVOLVE_ITEM, WATER_STONE, POLIWRATH
 	db EVOLVE_ITEM, TRADE_STONE, POLITOED
+	db EVOLVE_ITEM, KINGS_ROCK, POLITOED
 	db 0 ; no more evolutions
 	db 1, BUBBLE
 	db 1, HYPNOSIS
@@ -1362,6 +1361,7 @@ RapidashEvosAttacks:
 SlowpokeEvosAttacks:
 	db EVOLVE_LEVEL, 37, SLOWBRO
 	db EVOLVE_ITEM, TRADE_STONE, SLOWKING
+	db EVOLVE_ITEM, KINGS_ROCK, SLOWKING
 	db 0 ; no more evolutions
 	db 1, CURSE
 	db 1, TACKLE
@@ -1678,6 +1678,7 @@ GengarEvosAttacks:
 
 OnixEvosAttacks:
 	db EVOLVE_ITEM, TRADE_STONE, STEELIX
+	db EVOLVE_ITEM, METAL_COAT, STEELIX
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, SCREECH
@@ -1946,6 +1947,7 @@ RhyhornEvosAttacks:
 
 RhydonEvosAttacks:
 	db EVOLVE_ITEM, PROTECTOR, RHYPERIOR
+	db EVOLVE_ITEM, TRADE_STONE, RHYPERIOR
 	db 0 ; no more evolutions
 	db 1, HORN_ATTACK
 	db 1, TAIL_WHIP
@@ -2023,6 +2025,7 @@ HorseaEvosAttacks:
 
 SeadraEvosAttacks:
 	db EVOLVE_ITEM, TRADE_STONE, KINGDRA
+	db EVOLVE_ITEM, DRAGON_SCALE, KINGDRA
 	db 0 ; no more evolutions
 	db 1, BUBBLE
 	db 1, SMOKESCREEN
@@ -2108,6 +2111,7 @@ MrMimeEvosAttacks:
 
 ScytherEvosAttacks:
 	db EVOLVE_ITEM, TRADE_STONE, SCIZOR
+	db EVOLVE_ITEM, METAL_COAT, SCIZOR
 	db 0 ; no more evolutions
 	db 1, QUICK_ATTACK
 	db 1, LEER
@@ -2141,6 +2145,7 @@ JynxEvosAttacks:
 
 ElectabuzzEvosAttacks:
 	db EVOLVE_ITEM, ELECTIRIZER, ELECTIVIRE
+	db EVOLVE_ITEM, TRADE_STONE, ELECTIVIRE
 	db 0 ; no more evolutions
 	db 1, QUICK_ATTACK
 	db 1, LEER
@@ -2155,6 +2160,7 @@ ElectabuzzEvosAttacks:
 
 MagmarEvosAttacks:
 	db EVOLVE_ITEM, MAGMARIZER, MAGMORTAR
+	db EVOLVE_ITEM, TRADE_STONE, MAGMORTAR
 	db 0 ; no more evolutions
 	db 1, EMBER
 	db 1, LEER
@@ -2306,6 +2312,7 @@ FlareonEvosAttacks:
 
 PorygonEvosAttacks:
 	db EVOLVE_ITEM, UP_GRADE, PORYGON2
+	db EVOLVE_ITEM, TRADE_STONE, PORYGON2
 	db 0 ; no more evolutions
 	db 1, CONVERSION2
 	db 1, TACKLE
@@ -3798,6 +3805,7 @@ DonphanEvosAttacks:
 
 Porygon2EvosAttacks:
 	db EVOLVE_ITEM, DUBIOUS_DISC, PORYGON_Z
+	db EVOLVE_ITEM, TRADE_STONE, PORYGON_Z
 	db 0 ; no more evolutions
 	db 1, CONVERSION2
 	db 1, TACKLE

@@ -16,11 +16,11 @@ PummeloIsland_MapScriptHeader:
 	return
 	
 PummeloIslandCrossScript:
+	playmusic MUSIC_CROSS_ENCOUNTER
 	appear PUMMELO_ISLAND_CROSS
 	showemote EMOTE_SHOCK, PLAYER, 15
 	pause 10
 	applymovement PUMMELO_ISLAND_CROSS, PummeloCrossMovement1
-	playmusic MUSIC_LOOK_GLADION
 	opentext
 	writetext CrossPummeloIslandText
 	waitbutton
@@ -57,7 +57,7 @@ PummeloIslandCrossScript:
 	jump .returnfrombattle
 
 .returnfrombattle:
-	playmusic MUSIC_LOOK_GLADION
+	playmusic MUSIC_CROSS_ENCOUNTER
 	opentext
 	writetext CrossPummeloIslandLeavingNowText
 	waitbutton

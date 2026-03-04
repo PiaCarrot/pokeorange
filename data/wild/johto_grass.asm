@@ -41,7 +41,7 @@
 	db 6, PARAS
 	db 6, CATERPIE
 	db 7, BELLSPROUT
-	db 7, CATERPIE
+	db 7, RATTATA
 	db 6, NIDORAN_F
 	db 7, NIDORAN_M
 	db 7, PIKIPEK
@@ -68,7 +68,7 @@
 	db 6, PARAS
 	db 6, CATERPIE
 	db 7, BELLSPROUT
-	db 7, CATERPIE
+	db 7, RATTATA
 	db 6, NIDORAN_F
 	db 7, NIDORAN_M
 	db 7, PIKIPEK
@@ -96,7 +96,7 @@
 	db 7, WINGULL
 	db 8, HOPPIP
 	db 8, PIKIPEK
-	db 7, HOPPIP
+	db 7, RATTATA
 	db 7, GROWLITHE
 	db 8, GROWLITHE
 	; nite
@@ -176,7 +176,7 @@
 	db 10, SPINDA
 	db 10, SPEAROW
 	db 10, PIDGEY
-	db 10, SPINDA
+	db 10, RATTATA
 	db 11, EKANS
 	db 11, HOPPIP
 	db 11, HOPPIP
@@ -256,7 +256,7 @@
 	; day
 	db 17, MANKEY
 	db 17, MACHOP
-	db 17, PIDGEY
+	db 17, RATTATA
 	db 17, HOPPIP
 	db 18, NIDORINA
 	db 18, NIDORINO
@@ -286,7 +286,7 @@
 	db 17, PIDGEY
 	db 17, MAREEP
 	db 18, SPINDA
-	db 18, PIDGEY
+	db 18, RATTATA
 	db 18, DODUO
 	; nite
 	db 17, RATTATA
@@ -339,7 +339,7 @@
 	db 17, PIDGEY
 	db 17, PHANPY
 	db 17, ROCKRUFF
-	db 18, PIDGEY
+	db 18, RATTATA
 	db 18, PHANPY
 	db 18, DROWZEE
 	; nite
@@ -367,7 +367,7 @@
 	db 18, TRUMBEAK
 	db 18, MANKEY
 	db 19, LYCANROC
-	db 19, MANKEY
+	db 19, RATTATA
 	db 19, SPEAROW
 	;nite
 	db 18, RATTATA
@@ -393,7 +393,7 @@
 	db 18, NIDORAN_F
 	db 18, NIDORINA
 	db 18, SANDSHREW
-	db 19, PIDGEY
+	db 19, RATTATA
 	db 19, PIDGEOTTO
 	db 19, PINSIR
 	;nite
@@ -502,7 +502,7 @@
 	db 19, LYCANROC
 	db 19, HOPPIP
 	db 19, MAREEP
-	db 20, FLAAFFY
+	db 20, RATICATE
 	db 20, SKIPLOOM
 	; night
 	db 18, PARAS
@@ -663,7 +663,7 @@
 	db 21, PIDGEY
 	db 21, PIKIPEK
 	db 22, SPINDA
-	db 22, PIDGEY
+	db 22, RATICATE
 	db 23, TRUMBEAK
 	db 23, PIDGEOTTO
 	; night
@@ -691,7 +691,7 @@
 	db 22, SUNKERN
 	db 22, DITTO
 	db 23, SUNKERN
-	db 23, DITTO
+	db 23, RATICATE
 	db 23, SCYTHER
 	; night
 	db 21, MARILL
@@ -717,7 +717,7 @@
 	db 21, PIKIPEK
 	db 22, FARFETCH_D
 	db 22, TRUMBEAK
-	db 23, FARFETCH_D
+	db 23, RATICATE
 	db 23, TRUMBEAK
 	db 24, FARFETCH_D
 	; night
@@ -1042,7 +1042,7 @@
 	db 30, ELECTABUZZ
 	db 30, TRUMBEAK
 	db 30, PIKIPEK
-	db 30, TRUMBEAK
+	db 30, RATICATE
 	db 31, ELECTABUZZ
 	;nite
 	db 30, VULPIX
@@ -1068,7 +1068,7 @@
 	db 32, PIDGEOTTO
 	db 32, PONYTA
 	db 33, TAUROS
-	db 33, PIDGEOTTO
+	db 33, RATICATE
 	db 33, PONYTA
 	db 33, ELECTABUZZ
 	;nite

@@ -3336,6 +3336,11 @@ CheckWhetherToAskSwitch: ; 3d714
 	ld a, [wOptions]
 	bit BATTLE_SHIFT, a
 	jr nz, .return_nc
+	
+	ld a, [StatusFlags]
+	bit 1, a ; Hard Mode
+	jr nz, .return_nc
+	
 	ld a, [wCurPartyMon]
 	push af
 	ld a, [CurBattleMon]
@@ -3803,6 +3808,7 @@ GetEnemyMonDVs: ; 3da97
 
 GetPartyMonPersonality:
 	ld hl, BattleMonPersonality
+	ret ; Always use transformed gender and pink/shiny
 	ld a, [PlayerSubStatus5]
 	bit SUBSTATUS_TRANSFORMED, a
 	ret z
@@ -3816,7 +3822,9 @@ GetEnemyMonPersonality:
 	ld a, [EnemySubStatus5]
 	bit SUBSTATUS_TRANSFORMED, a
 	ret z
-	ld hl, wEnemyBackupPersonality
+	;ld hl, wEnemyBackupPersonality
+							   ; Should not conflict with BattleCheckEnemyShininess since that is only called when the enemy isn't transformed
+	ld hl, EnemyMonPersonality ; use copied personality, so gender, pinkness, etc are shown
 	ld a, [wBattleMode]
 	dec a
 	ret z
@@ -4632,6 +4640,47 @@ CheckDanger: ; 3df9e
 	ret
 ; 3dfbf
 
+; Gender print exception for Nidoran_M and Nidoran_F
+; If the pokémon is nidoran male or female, checks nickname (already printed). If the correct gender character is in the correct position, skips printing gender
+; input: d = 0 player, d non-zero enemy
+NidoranGenderException:
+
+	ld e, a ; backup gender char
+	
+	ld a, d
+	and a
+	jr z, .player
+	
+	hlcoord 8, 0 ;screen coordinates where the gender symbol in the enemy nickname of NIDORAN♂ or NIDORAN♀ is printed
+	ld a, [EnemyMonSpecies]
+	jr .checkNidoranM
+
+.player
+	hlcoord 17, 7 ;screen coordinates where the gender symbol in the player nickname of NIDORAN♂ or NIDORAN♀ is printed
+	ld a, [BattleMonSpecies]
+
+.checkNidoranM
+	cp NIDORAN_M
+	jr nz, .checkNidoranF
+	ld a, [hl]
+	cp "♂"
+	jr nz, .keep_gender_char ;print gender if nidoran is nicknamed
+	ld a, " "
+	ret
+
+.checkNidoranF
+	cp NIDORAN_F
+	jr nz, .keep_gender_char
+	ld a, [hl]
+	cp "♀"
+	jr nz, .keep_gender_char ;print gender if nidoran is nicknamed
+	ld a, " "
+	ret
+
+.keep_gender_char
+	ld a, e ; restore previously saved gender character
+	ret
+
 PrintPlayerHUD: ; 3dfbf
 	ld de, BattleMonNick
 	hlcoord 10, 7
@@ -4671,9 +4720,35 @@ PrintPlayerHUD: ; 3dfbf
 	pop hl
 	dec hl
 
+	; The following code handles transformed mon getting the gender symbol of what it copied
+	ld a, [PlayerSubStatus5]
+	bit SUBSTATUS_TRANSFORMED, a
+	jr z, .ok
+	; get personality to tempmon
+	ld hl, BattleMonPersonality
+	ld de, TempMonPersonality
+	ld a, [hl]
+	ld [de], a
+	;get copied species to CurPartySpecies
+	ld de, CurPartySpecies
+	ld a, [de]
+	ld b, a ;backup tempmonspecies
+	push bc
+	ld a, [BattleMonSpecies]
+	ld [de], a
 	ld a, TEMPMON
 	ld [MonType], a
 	farcall GetGender
+	pop bc
+	ld a, b
+	ld [CurPartySpecies], a
+	jr .gotGender
+
+.ok
+	ld a, TEMPMON
+	ld [MonType], a
+	farcall GetGender
+.gotGender
 	ld a, " "
 	jr c, .got_gender_char
 	ld a, "♂"
@@ -4681,6 +4756,9 @@ PrintPlayerHUD: ; 3dfbf
 	ld a, "♀"
 
 .got_gender_char
+	ld d, 0
+	call NidoranGenderException
+
 	hlcoord 17, 8
 	ld [hl], a
 	hlcoord 14, 8
@@ -4690,7 +4768,7 @@ PrintPlayerHUD: ; 3dfbf
 	predef PlaceNonFaintStatus
 	pop hl
 	pop bc
-	ret nz
+	jr nz, .print_shiny
 	ld a, b
 	cp " "
 	jr nz, .copy_level ; male or female
@@ -4699,7 +4777,20 @@ PrintPlayerHUD: ; 3dfbf
 .copy_level
 	ld a, [BattleMonLevel]
 	ld [TempMonLevel], a
-	jp PrintLevel
+	call PrintLevel
+
+.print_shiny
+;Shiny icon
+	ld a, [TempMonShiny]
+	and SHINY_MASK
+	ld a, " "
+	jr z, .notShiny
+	ld a, "<SHINY>"
+.notShiny
+	hlcoord 18, 8
+	ld [hl], a
+	ret
+
 ; 3e036
 
 UpdateEnemyHUD:: ; 3e036
@@ -4741,10 +4832,35 @@ DrawEnemyHUD: ; 3e043
 
 	ld hl, EnemyMonPersonality
 	ld de, TempMonPersonality
+	; The following code is disabled so transformed mon show the transformed data instead of real data
+	;ld a, [EnemySubStatus5]
+	;bit SUBSTATUS_TRANSFORMED, a
+	;jr z, .ok
+	;ld hl, wEnemyBackupPersonality
+	
+	; The following code handles transformed mon getting the gender symbol of what it copied
 	ld a, [EnemySubStatus5]
 	bit SUBSTATUS_TRANSFORMED, a
 	jr z, .ok
-	ld hl, wEnemyBackupPersonality
+	; get personality to tempmon
+	ld a, [hl]
+	ld [de], a
+	;get copied species to CurPartySpecies
+	ld de, CurPartySpecies
+	ld a, [de]
+	ld b, a ;backup tempmonspecies
+	push bc
+	ld a, [EnemyMonSpecies]
+	ld [de], a
+
+	ld a, TEMPMON
+	ld [MonType], a
+	farcall GetGender
+	pop bc
+	ld a, b
+	ld [CurPartySpecies], a
+	jr .gotGender
+	
 .ok
 	ld a, [hl]
 	ld [de], a
@@ -4752,6 +4868,7 @@ DrawEnemyHUD: ; 3e043
 	ld a, TEMPMON
 	ld [MonType], a
 	farcall GetGender
+.gotGender
 	ld a, " "
 	jr c, .got_gender
 	ld a, "♂"
@@ -4759,10 +4876,13 @@ DrawEnemyHUD: ; 3e043
 	ld a, "♀"
 
 .got_gender
-	hlcoord 9, 1
+	ld d, a
+	call NidoranGenderException
+
+	hlcoord 8, 1
 	ld [hl], a
 
-	hlcoord 6, 1
+	hlcoord 5, 1
 	push af
 	push hl
 	ld de, EnemyMonStatus
@@ -4779,6 +4899,16 @@ DrawEnemyHUD: ; 3e043
 	ld [TempMonLevel], a
 	call PrintLevel
 .skip_level
+
+;Shiny icon
+	ld a, [TempMonShiny]
+	and SHINY_MASK
+	ld a, " "
+	jr z, .notShiny
+	ld a, "<SHINY>"
+.notShiny
+	hlcoord 9, 1
+	ld [hl], a	
 
 	ld hl, EnemyMonHP
 	ld a, [hli]
@@ -6120,8 +6250,22 @@ LoadEnemyMon: ; 3e8eb
 	ld [EnemyMonLevel], a
 ; Fill stats
 	ld de, EnemyMonMaxHP
+	
+	;only use stat exp in trainer battles
+	ld a, [wBattleMode]
+	dec a
 	ld b, FALSE
 	ld hl, EnemyMonDVs - (MON_DVS - MON_STAT_EXP + 1) ; LinkBattleRNs + 7 ; ?
+	jr z, .not_trainer ; wBattleMode is 1 for wild battles, so if it becomes zero after decreasing it was a trainer battle
+	ld a, [StatusFlags]
+	bit 1, a ; hard mode
+	jr z, .not_trainer ;don't use stat exp unless hard mode is enabled
+	ld a, [wCurPartyMon]
+	ld hl, OTPartyMon1StatExp
+	call GetPartyLocation
+	ld b, TRUE ; use stat EXP!
+.not_trainer
+
 	predef CalcPkmnStats
 
 ; If we're in a trainer battle,
@@ -7937,6 +8081,13 @@ InitEnemyWildmon: ; 3f607
     ld de, wEnemyBackupDVs
     ld bc, 2
     call CopyBytes
+
+	;Backup personality
+	ld hl, EnemyMonPersonality
+	ld de, wEnemyBackupPersonality
+	ld a, [hl]
+	ld [de], a
+
 	ld hl, EnemyMonDVs
 	predef GetVariant
 	ld a, [CurPartySpecies]
@@ -8368,7 +8519,7 @@ GetRoamMonPersonality:
 	cp [hl] ;LATIAS
 	ld hl, wRoamMon1Personality
 	ret z
-	ld hl, wRoamMon2Personality
+	ld hl, wRoamMon2Species
 	cp [hl] ;LATIOS
 	ld hl, wRoamMon2Personality
 	ret z

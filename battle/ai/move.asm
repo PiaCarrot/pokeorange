@@ -72,6 +72,11 @@ AIChooseMove: ; 440ce
 	bit 0, a
 	jr nz, .battle_tower_skip
 
+	; In Hard Mode, always load the Attributes of the first TrainerClass (Cissy) [AI_BASIC + AI_SETUP + AI_SMART + AI_AGGRESSIVE + AI_CAUTIOUS + AI_STATUS + AI_RISKY]
+	ld a, [StatusFlags]
+	bit 1, a ; hard mode
+	jr nz, .battle_tower_skip
+
 	ld a, [TrainerClass]
 	dec a
 	ld bc, 7 ; Trainer2AI - Trainer1AI

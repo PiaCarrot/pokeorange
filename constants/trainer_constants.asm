@@ -219,6 +219,14 @@ CHRIS EQU __enum__
 	const FABIO
 	const MICHAEL
 	const MAKO
+	const ACE_NO_BADGES ; 14
+	const ACE_ONE_BADGE
+	const ACE_TWO_BADGES
+	const ACE_THREE_BADGES
+	const ACE_FOUR_BADGES
+	const ACE_DRAKEBEAT_BADGES
+	const ACE_REDBEAT_BADGES ; 20
+	
 
 	trainerclass COOLTRAINERF
 	const KEIKO

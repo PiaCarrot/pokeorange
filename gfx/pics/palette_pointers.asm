@@ -621,3 +621,15 @@ RaichuKantoneseShinyPalette: INCLUDE "gfx/pics/raichu_kanto/shiny.pal"
 MarowakKantonesePalettes:
 MarowakKantonesePalette: 		INCLUDE "gfx/pics/marowak_kanto/normal.pal"
 MarowakKantoneseShinyPalette: INCLUDE "gfx/pics/marowak_kanto/shiny.pal"
+
+RaticateRocketPalettes:
+RaticateRocketPalette:        INCLUDE "gfx/pics/raticate_rocket/normal.pal"
+RaticateRocketShinyPalette:   INCLUDE "gfx/pics/raticate_rocket/shiny.pal"
+
+ArbokRocketPalettes:
+ArbokRocketPalette:        INCLUDE "gfx/pics/arbok_rocket/normal.pal"
+ArbokRocketShinyPalette:   INCLUDE "gfx/pics/arbok_rocket/shiny.pal"
+
+VictreebelRocketPalettes:
+VictreebelRocketPalette:        INCLUDE "gfx/pics/victreebel_rocket/normal.pal"
+VictreebelRocketShinyPalette:   INCLUDE "gfx/pics/victreebel_rocket/shiny.pal"

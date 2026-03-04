@@ -156,7 +156,15 @@ ChiefHouseSignText:
 ShamoutiIslandClerkScript:
 	faceplayer
 	opentext
+	checkevent EVENT_SHAMOUTI_QUEST_ENDED
+	iftrue .postgamemart
 	pokemart MARTTYPE_STANDARD, MART_PUMMELO
+	closetext
+	spriteface SHAMOUTI_ISLAND_CLERK, DOWN
+	end
+
+.postgamemart
+	pokemart MARTTYPE_STANDARD, MART_SHAMOUTI
 	closetext
 	spriteface SHAMOUTI_ISLAND_CLERK, DOWN
 	end

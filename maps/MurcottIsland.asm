@@ -198,9 +198,9 @@ CrossBattle3Script1:
 	checkevent EVENT_MURCOTT_ISLAND_CROSS
 	iftrue .End
 	faceplayer
+	playmusic MUSIC_CROSS_ENCOUNTER	
 	showemote EMOTE_SHOCK, PLAYER, 15
 	applymovement PLAYER, CrossMurcottIslandApproach1_Movement
-	playmusic MUSIC_LOOK_GLADION
 	opentext
 	writetext CrossMurcottIslandText
 	waitbutton
@@ -236,7 +236,7 @@ CrossBattle3Script1:
 	jump .returnfrombattle
 
 .returnfrombattle:
-	playmusic MUSIC_LOOK_GLADION
+	playmusic MUSIC_CROSS_ENCOUNTER
 	opentext
 	writetext CrossMurcottIslandLeavingNowText
 	waitbutton
@@ -256,9 +256,9 @@ CrossBattle3Script2:
 	checkevent EVENT_MURCOTT_ISLAND_CROSS
 	iftrue .End
 	faceplayer
+	playmusic MUSIC_CROSS_ENCOUNTER
 	showemote EMOTE_SHOCK, PLAYER, 15
 	applymovement PLAYER, CrossMurcottIslandApproach2_Movement
-	playmusic MUSIC_LOOK_GLADION
 	opentext
 	writetext CrossMurcottIslandText
 	waitbutton
@@ -294,7 +294,7 @@ CrossBattle3Script2:
 	jump .returnfrombattle
 
 .returnfrombattle:
-	playmusic MUSIC_LOOK_GLADION
+	playmusic MUSIC_CROSS_ENCOUNTER
 	opentext
 	writetext CrossMurcottIslandLeavingNowText
 	waitbutton

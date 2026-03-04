@@ -431,6 +431,7 @@ MisdreavusBackpic:   INCBIN "gfx/pics/misdreavus/back.2bpp.lz"
 PikachuBackpic:      INCBIN "gfx/pics/pikachu/back.2bpp.lz"
 PrimeapeBackpic:     INCBIN "gfx/pics/primeape/back.2bpp.lz"
 PsyduckBackpic:      INCBIN "gfx/pics/psyduck/back.2bpp.lz"
+RaticateRocketBackpic:
 RaticateBackpic:     INCBIN "gfx/pics/raticate/back.2bpp.lz"
 RemoraidBackpic:     INCBIN "gfx/pics/remoraid/back.2bpp.lz"
 ScizorBackpic:       INCBIN "gfx/pics/scizor/back.2bpp.lz"
@@ -543,6 +544,7 @@ ZapdosBackpic:       INCBIN "gfx/pics/zapdos/back.2bpp.lz"
 SECTION "Pics 17", ROMX
 
 AmpharosBackpic:     INCBIN "gfx/pics/ampharos/back.2bpp.lz"
+ArbokRocketBackpic:
 ArbokBackpic:        INCBIN "gfx/pics/arbok/back.2bpp.lz"
 ArticunoBackpic:     INCBIN "gfx/pics/articuno/back.2bpp.lz"
 AzumarillBackpic:    INCBIN "gfx/pics/azumarill/back.2bpp.lz"
@@ -672,6 +674,7 @@ BellsproutFrontpic:  INCBIN "gfx/pics/bellsprout/front.2bpp.lz"
 WeepinbellBackpic:   INCBIN "gfx/pics/weepinbell/back.2bpp.lz"
 BellsproutBackpic:   INCBIN "gfx/pics/bellsprout/back.2bpp.lz"
 VictreebelFrontpic:  INCBIN "gfx/pics/victreebel/front.2bpp.lz"
+VictreebelRocketBackpic:
 VictreebelBackpic:   INCBIN "gfx/pics/victreebel/back.2bpp.lz"
 OnixCrystalFrontpic:
 OnixFrontpic:        INCBIN "gfx/pics/onix/front.2bpp.lz"
@@ -798,6 +801,7 @@ SandslashAlolanFrontpic:  INCBIN "gfx/pics/sandslash_alola/front.2bpp.lz"
 SandslashAlolanBackpic:   INCBIN "gfx/pics/sandslash_alola/back.2bpp.lz"
 RattataKantoneseFrontpic: INCBIN "gfx/pics/rattata_kanto/front.2bpp.lz"
 RattataKantoneseBackpic:  INCBIN "gfx/pics/rattata_kanto/back.2bpp.lz"
+RaticateRocketFrontpic:
 RaticateKantoneseFrontpic: INCBIN "gfx/pics/raticate_kanto/front.2bpp.lz"
 RaticateKantoneseBackpic: INCBIN "gfx/pics/raticate_kanto/back.2bpp.lz"
 DiglettKantoneseFrontpic: INCBIN "gfx/pics/diglett_kanto/front.2bpp.lz"
@@ -814,4 +818,5 @@ RaichuKantoneseFrontpic:  INCBIN "gfx/pics/raichu_kanto/front.2bpp.lz"
 RaichuKantoneseBackpic:   INCBIN "gfx/pics/raichu_kanto/back.2bpp.lz"
 MarowakKantoneseFrontpic: INCBIN "gfx/pics/marowak_kanto/front.2bpp.lz"
 MarowakKantoneseBackpic:  INCBIN "gfx/pics/marowak_kanto/back.2bpp.lz"
-
+ArbokRocketFrontpic:  INCBIN "gfx/pics/arbok_rocket/front.2bpp.lz"
+VictreebelRocketFrontpic:  INCBIN "gfx/pics/victreebel_rocket/front.2bpp.lz"

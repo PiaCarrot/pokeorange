@@ -441,8 +441,48 @@ Jumptable_GiveTossQuit: ; 1030b
 
 ; 10311
 
+Text_AskTownMapOrFlyMap: ; 0xedf5
+	; Give a nickname to @ ?
+	text_jump AskTownMaporFlyMap
+	db "@"
+
 UseItem: ; 10311
 	farcall CheckItemMenu
+	
+	;handle Town Map for Fly
+	ld a, [wCurItem]
+	cp TOWN_MAP
+	jr nz, .skipTownMap
+
+	;if fast TMHM isn't enabled, skip
+	ld a, [StatusFlags2]
+	bit 3, a
+	jr z, .handleNormalMap
+
+	;if player still does't have FLY, skip
+	ld hl, TMsHMs
+	ld b, 0
+	ld c, FLY_TMNUM - 1 ; FLY
+	add hl, bc
+	ld a, [hl] ; not using "bit 0, [hl]" because it would fail in case there are multiple TMs stored. Not possible in normal playtrough though
+	and a
+	jr z, .handleNormalMap
+	
+	ld hl, Text_AskTownMapOrFlyMap
+	call PrintText
+	call YesNoBox
+	jr c, .handleNormalMap
+
+	; Change the attribute to close the menu if using the map for Fly
+	ld a, 06
+	ld [wItemAttributeParamBuffer], a
+	jr .skipTownMap
+	
+.handleNormalMap
+	ld a, -1
+	ld [EnemyMonUnused], a
+
+.skipTownMap
 	ld a, [wItemAttributeParamBuffer]
 	ld hl, .dw
 	rst JumpTable
@@ -461,6 +501,10 @@ UseItem: ; 10311
 ; 1035c
 
 .Oak: ; 1032d (4:432d)
+	ld a, [EnemyMonUnused]
+	and a
+	ret nz
+
 	ld hl, Text_ThisIsntTheTime
 	jp Pack_PrintTextNoScroll
 

@@ -16,7 +16,7 @@ ButwalIslandEast_MapScriptHeader::
 
 CrossBattle4Script:
 	faceplayer
-	playmusic MUSIC_LOOK_GLADION
+	playmusic MUSIC_CROSS_ENCOUNTER
 	opentext
 	writetext CrossButwalIslandText
 	waitbutton
@@ -52,7 +52,7 @@ CrossBattle4Script:
 	jump .returnfrombattle
 
 .returnfrombattle:
-	playmusic MUSIC_LOOK_GLADION
+	playmusic MUSIC_CROSS_ENCOUNTER
 	opentext
 	writetext CrossButwalIslandLeavingNowText
 	waitbutton

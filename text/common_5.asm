@@ -475,3 +475,8 @@ ShellBoxText::
 	line "@"
 	deciram Shells, 2, 4
 	db "@@"
+
+AskTownMaporFlyMap::
+	text "Do you want to FLY"
+	line "somewhere?"
+	done

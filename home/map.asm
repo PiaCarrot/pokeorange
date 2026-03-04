@@ -1919,6 +1919,7 @@ CloseSubmenu:: ; 2b3c
 ExitAllMenus:: ; 2b4d
 	call ClearBGPalettes
 	call Call_ExitMenu
+ExitFlyMap::
 	call ReloadTilesetAndPalettes
 	call UpdateSprites
 FinishExitMenu:: ; 2b5c

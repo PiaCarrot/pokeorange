@@ -206,8 +206,8 @@ YoungsterNessAfterText:
 	
 CrossBattle1Script:
 	faceplayer
+	playmusic MUSIC_CROSS_ENCOUNTER
 	showemote EMOTE_SHOCK, TANGELO_JUNGLE_CROSS, 15
-	playmusic MUSIC_LOOK_GLADION
 	opentext
 	writetext CrossJungleText
 	waitbutton
@@ -243,7 +243,7 @@ CrossBattle1Script:
 	jump .returnfrombattle
 
 .returnfrombattle:
-	playmusic MUSIC_LOOK_GLADION
+	playmusic MUSIC_CROSS_ENCOUNTER
 	opentext
 	writetext CrossJungleLeavingNowText
 	waitbutton

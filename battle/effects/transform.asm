@@ -108,6 +108,7 @@ BattleCommand_Transform: ; 371cd
 .got_byte
 	and a
 	jr nz, .mimic_anims
+	farcall FinishBattleAnim ;reload palettes after transforming
 	call LoadMoveAnim
 	jr .after_anim
 

@@ -581,8 +581,8 @@ if DEF(DEBUG) ;in debug all eggs only need 1 cycle to hatch
 else ;make egg cycles 1/4 shorter
 	call GetBaseData
 	ld a, [BaseEggSteps]
-	rr a ;divide cycles by 2
-	rr a ;divide cycles by 2 again
+	srl a ;divide cycles by 2
+	srl a ;divide cycles by 2 again
 	ld [wEggMonHappiness], a
 endc
 

@@ -13,6 +13,7 @@
 	
 	;StatusFlags
 	const ENGINE_POKEDEX
+	const ENGINE_HARDMODE
 	const ENGINE_POKERUS
 	const ENGINE_EXP_ALL
 	const ENGINE_CREDITS_SKIP
@@ -20,6 +21,7 @@
 	
 	;StatusFlags2
 	const ENGINE_BUG_CONTEST_TIMER
+	const ENGINE_FAST_TMHM
 	
 	;Badges
 	const ENGINE_CORAL_EYE_BADGE

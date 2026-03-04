@@ -185,9 +185,11 @@ endr
 	cp b
 	jr z, .fishable
 	cp 0
+	jr nz, .not_fishable
 	ld a, [hli] ; get level/timetable index
 	call _IsFishableMon_Timetable
 	jr c, .fishable
+.not_fishable
 	xor a ;unsets carry flag
 	ret
 

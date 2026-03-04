@@ -564,6 +564,14 @@ Continue_DisplayGameTime: ; 5f84
 
 OakSpeech: ; 0x5f99
 	farcall InitClock
+	
+	ld hl, Text_AskForHardMode
+	call PrintText
+	call YesNoBox
+	jr c, .not_hard
+	ld hl, StatusFlags
+	set 1, [hl] ; hard mode
+.not_hard
 	call RotateFourPalettesLeft
 	call ClearTileMap
 
@@ -670,6 +678,10 @@ OakText6: ; 0x606a
 
 OakText7: ; 0x606f
 	text_jump _OakText7
+	db "@"
+
+Text_AskForHardMode:
+	text_jump _HardModeText
 	db "@"
 
 NamePlayer: ; 0x6074

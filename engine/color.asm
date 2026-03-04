@@ -13,6 +13,19 @@ CheckShininess:
 	and a
 	ret
 
+CheckPinkness:
+; Check if a mon is pink by personality at bc.
+; Return carry if pink.
+	ld a, [bc]
+	and PINK_MASK
+	jr z, .NotPink
+	scf
+	ret
+
+.NotPink:
+	and a
+	ret
+
 CheckContestMon:
 ; Check a mon's DVs at hl in the bug catching contest.
 ; Return carry if its DVs are good enough to place in the contest.
@@ -46,73 +59,40 @@ CheckContestMon:
 	and a
 	ret
 
-CheckPink:
-; given bc = MonPink from a party_struct or battle_struct
-; return c(arry) if mon is pink
-
-; check if bc == BattleMonDVs
-	ld a, BattleMonPink % $100
-	cp b
-	jr nz, .bc_is_not_BattleMonPink
-	ld a, BattleMonPink / $100
-	cp c
-	ret z
-
-.bc_is_not_BattleMonPink:
-; check if bc == EnemyMonPink
-	ld a, EnemyMonPink % $100
-	cp b
-	jr nz, .bc_is_not_EnemyMonPink
-	ld a, EnemyMonPink / $100
-	cp c
-	ret z
-
-.bc_is_not_EnemyMonPink:
-; bc is from a party_struct
-; check if PINK_MASK fits
-	ld a, [bc]
-	and PINK_MASK
-	jr z, .not_pink
-	scf
-	ret
-
-.not_pink
-	xor a
-	ret
-
-
 GetBattlemonBackpicPalettePointer:
-	ld a, [TempBattleMonSpecies]
-	and a
-	jp z, GetPlayerPalettePointer
+	push de
 	farcall GetPartyMonPersonality
 	ld c, l
 	ld b, h
-	ld hl, PartyMon1Pink
-	ld a, [CurBattleMon]
-	push bc
-	call GetPartyLocation
-	pop bc
-	ld a, [hl]
-	and PINK_MASK
-	jp nz, GetNormalOrShinyPinkanPalettePointer
-	ld a, [TempBattleMonSpecies]
-	jp GetMonNormalOrShinyPalettePointer_NoPinkCheck
 
+	ld a, [PlayerSubStatus5]
+	bit SUBSTATUS_TRANSFORMED, a
+	ld a, [TempBattleMonSpecies]
+	jr z, .notTransformed
+	ld a, [BattleMonSpecies]
+.notTransformed
+	call GetPlayerOrMonPalettePointer
+	pop de
+	ret
 
 GetEnemyFrontpicPalettePointer:
 	ld a, [TempEnemyMonSpecies]
 	and a
 	jp z, GetFrontpicPalettePointer_Trainer
+	push de
 	farcall GetEnemyMonPersonality
 	ld c, l
 	ld b, h
-	ld a, [EnemyMonPink]
-	and PINK_MASK
-	jp nz, GetNormalOrShinyPinkanPalettePointer
+	
+	ld a, [EnemySubStatus5]
+	bit SUBSTATUS_TRANSFORMED, a
 	ld a, [TempEnemyMonSpecies]
-	jp GetMonNormalOrShinyPalettePointer_NoPinkCheck
-
+	jr z, .notTransformed
+	ld a, [EnemyMonSpecies]
+.notTransformed
+	call GetFrontpicPalettePointer
+	pop de
+	ret
 
 GetMonPalettePointer:
 	cp ONIX
@@ -121,6 +101,10 @@ GetMonPalettePointer:
 	jp z, .steelix
 	cp POLIWRATH
 	jp z, .poliwrath
+	cp ARBOK
+	jp z, .arbok
+	cp VICTREEBEL
+	jp z, .victreebel
 	cp EXEGGUTOR
 	jp z, .exeggutor
 	cp GRIMER
@@ -188,6 +172,26 @@ GetMonPalettePointer:
 	and FORM_MASK
 	cp POLIWRATH_TAD_FORM
 	ld hl, PoliwrathTadPalettes
+	jp z, .ok
+	pop af
+	jp .continue
+
+.arbok
+	push af
+	ld a, [bc]
+	and FORM_MASK
+	cp ARBOK_ROCKET_FORM
+	ld hl, ArbokRocketPalettes
+	jp z, .ok
+	pop af
+	jp .continue
+
+.victreebel
+	push af
+	ld a, [bc]
+	and FORM_MASK
+	cp VICTREEBEL_ROCKET_FORM
+	ld hl, VictreebelRocketPalettes
 	jp z, .ok
 	pop af
 	jp .continue
@@ -319,6 +323,9 @@ GetMonPalettePointer:
 	cp RATICATE_KANTONESE_FORM
 	ld hl, RaticateKantonesePalettes
 	jp z, .ok
+	cp RATICATE_ROCKET_FORM
+	ld hl, RaticateRocketPalettes
+	jp z, .ok
 	pop af
 	jp .continue
 	
@@ -396,16 +403,17 @@ GetMonPalettePointer:
 	pop af
 	ret
 
-GetMonNormalOrShinyPalettePointer:
-	push af
-	call CheckPink
-	jr c, GetMonNormalOrShinyPalettePointer_Pink
-	pop af
-GetMonNormalOrShinyPalettePointer_NoPinkCheck:
+GetMonNormalOrShinyOrPinkPalettePointer:
+	push de
+	ld d, a
+	call CheckPinkness
+	ld hl, PinkanPalette
+	ld a, d
+	pop de
+	ret c
 	push bc
 	call GetMonPalettePointer
 	pop bc
-GetNormalOrShinyPalettePointer:
 	push hl
 	call CheckShininess
 	pop hl
@@ -414,13 +422,6 @@ rept 4
 	inc hl
 endr
 	ret
-
-GetMonNormalOrShinyPalettePointer_Pink:
-	pop af
-GetNormalOrShinyPinkanPalettePointer:
-	ld hl, PinkanPalette
-	jr GetNormalOrShinyPalettePointer
-
 
 InitPartyMenuPalettes:
 	ld hl, PalPacket_PartyMenu
@@ -801,7 +802,7 @@ InitPartyMenuOBPals:
 
 GetPlayerOrMonPalettePointer:
 	and a
-	jp nz, GetMonNormalOrShinyPalettePointer
+	jp nz, GetMonNormalOrShinyOrPinkPalettePointer
 GetPlayerPalettePointer:
 	ld a, [wPlayerSpriteSetupFlags]
 	bit 2, a ; transformed to male
@@ -818,7 +819,7 @@ GetPlayerPalettePointer:
 
 GetFrontpicPalettePointer:
 	and a
-	jp nz, GetMonNormalOrShinyPalettePointer
+	jp nz, GetMonNormalOrShinyOrPinkPalettePointer
 GetFrontpicPalettePointer_Trainer:
 	ld a, [TrainerClass]
 GetTrainerPalettePointer:
@@ -1773,3 +1774,24 @@ PinkanPalette:
 PinkanShinyPalette:
 	RGB 31, 16, 20
 	RGB 31, 05, 01
+
+; Loads palette d (0-7) from PartyMenuOBPals to Palette OB0
+FlyLoadOB0Pal:
+    ld   a, d        ; A = index
+    add  a, a        ; ×2
+    add  a, a        ; ×4
+    add  a, a        ; ×8
+    ld   c, a
+    ld   b, 0        ; BC = D * 8
+	ld hl, PartyMenuOBPals
+    add  hl, bc      ; HL = base + (index * 8)
+	ld de, OBPals
+	ld bc, 1 palettes
+	ld a, $5
+	call FarCopyWRAM
+; Request palette update
+	ld a, 1
+	ld [hCGBPalUpdate], a
+	ld c, 4
+	call DelayFrames
+	ret

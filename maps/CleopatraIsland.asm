@@ -32,8 +32,8 @@ CleopatraIslandSignText:
 	done
 
 CrossCleopatraEventScript:
+	playmusic MUSIC_CROSS_ENCOUNTER
 	showemote EMOTE_SHOCK, PLAYER, 15
-	playmusic MUSIC_LOOK_GLADION
 	opentext
 	writetext CleopatraCrossText1
 	waitbutton

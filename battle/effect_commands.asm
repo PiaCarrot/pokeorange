@@ -4774,6 +4774,11 @@ BattleCommand_SleepTarget: ; 35e5c
 	and a
 	jr nz, .dont_fail
 
+	; In Hard Mode, remove 25% of random fail
+	ld a, [StatusFlags]
+	bit 1, a ; hard mode
+	jr nz, .dont_fail
+
 	; Not locked-on by the enemy
 	ld a, [PlayerSubStatus5]
 	bit SUBSTATUS_LOCK_ON, a

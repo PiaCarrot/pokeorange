@@ -23,7 +23,8 @@ TrovitaMaxRevive:
 	itemball MAX_REVIVE
 	
 TrovitaFullRestore:
-	itemball FULL_RESTORE
+	;itemball FULL_RESTORE
+	itemball METAL_COAT
 	
 TrovitaMistyScript:
 	opentext

@@ -446,6 +446,9 @@ DuskBall: ; e8a2
 
 	ld a, DITTO
 	ld [TempEnemyMonSpecies], a
+	ld hl, wEnemyBackupPersonality
+	ld a, [wEnemyBackupPersonality]
+	ld [EnemyMonPersonality], a
 	jr .load_data
 
 .not_ditto
@@ -1195,10 +1198,33 @@ ReturnToBattle_UseBall: ; edfa (3:6dfa)
 
 TownMap: ; ee01
 ;	farcall Special_TownMapItem
+	
+	; This is modified in UseItem and UseRegisteredItem
+	; 06 for Fly town map, 04 for normal map
+	ld a, [EnemyMonUnused]
+	cp -1
+	jr nz, AirplaneEffect
+
+.normalMap
 	call FadeToMenu
 	farcall _TownMap
+	
+	ld a, [wUsingItemWithSelect]
+	and a
+	jr z, .skipSelect
+	ld a, $01
+	ld [wFieldMoveSucceeded], a
+	call ExitFlyMap
+	xor a
+	ld [EnemyMonUnused], a
+	ld [wUsingItemWithSelect], a
+	jr AirplaneEffect.returnFromMap
+
+.skipSelect
 	call Call_ExitMenu
 	xor a
+	ld [wFieldMoveSucceeded], a
+	ld [EnemyMonUnused], a
 	ldh [hBGMapMode], a
 	farcall Pack_InitGFX
 	farcall WaitBGMap_DrawPackGFX
@@ -1206,6 +1232,28 @@ TownMap: ; ee01
 	ret
 ; ee08
 
+AirplaneEffect:
+	ld a, PIDGEOT
+	ld [EnemyMonUnused], a ; temp value for using fly from town map
+
+	farcall FlyFunction
+.returnFromMap
+	ld a, [wFieldMoveSucceeded]
+	cp $2
+	jr z, .Fail
+	cp $0
+	jr z, .Error
+	ld b, $4
+	ld a, $2
+	ret
+
+.Fail:
+	ld a, $3
+	ret
+
+.Error:
+	ld a, $0
+	ret
 
 Skateboard: ; ee08
 	farcall BikeFunction
@@ -1228,6 +1276,9 @@ Magmarizer:
 Electirizer:
 Protector: ; ee0f
 KantoStone:
+KingsRock:
+MetalCoat:
+DragonScale:
 	ld b, PARTYMENUACTION_EVO_STONE
 	call UseItem_SelectMon
 
@@ -2889,7 +2940,6 @@ QuickClaw:
 SoftSand:
 SharpBeak:
 PoisonBarb:
-KingsRock:
 Tinymushroom:
 BigMushroom:
 Silverpowder:
@@ -2918,10 +2968,8 @@ Stardust:
 StarPiece:
 Charcoal:
 ScopeLens:
-MetalCoat:
 DragonFang:
 Leftovers:
-DragonScale:
 BerserkGene:
 FlowerMail:
 LightBall:

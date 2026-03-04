@@ -9,6 +9,7 @@ MoroHouse1_MapScriptHeader:
 MoroHeadbuttScript:
 	faceplayer
 	opentext
+	setevent EVENT_UNLOCKED_HEADBUTT ; Unlock headbutt for fast TMHM mode
 	writetext GivePlayerHeadbuttText
 	yesorno
 	iffalse .TutorRefused

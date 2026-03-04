@@ -1,6 +1,7 @@
 const_value = 1
 	const IVYSLAB_IVY
 	const IVYSLAB_IVYS_AIDE
+	const IVYSLAB_JOY
 	const IVYSLAB_POKE_BALL1
 	const IVYSLAB_POKE_BALL2
 	const IVYSLAB_POKE_BALL3
@@ -604,7 +605,7 @@ IvyDirectionsText3:
 	para "Press SELECT and"
 	line "the SHNY icon in"
 	cont "a #DEX entry"
-	cont "to toogle the"
+	cont "to toggle the"
 	cont "different forms"
 	cont "of a #MON."
 	
@@ -731,6 +732,87 @@ IvysLabPCText:
 	line "screen<...>"
 	done
 
+Joy:
+	faceplayer
+	opentext
+	writetext JoyText
+	waitbutton
+	checkflag ENGINE_FAST_TMHM
+	iftrue .disableHard
+	writetext JoyEnableFastTMHMText
+	yesorno
+	iffalse .dontChange
+	setflag ENGINE_FAST_TMHM
+	writetext JoyDoneText
+	jump .finish
+.disableHard
+	writetext JoyDisableFastTMHMText
+	yesorno
+	iffalse .dontChange
+	clearflag ENGINE_FAST_TMHM
+	writetext JoyDoneText
+	jump .finish
+.dontChange
+	writetext JoyComeBackText
+.finish
+	waitbutton
+	closetext
+	end
+
+JoyText:
+	text "Joy: Hello"
+	line "<PLAYER>!"
+	done
+
+JoyEnableFastTMHMText:
+	text "Technology is"
+	line "amazing!"
+	
+	para "I can make it so"
+	line "you don't need to"
+	cont "carry a #MON"
+	cont "that knows a move"
+	cont "as long as you own"
+	cont "the TM or HM for"
+	cont "that move."
+
+	para "Ain't that conve-"
+	line "nient!"
+
+	para "You'll still need"
+	line "a #MON with"
+	cont "HEADBUTT to use"
+	cont "that move though!"
+
+	para "Do you want to"
+	line "give it a try?"
+	
+	done
+
+JoyDisableFastTMHMText:
+	text "Feeling nostalgic?"
+	
+	para "Do you want to go"
+	line "back to the"
+	cont "classics and need"
+	cont "to carry a #MON"
+	cont "who knows the move"
+	cont "to use a TM or HM?"
+
+	done
+
+JoyDoneText:
+	text "Done, have fun!"
+	done
+
+JoyComeBackText:
+	text "Ok, we'll keep it"
+	line "that way."
+
+	para "Come back any"
+	line "time!"
+	done
+
 IvysLab_MapEventHeader::
 
 .Warps: db 2
@@ -761,9 +843,10 @@ IvysLab_MapEventHeader::
 	signpost 3, 9, SIGNPOST_READ, IvysLabTrashcan
 	signpost 5, 1, SIGNPOST_DOWN, IvysLabPC
 
-.ObjectEvents: db 5
+.ObjectEvents: db 6
 	person_event SPRITE_IVY, 2, 5, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, PAL_OW_PURPLE, ProfIvyScript, -1
 	person_event SPRITE_SCIENTIST_F, 9, 2, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, IvysAideScript, -1
+	person_event SPRITE_SCIENTIST_F, 8, 8, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, Joy, -1
 	person_event SPRITE_POKE_BALL, 3, 6, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, CharmanderPokeBallScript, EVENT_CHARMANDER_POKEBALL_IN_IVYS_LAB
 	person_event SPRITE_POKE_BALL, 3, 7, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, SquirtlePokeBallScript, EVENT_SQUIRTLE_POKEBALL_IN_IVYS_LAB
 	person_event SPRITE_POKE_BALL, 3, 8, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_SCRIPT, 0, BulbasaurPokeBallScript, EVENT_BULBASAUR_POKEBALL_IN_IVYS_LAB

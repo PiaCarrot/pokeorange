@@ -1537,6 +1537,8 @@ GetBaseData:: ; 3856
 	cp LYCANROC
 	jp z, .lycanroc
 
+;Poliwrath, Arbok and Victreebel alternates use the same base data, so no need to handle.
+
 ; Get BaseData
 .got_base_data
     dec a
@@ -1595,6 +1597,17 @@ GetBaseData:: ; 3856
     jp .got_base_data_loc
 	
 .raticate
+;Rocket (Cassidy) Raticate
+    ld a, [TempMonForm]
+    and FORM_MASK
+	push bc
+	ld b, RATICATE_ROCKET_FORM
+	cp b
+	pop bc
+	ld a, RATICATE
+    jp z, .got_base_data
+
+;Check for normal Kantonese Raticate
     ld a, [TempMonForm]
     and FORM_MASK
 	push bc

@@ -65,22 +65,13 @@ ReadTrainerParty: ; 39771
 	ld a, OTPARTYMON
 	ld [MonType], a
 
+;if there's a personality value, we need to get it to TempMonPersonality so TryAddMonToParty loads the correct basedata, pointers, etc.
 	push hl
 	ld a, [OtherTrainerType]
 	bit TRNTYPE_PERSONALITY, a
 	jr z, .skip
-
-	ld a, [OTPartyCount]
-	dec a
-	ld hl, OTPartyMon1Personality
-	ld bc, PARTYMON_STRUCT_LENGTH
-	call AddNTimes
-	ld d, h
-	ld e, l
-	ld a, [de]
-	ld [TempMonPersonality], a
 	ld a, [hli]
-	ld [de], a
+	ld [TempMonPersonality], a
 .skip
 	predef TryAddMonToParty
 	pop hl
@@ -244,10 +235,70 @@ ReadTrainerParty: ; 39771
 .copied_pp
 	pop hl
 .not_moves
+
+; stat exp in Hard Mode
+
+	; skip for wild battles
+	ld a, [wBattleMode]
+	dec a
+	jr z, .no_stat_exp
+
+	; check if hard mode
+	ld a, [StatusFlags]
+	bit 1, a ; hard mode
+	jr z, .no_stat_exp
+
+	push hl
+	ld a, [OTPartyCount]
+	dec a
+	ld hl, OTPartyMon1StatExp
+	call GetPartyLocation
+	ld d, h
+	ld e, l
+
+; Stat exp is handled by number of badges owned
+	ld bc, $4000
+	ld hl, $0000
+	
+	ld a, [Badges]
+	bit 0, a
+	jr z, .badge2
+	add hl, bc
+.badge2
+	bit 1, a
+	jr z, .badge3
+	add hl, bc
+.badge3
+	bit 2, a
+	jr z, .badge4
+	add hl, bc
+.badge4
+	bit 3, a
+	jr z, .endBadges
+	add hl, bc
+	dec hl ;when adding the 4th badge, hl overflows to 0x0000, decreasing it makes it 0xFFFF
+
+.endBadges
+	ld c, 5 ; NUM_EXP_STATS
+.storeStat
+	ld a, h
+	ld [de], a
+	inc de
+	ld a, l
+	ld [de], a
+	inc de
+
+.continue_stat_exp
+	dec c
+	jr nz, .storeStat
+	
+	pop hl
+.no_stat_exp
+
 	; custom DVs may alter stats
 	ld a, [OtherTrainerType]
 	and TRAINERTYPE_DVS
-	jr z, .no_stat_recalc
+	;jr z, .no_stat_recalc
 	push hl
 	ld a, [OTPartyCount]
 	dec a
@@ -257,7 +308,7 @@ ReadTrainerParty: ; 39771
 	call AddNTimes
 	pop af
 	push hl
-	ld hl, OTPartyMon1StatExp - 1
+	ld hl, OTPartyMon1StatExp
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
 	pop de

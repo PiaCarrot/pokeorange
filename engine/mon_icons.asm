@@ -222,7 +222,8 @@ LoadNamingScreenMonIcon:
 	push de
 	push bc
 
-	ld hl, TempMonShiny
+	ld a, MON_SHINY
+	call GetPartyParamLocation
 	call SetMenuMonIconColor
 
 	ld a, [wd265]
@@ -346,6 +347,13 @@ SetPartyMonIconAnimSpeed: ; 8e936 (23:6936)
 ; 8e961
 
 FlyFunction_GetMonIcon: ; 8e9bc (23:69bc)
+
+	ld a, [EnemyMonUnused]
+	and a
+	jr z, .skipTownMapFly
+	ld [wd265], a
+.skipTownMapFly
+
 	call FlyFunction_GetSpecies
 	; fallthrough
 GetIcon: ; 8ea1b
@@ -403,6 +411,19 @@ GetMemIconGFX: ; 8e9db (23:69db)
 ; 8e9bc
 
 PokegearFlyMap_GetMonIcon: ; 8e9ac
+
+	ld a, [EnemyMonUnused]
+	and a
+	jr z, .skipTownMapFly
+	ld [wd265], a
+	call SetMenuMonIconColor_NoShiny
+	jr .getSpecies
+
+.skipTownMapFly
+	ld a, MON_SHINY
+	call GetPartyParamLocation
+	call SetMenuMonIconColor
+.getSpecies
 	call FlyFunction_GetSpecies
 	; fallthrough
 GetIconGFX: ; 8e9de
@@ -508,4 +529,11 @@ HoldSwitchmonIcon: ; 8ea8c
 	add hl, bc
 	dec e
 	jr nz, .loop
+	ret
+
+FlyFunction_GetFlyMonPalette:
+	ld a, MON_SHINY
+	call GetPartyParamLocation
+	call GetMenuMonIconPalette
+	ld d, a
 	ret

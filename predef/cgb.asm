@@ -272,7 +272,7 @@ _CGB_Pokedex: ; 8f70
 .is_pokemon
 	ld bc, wDexMonPersonality
 	;call GetMonNormalOrShinyPalettePointer_NoPinkCheck ;this prevents showing pink pokémon in the pokédex
-	call GetMonNormalOrShinyPalettePointer ;this will show pink mon sprite in the pokédex page when caught
+	call GetMonNormalOrShinyOrPinkPalettePointer ;this will show pink mon sprite in the pokédex page when caught
 	call LoadPalette_White_Col1_Col2_Black
 .got_palette
 	ld hl, PokedexEdgePalette

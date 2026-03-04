@@ -216,6 +216,7 @@ ReplaceTimeOfDayPals: ; 8c0e5
 	ret
 
 .DarkCave:
+	call AutoFlash
 	ld a, [StatusFlags]
 	bit 2, a ; Flash
 	jr nz, .UsedFlash
@@ -239,6 +240,22 @@ ReplaceTimeOfDayPals: ; 8c0e5
 	brightlevel 3, 2, 1, 0
 	brightlevel 3, 2, 1, 0
 ; 8c117
+
+AutoFlash:
+	ld a, [StatusFlags2]
+	bit 3, a ; FastTMHM?
+	ret z
+; Has flash TM?
+	ld b, 0
+	ld c, FLASH_TMNUM - 1
+	ld hl, TMsHMs
+	add hl, bc
+	ld a, [hl] ; not using "bit 0, [hl]" because it would fail in case there are multiple TMs stored. Not possible in normal playtrough though
+	and a
+	ret z ; don't have FLASH TM
+	ld hl, StatusFlags
+	set 2, [hl] ; Flash
+	ret
 
 GetTimePalette: ; 8c117
 	ld a, [TimeOfDay]

@@ -260,7 +260,17 @@ LoadEnemyMonForm:
 	cp POLITOED
 	jp z, .wild_politoed
 	cp LYCANROC
-	jp z, .wild_lycanroc	
+	jp z, .wild_lycanroc
+	cp RATTATA
+	jp z, .wild_rats
+	cp RATICATE
+	jp z, .wild_rats
+	cp ARBOK
+	jp z, .force_form1
+	cp VICTREEBEL
+	jp z, .force_form1
+	cp POLIWRATH
+	jp z, .force_form1
 
 	; Otherwise, we're done
 	jp .done
@@ -327,6 +337,13 @@ LoadEnemyMonForm:
 	or MEOWTH_NORMAL_FORM ;enforce form 1 (normal, default?)
 	jp .store_enforced_form
 
+; Ensure Poliwrath, Arbok and Victreebel only appear as base form
+.force_form1
+	ld a, [EnemyMonPersonality]
+	and GENDER_MASK ;erase form
+	or 1 ; Form 1
+	jp .store_enforced_form
+
 .crystal_onix
 	ld a, [EnemyMonPersonality]
 	and GENDER_MASK ;erase form
@@ -342,8 +359,8 @@ LoadEnemyMonForm:
 	ld a, [MapNumber]
 	cp 26 ; UnnamedIsland3
 	jr nz, .done
-	ld a, [EnemyMonLevel] ;extra check, so only level 50 Politoed in this map are enforced shiny
-	cp 50
+	ld a, [BattleType] ;extra check, so wild Politoed fished with the Master Rod are not enforced shiny
+	cp BATTLETYPE_SHINY
 	jr nz, .done
 	ld a, [EnemyMonPersonality]
 	or SHINY_MASK ;enforce shiny for the Unnamed Island 3 Politoed
@@ -369,6 +386,23 @@ LoadEnemyMonForm:
 	or b ;
 	jp .store_enforced_form
 
+;wild Ratatta and Raticate form depends on the current time
+;also prevents RATICATE_ROCKET_FORM from appearing in the wild
+.wild_rats
+    ; night = Alolan Rats
+    ld a, [TimeOfDay]
+    cp NITE
+    ld b, RATTATA_NORMAL_FORM ; same as RATICATE_NORMAL_FORM, Alolan form
+    jr z, .got_rat_form
+    ; day = Kantonese Rattata and Raticate
+    ld b, RATTATA_KANTONESE_FORM ; same as RATICATE_KANTONESE_FORM
+.got_rat_form
+	ld a, [EnemyMonPersonality]
+	and GENDER_MASK ;erase form
+	or b ;
+	jp .store_enforced_form
+
+
 ;for trainers, we just need to load and copy the personality byte (gender, shininess, pinkness, form)
 .trainer
 	ld a, [wCurPartyMon]
@@ -378,7 +412,25 @@ LoadEnemyMonForm:
 	jp .store_enforced_form
 
 .store_enforced_form
+	; This would be a good place to check BATTLETYPE_SHINY and make a global shiny enforce
 	ld [EnemyMonPersonality], a
 	ld [TempMonForm], a
 .done
+	ret
+
+
+; Called in DexEntryScreen_MenuActionJumptable.shiny to handle form toggling at the pokédex
+; The function is here because the bank is pretty tight
+IsThreeFormMon:
+	ld a, [CurPartySpecies]
+	cp MEOWTH
+	jr z, .yes
+	cp RATICATE
+	jr z, .yes
+	cp LYCANROC
+	jr z, .yes
+	xor a
+	ret
+.yes
+	scf
 	ret

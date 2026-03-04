@@ -37,7 +37,7 @@ Route64SignText:
 	done
 	
 Route64TraceyCrossEvent:
-	playmusic MUSIC_LOOK_GLADION
+	playmusic MUSIC_CROSS_ENCOUNTER
 	spriteface PLAYER, LEFT
 	opentext
 	writetext TraceyCrossEventText1

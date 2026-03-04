@@ -1064,6 +1064,19 @@ GivePokerus: ; 2ed44
 	dec b
 	jr nz, .loopMons
 
+	;In Hard Mode, make the chance to catch Pokérus in the Sewers 1/64
+	ld a, [StatusFlags]
+	bit 1, a
+	jr z, .skipSewer
+	ld a, [wTileset]
+	cp TILESET_SEWER
+	jr nz, .skipSewer
+	call Random
+	ld a, [hRandomAdd]
+	cp 4
+	jr c, .givePokerus
+	
+.skipSewer
 	call Random
 	ld a, [hRandomAdd]
 	and a
@@ -1071,6 +1084,7 @@ GivePokerus: ; 2ed44
 	ld a, [hRandomSub]
 	cp $3
 	ret nc ; 3/65536 chance (00 00, 00 01 or 00 02)
+.givePokerus
 	ld a, [PartyCount]
 	ld b, a
 .randomMonSelectLoop

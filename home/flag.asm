@@ -14,14 +14,14 @@ ResetBikeFlags:: ; 2e56
 ; 2e5d
 
 ResetFlashIfOutOfCave:: ; 2e5d
-	ld a, [wPermission]
-	cp $2
-	jr z, .asm_2e69
-	cp $1
-	jr z, .asm_2e69
+	ld a, [wPermission] ;wEnvironment
+	cp $2 ; ROUTE
+	jr z, .outdoors
+	cp $1 ; TOWN
+	jr z, .outdoors
 	ret
 
-.asm_2e69
+.outdoors
 	ld hl, StatusFlags
 	res 2, [hl]
 	ret

@@ -45,6 +45,7 @@ RattataPicPointers::
 RaticatePicPointers::
 	add_pics Raticate
 	add_pics RaticateKantonese
+	add_pics RaticateRocket
 
 DiglettPicPointers::
 	add_pics Diglett
@@ -99,6 +100,14 @@ LycanrocPicPointers::
 	add_pics LycanrocMidday
 	add_pics LycanrocMidnight
 	add_pics LycanrocDusk
+
+ArbokPicPointers::
+	add_pics Arbok
+	add_pics ArbokRocket
+
+VictreebelPicPointers::
+	add_pics Victreebel
+	add_pics VictreebelRocket
 
 SpindaPicPointers::
 	add_pics SpindaA

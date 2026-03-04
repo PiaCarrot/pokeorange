@@ -107,25 +107,22 @@ MainMenu_PrintVersion:
 	hlcoord 12, 13
 	ld de, .pokeorangeVersion2
 	call PlaceString
-	ret
+
+	hlcoord 6, 13
+
+	ld de, wd265
+	ld c, 2
+	ld b, PRINTNUM_LEADINGZEROS | 1
 	
-;automatic date building disabled for public release
-
-;	hlcoord 6, 13
-
-;	ld de, wd265
-;	ld c, 2
-;	ld b, PRINTNUM_LEADINGZEROS | 1
-;	
-;	ld a, BUILDDAY
-;	ld [wd265], a
-;	call PrintNum
-;	ld a, BUILDMONTH
-;	ld [wd265], a
-;	call PrintNum
-;	ld a, BUILDYEAR
-;	ld [wd265], a
-;	jp PrintNum
+	ld a, BUILDDAY
+	ld [wd265], a
+	call PrintNum
+	ld a, BUILDMONTH
+	ld [wd265], a
+	call PrintNum
+	ld a, BUILDYEAR
+	ld [wd265], a
+	jp PrintNum
 
 .pokeorangeVersion1
 if DEF(PSS)
@@ -141,9 +138,9 @@ else
 endc
 
 .pokeorangeVersion2
-	;db "-"
-	;db GIT_VERSION
-	db " v170126" ;hard code date as version string for public release
+	db "-"
+	db GIT_VERSION
+;	db " v170126" ;hard code date as version string for public release
 	db "@"
 
 MainMenu_PrintCurrentTimeAndDay: ; 49e09

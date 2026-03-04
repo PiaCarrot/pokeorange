@@ -854,3 +854,5 @@ LarvitarEggMoves:
 
 NoEggMoves:
 	db $ff
+
+INCLUDE "data/evolution_moves.asm"

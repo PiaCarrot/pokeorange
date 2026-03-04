@@ -130,6 +130,7 @@
 	const SPRITE_KAT              	   ; 7e
 	const SPRITE_SHRINE1               ; 7f
 	const SPRITE_SHRINE2               ; 80
+	const SPRITE_GRAPEFRUIT            ; 81
 
 const_value = $90
 SPRITE_POKEMON EQU const_value

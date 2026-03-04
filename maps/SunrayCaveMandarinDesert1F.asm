@@ -81,7 +81,7 @@ InvisibleForceText:
 SunrayCaveCrossScript:
 	checkevent EVENT_MARSHADOW_HOOH_EVENT_STARTED
 	iftrue .corruptedCross
-	playmusic MUSIC_LOOK_GLADION
+	playmusic MUSIC_CROSS_ENCOUNTER
 	appear SUNRAY_CROSS
 	showemote EMOTE_SHOCK, PLAYER, 15
 	spriteface PLAYER, DOWN

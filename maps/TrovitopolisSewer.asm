@@ -5,6 +5,7 @@ const_value = 1
 	const TROVTOPOLIS_SEWER_ESCAPE_ROPE
 	const TROVTOPOLIS_SEWER_NERD
 	const TROVTOPOLIS_SEWER_SCIENTIST
+	const TROVTOPOLIS_SEWER_SCIENTIST2
 	
 TrovitopolisSewer_MapScriptHeader::
 
@@ -183,6 +184,64 @@ SewerTMScript:
 	closetext
 	end
 
+SewerPokerusScript:
+	faceplayer
+	opentext
+	callasm _ASM_IsHardMode
+	iftrue .Pokerus
+	writetext SewerNoHardModeText
+.endPokerusScript
+	waitbutton
+	closetext
+	spriteface TROVTOPOLIS_SEWER_SCIENTIST2, LEFT
+	end
+
+.Pokerus
+	writetext SewerHardModeText
+	jump .endPokerusScript
+
+SewerNoHardModeText:
+	text "I'm investigating"
+	line "a certain virus"
+	cont "named #RUS, so"
+	cont "I'm getting some"
+	cont "water samples."
+	done
+
+SewerHardModeText:
+	text "I'm investigating"
+	line "a certain virus"
+	cont "named #RUS, so"
+	cont "I'm getting some"
+	cont "water samples."
+	
+	para "A friend of mine"
+	line "had his #MON"
+	cont "infected while"
+	cont "battling the wild"
+	cont "#MON here."
+
+	para "He told me his"
+	line "#MON would"
+	cont "grow stronger"
+	cont "faster afterwards."
+
+	para "Fascinating, isn't"
+	line "it?"
+	done
+
+
+; Return true in hard mode
+_ASM_IsHardMode:
+	xor a
+	ld [ScriptVar], a
+	ld a, [StatusFlags]
+	bit 1, a
+	ret z
+	ld a, $1
+	ld [ScriptVar], a
+	ret
+
 TrovitopolisSewer_MapEventHeader::
 
 .Warps: db 7
@@ -198,11 +257,12 @@ TrovitopolisSewer_MapEventHeader::
 
 .BGEvents: db 0
 
-.ObjectEvents: db 6
+.ObjectEvents: db 7
 	person_event SPRITE_POKE_BALL, 14, 49, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TrovitopolisSewerSludgeBomb, EVENT_TROVITOPOLIS_SEWER_SLUDGE_BOMB
 	person_event SPRITE_POKE_BALL, 36, 51, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TrovitopolisSewerTradeStone, EVENT_TROVITOPOLIS_SEWER_TRADE_STONE
 	person_event SPRITE_POKE_BALL, 14, 11, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TrovitopolisSewerProtein, EVENT_TROVITOPOLIS_SEWER_PROTEIN
 	person_event SPRITE_POKE_BALL, 17, 30, SPRITEMOVEDATA_ITEM_TREE, 0, 0, -1, -1, 0, PERSONTYPE_ITEMBALL, 0, TrovitopolisSewerEscapeRope, EVENT_TROVITOPOLIS_SEWER_ESCAPE_ROPE
 	person_event SPRITE_SUPER_NERD, 49, 27, SPRITEMOVEDATA_SPINRANDOM_FAST, 2, 2, -1, -1, (1 << 3) | PAL_OW_BLUE, PERSONTYPE_SCRIPT, 0, SewerNerdScript, -1
 	person_event SPRITE_SCIENTIST, 50, 15, SPRITEMOVEDATA_SPINRANDOM_FAST, 2, 2, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, SewerTMScript, -1
+	person_event SPRITE_SCIENTIST, 38, 28, SPRITEMOVEDATA_STANDING_LEFT, 2, 2, -1, -1, (1 << 3) | PAL_OW_PURPLE, PERSONTYPE_SCRIPT, 0, SewerPokerusScript, -1
 
